@@ -1,14 +1,193 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Page Title</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
-    <script src='main.js'></script>
-</head>
-<body>
-    <h1>hello 2</h1>
-</body>
-</html></html>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+<script src="demo.js"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Noto+Sans+Display:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css" />
+    <title>EVA</title>
+  </head>
+  <body>
+    
+<nav class="px-8__ flex space py-2_">
+    <h1 class="title fs-6_ lh-1 reverse">EVA</h1>
+    <div class="flex center g-1 px-2 py-1 _bg-brand br-1">
+      <span class="fs-2- ttu lh-1 _c-light">css</span>
+      <span class="fs-2- px-1 ttu br-1- _bg-dark__ lh-1">v1</span>
+    </div>
+    
+  </nav>
+  
+  
+    
+  
+    <section class="px-9__ py-8 flex y g-5 __hide">
+      <p class="fs-3 py-9">
+      The fluid CSS framework, converting static UI designs into a truly scalable and responsive system. By 2029, breakpoints will be a thing of the past ;)
+      </p>
+      <div class="_bg-dark___ br-2 p-6 flex y w-11">
+           <h3 class="bold fs-4 lh-1 _c-brand">TODO</h3>
+        <ul class="_c-dark_">
+          <li>bug multi var</li>
+          <li>font size range</li>
+        </ul>
+      </div>
+      
+  </section>
+  
+  <section class="px-9__ py-7 flex y g-4">
+       <h2 class="fs-5_ bold _c-dark_ bold">Font-size, from 1 to 6, 3 levels of scaling</h2>
+      
+      <div class="titles flex y g-4">
+           
+          <h1 class="bold fs-6-px">fs-6-px</h1>
+          <h1 class="bold fs-6 _c-brand">fs-6</h1>
+          <h1 class="bold fs-6_ _c-brand_">fs-6_</h1>
+          <h1 class="bold fs-6__ _c-brand__">fs-6__</h1>
+  
+         <p class="fs-3 bold">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+          <p class="fs-2">Hic quasi dolore eos voluptas mollitia saepe ratione repudiandae, nihil obcaecati vero repellendus ab quo. Laboriosam magni adipisci facilis. Culpa, aliquid accusantium?           </p>
+          <p class="fs-1">Warning, dont do this at home !</p>
+           
+      </div>
+       
+    </section>
+  
+  
+    <section class="px-9__ py-8 flex y g-5 __hide">
+   
+   
+      <h2 class="fs-5_ bold _c-dark_">Exemple with 9 sizes</h2>
+      <nav id="nav-demo" class="py-5">
+        <ol>
+          <li class="fs-1" data-getter="__">extrem</li>
+          <li class="fs-1" data-getter="_">strong</li>
+          <li class="fs-1 selected" data-getter="">medium</li>
+          <li class="fs-1" data-getter="-">light</li>
+          <li class="fs-1" data-getter="-px">px</li>
+          <li class="fs-1" data-getter="-rem">rem</li>
+        </ol>
+      </nav>
+      
+      <div class="demo flex y g-7 py-5" id="demo" data-setter="">
+   <div class="demo-line w-11-@">
+     <div class="line"></div>
+    <code>w-11<span></span></code>
+  </div>
+  <div class="demo-line w-10-@">
+    <div class="line"></div>
+    <code>w-10<span></span></code>
+  </div>
+  <div class="demo-line w-9-@">
+    <div class="line"></div>
+    <code>w-9<span></span></code>
+  </div>
+  <div class="demo-line w-8-@">
+    <div class="line"></div>
+    <code>w-8<span></span></code>
+  </div>
+  <div class="demo-line w-7-@">
+    <div class="line"></div>
+    <code>w-7<span></span></code>
+  </div>
+  <div class="demo-line w-6-@">
+    <div class="line"></div>
+    <code>w-6<span></span></code>
+  </div>
+  <div class="demo-line w-5-@">
+    <div class="line"></div>
+    <code>w-5<span></span></code>
+  </div>
+  <div class="demo-line w-4-@">
+    <div class="line"></div>
+    <code>w-4<span></span></code>
+  </div>
+  <div class="demo-line w-3-@">
+    <div class="line"></div>
+    <code>w-3<span></span></code>
+  </div>
+  <div class="demo-line w-2-@">
+    <div class="line"></div>
+    <code>w-2<span></span></code>
+  </div>
+  <div class="demo-line w-1-@">
+    <div class="line"></div>
+    <code>w-1<span></span></code>
+  </div>
+  
+      </div>
+      
+    </section>
+    
+  
+  
+     <section class="px-9__ py-7 flex y g-4">
+       <h2 class="fs-5_ bold _c-dark_ bold">Exemple with a classic card</h2>
+      
+      <div class="cards flex y g-4">
+       <div id="card" class="card border br-3 p-1 _bc-brand___ _bw-1 ">
+           <div class="br-2 oh flex x start g-1 _bg-brand___ w-11_">
+       
+             <div class="py-4 flex y start stretch g-2 px-4">
+               <div class="flex x center g-2">
+                       <img class="h-7 ar-1 br-7" src="https://media.licdn.com/dms/image/D4D03AQHk0qp2OqLCrg/profile-displayphoto-shrink_200_200/0/1715410782142?e=1728518400&v=beta&t=kFE3Iszcg3Vjs3LT-bZp1X9UCMDZv0hmavEyCPSbO9o" alt="">
+               <h3 class="fs-3 lh-1">Michaël Tati</h3>
+               </div>
+               <p class="fs-2 _c-dark_">Front-end Designer</p>
+               <a href="" class="hover _bg-dark___  flex py-1 px-2 br-1 bold fs-2"><span class="_c-dark_">GO !</span></a>
+             </div>
+           </div>
+      </div>
+        
+            <div id="card" class="card border br-3 p-1 _bc-brand___ _bw-1">
+           <div class="br-2 oh flex y center g-1 _bg-brand___">
+             <img class="w-10 ar-1" src="https://media.licdn.com/dms/image/D4D03AQHk0qp2OqLCrg/profile-displayphoto-shrink_200_200/0/1715410782142?e=1728518400&v=beta&t=kFE3Iszcg3Vjs3LT-bZp1X9UCMDZv0hmavEyCPSbO9o" alt="">
+             <div class="py-3 flex y start stretch g-2 px-2">
+               <h3 class="fs-3 lh-1">Michaël Tati</h3>
+               <p class="fs-2 _c-dark_">Front-end Designer</p>
+               <a href="" class="_bg-brand  flex py-1 px-2 br-1 bold fs-2"><span class="_c-dark">GO !</span></a>
+             </div>
+           </div>
+      </div>
+        
+      </div>
+       
+    </section>
+  
+    
+  
+   
+    <div class="stage">
+      <div class="flex stage-top" data-setter="_">
+        <div class="line-y h-1-@"></div>
+        <div class="line-y h-2-@"></div>
+        <div class="line-y h-3-@"></div>
+        <div class="line-y h-4-@"></div>
+        <div class="line-y h-5-@"></div>
+        <div class="line-y h-6-@"></div>
+        <div class="line-y h-7-@"></div>
+        <div class="line-y h-8-@"></div>
+        <div class="line-y h-9-@"></div>
+        <div class="line-y h-10-@"></div>
+        <div class="line-y h-11-@"></div>
+        <div class="line-y h-10-@"></div>
+        <div class="line-y h-9-@"></div>
+        <div class="line-y h-8-@"></div>
+        <div class="line-y h-7-@"></div>
+        <div class="line-y h-6-@"></div>
+        <div class="line-y h-5-@"></div>
+        <div class="line-y h-4-@"></div>
+        <div class="line-y h-3-@"></div>
+        <div class="line-y h-2-@"></div>
+        <div class="line-y h-1-@"></div>
+      </div>
+    </div>
+  </body>
+</html>

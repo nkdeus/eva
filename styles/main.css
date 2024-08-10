@@ -1,0 +1,5057 @@
+@charset "UTF-8";
+/* stylelint-disable property-no-vendor-prefix */
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Prevent font size inflation */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin-block-end: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role=list],
+ol[role=list] {
+  list-style: none;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1,
+h2,
+h3,
+h4,
+button,
+input,
+label {
+  line-height: 1.1;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  color: currentcolor;
+  -webkit-text-decoration-skip: ink;
+          text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  display: block;
+  max-width: 100%;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Make sure textAreas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 5ex;
+}
+
+/*
+//ratio d'ajustement
+--Φ: 1.61803398875;
+//screen size on figma || XD ( test 150px )
+--screen: 1440;
+--base-1: 150; 
+--calc-1: calc(calc(var(--base-1) / var(--screen)) * 100);
+--calc-1-ez: calc(calc(var(--base-1) / var(--screen)) * 142.4);
+
+--1rem-min: calc(var(--calc-1) * 0.38rem);
+--1vw: calc(var(--calc-1) * 1vw);
+--1vw-ez: calc(calc(var(--calc-1-ez) * 1vw) - var(--1rem-min)) ;
+--1rem-max: calc(var(--calc-1) * 1rem);
+
+--1-ez: clamp(1rem , var(--1vw-ez) ,var(--1rem-max));
+--1: clamp(calc(var(--1rem-min) / var(--Φ)) , var(--1vw),var(--1rem-max));
+--1-: clamp(var(--1rem-min)  , var(--1vw) ,var(--1rem-max));
+--1--: clamp(calc(var(--1rem-min) * var(--Φ)) , var(--1vw) ,var(--1rem-max));
+*/
+:root {
+  --1__: clamp(0.13rem, calc(0.49vw - 0.13rem), 0.35rem);
+  --1_: clamp(0.08rem, 0.35vw, 0.35rem);
+  --1: clamp(0.13rem, 0.35vw, 0.35rem);
+  --1-: clamp(0.21rem, 0.35vw, 0.35rem);
+  --1-px: 5px;
+  --1-rem: 0.3125rem;
+}
+
+[data-setter=__] .w-1-\@ {
+  --abstract-getter: var(--1__);
+}
+
+[data-setter=_] .w-1-\@ {
+  --abstract-getter: var(--1_);
+}
+
+[data-setter=""] .w-1-\@ {
+  --abstract-getter: var(--1);
+}
+
+[data-setter="-"] .w-1-\@ {
+  --abstract-getter: var(--1-);
+}
+
+[data-setter=-px] .w-1-\@ {
+  --abstract-getter: var(--1-px);
+}
+
+[data-setter=-rem] .w-1-\@ {
+  --abstract-getter: var(--1-rem);
+}
+
+.w-1 {
+  width: var(--1);
+}
+.w-1- {
+  width: var(--1-);
+}
+.w-1-- {
+  width: var(--1--);
+}
+.w-1_ {
+  width: var(--1_);
+}
+.w-1__ {
+  width: var(--1__);
+}
+.w-1-px {
+  width: var(--1-px);
+}
+.w-1-rem {
+  width: var(--1-rem);
+}
+.w-1-\@ {
+  width: var(--abstract-getter);
+}
+
+[data-setter=__] .h-1-\@ {
+  --abstract-getter: var(--1__);
+}
+
+[data-setter=_] .h-1-\@ {
+  --abstract-getter: var(--1_);
+}
+
+[data-setter=""] .h-1-\@ {
+  --abstract-getter: var(--1);
+}
+
+[data-setter="-"] .h-1-\@ {
+  --abstract-getter: var(--1-);
+}
+
+[data-setter=-px] .h-1-\@ {
+  --abstract-getter: var(--1-px);
+}
+
+[data-setter=-rem] .h-1-\@ {
+  --abstract-getter: var(--1-rem);
+}
+
+.h-1 {
+  height: var(--1);
+}
+.h-1- {
+  height: var(--1-);
+}
+.h-1-- {
+  height: var(--1--);
+}
+.h-1_ {
+  height: var(--1_);
+}
+.h-1__ {
+  height: var(--1__);
+}
+.h-1-px {
+  height: var(--1-px);
+}
+.h-1-rem {
+  height: var(--1-rem);
+}
+.h-1-\@ {
+  height: var(--abstract-getter);
+}
+
+[data-setter=__] .p-1-\@ {
+  --abstract-getter: var(--1__);
+}
+
+[data-setter=_] .p-1-\@ {
+  --abstract-getter: var(--1_);
+}
+
+[data-setter=""] .p-1-\@ {
+  --abstract-getter: var(--1);
+}
+
+[data-setter="-"] .p-1-\@ {
+  --abstract-getter: var(--1-);
+}
+
+[data-setter=-px] .p-1-\@ {
+  --abstract-getter: var(--1-px);
+}
+
+[data-setter=-rem] .p-1-\@ {
+  --abstract-getter: var(--1-rem);
+}
+
+.p-1 {
+  padding: var(--1);
+}
+.p-1- {
+  padding: var(--1-);
+}
+.p-1-- {
+  padding: var(--1--);
+}
+.p-1_ {
+  padding: var(--1_);
+}
+.p-1__ {
+  padding: var(--1__);
+}
+.p-1-px {
+  padding: var(--1-px);
+}
+.p-1-rem {
+  padding: var(--1-rem);
+}
+.p-1-\@ {
+  padding: var(--abstract-getter);
+}
+
+[data-setter=__] .px-1-\@ {
+  --abstract-getter: var(--1__);
+}
+
+[data-setter=_] .px-1-\@ {
+  --abstract-getter: var(--1_);
+}
+
+[data-setter=""] .px-1-\@ {
+  --abstract-getter: var(--1);
+}
+
+[data-setter="-"] .px-1-\@ {
+  --abstract-getter: var(--1-);
+}
+
+[data-setter=-px] .px-1-\@ {
+  --abstract-getter: var(--1-px);
+}
+
+[data-setter=-rem] .px-1-\@ {
+  --abstract-getter: var(--1-rem);
+}
+
+.px-1 {
+  padding-inline: var(--1);
+}
+.px-1- {
+  padding-inline: var(--1-);
+}
+.px-1-- {
+  padding-inline: var(--1--);
+}
+.px-1_ {
+  padding-inline: var(--1_);
+}
+.px-1__ {
+  padding-inline: var(--1__);
+}
+.px-1-px {
+  padding-inline: var(--1-px);
+}
+.px-1-rem {
+  padding-inline: var(--1-rem);
+}
+.px-1-\@ {
+  padding-inline: var(--abstract-getter);
+}
+
+[data-setter=__] .py-1-\@ {
+  --abstract-getter: var(--1__);
+}
+
+[data-setter=_] .py-1-\@ {
+  --abstract-getter: var(--1_);
+}
+
+[data-setter=""] .py-1-\@ {
+  --abstract-getter: var(--1);
+}
+
+[data-setter="-"] .py-1-\@ {
+  --abstract-getter: var(--1-);
+}
+
+[data-setter=-px] .py-1-\@ {
+  --abstract-getter: var(--1-px);
+}
+
+[data-setter=-rem] .py-1-\@ {
+  --abstract-getter: var(--1-rem);
+}
+
+.py-1 {
+  padding-block: var(--1);
+}
+.py-1- {
+  padding-block: var(--1-);
+}
+.py-1-- {
+  padding-block: var(--1--);
+}
+.py-1_ {
+  padding-block: var(--1_);
+}
+.py-1__ {
+  padding-block: var(--1__);
+}
+.py-1-px {
+  padding-block: var(--1-px);
+}
+.py-1-rem {
+  padding-block: var(--1-rem);
+}
+.py-1-\@ {
+  padding-block: var(--abstract-getter);
+}
+
+[data-setter=__] .g-1-\@ {
+  --abstract-getter: var(--1__);
+}
+
+[data-setter=_] .g-1-\@ {
+  --abstract-getter: var(--1_);
+}
+
+[data-setter=""] .g-1-\@ {
+  --abstract-getter: var(--1);
+}
+
+[data-setter="-"] .g-1-\@ {
+  --abstract-getter: var(--1-);
+}
+
+[data-setter=-px] .g-1-\@ {
+  --abstract-getter: var(--1-px);
+}
+
+[data-setter=-rem] .g-1-\@ {
+  --abstract-getter: var(--1-rem);
+}
+
+.g-1 {
+  gap: var(--1);
+}
+.g-1- {
+  gap: var(--1-);
+}
+.g-1-- {
+  gap: var(--1--);
+}
+.g-1_ {
+  gap: var(--1_);
+}
+.g-1__ {
+  gap: var(--1__);
+}
+.g-1-px {
+  gap: var(--1-px);
+}
+.g-1-rem {
+  gap: var(--1-rem);
+}
+.g-1-\@ {
+  gap: var(--abstract-getter);
+}
+
+[data-setter=__] .br-1-\@ {
+  --abstract-getter: var(--1__);
+}
+
+[data-setter=_] .br-1-\@ {
+  --abstract-getter: var(--1_);
+}
+
+[data-setter=""] .br-1-\@ {
+  --abstract-getter: var(--1);
+}
+
+[data-setter="-"] .br-1-\@ {
+  --abstract-getter: var(--1-);
+}
+
+[data-setter=-px] .br-1-\@ {
+  --abstract-getter: var(--1-px);
+}
+
+[data-setter=-rem] .br-1-\@ {
+  --abstract-getter: var(--1-rem);
+}
+
+.br-1 {
+  border-radius: var(--1);
+}
+.br-1- {
+  border-radius: var(--1-);
+}
+.br-1-- {
+  border-radius: var(--1--);
+}
+.br-1_ {
+  border-radius: var(--1_);
+}
+.br-1__ {
+  border-radius: var(--1__);
+}
+.br-1-px {
+  border-radius: var(--1-px);
+}
+.br-1-rem {
+  border-radius: var(--1-rem);
+}
+.br-1-\@ {
+  border-radius: var(--abstract-getter);
+}
+
+[data-setter=__] .bw-1-\@ {
+  --abstract-getter: var(--1__);
+}
+
+[data-setter=_] .bw-1-\@ {
+  --abstract-getter: var(--1_);
+}
+
+[data-setter=""] .bw-1-\@ {
+  --abstract-getter: var(--1);
+}
+
+[data-setter="-"] .bw-1-\@ {
+  --abstract-getter: var(--1-);
+}
+
+[data-setter=-px] .bw-1-\@ {
+  --abstract-getter: var(--1-px);
+}
+
+[data-setter=-rem] .bw-1-\@ {
+  --abstract-getter: var(--1-rem);
+}
+
+.bw-1 {
+  border-width: var(--1);
+}
+.bw-1- {
+  border-width: var(--1-);
+}
+.bw-1-- {
+  border-width: var(--1--);
+}
+.bw-1_ {
+  border-width: var(--1_);
+}
+.bw-1__ {
+  border-width: var(--1__);
+}
+.bw-1-px {
+  border-width: var(--1-px);
+}
+.bw-1-rem {
+  border-width: var(--1-rem);
+}
+.bw-1-\@ {
+  border-width: var(--abstract-getter);
+}
+
+:root {
+  --2__: clamp(0.13rem, calc(0.99vw - 0.26rem), 0.69rem);
+  --2_: clamp(0.16rem, 0.69vw, 0.69rem);
+  --2: clamp(0.26rem, 0.69vw, 0.69rem);
+  --2-: clamp(0.42rem, 0.69vw, 0.69rem);
+  --2-px: 10px;
+  --2-rem: 0.625rem;
+}
+
+[data-setter=__] .w-2-\@ {
+  --abstract-getter: var(--2__);
+}
+
+[data-setter=_] .w-2-\@ {
+  --abstract-getter: var(--2_);
+}
+
+[data-setter=""] .w-2-\@ {
+  --abstract-getter: var(--2);
+}
+
+[data-setter="-"] .w-2-\@ {
+  --abstract-getter: var(--2-);
+}
+
+[data-setter=-px] .w-2-\@ {
+  --abstract-getter: var(--2-px);
+}
+
+[data-setter=-rem] .w-2-\@ {
+  --abstract-getter: var(--2-rem);
+}
+
+.w-2 {
+  width: var(--2);
+}
+.w-2- {
+  width: var(--2-);
+}
+.w-2-- {
+  width: var(--2--);
+}
+.w-2_ {
+  width: var(--2_);
+}
+.w-2__ {
+  width: var(--2__);
+}
+.w-2-px {
+  width: var(--2-px);
+}
+.w-2-rem {
+  width: var(--2-rem);
+}
+.w-2-\@ {
+  width: var(--abstract-getter);
+}
+
+[data-setter=__] .h-2-\@ {
+  --abstract-getter: var(--2__);
+}
+
+[data-setter=_] .h-2-\@ {
+  --abstract-getter: var(--2_);
+}
+
+[data-setter=""] .h-2-\@ {
+  --abstract-getter: var(--2);
+}
+
+[data-setter="-"] .h-2-\@ {
+  --abstract-getter: var(--2-);
+}
+
+[data-setter=-px] .h-2-\@ {
+  --abstract-getter: var(--2-px);
+}
+
+[data-setter=-rem] .h-2-\@ {
+  --abstract-getter: var(--2-rem);
+}
+
+.h-2 {
+  height: var(--2);
+}
+.h-2- {
+  height: var(--2-);
+}
+.h-2-- {
+  height: var(--2--);
+}
+.h-2_ {
+  height: var(--2_);
+}
+.h-2__ {
+  height: var(--2__);
+}
+.h-2-px {
+  height: var(--2-px);
+}
+.h-2-rem {
+  height: var(--2-rem);
+}
+.h-2-\@ {
+  height: var(--abstract-getter);
+}
+
+[data-setter=__] .p-2-\@ {
+  --abstract-getter: var(--2__);
+}
+
+[data-setter=_] .p-2-\@ {
+  --abstract-getter: var(--2_);
+}
+
+[data-setter=""] .p-2-\@ {
+  --abstract-getter: var(--2);
+}
+
+[data-setter="-"] .p-2-\@ {
+  --abstract-getter: var(--2-);
+}
+
+[data-setter=-px] .p-2-\@ {
+  --abstract-getter: var(--2-px);
+}
+
+[data-setter=-rem] .p-2-\@ {
+  --abstract-getter: var(--2-rem);
+}
+
+.p-2 {
+  padding: var(--2);
+}
+.p-2- {
+  padding: var(--2-);
+}
+.p-2-- {
+  padding: var(--2--);
+}
+.p-2_ {
+  padding: var(--2_);
+}
+.p-2__ {
+  padding: var(--2__);
+}
+.p-2-px {
+  padding: var(--2-px);
+}
+.p-2-rem {
+  padding: var(--2-rem);
+}
+.p-2-\@ {
+  padding: var(--abstract-getter);
+}
+
+[data-setter=__] .px-2-\@ {
+  --abstract-getter: var(--2__);
+}
+
+[data-setter=_] .px-2-\@ {
+  --abstract-getter: var(--2_);
+}
+
+[data-setter=""] .px-2-\@ {
+  --abstract-getter: var(--2);
+}
+
+[data-setter="-"] .px-2-\@ {
+  --abstract-getter: var(--2-);
+}
+
+[data-setter=-px] .px-2-\@ {
+  --abstract-getter: var(--2-px);
+}
+
+[data-setter=-rem] .px-2-\@ {
+  --abstract-getter: var(--2-rem);
+}
+
+.px-2 {
+  padding-inline: var(--2);
+}
+.px-2- {
+  padding-inline: var(--2-);
+}
+.px-2-- {
+  padding-inline: var(--2--);
+}
+.px-2_ {
+  padding-inline: var(--2_);
+}
+.px-2__ {
+  padding-inline: var(--2__);
+}
+.px-2-px {
+  padding-inline: var(--2-px);
+}
+.px-2-rem {
+  padding-inline: var(--2-rem);
+}
+.px-2-\@ {
+  padding-inline: var(--abstract-getter);
+}
+
+[data-setter=__] .py-2-\@ {
+  --abstract-getter: var(--2__);
+}
+
+[data-setter=_] .py-2-\@ {
+  --abstract-getter: var(--2_);
+}
+
+[data-setter=""] .py-2-\@ {
+  --abstract-getter: var(--2);
+}
+
+[data-setter="-"] .py-2-\@ {
+  --abstract-getter: var(--2-);
+}
+
+[data-setter=-px] .py-2-\@ {
+  --abstract-getter: var(--2-px);
+}
+
+[data-setter=-rem] .py-2-\@ {
+  --abstract-getter: var(--2-rem);
+}
+
+.py-2 {
+  padding-block: var(--2);
+}
+.py-2- {
+  padding-block: var(--2-);
+}
+.py-2-- {
+  padding-block: var(--2--);
+}
+.py-2_ {
+  padding-block: var(--2_);
+}
+.py-2__ {
+  padding-block: var(--2__);
+}
+.py-2-px {
+  padding-block: var(--2-px);
+}
+.py-2-rem {
+  padding-block: var(--2-rem);
+}
+.py-2-\@ {
+  padding-block: var(--abstract-getter);
+}
+
+[data-setter=__] .g-2-\@ {
+  --abstract-getter: var(--2__);
+}
+
+[data-setter=_] .g-2-\@ {
+  --abstract-getter: var(--2_);
+}
+
+[data-setter=""] .g-2-\@ {
+  --abstract-getter: var(--2);
+}
+
+[data-setter="-"] .g-2-\@ {
+  --abstract-getter: var(--2-);
+}
+
+[data-setter=-px] .g-2-\@ {
+  --abstract-getter: var(--2-px);
+}
+
+[data-setter=-rem] .g-2-\@ {
+  --abstract-getter: var(--2-rem);
+}
+
+.g-2 {
+  gap: var(--2);
+}
+.g-2- {
+  gap: var(--2-);
+}
+.g-2-- {
+  gap: var(--2--);
+}
+.g-2_ {
+  gap: var(--2_);
+}
+.g-2__ {
+  gap: var(--2__);
+}
+.g-2-px {
+  gap: var(--2-px);
+}
+.g-2-rem {
+  gap: var(--2-rem);
+}
+.g-2-\@ {
+  gap: var(--abstract-getter);
+}
+
+[data-setter=__] .br-2-\@ {
+  --abstract-getter: var(--2__);
+}
+
+[data-setter=_] .br-2-\@ {
+  --abstract-getter: var(--2_);
+}
+
+[data-setter=""] .br-2-\@ {
+  --abstract-getter: var(--2);
+}
+
+[data-setter="-"] .br-2-\@ {
+  --abstract-getter: var(--2-);
+}
+
+[data-setter=-px] .br-2-\@ {
+  --abstract-getter: var(--2-px);
+}
+
+[data-setter=-rem] .br-2-\@ {
+  --abstract-getter: var(--2-rem);
+}
+
+.br-2 {
+  border-radius: var(--2);
+}
+.br-2- {
+  border-radius: var(--2-);
+}
+.br-2-- {
+  border-radius: var(--2--);
+}
+.br-2_ {
+  border-radius: var(--2_);
+}
+.br-2__ {
+  border-radius: var(--2__);
+}
+.br-2-px {
+  border-radius: var(--2-px);
+}
+.br-2-rem {
+  border-radius: var(--2-rem);
+}
+.br-2-\@ {
+  border-radius: var(--abstract-getter);
+}
+
+[data-setter=__] .bw-2-\@ {
+  --abstract-getter: var(--2__);
+}
+
+[data-setter=_] .bw-2-\@ {
+  --abstract-getter: var(--2_);
+}
+
+[data-setter=""] .bw-2-\@ {
+  --abstract-getter: var(--2);
+}
+
+[data-setter="-"] .bw-2-\@ {
+  --abstract-getter: var(--2-);
+}
+
+[data-setter=-px] .bw-2-\@ {
+  --abstract-getter: var(--2-px);
+}
+
+[data-setter=-rem] .bw-2-\@ {
+  --abstract-getter: var(--2-rem);
+}
+
+.bw-2 {
+  border-width: var(--2);
+}
+.bw-2- {
+  border-width: var(--2-);
+}
+.bw-2-- {
+  border-width: var(--2--);
+}
+.bw-2_ {
+  border-width: var(--2_);
+}
+.bw-2__ {
+  border-width: var(--2__);
+}
+.bw-2-px {
+  border-width: var(--2-px);
+}
+.bw-2-rem {
+  border-width: var(--2-rem);
+}
+.bw-2-\@ {
+  border-width: var(--abstract-getter);
+}
+
+:root {
+  --3__: clamp(0.13rem, calc(1.48vw - 0.4rem), 1.04rem);
+  --3_: clamp(0.25rem, 1.04vw, 1.04rem);
+  --3: clamp(0.4rem, 1.04vw, 1.04rem);
+  --3-: clamp(0.65rem, 1.04vw, 1.04rem);
+  --3-px: 15px;
+  --3-rem: 0.9375rem;
+}
+
+[data-setter=__] .w-3-\@ {
+  --abstract-getter: var(--3__);
+}
+
+[data-setter=_] .w-3-\@ {
+  --abstract-getter: var(--3_);
+}
+
+[data-setter=""] .w-3-\@ {
+  --abstract-getter: var(--3);
+}
+
+[data-setter="-"] .w-3-\@ {
+  --abstract-getter: var(--3-);
+}
+
+[data-setter=-px] .w-3-\@ {
+  --abstract-getter: var(--3-px);
+}
+
+[data-setter=-rem] .w-3-\@ {
+  --abstract-getter: var(--3-rem);
+}
+
+.w-3 {
+  width: var(--3);
+}
+.w-3- {
+  width: var(--3-);
+}
+.w-3-- {
+  width: var(--3--);
+}
+.w-3_ {
+  width: var(--3_);
+}
+.w-3__ {
+  width: var(--3__);
+}
+.w-3-px {
+  width: var(--3-px);
+}
+.w-3-rem {
+  width: var(--3-rem);
+}
+.w-3-\@ {
+  width: var(--abstract-getter);
+}
+
+[data-setter=__] .h-3-\@ {
+  --abstract-getter: var(--3__);
+}
+
+[data-setter=_] .h-3-\@ {
+  --abstract-getter: var(--3_);
+}
+
+[data-setter=""] .h-3-\@ {
+  --abstract-getter: var(--3);
+}
+
+[data-setter="-"] .h-3-\@ {
+  --abstract-getter: var(--3-);
+}
+
+[data-setter=-px] .h-3-\@ {
+  --abstract-getter: var(--3-px);
+}
+
+[data-setter=-rem] .h-3-\@ {
+  --abstract-getter: var(--3-rem);
+}
+
+.h-3 {
+  height: var(--3);
+}
+.h-3- {
+  height: var(--3-);
+}
+.h-3-- {
+  height: var(--3--);
+}
+.h-3_ {
+  height: var(--3_);
+}
+.h-3__ {
+  height: var(--3__);
+}
+.h-3-px {
+  height: var(--3-px);
+}
+.h-3-rem {
+  height: var(--3-rem);
+}
+.h-3-\@ {
+  height: var(--abstract-getter);
+}
+
+[data-setter=__] .p-3-\@ {
+  --abstract-getter: var(--3__);
+}
+
+[data-setter=_] .p-3-\@ {
+  --abstract-getter: var(--3_);
+}
+
+[data-setter=""] .p-3-\@ {
+  --abstract-getter: var(--3);
+}
+
+[data-setter="-"] .p-3-\@ {
+  --abstract-getter: var(--3-);
+}
+
+[data-setter=-px] .p-3-\@ {
+  --abstract-getter: var(--3-px);
+}
+
+[data-setter=-rem] .p-3-\@ {
+  --abstract-getter: var(--3-rem);
+}
+
+.p-3 {
+  padding: var(--3);
+}
+.p-3- {
+  padding: var(--3-);
+}
+.p-3-- {
+  padding: var(--3--);
+}
+.p-3_ {
+  padding: var(--3_);
+}
+.p-3__ {
+  padding: var(--3__);
+}
+.p-3-px {
+  padding: var(--3-px);
+}
+.p-3-rem {
+  padding: var(--3-rem);
+}
+.p-3-\@ {
+  padding: var(--abstract-getter);
+}
+
+[data-setter=__] .px-3-\@ {
+  --abstract-getter: var(--3__);
+}
+
+[data-setter=_] .px-3-\@ {
+  --abstract-getter: var(--3_);
+}
+
+[data-setter=""] .px-3-\@ {
+  --abstract-getter: var(--3);
+}
+
+[data-setter="-"] .px-3-\@ {
+  --abstract-getter: var(--3-);
+}
+
+[data-setter=-px] .px-3-\@ {
+  --abstract-getter: var(--3-px);
+}
+
+[data-setter=-rem] .px-3-\@ {
+  --abstract-getter: var(--3-rem);
+}
+
+.px-3 {
+  padding-inline: var(--3);
+}
+.px-3- {
+  padding-inline: var(--3-);
+}
+.px-3-- {
+  padding-inline: var(--3--);
+}
+.px-3_ {
+  padding-inline: var(--3_);
+}
+.px-3__ {
+  padding-inline: var(--3__);
+}
+.px-3-px {
+  padding-inline: var(--3-px);
+}
+.px-3-rem {
+  padding-inline: var(--3-rem);
+}
+.px-3-\@ {
+  padding-inline: var(--abstract-getter);
+}
+
+[data-setter=__] .py-3-\@ {
+  --abstract-getter: var(--3__);
+}
+
+[data-setter=_] .py-3-\@ {
+  --abstract-getter: var(--3_);
+}
+
+[data-setter=""] .py-3-\@ {
+  --abstract-getter: var(--3);
+}
+
+[data-setter="-"] .py-3-\@ {
+  --abstract-getter: var(--3-);
+}
+
+[data-setter=-px] .py-3-\@ {
+  --abstract-getter: var(--3-px);
+}
+
+[data-setter=-rem] .py-3-\@ {
+  --abstract-getter: var(--3-rem);
+}
+
+.py-3 {
+  padding-block: var(--3);
+}
+.py-3- {
+  padding-block: var(--3-);
+}
+.py-3-- {
+  padding-block: var(--3--);
+}
+.py-3_ {
+  padding-block: var(--3_);
+}
+.py-3__ {
+  padding-block: var(--3__);
+}
+.py-3-px {
+  padding-block: var(--3-px);
+}
+.py-3-rem {
+  padding-block: var(--3-rem);
+}
+.py-3-\@ {
+  padding-block: var(--abstract-getter);
+}
+
+[data-setter=__] .g-3-\@ {
+  --abstract-getter: var(--3__);
+}
+
+[data-setter=_] .g-3-\@ {
+  --abstract-getter: var(--3_);
+}
+
+[data-setter=""] .g-3-\@ {
+  --abstract-getter: var(--3);
+}
+
+[data-setter="-"] .g-3-\@ {
+  --abstract-getter: var(--3-);
+}
+
+[data-setter=-px] .g-3-\@ {
+  --abstract-getter: var(--3-px);
+}
+
+[data-setter=-rem] .g-3-\@ {
+  --abstract-getter: var(--3-rem);
+}
+
+.g-3 {
+  gap: var(--3);
+}
+.g-3- {
+  gap: var(--3-);
+}
+.g-3-- {
+  gap: var(--3--);
+}
+.g-3_ {
+  gap: var(--3_);
+}
+.g-3__ {
+  gap: var(--3__);
+}
+.g-3-px {
+  gap: var(--3-px);
+}
+.g-3-rem {
+  gap: var(--3-rem);
+}
+.g-3-\@ {
+  gap: var(--abstract-getter);
+}
+
+[data-setter=__] .br-3-\@ {
+  --abstract-getter: var(--3__);
+}
+
+[data-setter=_] .br-3-\@ {
+  --abstract-getter: var(--3_);
+}
+
+[data-setter=""] .br-3-\@ {
+  --abstract-getter: var(--3);
+}
+
+[data-setter="-"] .br-3-\@ {
+  --abstract-getter: var(--3-);
+}
+
+[data-setter=-px] .br-3-\@ {
+  --abstract-getter: var(--3-px);
+}
+
+[data-setter=-rem] .br-3-\@ {
+  --abstract-getter: var(--3-rem);
+}
+
+.br-3 {
+  border-radius: var(--3);
+}
+.br-3- {
+  border-radius: var(--3-);
+}
+.br-3-- {
+  border-radius: var(--3--);
+}
+.br-3_ {
+  border-radius: var(--3_);
+}
+.br-3__ {
+  border-radius: var(--3__);
+}
+.br-3-px {
+  border-radius: var(--3-px);
+}
+.br-3-rem {
+  border-radius: var(--3-rem);
+}
+.br-3-\@ {
+  border-radius: var(--abstract-getter);
+}
+
+[data-setter=__] .bw-3-\@ {
+  --abstract-getter: var(--3__);
+}
+
+[data-setter=_] .bw-3-\@ {
+  --abstract-getter: var(--3_);
+}
+
+[data-setter=""] .bw-3-\@ {
+  --abstract-getter: var(--3);
+}
+
+[data-setter="-"] .bw-3-\@ {
+  --abstract-getter: var(--3-);
+}
+
+[data-setter=-px] .bw-3-\@ {
+  --abstract-getter: var(--3-px);
+}
+
+[data-setter=-rem] .bw-3-\@ {
+  --abstract-getter: var(--3-rem);
+}
+
+.bw-3 {
+  border-width: var(--3);
+}
+.bw-3- {
+  border-width: var(--3-);
+}
+.bw-3-- {
+  border-width: var(--3--);
+}
+.bw-3_ {
+  border-width: var(--3_);
+}
+.bw-3__ {
+  border-width: var(--3__);
+}
+.bw-3-px {
+  border-width: var(--3-px);
+}
+.bw-3-rem {
+  border-width: var(--3-rem);
+}
+.bw-3-\@ {
+  border-width: var(--abstract-getter);
+}
+
+:root {
+  --4__: clamp(0.17rem, calc(2.47vw - 0.66rem), 1.74rem);
+  --4_: clamp(0.41rem, 1.74vw, 1.74rem);
+  --4: clamp(0.66rem, 1.74vw, 1.74rem);
+  --4-: clamp(1.07rem, 1.74vw, 1.74rem);
+  --4-px: 25px;
+  --4-rem: 1.5625rem;
+}
+
+[data-setter=__] .w-4-\@ {
+  --abstract-getter: var(--4__);
+}
+
+[data-setter=_] .w-4-\@ {
+  --abstract-getter: var(--4_);
+}
+
+[data-setter=""] .w-4-\@ {
+  --abstract-getter: var(--4);
+}
+
+[data-setter="-"] .w-4-\@ {
+  --abstract-getter: var(--4-);
+}
+
+[data-setter=-px] .w-4-\@ {
+  --abstract-getter: var(--4-px);
+}
+
+[data-setter=-rem] .w-4-\@ {
+  --abstract-getter: var(--4-rem);
+}
+
+.w-4 {
+  width: var(--4);
+}
+.w-4- {
+  width: var(--4-);
+}
+.w-4-- {
+  width: var(--4--);
+}
+.w-4_ {
+  width: var(--4_);
+}
+.w-4__ {
+  width: var(--4__);
+}
+.w-4-px {
+  width: var(--4-px);
+}
+.w-4-rem {
+  width: var(--4-rem);
+}
+.w-4-\@ {
+  width: var(--abstract-getter);
+}
+
+[data-setter=__] .h-4-\@ {
+  --abstract-getter: var(--4__);
+}
+
+[data-setter=_] .h-4-\@ {
+  --abstract-getter: var(--4_);
+}
+
+[data-setter=""] .h-4-\@ {
+  --abstract-getter: var(--4);
+}
+
+[data-setter="-"] .h-4-\@ {
+  --abstract-getter: var(--4-);
+}
+
+[data-setter=-px] .h-4-\@ {
+  --abstract-getter: var(--4-px);
+}
+
+[data-setter=-rem] .h-4-\@ {
+  --abstract-getter: var(--4-rem);
+}
+
+.h-4 {
+  height: var(--4);
+}
+.h-4- {
+  height: var(--4-);
+}
+.h-4-- {
+  height: var(--4--);
+}
+.h-4_ {
+  height: var(--4_);
+}
+.h-4__ {
+  height: var(--4__);
+}
+.h-4-px {
+  height: var(--4-px);
+}
+.h-4-rem {
+  height: var(--4-rem);
+}
+.h-4-\@ {
+  height: var(--abstract-getter);
+}
+
+[data-setter=__] .p-4-\@ {
+  --abstract-getter: var(--4__);
+}
+
+[data-setter=_] .p-4-\@ {
+  --abstract-getter: var(--4_);
+}
+
+[data-setter=""] .p-4-\@ {
+  --abstract-getter: var(--4);
+}
+
+[data-setter="-"] .p-4-\@ {
+  --abstract-getter: var(--4-);
+}
+
+[data-setter=-px] .p-4-\@ {
+  --abstract-getter: var(--4-px);
+}
+
+[data-setter=-rem] .p-4-\@ {
+  --abstract-getter: var(--4-rem);
+}
+
+.p-4 {
+  padding: var(--4);
+}
+.p-4- {
+  padding: var(--4-);
+}
+.p-4-- {
+  padding: var(--4--);
+}
+.p-4_ {
+  padding: var(--4_);
+}
+.p-4__ {
+  padding: var(--4__);
+}
+.p-4-px {
+  padding: var(--4-px);
+}
+.p-4-rem {
+  padding: var(--4-rem);
+}
+.p-4-\@ {
+  padding: var(--abstract-getter);
+}
+
+[data-setter=__] .px-4-\@ {
+  --abstract-getter: var(--4__);
+}
+
+[data-setter=_] .px-4-\@ {
+  --abstract-getter: var(--4_);
+}
+
+[data-setter=""] .px-4-\@ {
+  --abstract-getter: var(--4);
+}
+
+[data-setter="-"] .px-4-\@ {
+  --abstract-getter: var(--4-);
+}
+
+[data-setter=-px] .px-4-\@ {
+  --abstract-getter: var(--4-px);
+}
+
+[data-setter=-rem] .px-4-\@ {
+  --abstract-getter: var(--4-rem);
+}
+
+.px-4 {
+  padding-inline: var(--4);
+}
+.px-4- {
+  padding-inline: var(--4-);
+}
+.px-4-- {
+  padding-inline: var(--4--);
+}
+.px-4_ {
+  padding-inline: var(--4_);
+}
+.px-4__ {
+  padding-inline: var(--4__);
+}
+.px-4-px {
+  padding-inline: var(--4-px);
+}
+.px-4-rem {
+  padding-inline: var(--4-rem);
+}
+.px-4-\@ {
+  padding-inline: var(--abstract-getter);
+}
+
+[data-setter=__] .py-4-\@ {
+  --abstract-getter: var(--4__);
+}
+
+[data-setter=_] .py-4-\@ {
+  --abstract-getter: var(--4_);
+}
+
+[data-setter=""] .py-4-\@ {
+  --abstract-getter: var(--4);
+}
+
+[data-setter="-"] .py-4-\@ {
+  --abstract-getter: var(--4-);
+}
+
+[data-setter=-px] .py-4-\@ {
+  --abstract-getter: var(--4-px);
+}
+
+[data-setter=-rem] .py-4-\@ {
+  --abstract-getter: var(--4-rem);
+}
+
+.py-4 {
+  padding-block: var(--4);
+}
+.py-4- {
+  padding-block: var(--4-);
+}
+.py-4-- {
+  padding-block: var(--4--);
+}
+.py-4_ {
+  padding-block: var(--4_);
+}
+.py-4__ {
+  padding-block: var(--4__);
+}
+.py-4-px {
+  padding-block: var(--4-px);
+}
+.py-4-rem {
+  padding-block: var(--4-rem);
+}
+.py-4-\@ {
+  padding-block: var(--abstract-getter);
+}
+
+[data-setter=__] .g-4-\@ {
+  --abstract-getter: var(--4__);
+}
+
+[data-setter=_] .g-4-\@ {
+  --abstract-getter: var(--4_);
+}
+
+[data-setter=""] .g-4-\@ {
+  --abstract-getter: var(--4);
+}
+
+[data-setter="-"] .g-4-\@ {
+  --abstract-getter: var(--4-);
+}
+
+[data-setter=-px] .g-4-\@ {
+  --abstract-getter: var(--4-px);
+}
+
+[data-setter=-rem] .g-4-\@ {
+  --abstract-getter: var(--4-rem);
+}
+
+.g-4 {
+  gap: var(--4);
+}
+.g-4- {
+  gap: var(--4-);
+}
+.g-4-- {
+  gap: var(--4--);
+}
+.g-4_ {
+  gap: var(--4_);
+}
+.g-4__ {
+  gap: var(--4__);
+}
+.g-4-px {
+  gap: var(--4-px);
+}
+.g-4-rem {
+  gap: var(--4-rem);
+}
+.g-4-\@ {
+  gap: var(--abstract-getter);
+}
+
+[data-setter=__] .br-4-\@ {
+  --abstract-getter: var(--4__);
+}
+
+[data-setter=_] .br-4-\@ {
+  --abstract-getter: var(--4_);
+}
+
+[data-setter=""] .br-4-\@ {
+  --abstract-getter: var(--4);
+}
+
+[data-setter="-"] .br-4-\@ {
+  --abstract-getter: var(--4-);
+}
+
+[data-setter=-px] .br-4-\@ {
+  --abstract-getter: var(--4-px);
+}
+
+[data-setter=-rem] .br-4-\@ {
+  --abstract-getter: var(--4-rem);
+}
+
+.br-4 {
+  border-radius: var(--4);
+}
+.br-4- {
+  border-radius: var(--4-);
+}
+.br-4-- {
+  border-radius: var(--4--);
+}
+.br-4_ {
+  border-radius: var(--4_);
+}
+.br-4__ {
+  border-radius: var(--4__);
+}
+.br-4-px {
+  border-radius: var(--4-px);
+}
+.br-4-rem {
+  border-radius: var(--4-rem);
+}
+.br-4-\@ {
+  border-radius: var(--abstract-getter);
+}
+
+[data-setter=__] .bw-4-\@ {
+  --abstract-getter: var(--4__);
+}
+
+[data-setter=_] .bw-4-\@ {
+  --abstract-getter: var(--4_);
+}
+
+[data-setter=""] .bw-4-\@ {
+  --abstract-getter: var(--4);
+}
+
+[data-setter="-"] .bw-4-\@ {
+  --abstract-getter: var(--4-);
+}
+
+[data-setter=-px] .bw-4-\@ {
+  --abstract-getter: var(--4-px);
+}
+
+[data-setter=-rem] .bw-4-\@ {
+  --abstract-getter: var(--4-rem);
+}
+
+.bw-4 {
+  border-width: var(--4);
+}
+.bw-4- {
+  border-width: var(--4-);
+}
+.bw-4-- {
+  border-width: var(--4--);
+}
+.bw-4_ {
+  border-width: var(--4_);
+}
+.bw-4__ {
+  border-width: var(--4__);
+}
+.bw-4-px {
+  border-width: var(--4-px);
+}
+.bw-4-rem {
+  border-width: var(--4-rem);
+}
+.bw-4-\@ {
+  border-width: var(--abstract-getter);
+}
+
+:root {
+  --5__: clamp(0.21rem, calc(3.96vw - 1.06rem), 2.78rem);
+  --5_: clamp(0.66rem, 2.78vw, 2.78rem);
+  --5: clamp(1.06rem, 2.78vw, 2.78rem);
+  --5-: clamp(1.72rem, 2.78vw, 2.78rem);
+  --5-px: 40px;
+  --5-rem: 2.5rem;
+}
+
+[data-setter=__] .w-5-\@ {
+  --abstract-getter: var(--5__);
+}
+
+[data-setter=_] .w-5-\@ {
+  --abstract-getter: var(--5_);
+}
+
+[data-setter=""] .w-5-\@ {
+  --abstract-getter: var(--5);
+}
+
+[data-setter="-"] .w-5-\@ {
+  --abstract-getter: var(--5-);
+}
+
+[data-setter=-px] .w-5-\@ {
+  --abstract-getter: var(--5-px);
+}
+
+[data-setter=-rem] .w-5-\@ {
+  --abstract-getter: var(--5-rem);
+}
+
+.w-5 {
+  width: var(--5);
+}
+.w-5- {
+  width: var(--5-);
+}
+.w-5-- {
+  width: var(--5--);
+}
+.w-5_ {
+  width: var(--5_);
+}
+.w-5__ {
+  width: var(--5__);
+}
+.w-5-px {
+  width: var(--5-px);
+}
+.w-5-rem {
+  width: var(--5-rem);
+}
+.w-5-\@ {
+  width: var(--abstract-getter);
+}
+
+[data-setter=__] .h-5-\@ {
+  --abstract-getter: var(--5__);
+}
+
+[data-setter=_] .h-5-\@ {
+  --abstract-getter: var(--5_);
+}
+
+[data-setter=""] .h-5-\@ {
+  --abstract-getter: var(--5);
+}
+
+[data-setter="-"] .h-5-\@ {
+  --abstract-getter: var(--5-);
+}
+
+[data-setter=-px] .h-5-\@ {
+  --abstract-getter: var(--5-px);
+}
+
+[data-setter=-rem] .h-5-\@ {
+  --abstract-getter: var(--5-rem);
+}
+
+.h-5 {
+  height: var(--5);
+}
+.h-5- {
+  height: var(--5-);
+}
+.h-5-- {
+  height: var(--5--);
+}
+.h-5_ {
+  height: var(--5_);
+}
+.h-5__ {
+  height: var(--5__);
+}
+.h-5-px {
+  height: var(--5-px);
+}
+.h-5-rem {
+  height: var(--5-rem);
+}
+.h-5-\@ {
+  height: var(--abstract-getter);
+}
+
+[data-setter=__] .p-5-\@ {
+  --abstract-getter: var(--5__);
+}
+
+[data-setter=_] .p-5-\@ {
+  --abstract-getter: var(--5_);
+}
+
+[data-setter=""] .p-5-\@ {
+  --abstract-getter: var(--5);
+}
+
+[data-setter="-"] .p-5-\@ {
+  --abstract-getter: var(--5-);
+}
+
+[data-setter=-px] .p-5-\@ {
+  --abstract-getter: var(--5-px);
+}
+
+[data-setter=-rem] .p-5-\@ {
+  --abstract-getter: var(--5-rem);
+}
+
+.p-5 {
+  padding: var(--5);
+}
+.p-5- {
+  padding: var(--5-);
+}
+.p-5-- {
+  padding: var(--5--);
+}
+.p-5_ {
+  padding: var(--5_);
+}
+.p-5__ {
+  padding: var(--5__);
+}
+.p-5-px {
+  padding: var(--5-px);
+}
+.p-5-rem {
+  padding: var(--5-rem);
+}
+.p-5-\@ {
+  padding: var(--abstract-getter);
+}
+
+[data-setter=__] .px-5-\@ {
+  --abstract-getter: var(--5__);
+}
+
+[data-setter=_] .px-5-\@ {
+  --abstract-getter: var(--5_);
+}
+
+[data-setter=""] .px-5-\@ {
+  --abstract-getter: var(--5);
+}
+
+[data-setter="-"] .px-5-\@ {
+  --abstract-getter: var(--5-);
+}
+
+[data-setter=-px] .px-5-\@ {
+  --abstract-getter: var(--5-px);
+}
+
+[data-setter=-rem] .px-5-\@ {
+  --abstract-getter: var(--5-rem);
+}
+
+.px-5 {
+  padding-inline: var(--5);
+}
+.px-5- {
+  padding-inline: var(--5-);
+}
+.px-5-- {
+  padding-inline: var(--5--);
+}
+.px-5_ {
+  padding-inline: var(--5_);
+}
+.px-5__ {
+  padding-inline: var(--5__);
+}
+.px-5-px {
+  padding-inline: var(--5-px);
+}
+.px-5-rem {
+  padding-inline: var(--5-rem);
+}
+.px-5-\@ {
+  padding-inline: var(--abstract-getter);
+}
+
+[data-setter=__] .py-5-\@ {
+  --abstract-getter: var(--5__);
+}
+
+[data-setter=_] .py-5-\@ {
+  --abstract-getter: var(--5_);
+}
+
+[data-setter=""] .py-5-\@ {
+  --abstract-getter: var(--5);
+}
+
+[data-setter="-"] .py-5-\@ {
+  --abstract-getter: var(--5-);
+}
+
+[data-setter=-px] .py-5-\@ {
+  --abstract-getter: var(--5-px);
+}
+
+[data-setter=-rem] .py-5-\@ {
+  --abstract-getter: var(--5-rem);
+}
+
+.py-5 {
+  padding-block: var(--5);
+}
+.py-5- {
+  padding-block: var(--5-);
+}
+.py-5-- {
+  padding-block: var(--5--);
+}
+.py-5_ {
+  padding-block: var(--5_);
+}
+.py-5__ {
+  padding-block: var(--5__);
+}
+.py-5-px {
+  padding-block: var(--5-px);
+}
+.py-5-rem {
+  padding-block: var(--5-rem);
+}
+.py-5-\@ {
+  padding-block: var(--abstract-getter);
+}
+
+[data-setter=__] .g-5-\@ {
+  --abstract-getter: var(--5__);
+}
+
+[data-setter=_] .g-5-\@ {
+  --abstract-getter: var(--5_);
+}
+
+[data-setter=""] .g-5-\@ {
+  --abstract-getter: var(--5);
+}
+
+[data-setter="-"] .g-5-\@ {
+  --abstract-getter: var(--5-);
+}
+
+[data-setter=-px] .g-5-\@ {
+  --abstract-getter: var(--5-px);
+}
+
+[data-setter=-rem] .g-5-\@ {
+  --abstract-getter: var(--5-rem);
+}
+
+.g-5 {
+  gap: var(--5);
+}
+.g-5- {
+  gap: var(--5-);
+}
+.g-5-- {
+  gap: var(--5--);
+}
+.g-5_ {
+  gap: var(--5_);
+}
+.g-5__ {
+  gap: var(--5__);
+}
+.g-5-px {
+  gap: var(--5-px);
+}
+.g-5-rem {
+  gap: var(--5-rem);
+}
+.g-5-\@ {
+  gap: var(--abstract-getter);
+}
+
+[data-setter=__] .br-5-\@ {
+  --abstract-getter: var(--5__);
+}
+
+[data-setter=_] .br-5-\@ {
+  --abstract-getter: var(--5_);
+}
+
+[data-setter=""] .br-5-\@ {
+  --abstract-getter: var(--5);
+}
+
+[data-setter="-"] .br-5-\@ {
+  --abstract-getter: var(--5-);
+}
+
+[data-setter=-px] .br-5-\@ {
+  --abstract-getter: var(--5-px);
+}
+
+[data-setter=-rem] .br-5-\@ {
+  --abstract-getter: var(--5-rem);
+}
+
+.br-5 {
+  border-radius: var(--5);
+}
+.br-5- {
+  border-radius: var(--5-);
+}
+.br-5-- {
+  border-radius: var(--5--);
+}
+.br-5_ {
+  border-radius: var(--5_);
+}
+.br-5__ {
+  border-radius: var(--5__);
+}
+.br-5-px {
+  border-radius: var(--5-px);
+}
+.br-5-rem {
+  border-radius: var(--5-rem);
+}
+.br-5-\@ {
+  border-radius: var(--abstract-getter);
+}
+
+[data-setter=__] .bw-5-\@ {
+  --abstract-getter: var(--5__);
+}
+
+[data-setter=_] .bw-5-\@ {
+  --abstract-getter: var(--5_);
+}
+
+[data-setter=""] .bw-5-\@ {
+  --abstract-getter: var(--5);
+}
+
+[data-setter="-"] .bw-5-\@ {
+  --abstract-getter: var(--5-);
+}
+
+[data-setter=-px] .bw-5-\@ {
+  --abstract-getter: var(--5-px);
+}
+
+[data-setter=-rem] .bw-5-\@ {
+  --abstract-getter: var(--5-rem);
+}
+
+.bw-5 {
+  border-width: var(--5);
+}
+.bw-5- {
+  border-width: var(--5-);
+}
+.bw-5-- {
+  border-width: var(--5--);
+}
+.bw-5_ {
+  border-width: var(--5_);
+}
+.bw-5__ {
+  border-width: var(--5__);
+}
+.bw-5-px {
+  border-width: var(--5-px);
+}
+.bw-5-rem {
+  border-width: var(--5-rem);
+}
+.bw-5-\@ {
+  border-width: var(--abstract-getter);
+}
+
+:root {
+  --6__: clamp(0.28rem, calc(6.43vw - 1.71rem), 4.51rem);
+  --6_: clamp(1.06rem, 4.51vw, 4.51rem);
+  --6: clamp(1.71rem, 4.51vw, 4.51rem);
+  --6-: clamp(2.77rem, 4.51vw, 4.51rem);
+  --6-px: 65px;
+  --6-rem: 4.0625rem;
+}
+
+[data-setter=__] .w-6-\@ {
+  --abstract-getter: var(--6__);
+}
+
+[data-setter=_] .w-6-\@ {
+  --abstract-getter: var(--6_);
+}
+
+[data-setter=""] .w-6-\@ {
+  --abstract-getter: var(--6);
+}
+
+[data-setter="-"] .w-6-\@ {
+  --abstract-getter: var(--6-);
+}
+
+[data-setter=-px] .w-6-\@ {
+  --abstract-getter: var(--6-px);
+}
+
+[data-setter=-rem] .w-6-\@ {
+  --abstract-getter: var(--6-rem);
+}
+
+.w-6 {
+  width: var(--6);
+}
+.w-6- {
+  width: var(--6-);
+}
+.w-6-- {
+  width: var(--6--);
+}
+.w-6_ {
+  width: var(--6_);
+}
+.w-6__ {
+  width: var(--6__);
+}
+.w-6-px {
+  width: var(--6-px);
+}
+.w-6-rem {
+  width: var(--6-rem);
+}
+.w-6-\@ {
+  width: var(--abstract-getter);
+}
+
+[data-setter=__] .h-6-\@ {
+  --abstract-getter: var(--6__);
+}
+
+[data-setter=_] .h-6-\@ {
+  --abstract-getter: var(--6_);
+}
+
+[data-setter=""] .h-6-\@ {
+  --abstract-getter: var(--6);
+}
+
+[data-setter="-"] .h-6-\@ {
+  --abstract-getter: var(--6-);
+}
+
+[data-setter=-px] .h-6-\@ {
+  --abstract-getter: var(--6-px);
+}
+
+[data-setter=-rem] .h-6-\@ {
+  --abstract-getter: var(--6-rem);
+}
+
+.h-6 {
+  height: var(--6);
+}
+.h-6- {
+  height: var(--6-);
+}
+.h-6-- {
+  height: var(--6--);
+}
+.h-6_ {
+  height: var(--6_);
+}
+.h-6__ {
+  height: var(--6__);
+}
+.h-6-px {
+  height: var(--6-px);
+}
+.h-6-rem {
+  height: var(--6-rem);
+}
+.h-6-\@ {
+  height: var(--abstract-getter);
+}
+
+[data-setter=__] .p-6-\@ {
+  --abstract-getter: var(--6__);
+}
+
+[data-setter=_] .p-6-\@ {
+  --abstract-getter: var(--6_);
+}
+
+[data-setter=""] .p-6-\@ {
+  --abstract-getter: var(--6);
+}
+
+[data-setter="-"] .p-6-\@ {
+  --abstract-getter: var(--6-);
+}
+
+[data-setter=-px] .p-6-\@ {
+  --abstract-getter: var(--6-px);
+}
+
+[data-setter=-rem] .p-6-\@ {
+  --abstract-getter: var(--6-rem);
+}
+
+.p-6 {
+  padding: var(--6);
+}
+.p-6- {
+  padding: var(--6-);
+}
+.p-6-- {
+  padding: var(--6--);
+}
+.p-6_ {
+  padding: var(--6_);
+}
+.p-6__ {
+  padding: var(--6__);
+}
+.p-6-px {
+  padding: var(--6-px);
+}
+.p-6-rem {
+  padding: var(--6-rem);
+}
+.p-6-\@ {
+  padding: var(--abstract-getter);
+}
+
+[data-setter=__] .px-6-\@ {
+  --abstract-getter: var(--6__);
+}
+
+[data-setter=_] .px-6-\@ {
+  --abstract-getter: var(--6_);
+}
+
+[data-setter=""] .px-6-\@ {
+  --abstract-getter: var(--6);
+}
+
+[data-setter="-"] .px-6-\@ {
+  --abstract-getter: var(--6-);
+}
+
+[data-setter=-px] .px-6-\@ {
+  --abstract-getter: var(--6-px);
+}
+
+[data-setter=-rem] .px-6-\@ {
+  --abstract-getter: var(--6-rem);
+}
+
+.px-6 {
+  padding-inline: var(--6);
+}
+.px-6- {
+  padding-inline: var(--6-);
+}
+.px-6-- {
+  padding-inline: var(--6--);
+}
+.px-6_ {
+  padding-inline: var(--6_);
+}
+.px-6__ {
+  padding-inline: var(--6__);
+}
+.px-6-px {
+  padding-inline: var(--6-px);
+}
+.px-6-rem {
+  padding-inline: var(--6-rem);
+}
+.px-6-\@ {
+  padding-inline: var(--abstract-getter);
+}
+
+[data-setter=__] .py-6-\@ {
+  --abstract-getter: var(--6__);
+}
+
+[data-setter=_] .py-6-\@ {
+  --abstract-getter: var(--6_);
+}
+
+[data-setter=""] .py-6-\@ {
+  --abstract-getter: var(--6);
+}
+
+[data-setter="-"] .py-6-\@ {
+  --abstract-getter: var(--6-);
+}
+
+[data-setter=-px] .py-6-\@ {
+  --abstract-getter: var(--6-px);
+}
+
+[data-setter=-rem] .py-6-\@ {
+  --abstract-getter: var(--6-rem);
+}
+
+.py-6 {
+  padding-block: var(--6);
+}
+.py-6- {
+  padding-block: var(--6-);
+}
+.py-6-- {
+  padding-block: var(--6--);
+}
+.py-6_ {
+  padding-block: var(--6_);
+}
+.py-6__ {
+  padding-block: var(--6__);
+}
+.py-6-px {
+  padding-block: var(--6-px);
+}
+.py-6-rem {
+  padding-block: var(--6-rem);
+}
+.py-6-\@ {
+  padding-block: var(--abstract-getter);
+}
+
+[data-setter=__] .g-6-\@ {
+  --abstract-getter: var(--6__);
+}
+
+[data-setter=_] .g-6-\@ {
+  --abstract-getter: var(--6_);
+}
+
+[data-setter=""] .g-6-\@ {
+  --abstract-getter: var(--6);
+}
+
+[data-setter="-"] .g-6-\@ {
+  --abstract-getter: var(--6-);
+}
+
+[data-setter=-px] .g-6-\@ {
+  --abstract-getter: var(--6-px);
+}
+
+[data-setter=-rem] .g-6-\@ {
+  --abstract-getter: var(--6-rem);
+}
+
+.g-6 {
+  gap: var(--6);
+}
+.g-6- {
+  gap: var(--6-);
+}
+.g-6-- {
+  gap: var(--6--);
+}
+.g-6_ {
+  gap: var(--6_);
+}
+.g-6__ {
+  gap: var(--6__);
+}
+.g-6-px {
+  gap: var(--6-px);
+}
+.g-6-rem {
+  gap: var(--6-rem);
+}
+.g-6-\@ {
+  gap: var(--abstract-getter);
+}
+
+[data-setter=__] .br-6-\@ {
+  --abstract-getter: var(--6__);
+}
+
+[data-setter=_] .br-6-\@ {
+  --abstract-getter: var(--6_);
+}
+
+[data-setter=""] .br-6-\@ {
+  --abstract-getter: var(--6);
+}
+
+[data-setter="-"] .br-6-\@ {
+  --abstract-getter: var(--6-);
+}
+
+[data-setter=-px] .br-6-\@ {
+  --abstract-getter: var(--6-px);
+}
+
+[data-setter=-rem] .br-6-\@ {
+  --abstract-getter: var(--6-rem);
+}
+
+.br-6 {
+  border-radius: var(--6);
+}
+.br-6- {
+  border-radius: var(--6-);
+}
+.br-6-- {
+  border-radius: var(--6--);
+}
+.br-6_ {
+  border-radius: var(--6_);
+}
+.br-6__ {
+  border-radius: var(--6__);
+}
+.br-6-px {
+  border-radius: var(--6-px);
+}
+.br-6-rem {
+  border-radius: var(--6-rem);
+}
+.br-6-\@ {
+  border-radius: var(--abstract-getter);
+}
+
+[data-setter=__] .bw-6-\@ {
+  --abstract-getter: var(--6__);
+}
+
+[data-setter=_] .bw-6-\@ {
+  --abstract-getter: var(--6_);
+}
+
+[data-setter=""] .bw-6-\@ {
+  --abstract-getter: var(--6);
+}
+
+[data-setter="-"] .bw-6-\@ {
+  --abstract-getter: var(--6-);
+}
+
+[data-setter=-px] .bw-6-\@ {
+  --abstract-getter: var(--6-px);
+}
+
+[data-setter=-rem] .bw-6-\@ {
+  --abstract-getter: var(--6-rem);
+}
+
+.bw-6 {
+  border-width: var(--6);
+}
+.bw-6- {
+  border-width: var(--6-);
+}
+.bw-6-- {
+  border-width: var(--6--);
+}
+.bw-6_ {
+  border-width: var(--6_);
+}
+.bw-6__ {
+  border-width: var(--6__);
+}
+.bw-6-px {
+  border-width: var(--6-px);
+}
+.bw-6-rem {
+  border-width: var(--6-rem);
+}
+.bw-6-\@ {
+  border-width: var(--abstract-getter);
+}
+
+:root {
+  --7__: clamp(0.4rem, calc(10.38vw - 2.77rem), 7.29rem);
+  --7_: clamp(1.71rem, 7.29vw, 7.29rem);
+  --7: clamp(2.77rem, 7.29vw, 7.29rem);
+  --7-: clamp(4.48rem, 7.29vw, 7.29rem);
+  --7-px: 105px;
+  --7-rem: 6.5625rem;
+}
+
+[data-setter=__] .w-7-\@ {
+  --abstract-getter: var(--7__);
+}
+
+[data-setter=_] .w-7-\@ {
+  --abstract-getter: var(--7_);
+}
+
+[data-setter=""] .w-7-\@ {
+  --abstract-getter: var(--7);
+}
+
+[data-setter="-"] .w-7-\@ {
+  --abstract-getter: var(--7-);
+}
+
+[data-setter=-px] .w-7-\@ {
+  --abstract-getter: var(--7-px);
+}
+
+[data-setter=-rem] .w-7-\@ {
+  --abstract-getter: var(--7-rem);
+}
+
+.w-7 {
+  width: var(--7);
+}
+.w-7- {
+  width: var(--7-);
+}
+.w-7-- {
+  width: var(--7--);
+}
+.w-7_ {
+  width: var(--7_);
+}
+.w-7__ {
+  width: var(--7__);
+}
+.w-7-px {
+  width: var(--7-px);
+}
+.w-7-rem {
+  width: var(--7-rem);
+}
+.w-7-\@ {
+  width: var(--abstract-getter);
+}
+
+[data-setter=__] .h-7-\@ {
+  --abstract-getter: var(--7__);
+}
+
+[data-setter=_] .h-7-\@ {
+  --abstract-getter: var(--7_);
+}
+
+[data-setter=""] .h-7-\@ {
+  --abstract-getter: var(--7);
+}
+
+[data-setter="-"] .h-7-\@ {
+  --abstract-getter: var(--7-);
+}
+
+[data-setter=-px] .h-7-\@ {
+  --abstract-getter: var(--7-px);
+}
+
+[data-setter=-rem] .h-7-\@ {
+  --abstract-getter: var(--7-rem);
+}
+
+.h-7 {
+  height: var(--7);
+}
+.h-7- {
+  height: var(--7-);
+}
+.h-7-- {
+  height: var(--7--);
+}
+.h-7_ {
+  height: var(--7_);
+}
+.h-7__ {
+  height: var(--7__);
+}
+.h-7-px {
+  height: var(--7-px);
+}
+.h-7-rem {
+  height: var(--7-rem);
+}
+.h-7-\@ {
+  height: var(--abstract-getter);
+}
+
+[data-setter=__] .p-7-\@ {
+  --abstract-getter: var(--7__);
+}
+
+[data-setter=_] .p-7-\@ {
+  --abstract-getter: var(--7_);
+}
+
+[data-setter=""] .p-7-\@ {
+  --abstract-getter: var(--7);
+}
+
+[data-setter="-"] .p-7-\@ {
+  --abstract-getter: var(--7-);
+}
+
+[data-setter=-px] .p-7-\@ {
+  --abstract-getter: var(--7-px);
+}
+
+[data-setter=-rem] .p-7-\@ {
+  --abstract-getter: var(--7-rem);
+}
+
+.p-7 {
+  padding: var(--7);
+}
+.p-7- {
+  padding: var(--7-);
+}
+.p-7-- {
+  padding: var(--7--);
+}
+.p-7_ {
+  padding: var(--7_);
+}
+.p-7__ {
+  padding: var(--7__);
+}
+.p-7-px {
+  padding: var(--7-px);
+}
+.p-7-rem {
+  padding: var(--7-rem);
+}
+.p-7-\@ {
+  padding: var(--abstract-getter);
+}
+
+[data-setter=__] .px-7-\@ {
+  --abstract-getter: var(--7__);
+}
+
+[data-setter=_] .px-7-\@ {
+  --abstract-getter: var(--7_);
+}
+
+[data-setter=""] .px-7-\@ {
+  --abstract-getter: var(--7);
+}
+
+[data-setter="-"] .px-7-\@ {
+  --abstract-getter: var(--7-);
+}
+
+[data-setter=-px] .px-7-\@ {
+  --abstract-getter: var(--7-px);
+}
+
+[data-setter=-rem] .px-7-\@ {
+  --abstract-getter: var(--7-rem);
+}
+
+.px-7 {
+  padding-inline: var(--7);
+}
+.px-7- {
+  padding-inline: var(--7-);
+}
+.px-7-- {
+  padding-inline: var(--7--);
+}
+.px-7_ {
+  padding-inline: var(--7_);
+}
+.px-7__ {
+  padding-inline: var(--7__);
+}
+.px-7-px {
+  padding-inline: var(--7-px);
+}
+.px-7-rem {
+  padding-inline: var(--7-rem);
+}
+.px-7-\@ {
+  padding-inline: var(--abstract-getter);
+}
+
+[data-setter=__] .py-7-\@ {
+  --abstract-getter: var(--7__);
+}
+
+[data-setter=_] .py-7-\@ {
+  --abstract-getter: var(--7_);
+}
+
+[data-setter=""] .py-7-\@ {
+  --abstract-getter: var(--7);
+}
+
+[data-setter="-"] .py-7-\@ {
+  --abstract-getter: var(--7-);
+}
+
+[data-setter=-px] .py-7-\@ {
+  --abstract-getter: var(--7-px);
+}
+
+[data-setter=-rem] .py-7-\@ {
+  --abstract-getter: var(--7-rem);
+}
+
+.py-7 {
+  padding-block: var(--7);
+}
+.py-7- {
+  padding-block: var(--7-);
+}
+.py-7-- {
+  padding-block: var(--7--);
+}
+.py-7_ {
+  padding-block: var(--7_);
+}
+.py-7__ {
+  padding-block: var(--7__);
+}
+.py-7-px {
+  padding-block: var(--7-px);
+}
+.py-7-rem {
+  padding-block: var(--7-rem);
+}
+.py-7-\@ {
+  padding-block: var(--abstract-getter);
+}
+
+[data-setter=__] .g-7-\@ {
+  --abstract-getter: var(--7__);
+}
+
+[data-setter=_] .g-7-\@ {
+  --abstract-getter: var(--7_);
+}
+
+[data-setter=""] .g-7-\@ {
+  --abstract-getter: var(--7);
+}
+
+[data-setter="-"] .g-7-\@ {
+  --abstract-getter: var(--7-);
+}
+
+[data-setter=-px] .g-7-\@ {
+  --abstract-getter: var(--7-px);
+}
+
+[data-setter=-rem] .g-7-\@ {
+  --abstract-getter: var(--7-rem);
+}
+
+.g-7 {
+  gap: var(--7);
+}
+.g-7- {
+  gap: var(--7-);
+}
+.g-7-- {
+  gap: var(--7--);
+}
+.g-7_ {
+  gap: var(--7_);
+}
+.g-7__ {
+  gap: var(--7__);
+}
+.g-7-px {
+  gap: var(--7-px);
+}
+.g-7-rem {
+  gap: var(--7-rem);
+}
+.g-7-\@ {
+  gap: var(--abstract-getter);
+}
+
+[data-setter=__] .br-7-\@ {
+  --abstract-getter: var(--7__);
+}
+
+[data-setter=_] .br-7-\@ {
+  --abstract-getter: var(--7_);
+}
+
+[data-setter=""] .br-7-\@ {
+  --abstract-getter: var(--7);
+}
+
+[data-setter="-"] .br-7-\@ {
+  --abstract-getter: var(--7-);
+}
+
+[data-setter=-px] .br-7-\@ {
+  --abstract-getter: var(--7-px);
+}
+
+[data-setter=-rem] .br-7-\@ {
+  --abstract-getter: var(--7-rem);
+}
+
+.br-7 {
+  border-radius: var(--7);
+}
+.br-7- {
+  border-radius: var(--7-);
+}
+.br-7-- {
+  border-radius: var(--7--);
+}
+.br-7_ {
+  border-radius: var(--7_);
+}
+.br-7__ {
+  border-radius: var(--7__);
+}
+.br-7-px {
+  border-radius: var(--7-px);
+}
+.br-7-rem {
+  border-radius: var(--7-rem);
+}
+.br-7-\@ {
+  border-radius: var(--abstract-getter);
+}
+
+[data-setter=__] .bw-7-\@ {
+  --abstract-getter: var(--7__);
+}
+
+[data-setter=_] .bw-7-\@ {
+  --abstract-getter: var(--7_);
+}
+
+[data-setter=""] .bw-7-\@ {
+  --abstract-getter: var(--7);
+}
+
+[data-setter="-"] .bw-7-\@ {
+  --abstract-getter: var(--7-);
+}
+
+[data-setter=-px] .bw-7-\@ {
+  --abstract-getter: var(--7-px);
+}
+
+[data-setter=-rem] .bw-7-\@ {
+  --abstract-getter: var(--7-rem);
+}
+
+.bw-7 {
+  border-width: var(--7);
+}
+.bw-7- {
+  border-width: var(--7-);
+}
+.bw-7-- {
+  border-width: var(--7--);
+}
+.bw-7_ {
+  border-width: var(--7_);
+}
+.bw-7__ {
+  border-width: var(--7__);
+}
+.bw-7-px {
+  border-width: var(--7-px);
+}
+.bw-7-rem {
+  border-width: var(--7-rem);
+}
+.bw-7-\@ {
+  border-width: var(--abstract-getter);
+}
+
+:root {
+  --8__: clamp(0.56rem, calc(16.81vw - 4.49rem), 11.81rem);
+  --8_: clamp(2.77rem, 11.81vw, 11.81rem);
+  --8: clamp(4.49rem, 11.81vw, 11.81rem);
+  --8-: clamp(7.26rem, 11.81vw, 11.81rem);
+  --8-px: 170px;
+  --8-rem: 10.625rem;
+}
+
+[data-setter=__] .w-8-\@ {
+  --abstract-getter: var(--8__);
+}
+
+[data-setter=_] .w-8-\@ {
+  --abstract-getter: var(--8_);
+}
+
+[data-setter=""] .w-8-\@ {
+  --abstract-getter: var(--8);
+}
+
+[data-setter="-"] .w-8-\@ {
+  --abstract-getter: var(--8-);
+}
+
+[data-setter=-px] .w-8-\@ {
+  --abstract-getter: var(--8-px);
+}
+
+[data-setter=-rem] .w-8-\@ {
+  --abstract-getter: var(--8-rem);
+}
+
+.w-8 {
+  width: var(--8);
+}
+.w-8- {
+  width: var(--8-);
+}
+.w-8-- {
+  width: var(--8--);
+}
+.w-8_ {
+  width: var(--8_);
+}
+.w-8__ {
+  width: var(--8__);
+}
+.w-8-px {
+  width: var(--8-px);
+}
+.w-8-rem {
+  width: var(--8-rem);
+}
+.w-8-\@ {
+  width: var(--abstract-getter);
+}
+
+[data-setter=__] .h-8-\@ {
+  --abstract-getter: var(--8__);
+}
+
+[data-setter=_] .h-8-\@ {
+  --abstract-getter: var(--8_);
+}
+
+[data-setter=""] .h-8-\@ {
+  --abstract-getter: var(--8);
+}
+
+[data-setter="-"] .h-8-\@ {
+  --abstract-getter: var(--8-);
+}
+
+[data-setter=-px] .h-8-\@ {
+  --abstract-getter: var(--8-px);
+}
+
+[data-setter=-rem] .h-8-\@ {
+  --abstract-getter: var(--8-rem);
+}
+
+.h-8 {
+  height: var(--8);
+}
+.h-8- {
+  height: var(--8-);
+}
+.h-8-- {
+  height: var(--8--);
+}
+.h-8_ {
+  height: var(--8_);
+}
+.h-8__ {
+  height: var(--8__);
+}
+.h-8-px {
+  height: var(--8-px);
+}
+.h-8-rem {
+  height: var(--8-rem);
+}
+.h-8-\@ {
+  height: var(--abstract-getter);
+}
+
+[data-setter=__] .p-8-\@ {
+  --abstract-getter: var(--8__);
+}
+
+[data-setter=_] .p-8-\@ {
+  --abstract-getter: var(--8_);
+}
+
+[data-setter=""] .p-8-\@ {
+  --abstract-getter: var(--8);
+}
+
+[data-setter="-"] .p-8-\@ {
+  --abstract-getter: var(--8-);
+}
+
+[data-setter=-px] .p-8-\@ {
+  --abstract-getter: var(--8-px);
+}
+
+[data-setter=-rem] .p-8-\@ {
+  --abstract-getter: var(--8-rem);
+}
+
+.p-8 {
+  padding: var(--8);
+}
+.p-8- {
+  padding: var(--8-);
+}
+.p-8-- {
+  padding: var(--8--);
+}
+.p-8_ {
+  padding: var(--8_);
+}
+.p-8__ {
+  padding: var(--8__);
+}
+.p-8-px {
+  padding: var(--8-px);
+}
+.p-8-rem {
+  padding: var(--8-rem);
+}
+.p-8-\@ {
+  padding: var(--abstract-getter);
+}
+
+[data-setter=__] .px-8-\@ {
+  --abstract-getter: var(--8__);
+}
+
+[data-setter=_] .px-8-\@ {
+  --abstract-getter: var(--8_);
+}
+
+[data-setter=""] .px-8-\@ {
+  --abstract-getter: var(--8);
+}
+
+[data-setter="-"] .px-8-\@ {
+  --abstract-getter: var(--8-);
+}
+
+[data-setter=-px] .px-8-\@ {
+  --abstract-getter: var(--8-px);
+}
+
+[data-setter=-rem] .px-8-\@ {
+  --abstract-getter: var(--8-rem);
+}
+
+.px-8 {
+  padding-inline: var(--8);
+}
+.px-8- {
+  padding-inline: var(--8-);
+}
+.px-8-- {
+  padding-inline: var(--8--);
+}
+.px-8_ {
+  padding-inline: var(--8_);
+}
+.px-8__ {
+  padding-inline: var(--8__);
+}
+.px-8-px {
+  padding-inline: var(--8-px);
+}
+.px-8-rem {
+  padding-inline: var(--8-rem);
+}
+.px-8-\@ {
+  padding-inline: var(--abstract-getter);
+}
+
+[data-setter=__] .py-8-\@ {
+  --abstract-getter: var(--8__);
+}
+
+[data-setter=_] .py-8-\@ {
+  --abstract-getter: var(--8_);
+}
+
+[data-setter=""] .py-8-\@ {
+  --abstract-getter: var(--8);
+}
+
+[data-setter="-"] .py-8-\@ {
+  --abstract-getter: var(--8-);
+}
+
+[data-setter=-px] .py-8-\@ {
+  --abstract-getter: var(--8-px);
+}
+
+[data-setter=-rem] .py-8-\@ {
+  --abstract-getter: var(--8-rem);
+}
+
+.py-8 {
+  padding-block: var(--8);
+}
+.py-8- {
+  padding-block: var(--8-);
+}
+.py-8-- {
+  padding-block: var(--8--);
+}
+.py-8_ {
+  padding-block: var(--8_);
+}
+.py-8__ {
+  padding-block: var(--8__);
+}
+.py-8-px {
+  padding-block: var(--8-px);
+}
+.py-8-rem {
+  padding-block: var(--8-rem);
+}
+.py-8-\@ {
+  padding-block: var(--abstract-getter);
+}
+
+[data-setter=__] .g-8-\@ {
+  --abstract-getter: var(--8__);
+}
+
+[data-setter=_] .g-8-\@ {
+  --abstract-getter: var(--8_);
+}
+
+[data-setter=""] .g-8-\@ {
+  --abstract-getter: var(--8);
+}
+
+[data-setter="-"] .g-8-\@ {
+  --abstract-getter: var(--8-);
+}
+
+[data-setter=-px] .g-8-\@ {
+  --abstract-getter: var(--8-px);
+}
+
+[data-setter=-rem] .g-8-\@ {
+  --abstract-getter: var(--8-rem);
+}
+
+.g-8 {
+  gap: var(--8);
+}
+.g-8- {
+  gap: var(--8-);
+}
+.g-8-- {
+  gap: var(--8--);
+}
+.g-8_ {
+  gap: var(--8_);
+}
+.g-8__ {
+  gap: var(--8__);
+}
+.g-8-px {
+  gap: var(--8-px);
+}
+.g-8-rem {
+  gap: var(--8-rem);
+}
+.g-8-\@ {
+  gap: var(--abstract-getter);
+}
+
+[data-setter=__] .br-8-\@ {
+  --abstract-getter: var(--8__);
+}
+
+[data-setter=_] .br-8-\@ {
+  --abstract-getter: var(--8_);
+}
+
+[data-setter=""] .br-8-\@ {
+  --abstract-getter: var(--8);
+}
+
+[data-setter="-"] .br-8-\@ {
+  --abstract-getter: var(--8-);
+}
+
+[data-setter=-px] .br-8-\@ {
+  --abstract-getter: var(--8-px);
+}
+
+[data-setter=-rem] .br-8-\@ {
+  --abstract-getter: var(--8-rem);
+}
+
+.br-8 {
+  border-radius: var(--8);
+}
+.br-8- {
+  border-radius: var(--8-);
+}
+.br-8-- {
+  border-radius: var(--8--);
+}
+.br-8_ {
+  border-radius: var(--8_);
+}
+.br-8__ {
+  border-radius: var(--8__);
+}
+.br-8-px {
+  border-radius: var(--8-px);
+}
+.br-8-rem {
+  border-radius: var(--8-rem);
+}
+.br-8-\@ {
+  border-radius: var(--abstract-getter);
+}
+
+[data-setter=__] .bw-8-\@ {
+  --abstract-getter: var(--8__);
+}
+
+[data-setter=_] .bw-8-\@ {
+  --abstract-getter: var(--8_);
+}
+
+[data-setter=""] .bw-8-\@ {
+  --abstract-getter: var(--8);
+}
+
+[data-setter="-"] .bw-8-\@ {
+  --abstract-getter: var(--8-);
+}
+
+[data-setter=-px] .bw-8-\@ {
+  --abstract-getter: var(--8-px);
+}
+
+[data-setter=-rem] .bw-8-\@ {
+  --abstract-getter: var(--8-rem);
+}
+
+.bw-8 {
+  border-width: var(--8);
+}
+.bw-8- {
+  border-width: var(--8-);
+}
+.bw-8-- {
+  border-width: var(--8--);
+}
+.bw-8_ {
+  border-width: var(--8_);
+}
+.bw-8__ {
+  border-width: var(--8__);
+}
+.bw-8-px {
+  border-width: var(--8-px);
+}
+.bw-8-rem {
+  border-width: var(--8-rem);
+}
+.bw-8-\@ {
+  border-width: var(--abstract-getter);
+}
+
+:root {
+  --9__: clamp(0.81rem, calc(27.19vw - 7.26rem), 19.1rem);
+  --9_: clamp(4.49rem, 19.1vw, 19.1rem);
+  --9: clamp(7.26rem, 19.1vw, 19.1rem);
+  --9-: clamp(11.75rem, 19.1vw, 19.1rem);
+  --9-px: 275px;
+  --9-rem: 17.1875rem;
+}
+
+[data-setter=__] .w-9-\@ {
+  --abstract-getter: var(--9__);
+}
+
+[data-setter=_] .w-9-\@ {
+  --abstract-getter: var(--9_);
+}
+
+[data-setter=""] .w-9-\@ {
+  --abstract-getter: var(--9);
+}
+
+[data-setter="-"] .w-9-\@ {
+  --abstract-getter: var(--9-);
+}
+
+[data-setter=-px] .w-9-\@ {
+  --abstract-getter: var(--9-px);
+}
+
+[data-setter=-rem] .w-9-\@ {
+  --abstract-getter: var(--9-rem);
+}
+
+.w-9 {
+  width: var(--9);
+}
+.w-9- {
+  width: var(--9-);
+}
+.w-9-- {
+  width: var(--9--);
+}
+.w-9_ {
+  width: var(--9_);
+}
+.w-9__ {
+  width: var(--9__);
+}
+.w-9-px {
+  width: var(--9-px);
+}
+.w-9-rem {
+  width: var(--9-rem);
+}
+.w-9-\@ {
+  width: var(--abstract-getter);
+}
+
+[data-setter=__] .h-9-\@ {
+  --abstract-getter: var(--9__);
+}
+
+[data-setter=_] .h-9-\@ {
+  --abstract-getter: var(--9_);
+}
+
+[data-setter=""] .h-9-\@ {
+  --abstract-getter: var(--9);
+}
+
+[data-setter="-"] .h-9-\@ {
+  --abstract-getter: var(--9-);
+}
+
+[data-setter=-px] .h-9-\@ {
+  --abstract-getter: var(--9-px);
+}
+
+[data-setter=-rem] .h-9-\@ {
+  --abstract-getter: var(--9-rem);
+}
+
+.h-9 {
+  height: var(--9);
+}
+.h-9- {
+  height: var(--9-);
+}
+.h-9-- {
+  height: var(--9--);
+}
+.h-9_ {
+  height: var(--9_);
+}
+.h-9__ {
+  height: var(--9__);
+}
+.h-9-px {
+  height: var(--9-px);
+}
+.h-9-rem {
+  height: var(--9-rem);
+}
+.h-9-\@ {
+  height: var(--abstract-getter);
+}
+
+[data-setter=__] .p-9-\@ {
+  --abstract-getter: var(--9__);
+}
+
+[data-setter=_] .p-9-\@ {
+  --abstract-getter: var(--9_);
+}
+
+[data-setter=""] .p-9-\@ {
+  --abstract-getter: var(--9);
+}
+
+[data-setter="-"] .p-9-\@ {
+  --abstract-getter: var(--9-);
+}
+
+[data-setter=-px] .p-9-\@ {
+  --abstract-getter: var(--9-px);
+}
+
+[data-setter=-rem] .p-9-\@ {
+  --abstract-getter: var(--9-rem);
+}
+
+.p-9 {
+  padding: var(--9);
+}
+.p-9- {
+  padding: var(--9-);
+}
+.p-9-- {
+  padding: var(--9--);
+}
+.p-9_ {
+  padding: var(--9_);
+}
+.p-9__ {
+  padding: var(--9__);
+}
+.p-9-px {
+  padding: var(--9-px);
+}
+.p-9-rem {
+  padding: var(--9-rem);
+}
+.p-9-\@ {
+  padding: var(--abstract-getter);
+}
+
+[data-setter=__] .px-9-\@ {
+  --abstract-getter: var(--9__);
+}
+
+[data-setter=_] .px-9-\@ {
+  --abstract-getter: var(--9_);
+}
+
+[data-setter=""] .px-9-\@ {
+  --abstract-getter: var(--9);
+}
+
+[data-setter="-"] .px-9-\@ {
+  --abstract-getter: var(--9-);
+}
+
+[data-setter=-px] .px-9-\@ {
+  --abstract-getter: var(--9-px);
+}
+
+[data-setter=-rem] .px-9-\@ {
+  --abstract-getter: var(--9-rem);
+}
+
+.px-9 {
+  padding-inline: var(--9);
+}
+.px-9- {
+  padding-inline: var(--9-);
+}
+.px-9-- {
+  padding-inline: var(--9--);
+}
+.px-9_ {
+  padding-inline: var(--9_);
+}
+.px-9__ {
+  padding-inline: var(--9__);
+}
+.px-9-px {
+  padding-inline: var(--9-px);
+}
+.px-9-rem {
+  padding-inline: var(--9-rem);
+}
+.px-9-\@ {
+  padding-inline: var(--abstract-getter);
+}
+
+[data-setter=__] .py-9-\@ {
+  --abstract-getter: var(--9__);
+}
+
+[data-setter=_] .py-9-\@ {
+  --abstract-getter: var(--9_);
+}
+
+[data-setter=""] .py-9-\@ {
+  --abstract-getter: var(--9);
+}
+
+[data-setter="-"] .py-9-\@ {
+  --abstract-getter: var(--9-);
+}
+
+[data-setter=-px] .py-9-\@ {
+  --abstract-getter: var(--9-px);
+}
+
+[data-setter=-rem] .py-9-\@ {
+  --abstract-getter: var(--9-rem);
+}
+
+.py-9 {
+  padding-block: var(--9);
+}
+.py-9- {
+  padding-block: var(--9-);
+}
+.py-9-- {
+  padding-block: var(--9--);
+}
+.py-9_ {
+  padding-block: var(--9_);
+}
+.py-9__ {
+  padding-block: var(--9__);
+}
+.py-9-px {
+  padding-block: var(--9-px);
+}
+.py-9-rem {
+  padding-block: var(--9-rem);
+}
+.py-9-\@ {
+  padding-block: var(--abstract-getter);
+}
+
+[data-setter=__] .g-9-\@ {
+  --abstract-getter: var(--9__);
+}
+
+[data-setter=_] .g-9-\@ {
+  --abstract-getter: var(--9_);
+}
+
+[data-setter=""] .g-9-\@ {
+  --abstract-getter: var(--9);
+}
+
+[data-setter="-"] .g-9-\@ {
+  --abstract-getter: var(--9-);
+}
+
+[data-setter=-px] .g-9-\@ {
+  --abstract-getter: var(--9-px);
+}
+
+[data-setter=-rem] .g-9-\@ {
+  --abstract-getter: var(--9-rem);
+}
+
+.g-9 {
+  gap: var(--9);
+}
+.g-9- {
+  gap: var(--9-);
+}
+.g-9-- {
+  gap: var(--9--);
+}
+.g-9_ {
+  gap: var(--9_);
+}
+.g-9__ {
+  gap: var(--9__);
+}
+.g-9-px {
+  gap: var(--9-px);
+}
+.g-9-rem {
+  gap: var(--9-rem);
+}
+.g-9-\@ {
+  gap: var(--abstract-getter);
+}
+
+[data-setter=__] .br-9-\@ {
+  --abstract-getter: var(--9__);
+}
+
+[data-setter=_] .br-9-\@ {
+  --abstract-getter: var(--9_);
+}
+
+[data-setter=""] .br-9-\@ {
+  --abstract-getter: var(--9);
+}
+
+[data-setter="-"] .br-9-\@ {
+  --abstract-getter: var(--9-);
+}
+
+[data-setter=-px] .br-9-\@ {
+  --abstract-getter: var(--9-px);
+}
+
+[data-setter=-rem] .br-9-\@ {
+  --abstract-getter: var(--9-rem);
+}
+
+.br-9 {
+  border-radius: var(--9);
+}
+.br-9- {
+  border-radius: var(--9-);
+}
+.br-9-- {
+  border-radius: var(--9--);
+}
+.br-9_ {
+  border-radius: var(--9_);
+}
+.br-9__ {
+  border-radius: var(--9__);
+}
+.br-9-px {
+  border-radius: var(--9-px);
+}
+.br-9-rem {
+  border-radius: var(--9-rem);
+}
+.br-9-\@ {
+  border-radius: var(--abstract-getter);
+}
+
+[data-setter=__] .bw-9-\@ {
+  --abstract-getter: var(--9__);
+}
+
+[data-setter=_] .bw-9-\@ {
+  --abstract-getter: var(--9_);
+}
+
+[data-setter=""] .bw-9-\@ {
+  --abstract-getter: var(--9);
+}
+
+[data-setter="-"] .bw-9-\@ {
+  --abstract-getter: var(--9-);
+}
+
+[data-setter=-px] .bw-9-\@ {
+  --abstract-getter: var(--9-px);
+}
+
+[data-setter=-rem] .bw-9-\@ {
+  --abstract-getter: var(--9-rem);
+}
+
+.bw-9 {
+  border-width: var(--9);
+}
+.bw-9- {
+  border-width: var(--9-);
+}
+.bw-9-- {
+  border-width: var(--9--);
+}
+.bw-9_ {
+  border-width: var(--9_);
+}
+.bw-9__ {
+  border-width: var(--9__);
+}
+.bw-9-px {
+  border-width: var(--9-px);
+}
+.bw-9-rem {
+  border-width: var(--9-rem);
+}
+.bw-9-\@ {
+  border-width: var(--abstract-getter);
+}
+
+:root {
+  --10__: clamp(1.17rem, calc(44.01vw - 11.74rem), 30.9rem);
+  --10_: clamp(7.26rem, 30.9vw, 30.9rem);
+  --10: clamp(11.74rem, 30.9vw, 30.9rem);
+  --10-: clamp(19rem, 30.9vw, 30.9rem);
+  --10-px: 445px;
+  --10-rem: 27.8125rem;
+}
+
+[data-setter=__] .w-10-\@ {
+  --abstract-getter: var(--10__);
+}
+
+[data-setter=_] .w-10-\@ {
+  --abstract-getter: var(--10_);
+}
+
+[data-setter=""] .w-10-\@ {
+  --abstract-getter: var(--10);
+}
+
+[data-setter="-"] .w-10-\@ {
+  --abstract-getter: var(--10-);
+}
+
+[data-setter=-px] .w-10-\@ {
+  --abstract-getter: var(--10-px);
+}
+
+[data-setter=-rem] .w-10-\@ {
+  --abstract-getter: var(--10-rem);
+}
+
+.w-10 {
+  width: var(--10);
+}
+.w-10- {
+  width: var(--10-);
+}
+.w-10-- {
+  width: var(--10--);
+}
+.w-10_ {
+  width: var(--10_);
+}
+.w-10__ {
+  width: var(--10__);
+}
+.w-10-px {
+  width: var(--10-px);
+}
+.w-10-rem {
+  width: var(--10-rem);
+}
+.w-10-\@ {
+  width: var(--abstract-getter);
+}
+
+[data-setter=__] .h-10-\@ {
+  --abstract-getter: var(--10__);
+}
+
+[data-setter=_] .h-10-\@ {
+  --abstract-getter: var(--10_);
+}
+
+[data-setter=""] .h-10-\@ {
+  --abstract-getter: var(--10);
+}
+
+[data-setter="-"] .h-10-\@ {
+  --abstract-getter: var(--10-);
+}
+
+[data-setter=-px] .h-10-\@ {
+  --abstract-getter: var(--10-px);
+}
+
+[data-setter=-rem] .h-10-\@ {
+  --abstract-getter: var(--10-rem);
+}
+
+.h-10 {
+  height: var(--10);
+}
+.h-10- {
+  height: var(--10-);
+}
+.h-10-- {
+  height: var(--10--);
+}
+.h-10_ {
+  height: var(--10_);
+}
+.h-10__ {
+  height: var(--10__);
+}
+.h-10-px {
+  height: var(--10-px);
+}
+.h-10-rem {
+  height: var(--10-rem);
+}
+.h-10-\@ {
+  height: var(--abstract-getter);
+}
+
+[data-setter=__] .p-10-\@ {
+  --abstract-getter: var(--10__);
+}
+
+[data-setter=_] .p-10-\@ {
+  --abstract-getter: var(--10_);
+}
+
+[data-setter=""] .p-10-\@ {
+  --abstract-getter: var(--10);
+}
+
+[data-setter="-"] .p-10-\@ {
+  --abstract-getter: var(--10-);
+}
+
+[data-setter=-px] .p-10-\@ {
+  --abstract-getter: var(--10-px);
+}
+
+[data-setter=-rem] .p-10-\@ {
+  --abstract-getter: var(--10-rem);
+}
+
+.p-10 {
+  padding: var(--10);
+}
+.p-10- {
+  padding: var(--10-);
+}
+.p-10-- {
+  padding: var(--10--);
+}
+.p-10_ {
+  padding: var(--10_);
+}
+.p-10__ {
+  padding: var(--10__);
+}
+.p-10-px {
+  padding: var(--10-px);
+}
+.p-10-rem {
+  padding: var(--10-rem);
+}
+.p-10-\@ {
+  padding: var(--abstract-getter);
+}
+
+[data-setter=__] .px-10-\@ {
+  --abstract-getter: var(--10__);
+}
+
+[data-setter=_] .px-10-\@ {
+  --abstract-getter: var(--10_);
+}
+
+[data-setter=""] .px-10-\@ {
+  --abstract-getter: var(--10);
+}
+
+[data-setter="-"] .px-10-\@ {
+  --abstract-getter: var(--10-);
+}
+
+[data-setter=-px] .px-10-\@ {
+  --abstract-getter: var(--10-px);
+}
+
+[data-setter=-rem] .px-10-\@ {
+  --abstract-getter: var(--10-rem);
+}
+
+.px-10 {
+  padding-inline: var(--10);
+}
+.px-10- {
+  padding-inline: var(--10-);
+}
+.px-10-- {
+  padding-inline: var(--10--);
+}
+.px-10_ {
+  padding-inline: var(--10_);
+}
+.px-10__ {
+  padding-inline: var(--10__);
+}
+.px-10-px {
+  padding-inline: var(--10-px);
+}
+.px-10-rem {
+  padding-inline: var(--10-rem);
+}
+.px-10-\@ {
+  padding-inline: var(--abstract-getter);
+}
+
+[data-setter=__] .py-10-\@ {
+  --abstract-getter: var(--10__);
+}
+
+[data-setter=_] .py-10-\@ {
+  --abstract-getter: var(--10_);
+}
+
+[data-setter=""] .py-10-\@ {
+  --abstract-getter: var(--10);
+}
+
+[data-setter="-"] .py-10-\@ {
+  --abstract-getter: var(--10-);
+}
+
+[data-setter=-px] .py-10-\@ {
+  --abstract-getter: var(--10-px);
+}
+
+[data-setter=-rem] .py-10-\@ {
+  --abstract-getter: var(--10-rem);
+}
+
+.py-10 {
+  padding-block: var(--10);
+}
+.py-10- {
+  padding-block: var(--10-);
+}
+.py-10-- {
+  padding-block: var(--10--);
+}
+.py-10_ {
+  padding-block: var(--10_);
+}
+.py-10__ {
+  padding-block: var(--10__);
+}
+.py-10-px {
+  padding-block: var(--10-px);
+}
+.py-10-rem {
+  padding-block: var(--10-rem);
+}
+.py-10-\@ {
+  padding-block: var(--abstract-getter);
+}
+
+[data-setter=__] .g-10-\@ {
+  --abstract-getter: var(--10__);
+}
+
+[data-setter=_] .g-10-\@ {
+  --abstract-getter: var(--10_);
+}
+
+[data-setter=""] .g-10-\@ {
+  --abstract-getter: var(--10);
+}
+
+[data-setter="-"] .g-10-\@ {
+  --abstract-getter: var(--10-);
+}
+
+[data-setter=-px] .g-10-\@ {
+  --abstract-getter: var(--10-px);
+}
+
+[data-setter=-rem] .g-10-\@ {
+  --abstract-getter: var(--10-rem);
+}
+
+.g-10 {
+  gap: var(--10);
+}
+.g-10- {
+  gap: var(--10-);
+}
+.g-10-- {
+  gap: var(--10--);
+}
+.g-10_ {
+  gap: var(--10_);
+}
+.g-10__ {
+  gap: var(--10__);
+}
+.g-10-px {
+  gap: var(--10-px);
+}
+.g-10-rem {
+  gap: var(--10-rem);
+}
+.g-10-\@ {
+  gap: var(--abstract-getter);
+}
+
+[data-setter=__] .br-10-\@ {
+  --abstract-getter: var(--10__);
+}
+
+[data-setter=_] .br-10-\@ {
+  --abstract-getter: var(--10_);
+}
+
+[data-setter=""] .br-10-\@ {
+  --abstract-getter: var(--10);
+}
+
+[data-setter="-"] .br-10-\@ {
+  --abstract-getter: var(--10-);
+}
+
+[data-setter=-px] .br-10-\@ {
+  --abstract-getter: var(--10-px);
+}
+
+[data-setter=-rem] .br-10-\@ {
+  --abstract-getter: var(--10-rem);
+}
+
+.br-10 {
+  border-radius: var(--10);
+}
+.br-10- {
+  border-radius: var(--10-);
+}
+.br-10-- {
+  border-radius: var(--10--);
+}
+.br-10_ {
+  border-radius: var(--10_);
+}
+.br-10__ {
+  border-radius: var(--10__);
+}
+.br-10-px {
+  border-radius: var(--10-px);
+}
+.br-10-rem {
+  border-radius: var(--10-rem);
+}
+.br-10-\@ {
+  border-radius: var(--abstract-getter);
+}
+
+[data-setter=__] .bw-10-\@ {
+  --abstract-getter: var(--10__);
+}
+
+[data-setter=_] .bw-10-\@ {
+  --abstract-getter: var(--10_);
+}
+
+[data-setter=""] .bw-10-\@ {
+  --abstract-getter: var(--10);
+}
+
+[data-setter="-"] .bw-10-\@ {
+  --abstract-getter: var(--10-);
+}
+
+[data-setter=-px] .bw-10-\@ {
+  --abstract-getter: var(--10-px);
+}
+
+[data-setter=-rem] .bw-10-\@ {
+  --abstract-getter: var(--10-rem);
+}
+
+.bw-10 {
+  border-width: var(--10);
+}
+.bw-10- {
+  border-width: var(--10-);
+}
+.bw-10-- {
+  border-width: var(--10--);
+}
+.bw-10_ {
+  border-width: var(--10_);
+}
+.bw-10__ {
+  border-width: var(--10__);
+}
+.bw-10-px {
+  border-width: var(--10-px);
+}
+.bw-10-rem {
+  border-width: var(--10-rem);
+}
+.bw-10-\@ {
+  border-width: var(--abstract-getter);
+}
+
+:root {
+  --11__: clamp(1.73rem, calc(71.2vw - 19rem), 50rem);
+  --11_: clamp(11.74rem, 50vw, 50rem);
+  --11: clamp(19rem, 50vw, 50rem);
+  --11-: clamp(30.74rem, 50vw, 50rem);
+  --11-px: 720px;
+  --11-rem: 45rem;
+}
+
+[data-setter=__] .w-11-\@ {
+  --abstract-getter: var(--11__);
+}
+
+[data-setter=_] .w-11-\@ {
+  --abstract-getter: var(--11_);
+}
+
+[data-setter=""] .w-11-\@ {
+  --abstract-getter: var(--11);
+}
+
+[data-setter="-"] .w-11-\@ {
+  --abstract-getter: var(--11-);
+}
+
+[data-setter=-px] .w-11-\@ {
+  --abstract-getter: var(--11-px);
+}
+
+[data-setter=-rem] .w-11-\@ {
+  --abstract-getter: var(--11-rem);
+}
+
+.w-11 {
+  width: var(--11);
+}
+.w-11- {
+  width: var(--11-);
+}
+.w-11-- {
+  width: var(--11--);
+}
+.w-11_ {
+  width: var(--11_);
+}
+.w-11__ {
+  width: var(--11__);
+}
+.w-11-px {
+  width: var(--11-px);
+}
+.w-11-rem {
+  width: var(--11-rem);
+}
+.w-11-\@ {
+  width: var(--abstract-getter);
+}
+
+[data-setter=__] .h-11-\@ {
+  --abstract-getter: var(--11__);
+}
+
+[data-setter=_] .h-11-\@ {
+  --abstract-getter: var(--11_);
+}
+
+[data-setter=""] .h-11-\@ {
+  --abstract-getter: var(--11);
+}
+
+[data-setter="-"] .h-11-\@ {
+  --abstract-getter: var(--11-);
+}
+
+[data-setter=-px] .h-11-\@ {
+  --abstract-getter: var(--11-px);
+}
+
+[data-setter=-rem] .h-11-\@ {
+  --abstract-getter: var(--11-rem);
+}
+
+.h-11 {
+  height: var(--11);
+}
+.h-11- {
+  height: var(--11-);
+}
+.h-11-- {
+  height: var(--11--);
+}
+.h-11_ {
+  height: var(--11_);
+}
+.h-11__ {
+  height: var(--11__);
+}
+.h-11-px {
+  height: var(--11-px);
+}
+.h-11-rem {
+  height: var(--11-rem);
+}
+.h-11-\@ {
+  height: var(--abstract-getter);
+}
+
+[data-setter=__] .p-11-\@ {
+  --abstract-getter: var(--11__);
+}
+
+[data-setter=_] .p-11-\@ {
+  --abstract-getter: var(--11_);
+}
+
+[data-setter=""] .p-11-\@ {
+  --abstract-getter: var(--11);
+}
+
+[data-setter="-"] .p-11-\@ {
+  --abstract-getter: var(--11-);
+}
+
+[data-setter=-px] .p-11-\@ {
+  --abstract-getter: var(--11-px);
+}
+
+[data-setter=-rem] .p-11-\@ {
+  --abstract-getter: var(--11-rem);
+}
+
+.p-11 {
+  padding: var(--11);
+}
+.p-11- {
+  padding: var(--11-);
+}
+.p-11-- {
+  padding: var(--11--);
+}
+.p-11_ {
+  padding: var(--11_);
+}
+.p-11__ {
+  padding: var(--11__);
+}
+.p-11-px {
+  padding: var(--11-px);
+}
+.p-11-rem {
+  padding: var(--11-rem);
+}
+.p-11-\@ {
+  padding: var(--abstract-getter);
+}
+
+[data-setter=__] .px-11-\@ {
+  --abstract-getter: var(--11__);
+}
+
+[data-setter=_] .px-11-\@ {
+  --abstract-getter: var(--11_);
+}
+
+[data-setter=""] .px-11-\@ {
+  --abstract-getter: var(--11);
+}
+
+[data-setter="-"] .px-11-\@ {
+  --abstract-getter: var(--11-);
+}
+
+[data-setter=-px] .px-11-\@ {
+  --abstract-getter: var(--11-px);
+}
+
+[data-setter=-rem] .px-11-\@ {
+  --abstract-getter: var(--11-rem);
+}
+
+.px-11 {
+  padding-inline: var(--11);
+}
+.px-11- {
+  padding-inline: var(--11-);
+}
+.px-11-- {
+  padding-inline: var(--11--);
+}
+.px-11_ {
+  padding-inline: var(--11_);
+}
+.px-11__ {
+  padding-inline: var(--11__);
+}
+.px-11-px {
+  padding-inline: var(--11-px);
+}
+.px-11-rem {
+  padding-inline: var(--11-rem);
+}
+.px-11-\@ {
+  padding-inline: var(--abstract-getter);
+}
+
+[data-setter=__] .py-11-\@ {
+  --abstract-getter: var(--11__);
+}
+
+[data-setter=_] .py-11-\@ {
+  --abstract-getter: var(--11_);
+}
+
+[data-setter=""] .py-11-\@ {
+  --abstract-getter: var(--11);
+}
+
+[data-setter="-"] .py-11-\@ {
+  --abstract-getter: var(--11-);
+}
+
+[data-setter=-px] .py-11-\@ {
+  --abstract-getter: var(--11-px);
+}
+
+[data-setter=-rem] .py-11-\@ {
+  --abstract-getter: var(--11-rem);
+}
+
+.py-11 {
+  padding-block: var(--11);
+}
+.py-11- {
+  padding-block: var(--11-);
+}
+.py-11-- {
+  padding-block: var(--11--);
+}
+.py-11_ {
+  padding-block: var(--11_);
+}
+.py-11__ {
+  padding-block: var(--11__);
+}
+.py-11-px {
+  padding-block: var(--11-px);
+}
+.py-11-rem {
+  padding-block: var(--11-rem);
+}
+.py-11-\@ {
+  padding-block: var(--abstract-getter);
+}
+
+[data-setter=__] .g-11-\@ {
+  --abstract-getter: var(--11__);
+}
+
+[data-setter=_] .g-11-\@ {
+  --abstract-getter: var(--11_);
+}
+
+[data-setter=""] .g-11-\@ {
+  --abstract-getter: var(--11);
+}
+
+[data-setter="-"] .g-11-\@ {
+  --abstract-getter: var(--11-);
+}
+
+[data-setter=-px] .g-11-\@ {
+  --abstract-getter: var(--11-px);
+}
+
+[data-setter=-rem] .g-11-\@ {
+  --abstract-getter: var(--11-rem);
+}
+
+.g-11 {
+  gap: var(--11);
+}
+.g-11- {
+  gap: var(--11-);
+}
+.g-11-- {
+  gap: var(--11--);
+}
+.g-11_ {
+  gap: var(--11_);
+}
+.g-11__ {
+  gap: var(--11__);
+}
+.g-11-px {
+  gap: var(--11-px);
+}
+.g-11-rem {
+  gap: var(--11-rem);
+}
+.g-11-\@ {
+  gap: var(--abstract-getter);
+}
+
+[data-setter=__] .br-11-\@ {
+  --abstract-getter: var(--11__);
+}
+
+[data-setter=_] .br-11-\@ {
+  --abstract-getter: var(--11_);
+}
+
+[data-setter=""] .br-11-\@ {
+  --abstract-getter: var(--11);
+}
+
+[data-setter="-"] .br-11-\@ {
+  --abstract-getter: var(--11-);
+}
+
+[data-setter=-px] .br-11-\@ {
+  --abstract-getter: var(--11-px);
+}
+
+[data-setter=-rem] .br-11-\@ {
+  --abstract-getter: var(--11-rem);
+}
+
+.br-11 {
+  border-radius: var(--11);
+}
+.br-11- {
+  border-radius: var(--11-);
+}
+.br-11-- {
+  border-radius: var(--11--);
+}
+.br-11_ {
+  border-radius: var(--11_);
+}
+.br-11__ {
+  border-radius: var(--11__);
+}
+.br-11-px {
+  border-radius: var(--11-px);
+}
+.br-11-rem {
+  border-radius: var(--11-rem);
+}
+.br-11-\@ {
+  border-radius: var(--abstract-getter);
+}
+
+[data-setter=__] .bw-11-\@ {
+  --abstract-getter: var(--11__);
+}
+
+[data-setter=_] .bw-11-\@ {
+  --abstract-getter: var(--11_);
+}
+
+[data-setter=""] .bw-11-\@ {
+  --abstract-getter: var(--11);
+}
+
+[data-setter="-"] .bw-11-\@ {
+  --abstract-getter: var(--11-);
+}
+
+[data-setter=-px] .bw-11-\@ {
+  --abstract-getter: var(--11-px);
+}
+
+[data-setter=-rem] .bw-11-\@ {
+  --abstract-getter: var(--11-rem);
+}
+
+.bw-11 {
+  border-width: var(--11);
+}
+.bw-11- {
+  border-width: var(--11-);
+}
+.bw-11-- {
+  border-width: var(--11--);
+}
+.bw-11_ {
+  border-width: var(--11_);
+}
+.bw-11__ {
+  border-width: var(--11__);
+}
+.bw-11-px {
+  border-width: var(--11-px);
+}
+.bw-11-rem {
+  border-width: var(--11-rem);
+}
+.bw-11-\@ {
+  border-width: var(--abstract-getter);
+}
+
+:root {
+  --fs-1__: clamp(0.38rem, 0.83vw, 0.83rem);
+  --fs-1_: clamp(0.5rem, 0.83vw, 0.83rem);
+  --fs-1: clamp(0.65rem, 0.83vw, 0.83rem);
+  --fs-1-px: 12px;
+  --fs-1-rem: 0.75rem;
+}
+
+.fs-1 {
+  font-size: var(--fs-1);
+}
+.fs-1_ {
+  font-size: var(--fs-1_);
+}
+.fs-1__ {
+  font-size: var(--fs-1__);
+}
+.fs-1-px {
+  font-size: var(--fs-1-px);
+}
+.fs-1-rem {
+  font-size: var(--fs-1-rem);
+}
+.fs-1-1 {
+  font-size: 1px;
+}
+
+:root {
+  --fs-2__: clamp(0.52rem, 1.11vw, 1.11rem);
+  --fs-2_: clamp(0.67rem, 1.11vw, 1.11rem);
+  --fs-2: clamp(0.87rem, 1.11vw, 1.11rem);
+  --fs-2-px: 16px;
+  --fs-2-rem: 1rem;
+}
+
+.fs-2 {
+  font-size: var(--fs-2);
+}
+.fs-2_ {
+  font-size: var(--fs-2_);
+}
+.fs-2__ {
+  font-size: var(--fs-2__);
+}
+.fs-2-px {
+  font-size: var(--fs-2-px);
+}
+.fs-2-rem {
+  font-size: var(--fs-2-rem);
+}
+.fs-2-1 {
+  font-size: 1px;
+}
+
+:root {
+  --fs-3__: clamp(0.77rem, 1.67vw, 1.67rem);
+  --fs-3_: clamp(1rem, 1.67vw, 1.67rem);
+  --fs-3: clamp(1.3rem, 1.67vw, 1.67rem);
+  --fs-3-px: 24px;
+  --fs-3-rem: 1.5rem;
+}
+
+.fs-3 {
+  font-size: var(--fs-3);
+}
+.fs-3_ {
+  font-size: var(--fs-3_);
+}
+.fs-3__ {
+  font-size: var(--fs-3__);
+}
+.fs-3-px {
+  font-size: var(--fs-3-px);
+}
+.fs-3-rem {
+  font-size: var(--fs-3-rem);
+}
+.fs-3-1 {
+  font-size: 1px;
+}
+
+:root {
+  --fs-4__: clamp(0.89rem, 1.94vw, 1.94rem);
+  --fs-4_: clamp(1.16rem, 1.94vw, 1.94rem);
+  --fs-4: clamp(1.51rem, 1.94vw, 1.94rem);
+  --fs-4-px: 28px;
+  --fs-4-rem: 1.75rem;
+}
+
+.fs-4 {
+  font-size: var(--fs-4);
+}
+.fs-4_ {
+  font-size: var(--fs-4_);
+}
+.fs-4__ {
+  font-size: var(--fs-4__);
+}
+.fs-4-px {
+  font-size: var(--fs-4-px);
+}
+.fs-4-rem {
+  font-size: var(--fs-4-rem);
+}
+.fs-4-1 {
+  font-size: 1px;
+}
+
+:root {
+  --fs-5__: clamp(1.28rem, 2.78vw, 2.78rem);
+  --fs-5_: clamp(1.67rem, 2.78vw, 2.78rem);
+  --fs-5: clamp(2.17rem, 2.78vw, 2.78rem);
+  --fs-5-px: 40px;
+  --fs-5-rem: 2.5rem;
+}
+
+.fs-5 {
+  font-size: var(--fs-5);
+}
+.fs-5_ {
+  font-size: var(--fs-5_);
+}
+.fs-5__ {
+  font-size: var(--fs-5__);
+}
+.fs-5-px {
+  font-size: var(--fs-5-px);
+}
+.fs-5-rem {
+  font-size: var(--fs-5-rem);
+}
+.fs-5-1 {
+  font-size: 1px;
+}
+
+:root {
+  --fs-6__: clamp(1.86rem, 4.03vw, 4.03rem);
+  --fs-6_: clamp(2.42rem, 4.03vw, 4.03rem);
+  --fs-6: clamp(3.15rem, 4.03vw, 4.03rem);
+  --fs-6-px: 58px;
+  --fs-6-rem: 3.625rem;
+}
+
+.fs-6 {
+  font-size: var(--fs-6);
+}
+.fs-6_ {
+  font-size: var(--fs-6_);
+}
+.fs-6__ {
+  font-size: var(--fs-6__);
+}
+.fs-6-px {
+  font-size: var(--fs-6-px);
+}
+.fs-6-rem {
+  font-size: var(--fs-6-rem);
+}
+.fs-6-1 {
+  font-size: 1px;
+}
+
+:root {
+  --fs-7__: clamp(2.31rem, 5vw, 5rem);
+  --fs-7_: clamp(3rem, 5vw, 5rem);
+  --fs-7: clamp(3.9rem, 5vw, 5rem);
+  --fs-7-px: 72px;
+  --fs-7-rem: 4.5rem;
+}
+
+.fs-7 {
+  font-size: var(--fs-7);
+}
+.fs-7_ {
+  font-size: var(--fs-7_);
+}
+.fs-7__ {
+  font-size: var(--fs-7__);
+}
+.fs-7-px {
+  font-size: var(--fs-7-px);
+}
+.fs-7-rem {
+  font-size: var(--fs-7-rem);
+}
+.fs-7-1 {
+  font-size: 1px;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+:root {
+  --fade: 50%;
+  --fade_: 20%;
+  --fade__: 5%;
+  --wght: 400;
+  --root-brand: 78% 0.2 73;
+  --root-dark: 5% 0 0;
+  --root-light: 95% 0 0;
+  --brand: oklch(var(--root-brand));
+  --brand_: oklch(var(--root-brand) / var(--fade));
+  --brand__: oklch(var(--root-brand) / var(--fade_));
+  --brand___: oklch(var(--root-brand) / var(--fade__));
+  --dark: oklch(var(--root-dark));
+  --dark_: oklch(var(--root-dark) / var(--fade));
+  --dark__: oklch(var(--root-dark) / var(--fade_));
+  --dark___: oklch(var(--root-dark) / var(--fade__));
+  --light: oklch(var(--root-light));
+  --light_: oklch(var(--root-light) / var(--fade));
+  --light__: oklch(var(--root-light) / var(--fade_));
+  --light___: oklch(var(--root-light) / var(--fade__));
+}
+
+.darkMode {
+  --dark: oklch(var(--root-light));
+  --dark_: oklch(var(--root-light) / var(--fade));
+  --dark__: oklch(var(--root-light) / var(--fade_));
+  --dark___: oklch(var(--root-light) / var(--fade__));
+  --light: oklch(var(--root-dark));
+  --light_: oklch(var(--root-dark) / var(--fade));
+  --light__: oklch(var(--root-dark) / var(--fade_));
+  --light___: oklch(var(--root-dark) / var(--fade__));
+}
+
+._bc-brand,
+._bg-brand,
+._c-brand {
+  --current-color: var(--brand);
+}
+._bc-brand_,
+._bg-brand_,
+._c-brand_ {
+  --current-color: var(--brand_);
+}
+._bc-brand__,
+._bg-brand__,
+._c-brand__ {
+  --current-color: var(--brand__);
+}
+._bc-brand___,
+._bg-brand___,
+._c-brand___ {
+  --current-color: var(--brand___);
+}
+._bc-dark,
+._bg-dark,
+._c-dark {
+  --current-color: var(--dark);
+}
+._bc-dark_,
+._bg-dark_,
+._c-dark_ {
+  --current-color: var(--dark_);
+}
+._bc-dark__,
+._bg-dark__,
+._c-dark__ {
+  --current-color: var(--dark__);
+}
+._bc-dark___,
+._bg-dark___,
+._c-dark___ {
+  --current-color: var(--dark___);
+}
+._bc-light,
+._bg-light,
+._c-light {
+  --current-color: var(--light);
+}
+._bc-light_,
+._bg-light_,
+._c-light_ {
+  --current-color: var(--light_);
+}
+._bc-light__,
+._bg-light__,
+._c-light__ {
+  --current-color: var(--light__);
+}
+._bc-light___,
+._bg-light___,
+._c-light___ {
+  --current-color: var(--light___);
+}
+
+[class*=_bc] {
+  border-color: var(--current-color);
+}
+
+[class*=_bg] {
+  background-color: var(--current-color);
+}
+
+[class*=_c] {
+  color: var(--current-color);
+}
+
+a {
+  text-decoration: none;
+}
+a:hover {
+  background-color: var(--brand__);
+}
+a:hover span {
+  color: var(--dark);
+}
+a:hover:is(._bg-brand) {
+  background-color: var(--dark);
+}
+a:hover:is(._bg-brand) span {
+  color: var(--light);
+}
+
+.flex {
+  display: flex;
+  flex-direction: row;
+}
+.flex.center {
+  align-items: center;
+}
+.flex.space {
+  justify-content: space-between;
+  align-items: center;
+}
+.flex.y {
+  flex-direction: column;
+  align-items: flex-start;
+}
+.flex.y.center {
+  justify-content: center;
+}
+
+.stretch {
+  flex: 1;
+}
+
+.ar-1 {
+  aspect-ratio: 1/1;
+}
+
+.border {
+  border-style: solid;
+}
+
+.oh {
+  overflow: hidden;
+}
+
+.lh-1 {
+  line-height: 1;
+}
+
+img {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+body {
+  margin: 0;
+  font-family: "Noto Sans Display", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-style: normal;
+  font-variation-settings: "wght" 400;
+  background-color: var(--light);
+  color: var(--dark);
+  padding-bottom: var(--6);
+  overflow: auto;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  padding: 0;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings: "wght" var(--wght);
+  font-family: "Bodoni Moda", serif;
+}
+
+p {
+  margin: 0;
+}
+
+nav {
+  background-color: var(--light_);
+  -webkit-backdrop-filter: blur(1rem);
+          backdrop-filter: blur(1rem);
+  top: 0px;
+  width: 100%;
+  position: sticky;
+  z-index: 100;
+}
+nav ol {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  list-style: none;
+  gap: var(--2__);
+}
+nav ol li {
+  padding: var(--1);
+  border-radius: var(--3-);
+  outline: 1px solid var(--dark___);
+  text-align: center;
+  flex: 1;
+  cursor: pointer;
+}
+nav ol li:hover:not(.selected) {
+  background-color: var(--dark);
+  color: var(--light);
+}
+nav ol li.selected {
+  background-color: var(--brand);
+  outline: 3px solid var(--brand__);
+}
+
+.ttu {
+  text-transform: uppercase;
+}
+
+.hide {
+  display: none !important;
+}
+
+.bold {
+  --wght: 700;
+}
+
+p {
+  width: 100%;
+  line-height: 1.6;
+  max-width: var(--11);
+}
+
+section {
+  width: 100%;
+  overflow: hidden;
+  padding-bottom: var(--3);
+  position: relative;
+  z-index: 20;
+}
+section nav {
+  padding-inline: unset;
+  z-index: unset;
+  position: relative;
+}
+
+.title {
+  line-height: 0.8;
+  color: var(--brand);
+  font-variation-settings: "wght" var(--wght);
+}
+.title span {
+  line-height: 0.3 !important;
+  background-color: red;
+}
+.title.reverse {
+  font-variation-settings: "wght" calc(400 + 900 - var(--wght));
+}
+
+.demo-line {
+  position: relative;
+  transition: width 0.5s;
+}
+.demo-line code {
+  position: absolute;
+  top: 0;
+  translate: 0% calc(-100% - var(--1));
+  width: -moz-fit-content;
+  width: fit-content;
+  white-space: nowrap;
+  z-index: 2;
+  background-color: var(--dark___);
+  color: var(--dark);
+  padding: var(--1);
+}
+
+.line {
+  height: 1px;
+  background-color: var(--dark);
+  position: relative;
+  transition: width 0.5s;
+  width: 100%;
+}
+.line:before, .line:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: -0.5rem;
+  transition: width 0.5s;
+  width: 1px;
+  height: 1rem;
+  background-color: var(--dark);
+}
+.line:after {
+  left: unset;
+  right: 0;
+}
+
+.line-y {
+  width: 1px;
+  position: relative;
+  background-color: var(--dark);
+  opacity: 0.2;
+}
+.line-y:after {
+  content: "";
+  position: absolute;
+  height: 100%;
+  aspect-ratio: 1/1;
+  background-color: rgba(255, 255, 255, 0.1333333333);
+  border-radius: 100%;
+  transform: translateX(-50%);
+  border: 1px solid var(--dark);
+}
+
+.stage {
+  filter: blur(4px);
+  position: absolute;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+  height: 100%;
+  width: 100%;
+  left: 0px;
+  top: var(--6-);
+}
+.stage .stage-top {
+  position: absolute;
+  width: 100%;
+  top: 0px;
+  align-items: flex-start;
+  justify-content: space-around;
+}/*# sourceMappingURL=main.css.map */
