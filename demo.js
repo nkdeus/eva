@@ -17,10 +17,55 @@ function updateBodyClass() {
 }
 
 
+function randomTitle(){
+
+       // Sélectionnez le titre h1
+       const titleElement = document.querySelector('.title');
+
+       // Obtenez le texte du titre
+       const titleText = titleElement.textContent;
+
+       // Fonction pour générer une classe aléatoire pour fwg
+       function getRandomFwgClass() {
+           const randomNum = Math.floor(Math.random() * 9) + 1; // Génère un nombre entre 1 et 9
+           return `fwg-${randomNum}`;
+       }
+
+       // Fonction pour générer une classe aléatoire pour fwd
+       function getRandomFwdClass() {
+           const randomNum = Math.floor(Math.random() * 16) + 1; // Génère un nombre entre 1 et 16
+           return `fwd-${randomNum}`;
+       }
+
+       // Initialiser une chaîne pour le nouveau contenu HTML
+       let newTitleHTML = '';
+
+       // Boucle à travers chaque caractère du texte du titre
+       for (const char of titleText) {
+           // Ignore les espaces
+           if (char.trim() !== '') {
+               // Génère les classes aléatoires pour chaque lettre
+               const randomFwgClass = getRandomFwgClass();
+               const randomFwdClass = getRandomFwdClass();
+
+               // Crée un span avec les classes aléatoires
+               newTitleHTML += `<span class="${randomFwgClass} ${randomFwdClass} f-scale">${char}</span>`;
+           } else {
+               // Ajouter un espace sous forme de span sans classe
+               newTitleHTML += `<span> </span>`;
+           }
+       }
+
+       // Remplacez le contenu du titre par le nouveau HTML
+       titleElement.innerHTML = newTitleHTML;
+}
+
 
 
 document.addEventListener('DOMContentLoaded', function() {
 
+    
+    randomTitle();
       
     body = document.querySelector('body');
 
@@ -28,8 +73,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     setInterval(updateBodyClass, 60000); 
 
-
- gsap.registerPlugin(ScrollTrigger);
+    const nav = document.getElementById('nav');
+    gsap.registerPlugin(ScrollTrigger);
 
     gsap.to("body", {
       scrollTrigger: {
@@ -39,8 +84,11 @@ document.addEventListener('DOMContentLoaded', function() {
         scrub: true, 
         onUpdate: (self) => {
           const progress = self.progress; 
-          const poids = 400 + progress * 500; 
-          document.documentElement.style.setProperty("--wght", poids.toString());
+          let angle = Math.ceil((self.progress * 360)*100)/100; 
+
+          const poids = Math.ceil((400 + progress * 500)*100)/100; 
+          document.documentElement.style.setProperty("--angle", angle.toString());
+          nav.style.setProperty("--wght", poids.toString());
      
         }
       }

@@ -1,0 +1,89 @@
+:root {
+  --fade: 50%;
+  --fade_: 20%;
+  --fade__: 5%;
+
+  --wght: 400;
+
+  --root-brand: 78% 0.2 73;
+  --root-dark: 5% 0 0;
+  --root-light: 95% 0 0;
+
+  --brand: oklch(var(--root-brand));
+  --brand_: oklch(var(--root-brand) / var(--fade));
+  --brand__: oklch(var(--root-brand) / var(--fade_));
+  --brand___: oklch(var(--root-brand) / var(--fade__));
+
+  --dark: oklch(var(--root-dark));
+  --dark_: oklch(var(--root-dark) / var(--fade));
+  --dark__: oklch(var(--root-dark) / var(--fade_));
+  --dark___: oklch(var(--root-dark) / var(--fade__));
+
+  --light: oklch(var(--root-light));
+  --light_: oklch(var(--root-light) / var(--fade));
+  --light__: oklch(var(--root-light) / var(--fade_));
+  --light___: oklch(var(--root-light) / var(--fade__));
+}
+
+.darkMode {
+  --dark: oklch(var(--root-light));
+  --dark_: oklch(var(--root-light) / var(--fade));
+  --dark__: oklch(var(--root-light) / var(--fade_));
+  --dark___: oklch(var(--root-light) / var(--fade__));
+
+  --light: oklch(var(--root-dark));
+  --light_: oklch(var(--root-dark) / var(--fade));
+  --light__: oklch(var(--root-dark) / var(--fade_));
+  --light___: oklch(var(--root-dark) / var(--fade__));
+}
+
+// colors
+._bc,
+._bg,
+._c {
+  &-brand {
+    --current-color: var(--brand);
+    &_ {
+      --current-color: var(--brand_);
+      &_ {
+        --current-color: var(--brand__);
+        &_ {
+          --current-color: var(--brand___);
+        }
+      }
+    }
+  }
+  &-dark {
+    --current-color: var(--dark);
+    &_ {
+      --current-color: var(--dark_);
+      &_ {
+        --current-color: var(--dark__);
+        &_ {
+          --current-color: var(--dark___);
+        }
+      }
+    }
+  }
+  &-light {
+    --current-color: var(--light);
+    &_ {
+      --current-color: var(--light_);
+      &_ {
+        --current-color: var(--light__);
+        &_ {
+          --current-color: var(--light___);
+        }
+      }
+    }
+  }
+}
+[class*="_bc"] {
+  border-color: var(--current-color);
+}
+[class*="_bg"] {
+  background-color: var(--current-color);
+}
+[class*="_c"] {
+  color: var(--current-color);
+}

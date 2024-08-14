@@ -1,0 +1,43 @@
+$wght-min: 200;
+$wght-max: 900;
+$wght-step: 100;
+
+$wdth-min: 50;
+$wdth-max: 170;
+$wdth-step: 10;
+
+:root {
+  --title-font: "scale-variable";
+  --body-font: "Noto Sans Display";
+
+  --title-weight: 700;
+  --body-weight: 400;
+
+  $wght-steps: (($wght-max - $wght-min) / $wght-step) + 1;
+  @for $i from 0 through $wght-steps - 1 {
+    --f-wg-#{$i + 1}: #{$wght-min + ($wght-step * $i)};
+  }
+
+  $wdth-steps: (($wdth-max - $wdth-min) / $wdth-step) + 1;
+  @for $i from 0 through $wdth-steps - 1 {
+    --f-wd-#{$i + 1}: #{$wdth-min + ($wdth-step * $i)};
+  }
+}
+
+$wght-steps: (($wght-max - $wght-min) / $wght-step) + 1;
+@for $i from 0 through $wght-steps - 1 {
+  .fwg-#{$i + 1} {
+    --current-f-wg: var(--f-wg-#{$i + 1});
+  }
+}
+
+$wdth-steps: (($wdth-max - $wdth-min) / $wdth-step) + 1;
+@for $i from 0 through $wdth-steps - 1 {
+  .fwd-#{$i + 1} {
+    --current-f-wd: var(--f-wd-#{$i + 1});
+  }
+}
+
+.f-scale {
+  font-variation-settings: "wght" var(--current-f-wg, 400), "wdth" var(--current-f-wd, 100), "ital" 0;
+}

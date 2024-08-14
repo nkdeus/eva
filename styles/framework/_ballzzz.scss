@@ -1,0 +1,20 @@
+.ballzzz {
+  width: 4rem;
+  height: 4rem;
+  --rayonX: 1rem;
+  --rayonY: 1rem;
+  filter: url("#fancy-goo");
+
+  .ball {
+    left: 35% !important;
+    top: 35% !important;
+
+    --a: calc(var(--angle, 0) * 1deg);
+    --a2: calc(var(--angle, 0) * 1deg);
+    --index: calc(calc(360deg / var(--max)) * var(--offset));
+
+    translate: calc(cos(calc(var(--a) + var(--index))) * var(--rayonX)) calc(sin(calc(var(--a) + var(--index)) / 1) * var(--rayonY));
+
+    scale: max(calc(cos(calc(calc(var(--a2) + 175deg) + var(--index))) + 0.3), 0.4);
+  }
+}
