@@ -1,13 +1,12 @@
 .ballzzz {
-  width: 4rem;
-  height: 4rem;
-  --rayonX: 1rem;
-  --rayonY: 1rem;
+  --rayonX: var(--3-);
+  --rayonY: var(--3-);
   filter: url("#fancy-goo");
+  scale: 1;
 
   .ball {
     left: 35% !important;
-    top: 35% !important;
+    top: 25% !important;
 
     --a: calc(var(--angle, 0) * 1deg);
     --a2: calc(var(--angle, 0) * 1deg);
@@ -15,6 +14,6 @@
 
     translate: calc(cos(calc(var(--a) + var(--index))) * var(--rayonX)) calc(sin(calc(var(--a) + var(--index)) / 1) * var(--rayonY));
 
-    scale: max(calc(cos(calc(calc(var(--a2) + 175deg) + var(--index))) + 0.3), 0.4);
+    scale: max(calc(cos(calc(calc(var(--a2) + 175deg) + var(--index))) + 0.35), 0.1);
   }
 }

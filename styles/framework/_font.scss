@@ -40,4 +40,8 @@ $wdth-steps: (($wdth-max - $wdth-min) / $wdth-step) + 1;
 
 .f-scale {
   font-variation-settings: "wght" var(--current-f-wg, 400), "wdth" var(--current-f-wd, 100), "ital" 0;
+  &.offset {
+    position: relative;
+    padding-top: 0.25em;
+  }
 }

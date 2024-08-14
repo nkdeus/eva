@@ -60,12 +60,6 @@ img {
   line-height: 0.8;
   position: relative;
   top: 0.2rem;
-  color: var(--brand);
-
-  //font-variation-settings: "wght" var(--wght);
-  &.reverse {
-    //font-variation-settings: "wght" calc(400 + calc(900 - var(--wght)));
-  }
 }
 
 .demo-line {
