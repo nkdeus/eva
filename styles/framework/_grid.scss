@@ -1,0 +1,8 @@
+.grid {
+  display: grid;
+
+  &-1 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(calc(10rem + 10vw), 1fr));
+  }
+}

@@ -1,3 +1,7 @@
+$dev-mode: true; // false for prod usage
+$build-class: true; // false to use only CSS var
+
+/* BUILD EVA CSS FRAMEWORK */
 @import "./framework/reset";
 @import "./framework/eva";
 @import "./framework/colors";
@@ -6,3 +10,6 @@
 @import "./framework/ballzzz";
 @import "./framework/font";
 @import "./framework/index";
+
+/* BUILD ONLY FLUID CSS VAR */
+//@import "./framework/eva";

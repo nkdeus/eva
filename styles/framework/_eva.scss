@@ -22,6 +22,9 @@
 // START FRAMEWORK
 // EVA-CSS v1.0
 
+@use "sass:math";
+@use "sass:map";
+
 $max: 1rem;
 $Φ: 1.61803398875;
 $min: 0.38rem;
@@ -33,6 +36,20 @@ $screen: 1440;
 $sizes: 5, 10, 15, 25, 40, 65, 105, 170, 275, 445, 720;
 $font-sizes: 12, 16, 24, 28, 40, 58, 72;
 $eva: 0;
+
+$setters-type: "__", "_", "", "-", "-px", "-rem";
+
+$sizing-class: "__", "_", "", "-";
+@if $dev-mode {
+  $sizing-class: append($sizing-class, "-px");
+  $sizing-class: append($sizing-class, "-rem");
+}
+
+$font-size-class: "__", "_", "";
+@if $dev-mode {
+  $font-size-class: append($font-size-class, "-px");
+  $font-size-class: append($font-size-class, "-rem");
+}
 
 $properties: (
   w: width,
@@ -50,82 +67,196 @@ $font-properties: (
 );
 
 @function round2($number) {
-  @return round($number * 100) / 100;
+  @return math.div(round($number * 100), 100);
 }
 
-// Boucle SCSS pour générer des classes avec classe
-@each $size in $sizes {
-  $eva: $eva + 1;
-  $calc-percent: round2(($size / $screen) * 100);
-  $calc-percent_: round2(($size / $screen) * $ez);
+@function getPercent($size, $ratio: 100) {
+  @return round2((math.div($size, $screen)) * $ratio);
+}
 
-  $size-px: $size * 1px;
-  $size-rem: ($size / 16) * 1rem;
-  $rem-min: round2($calc-percent * $min);
-  $vw: round2($calc-percent * $unit-fluid);
-  $vw_: calc(#{round2($calc-percent_ * $unit-fluid)} - #{$rem-min});
-  $rem-max: round2($calc-percent * $max);
+@function toPx($size) {
+  @return $size * 1px;
+}
 
-  :root {
-    --#{$eva}__: clamp(#{round2($rem-min / $eva)}, #{$vw_}, #{$rem-max});
-    --#{$eva}_: clamp(#{round2($rem-min / $Φ)}, #{$vw}, #{$rem-max});
-    --#{$eva}: clamp(#{$rem-min}, #{$vw}, #{$rem-max});
-    --#{$eva}-: clamp(#{round2($rem-min * $Φ)}, #{$vw}, #{$rem-max});
-    --#{$eva}-px: #{$size-px};
-    --#{$eva}-rem: #{$size-rem};
+@function toRem($size) {
+  @return math.div($size, 16) * 1rem;
+}
+
+@function getMinRem($percent) {
+  @return round2($percent * $min);
+}
+
+@function getMaxRem($percent) {
+  @return round2($percent * $max);
+}
+
+@function getVW($percent) {
+  @return round2($percent * $unit-fluid);
+}
+
+@function getFinalMinDiv($size, $ratio) {
+  @return round2(math.div($size, $ratio));
+}
+
+@function getFinalMinMulti($size, $ratio) {
+  @return round2($size * $ratio);
+}
+
+@mixin getVarSetter($key, $eva) {
+  @each $setter in $setters-type {
+    [data-setter="#{$setter}"] {
+      .#{$key}-#{$eva}-\@ {
+        --abstract-getter: var(--#{$eva}#{$setter});
+      }
+    }
   }
+}
 
-  @each $key, $prop in $properties {
-    [data-setter="__"] {
-      .#{$key}-#{$eva}-\@ {
-        --abstract-getter: var(--#{$eva}__);
+@mixin getAllSizingClass($prop, $key, $eva) {
+  @each $class in $sizing-class {
+    .#{$key}-#{$eva}#{$class} {
+      #{$prop}: var(--#{$eva}#{$class});
+    }
+  }
+  @if $dev-mode {
+    .#{$key}-#{$eva}-\@ {
+      #{$prop}: var(--abstract-getter);
+    }
+  }
+}
+
+@mixin getAllFontSizeClass($prop, $key, $eva) {
+  @each $class in $font-size-class {
+    .#{$key}-#{$eva}#{$class} {
+      #{$prop}: var(--#{$key}-#{$eva}#{$class});
+    }
+  }
+}
+
+@function is-map($var) {
+  @return type-of($var) == "map";
+}
+
+// Boucle pour les var
+:root {
+  @each $size in $sizes {
+    $eva: $eva + 1;
+
+    $calc-percent: getPercent($size);
+    $calc-percent_: getPercent($size, $ez);
+
+    $size-px: toPx($size);
+    $size-rem: toRem($size);
+
+    $rem-min: getMinRem($calc-percent);
+    $rem-max: getMaxRem($calc-percent);
+    $vw: getVW($calc-percent);
+
+    $vw_: calc(#{getVW($calc-percent_)} - #{$rem-min});
+
+    $final-min__: getFinalMinDiv($rem-min, $eva);
+    $final-min_: getFinalMinDiv($rem-min, $Φ);
+    $final-min: getFinalMinMulti($rem-min, $Φ);
+
+    $css-vars: (
+      "__": (
+        min: $final-min__,
+        fluid: $vw_,
+        max: $rem-max,
+      ),
+      "_": (
+        min: $final-min_,
+        fluid: $vw,
+        max: $rem-max,
+      ),
+      "": (
+        min: $rem-min,
+        fluid: $vw,
+        max: $rem-max,
+      ),
+      "-": (
+        min: $final-min,
+        fluid: $vw,
+        max: $rem-max,
+      ),
+    );
+
+    @if $dev-mode {
+      $css-vars-dev: (
+        "-px": $size-px,
+        "-rem": $size-rem,
+      );
+      $css-vars: map.merge($css-vars, $css-vars-dev);
+    }
+
+    @each $key, $prop in $css-vars {
+      @if (is-map($prop)) {
+        --#{$eva}#{$key}: clamp(#{map-get($prop, min)}, #{map-get($prop, fluid)}, #{map-get($prop, max)});
+      } @else {
+        --#{$eva}#{$key}: #{$prop};
       }
     }
-    [data-setter="_"] {
-      .#{$key}-#{$eva}-\@ {
-        --abstract-getter: var(--#{$eva}_);
-      }
+  }
+}
+
+@if $build-class {
+  // Boucle SCSS pour générer des class avec classe
+  @each $size in $sizes {
+    $eva: $eva + 1;
+
+    $calc-percent: getPercent($size);
+    $calc-percent_: getPercent($size, $ez);
+
+    $size-px: toPx($size);
+    $size-rem: toRem($size);
+
+    $rem-min: getMinRem($calc-percent);
+    $rem-max: getMaxRem($calc-percent);
+    $vw: getVW($calc-percent);
+
+    $vw_: calc(#{getVW($calc-percent_)} - #{$rem-min});
+
+    $final-min__: getFinalMinDiv($rem-min, $eva);
+    $final-min_: getFinalMinDiv($rem-min, $Φ);
+    $final-min: getFinalMinMulti($rem-min, $Φ);
+
+    $css-vars: (
+      "__": (
+        min: $final-min__,
+        fluid: $vw_,
+        max: $rem-max,
+      ),
+      "_": (
+        min: $final-min_,
+        fluid: $vw,
+        max: $rem-max,
+      ),
+      "": (
+        min: $rem-min,
+        fluid: $vw,
+        max: $rem-max,
+      ),
+      "-": (
+        min: $final-min,
+        fluid: $vw,
+        max: $rem-max,
+      ),
+    );
+
+    @if $dev-mode {
+      $css-vars-dev: (
+        "-px": $size-px,
+        "-rem": $size-rem,
+      );
+      $css-vars: map.merge($css-vars, $css-vars-dev);
     }
-    [data-setter=""] {
-      .#{$key}-#{$eva}-\@ {
-        --abstract-getter: var(--#{$eva});
+
+    @each $key, $prop in $properties {
+      @if $dev-mode == true {
+        @include getVarSetter($key, $eva);
       }
-    }
-    [data-setter="-"] {
-      .#{$key}-#{$eva}-\@ {
-        --abstract-getter: var(--#{$eva}-);
-      }
-    }
-    [data-setter="-px"] {
-      .#{$key}-#{$eva}-\@ {
-        --abstract-getter: var(--#{$eva}-px);
-      }
-    }
-    [data-setter="-rem"] {
-      .#{$key}-#{$eva}-\@ {
-        --abstract-getter: var(--#{$eva}-rem);
-      }
-    }
-    .#{$key}-#{$eva} {
-      #{$prop}: var(--#{$eva});
-      &- {
-        #{$prop}: var(--#{$eva}-);
-      }
-      &_ {
-        #{$prop}: var(--#{$eva}_);
-        &_ {
-          #{$prop}: var(--#{$eva}__);
-        }
-      }
-      &-px {
-        #{$prop}: var(--#{$eva}-px);
-      }
-      &-rem {
-        #{$prop}: var(--#{$eva}-rem);
-      }
-      &-\@ {
-        #{$prop}: var(--abstract-getter);
-      }
+
+      @include getAllSizingClass($prop, $key, $eva);
     }
   }
 }
@@ -136,40 +267,104 @@ $min: 0.6rem;
 
 $Φ: 1.3;
 $fs: "fs";
-// Boucle SCSS pour générer des classes des fonts avec classe
-@each $size in $font-sizes {
-  $eva: $eva + 1;
-  $calc-percent: round2(($size / $screen) * 100);
 
-  $size-px: $size * 1px;
-  $size-rem: ($size / 16) * 1rem;
-  $rem-min: round2($calc-percent * $min);
-  $vw: round2($calc-percent * $unit-fluid);
-  $rem-max: round2($calc-percent * $max);
+// Boucle pour les vars
+:root {
+  @each $size in $font-sizes {
+    $eva: $eva + 1;
+    $calc-percent: getPercent($size);
 
-  :root {
-    --#{$fs}-#{$eva}__: clamp(#{round2($rem-min / $Φ)}, #{$vw}, #{$rem-max});
-    --#{$fs}-#{$eva}_: clamp(#{$rem-min}, #{$vw}, #{$rem-max});
-    --#{$fs}-#{$eva}: clamp(#{round2($rem-min * $Φ)}, #{$vw}, #{$rem-max});
-    --#{$fs}-#{$eva}-px: #{$size-px};
-    --#{$fs}-#{$eva}-rem: #{$size-rem};
+    $size-px: toPx($size);
+    $size-rem: toRem($size);
+
+    $rem-min: getMinRem($calc-percent);
+    $vw: getVW($calc-percent);
+    $rem-max: getMaxRem($calc-percent);
+
+    $final-min__: getFinalMinDiv($rem-min, $Φ);
+    $final-min: getFinalMinMulti($rem-min, $Φ);
+
+    $css-fs-vars: (
+      "__": (
+        min: $final-min__,
+        fluid: $vw,
+        max: $rem-max,
+      ),
+      "_": (
+        min: $rem-min,
+        fluid: $vw,
+        max: $rem-max,
+      ),
+      "": (
+        min: $final-min,
+        fluid: $vw,
+        max: $rem-max,
+      ),
+    );
+
+    @if $dev-mode {
+      $css-vars-dev: (
+        "-px": $size-px,
+        "-rem": $size-rem,
+      );
+      $css-fs-vars: map.merge($css-fs-vars, $css-vars-dev);
+    }
+
+    @each $key, $prop in $css-fs-vars {
+      @if (is-map($prop)) {
+        --#{$fs}-#{$eva}#{$key}: clamp(#{map-get($prop, min)}, #{map-get($prop, fluid)}, #{map-get($prop, max)});
+      } @else {
+        --#{$fs}-#{$eva}#{$key}: #{$prop};
+      }
+    }
   }
-  @each $key, $prop in $font-properties {
-    .#{$key}-#{$eva} {
-      #{$prop}: var(--#{$fs}-#{$eva});
+}
 
-      &_ {
-        #{$prop}: var(--#{$fs}-#{$eva}_);
-        &_ {
-          #{$prop}: var(--#{$fs}-#{$eva}__);
-        }
-      }
-      &-px {
-        #{$prop}: var(--#{$fs}-#{$eva}-px);
-      }
-      &-rem {
-        #{$prop}: var(--#{$fs}-#{$eva}-rem);
-      }
+// Boucle SCSS pour générer des class des font-size avec classe
+
+@if ($build-class) {
+  @each $size in $font-sizes {
+    $eva: $eva + 1;
+    $calc-percent: getPercent($size);
+
+    $size-px: toPx($size);
+    $size-rem: toRem($size);
+
+    $rem-min: getMinRem($calc-percent);
+    $vw: getVW($calc-percent);
+    $rem-max: getMaxRem($calc-percent);
+
+    $final-min__: getFinalMinDiv($rem-min, $Φ);
+    $final-min: getFinalMinMulti($rem-min, $Φ);
+
+    $css-fs-vars: (
+      "__": (
+        min: $final-min__,
+        fluid: $vw,
+        max: $rem-max,
+      ),
+      "_": (
+        min: $rem-min,
+        fluid: $vw,
+        max: $rem-max,
+      ),
+      "": (
+        min: $final-min,
+        fluid: $vw,
+        max: $rem-max,
+      ),
+    );
+
+    @if $dev-mode {
+      $css-vars-dev: (
+        "-px": $size-px,
+        "-rem": $size-rem,
+      );
+      $css-fs-vars: map.merge($css-fs-vars, $css-vars-dev);
+    }
+
+    @each $key, $prop in $font-properties {
+      @include getAllFontSizeClass($prop, $key, $eva);
     }
   }
 }
