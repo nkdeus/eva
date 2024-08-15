@@ -4,6 +4,9 @@
   &.center {
     align-items: center;
   }
+  &.start {
+    align-items: flex-start;
+  }
   &.space {
     justify-content: space-between;
     align-items: center;
@@ -14,6 +17,9 @@
     &.center {
       justify-content: center;
     }
+  }
+  &.wrap {
+    flex-wrap: wrap;
   }
 }
 .stretch {
@@ -39,8 +45,16 @@
   border-radius: 100%;
 }
 
+pre {
+  white-space: pre-line !important;
+}
+
 .border {
   border-style: solid;
+  &.thin {
+    border-width: 1px;
+    border-color: var(--dark__);
+  }
 }
 
 .oh {
@@ -64,5 +78,5 @@ img {
 }
 
 .bold {
-  --wght: 700;
+  font-weight: bold;
 }

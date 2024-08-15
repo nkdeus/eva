@@ -41,9 +41,8 @@ $properties: (
   px: padding-inline,
   pr: padding-right,
   py: padding-block,
-  g: gap,
   br: border-radius,
-  bw: border-width,
+  g: gap,
 );
 
 $font-properties: (
@@ -111,9 +110,6 @@ $font-properties: (
       #{$prop}: var(--#{$eva});
       &- {
         #{$prop}: var(--#{$eva}-);
-        &- {
-          #{$prop}: var(--#{$eva}--);
-        }
       }
       &_ {
         #{$prop}: var(--#{$eva}_);
@@ -173,9 +169,6 @@ $fs: "fs";
       }
       &-rem {
         #{$prop}: var(--#{$fs}-#{$eva}-rem);
-      }
-      &-1 {
-        #{$prop}: 1px;
       }
     }
   }

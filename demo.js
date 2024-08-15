@@ -64,7 +64,8 @@ function randomTitle(){
 
 document.addEventListener('DOMContentLoaded', function() {
 
-    
+
+
     randomTitle();
       
     body = document.querySelector('body');

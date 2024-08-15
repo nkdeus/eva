@@ -38,35 +38,103 @@
   
   <section class="px-9__ py-7- flex y g-5 __hide">
       <p class="fs-3 py-7-">
-      The fluid CSS framework, converting static UI designs into a truly scalable and responsive system. By 2029, breakpoints will be a thing of the past ;)
+        <span class="bold">The fluid <span class="_c-brand">S</span>CSS framework</span>, converting static UI designs into a truly scalable and responsive system. By 2029, breakpoints will be a thing of the past ;)
       </p>
       
   </section>
   
   <section class="px-9__ py-7 flex y g-4">
-       <h2 class="fs-2_ bold _bg-brand pr-10__ lh-1 bold ttu fwd-13 f-scale offset"><span class="_c-light">Font-size</span></h2>
+       <h2 class="fs-2_ bold _bg-brand pr-10__ lh-1 bold ttu fwd-13 f-scale offset"><span class="_c-light">Fluid properties</span></h2>
       
-      <div class="titles flex y g-4">
+      <div class="flex y  g-4">
            
-          <h1 class="bold fs-6-px">fs-6-px</h1>
-          <h1 class="bold fs-6 _c-brand">fs-6</h1>
-          <h1 class="bold fs-6_ _c-brand_">fs-6_</h1>
-          <h1 class="bold fs-6__ _c-brand__">fs-6__</h1>
-  
-         <p class="fs-3 bold">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-          <p class="fs-2">Hic quasi dolore eos voluptas mollitia saepe ratione repudiandae, nihil obcaecati vero repellendus ab quo. Laboriosam magni adipisci facilis. Culpa, aliquid accusantium?           </p>
-          <p class="fs-1">Warning, dont do this at home !</p>
+         <p class="fs-2">I use Emmet CSS naming conventions, employing intuitive prefixes for efficient and consistent styling.</p>
+
+         <div class="flex x wrap g-4">
+
+          <div class="p-5_ border thin br-1 flex y g-2">
+            <p class="fs-2"><span class="bold">w</span><span class="_c-dark_"> == </span><span>width</span></p>
+            <p class="fs-2"><span class="bold">h</span><span class="_c-dark_"> == </span><span>height</span></p>
+            <p class="fs-2"><span class="bold">p</span><span class="_c-dark_"> == </span><span>padding</span></p>
+            <p class="fs-2"><span class="bold">px</span><span class="_c-dark_"> == </span><span>padding-inline</span></p>
+            <p class="fs-2"><span class="bold">py</span><span class="_c-dark_"> == </span><span>padding-block</span></p>
+            <p class="fs-2"><span class="bold">pl</span><span class="_c-dark_"> == </span><span>padding-left</span></p>
+            <p class="fs-2"><span class="bold">pr</span><span class="_c-dark_"> == </span><span>padding-right</span></p>
+            <p class="fs-2"><span class="bold">g</span><span class="_c-dark_"> == </span><span>gap</span></p>
+          </div>
+
+          <div class="p-5_ border thin br-1 flex y g-2">
+
+            <span class="bold">SCSS</span>
+            <pre>
+              $properties: (
+                      w: width,
+                      h: height,
+                      p: padding,
+                      px: padding-inline,
+                      py: padding-block,
+                      pl: padding-left,
+                      pr: padding-right,
+                      g: gap
+              );
+            </pre>
+
+          </div>
+        </div>
+
            
       </div>
-       
+
     </section>
-  
-  
-    <section class="px-9__ py-8 flex y g-5 __hide">
+
+    <section class="px-9__ py-7 flex y g-4 __hide">
    
    
-      <h2 class="fs-2_ bold _bg-brand pr-10__ lh-1 bold ttu fwd-13 f-scale offset"><span class="_c-light">Width</span></h2>
-      <nav id="nav-demo" class="py-5">
+      <h2 class="fs-2_ bold _bg-brand pr-10__ lh-1 bold ttu fwd-13 f-scale offset">
+        <span class="_c-light">Scaling & spacing System</span>
+      </h2>
+      <p class="fs-2">
+        All calculations are based on a <strong>1440px</strong> static design, a common <strong>Figma</strong> viewport size.
+        <br>In just one minute, the scaling system can be updated in the SCSS file to perfectly match the sizing system of your design.
+      </p>
+      
+      
+      <div class="flex x wrap g-4">
+
+        <div class="p-5_ border thin br-1 flex y g-2">
+          <p class="fs-2"><span class="bold">1</span><span class="_c-dark_"> == </span><span>5</span></p>
+          <p class="fs-2"><span class="bold">2</span><span class="_c-dark_"> == </span><span>10</span></p>
+          <p class="fs-2"><span class="bold">3</span><span class="_c-dark_"> == </span><span>15</span></p>
+          <p class="fs-2"><span class="bold">4</span><span class="_c-dark_"> == </span><span>25</span></p>
+          <p class="fs-2"><span class="bold">...</span><span class="_c-dark_"> == </span><span>...</span></p>
+          <p class="fs-2"><span class="bold">11</span><span class="_c-dark_"> == </span><span>720</span></p>         
+        </div>
+
+        <div class="p-5_ border thin br-1 flex y g-2">
+
+          <span class="bold">SCSS</span>
+          <pre>
+            $screen: 1440;
+            $sizes: 5, 10, 15, 25, 40, 65, 105, 170, 275, 445, 720;
+          </pre>
+
+        </div>
+      </div>
+
+      <div class="flex y">
+        <p class="fs-2">
+          The more <strong>_</strong> (underscore) you use, the stronger the resizing effect will be. 
+          <strong>This is only visible on tablet and mobile viewport sizes.</strong>
+        </p>
+        <p class="fs-2">
+          Use a single <strong>-</strong> (dash) to minimize the resize effect.
+        </p>
+        <p class="fs-2">
+          Suffixes like <strong>px</strong> and <strong>rem</strong> are here to remind us of the good old days of CSS.
+        </p>
+      </div>
+       
+      <nav id="nav-demo" class="py-3">
         <ol>
           <li class="fs-1" data-getter="__">extrem</li>
           <li class="fs-1" data-getter="_">strong</li>
@@ -80,53 +148,130 @@
       <div class="demo flex y g-6- py-5" id="demo" data-setter="">
    <div class="demo-line w-11-@">
      <div class="line"></div>
-    <code>w-11<span></span></code>
+    <code><i class="bold _bg-brand__">propertie</i>-11<span></span></code>
   </div>
   <div class="demo-line w-10-@">
     <div class="line"></div>
-    <code>w-10<span></span></code>
+    <code><i class="bold _bg-brand__">propertie</i>-10<span></span></code>
   </div>
   <div class="demo-line w-9-@">
     <div class="line"></div>
-    <code>w-9<span></span></code>
+    <code><i class="bold _bg-brand__">propertie</i>-9<span></span></code>
   </div>
   <div class="demo-line w-8-@">
     <div class="line"></div>
-    <code>w-8<span></span></code>
+    <code><i class="bold _bg-brand__">propertie</i>-8<span></span></code>
   </div>
   <div class="demo-line w-7-@">
     <div class="line"></div>
-    <code>w-7<span></span></code>
+    <code><i class="bold _bg-brand__">propertie</i>-7<span></span></code>
   </div>
   <div class="demo-line w-6-@">
     <div class="line"></div>
-    <code>w-6<span></span></code>
+    <code><i class="bold _bg-brand__">propertie</i>-6<span></span></code>
   </div>
   <div class="demo-line w-5-@">
     <div class="line"></div>
-    <code>w-5<span></span></code>
+    <code><i class="bold _bg-brand__">propertie</i>-5<span></span></code>
   </div>
   <div class="demo-line w-4-@">
     <div class="line"></div>
-    <code>w-4<span></span></code>
+    <code><i class="bold _bg-brand__">propertie</i>-4<span></span></code>
   </div>
   <div class="demo-line w-3-@">
     <div class="line"></div>
-    <code>w-3<span></span></code>
+    <code><i class="bold _bg-brand__">propertie</i>-3<span></span></code>
   </div>
   <div class="demo-line w-2-@">
     <div class="line"></div>
-    <code>w-2<span></span></code>
+    <code><i class="bold _bg-brand__">propertie</i>-2<span></span></code>
   </div>
   <div class="demo-line w-1-@">
     <div class="line"></div>
-    <code>w-1<span></span></code>
+    <code><i class="bold _bg-brand__">propertie</i>-1<span></span></code>
   </div>
   
       </div>
       
     </section>
     
+  
+    <section class="px-9__ py-7 flex y g-4">
+
+      <h2 class="fs-2_ bold _bg-brand pr-10__ lh-1 bold ttu fwd-13 f-scale offset"><span class="_c-light">Font Sizing</span></h2>
+      <p class="fs-2">
+        The font sizing system is based on your Figma design, your UI designer will love you !
+        <br>By default, a light resize is applied. Adding one or two <span class="bold fs-3">_</span> (underscores) will make the resize stronger.
+      </p>
+        <div class="flex x wrap g-4">
+
+        <div class="p-5_ border thin br-1 flex y g-2">
+
+          <span class="bold">SCSS</span>
+          <pre>$font-sizes: 12, 16, 24, 28, 40, 58, 72;
+
+            $font-properties: (
+              fs: font-size
+            );
+          </pre>
+
+        </div>
+      </div>
+
+      <div class="flex x wrap g-4">
+           
+          <div class="flex y g-4">
+            <span class="bold fs-7 _c-dark">fs-7</span>
+            <span class="bold fs-7_ _c-brand_">fs-7_</span>
+            <span class="bold fs-7__ _c-brand__">fs-7_ _</span>
+            <span class="bold fs-6 _c-dark">fs-6</span>
+            <span class="bold fs-5 _c-dark">fs-5</span>
+            <span class="bold fs-4 _c-dark">fs-4</span>
+            <span class="bold fs-3 _c-dark">fs-3</span>
+            <span class="bold fs-2 _c-dark">fs-2</span>
+            <span class="bold fs-1 _c-dark">fs-1</span>
+          </div>
+
+         
+      </div>
+       
+    </section>
+  
+  
+  
+    <section class="px-9__ py-7 flex y g-4">
+      <h2 class="fs-2_ bold _bg-brand pr-10__ lh-1 bold ttu fwd-13 f-scale offset"><span class="_c-light">Variables</span></h2>
+      
+      <div class="flex x wrap g-4">
+      
+      <div class="p-5_ border thin br-1 flex y g-2">
+
+        <span class="bold">Spacing</span>
+        <pre>'n' from 1 to 11:
+
+          var(--n-);
+          var(--n);
+          var(--n_);
+          var(--n__);
+        </pre>
+
+      </div>
+
+      <div class="p-5_ border thin br-1 flex y g-2">
+
+        <span class="bold">Sizing</span>
+        <pre>'n' from 1 to 7:
+
+          var(--n);
+          var(--n_);
+          var(--n__);
+        </pre>
+
+      </div>
+
+    </div>
+
+    </section>
   
   
      <section class="px-9__ py-7 flex y g-4">
