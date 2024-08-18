@@ -1,89 +1,84 @@
-:root {
-  --fade: 50%;
-  --fade_: 20%;
-  --fade__: 5%;
+// Map des valeurs de fade avec des underscores
+$fade-map: (
+  "_": 50%,
+  "__": 20%,
+  "___": 5%,
+);
 
+$color-map: (
+  "brand": 78% 0.2 73,
+  "dark": 5% 0 0,
+  "light": 95% 0 0,
+);
+
+// Génération des variables CSS avec les bons suffixes
+:root {
   --wght: 400;
 
-  --root-brand: 78% 0.2 73;
-  --root-dark: 5% 0 0;
-  --root-light: 95% 0 0;
-
-  --brand: oklch(var(--root-brand));
-  --brand_: oklch(var(--root-brand) / var(--fade));
-  --brand__: oklch(var(--root-brand) / var(--fade_));
-  --brand___: oklch(var(--root-brand) / var(--fade__));
-
-  --dark: oklch(var(--root-dark));
-  --dark_: oklch(var(--root-dark) / var(--fade));
-  --dark__: oklch(var(--root-dark) / var(--fade_));
-  --dark___: oklch(var(--root-dark) / var(--fade__));
-
-  --light: oklch(var(--root-light));
-  --light_: oklch(var(--root-light) / var(--fade));
-  --light__: oklch(var(--root-light) / var(--fade_));
-  --light___: oklch(var(--root-light) / var(--fade__));
+  @each $color-name, $color-value in $color-map {
+    --root-#{$color-name}: #{$color-value};
+    --#{$color-name}: oklch(var(--root-#{$color-name}));
+    @each $suffix, $fade-value in $fade-map {
+      --#{$color-name}#{$suffix}: oklch(var(--root-#{$color-name}) / #{$fade-value});
+    }
+  }
 }
 
+// Gestion du mode sombre
 .darkMode {
-  --dark: oklch(var(--root-light));
-  --dark_: oklch(var(--root-light) / var(--fade));
-  --dark__: oklch(var(--root-light) / var(--fade_));
-  --dark___: oklch(var(--root-light) / var(--fade__));
+  @each $color-name, $color-value in $color-map {
+    @if $color-name == "light" {
+      @each $suffix, $fade-value in $fade-map {
+        --dark#{$suffix}: oklch(var(--root-#{$color-name}) / #{$fade-value});
+      }
+    } @else if $color-name == "dark" {
+      @each $suffix, $fade-value in $fade-map {
+        --light#{$suffix}: oklch(var(--root-#{$color-name}) / #{$fade-value});
+      }
+    }
+  }
+}
 
-  --light: oklch(var(--root-dark));
-  --light_: oklch(var(--root-dark) / var(--fade));
-  --light__: oklch(var(--root-dark) / var(--fade_));
-  --light___: oklch(var(--root-dark) / var(--fade__));
+// Gestion du mode sombre
+.darkMode {
+  @each $color-name, $color-value in $color-map {
+    @if $color-name == "light" {
+      @each $fade-suffix, $fade-value in $fade-map {
+        --dark#{$fade-suffix}: oklch(var(--root-#{$color-name}) / #{$fade-value});
+      }
+    } @else if $color-name == "dark" {
+      @each $fade-suffix, $fade-value in $fade-map {
+        --light#{$fade-suffix}: oklch(var(--root-#{$color-name}) / #{$fade-value});
+      }
+    }
+  }
 }
 
-// colors
-._bc,
-._bg,
-._c {
-  &-brand {
-    --current-color: var(--brand);
-    &_ {
-      --current-color: var(--brand_);
-      &_ {
-        --current-color: var(--brand__);
-        &_ {
-          --current-color: var(--brand___);
+$prefix: "_";
+$colors-class: "brand", "dark", "light";
+$fades: "_", "__", "___";
+$colors: (
+  c: color,
+  bg: background-color,
+  bc: border-color,
+);
+
+@mixin getAllColors($prop, $key, $eva) {
+  @each $class in $colors-class {
+    .#{$prefix}#{$key}-#{$class} {
+      --current-#{$key}-color: var(--#{$class});
+      @each $fade in $fades {
+        &#{$fade} {
+          --current-#{$key}-color: var(--#{$class}#{$fade});
         }
       }
     }
   }
-  &-dark {
-    --current-color: var(--dark);
-    &_ {
-      --current-color: var(--dark_);
-      &_ {
-        --current-color: var(--dark__);
-        &_ {
-          --current-color: var(--dark___);
-        }
-      }
-    }
-  }
-  &-light {
-    --current-color: var(--light);
-    &_ {
-      --current-color: var(--light_);
-      &_ {
-        --current-color: var(--light__);
-        &_ {
-          --current-color: var(--light___);
-        }
-      }
-    }
+  [class*="#{$prefix}#{$key}"] {
+    #{$prop}: var(--current-#{$key}-color);
   }
 }
-[class*="_bc"] {
-  border-color: var(--current-color);
-}
-[class*="_bg"] {
-  background-color: var(--current-color);
-}
-[class*="_c"] {
-  color: var(--current-color);
+
+@each $key, $prop in $colors {
+  @include getAllColors($prop, $key, $eva);
 }

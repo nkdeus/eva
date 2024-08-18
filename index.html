@@ -150,50 +150,15 @@
       </nav>
       
       <div class="demo flex y g-6- py-5" id="demo" data-setter="">
-   <div class="demo-line w-11-@">
+   <div class="demo-line w-10-@">
      <div class="line"></div>
-    <code><i class="bold _bg-brand__">propertie</i>-11<span></span></code>
+     <div class="legende light w-10-"><span>light</span></div>
+     <div class="legende medium w-10"><span>medium</span></div>
+     <div class="legende strong w-10_"><span>strong</span></div>
+     <div class="legende extrem w-10__"><span>extrem</span></div>
+     <code><i class="bold _bg-brand__">propertie</i>-10<span></span></code>
   </div>
-  <div class="demo-line w-10-@">
-    <div class="line"></div>
-    <code><i class="bold _bg-brand__">propertie</i>-10<span></span></code>
-  </div>
-  <div class="demo-line w-9-@">
-    <div class="line"></div>
-    <code><i class="bold _bg-brand__">propertie</i>-9<span></span></code>
-  </div>
-  <div class="demo-line w-8-@">
-    <div class="line"></div>
-    <code><i class="bold _bg-brand__">propertie</i>-8<span></span></code>
-  </div>
-  <div class="demo-line w-7-@">
-    <div class="line"></div>
-    <code><i class="bold _bg-brand__">propertie</i>-7<span></span></code>
-  </div>
-  <div class="demo-line w-6-@">
-    <div class="line"></div>
-    <code><i class="bold _bg-brand__">propertie</i>-6<span></span></code>
-  </div>
-  <div class="demo-line w-5-@">
-    <div class="line"></div>
-    <code><i class="bold _bg-brand__">propertie</i>-5<span></span></code>
-  </div>
-  <div class="demo-line w-4-@">
-    <div class="line"></div>
-    <code><i class="bold _bg-brand__">propertie</i>-4<span></span></code>
-  </div>
-  <div class="demo-line w-3-@">
-    <div class="line"></div>
-    <code><i class="bold _bg-brand__">propertie</i>-3<span></span></code>
-  </div>
-  <div class="demo-line w-2-@">
-    <div class="line"></div>
-    <code><i class="bold _bg-brand__">propertie</i>-2<span></span></code>
-  </div>
-  <div class="demo-line w-1-@">
-    <div class="line"></div>
-    <code><i class="bold _bg-brand__">propertie</i>-1<span></span></code>
-  </div>
+
   
       </div>
       
@@ -322,73 +287,74 @@
 
         <span class="bold">Sizing & Spacing</span>
         <pre>:root {
-          --1__: clamp(0.13rem, calc(0.49vw - 0.13rem), 0.35rem);
-          --1_: clamp(0.08rem, 0.35vw, 0.35rem);
-          --1: clamp(0.13rem, 0.35vw, 0.35rem);
-          --1-: clamp(0.21rem, 0.35vw, 0.35rem);
+          --1__: clamp(0.13rem, 0.49vw - 0.13rem, 0.35rem);
+          --1_: clamp(0.08rem, 0.26vw + 0.08rem, 0.35rem);
+          --1: clamp(0.13rem, 0.18vw + 0.16rem, 0.35rem);
+          --1-: clamp(0.21rem, 0.09vw + 0.23rem, 0.35rem);
           --1-px: 5px;
           --1-rem: 0.3125rem;
-          --2__: clamp(0.13rem, calc(0.99vw - 0.26rem), 0.69rem);
-          --2_: clamp(0.16rem, 0.69vw, 0.69rem);
-          --2: clamp(0.26rem, 0.69vw, 0.69rem);
-          --2-: clamp(0.42rem, 0.69vw, 0.69rem);
+          --2__: clamp(0.13rem, 0.99vw - 0.26rem, 0.69rem);
+          --2_: clamp(0.16rem, 0.52vw + 0.16rem, 0.69rem);
+          --2: clamp(0.26rem, 0.35vw + 0.31rem, 0.69rem);
+          --2-: clamp(0.42rem, 0.17vw + 0.47rem, 0.69rem);
           --2-px: 10px;
           --2-rem: 0.625rem;
-          --3__: clamp(0.13rem, calc(1.48vw - 0.4rem), 1.04rem);
-          --3_: clamp(0.25rem, 1.04vw, 1.04rem);
-          --3: clamp(0.4rem, 1.04vw, 1.04rem);
-          --3-: clamp(0.65rem, 1.04vw, 1.04rem);
+          --3__: clamp(0.13rem, 1.48vw - 0.4rem, 1.04rem);
+          --3_: clamp(0.25rem, 0.78vw + 0.23rem, 1.04rem);
+          --3: clamp(0.4rem, 0.52vw + 0.47rem, 1.04rem);
+          --3-: clamp(0.65rem, 0.26vw + 0.7rem, 1.04rem);
           --3-px: 15px;
           --3-rem: 0.9375rem;
-          --4__: clamp(0.17rem, calc(2.47vw - 0.66rem), 1.74rem);
-          --4_: clamp(0.41rem, 1.74vw, 1.74rem);
-          --4: clamp(0.66rem, 1.74vw, 1.74rem);
-          --4-: clamp(1.07rem, 1.74vw, 1.74rem);
+          --4__: clamp(0.17rem, 2.47vw - 0.66rem, 1.74rem);
+          --4_: clamp(0.41rem, 1.31vw + 0.39rem, 1.74rem);
+          --4: clamp(0.66rem, 0.87vw + 0.78rem, 1.74rem);
+          --4-: clamp(1.07rem, 0.44vw + 1.17rem, 1.74rem);
           --4-px: 25px;
           --4-rem: 1.5625rem;
-          --5__: clamp(0.21rem, calc(3.96vw - 1.06rem), 2.78rem);
-          --5_: clamp(0.66rem, 2.78vw, 2.78rem);
-          --5: clamp(1.06rem, 2.78vw, 2.78rem);
-          --5-: clamp(1.72rem, 2.78vw, 2.78rem);
+          --5__: clamp(0.21rem, 3.96vw - 1.06rem, 2.78rem);
+          --5_: clamp(0.66rem, 2.09vw + 0.63rem, 2.78rem);
+          --5: clamp(1.06rem, 1.39vw + 1.25rem, 2.78rem);
+          --5-: clamp(1.72rem, 0.7vw + 1.88rem, 2.78rem);
           --5-px: 40px;
           --5-rem: 2.5rem;
-          --6__: clamp(0.28rem, calc(6.43vw - 1.71rem), 4.51rem);
-          --6_: clamp(1.06rem, 4.51vw, 4.51rem);
-          --6: clamp(1.71rem, 4.51vw, 4.51rem);
-          --6-: clamp(2.77rem, 4.51vw, 4.51rem);
+          --6__: clamp(0.28rem, 6.43vw - 1.71rem, 4.51rem);
+          --6_: clamp(1.06rem, 3.39vw + 1.02rem, 4.51rem);
+          --6: clamp(1.71rem, 2.26vw + 2.03rem, 4.51rem);
+          --6-: clamp(2.77rem, 1.13vw + 3.05rem, 4.51rem);
           --6-px: 65px;
           --6-rem: 4.0625rem;
-          --7__: clamp(0.4rem, calc(10.38vw - 2.77rem), 7.29rem);
-          --7_: clamp(1.71rem, 7.29vw, 7.29rem);
-          --7: clamp(2.77rem, 7.29vw, 7.29rem);
-          --7-: clamp(4.48rem, 7.29vw, 7.29rem);
+          --7__: clamp(0.4rem, 10.38vw - 2.77rem, 7.29rem);
+          --7_: clamp(1.71rem, 5.48vw + 1.64rem, 7.29rem);
+          --7: clamp(2.77rem, 3.65vw + 3.28rem, 7.29rem);
+          --7-: clamp(4.48rem, 1.82vw + 4.93rem, 7.29rem);
           --7-px: 105px;
           --7-rem: 6.5625rem;
-          --8__: clamp(0.56rem, calc(16.81vw - 4.49rem), 11.81rem);
-          --8_: clamp(2.77rem, 11.81vw, 11.81rem);
-          --8: clamp(4.49rem, 11.81vw, 11.81rem);
-          --8-: clamp(7.26rem, 11.81vw, 11.81rem);
+          --8__: clamp(0.56rem, 16.81vw - 4.49rem, 11.81rem);
+          --8_: clamp(2.77rem, 8.88vw + 2.66rem, 11.81rem);
+          --8: clamp(4.49rem, 5.91vw + 5.31rem, 11.81rem);
+          --8-: clamp(7.26rem, 2.95vw + 7.99rem, 11.81rem);
           --8-px: 170px;
           --8-rem: 10.625rem;
-          --9__: clamp(0.81rem, calc(27.19vw - 7.26rem), 19.1rem);
-          --9_: clamp(4.49rem, 19.1vw, 19.1rem);
-          --9: clamp(7.26rem, 19.1vw, 19.1rem);
-          --9-: clamp(11.75rem, 19.1vw, 19.1rem);
+          --9__: clamp(0.81rem, 27.19vw - 7.26rem, 19.1rem);
+          --9_: clamp(4.49rem, 14.36vw + 4.3rem, 19.1rem);
+          --9: clamp(7.26rem, 9.55vw + 8.59rem, 19.1rem);
+          --9-: clamp(11.75rem, 4.78vw + 12.92rem, 19.1rem);
           --9-px: 275px;
           --9-rem: 17.1875rem;
-          --10__: clamp(1.17rem, calc(44.01vw - 11.74rem), 30.9rem);
-          --10_: clamp(7.26rem, 30.9vw, 30.9rem);
-          --10: clamp(11.74rem, 30.9vw, 30.9rem);
-          --10-: clamp(19rem, 30.9vw, 30.9rem);
+          --10__: clamp(1.17rem, 44.01vw - 11.74rem, 30.9rem);
+          --10_: clamp(7.26rem, 23.23vw + 6.95rem, 30.9rem);
+          --10: clamp(11.74rem, 15.45vw + 13.91rem, 30.9rem);
+          --10-: clamp(19rem, 7.73vw + 20.91rem, 30.9rem);
           --10-px: 445px;
           --10-rem: 27.8125rem;
-          --11__: clamp(1.73rem, calc(71.2vw - 19rem), 50rem);
-          --11_: clamp(11.74rem, 50vw, 50rem);
-          --11: clamp(19rem, 50vw, 50rem);
-          --11-: clamp(30.74rem, 50vw, 50rem);
+          --11__: clamp(1.73rem, 71.2vw - 19rem, 50rem);
+          --11_: clamp(11.74rem, 37.59vw + 11.25rem, 50rem);
+          --11: clamp(19rem, 25vw + 22.5rem, 50rem);
+          --11-: clamp(30.74rem, 12.5vw + 33.83rem, 50rem);
           --11-px: 720px;
           --11-rem: 45rem;
         }
+        
         </pre>
 
       </div>
@@ -397,43 +363,44 @@
 
         <span class="bold">Font-size</span>
         <span class="">$font-sizes: 12, 16, 24, 28, 40, 58, 72;</span>
-        <pre>:root {
-          --fs-1__: clamp(0.38rem, 0.83vw, 0.83rem);
-          --fs-1_: clamp(0.5rem, 0.83vw, 0.83rem);
-          --fs-1: clamp(0.65rem, 0.83vw, 0.83rem);
-          --fs-1-px: 12px;
-          --fs-1-rem: 0.75rem;
-          --fs-2__: clamp(0.52rem, 1.11vw, 1.11rem);
-          --fs-2_: clamp(0.67rem, 1.11vw, 1.11rem);
-          --fs-2: clamp(0.87rem, 1.11vw, 1.11rem);
-          --fs-2-px: 16px;
-          --fs-2-rem: 1rem;
-          --fs-3__: clamp(0.77rem, 1.67vw, 1.67rem);
-          --fs-3_: clamp(1rem, 1.67vw, 1.67rem);
-          --fs-3: clamp(1.3rem, 1.67vw, 1.67rem);
-          --fs-3-px: 24px;
-          --fs-3-rem: 1.5rem;
-          --fs-4__: clamp(0.89rem, 1.94vw, 1.94rem);
-          --fs-4_: clamp(1.16rem, 1.94vw, 1.94rem);
-          --fs-4: clamp(1.51rem, 1.94vw, 1.94rem);
-          --fs-4-px: 28px;
-          --fs-4-rem: 1.75rem;
-          --fs-5__: clamp(1.28rem, 2.78vw, 2.78rem);
-          --fs-5_: clamp(1.67rem, 2.78vw, 2.78rem);
-          --fs-5: clamp(2.17rem, 2.78vw, 2.78rem);
-          --fs-5-px: 40px;
-          --fs-5-rem: 2.5rem;
-          --fs-6__: clamp(1.86rem, 4.03vw, 4.03rem);
-          --fs-6_: clamp(2.42rem, 4.03vw, 4.03rem);
-          --fs-6: clamp(3.15rem, 4.03vw, 4.03rem);
-          --fs-6-px: 58px;
-          --fs-6-rem: 3.625rem;
-          --fs-7__: clamp(2.31rem, 5vw, 5rem);
-          --fs-7_: clamp(3rem, 5vw, 5rem);
-          --fs-7: clamp(3.9rem, 5vw, 5rem);
-          --fs-7-px: 72px;
-          --fs-7-rem: 4.5rem;
-        }
+        <pre>
+          :root {
+            --fs-1__: clamp(0.38rem, 0.62vw + 0.19rem, 0.83rem);
+            --fs-1_: clamp(0.5rem, 0.42vw + 0.38rem, 0.83rem);
+            --fs-1: clamp(0.65rem, 0.21vw + 0.56rem, 0.83rem);
+            --fs-1-px: 12px;
+            --fs-1-rem: 0.75rem;
+            --fs-2__: clamp(0.52rem, 0.83vw + 0.25rem, 1.11rem);
+            --fs-2_: clamp(0.67rem, 0.56vw + 0.5rem, 1.11rem);
+            --fs-2: clamp(0.87rem, 0.28vw + 0.75rem, 1.11rem);
+            --fs-2-px: 16px;
+            --fs-2-rem: 1rem;
+            --fs-3__: clamp(0.77rem, 1.26vw + 0.38rem, 1.67rem);
+            --fs-3_: clamp(1rem, 0.84vw + 0.75rem, 1.67rem);
+            --fs-3: clamp(1.3rem, 0.42vw + 1.13rem, 1.67rem);
+            --fs-3-px: 24px;
+            --fs-3-rem: 1.5rem;
+            --fs-4__: clamp(0.89rem, 1.46vw + 0.44rem, 1.94rem);
+            --fs-4_: clamp(1.16rem, 0.97vw + 0.88rem, 1.94rem);
+            --fs-4: clamp(1.51rem, 0.49vw + 1.32rem, 1.94rem);
+            --fs-4-px: 28px;
+            --fs-4-rem: 1.75rem;
+            --fs-5__: clamp(1.28rem, 2.09vw + 0.63rem, 2.78rem);
+            --fs-5_: clamp(1.67rem, 1.39vw + 1.25rem, 2.78rem);
+            --fs-5: clamp(2.17rem, 0.7vw + 1.88rem, 2.78rem);
+            --fs-5-px: 40px;
+            --fs-5-rem: 2.5rem;
+            --fs-6__: clamp(1.86rem, 3.03vw + 0.91rem, 4.03rem);
+            --fs-6_: clamp(2.42rem, 2.02vw + 1.81rem, 4.03rem);
+            --fs-6: clamp(3.15rem, 1.01vw + 2.73rem, 4.03rem);
+            --fs-6-px: 58px;
+            --fs-6-rem: 3.625rem;
+            --fs-7__: clamp(2.31rem, 3.76vw + 1.13rem, 5rem);
+            --fs-7_: clamp(3rem, 2.5vw + 2.25rem, 5rem);
+            --fs-7: clamp(3.9rem, 1.25vw + 3.38rem, 5rem);
+            --fs-7-px: 72px;
+            --fs-7-rem: 4.5rem;
+          }
         </pre>
 
       </div>

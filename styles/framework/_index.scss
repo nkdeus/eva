@@ -44,6 +44,70 @@
   }
 }
 
+.legende {
+  height: 1px;
+  position: absolute;
+  background-color: var(--brand__);
+  text-transform: uppercase;
+
+  &:after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: calc(var(--2) * -0.5);
+    transition: width 0.5s;
+    width: 1px;
+    height: var(--2);
+    background-color: var(--brand);
+  }
+  span {
+    position: absolute;
+    right: 0rem;
+    top: 0rem;
+    translate: -0.2rem -0.57rem;
+    font-size: var(--2);
+    background-color: var(--light);
+    line-height: 1;
+  }
+
+  &.light {
+    &:after {
+      height: var(--3);
+    }
+    span {
+      top: var(--3);
+      z-index: 1;
+    }
+  }
+  &.medium {
+    &:after {
+      height: calc(var(--3) * 2);
+    }
+    span {
+      top: calc(var(--3) * 2);
+      z-index: 2;
+    }
+  }
+  &.strong {
+    &:after {
+      height: calc(var(--3) * 3);
+    }
+    span {
+      top: calc(var(--3) * 3);
+      z-index: 3;
+    }
+  }
+  &.extrem {
+    &:after {
+      height: calc(var(--3) * 4);
+    }
+    span {
+      top: calc(var(--3) * 4);
+      z-index: 4;
+    }
+  }
+}
+
 .line-y {
   width: 1px;
   position: relative;
