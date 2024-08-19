@@ -10,7 +10,7 @@
   code {
     position: absolute;
     top: 0;
-    translate: 0% calc(-100% - var(--1));
+    translate: 0% calc(-100% - var(--2));
     width: fit-content;
     white-space: nowrap;
     z-index: 2;
@@ -20,34 +20,19 @@
 }
 
 .line {
-  height: 1px;
-  background-color: var(--dark);
+  height: var(--3);
+  background-color: var(--brand);
   position: relative;
   transition: width 0.5s;
-  opacity: 0.3;
-
+  border-radius: calc(var(--3) / 0.5);
   width: 100%;
-  &:before,
-  &:after {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: calc(var(--2) * -0.5);
-    transition: width 0.5s;
-    width: 1px;
-    height: var(--2);
-    background-color: var(--dark);
-  }
-  &:after {
-    left: unset;
-    right: 0;
-  }
 }
 
 .legende {
   height: 1px;
   position: absolute;
-  background-color: var(--brand__);
+  top: var(--5);
+  background-color: var(--dark__);
   text-transform: uppercase;
 
   &:after {
@@ -58,7 +43,7 @@
     transition: width 0.5s;
     width: 1px;
     height: var(--2);
-    background-color: var(--brand);
+    background-color: var(--dark);
   }
   span {
     position: absolute;

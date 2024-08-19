@@ -13,8 +13,6 @@ $color-map: (
 
 // Génération des variables CSS avec les bons suffixes
 :root {
-  --wght: 400;
-
   @each $color-name, $color-value in $color-map {
     --root-#{$color-name}: #{$color-value};
     --#{$color-name}: oklch(var(--root-#{$color-name}));
@@ -28,27 +26,14 @@ $color-map: (
 .darkMode {
   @each $color-name, $color-value in $color-map {
     @if $color-name == "light" {
+      --dark: oklch(var(--root-light));
       @each $suffix, $fade-value in $fade-map {
         --dark#{$suffix}: oklch(var(--root-#{$color-name}) / #{$fade-value});
       }
     } @else if $color-name == "dark" {
+      --light: oklch(var(--root-dark));
       @each $suffix, $fade-value in $fade-map {
         --light#{$suffix}: oklch(var(--root-#{$color-name}) / #{$fade-value});
-      }
-    }
-  }
-}
-
-// Gestion du mode sombre
-.darkMode {
-  @each $color-name, $color-value in $color-map {
-    @if $color-name == "light" {
-      @each $fade-suffix, $fade-value in $fade-map {
-        --dark#{$fade-suffix}: oklch(var(--root-#{$color-name}) / #{$fade-value});
-      }
-    } @else if $color-name == "dark" {
-      @each $fade-suffix, $fade-value in $fade-map {
-        --light#{$fade-suffix}: oklch(var(--root-#{$color-name}) / #{$fade-value});
       }
     }
   }
