@@ -28,6 +28,11 @@
 
 .poa {
   position: absolute;
+  &.center {
+    left: 50%;
+    top: 50%;
+    translate: -50% -50%;
+  }
 }
 .por {
   position: relative;
@@ -61,6 +66,10 @@ pre {
   overflow: hidden;
 }
 
+.lt {
+  letter-spacing: 0.1em;
+}
+
 .lh-0 {
   line-height: 0;
 }
@@ -83,4 +92,14 @@ img {
 
 .bold {
   font-weight: bold;
+}
+
+.blur {
+  filter: blur(1rem);
+  &_ {
+    filter: blur(2rem);
+    &_ {
+      filter: blur(3rem);
+    }
+  }
 }

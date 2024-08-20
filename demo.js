@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     updateBodyClass();
 
-    setInterval(updateBodyClass, 60000); 
+    setInterval(updateBodyClass, 60000*10); 
 
     const nav = document.getElementById('nav');
     gsap.registerPlugin(ScrollTrigger);

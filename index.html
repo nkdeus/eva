@@ -44,6 +44,21 @@
       </p>
       
   </section>
+
+
+  <section class="px-9__ py-7 flex y g-4">
+    <h2 class="fs-2_ bold _bg-brand pr-10__ lh-1 bold ttu fwd-13 f-scale offset"><span class="_c-light">Gradients</span></h2>
+
+    <div class="w-8 ar-1 circle _grad-brand por">
+      <div class="poa center w-8 ar-1 circle _grad-brand strong blur_">
+
+      </div>
+      <div class="poa center w-8 ar-1 circle _grad-brand extrem blur">
+
+      </div>
+    </div>
+    
+    </section>  
   
   <section class="px-9__ py-7 flex y g-4">
        <h2 class="fs-2_ bold _bg-brand pr-10__ lh-1 bold ttu fwd-13 f-scale offset"><span class="_c-light">Fluid properties</span></h2>
@@ -106,20 +121,10 @@
       <div class="flex x wrap g-4">
 
         <div class="p-5_ border thin br-1 flex y g-2">
-          <p class="fs-2"><span class="bold">1</span><span class="_c-dark_"> == </span><span>5</span></p>
-          <p class="fs-2"><span class="bold">2</span><span class="_c-dark_"> == </span><span>10</span></p>
-          <p class="fs-2"><span class="bold">3</span><span class="_c-dark_"> == </span><span>15</span></p>
-          <p class="fs-2"><span class="bold">4</span><span class="_c-dark_"> == </span><span>25</span></p>
-          <p class="fs-2"><span class="bold">...</span><span class="_c-dark_"> == </span><span>...</span></p>
-          <p class="fs-2"><span class="bold">11</span><span class="_c-dark_"> == </span><span>720</span></p>         
-        </div>
 
-        <div class="p-5_ border thin br-1 flex y g-2">
-
-          <span class="bold">SCSS</span>
           <pre>
             $screen: 1440;
-            $sizes: 5, 10, 15, 25, 40, 65, 105, 170, 275, 445, 720;
+            $sizes: 4, 8, 12, 20, 32, 52, 84, 136, 220, 356, 576, 712;
           </pre>
 
         </div>
@@ -174,14 +179,12 @@
       </p>
         <div class="flex x wrap g-4">
 
-        <div class="p-5_ border thin br-1 flex y g-2">
+        <div class="px-5_ py-2 border thin br-1 flex y g-2">
 
-          <span class="bold">SCSS</span>
-          <pre>$font-sizes: 12, 16, 24, 28, 40, 58, 72;
-
-            $font-properties: (
-              fs: font-size
-            );
+         
+          <pre>
+            $screen: 1440;
+            $font-sizes: 12, 16, 24, 36, 52, 72;
           </pre>
 
         </div>
@@ -190,18 +193,27 @@
       <div class="flex x wrap g-4">
            
           <div class="flex y g-4">
-            <span class="bold fs-7 _c-dark">fs-7</span>
-            <span class="bold fs-7_ _c-brand_">fs-7_</span>
-            <span class="bold fs-7__ _c-brand__">fs-7_ _</span>
-            <span class="bold fs-6 _c-dark">fs-6</span>
-            <span class="bold fs-5 _c-dark">fs-5</span>
-            <span class="bold fs-4 _c-dark">fs-4</span>
-            <span class="bold fs-3 _c-dark">fs-3</span>
-            <span class="bold fs-2 _c-dark">fs-2</span>
-            <span class="bold fs-1 _c-dark">fs-1</span>
-          </div>
+            <div class="flex y">
+              <span class="fwg-2 f-scale fs-6-px _c-dark_"><span class="_c-dark__">.</span>fs-<span class="_c-brand">6</span>-<span class="_c-accent">px</span></span>
+              <span class="fs-2 border thin br-1 px-5_ py-2 _c-dark_">--fs-6-px: 72px</span>
+            </div>
+            <div class="flex y">
+              <span class="fwg-2 f-scale fs-6 _c-dark_"><span class="_c-dark__">.</span>fs-<span class="_c-brand">6</span></span>
+              <span class="fs-2 border thin br-1 px-5_ py-2 _c-dark_">--fs-6: clamp(3.9rem, 1.25vw + 3.38rem, 5rem);</span>
 
-         
+            </div>
+            <div class="flex y">
+              <span class="fwg-2 f-scale fs-6_ _c-dark_"><span class="_c-dark__">.</span>fs-<span class="_c-brand">6</span><span class="_c-accent">_</span></span>
+              <span class="fs-2 border thin br-1 px-5_ py-2 _c-dark_">--fs-6_: clamp(3rem, 2.5vw + 2.25rem, 5rem);</span>
+            </div>
+            <div class="flex y">
+              <span class="fwg-2 f-scale fs-6__ _c-dark_"><span class="_c-dark__">.</span>fs-<span class="_c-brand">6</span><span class="_c-accent lt">__</span></span>
+              <span class="fs-2 border thin br-1 px-5_ py-2 _c-dark_">--fs-6__: clamp(2.31rem, 3.76vw + 1.13rem, 5rem);</span>
+        
+            </div>
+  
+         </div>
+
       </div>
        
     </section>
@@ -216,7 +228,7 @@
       <div class="p-5_ border thin br-1 flex y g-2">
 
         <span class="bold">Spacing</span>
-        <pre>'n' from 1 to 11:
+        <pre>'n' from 1 to 12:
 
           var(--n-);
           var(--n);
@@ -229,7 +241,7 @@
       <div class="p-5_ border thin br-1 flex y g-2">
 
         <span class="bold">Sizing</span>
-        <pre>'n' from 1 to 7:
+        <pre>'n' from 1 to 6:
 
           var(--n);
           var(--n_);
@@ -286,6 +298,7 @@
       <div class="p-5_ border thin br-1 flex y g-2">
 
         <span class="bold">Sizing & Spacing</span>
+        <span>$sizes: 4, 8, 12, 20, 32, 52, 84, 136, 220, 356, 576, 712;</span>
         <pre>:root {
           --1__: clamp(0.13rem, 0.49vw - 0.13rem, 0.35rem);
           --1_: clamp(0.08rem, 0.26vw + 0.08rem, 0.35rem);
@@ -362,7 +375,7 @@
       <div class="p-5_ border thin br-1 flex y g-2">
 
         <span class="bold">Font-size</span>
-        <span class="">$font-sizes: 12, 16, 24, 28, 40, 58, 72;</span>
+        <span class="">$font-sizes: 12, 16, 24, 36, 52, 72;</span>
         <pre>
           :root {
             --fs-1__: clamp(0.38rem, 0.62vw + 0.19rem, 0.83rem);

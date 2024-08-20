@@ -104,72 +104,78 @@ textarea:not([rows]) {
 --1--: clamp(calc(var(--1rem-min) * var(--Φ)) , var(--1vw) ,var(--1rem-max));
 */
 :root {
-  --1__: clamp(0.13rem, 0.49vw - 0.13rem, 0.35rem);
-  --1_: clamp(0.08rem, 0.26vw + 0.08rem, 0.35rem);
-  --1: clamp(0.13rem, 0.18vw + 0.16rem, 0.35rem);
-  --1-: clamp(0.21rem, 0.09vw + 0.23rem, 0.35rem);
-  --1-px: 5px;
-  --1-rem: 0.3125rem;
-  --2__: clamp(0.13rem, 0.99vw - 0.26rem, 0.69rem);
-  --2_: clamp(0.16rem, 0.52vw + 0.16rem, 0.69rem);
-  --2: clamp(0.26rem, 0.35vw + 0.31rem, 0.69rem);
-  --2-: clamp(0.42rem, 0.17vw + 0.47rem, 0.69rem);
-  --2-px: 10px;
-  --2-rem: 0.625rem;
-  --3__: clamp(0.13rem, 1.48vw - 0.4rem, 1.04rem);
-  --3_: clamp(0.25rem, 0.78vw + 0.23rem, 1.04rem);
-  --3: clamp(0.4rem, 0.52vw + 0.47rem, 1.04rem);
-  --3-: clamp(0.65rem, 0.26vw + 0.7rem, 1.04rem);
-  --3-px: 15px;
-  --3-rem: 0.9375rem;
-  --4__: clamp(0.17rem, 2.47vw - 0.66rem, 1.74rem);
-  --4_: clamp(0.41rem, 1.31vw + 0.39rem, 1.74rem);
-  --4: clamp(0.66rem, 0.87vw + 0.78rem, 1.74rem);
-  --4-: clamp(1.07rem, 0.44vw + 1.17rem, 1.74rem);
-  --4-px: 25px;
-  --4-rem: 1.5625rem;
-  --5__: clamp(0.21rem, 3.96vw - 1.06rem, 2.78rem);
-  --5_: clamp(0.66rem, 2.09vw + 0.63rem, 2.78rem);
-  --5: clamp(1.06rem, 1.39vw + 1.25rem, 2.78rem);
-  --5-: clamp(1.72rem, 0.7vw + 1.88rem, 2.78rem);
-  --5-px: 40px;
-  --5-rem: 2.5rem;
-  --6__: clamp(0.28rem, 6.43vw - 1.71rem, 4.51rem);
-  --6_: clamp(1.06rem, 3.39vw + 1.02rem, 4.51rem);
-  --6: clamp(1.71rem, 2.26vw + 2.03rem, 4.51rem);
-  --6-: clamp(2.77rem, 1.13vw + 3.05rem, 4.51rem);
-  --6-px: 65px;
-  --6-rem: 4.0625rem;
-  --7__: clamp(0.4rem, 10.38vw - 2.77rem, 7.29rem);
-  --7_: clamp(1.71rem, 5.48vw + 1.64rem, 7.29rem);
-  --7: clamp(2.77rem, 3.65vw + 3.28rem, 7.29rem);
-  --7-: clamp(4.48rem, 1.82vw + 4.93rem, 7.29rem);
-  --7-px: 105px;
-  --7-rem: 6.5625rem;
-  --8__: clamp(0.56rem, 16.81vw - 4.49rem, 11.81rem);
-  --8_: clamp(2.77rem, 8.88vw + 2.66rem, 11.81rem);
-  --8: clamp(4.49rem, 5.91vw + 5.31rem, 11.81rem);
-  --8-: clamp(7.26rem, 2.95vw + 7.99rem, 11.81rem);
-  --8-px: 170px;
-  --8-rem: 10.625rem;
-  --9__: clamp(0.81rem, 27.19vw - 7.26rem, 19.1rem);
-  --9_: clamp(4.49rem, 14.36vw + 4.3rem, 19.1rem);
-  --9: clamp(7.26rem, 9.55vw + 8.59rem, 19.1rem);
-  --9-: clamp(11.75rem, 4.78vw + 12.92rem, 19.1rem);
-  --9-px: 275px;
-  --9-rem: 17.1875rem;
-  --10__: clamp(1.17rem, 44.01vw - 11.74rem, 30.9rem);
-  --10_: clamp(7.26rem, 23.23vw + 6.95rem, 30.9rem);
-  --10: clamp(11.74rem, 15.45vw + 13.91rem, 30.9rem);
-  --10-: clamp(19rem, 7.73vw + 20.91rem, 30.9rem);
-  --10-px: 445px;
-  --10-rem: 27.8125rem;
-  --11__: clamp(1.73rem, 71.2vw - 19rem, 50rem);
-  --11_: clamp(11.74rem, 37.59vw + 11.25rem, 50rem);
-  --11: clamp(19rem, 25vw + 22.5rem, 50rem);
-  --11-: clamp(30.74rem, 12.5vw + 33.83rem, 50rem);
-  --11-px: 720px;
-  --11-rem: 45rem;
+  --1__: clamp(0.11rem, 0.4vw - 0.11rem, 0.28rem);
+  --1_: clamp(0.07rem, 0.21vw + 0.06rem, 0.28rem);
+  --1: clamp(0.11rem, 0.14vw + 0.13rem, 0.28rem);
+  --1-: clamp(0.18rem, 0.07vw + 0.19rem, 0.28rem);
+  --1-px: 4px;
+  --1-rem: 0.25rem;
+  --2__: clamp(0.11rem, 0.79vw - 0.21rem, 0.56rem);
+  --2_: clamp(0.13rem, 0.42vw + 0.13rem, 0.56rem);
+  --2: clamp(0.21rem, 0.28vw + 0.25rem, 0.56rem);
+  --2-: clamp(0.34rem, 0.14vw + 0.38rem, 0.56rem);
+  --2-px: 8px;
+  --2-rem: 0.5rem;
+  --3__: clamp(0.11rem, 1.19vw - 0.32rem, 0.83rem);
+  --3_: clamp(0.2rem, 0.62vw + 0.19rem, 0.83rem);
+  --3: clamp(0.32rem, 0.42vw + 0.38rem, 0.83rem);
+  --3-: clamp(0.52rem, 0.21vw + 0.56rem, 0.83rem);
+  --3-px: 12px;
+  --3-rem: 0.75rem;
+  --4__: clamp(0.13rem, 1.98vw - 0.53rem, 1.39rem);
+  --4_: clamp(0.33rem, 1.05vw + 0.31rem, 1.39rem);
+  --4: clamp(0.53rem, 0.7vw + 0.63rem, 1.39rem);
+  --4-: clamp(0.86rem, 0.35vw + 0.94rem, 1.39rem);
+  --4-px: 20px;
+  --4-rem: 1.25rem;
+  --5__: clamp(0.17rem, 3.16vw - 0.84rem, 2.22rem);
+  --5_: clamp(0.52rem, 1.67vw + 0.5rem, 2.22rem);
+  --5: clamp(0.84rem, 1.11vw + 1rem, 2.22rem);
+  --5-: clamp(1.36rem, 0.56vw + 1.5rem, 2.22rem);
+  --5-px: 32px;
+  --5-rem: 2rem;
+  --6__: clamp(0.23rem, 5.14vw - 1.37rem, 3.61rem);
+  --6_: clamp(0.85rem, 2.71vw + 0.81rem, 3.61rem);
+  --6: clamp(1.37rem, 1.81vw + 1.63rem, 3.61rem);
+  --6-: clamp(2.22rem, 0.9vw + 2.44rem, 3.61rem);
+  --6-px: 52px;
+  --6-rem: 3.25rem;
+  --7__: clamp(0.32rem, 8.31vw - 2.22rem, 5.83rem);
+  --7_: clamp(1.37rem, 4.38vw + 1.31rem, 5.83rem);
+  --7: clamp(2.22rem, 2.92vw + 2.63rem, 5.83rem);
+  --7-: clamp(3.59rem, 1.46vw + 3.95rem, 5.83rem);
+  --7-px: 84px;
+  --7-rem: 5.25rem;
+  --8__: clamp(0.45rem, 13.45vw - 3.59rem, 9.44rem);
+  --8_: clamp(2.22rem, 7.1vw + 2.13rem, 9.44rem);
+  --8: clamp(3.59rem, 4.72vw + 4.25rem, 9.44rem);
+  --8-: clamp(5.81rem, 2.36vw + 6.39rem, 9.44rem);
+  --8-px: 136px;
+  --8-rem: 8.5rem;
+  --9__: clamp(0.65rem, 21.76vw - 5.81rem, 15.28rem);
+  --9_: clamp(3.59rem, 11.49vw + 3.44rem, 15.28rem);
+  --9: clamp(5.81rem, 7.64vw + 6.88rem, 15.28rem);
+  --9-: clamp(9.4rem, 3.82vw + 10.34rem, 15.28rem);
+  --9-px: 220px;
+  --9-rem: 13.75rem;
+  --10__: clamp(0.94rem, 35.2vw - 9.39rem, 24.72rem);
+  --10_: clamp(5.8rem, 18.59vw + 5.56rem, 24.72rem);
+  --10: clamp(9.39rem, 12.36vw + 11.13rem, 24.72rem);
+  --10-: clamp(15.19rem, 6.18vw + 16.73rem, 24.72rem);
+  --10-px: 356px;
+  --10-rem: 22.25rem;
+  --11__: clamp(1.38rem, 56.96vw - 15.2rem, 40rem);
+  --11_: clamp(9.39rem, 30.08vw + 9rem, 40rem);
+  --11: clamp(15.2rem, 20vw + 18rem, 40rem);
+  --11-: clamp(24.59rem, 10vw + 27.07rem, 40rem);
+  --11-px: 576px;
+  --11-rem: 36rem;
+  --12__: clamp(1.57rem, 70.41vw - 18.79rem, 49.44rem);
+  --12_: clamp(11.61rem, 37.17vw + 11.13rem, 49.44rem);
+  --12: clamp(18.79rem, 24.72vw + 22.25rem, 49.44rem);
+  --12-: clamp(30.4rem, 12.36vw + 33.46rem, 49.44rem);
+  --12-px: 712px;
+  --12-rem: 44.5rem;
 }
 
 [data-setter=__] .w-1-\@ {
@@ -4748,6 +4754,422 @@ textarea:not([rows]) {
   gap: var(--abstract-getter);
 }
 
+[data-setter=__] .w-12-\@ {
+  --abstract-getter: var(--12__);
+}
+
+[data-setter=_] .w-12-\@ {
+  --abstract-getter: var(--12_);
+}
+
+[data-setter=""] .w-12-\@ {
+  --abstract-getter: var(--12);
+}
+
+[data-setter="-"] .w-12-\@ {
+  --abstract-getter: var(--12-);
+}
+
+[data-setter=-px] .w-12-\@ {
+  --abstract-getter: var(--12-px);
+}
+
+[data-setter=-rem] .w-12-\@ {
+  --abstract-getter: var(--12-rem);
+}
+
+.w-12__ {
+  width: var(--12__);
+}
+
+.w-12_ {
+  width: var(--12_);
+}
+
+.w-12 {
+  width: var(--12);
+}
+
+.w-12- {
+  width: var(--12-);
+}
+
+.w-12-px {
+  width: var(--12-px);
+}
+
+.w-12-rem {
+  width: var(--12-rem);
+}
+
+.w-12-\@ {
+  width: var(--abstract-getter);
+}
+
+[data-setter=__] .h-12-\@ {
+  --abstract-getter: var(--12__);
+}
+
+[data-setter=_] .h-12-\@ {
+  --abstract-getter: var(--12_);
+}
+
+[data-setter=""] .h-12-\@ {
+  --abstract-getter: var(--12);
+}
+
+[data-setter="-"] .h-12-\@ {
+  --abstract-getter: var(--12-);
+}
+
+[data-setter=-px] .h-12-\@ {
+  --abstract-getter: var(--12-px);
+}
+
+[data-setter=-rem] .h-12-\@ {
+  --abstract-getter: var(--12-rem);
+}
+
+.h-12__ {
+  height: var(--12__);
+}
+
+.h-12_ {
+  height: var(--12_);
+}
+
+.h-12 {
+  height: var(--12);
+}
+
+.h-12- {
+  height: var(--12-);
+}
+
+.h-12-px {
+  height: var(--12-px);
+}
+
+.h-12-rem {
+  height: var(--12-rem);
+}
+
+.h-12-\@ {
+  height: var(--abstract-getter);
+}
+
+[data-setter=__] .p-12-\@ {
+  --abstract-getter: var(--12__);
+}
+
+[data-setter=_] .p-12-\@ {
+  --abstract-getter: var(--12_);
+}
+
+[data-setter=""] .p-12-\@ {
+  --abstract-getter: var(--12);
+}
+
+[data-setter="-"] .p-12-\@ {
+  --abstract-getter: var(--12-);
+}
+
+[data-setter=-px] .p-12-\@ {
+  --abstract-getter: var(--12-px);
+}
+
+[data-setter=-rem] .p-12-\@ {
+  --abstract-getter: var(--12-rem);
+}
+
+.p-12__ {
+  padding: var(--12__);
+}
+
+.p-12_ {
+  padding: var(--12_);
+}
+
+.p-12 {
+  padding: var(--12);
+}
+
+.p-12- {
+  padding: var(--12-);
+}
+
+.p-12-px {
+  padding: var(--12-px);
+}
+
+.p-12-rem {
+  padding: var(--12-rem);
+}
+
+.p-12-\@ {
+  padding: var(--abstract-getter);
+}
+
+[data-setter=__] .px-12-\@ {
+  --abstract-getter: var(--12__);
+}
+
+[data-setter=_] .px-12-\@ {
+  --abstract-getter: var(--12_);
+}
+
+[data-setter=""] .px-12-\@ {
+  --abstract-getter: var(--12);
+}
+
+[data-setter="-"] .px-12-\@ {
+  --abstract-getter: var(--12-);
+}
+
+[data-setter=-px] .px-12-\@ {
+  --abstract-getter: var(--12-px);
+}
+
+[data-setter=-rem] .px-12-\@ {
+  --abstract-getter: var(--12-rem);
+}
+
+.px-12__ {
+  padding-inline: var(--12__);
+}
+
+.px-12_ {
+  padding-inline: var(--12_);
+}
+
+.px-12 {
+  padding-inline: var(--12);
+}
+
+.px-12- {
+  padding-inline: var(--12-);
+}
+
+.px-12-px {
+  padding-inline: var(--12-px);
+}
+
+.px-12-rem {
+  padding-inline: var(--12-rem);
+}
+
+.px-12-\@ {
+  padding-inline: var(--abstract-getter);
+}
+
+[data-setter=__] .pr-12-\@ {
+  --abstract-getter: var(--12__);
+}
+
+[data-setter=_] .pr-12-\@ {
+  --abstract-getter: var(--12_);
+}
+
+[data-setter=""] .pr-12-\@ {
+  --abstract-getter: var(--12);
+}
+
+[data-setter="-"] .pr-12-\@ {
+  --abstract-getter: var(--12-);
+}
+
+[data-setter=-px] .pr-12-\@ {
+  --abstract-getter: var(--12-px);
+}
+
+[data-setter=-rem] .pr-12-\@ {
+  --abstract-getter: var(--12-rem);
+}
+
+.pr-12__ {
+  padding-right: var(--12__);
+}
+
+.pr-12_ {
+  padding-right: var(--12_);
+}
+
+.pr-12 {
+  padding-right: var(--12);
+}
+
+.pr-12- {
+  padding-right: var(--12-);
+}
+
+.pr-12-px {
+  padding-right: var(--12-px);
+}
+
+.pr-12-rem {
+  padding-right: var(--12-rem);
+}
+
+.pr-12-\@ {
+  padding-right: var(--abstract-getter);
+}
+
+[data-setter=__] .py-12-\@ {
+  --abstract-getter: var(--12__);
+}
+
+[data-setter=_] .py-12-\@ {
+  --abstract-getter: var(--12_);
+}
+
+[data-setter=""] .py-12-\@ {
+  --abstract-getter: var(--12);
+}
+
+[data-setter="-"] .py-12-\@ {
+  --abstract-getter: var(--12-);
+}
+
+[data-setter=-px] .py-12-\@ {
+  --abstract-getter: var(--12-px);
+}
+
+[data-setter=-rem] .py-12-\@ {
+  --abstract-getter: var(--12-rem);
+}
+
+.py-12__ {
+  padding-block: var(--12__);
+}
+
+.py-12_ {
+  padding-block: var(--12_);
+}
+
+.py-12 {
+  padding-block: var(--12);
+}
+
+.py-12- {
+  padding-block: var(--12-);
+}
+
+.py-12-px {
+  padding-block: var(--12-px);
+}
+
+.py-12-rem {
+  padding-block: var(--12-rem);
+}
+
+.py-12-\@ {
+  padding-block: var(--abstract-getter);
+}
+
+[data-setter=__] .br-12-\@ {
+  --abstract-getter: var(--12__);
+}
+
+[data-setter=_] .br-12-\@ {
+  --abstract-getter: var(--12_);
+}
+
+[data-setter=""] .br-12-\@ {
+  --abstract-getter: var(--12);
+}
+
+[data-setter="-"] .br-12-\@ {
+  --abstract-getter: var(--12-);
+}
+
+[data-setter=-px] .br-12-\@ {
+  --abstract-getter: var(--12-px);
+}
+
+[data-setter=-rem] .br-12-\@ {
+  --abstract-getter: var(--12-rem);
+}
+
+.br-12__ {
+  border-radius: var(--12__);
+}
+
+.br-12_ {
+  border-radius: var(--12_);
+}
+
+.br-12 {
+  border-radius: var(--12);
+}
+
+.br-12- {
+  border-radius: var(--12-);
+}
+
+.br-12-px {
+  border-radius: var(--12-px);
+}
+
+.br-12-rem {
+  border-radius: var(--12-rem);
+}
+
+.br-12-\@ {
+  border-radius: var(--abstract-getter);
+}
+
+[data-setter=__] .g-12-\@ {
+  --abstract-getter: var(--12__);
+}
+
+[data-setter=_] .g-12-\@ {
+  --abstract-getter: var(--12_);
+}
+
+[data-setter=""] .g-12-\@ {
+  --abstract-getter: var(--12);
+}
+
+[data-setter="-"] .g-12-\@ {
+  --abstract-getter: var(--12-);
+}
+
+[data-setter=-px] .g-12-\@ {
+  --abstract-getter: var(--12-px);
+}
+
+[data-setter=-rem] .g-12-\@ {
+  --abstract-getter: var(--12-rem);
+}
+
+.g-12__ {
+  gap: var(--12__);
+}
+
+.g-12_ {
+  gap: var(--12_);
+}
+
+.g-12 {
+  gap: var(--12);
+}
+
+.g-12- {
+  gap: var(--12-);
+}
+
+.g-12-px {
+  gap: var(--12-px);
+}
+
+.g-12-rem {
+  gap: var(--12-rem);
+}
+
+.g-12-\@ {
+  gap: var(--abstract-getter);
+}
+
 :root {
   --fs-1__: clamp(0.38rem, 0.62vw + 0.19rem, 0.83rem);
   --fs-1_: clamp(0.5rem, 0.42vw + 0.38rem, 0.83rem);
@@ -4764,26 +5186,21 @@ textarea:not([rows]) {
   --fs-3: clamp(1.3rem, 0.42vw + 1.13rem, 1.67rem);
   --fs-3-px: 24px;
   --fs-3-rem: 1.5rem;
-  --fs-4__: clamp(0.89rem, 1.46vw + 0.44rem, 1.94rem);
-  --fs-4_: clamp(1.16rem, 0.97vw + 0.88rem, 1.94rem);
-  --fs-4: clamp(1.51rem, 0.49vw + 1.32rem, 1.94rem);
-  --fs-4-px: 28px;
-  --fs-4-rem: 1.75rem;
-  --fs-5__: clamp(1.28rem, 2.09vw + 0.63rem, 2.78rem);
-  --fs-5_: clamp(1.67rem, 1.39vw + 1.25rem, 2.78rem);
-  --fs-5: clamp(2.17rem, 0.7vw + 1.88rem, 2.78rem);
-  --fs-5-px: 40px;
-  --fs-5-rem: 2.5rem;
-  --fs-6__: clamp(1.86rem, 3.03vw + 0.91rem, 4.03rem);
-  --fs-6_: clamp(2.42rem, 2.02vw + 1.81rem, 4.03rem);
-  --fs-6: clamp(3.15rem, 1.01vw + 2.73rem, 4.03rem);
-  --fs-6-px: 58px;
-  --fs-6-rem: 3.625rem;
-  --fs-7__: clamp(2.31rem, 3.76vw + 1.13rem, 5rem);
-  --fs-7_: clamp(3rem, 2.5vw + 2.25rem, 5rem);
-  --fs-7: clamp(3.9rem, 1.25vw + 3.38rem, 5rem);
-  --fs-7-px: 72px;
-  --fs-7-rem: 4.5rem;
+  --fs-4__: clamp(1.15rem, 1.88vw + 0.56rem, 2.5rem);
+  --fs-4_: clamp(1.5rem, 1.25vw + 1.13rem, 2.5rem);
+  --fs-4: clamp(1.95rem, 0.63vw + 1.69rem, 2.5rem);
+  --fs-4-px: 36px;
+  --fs-4-rem: 2.25rem;
+  --fs-5__: clamp(1.67rem, 2.71vw + 0.81rem, 3.61rem);
+  --fs-5_: clamp(2.17rem, 1.81vw + 1.63rem, 3.61rem);
+  --fs-5: clamp(2.82rem, 0.9vw + 2.44rem, 3.61rem);
+  --fs-5-px: 52px;
+  --fs-5-rem: 3.25rem;
+  --fs-6__: clamp(2.31rem, 3.76vw + 1.13rem, 5rem);
+  --fs-6_: clamp(3rem, 2.5vw + 2.25rem, 5rem);
+  --fs-6: clamp(3.9rem, 1.25vw + 3.38rem, 5rem);
+  --fs-6-px: 72px;
+  --fs-6-rem: 4.5rem;
 }
 
 .fs-1__ {
@@ -4906,38 +5323,38 @@ textarea:not([rows]) {
   font-size: var(--fs-6-rem);
 }
 
-.fs-7__ {
-  font-size: var(--fs-7__);
-}
-
-.fs-7_ {
-  font-size: var(--fs-7_);
-}
-
-.fs-7 {
-  font-size: var(--fs-7);
-}
-
-.fs-7-px {
-  font-size: var(--fs-7-px);
-}
-
-.fs-7-rem {
-  font-size: var(--fs-7-rem);
+:root {
+  --day-lightness: 90%;
+  --night-lightness: 70%;
+  --current-lightness: var(--day-lightness);
+  --day-darkness: 5%;
+  --night-darkness: 5%;
+  --current-darkness: var(--day-darkness);
+  --brand-lightness: 50%;
+  --brand-hue: var(--angle, 0);
+  --brand-chroma: 0.2;
+  --accent-lightness: 70%;
+  --accent-hue: 180;
+  --accent-chroma: 0.5;
 }
 
 :root {
-  --root-brand: 78% 0.2 73;
+  --root-brand: var(--brand-lightness) var(--brand-chroma) var(--brand-hue);
   --brand: oklch(var(--root-brand));
   --brand_: oklch(var(--root-brand) / 50%);
   --brand__: oklch(var(--root-brand) / 20%);
   --brand___: oklch(var(--root-brand) / 5%);
-  --root-dark: 5% 0 0;
+  --root-accent: var(--accent-lightness) var(--accent-chroma) 180;
+  --accent: oklch(var(--root-accent));
+  --accent_: oklch(var(--root-accent) / 50%);
+  --accent__: oklch(var(--root-accent) / 20%);
+  --accent___: oklch(var(--root-accent) / 5%);
+  --root-dark: var(--current-darkness) 0.05 var(--brand-hue);
   --dark: oklch(var(--root-dark));
   --dark_: oklch(var(--root-dark) / 50%);
   --dark__: oklch(var(--root-dark) / 20%);
   --dark___: oklch(var(--root-dark) / 5%);
-  --root-light: 95% 0 0;
+  --root-light: var(--current-lightness) 0.001 var(--brand-hue);
   --light: oklch(var(--root-light));
   --light_: oklch(var(--root-light) / 50%);
   --light__: oklch(var(--root-light) / 20%);
@@ -4945,11 +5362,15 @@ textarea:not([rows]) {
 }
 
 .darkMode {
+  --current-lightness: var(--night-lightness);
+  --current-darkness: var(--night-darkness);
+  --root-light: var(--current-lightness) 0.001 var(--angle, 0);
+  --root-dark: var(--current-darkness) 0.05 var(--angle, 0);
+  --dark: oklch(var(--root-light));
   --light: oklch(var(--root-dark));
   --light_: oklch(var(--root-dark) / 50%);
   --light__: oklch(var(--root-dark) / 20%);
   --light___: oklch(var(--root-dark) / 5%);
-  --dark: oklch(var(--root-light));
   --dark_: oklch(var(--root-light) / 50%);
   --dark__: oklch(var(--root-light) / 20%);
   --dark___: oklch(var(--root-light) / 5%);
@@ -4966,6 +5387,19 @@ textarea:not([rows]) {
 }
 ._c-brand___ {
   --current-c-color: var(--brand___);
+}
+
+._c-accent {
+  --current-c-color: var(--accent);
+}
+._c-accent_ {
+  --current-c-color: var(--accent_);
+}
+._c-accent__ {
+  --current-c-color: var(--accent__);
+}
+._c-accent___ {
+  --current-c-color: var(--accent___);
 }
 
 ._c-dark {
@@ -5011,6 +5445,19 @@ textarea:not([rows]) {
   --current-bg-color: var(--brand___);
 }
 
+._bg-accent {
+  --current-bg-color: var(--accent);
+}
+._bg-accent_ {
+  --current-bg-color: var(--accent_);
+}
+._bg-accent__ {
+  --current-bg-color: var(--accent__);
+}
+._bg-accent___ {
+  --current-bg-color: var(--accent___);
+}
+
 ._bg-dark {
   --current-bg-color: var(--dark);
 }
@@ -5054,6 +5501,19 @@ textarea:not([rows]) {
   --current-bc-color: var(--brand___);
 }
 
+._bc-accent {
+  --current-bc-color: var(--accent);
+}
+._bc-accent_ {
+  --current-bc-color: var(--accent_);
+}
+._bc-accent__ {
+  --current-bc-color: var(--accent__);
+}
+._bc-accent___ {
+  --current-bc-color: var(--accent___);
+}
+
 ._bc-dark {
   --current-bc-color: var(--dark);
 }
@@ -5082,6 +5542,48 @@ textarea:not([rows]) {
 
 [class*=_bc] {
   border-color: var(--current-bc-color);
+}
+
+:root {
+  --grad-angle: calc(var(--angle) * 5deg);
+  --grad-angle: calc(var(--angle) * 5deg);
+  --grad-angle-strong: calc(var(--angle) * 10deg);
+  --grad-angle-extrem: calc(var(--angle) * 15deg);
+}
+
+.horizontal {
+  --grad-angle: 90deg;
+}
+
+.vertical {
+  --grad-angle: 0deg;
+}
+.vertical-reverse {
+  --grad-angle: 180deg;
+}
+
+.diagonal {
+  --grad-angle: 45deg;
+}
+
+._grad-brand {
+  --current-grad: linear-gradient(var(--grad-angle), var(--brand), transparent 50%);
+}
+._grad-brand-second {
+  --current-grad: linear-gradient(var(--grad-angle), var(--brand), var(--second-color));
+}
+._grad-brand-second-main {
+  --current-grad: linear-gradient(var(--grad-angle), var(--brand), var(--second-color), var(--brand));
+}
+
+[class*=_grad] {
+  background: var(--current-grad);
+}
+[class*=_grad].strong {
+  --grad-angle: var(--grad-angle-strong);
+}
+[class*=_grad].extrem {
+  --grad-angle: var(--grad-angle-extrem);
 }
 
 a {
@@ -5213,6 +5715,11 @@ section nav {
 .poa {
   position: absolute;
 }
+.poa.center {
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
+}
 
 .por {
   position: relative;
@@ -5246,6 +5753,10 @@ pre {
   overflow: hidden;
 }
 
+.lt {
+  letter-spacing: 0.1em;
+}
+
 .lh-0 {
   line-height: 0;
 }
@@ -5269,6 +5780,16 @@ img {
 
 .bold {
   font-weight: bold;
+}
+
+.blur {
+  filter: blur(1rem);
+}
+.blur_ {
+  filter: blur(2rem);
+}
+.blur__ {
+  filter: blur(3rem);
 }
 
 .ballzzz {
