@@ -46,7 +46,32 @@
   </section>
 
 
-  <section class="px-9__ py-7 flex y g-4">
+  <section class="demo-frame-container">
+    <div class="px-9__ flex y g-5">
+      <h2 for="sizeRange" class="fs-2_ bold _bg-brand pr-10__ lh-1 bold ttu fwd-13 f-scale offset _c-light">Demo size</h2>
+      <p class="fs-2 hide"> <span id="sizeValue" class="">100%</span></p>
+      <input type="range" class="progress" id="sizeRange" min="0" max="100" value="100">
+        
+      
+    </div>
+
+
+    
+    <div id="demoFrame" class="iframe-container">
+      <div class="iframe-border"></div>
+      <iframe
+        id="iframe"
+        title="Inline Frame Example"
+        width="100%"
+        height="100%"
+        src="https://newsite-3fd4f8.webflow.io/final-hp">
+      </iframe>
+    </div>
+
+  </section>
+
+
+  <section class="px-9__ py-7 flex y g-4 hide">
     <h2 class="fs-2_ bold _bg-brand pr-10__ lh-1 bold ttu fwd-13 f-scale offset"><span class="_c-light">Gradients</span></h2>
 
     <div class="w-8 ar-1 circle _grad-brand por">
@@ -60,51 +85,6 @@
     
     </section>  
   
-  <section class="px-9__ py-7 flex y g-4">
-       <h2 class="fs-2_ bold _bg-brand pr-10__ lh-1 bold ttu fwd-13 f-scale offset"><span class="_c-light">Fluid properties</span></h2>
-      
-      <div class="flex y  g-4">
-           
-         <p class="fs-2">I use Emmet CSS naming conventions, employing intuitive prefixes for efficient and consistent styling.</p>
-
-         <div class="flex x wrap g-4">
-
-          <div class="p-5_ border thin br-1 flex y g-2">
-            <p class="fs-2"><span class="bold">w</span><span class="_c-dark_"> == </span><span>width</span></p>
-            <p class="fs-2"><span class="bold">h</span><span class="_c-dark_"> == </span><span>height</span></p>
-            <p class="fs-2"><span class="bold">p</span><span class="_c-dark_"> == </span><span>padding</span></p>
-            <p class="fs-2"><span class="bold">px</span><span class="_c-dark_"> == </span><span>padding-inline</span></p>
-            <p class="fs-2"><span class="bold">py</span><span class="_c-dark_"> == </span><span>padding-block</span></p>
-            <p class="fs-2"><span class="bold">pl</span><span class="_c-dark_"> == </span><span>padding-left</span></p>
-            <p class="fs-2"><span class="bold">pr</span><span class="_c-dark_"> == </span><span>padding-right</span></p>
-            <p class="fs-2"><span class="bold">br</span><span class="_c-dark_"> == </span><span>border-radius</span></p>
-            <p class="fs-2"><span class="bold">g</span><span class="_c-dark_"> == </span><span>gap</span></p>
-          </div>
-
-          <div class="p-5_ border thin br-1 flex y g-2">
-
-            <span class="bold">SCSS</span>
-            <pre>
-              $properties: (
-                      w: width,
-                      h: height,
-                      p: padding,
-                      px: padding-inline,
-                      py: padding-block,
-                      pl: padding-left,
-                      pr: padding-right,
-                      br: border-radius,
-                      g: gap
-              );
-            </pre>
-
-          </div>
-        </div>
-
-           
-      </div>
-
-    </section>
 
     <section class="px-9__ py-7 flex y g-4 __hide">
    
@@ -168,6 +148,53 @@
       </div>
       
     </section>
+
+    <section class="px-9__ py-7 flex y g-4">
+      <h2 class="fs-2_ bold _bg-brand pr-10__ lh-1 bold ttu fwd-13 f-scale offset"><span class="_c-light">Fluid properties</span></h2>
+     
+     <div class="flex y  g-4">
+          
+        <p class="fs-2">I use Emmet CSS naming conventions, employing intuitive prefixes for efficient and consistent styling.</p>
+
+        <div class="flex x wrap g-4">
+
+         <div class="p-5_ border thin br-1 flex y g-2">
+           <p class="fs-2"><span class="bold">w</span><span class="_c-dark_"> == </span><span>width</span></p>
+           <p class="fs-2"><span class="bold">h</span><span class="_c-dark_"> == </span><span>height</span></p>
+           <p class="fs-2"><span class="bold">p</span><span class="_c-dark_"> == </span><span>padding</span></p>
+           <p class="fs-2"><span class="bold">px</span><span class="_c-dark_"> == </span><span>padding-inline</span></p>
+           <p class="fs-2"><span class="bold">py</span><span class="_c-dark_"> == </span><span>padding-block</span></p>
+           <p class="fs-2"><span class="bold">pl</span><span class="_c-dark_"> == </span><span>padding-left</span></p>
+           <p class="fs-2"><span class="bold">pr</span><span class="_c-dark_"> == </span><span>padding-right</span></p>
+           <p class="fs-2"><span class="bold">br</span><span class="_c-dark_"> == </span><span>border-radius</span></p>
+           <p class="fs-2"><span class="bold">g</span><span class="_c-dark_"> == </span><span>gap</span></p>
+         </div>
+
+         <div class="p-5_ border thin br-1 flex y g-2">
+
+           <span class="bold">SCSS</span>
+           <pre>
+             $properties: (
+                     w: width,
+                     h: height,
+                     p: padding,
+                     px: padding-inline,
+                     py: padding-block,
+                     pl: padding-left,
+                     pr: padding-right,
+                     br: border-radius,
+                     g: gap
+             );
+           </pre>
+
+         </div>
+       </div>
+
+          
+     </div>
+
+   </section>
+
     
   
     <section class="px-9__ py-7 flex y g-4">

@@ -16,6 +16,12 @@
     align-items: flex-start;
     &.center {
       justify-content: center;
+      align-items: center;
+    }
+  }
+  &.x {
+    &.center {
+      justify-content: center;
     }
   }
   &.wrap {

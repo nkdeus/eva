@@ -120,3 +120,65 @@ document.addEventListener('DOMContentLoaded', function() {
   
   
     });
+
+
+
+
+    document.addEventListener('DOMContentLoaded', function() {    
+
+      const progress = document.querySelector('.progress');
+  
+progress.addEventListener('input', function() {
+  const value = this.value;
+  this.style.background = `linear-gradient(to right, var(--brand) 0%, var(--brand) ${value}%, var(--light) ${value}%, var(--light) 100%)`
+})
+
+      const iframe = document.getElementById('demoFrame');
+          const sizeRange = document.getElementById('sizeRange');
+          const sizeValue = document.getElementById('sizeValue');
+      
+          const minWidth = 380;
+          const maxWidth = 1920;
+          const minHeight = 600;
+          const maxHeight = 1000;
+      
+       const marginFactor = 0.8;
+      
+          function adjustScale() {
+              const viewportWidth = window.innerWidth;
+              const frameWidth = demoFrame.clientWidth;
+      
+              if (frameWidth > viewportWidth) {
+                  const scale = viewportWidth / frameWidth * marginFactor;
+                  demoFrame.style.transform = `scale(${scale})`;
+              } else {
+                  demoFrame.style.transform = `scale(${marginFactor})`;
+              }
+          }
+      
+          sizeRange.addEventListener('input', function() {
+              // Calculer la nouvelle largeur et hauteur en fonction du pourcentage
+              const scale = sizeRange.value / 100;
+              const newWidth = minWidth + (maxWidth - minWidth) * scale;
+              const newHeight = minHeight + (maxHeight - minHeight) * scale;
+              
+              // Appliquer les nouvelles dimensions à l'iframe
+              iframe.style.width = newWidth + 'px';
+              iframe.style.height = newHeight + 'px';
+              
+              // Mettre à jour l'affichage de la valeur actuelle
+              sizeValue.textContent = sizeRange.value + '%';
+            
+             adjustScale();
+          });
+      
+          window.addEventListener('resize', adjustScale);
+      
+          // Initial scale adjustment
+          adjustScale();
+        
+      });
+
+
+
+      

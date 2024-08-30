@@ -70,6 +70,7 @@ nav {
         color: var(--light);
       }
       &.selected {
+        color: var(--light);
         background-color: var(--brand);
         outline: 3px solid var(--brand__);
       }
