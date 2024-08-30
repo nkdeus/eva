@@ -6053,7 +6053,8 @@ img {
 }
 
 section.demo-frame-container {
-  height: 100vh;
+  min-height: 800px;
+  aspect-ratio: 16/10;
 }
 
 .iframe-border {
