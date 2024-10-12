@@ -1,5 +1,8 @@
 
 let body;
+const updateAngle = true;
+const darkModeByHour = false;
+
 
 function isDayTime() {
   const maintenant = new Date();
@@ -60,6 +63,14 @@ function randomTitle(){
        titleElement.innerHTML = newTitleHTML;
 }
 
+const updateTheme = (e) => {
+  alert("update");
+  if (e.matches) {
+      document.body.classList.add('dark');
+  } else {
+      document.body.classList.remove('dark');
+  }
+};
 
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -70,9 +81,14 @@ document.addEventListener('DOMContentLoaded', function() {
       
     body = document.querySelector('body');
 
-    updateBodyClass();
+    if(darkModeByHour){
+      updateBodyClass();
+      setInterval(updateBodyClass, 60000*10); 
+    }else{
+    
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', updateTheme)
+    }
 
-    setInterval(updateBodyClass, 60000*10); 
 
     const nav = document.getElementById('nav');
     gsap.registerPlugin(ScrollTrigger);
@@ -85,11 +101,13 @@ document.addEventListener('DOMContentLoaded', function() {
         scrub: true, 
         onUpdate: (self) => {
           const progress = self.progress; 
-          let angle = Math.ceil((self.progress * 360)*100)/100; 
 
-          const poids = Math.ceil((400 + progress * 500)*100)/100; 
-          document.documentElement.style.setProperty("--angle", angle.toString());
-          nav.style.setProperty("--wght", poids.toString());
+          if(updateAngle){
+
+            let angle = Math.ceil((self.progress * 360)*100)/100; 
+            nav.style.setProperty("--angle", angle.toString());
+            
+          }
      
         }
       }
@@ -128,10 +146,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
       const progress = document.querySelector('.progress');
   
-progress.addEventListener('input', function() {
-  const value = this.value;
-  this.style.background = `linear-gradient(to right, var(--brand) 0%, var(--brand) ${value}%, var(--light) ${value}%, var(--light) 100%)`
-})
+      progress.addEventListener('input', function() {
+        const value = this.value;
+        this.style.background = `linear-gradient(to right, var(--brand) 0%, var(--brand) ${value}%, var(--light) ${value}%, var(--light) 100%)`
+      })
 
       const iframe = document.getElementById('demoFrame');
           const sizeRange = document.getElementById('sizeRange');

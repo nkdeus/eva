@@ -1,136 +1,195 @@
+@use "sass:math";
+
 :root {
-  //theme OKLCH ( Lightenss Chroma Hue )
-  --day-lightness: 90%;
-  --night-lightness: 70%;
-  --current-lightness: var(--day-lightness);
+  --current-lightness: 99%;
+  --current-darkness: 5%;
 
-  --day-darkness: 5%;
-  --night-darkness: 5%;
-  --current-darkness: var(--day-darkness);
+  --dark-chroma: 0;
+  --light-chroma: 0;
 
-  --brand-lightness: 50%;
-  --brand-hue: var(--angle, 0);
-  --brand-chroma: 0.2;
+  --darker: -5%;
+  --brighter: 10%;
+  --darker_: -15%;
+  --brighter_: 30%;
+
+  --brand-lightness: 80%;
+  --brand-chroma: 0;
+  --brand-hue: 0;
 
   --accent-lightness: 70%;
-  --accent-hue: 180;
-  --accent-chroma: 0.5;
+  --accent-chroma: 0;
+  --accent-hue: 0;
+
+  --extra-lightness: 60%;
+  --extra-chroma: 0;
+  --extra-hue: 0;
+
+  --twitter-lightness: 50%;
+  --twitter-chroma: 0;
+  --twitter-hue: 0;
 }
 
 // Map des valeurs de fade avec des underscores
 $fade-map: (
-  "_": 50%,
-  "__": 20%,
+  "_": 65%,
+  "__": 35%,
   "___": 5%,
 );
 
-$color-map: (
-  "brand": var(--brand-lightness) var(--brand-chroma) var(--brand-hue),
-  "accent": var(--accent-lightness) var(--accent-chroma) 180,
-  "dark": var(--current-darkness) 0.05 var(--brand-hue),
-  "light": var(--current-lightness) 0.001 var(--brand-hue),
+$darkbright-map: (
+  "-d": var(--darker),
+  "-b": var(--brighter),
+  "-d_": var(--darker_),
+  "-b_": var(--brighter_),
 );
 
-// Génération des variables CSS avec les bons suffixes
-:root {
-  @each $color-name, $color-value in $color-map {
-    --root-#{$color-name}: #{$color-value};
-    --#{$color-name}: oklch(var(--root-#{$color-name}));
-    @each $suffix, $fade-value in $fade-map {
-      --#{$color-name}#{$suffix}: oklch(var(--root-#{$color-name}) / #{$fade-value});
-    }
+//angle
+
+$step: 5;
+$total-degrees: 360;
+$number-of-steps: math.div($total-degrees, $step);
+
+@for $i from 1 through $number-of-steps {
+  $angle: $i * $step;
+
+  ._a-#{$angle} {
+    --grad-angle: #{$angle * 1deg};
   }
 }
 
-// Gestion du mode sombre
-.darkMode {
-  --current-lightness: var(--night-lightness);
-  --current-darkness: var(--night-darkness);
+$gradients: "brand", "accent", "dark", "light", "extra";
+$gradients-darkbright: "-d", "-d_", "-b", "-b_";
 
-  --root-light: var(--current-lightness) 0.001 var(--angle, 0);
-  --root-dark: var(--current-darkness) 0.05 var(--angle, 0);
+$color-map: (
+  "brand": var(--brand-lightness) var(--brand-chroma) var(--brand-hue),
+  "accent": var(--accent-lightness) var(--accent-chroma) var(--accent-hue),
+  "extra": var(--extra-lightness) var(--extra-chroma) var(--extra-hue),
+  "white": 100% 0 0,
+  "dark": var(--current-darkness) var(--dark-chroma) var(--brand-hue),
+  "light": var(--current-lightness) var(--light-chroma) var(--brand-hue),
+  "twitter": var(--twitter-lightness) var(--twitter-chroma) var(--twitter-hue),
+);
 
-  --dark: oklch(var(--root-light));
-  --light: oklch(var(--root-dark));
-
+// Génération des variables CSS avec les bons suffixes
+.current-theme {
   @each $color-name, $color-value in $color-map {
-    @if $color-name == "light" {
-      @each $suffix, $fade-value in $fade-map {
-        --dark#{$suffix}: oklch(var(--root-#{$color-name}) / #{$fade-value});
+    --root-#{$color-name}: #{$color-value};
+    --#{$color-name}: oklch(var(--root-#{$color-name}));
+
+    @each $suffix, $fade-value in $fade-map {
+      --#{$color-name}#{$suffix}: oklch(var(--root-#{$color-name}) / #{$fade-value});
+    }
+
+    @each $suffix, $darkbright-value in $darkbright-map {
+      @if $color-name == "light" {
+        --#{$color-name}#{$suffix}: oklch(calc(var(--current-lightness) + #{$darkbright-value}) var(--light-chroma) var(--brand-hue));
+      } @else if $color-name == "dark" {
+        --#{$color-name}#{$suffix}: oklch(calc(var(--current-darkness) + #{$darkbright-value}) var(--dark-chroma) var(--brand-hue));
+      } @else {
+        --#{$color-name}#{$suffix}: oklch(calc(var(--#{$color-name}-lightness) + #{$darkbright-value}) var(--#{$color-name}-chroma) var(--#{$color-name}-hue));
       }
-    } @else if $color-name == "dark" {
-      @each $suffix, $fade-value in $fade-map {
-        --light#{$suffix}: oklch(var(--root-#{$color-name}) / #{$fade-value});
+    }
+  }
+
+  // asign color to UI elements
+  --bg-color: var(--brand);
+  --bg-color-2: var(--brand-d);
+
+  --h1-color: var(--dark);
+  --bt-wallet-color: var(--accent);
+  --sh-wallet-color: var(--accent-d);
+
+  --bt-twitter-color: var(--twitter);
+  --sh-twitter-color: var(--twitter-d);
+
+  --bg-timer-color: var(--extra);
+
+  --bg-block: var(--light);
+  --sh-block: var(--dark);
+}
+
+.current-grad {
+  --grad-angle: 90deg;
+  @each $grad-from in $gradients {
+    @each $grad-to in $gradients {
+      @if ($grad-from != $grad-to) {
+        --grad-#{$grad-from}-#{$grad-to}: linear-gradient(var(--grad-angle), oklch(var(--root-#{$grad-from})) 0%, oklch(var(--root-#{$grad-to})) 100%);
+      } @else {
+        --grad-#{$grad-from}: linear-gradient(var(--grad-angle), oklch(var(--root-#{$grad-from})) 0%, transparent 100%);
+        @each $grad-db in $gradients-darkbright {
+          --grad-#{$grad-from}#{$grad-db}-#{$grad-from}: linear-gradient(
+            var(--grad-angle),
+            var(--#{$grad-from}#{$grad-db}) 0%,
+            oklch(var(--root-#{$grad-from})) 100%
+          );
+          --grad-#{$grad-from}-#{$grad-from}#{$grad-db}: linear-gradient(
+            var(--grad-angle),
+            oklch(var(--root-#{$grad-from})) 0%,
+            var(--#{$grad-from}#{$grad-db}) 100%
+          );
+        }
       }
     }
   }
 }
 
 $prefix: "_";
-$colors-class: "brand", "accent", "dark", "light";
+$colors-class: "brand", "accent", "extra", "dark", "light", "white";
 $fades: "_", "__", "___";
+$shades: "-b", "-d", "-b_", "-d_";
+
 $colors: (
   c: color,
-  bg: background-color,
+  bg: background,
   bc: border-color,
+  f: fill,
 );
 
-@mixin getAllColors($prop, $key, $eva) {
+@mixin getAllColors($prop, $key) {
   @each $class in $colors-class {
     .#{$prefix}#{$key}-#{$class} {
       --current-#{$key}-color: var(--#{$class});
+
       @each $fade in $fades {
         &#{$fade} {
           --current-#{$key}-color: var(--#{$class}#{$fade});
         }
       }
+      @each $shade in $shades {
+        &#{$shade} {
+          --current-#{$key}-color: var(--#{$class}#{$shade});
+        }
+      }
     }
   }
-  [class*="#{$prefix}#{$key}"] {
-    #{$prop}: var(--current-#{$key}-color);
+
+  @if ($key == "f") {
+    [class*="#{$prefix}#{$key}"] path,
+    [class*="#{$prefix}#{$key}"] {
+      #{$prop}: var(--current-#{$key}-color);
+    }
+  } @else {
+    [class*="#{$prefix}#{$key}"] {
+      #{$prop}: var(--current-#{$key}-color);
+    }
   }
 }
 
 @each $key, $prop in $colors {
-  @include getAllColors($prop, $key, $eva);
+  @include getAllColors($prop, $key);
 }
 
-// gradient
-:root {
-  --grad-angle: calc(var(--angle) * 5deg);
-  --grad-angle: calc(var(--angle) * 5deg);
-  --grad-angle-strong: calc(var(--angle) * 10deg);
-  --grad-angle-extrem: calc(var(--angle) * 15deg);
-}
-.horizontal {
-  --grad-angle: 90deg;
-}
-.vertical {
-  --grad-angle: 0deg;
-  &-reverse {
-    --grad-angle: 180deg;
-  }
-}
-.diagonal {
-  --grad-angle: 45deg;
-}
-._grad {
-  &-brand {
-    --current-grad: linear-gradient(var(--grad-angle), var(--brand), transparent 50%);
-    &-second {
-      --current-grad: linear-gradient(var(--grad-angle), var(--brand), var(--second-color));
-      &-main {
-        --current-grad: linear-gradient(var(--grad-angle), var(--brand), var(--second-color), var(--brand));
-      }
-    }
-  }
-}
-[class*="_grad"] {
-  &.strong {
-    --grad-angle: var(--grad-angle-strong);
-  }
-  &.extrem {
-    --grad-angle: var(--grad-angle-extrem);
-  }
-  background: var(--current-grad);
+// Gestion du mode sombre
+
+.current-theme.dark {
+  --darker: 10%;
+  --brighter: -5%;
+  --darker_: 30%;
+  --brighter_: -15%;
+
+  --current-lightness: 5%;
+  --current-darkness: 99%;
+
+  --dark-chroma: 0.01;
+  --light-chroma: 0.08;
 }

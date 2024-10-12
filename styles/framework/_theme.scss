@@ -1,0 +1,103 @@
+.theme-eva {
+  // brand - oklch(81.16% 0.1924 75.18);
+  --dark-chroma: 0.08;
+  --light-chroma: 0.01;
+
+  --brand-lightness: 80%;
+  --brand-chroma: 0.1924;
+  --brand-hue: 75.18;
+
+  --accent-lightness: 80%;
+  --accent-chroma: 0.1924;
+  --accent-hue: 255.18;
+
+  --extra-lightness: 80%;
+  --extra-chroma: 0.1924;
+  --extra-hue: 0;
+
+  /*
+    --bg-color: var(--brand);
+    --bg-color-2: var(--brand-d);
+  
+    --h1-color: var(--dark);
+    --bt-wallet-color: var(--accent);
+    --sh-wallet-color: var(--accent-d);
+  
+    --bt-twitter-color: var(--twitter);
+    --sh-twitter-color: var(--twitter-d);
+  
+    --bg-timer-color: var(--extra);
+  
+    --bg-block: var(--light);
+    --sh-block: var(--dark);
+    */
+}
+
+// proxy class for UI elements
+._bg-app {
+  --current-bg-color: var(--bg-color);
+  --current-f-color: var(--bg-color-2);
+}
+
+._c-h1 {
+  --current-c-color: var(--h1-color);
+}
+
+._bg-wallet {
+  --current-bg-color: var(--bt-wallet-color);
+  --current-sh-color: var(--sh-wallet-color);
+}
+
+._bg-twitter {
+  --current-bg-color: var(--bt-twitter-color);
+  --current-sh-color: var(--sh-twitter-color);
+}
+
+._bg-timer {
+  --current-bg-color: var(--bg-timer-color);
+}
+
+._bg-block {
+  --current-bg-color: var(--bg-block);
+  --current-sh-color: var(--sh-block);
+}
+
+._shadow {
+  box-shadow: 4px 4px 0px 0px var(--current-sh-color);
+  &_ {
+    box-shadow: 8px 8px 0px 0px var(--current-sh-color);
+  }
+}
+
+// hovers
+
+.hover\:_c-brand:hover {
+  color: var(--brand);
+}
+
+.hover\:_bg-brand__:hover {
+  background: var(--brand__);
+}
+.hover\:_bg-dark___:hover {
+  background: var(--dark___);
+}
+
+[class*="hover\:_bg"] {
+  transition: background-color 0.2s;
+}
+
+//scrollbar
+html::-webkit-scrollbar {
+  width: 2px;
+  height: 2px;
+}
+
+html::-webkit-scrollbar-track {
+  border-radius: 1px;
+  background-color: var(--light);
+}
+
+html::-webkit-scrollbar-thumb {
+  border-radius: 0px;
+  background-color: var(--light-d_);
+}
