@@ -4,8 +4,8 @@
   --current-lightness: 99%;
   --current-darkness: 5%;
 
-  --dark-chroma: 0;
-  --light-chroma: 0;
+  --dark-chroma: 0.01;
+  --light-chroma: 0.01;
 
   --darker: -5%;
   --brighter: 10%;
@@ -181,15 +181,17 @@ $colors: (
 
 // Gestion du mode sombre
 
-.current-theme.dark {
-  --darker: 10%;
-  --brighter: -5%;
-  --darker_: 30%;
-  --brighter_: -15%;
+@media (prefers-color-scheme: dark) {
+  .current-theme {
+    --darker: 10%;
+    --brighter: -5%;
+    --darker_: 30%;
+    --brighter_: -15%;
 
-  --current-lightness: 5%;
-  --current-darkness: 99%;
+    --current-lightness: 7%;
+    --current-darkness: 87%;
 
-  --dark-chroma: 0.01;
-  --light-chroma: 0.08;
+    --dark-chroma: 0.01;
+    --light-chroma: 0.2;
+  }
 }

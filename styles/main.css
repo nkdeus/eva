@@ -5326,8 +5326,8 @@ textarea:not([rows]) {
 :root {
   --current-lightness: 99%;
   --current-darkness: 5%;
-  --dark-chroma: 0;
-  --light-chroma: 0;
+  --dark-chroma: 0.01;
+  --light-chroma: 0.01;
   --darker: -5%;
   --brighter: 10%;
   --darker_: -15%;
@@ -6556,20 +6556,19 @@ textarea:not([rows]) {
   fill: var(--current-f-color);
 }
 
-.current-theme.dark {
-  --darker: 10%;
-  --brighter: -5%;
-  --darker_: 30%;
-  --brighter_: -15%;
-  --current-lightness: 5%;
-  --current-darkness: 99%;
-  --dark-chroma: 0.01;
-  --light-chroma: 0.08;
+@media (prefers-color-scheme: dark) {
+  .current-theme {
+    --darker: 10%;
+    --brighter: -5%;
+    --darker_: 30%;
+    --brighter_: -15%;
+    --current-lightness: 7%;
+    --current-darkness: 87%;
+    --dark-chroma: 0.01;
+    --light-chroma: 0.2;
+  }
 }
-
 .theme-eva {
-  --dark-chroma: 0.08;
-  --light-chroma: 0.01;
   --brand-lightness: 80%;
   --brand-chroma: 0.1924;
   --brand-hue: 75.18;

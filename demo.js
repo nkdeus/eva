@@ -64,11 +64,10 @@ function randomTitle(){
 }
 
 const updateTheme = (e) => {
-  alert("update");
   if (e.matches) {
-      document.body.classList.add('dark');
+      //document.body.classList.add('dark');
   } else {
-      document.body.classList.remove('dark');
+      //document.body.classList.remove('dark');
   }
 };
 
