@@ -24,6 +24,7 @@ body {
   color: var(--dark);
   padding-bottom: var(--6);
   overflow: auto;
+  container-type: inline-size;
 }
 
 h1,
