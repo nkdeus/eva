@@ -1,7 +1,7 @@
 $dev-mode: true; // false for prod usage
 $build-class: true; // false to use only CSS var
 $custom-class: false;
-$name-by-size: false; // true = utilise les valeurs de taille, false = utilise les index
+$name-by-size: true; // true = utilise les valeurs de taille, false = utilise les index
 
 $sizes: 4, 8, 12, 20, 32, 34, 52, 84, 136, 220, 356, 576, 712;
 $font-sizes: 12, 16, 18, 24, 36, 52, 72;

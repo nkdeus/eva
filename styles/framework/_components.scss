@@ -22,7 +22,7 @@ body {
   background-color: var(--light);
   font-weight: var(--body-weight);
   color: var(--dark);
-  padding-bottom: var(--6);
+  padding-bottom: var(--136);
   overflow: auto;
   container-type: inline-size;
 }
@@ -57,11 +57,11 @@ nav {
     padding: 0;
     width: 100%;
     list-style: none;
-    gap: var(--2__);
+    gap: var(--52__);
 
     li {
-      padding: var(--1);
-      border-radius: var(--3-);
+      padding: var(--8);
+      border-radius: var(--12-);
       outline: 1px solid var(--dark___);
       text-align: center;
       flex: 1;
@@ -82,13 +82,13 @@ nav {
 p {
   width: 100%;
   line-height: 1.6;
-  max-width: var(--11);
+  max-width: var(--576);
 }
 
 section {
   width: 100%;
   overflow: hidden;
-  padding-bottom: var(--3);
+  padding-bottom: var(--136);
   position: relative;
   z-index: 20;
   nav {

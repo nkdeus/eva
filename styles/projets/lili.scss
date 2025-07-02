@@ -20,8 +20,3 @@ $font-sizes: 14, 16, 18, 24, 32, 48, 60, 120;
 /* BUILD ONLY FLUID CSS VAR */
 @import "../framework/eva";
 
-.test-class {
-  background: red;
-  padding: var(--16);
-  font-size: var(--fs-14);
-} 

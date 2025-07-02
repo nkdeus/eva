@@ -111,7 +111,7 @@
 }
 
 .stage {
-  filter: blur(4px);
+  filter: blur(3px);
   position: absolute;
   overflow: hidden;
   pointer-events: none;
@@ -119,7 +119,7 @@
   height: 100%;
   width: 100%;
   left: 0px;
-  top: var(--6-);
+  top: 0px;
 
   .stage-top {
     position: absolute;

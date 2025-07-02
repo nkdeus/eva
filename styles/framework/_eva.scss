@@ -117,15 +117,7 @@ $font-class-config: (
   @return round2($size * $ratio);
 }
 
-@mixin getVarSetter($key, $eva) {
-  @each $setter in $setters-type {
-    [data-setter="#{$setter}"] {
-      .#{$key}-#{$eva}-\@ {
-        --abstract-getter: var(--#{$eva}#{$setter});
-      }
-    }
-  }
-}
+
 
 @mixin getAllSizingClass($prop, $key, $eva) {
   @each $class in $sizing-class {
@@ -311,9 +303,6 @@ $font-class-config: (
         $should-generate: true;
       }
       @if $should-generate {
-        @if $dev-mode == true {
-          @include getVarSetter($key, $eva);
-        }
         @include getAllSizingClass($prop, $key, $eva);
       }
     }
