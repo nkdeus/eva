@@ -3,7 +3,8 @@ a {
   &:hover {
     background-color: var(--brand__);
     span {
-      color: var(--dark);
+      color: var(--brand-d);
+      
     }
     &:is(._bg-brand) {
       background-color: var(--dark);

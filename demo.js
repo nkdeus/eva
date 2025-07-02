@@ -584,6 +584,7 @@ window.addEventListener('load', function() {
 
 // Navigation entre les sites
 const sites = [
+  { name: "EvaCSS", url: "https://eva-css.netlify.app" },
   { name: "SkipCall", url: "https://www.skipcall.io" },
   { name: "Side", url: "https://www.side.xyz" },
   { name: "Florian Ronzi", url: "https://qtradingtheory.com" },
