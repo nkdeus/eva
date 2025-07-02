@@ -22,12 +22,19 @@ body {
   background-color: var(--light);
   font-weight: var(--body-weight);
   color: var(--dark);
-  padding-bottom: var(--136);
   overflow: auto;
   container-type: inline-size;
 }
 
-h1,
+h1 {
+  margin: 0;
+  padding: 0;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings: "wght" var(--title-weight);
+  font-family: var(--title-font), sans-serif;
+}
+
 h2,
 h3,
 h4 {
@@ -35,7 +42,7 @@ h4 {
   padding: 0;
   font-optical-sizing: auto;
   font-style: normal;
-  font-variation-settings: "wght" var(--title-weight);
+  font-variation-settings: "wght" var(--sub-title-weight);
   font-family: var(--title-font), sans-serif;
 }
 
@@ -88,7 +95,7 @@ p {
 section {
   width: 100%;
   overflow: hidden;
-  padding-bottom: var(--136);
+  padding-bottom: var(--156);
   position: relative;
   z-index: 20;
   nav {

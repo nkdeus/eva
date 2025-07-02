@@ -3,11 +3,11 @@
 
   --brand-lightness: 80%;
   --brand-chroma: 0.1924;
-  --brand-hue: 75.18;
+  --brand-hue: 169;
 
   --accent-lightness: 80%;
   --accent-chroma: 0.1924;
-  --accent-hue: 255.18;
+  --accent-hue: 10;
 
   --extra-lightness: 80%;
   --extra-chroma: 0.1924;
@@ -82,20 +82,4 @@
 
 [class*="hover\:_bg"] {
   transition: background-color 0.2s;
-}
-
-//scrollbar
-html::-webkit-scrollbar {
-  width: 2px;
-  height: 2px;
-}
-
-html::-webkit-scrollbar-track {
-  border-radius: 1px;
-  background-color: var(--light);
-}
-
-html::-webkit-scrollbar-thumb {
-  border-radius: 0px;
-  background-color: var(--light-d_);
 }

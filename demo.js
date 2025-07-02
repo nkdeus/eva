@@ -147,11 +147,16 @@ document.addEventListener('DOMContentLoaded', function() {
       const demoFrame = document.getElementById('demoFrame');
       const container = document.querySelector('.demo-frame-container');
       
-      const minWidth = 320;
+      const minWidth = 360;
       const maxWidth = 1920;
-      // Ratios
-      const mobileRatio = 28 / 16; // ex: 16:28 (portrait)
-      const desktopRatio = 9 / 16; // ex: 16:9 (paysage)
+      // Ratios par appareil (width/height)
+      const deviceRatios = {
+        mobile: 16 / 28,     // Portrait mobile (16:28)
+        foldable: 16 / 20,   // Foldable (16:20)
+        tablet: 4 / 3,       // Tablet (4:3)
+        laptop: 16 / 10,     // Laptop (16:10)
+        desktop: 16 / 9      // Desktop (16:9)
+      };
       
       // Variables pour gérer l'interaction manuelle
       let isManualInteraction = false;
@@ -184,13 +189,48 @@ document.addEventListener('DOMContentLoaded', function() {
         return Math.min(maxHeight, window.innerHeight * 0.9);
       }
       
+      // Fonction pour ajuster la hauteur du container-frame
+      function updateContainerHeight(frameHeight) {
+          const containerFrame = document.querySelector('.container-frame');
+          if (!containerFrame) return;
+          
+          // Récupérer le scale réellement appliqué depuis la transform
+          const transform = demoFrame.style.transform;
+          let scale = 1;
+          if (transform && transform.includes('scale(')) {
+              const scaleMatch = transform.match(/scale\(([^)]+)\)/);
+              if (scaleMatch) {
+                  scale = parseFloat(scaleMatch[1]);
+              }
+          }
+          
+          // Calculer la hauteur réelle de la frame après scale
+          const scaledHeight = frameHeight * scale;
+          
+          // Calculer la hauteur nécessaire avec une marge
+          const margin = 50; // Marge réduite en pixels
+          const newHeight = scaledHeight + margin;
+          
+          // Limiter la hauteur minimale et maximale
+          const minHeight = 400; // Hauteur minimale
+          const maxHeight = window.innerHeight * 0.9; // 90% de la hauteur de la fenêtre
+          
+          const finalHeight = Math.max(minHeight, Math.min(maxHeight, newHeight));
+          
+          containerFrame.style.height = finalHeight + 'px';
+      }
+      
       // Fonction pour ajuster le scale du demoFrame dynamiquement
       function adjustScale(currentWidth) {
           const viewportWidth = container.clientWidth;
           // On laisse 32px de marge pour éviter le clipping
           const availableWidth = viewportWidth - 32;
           let scale = 1;
-          const marginFactor = 0.85; // Toujours un peu de marge
+          
+          // Calculer le marginFactor basé sur la valeur actuelle du range
+          const currentValue = sizeRange.value;
+          const marginFactor = 0.6 + (currentValue / 100) * 0.3; // De 0.6 à 0.9
+          
           if (currentWidth > availableWidth) {
               scale = (availableWidth / currentWidth) * marginFactor;
           } else {
@@ -225,12 +265,25 @@ document.addEventListener('DOMContentLoaded', function() {
           // Mettre à jour l'affichage
           sizeValue.textContent = Math.round(currentValue) + '%';
 
-          // Largeur cible de 320 à 1920px
+          // Largeur cible de 360 à 1920px
           const t = currentValue / 100;
           const newWidth = minWidth + (maxWidth - minWidth) * t;
-          // Interpolation du ratio
-          const ratio = mobileRatio + (desktopRatio - mobileRatio) * t;
-          let newHeight = Math.round(newWidth * ratio);
+          
+          // Déterminer le ratio approprié selon le pourcentage
+          let ratio;
+          if (currentValue <= 20) {
+            ratio = deviceRatios.mobile;
+          } else if (currentValue <= 40) {
+            ratio = deviceRatios.foldable;
+          } else if (currentValue <= 60) {
+            ratio = deviceRatios.tablet;
+          } else if (currentValue <= 80) {
+            ratio = deviceRatios.laptop;
+          } else {
+            ratio = deviceRatios.desktop;
+          }
+          
+          let newHeight = Math.round(newWidth / ratio);
 
           demoFrame.style.width = newWidth + 'px';
           demoFrame.style.height = newHeight + 'px';
@@ -242,6 +295,9 @@ document.addEventListener('DOMContentLoaded', function() {
           updateDeviceIcon(currentValue);
           
           adjustScale(newWidth);
+          
+          // Ajuster la hauteur du container-frame
+          updateContainerHeight(newHeight);
           
           // Mettre à jour la ligne de connexion
           updateConnectionLine();
@@ -374,8 +430,22 @@ document.addEventListener('DOMContentLoaded', function() {
             // Calculer les nouvelles dimensions
             const t = percentage / 100;
             const newWidth = minWidth + (maxWidth - minWidth) * t;
-            const ratio = mobileRatio + (desktopRatio - mobileRatio) * t;
-            let newHeight = Math.round(newWidth * ratio);
+            
+            // Déterminer le ratio approprié selon le pourcentage
+            let ratio;
+            if (percentage <= 20) {
+              ratio = deviceRatios.mobile;
+            } else if (percentage <= 40) {
+              ratio = deviceRatios.foldable;
+            } else if (percentage <= 60) {
+              ratio = deviceRatios.tablet;
+            } else if (percentage <= 80) {
+              ratio = deviceRatios.laptop;
+            } else {
+              ratio = deviceRatios.desktop;
+            }
+            
+            let newHeight = Math.round(newWidth / ratio);
             
             // Mettre à jour la frame
             demoFrame.style.width = newWidth + 'px';
@@ -389,6 +459,9 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Ajuster le scale
             adjustScale(newWidth);
+            
+            // Ajuster la hauteur du container-frame
+            updateContainerHeight(newHeight);
             
             // Réinitialiser l'interaction manuelle après 3 secondes
             if (interactionTimeout) {
@@ -417,8 +490,22 @@ document.addEventListener('DOMContentLoaded', function() {
           // Mise à jour immédiate
           const t = this.value / 100;
           const newWidth = minWidth + (maxWidth - minWidth) * t;
-          const ratio = mobileRatio + (desktopRatio - mobileRatio) * t;
-          let newHeight = Math.round(newWidth * ratio);
+          
+          // Déterminer le ratio approprié selon le pourcentage
+          let ratio;
+          if (this.value <= 20) {
+            ratio = deviceRatios.mobile;
+          } else if (this.value <= 40) {
+            ratio = deviceRatios.foldable;
+          } else if (this.value <= 60) {
+            ratio = deviceRatios.tablet;
+          } else if (this.value <= 80) {
+            ratio = deviceRatios.laptop;
+          } else {
+            ratio = deviceRatios.desktop;
+          }
+          
+          let newHeight = Math.round(newWidth / ratio);
 
           demoFrame.style.width = newWidth + 'px';
           demoFrame.style.height = newHeight + 'px';
@@ -432,6 +519,9 @@ document.addEventListener('DOMContentLoaded', function() {
           
           // Appel direct au lieu de setTimeout
           adjustScale(newWidth);
+          
+          // Ajuster la hauteur du container-frame
+          updateContainerHeight(newHeight);
 
           // Centrer les flèches sur la frame (avec debounce pour éviter les boucles)
           if (window.centerArrowsTimeout) {
