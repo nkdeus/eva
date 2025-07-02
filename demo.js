@@ -481,7 +481,6 @@ const sites = [
   { name: "Side", url: "https://www.side.xyz" },
   { name: "Florian Ronzi", url: "https://qtradingtheory.com" },
   { name: "YesOrNo", url: "https://www.yesorno-jeu.fr" },
-  { name: "YesOrNo App", url: "https://app.yesorno-jeu.fr" },
   { name: "Mia", url: "https://www.mia-app.co" }
 ];
 
