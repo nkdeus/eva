@@ -1,4 +1,9 @@
-a {
+a{  
+  text-decoration: none;
+  color: var(--dark-d);
+}
+
+a:not(.logo) {
   text-decoration: none;
   &:hover {
     background-color: var(--brand__);
