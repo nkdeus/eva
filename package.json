@@ -4,6 +4,14 @@
   "scripts": {
     "build:test": "npx sass styles/main.scss styles/main.css",
     "build:styles": "npx sass styles/main.scss styles/main.css --style compressed",
+    "build:lili": "npx sass styles/projets/lili.scss styles/render/lili.css",
+    "build:lili:compressed": "npx sass styles/projets/lili.scss styles/render/lili.css --style compressed",
+    "build:all-projets": "npx sass styles/projets/:styles/render/",
+    "build:all-projets:compressed": "npx sass styles/projets/:styles/render/ --style compressed",
+    "watch": "powershell -ExecutionPolicy Bypass -File watch-all.ps1",
+    "watch:lili": "npx sass --watch styles/projets/lili.scss styles/render/lili.css",
+    "watch:all-projets": "powershell -ExecutionPolicy Bypass -File watch-projets.ps1",
+    "watch:all": "powershell -ExecutionPolicy Bypass -File watch-all.ps1",
     "lint:styles": "npx stylelint styles/**/*.scss",
     "test": "npm run lint:styles && npm run build:test"
   },

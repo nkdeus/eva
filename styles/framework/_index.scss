@@ -129,31 +129,37 @@
     justify-content: space-around;
   }
 }
-
-section.demo-frame-container {
-  height: 100vh;
+.container-frame {
+  position: relative;
+  height: 90vh;
+  min-height: 400px;
+  width: 100%;
+  overflow: visible !important;
+  display: block;
+  margin-top: 2rem;
 }
 
 .iframe-border {
-  position: absolute;
-  width: calc(100% + 3rem);
-  height: calc(100% + 3rem);
-  left: -1.5rem;
-  top: -1.5rem;
-  background-color: var(--dark);
+  position: absolute; 
+  width: calc(100% + 2rem);
+  height: calc(100% + 2rem);
+  left: -1rem;
+  top: -1rem;
+  background-color: var(--dark__);
   z-index: -1;
-  border-radius: 1.5rem;
+  border-radius: 1rem;
 }
 .iframe-container {
-  width: 1920px;
-  height: 1000px;
   position: absolute;
-  translate: -50% -50%;
   left: 50%;
-  top: 50%;
-
+  top: 0;
+  transform-origin: top center;
   background-color: var(--dark);
   border-radius: 1rem;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+  z-index: 2;
+  overflow: visible !important;
+  display: block;
 }
 #demoframe {
   border: 0;
@@ -161,14 +167,26 @@ section.demo-frame-container {
 }
 
 .progress {
-  background: linear-gradient(to right, var(--brand) 0%, var(--brand) 40%, var(--light) 40%, var(--light) 100%);
-  border: solid 2px var(--brand);
-  border-radius: 1rem;
-  height: 2rem;
+  background: var(--brand__);
+  border: none;
+  border-radius: 0;
+  height: 1px;
   width: 100%;
   outline: none;
-  transition: background 450ms ease-in;
   -webkit-appearance: none;
+  position: relative;
+  z-index: 10;
+}
+
+.progress::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: linear-gradient(to left, var(--brand), var(--brand___));
+  border-radius: 0;
+  width: var(--progress-width, 0%);
 }
 
 .progress::-webkit-slider-thumb {
@@ -177,5 +195,128 @@ section.demo-frame-container {
   border-radius: 50%;
   -webkit-appearance: none;
   cursor: ew-resize;
+  background: var(--brand);
+}
+
+.progress::-moz-range-thumb {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  border: none;
+  cursor: ew-resize;
+  background: var(--brand);
+}
+
+.progress::-moz-range-track {
+  background: var(--brand__);
+  border: none;
+  height: 1px;
+}
+
+/* Device icons styles */
+.device-icons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.device-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+  color: var(--dark);
+  opacity: 0.6;
+  position: relative;
+
+  &:hover {
+    opacity: 0.8;
+    transform: translateY(-2px);
+  }
+
+  &.active {
+    opacity: 1;
+    color: var(--brand);
+    animation: deviceIconFlash 0.3s ease-out;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      height: 100%;
+      background-color: var(--brand);
+      border-radius: 50%;
+      filter: blur(1rem);
+      opacity: 0.3;
+      z-index: -1;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 1rem;
+      height: 1rem;
+      background-color: var(--brand);
+      border-radius: 50%;
+      opacity: 0;
+      z-index: -2;
+      animation: deviceIconRise 0.4s ease-out;
+    }
+  }
+
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.size-indicator {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  opacity: 1;
+  margin: 0.25rem auto 0;
+  transition: all 0.3s ease;
+}
+
+.device-icon.active .size-indicator {
+  opacity: 1;
+  transform: scale(1.2);
   background: var(--dark);
+}
+
+/* Device icon animations */
+@keyframes deviceIconFlash {
+  0% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.3);
+  }
+  100% {
+    filter: brightness(1);
+  }
+}
+
+@keyframes deviceIconRise {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(0.5) translateY(20px);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(4) translateY(-5px);
+  }
 }

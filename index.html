@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
-    <script src="demo.js"></script>
     <link rel="stylesheet" href="https://use.typekit.net/vjo0ssd.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,7 +15,7 @@
   </head>
   <body class="current-theme theme-eva">
     
-  <nav id="nav" class="px-8__ flex space py-3-">
+  <nav id="nav" class="px-8__ flex space py-3- pof">
     <div class="logo flex x center px-4">
       <div class="ballzzz por w-5 h-5" style="--max:6">
         <div class="ball poa w-3_ ar-1 circle _bg-brand" style="--offset:0"></div>
@@ -49,24 +48,91 @@
   <section class="demo-frame-container">
     <div class="px-9__ flex y g-5">
       <h2 for="sizeRange" class="fs-2_ bold _bg-brand pr-10__ lh-1 bold ttu fwd-13 f-scale offset _c-light">Demo size</h2>
-      <p class="fs-2 hide"> <span id="sizeValue" class="">100%</span></p>
+      <p class="fs-2" style="display: none;"> <span id="sizeValue" class="">100%</span></p>
+      <div class="device-icons flex x g-3">
+        <div class="device-icon" data-device="mobile" data-range="0-20">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="7" y="3" width="10" height="18" rx="2" stroke="currentColor" stroke-width="2"/>
+            <circle cx="12" cy="17" r="1" fill="currentColor"/>
+          </svg>
+          <div class="size-indicator _bg-brand_"></div>
+        </div>
+        <div class="device-icon" data-device="foldable" data-range="21-40">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="4" width="8" height="16" rx="1" stroke="currentColor" stroke-width="2"/>
+            <rect x="10" y="4" width="8" height="16" rx="1" stroke="currentColor" stroke-width="2"/>
+            <line x1="10" y1="4" x2="10" y2="4" stroke="currentColor" stroke-width="0.5"/>
+            <line x1="10" y1="20" x2="10" y2="20" stroke="currentColor" stroke-width="0.5"/>
+          </svg>
+          <div class="size-indicator _bg-brand_"></div>
+        </div>
+        <div class="device-icon" data-device="tablet" data-range="41-60">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" stroke-width="2"/>
+            <circle cx="18" cy="12" r="1" fill="currentColor"/>
+            <rect x="21" y="8" width="1" height="2" rx="0.5" fill="currentColor"/>
+          </svg>
+          <div class="size-indicator _bg-brand_"></div>
+        </div>
+        <div class="device-icon" data-device="laptop" data-range="61-80">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="3" width="20" height="14" rx="2" stroke="currentColor" stroke-width="2"/>
+            <rect x="2" y="17" width="20" height="2" rx="1" stroke="currentColor" stroke-width="2"/>
+          </svg>
+          <div class="size-indicator _bg-brand_"></div>
+        </div>
+        <div class="device-icon" data-device="desktop" data-range="81-100">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="1" y="3" width="22" height="15" rx="1" stroke="currentColor" stroke-width="2"/>
+            <line x1="12" y1="18" x2="12" y2="19" stroke="currentColor" stroke-width="1"/>
+            <rect x="10" y="19" width="4" height="2" rx="1" stroke="currentColor" stroke-width="2"/>
+            <rect x="9" y="21" width="6" height="1" rx="0.5" stroke="currentColor" stroke-width="2"/>
+          </svg>
+          <div class="size-indicator _bg-brand_"></div>
+        </div>
+      </div>
       <input type="range" class="progress" id="sizeRange" min="0" max="100" value="100">
-        
+    </div>
+    <div class="container-frame por">
+      <!-- Bouton flèche gauche -->
+      <button id="prevSite" class="arrow-btn-left flex x center _bg-brand br-1 px-3 py-2" style="cursor: pointer; position: absolute; left: -1rem; z-index: 20; width: 50px; height: 50px; border-radius: 50%; background: var(--brand); border: 2px solid var(--brand); box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
       
+      <div id="demoFrame" class="iframe-container" style="z-index: 1;">
+        <div class="iframe-border"></div>
+        <iframe
+          id="iframe"
+          title="Inline Frame Example"
+          width="100%"
+          height="100%"
+          src="https://www.skipcall.io/">
+        </iframe>
+      </div>
+      
+      <!-- Bouton flèche droite -->
+      <button id="nextSite" class="arrow-btn-right flex x center _bg-brand br-1 px-3 py-2" style="cursor: pointer; position: absolute; right: -1rem; z-index: 20; width: 50px; height: 50px; border-radius: 50%; background: var(--brand); border: 2px solid var(--brand); box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
     </div>
-
-
-    
-    <div id="demoFrame" class="iframe-container">
-      <div class="iframe-border"></div>
-      <iframe
-        id="iframe"
-        title="Inline Frame Example"
-        width="100%"
-        height="100%"
-        src="https://www.skipcall.io/">
-      </iframe>
-    </div>
+   
+    <!-- SVG pour la ligne de connexion -->
+    <svg class="connection-line" width="100%" height="100%" style="position: absolute; top: 0; left: 0; pointer-events: none; z-index: 0;">
+      <defs>
+        <filter id="glow">
+          <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+          <feMerge> 
+            <feMergeNode in="coloredBlur"/>
+            <feMergeNode in="SourceGraphic"/>
+          </feMerge>
+        </filter>
+      </defs>
+      <path id="connectionPath" d="" stroke="var(--dark)" stroke-width="1" fill="none" filter="url(#glow)" opacity="0.4"/>
+    </svg>
 
   </section>
 
@@ -487,5 +553,6 @@
         </filter>
       </defs>
     </svg>
+    <script src="demo.js"></script>
   </body>
 </html>
