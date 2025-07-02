@@ -2,6 +2,36 @@ let body;
 const updateAngle = true;
 const darkModeByHour = false;
 
+// Fonction pour récupérer les paramètres de l'URL
+function getUrlParameter(name) {
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get(name);
+}
+
+// Fonction pour appliquer le thème depuis l'URL
+function applyThemeFromUrl() {
+  const themeParam = getUrlParameter('theme');
+  if (themeParam) {
+    // Supprimer toutes les classes de thème existantes
+    body.classList.remove('theme-eva');
+    
+    // Ajouter la nouvelle classe de thème
+    body.classList.add(themeParam);
+    
+    // Mettre à jour la classe current-theme si nécessaire
+    body.classList.remove('current-theme');
+    body.classList.add('current-theme');
+    
+    // Si c'est theme-eva-2, ajouter une hue aléatoire
+    if (themeParam === 'theme-ghost') {
+      const randomHue = Math.floor(Math.random() * 360); // Génère une hue entre 0 et 359
+      body.style.setProperty('--brand-hue', randomHue);
+    } else {
+      body.style.removeProperty('--brand-hue');
+    }
+  }
+}
+
 
 function isDayTime() {
   const maintenant = new Date();
@@ -78,6 +108,9 @@ document.addEventListener('DOMContentLoaded', function() {
     randomTitle();
       
     body = document.querySelector('body');
+    
+    // Appliquer le thème depuis l'URL
+    applyThemeFromUrl();
 
     if(darkModeByHour){
       updateBodyClass();
@@ -584,6 +617,7 @@ window.addEventListener('load', function() {
 
 // Navigation entre les sites
 const sites = [
+  { name: "Mon Site", url: "./index.html?theme=theme-ghost" },
   { name: "EvaCSS", url: "https://eva-css.netlify.app" },
   { name: "SkipCall", url: "https://www.skipcall.io" },
   { name: "Side", url: "https://www.side.xyz" },
@@ -704,6 +738,13 @@ window.addEventListener('resize', function() {
 document.addEventListener('DOMContentLoaded', centerArrowsOnFrame);
 // Appel aussi après chaque resize de frame (si resize dynamique ailleurs)
 setTimeout(centerArrowsOnFrame, 300);
+
+// Charger automatiquement le premier site après 1 seconde
+document.addEventListener('DOMContentLoaded', function() {
+  setTimeout(function() {
+    loadSite(0);
+  }, 1000);
+});
 
 
 

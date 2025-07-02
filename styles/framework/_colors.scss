@@ -24,9 +24,6 @@
   --extra-chroma: 0;
   --extra-hue: 0;
 
-  --twitter-lightness: 50%;
-  --twitter-chroma: 0;
-  --twitter-hue: 0;
 }
 
 // Map des valeurs de fade avec des underscores
@@ -66,8 +63,7 @@ $color-map: (
   "extra": var(--extra-lightness) var(--extra-chroma) var(--extra-hue),
   "white": 100% 0 0,
   "dark": var(--current-darkness) var(--dark-chroma) var(--brand-hue),
-  "light": var(--current-lightness) var(--light-chroma) var(--brand-hue),
-  "twitter": var(--twitter-lightness) var(--twitter-chroma) var(--twitter-hue),
+  "light": var(--current-lightness) var(--light-chroma) var(--brand-hue)
 );
 
 // Génération des variables CSS avec les bons suffixes

@@ -31,6 +31,25 @@
     */
 }
 
+.theme-ghost {
+  // brand - oklch(81.16% 0.1924 75.18);
+
+  --brand-lightness: 99%;
+  --brand-chroma: 0;
+  --brand-hue: 0.1;
+
+  --accent-lightness: 80%;
+  --accent-chroma: 0.1;
+  --accent-hue: 0.1;
+
+  --extra-lightness: 90%;
+  --extra-chroma: 0.1;
+  --extra-hue: 0.1;
+
+  --dark-chroma: 0.1;
+  --light-chroma: 0.1;
+}
+
 // proxy class for UI elements
 ._bg-app {
   --current-bg-color: var(--bg-color);
