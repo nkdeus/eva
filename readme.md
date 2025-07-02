@@ -77,4 +77,4 @@ With 20 years of experience as both UI designer and front-end developer, I creat
 
 ---
 
-**© 2024 Tati Michaël** - [LinkedIn](https://www.linkedin.com/in/tati-michael/) | [ulysse-2029.com](https://ulysse-2029.com/)
+**© 2024 Tati Michaël** - [LinkedIn](https://www.linkedin.com/in/mtati/) | [ulysse-2029.com](https://ulysse-2029.com/)

@@ -143,6 +143,7 @@ $colors: (
   bg: background,
   bc: border-color,
   f: fill,
+  s: stroke,
 );
 
 @mixin getAllColors($prop, $key) {

@@ -165,8 +165,8 @@ document.addEventListener('DOMContentLoaded', function() {
       // Toujours centrer la frame horizontalement
       demoFrame.style.position = 'absolute';
       demoFrame.style.left = '50%';
-      demoFrame.style.top = '0';
-      demoFrame.style.transformOrigin = 'top center';
+      demoFrame.style.top = '50%';
+      demoFrame.style.transformOrigin = 'center center';
       
       // Fonction pour mettre à jour la ligne de progression
       function updateProgressBar(percentage) {
@@ -207,15 +207,15 @@ document.addEventListener('DOMContentLoaded', function() {
           // Calculer la hauteur réelle de la frame après scale
           const scaledHeight = frameHeight * scale;
           
-          // Calculer la hauteur nécessaire avec une marge
-          const margin = 50; // Marge réduite en pixels
+          // Calculer la hauteur nécessaire avec une marge adaptative
+          const margin = Math.max(20, Math.min(50, scaledHeight * 0.1)); // Marge entre 20px et 50px, ou 10% de la hauteur scaled
           const newHeight = scaledHeight + margin;
           
-          // Limiter la hauteur minimale et maximale
-          const minHeight = 400; // Hauteur minimale
+          // Limiter la hauteur minimale et maximale de manière adaptative
+          const adaptiveMinHeight = Math.max(200, scaledHeight + 20); // Minimum adaptatif basé sur la frame scaled
           const maxHeight = window.innerHeight * 0.9; // 90% de la hauteur de la fenêtre
           
-          const finalHeight = Math.max(minHeight, Math.min(maxHeight, newHeight));
+          const finalHeight = Math.max(adaptiveMinHeight, Math.min(maxHeight, newHeight));
           
           containerFrame.style.height = finalHeight + 'px';
       }
@@ -236,7 +236,7 @@ document.addEventListener('DOMContentLoaded', function() {
           } else {
               scale = marginFactor;
           }
-          demoFrame.style.transform = `translateX(-50%) scale(${scale})`;
+          demoFrame.style.transform = `translateX(-50%) translateY(-50%) scale(${scale})`;
       }
       
       // Fonction pour calculer la valeur du range basée sur la largeur de la fenêtre
@@ -463,6 +463,12 @@ document.addEventListener('DOMContentLoaded', function() {
             // Ajuster la hauteur du container-frame
             updateContainerHeight(newHeight);
             
+            // Mettre à jour la ligne de connexion
+            updateConnectionLine();
+            
+            // Centrer les flèches sur la frame
+            centerArrowsOnFrame();
+            
             // Réinitialiser l'interaction manuelle après 3 secondes
             if (interactionTimeout) {
               clearTimeout(interactionTimeout);
@@ -532,7 +538,18 @@ document.addEventListener('DOMContentLoaded', function() {
       
           // Écouter le redimensionnement de la fenêtre avec debounce
     let resizeTimeout;
+    let previousWindowWidth = window.innerWidth;
     window.addEventListener('resize', function() {
+      const currentWindowWidth = window.innerWidth;
+      
+      // Vérifier si la largeur a réellement changé
+      if (currentWindowWidth === previousWindowWidth) {
+        return; // Sortir si la largeur n'a pas changé
+      }
+      
+      // Mettre à jour la largeur précédente
+      previousWindowWidth = currentWindowWidth;
+      
       // Baisser l'opacité pendant le redimensionnement
       demoFrame.style.opacity = '0.3';
       
@@ -665,7 +682,18 @@ function centerArrowsOnFrame() {
 
 // Debounce pour le resize
 let arrowsResizeTimeout;
+let previousArrowsWindowWidth = window.innerWidth;
 window.addEventListener('resize', function() {
+  const currentWindowWidth = window.innerWidth;
+  
+  // Vérifier si la largeur a réellement changé
+  if (currentWindowWidth === previousArrowsWindowWidth) {
+    return; // Sortir si la largeur n'a pas changé
+  }
+  
+  // Mettre à jour la largeur précédente
+  previousArrowsWindowWidth = currentWindowWidth;
+  
   if (arrowsResizeTimeout) {
     clearTimeout(arrowsResizeTimeout);
   }
