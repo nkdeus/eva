@@ -213,6 +213,19 @@
   height: 1px;
 }
 
+/* Remove shadows from input range */
+.progress::-webkit-slider-thumb {
+  box-shadow: none;
+}
+
+.progress::-moz-range-thumb {
+  box-shadow: none;
+}
+
+.progress {
+  box-shadow: none;
+}
+
 /* Device icons styles */
 .device-icons {
   display: flex;
