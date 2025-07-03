@@ -13,22 +13,6 @@
   --extra-chroma: 0.1924;
   --extra-hue: 0;
 
-  /*
-    --bg-color: var(--brand);
-    --bg-color-2: var(--brand-d);
-  
-    --h1-color: var(--dark);
-    --bt-wallet-color: var(--accent);
-    --sh-wallet-color: var(--accent-d);
-  
-    --bt-twitter-color: var(--twitter);
-    --sh-twitter-color: var(--twitter-d);
-  
-    --bg-timer-color: var(--extra);
-  
-    --bg-block: var(--light);
-    --sh-block: var(--dark);
-    */
 }
 
 .theme-ghost {
@@ -54,29 +38,6 @@
 ._bg-app {
   --current-bg-color: var(--bg-color);
   --current-f-color: var(--bg-color-2);
-}
-
-._c-h1 {
-  --current-c-color: var(--h1-color);
-}
-
-._bg-wallet {
-  --current-bg-color: var(--bt-wallet-color);
-  --current-sh-color: var(--sh-wallet-color);
-}
-
-._bg-twitter {
-  --current-bg-color: var(--bt-twitter-color);
-  --current-sh-color: var(--sh-twitter-color);
-}
-
-._bg-timer {
-  --current-bg-color: var(--bg-timer-color);
-}
-
-._bg-block {
-  --current-bg-color: var(--bg-block);
-  --current-sh-color: var(--sh-block);
 }
 
 ._shadow {
