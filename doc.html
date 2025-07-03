@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Display:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/main.css" />
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="3c9b4552-d24d-48aa-a6b4-877d0ceffe04"></script>
     <title>EVA CSS - Documentation</title>
   </head>
   <body class="current-theme theme-eva">
@@ -52,7 +53,8 @@
           <a href="#responsive-typography" class="h-52 px-12 flex y center _c-brand br-12">Responsive Typography</a>
           <a href="#css-variables" class="h-52 px-12 flex y center _c-brand br-12">CSS Variables</a>
           <a href="#mathematics" class="h-52 px-12 flex y center _c-brand br-12">Mathematics</a>
-        </div>
+          <a href="#ready-to-try" class="h-52 px-12 flex y center _bg-brand _c-light-d br-12">Ready to try ?</a>
+          </div>
       </p>
   </section>
 
@@ -882,6 +884,157 @@ getVW($percent)</pre>
             <pre class="fs-12">getFinalMinDiv($size, $Φ)
 getFinalMinMulti($size, $Φ)</pre>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="ready-to-try" class="px-220__ py-136 flex y g-20">
+    <h2 class="fs-52__ _bg-brand pr-356__ lh-1 ttu fwd-13 f-scale offset">
+      <span class="_c-light">Ready to try ?</span>
+    </h2>
+    
+    <div class="flex y g-32">
+      <div class="flex y g-20">
+        <h3 class="fs-24- _c-brand mt-32">Quick Setup Guide</h3>
+        <p class="fs-16">Get EVA CSS up and running in minutes with this simple setup process.</p>
+        
+        <div class="flex x wrap g-20">
+          <div class="p-32_ border thin br-1 flex y g-12">
+            <span class="bold">Step 1: Clone the Repository</span>
+            <pre class="fs-14">git clone https://github.com/nkdeus/eva.git
+cd eva</pre>
+            <p class="fs-14 _c-dark_">Clone the EVA CSS repository to your local machine</p>
+          </div>
+          
+          <div class="p-32_ border thin br-1 flex y g-12">
+            <span class="bold">Step 2: Install Dependencies</span>
+            <pre class="fs-14">npm install</pre>
+            <p class="fs-14 _c-dark_">Install all required Node.js dependencies</p>
+          </div>
+          
+          <div class="p-32_ border thin br-1 flex y g-12">
+            <span class="bold">Step 3: Launch Local Server</span>
+            <pre class="fs-14"># Use your IDE's local server
+# VS Code: Live Server extension
+# Or any other local development server</pre>
+            <p class="fs-14 _c-dark_">Start your local development server to serve the HTML files</p>
+          </div>
+          
+          <div class="p-32_ border thin br-1 flex y g-12">
+            <span class="bold">Step 4: Watch SCSS Files</span>
+            <pre class="fs-14">npm run watch</pre>
+            <p class="fs-14 _c-dark_">Compile and watch SCSS files for changes</p>
+          </div>
+          
+          <div class="p-32_ border thin br-1 flex y g-12">
+            <span class="bold">Step 5: Configure Your Project</span>
+            <pre class="fs-14"># Rename try.scss to your project name
+# Configure spacing and typography values
+# Customize colors and themes</pre>
+            <p class="fs-14 _c-dark_">Customize the framework to match your design system</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex y g-20">
+        <h3 class="fs-24- _c-brand mt-32">Project Structure</h3>
+        <p class="fs-16">Understanding the key files and directories in your EVA CSS project.</p>
+        
+        <div class="flex x wrap g-20">
+          <div class="p-32_ border thin br-1 flex y g-8">
+            <span class="bold">styles/framework/</span>
+            <p class="fs-14 _c-dark_">Core SCSS files and configuration</p>
+            <ul class="fs-12 _c-dark_ mt-8">
+              <li>_eva.scss - Main framework file</li>
+              <li>_colors.scss - Color system</li>
+              <li>_theme.scss - Theme configuration</li>
+            </ul>
+          </div>
+          
+          <div class="p-32_ border thin br-1 flex y g-8">
+            <span class="bold">styles/projets/</span>
+            <p class="fs-14 _c-dark_">Your project-specific SCSS files</p>
+            <ul class="fs-12 _c-dark_ mt-8">
+              <li>try.scss - Example project file</li>
+              <li>lili.scss - Another example</li>
+            </ul>
+          </div>
+          
+          <div class="p-32_ border thin br-1 flex y g-8">
+            <span class="bold">styles/render/</span>
+            <p class="fs-14 _c-dark_">Compiled CSS output</p>
+            <ul class="fs-12 _c-dark_ mt-8">
+              <li>try.css - Compiled CSS</li>
+              <li>try.css.map - Source maps</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex y g-20">
+        <h3 class="fs-24- _c-brand mt-32">Configuration Tips</h3>
+        <p class="fs-16">Essential configuration steps to get the most out of EVA CSS.</p>
+        
+        <div class="flex x wrap g-20">
+          <div class="p-32_ border thin br-1 flex y g-12">
+            <span class="bold">1. Rename try.scss</span>
+            <pre class="fs-14"># Copy try.scss to your-project.scss
+# Configure your project settings</pre>
+            <p class="fs-14 _c-dark_">Create your own project file based on the example</p>
+          </div>
+          
+          <div class="p-32_ border thin br-1 flex y g-12">
+            <span class="bold">2. Configure Spacing Values</span>
+            <pre class="fs-14">$sizes: 4, 8, 12, 20, 32, 52, 
+       84, 136, 220, 356, 576, 712;</pre>
+            <p class="fs-14 _c-dark_">Match your Figma design system spacing</p>
+            <p class="fs-12 _c-dark_ mt-8">Based on 1440px Figma design (configurable)</p>
+          </div>
+          
+          <div class="p-32_ border thin br-1 flex y g-12">
+            <span class="bold">3. Set Typography Scale</span>
+            <pre class="fs-14">$font-sizes: 12, 16, 18, 24, 
+           36, 52, 72;</pre>
+            <p class="fs-14 _c-dark_">Define your font size hierarchy</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex y g-20">
+        <h3 class="fs-24- _c-brand mt-32">Development Workflow</h3>
+        <p class="fs-16">Best practices for working with EVA CSS in your development process.</p>
+        
+        <div class="flex x wrap g-20">
+          <div class="p-32_ border thin br-1 flex y g-8">
+            <span class="bold">Development Mode</span>
+            <pre class="fs-14">$dev-mode: true;  // Enable all features
+$build-class: true; // Generate utility classes</pre>
+            <p class="fs-14 _c-dark_">Use during development for full feature access</p>
+          </div>
+          
+          <div class="p-32_ border thin br-1 flex y g-8">
+            <span class="bold">Production Mode</span>
+            <pre class="fs-14">$dev-mode: false; // Disable debug features
+$custom-class: true; // Filter classes</pre>
+            <p class="fs-14 _c-dark_">Optimize for production with filtered output</p>
+          </div>
+          
+          <div class="p-32_ border thin br-1 flex y g-8">
+            <span class="bold">CSS Variables Only</span>
+            <pre class="fs-14">$build-class: false; // No utility classes
+$name-by-size: true; // Design-based naming</pre>
+            <p class="fs-14 _c-dark_">Generate only CSS variables for custom CSS</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex y g-20 pt-136">
+        <h3 class="fs-72_ _c-brand mt-32">Welcome to the Future!</h3>
+        <div class="p-32_ border thin br-1 flex y g-12">
+          <span class="bold">A Word of Warning</span>
+          <p class="fs-16">Warning: Once you enter the world of fluid CSS, traditional responsive design and breakpoints will feel like something from the past!</p>
+          <p class="fs-14 _c-dark_ mt-12">Say goodbye to media queries and hello to truly adaptive layouts that scale naturally across every screen.</p>
         </div>
       </div>
     </div>

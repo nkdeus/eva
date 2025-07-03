@@ -61,19 +61,6 @@ $properties: (
   g: gap,
 );
 
-// Configuration granulaire des classes à générer
-// Format: propriété: (tailles autorisées)
-$class-config: (
-  w: (50), // width: seulement pour la taille 50
-  h: (), // height: pour les tailles 24 et 50
-  p: (), // padding: seulement pour la taille 50
-  px: (24), // padding-inline: seulement pour la taille 24
-  pr: (), // padding-right: aucune classe générée
-  py: (), // padding-block: pour les tailles 24 et 50
-  br: (), // border-radius: seulement pour la taille 50
-  mb: (), // margin-bottom: pour les tailles 24 et 50
-  g: (), // gap: pour les tailles 24 et 50
-);
 
 $font-properties: (
   fs: font-size,

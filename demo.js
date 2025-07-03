@@ -22,13 +22,21 @@ function applyThemeFromUrl() {
     body.classList.remove('current-theme');
     body.classList.add('current-theme');
     
-    // Si c'est theme-eva-2, ajouter une hue aléatoire
-    if (themeParam === 'theme-ghost') {
+    // Si c'est theme-ghost ou theme-eva, ajouter une hue aléatoire
+    if (themeParam === 'theme-ghost' || themeParam === 'theme-eva') {
       const randomHue = Math.floor(Math.random() * 360); // Génère une hue entre 0 et 359
       body.style.setProperty('--brand-hue', randomHue);
     } else {
       body.style.removeProperty('--brand-hue');
     }
+  }
+}
+
+// Fonction pour appliquer une HUE aléatoire si theme-eva est présent
+function applyRandomHueForEva() {
+  if (body.classList.contains('theme-eva')) {
+    const randomHue = Math.floor(Math.random() * 360); // Génère une hue entre 0 et 359
+    body.style.setProperty('--brand-hue', randomHue);
   }
 }
 
@@ -111,6 +119,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Appliquer le thème depuis l'URL
     applyThemeFromUrl();
+    
+    // Appliquer une HUE aléatoire si theme-eva est présent (même en dur)
+    applyRandomHueForEva();
 
     if(darkModeByHour){
       updateBodyClass();

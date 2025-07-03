@@ -2,7 +2,7 @@
   "name": "fluid-ui",
   "version": "1.0.0",
   "scripts": {
-    "watch": "npx sass --watch styles/main.scss:styles/main.css styles/projets/:styles/render/ --style compressed"
+    "watch": "npx sass --watch styles/main.scss:styles/main.css styles/projets/:styles/render/ --style expanded"
   },
   "devDependencies": {
     "sass": "^1.49.0",
