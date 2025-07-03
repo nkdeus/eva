@@ -177,6 +177,10 @@ function initBallzzzDraggable() {
             const progress = this.progress();
             const currentAngleValue = startAngle + (currentAngle - startAngle) * (1 - progress);
             element.style.setProperty('--angle', currentAngleValue);
+          },
+          onComplete: function() {
+            // Supprimer la variable CSS --angle pour permettre la rotation au scroll
+            element.style.removeProperty('--angle');
           }
         });
       }
