@@ -8,6 +8,25 @@ function getUrlParameter(name) {
   return urlParams.get(name);
 }
 
+// Fonction pour définir un cookie
+function setCookie(name, value, minutes) {
+  const expires = new Date();
+  expires.setTime(expires.getTime() + (minutes * 60 * 1000));
+  document.cookie = name + "=" + value + ";expires=" + expires.toUTCString() + ";path=/";
+}
+
+// Fonction pour récupérer un cookie
+function getCookie(name) {
+  const nameEQ = name + "=";
+  const ca = document.cookie.split(';');
+  for(let i = 0; i < ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+    if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+  }
+  return null;
+}
+
 // Fonction pour appliquer le thème depuis l'URL
 function applyThemeFromUrl() {
   const themeParam = getUrlParameter('theme');
@@ -22,10 +41,19 @@ function applyThemeFromUrl() {
     body.classList.remove('current-theme');
     body.classList.add('current-theme');
     
-    // Si c'est theme-ghost ou theme-eva, ajouter une hue aléatoire
+    // Si c'est theme-ghost ou theme-eva, gérer la hue
     if (themeParam === 'theme-ghost' || themeParam === 'theme-eva') {
-      const randomHue = Math.floor(Math.random() * 360); // Génère une hue entre 0 et 359
-      body.style.setProperty('--brand-hue', randomHue);
+      // Vérifier s'il y a déjà une hue sauvegardée dans les cookies
+      const savedHue = getCookie('eva-hue');
+      if (savedHue) {
+        // Utiliser la hue sauvegardée
+        body.style.setProperty('--brand-hue', savedHue);
+      } else {
+        // Générer une nouvelle hue et la sauvegarder
+        const randomHue = Math.floor(Math.random() * 360); // Génère une hue entre 0 et 359
+        body.style.setProperty('--brand-hue', randomHue);
+        setCookie('eva-hue', randomHue, 10); // Sauvegarder pour 10 minutes
+      }
     } else {
       body.style.removeProperty('--brand-hue');
     }
@@ -35,8 +63,17 @@ function applyThemeFromUrl() {
 // Fonction pour appliquer une HUE aléatoire si theme-eva est présent
 function applyRandomHueForEva() {
   if (body.classList.contains('theme-eva')) {
-    const randomHue = Math.floor(Math.random() * 360); // Génère une hue entre 0 et 359
-    body.style.setProperty('--brand-hue', randomHue);
+    // Vérifier s'il y a déjà une hue sauvegardée dans les cookies
+    const savedHue = getCookie('eva-hue');
+    if (savedHue) {
+      // Utiliser la hue sauvegardée
+      body.style.setProperty('--brand-hue', savedHue);
+    } else {
+      // Générer une nouvelle hue et la sauvegarder
+      const randomHue = Math.floor(Math.random() * 360); // Génère une hue entre 0 et 359
+      body.style.setProperty('--brand-hue', randomHue);
+      setCookie('eva-hue', randomHue, 10); // Sauvegarder pour 10 minutes
+    }
   }
 }
 
