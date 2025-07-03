@@ -6416,8 +6416,10 @@ img {
 }
 
 .ballzzz {
-  --rayonX: var(--12-);
-  --rayonY: var(--12-);
+  width: 2rem;
+  height: 2rem;
+  --rayonX: 0.8rem;
+  --rayonY: 0.8rem;
   filter: url("#fancy-goo");
   scale: 1;
   cursor: grab;
@@ -6432,6 +6434,8 @@ img {
   filter: url("#fancy-goo") brightness(1.1);
 }
 .ballzzz .ball {
+  width: 0.5rem;
+  height: 0.5rem;
   left: 35% !important;
   top: 25% !important;
   --a: calc(var(--angle, 0) * 1deg);
