@@ -6420,6 +6420,16 @@ img {
   --rayonY: var(--12-);
   filter: url("#fancy-goo");
   scale: 1;
+  cursor: grab;
+  transition: transform 0.1s ease-out;
+}
+.ballzzz:active {
+  cursor: grabbing;
+}
+.ballzzz.dragging {
+  cursor: grabbing;
+  transform: scale(1.1);
+  filter: url("#fancy-goo") brightness(1.1);
 }
 .ballzzz .ball {
   left: 35% !important;

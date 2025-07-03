@@ -77,6 +77,114 @@ function applyRandomHueForEva() {
   }
 }
 
+// Fonction pour initialiser le draggable sur les éléments .ballzzz
+function initBallzzzDraggable() {
+  // Vérifier que GSAP Draggable est disponible
+  if (typeof Draggable === 'undefined') {
+    console.warn('GSAP Draggable not loaded');
+    return;
+  }
+  
+  const ballzzzElements = document.querySelectorAll('.ballzzz');
+  
+  if (ballzzzElements.length === 0) {
+    console.warn('No .ballzzz elements found');
+    return;
+  }
+  
+  ballzzzElements.forEach(element => {
+    let startAngle = 0;
+    let currentAngle = 0;
+    let startHue = 0;
+    let currentHue = 0;
+    
+    // Créer l'instance Draggable
+    Draggable.create(element, {
+      type: "x,y",
+      bounds: "body",
+      inertia: true,
+      onDragStart: function() {
+        // Ajouter une classe pour l'état de drag
+        element.classList.add('dragging');
+        // Augmenter légèrement le z-index pendant le drag
+        element.style.zIndex = '1000';
+        
+        // Supprimer #tuto du DOM
+        const tutoElement = document.getElementById('tuto');
+        if (tutoElement) {
+          tutoElement.remove();
+        }
+        
+        // Récupérer l'angle actuel
+        const currentAngleValue = getComputedStyle(element).getPropertyValue('--angle') || '0';
+        startAngle = parseFloat(currentAngleValue);
+        currentAngle = startAngle;
+        
+        // Récupérer la HUE actuelle
+        const currentHueValue = getComputedStyle(body).getPropertyValue('--brand-hue') || '169';
+        startHue = parseFloat(currentHueValue);
+        currentHue = startHue;
+      },
+      onDrag: function() {
+        // Calculer la distance de déplacement
+        const deltaX = this.x - this.startX;
+        const deltaY = this.y - this.startY;
+        const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+        
+        // Calculer l'angle de rotation basé sur la distance
+        // Plus on déplace loin, plus ça tourne vite
+        const rotationSpeed = 0.5; // Vitesse de rotation
+        const newAngle = startAngle + (distance * rotationSpeed);
+        
+        // Appliquer la rotation
+        element.style.setProperty('--angle', newAngle);
+        currentAngle = newAngle;
+        
+        // Calculer la nouvelle HUE basée sur la distance
+        const hueSpeed = 0.3; // Vitesse de changement de HUE
+        const newHue = (startHue + (distance * hueSpeed)) % 360;
+        
+        // Appliquer la nouvelle HUE
+        body.style.setProperty('--brand-hue', newHue);
+        currentHue = newHue;
+      },
+      onDragEnd: function() {
+        // Retirer la classe de drag
+        element.classList.remove('dragging');
+        
+        // Sauvegarder la nouvelle HUE dans les cookies
+        setCookie('eva-hue', Math.round(currentHue), 10);
+        
+        // Animation de retour à la position initiale
+        gsap.to(element, {
+          duration: 1.2,
+          ease: "elastic.out(1, 0.3)",
+          x: 0,
+          y: 0,
+          onComplete: function() {
+            // Réinitialiser le z-index
+            element.style.zIndex = '';
+          }
+        });
+        
+        // Animation de retour de l'angle à sa valeur initiale
+        gsap.to(element, {
+          duration: 1.2,
+          ease: "elastic.out(1, 0.3)",
+          '--angle': startAngle,
+          onUpdate: function() {
+            // Mettre à jour la variable CSS pendant l'animation
+            const progress = this.progress();
+            const currentAngleValue = startAngle + (currentAngle - startAngle) * (1 - progress);
+            element.style.setProperty('--angle', currentAngleValue);
+          }
+        });
+      }
+    });
+  });
+  
+  console.log(`Initialized draggable on ${ballzzzElements.length} .ballzzz elements`);
+}
 
 function isDayTime() {
   const maintenant = new Date();
@@ -166,6 +274,12 @@ document.addEventListener('DOMContentLoaded', function() {
     
       window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', updateTheme)
     }
+
+    // Initialiser le draggable sur les éléments .ballzzz
+    // Attendre un peu que tous les éléments soient bien rendus
+    setTimeout(() => {
+      initBallzzzDraggable();
+    }, 100);
 
 
     const nav = document.getElementById('nav');
