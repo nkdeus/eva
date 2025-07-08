@@ -5,8 +5,8 @@ class EvaCSSGenerator {
   constructor(config = {}) {
     // Configuration par défaut (basée sur main.scss)
     this.config = {
-      noFluidSuffix: config.noFluidSuffix ?? true,
-      buildClass: config.buildClass ?? true,
+      noFluidSuffix: config.noFluidSuffix ?? false,
+      buildClass: config.buildClass ?? false,
       nameBySize: true, // Toujours true dans la version JS
       sizes: config.sizes ?? [4, 8, 12, 20, 32, 34, 52, 84, 136, 220, 356, 576, 712],
       fontSizes: config.fontSizes ?? [12, 16, 18, 24, 36, 52, 72],
@@ -59,6 +59,8 @@ class EvaCSSGenerator {
     this.generatedCSSVars = {};
     this.generatedClasses = [];
   }
+
+
 
   // Fonctions utilitaires (équivalentes aux fonctions SCSS)
   round2(number) {
@@ -265,6 +267,8 @@ class EvaCSSGenerator {
     });
   }
 
+
+
   // Générer tout
   generate() {
     this.generateSizingVars();
@@ -273,13 +277,12 @@ class EvaCSSGenerator {
     return this;
   }
 
-  // Appliquer les variables CSS au document
+  // Appliquer les variables CSS au document (DÉSACTIVÉ pour éviter les conflits)
   applyToDocument() {
-    const root = document.documentElement;
-    
-    Object.entries(this.generatedCSSVars).forEach(([varName, value]) => {
-      root.style.setProperty(varName, value);
-    });
+    // Cette fonction est désactivée pour éviter que le configurateur
+    // modifie les styles de la page en temps réel
+    console.log('🚫 applyToDocument() désactivé - pas d\'application au DOM');
+    return this;
   }
 
   // Générer le CSS complet
@@ -336,6 +339,13 @@ class EvaConfigInterface {
   }
 
   createInterface() {
+    // Vérifier s'il y a déjà une interface existante
+    const existingInterface = document.getElementById('eva-main-container');
+    if (existingInterface) {
+      console.log('🔄 Interface already exists, skipping creation');
+      return;
+    }
+
     // Créer le conteneur principal
     const mainContainer = document.createElement('div');
     mainContainer.id = 'eva-main-container';
@@ -344,45 +354,41 @@ class EvaConfigInterface {
     // Interface de configuration
     const configContainer = document.createElement('div');
     configContainer.id = 'eva-config-interface';
-    configContainer.className = 'por flex y g-12 w-full _bg-light__  p-12';
-    configContainer.style.cssText = `
-      width: 400px;
-      margin: 20px auto;
-      border-radius: 8px;
-    `;
+    configContainer.className = 'por flex y g-12 w-full _bg-light__  p-12 br-8';
+  
 
     configContainer.innerHTML = `
-      <h2 class="_mb-16 _c-dark bold" style="text-align: center; font-size: 1.5rem;">EVA CSS Generator</h2>
+      <h3 class="mb-16 _c-dark bold fs-36_" >Sizes & font-sizes</h3>
       
-      <div class="_mb-12 flex x start-center w-full">
+      <div class="mb-12 flex x start-center w-full">
         <input type="checkbox" id="noFluidSuffix" ${this.generator.config.noFluidSuffix ? 'checked' : ''}>
-        <label for="noFluidSuffix" class="_mb-4 _c-dark bold lh-1" style="display: block;">No Fluid Suffix (px & rem):</label>
+        <label for="noFluidSuffix" class="_c-dark bold lh-1" style="display: block;">No Fluid Suffix (px & rem):</label>
       </div>
 
-      <div class="_mb-12 flex x start-center w-full">
+      <div class="mb-12 flex x start-center w-full">
         <input type="checkbox" id="buildClass" ${this.generator.config.buildClass ? 'checked' : ''}>
-        <label for="buildClass" class="_mb-4 _c-dark bold lh-1" style="display: block;">Build Classes:</label>
+        <label for="buildClass" class="_c-dark bold lh-1" style="display: block;">Build Classes:</label>
       </div>
 
-      <div class="_mb-12 w-full">
-        <label class="_mb-4 _c-dark bold lh-1" style="display: block;">Sizes (comma separated):</label>
-        <textarea id="sizes" class="w-full _p-4" style="height: 60px; resize: none;">${this.generator.config.sizes.join(', ')}</textarea>
+      <div class="mb-12 w-full">
+        <label class="mb-4 _c-dark bold lh-1" style="display: block;">Sizes (comma separated):</label>
+        <textarea id="sizes" class="w-full _p-4" style="height: 40px; resize: none;">${this.generator.config.sizes.join(', ')}</textarea>
       </div>
 
-      <div class="_mb-12 w-full">
-        <label class="_mb-4 _c-dark bold" style="display: block;">Font Sizes (comma separated):</label>
-        <textarea id="fontSizes" class="w-full _p-4" style="height: 60px; resize: none;">${this.generator.config.fontSizes.join(', ')}</textarea>
+      <div class="mb-12 w-full">
+        <label class="mb-4 _c-dark bold" style="display: block;">Font Sizes (comma separated):</label>
+        <textarea id="fontSizes" class="w-full _p-4" style="height: 40px; resize: none;">${this.generator.config.fontSizes.join(', ')}</textarea>
       </div>
 
-      <h3 class="_mb-12 _c-dark bold" style="font-size: 1.2rem;">Design System Constants</h3>
+      <h3 class="mb-12 _c-dark bold fs-36_">Deep config</h3>
 
-      <div class="_mb-12 w-full">
-        <label class="_mb-4 _c-dark bold lh-1" style="display: block;">Figma Screen Width (px):</label>
+      <div class="mb-12 w-full">
+        <label class="mb-4 _c-dark bold lh-1" style="display: block;">Figma Screen Width (px):</label>
         <input type="number" id="screen" value="${this.generator.screen}" min="320" max="2560" step="1" class="w-full _p-4">
       </div>
 
-            <div class="_mb-12 w-full">
-        <label class="_mb-4 _c-dark bold lh-1" style="display: block;">Base Ratio (Φ):</label>
+            <div class="mb-12 w-full">
+        <label class="mb-4 _c-dark bold lh-1" style="display: block;">Base Ratio (Φ):</label>
         <select id="phi" class="w-full _p-4">
           <option value="1.61803398875" ${this.generator.phi === 1.61803398875 ? 'selected' : ''}>Golden Ratio (1.618)</option>
           <option value="1.5" ${this.generator.phi === 1.5 ? 'selected' : ''}>1.5</option>
@@ -394,40 +400,34 @@ class EvaConfigInterface {
       </div>
 
 
-      <div class="_mb-12 w-full">
-        <label class="_mb-4 _c-dark bold lh-1" style="display: block;">Clamp() fluid ratio (vw):</label>
-        <input type="number" id="unitFluid" value="${this.generator.unitFluid}" min="0.1" max="10" step="0.1" class="w-full _p-4">
+      <div class="mb-12 w-full">
+        <label class="mb-4 _c-dark bold lh-1" style="display: block;">Clamp() fluid ratio (vw):</label>
+        <input type="range" id="unitFluid" value="${this.generator.unitFluid}" min="0.5" max="1.5" step="0.1" class="w-full">
+        <span id="unitFluidValue" class="_c-dark" style="display: block; text-align: center;">${this.generator.unitFluid}</span>
       </div>
 
-      <div class="_mb-12 w-full">
-        <label class="_mb-4 _c-dark bold lh-1" style="display: block;">Clamp() extrem easing minium :</label>
-        <input type="range" id="min" value="${this.generator.min}" min="0.1" max="2" step="0.1" class="w-full">
+      <div class="mb-12 w-full">
+        <label class="mb-4 _c-dark bold lh-1" style="display: block;">Clamp() extrem easing minium :</label>
+        <input type="range" id="min" value="${this.generator.min}" min="0.5" max="1.5" step="0.1" class="w-full">
         <span id="minValue" class="_c-dark" style="display: block; text-align: center;">${this.generator.min}rem</span>
       </div>
 
-      <div class="_mb-12 w-full">
-        <label class="_mb-4 _c-dark bold lh-1" style="display: block;">Clamp() extrem easing VW force:</label>
-        <input type="range" id="ez" value="${this.generator.ez}" min="50" max="200" step="0.1" class="w-full">
-        <span id="ezValue" class="_c-dark" style="display: block; text-align: center;">${this.generator.ez}</span>
-      </div>
-
-
-      <div class="_mb-12 w-full">
-        <label class="_mb-4 _c-dark bold lh-1" style="display: block;">Clamp() max ratio :</label>
-        <input type="range" id="max" value="${this.generator.max}" min="0.5" max="3" step="0.1" class="w-full">
+      <div class="mb-12 w-full">
+        <label class="mb-4 _c-dark bold lh-1" style="display: block;">Clamp() max ratio :</label>
+        <input type="range" id="max" value="${this.generator.max}" min="0.5" max="1.5" step="0.1" class="w-full">
         <span id="maxValue" class="_c-dark" style="display: block; text-align: center;">${this.generator.max}rem</span>
       </div>
 
    
 
-      <button id="applyConfig" class="w-full _p-8 _bg-brand _c-light border thin _mb-8" style="cursor: pointer;">
+      <button id="applyConfig" class="w-full _p-8 _bg-brand _c-light border thin mb-8" style="cursor: pointer;">
         Apply Configuration
       </button>
 
-      <button id="downloadCSS" class="w-full _p-8 _bg-accent _c-light border thin _mb-8" style="cursor: pointer;">
+      <button id="downloadCSS" class="w-full _p-8 _bg-accent _c-light border thin mb-8" style="cursor: pointer;">
         Download CSS
       </button>
-         <button id="resetConstants" class="w-full _p-8 _bg-light _c-dark border thin _mb-8" style="cursor: pointer;">
+         <button id="resetConstants" class="w-full _p-8 _bg-light _c-dark border thin mb-8" style="cursor: pointer;">
         Reset Design System Constants
       </button>
     `;
@@ -437,6 +437,11 @@ class EvaConfigInterface {
     document.getElementById('config-display').appendChild(mainContainer);
     
     this.bindEvents();
+    
+    // Initialiser l'affichage des sections selon l'état par défaut
+    setTimeout(() => {
+      this.toggleClassesDisplay();
+    }, 100);
   }
 
   bindEvents() {
@@ -455,15 +460,16 @@ class EvaConfigInterface {
 
     document.getElementById('buildClass').addEventListener('change', () => {
       this.updateInterfaceFromConfig();
+      this.toggleClassesDisplay();
     });
 
     // Écouter les changements des range inputs pour mettre à jour les valeurs affichées
-    document.getElementById('min').addEventListener('input', (e) => {
-      document.getElementById('minValue').textContent = e.target.value + 'rem';
+    document.getElementById('unitFluid').addEventListener('input', (e) => {
+      document.getElementById('unitFluidValue').textContent = e.target.value;
     });
 
-    document.getElementById('ez').addEventListener('input', (e) => {
-      document.getElementById('ezValue').textContent = e.target.value;
+    document.getElementById('min').addEventListener('input', (e) => {
+      document.getElementById('minValue').textContent = e.target.value + 'rem';
     });
 
     document.getElementById('max').addEventListener('input', (e) => {
@@ -487,7 +493,6 @@ class EvaConfigInterface {
       screen: parseFloat(document.getElementById('screen').value),
       unitFluid: parseFloat(document.getElementById('unitFluid').value),
       min: parseFloat(document.getElementById('min').value),
-      ez: parseFloat(document.getElementById('ez').value),
       phi: parseFloat(document.getElementById('phi').value),
       max: parseFloat(document.getElementById('max').value)
     };
@@ -496,11 +501,10 @@ class EvaConfigInterface {
     this.generator.screen = newConfig.screen;
     this.generator.unitFluid = newConfig.unitFluid;
     this.generator.min = newConfig.min;
-    this.generator.ez = newConfig.ez;
     this.generator.phi = newConfig.phi;
     this.generator.max = newConfig.max;
 
-    this.generator.updateConfig(newConfig).generate().applyToDocument();
+    this.generator.updateConfig(newConfig).generate();
     
     // Sauvegarder la configuration
     this.saveConfig(newConfig);
@@ -519,6 +523,9 @@ class EvaConfigInterface {
       .map(cls => `<div>${cls}</div>`)
       .join('');
     
+    // Mettre à jour la visibilité de la section classes
+    this.toggleClassesDisplay();
+    
     // Feedback visuel
     const button = document.getElementById('applyConfig');
     const originalText = button.textContent;
@@ -536,11 +543,23 @@ class EvaConfigInterface {
     
     // Mettre à jour l'affichage selon la configuration
     this.updateVariablesDisplay(noFluidSuffix, buildClass);
+    this.toggleClassesDisplay();
+  }
+
+  toggleClassesDisplay() {
+    const buildClass = document.getElementById('buildClass').checked;
+    const classesSection = document.getElementById('classes-display').parentElement;
+    
+    if (buildClass) {
+      classesSection.style.display = '';
+    } else {
+      classesSection.style.display = 'none';
+    }
   }
 
   updateVariablesDisplay(noFluidSuffix, buildClass) {
     // Régénérer les variables avec la nouvelle configuration
-    this.generator.updateConfig({ noFluidSuffix, buildClass }).generate().applyToDocument();
+    this.generator.updateConfig({ noFluidSuffix, buildClass }).generate();
     
     // Mettre à jour l'affichage des variables
     const variablesDisplay = document.getElementById('variables-display');
@@ -555,6 +574,9 @@ class EvaConfigInterface {
     classesDisplay.innerHTML = classes
       .map(cls => `<div>${cls}</div>`)
       .join('');
+      
+    // Mettre à jour la visibilité de la section classes
+    this.toggleClassesDisplay();
   }
 
 
@@ -593,7 +615,6 @@ class EvaConfigInterface {
         if (config.screen !== undefined) this.generator.screen = config.screen;
         if (config.unitFluid !== undefined) this.generator.unitFluid = config.unitFluid;
         if (config.min !== undefined) this.generator.min = config.min;
-        if (config.ez !== undefined) this.generator.ez = config.ez;
         if (config.phi !== undefined) this.generator.phi = config.phi;
         if (config.max !== undefined) this.generator.max = config.max;
       }
@@ -609,7 +630,6 @@ class EvaConfigInterface {
       screen: 1440,
       unitFluid: 1,
       min: 0.5,
-      ez: 142.4,
       phi: 1.61803398875,
       max: 1
     };
@@ -617,10 +637,9 @@ class EvaConfigInterface {
     // Mettre à jour les inputs
     document.getElementById('screen').value = defaultValues.screen;
     document.getElementById('unitFluid').value = defaultValues.unitFluid;
+    document.getElementById('unitFluidValue').textContent = defaultValues.unitFluid;
     document.getElementById('min').value = defaultValues.min;
     document.getElementById('minValue').textContent = defaultValues.min + 'rem';
-    document.getElementById('ez').value = defaultValues.ez;
-    document.getElementById('ezValue').textContent = defaultValues.ez;
     document.getElementById('phi').value = defaultValues.phi;
     document.getElementById('max').value = defaultValues.max;
     document.getElementById('maxValue').textContent = defaultValues.max + 'rem';
@@ -629,7 +648,6 @@ class EvaConfigInterface {
     this.generator.screen = defaultValues.screen;
     this.generator.unitFluid = defaultValues.unitFluid;
     this.generator.min = defaultValues.min;
-    this.generator.ez = defaultValues.ez;
     this.generator.phi = defaultValues.phi;
     this.generator.max = defaultValues.max;
 
@@ -660,6 +678,6 @@ window.EvaConfigInterface = EvaConfigInterface;
 if (window.location.pathname.includes('js-calculator.html') && !window.EVA_MANUAL_INIT) {
   document.addEventListener('DOMContentLoaded', () => {
     const interface = new EvaConfigInterface();
-    interface.generator.generate().applyToDocument();
+    interface.generator.generate();
   });
 } 

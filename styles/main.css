@@ -74,7 +74,7 @@ select {
 
 /* Make sure textAreas without a rows attribute are not tiny */
 textarea:not([rows]) {
-  min-height: 10em;
+  min-height: 3rem;
 }
 
 /* Anything that has been anchored to should have extra scroll margin */
@@ -5688,6 +5688,11 @@ section nav {
 
 .pof {
   position: fixed;
+}
+
+.pos {
+  position: sticky;
+  top: 0px;
 }
 
 .ar-1 {
