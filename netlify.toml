@@ -13,7 +13,8 @@
 [[headers]]
   for = "*.html"
   [headers.values]
-    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://cloud.umami.is; style-src 'self' 'unsafe-inline' https://use.typekit.net https://fonts.googleapis.com; font-src 'self' https://use.typekit.net https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://cloud.umami.is;"
+    # CSP plus permissive pour diagnostiquer les problèmes
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdnjs.cloudflare.com https://cloud.umami.is; style-src 'self' 'unsafe-inline' https://use.typekit.net https://fonts.googleapis.com; font-src 'self' https://use.typekit.net https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://cloud.umami.is; object-src 'none'; base-uri 'self';"
 
 [[redirects]]
   from = "/*"

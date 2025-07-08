@@ -111,9 +111,26 @@
     <script src="app.js"></script>
     <script src="scss.js"></script>
     <script>
+      // Diagnostic initial pour la production
       console.log('🚀 Script initial load');
-      console.log('EvaCSSGenerator exists?', typeof EvaCSSGenerator !== 'undefined');
-      console.log('Current document readyState:', document.readyState);
+      console.log('📍 Location:', {
+        hostname: window.location.hostname,
+        pathname: window.location.pathname,
+        protocol: window.location.protocol
+      });
+      console.log('🌐 User Agent:', navigator.userAgent.slice(0, 100) + '...');
+      console.log('💾 localStorage available?', !!window.localStorage);
+      console.log('📝 Document state:', document.readyState);
+      console.log('⚡ EvaCSSGenerator exists?', typeof EvaCSSGenerator !== 'undefined');
+      
+      // Tester localStorage
+      try {
+        localStorage.setItem('eva-test', 'test');
+        localStorage.removeItem('eva-test');
+        console.log('✅ localStorage working');
+      } catch (e) {
+        console.error('❌ localStorage blocked:', e.message);
+      }
 
       function resetEvaConfig() {
         console.log('🗑️ Clearing EVA CSS configuration from localStorage...');
@@ -134,9 +151,32 @@
         }
       }
 
+      // Ajouter une section de diagnostic au dessus de l'interface
+      function addDiagnosticSection() {
+        const configDisplay = document.getElementById('config-display');
+        if (!configDisplay) return;
+        
+        const isProduction = window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1';
+        
+        const diagnosticDiv = document.createElement('div');
+        diagnosticDiv.id = 'eva-diagnostic';
+        diagnosticDiv.style.cssText = 'margin-bottom: 20px; padding: 15px; background: #e8f5e8; border-radius: 8px; border-left: 4px solid #28a745;';
+        diagnosticDiv.innerHTML = `
+          <h3 style="margin: 0 0 10px 0; color: #2d5a2d; font-size: 16px;">✅ EVA CSS - Diagnostic</h3>
+          <div style="font-size: 12px; color: #666; font-family: monospace;">
+            <div>🌍 Environnement: <strong>${isProduction ? 'Production' : 'Développement'}</strong></div>
+            <div>📍 Hostname: <strong>${window.location.hostname}</strong></div>
+            <div>⚡ EvaCSSGenerator: <strong>${typeof EvaCSSGenerator !== 'undefined' ? 'Chargé' : 'Non trouvé'}</strong></div>
+            <div>💾 localStorage: <strong>${!!window.localStorage ? 'Disponible' : 'Bloqué'}</strong></div>
+          </div>
+        `;
+        
+        configDisplay.insertBefore(diagnosticDiv, configDisplay.firstChild);
+      }
+
       let retryCount = 0;
-      const MAX_RETRIES = 10;
-      const RETRY_DELAY = 300;
+      const MAX_RETRIES = 15; // Augmenté pour la production
+      const RETRY_DELAY = 500; // Augmenté pour les CDN lents
 
       function initEvaCSS() {
         console.log('⚡ Trying initEvaCSS()', { retryCount, readyState: document.readyState });
@@ -150,49 +190,94 @@
             return;
           } else {
             console.error('💥 Failed to load EvaCSSGenerator after maximum retries');
+            
+            // Afficher l'erreur de chargement
+            const configDisplay = document.getElementById('config-display');
+            if (configDisplay) {
+              configDisplay.innerHTML = `<div style="color: red; padding: 20px; background: #ffe6e6; border-radius: 8px;">
+                <h3>❌ Échec du chargement</h3>
+                <p>Le générateur EVA CSS n'a pas pu être chargé après ${MAX_RETRIES} tentatives.</p>
+                <p>Cela peut être dû à :</p>
+                <ul>
+                  <li>Un problème de réseau</li>
+                  <li>Une Content Security Policy trop restrictive</li>
+                  <li>Un fichier manquant ou corrompu</li>
+                </ul>
+                <p>Consultez la console pour plus de détails.</p>
+              </div>`;
+            }
             return;
           }
         }
 
         try {
           console.log('✨ EvaCSSGenerator found, initializing...');
-          const generator = new EvaCSSGenerator();
-          console.log('📦 Generator instance created');
           
-          generator.generate().applyToDocument();
-          console.log('🎨 Generator applied to document');
+          // Configuration adaptée pour la production
+          const isProduction = window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1';
           
-          // Afficher les variables générées
-          const variablesDisplay = document.getElementById('variables-display');
-          const variables = generator.getVariables();
-          console.log('📊 Variables generated:', Object.keys(variables).length);
+          console.log('🔧 Environment detected:', isProduction ? 'Production' : 'Development');
           
-          if (variablesDisplay) {
-            console.log('🔧 Updating variables display...');
-            variablesDisplay.innerHTML = Object.entries(variables)
-              .map(([name, value]) => `<div>${name}: ${value};</div>`)
-              .join('');
-            console.log('✅ Variables display updated');
-          } else {
-            console.warn('⚠️ variables-display element not found');
+          // Créer l'interface de configuration
+          console.log('🎨 Creating configuration interface...');
+          const configInterface = new EvaConfigInterface();
+          
+          // Si on est en production, adapter la configuration du générateur
+          if (isProduction) {
+            console.log('⚙️ Applying production configuration...');
+            const productionConfig = {
+              noFluidSuffix: false, // false en production
+              buildClass: true,
+              nameBySize: true
+            };
+            
+            // Mettre à jour le générateur avec la config production
+            configInterface.generator.updateConfig(productionConfig);
+            
+            // Mettre à jour l'interface pour refléter la config production
+            const noFluidSuffixCheckbox = document.getElementById('noFluidSuffix');
+            if (noFluidSuffixCheckbox) {
+              noFluidSuffixCheckbox.checked = false;
+            }
           }
           
-          // Afficher les classes générées
-          const classesDisplay = document.getElementById('classes-display');
-          const classes = generator.getClasses();
+          // Générer et appliquer
+          configInterface.generator.generate().applyToDocument();
+          console.log('🎨 Generator applied to document');
+          
+          // Ajouter la section de diagnostic
+          addDiagnosticSection();
+          
+          // Mettre à jour les affichages
+          console.log('🔧 Updating displays...');
+          
+          const variables = configInterface.generator.getVariables();
+          const classes = configInterface.generator.getClasses();
+          
+          console.log('📊 Variables generated:', Object.keys(variables).length);
           console.log('📊 Classes generated:', classes.length);
           
-          if (classesDisplay) {
-            console.log('🔧 Updating classes display...');
-            classesDisplay.innerHTML = classes
-              .map(cls => `<div>${cls}</div>`)
+          // Mettre à jour l'affichage des variables
+          const variablesDisplay = document.getElementById('variables-display');
+          if (variablesDisplay) {
+            variablesDisplay.innerHTML = Object.entries(variables)
+              .map(([name, value]) => `<div style="margin-bottom: 2px;">${name}: ${value};</div>`)
               .join('');
+            console.log('✅ Variables display updated');
+          }
+          
+          // Mettre à jour l'affichage des classes
+          const classesDisplay = document.getElementById('classes-display');
+          if (classesDisplay) {
+            classesDisplay.innerHTML = classes
+              .slice(0, 100)
+              .map(cls => `<div style="margin-bottom: 1px; font-size: 11px;">${cls}</div>`)
+              .join('') + (classes.length > 100 ? `<div style="margin-top: 10px; font-style: italic;">... and ${classes.length - 100} more classes</div>` : '');
             console.log('✅ Classes display updated');
-          } else {
-            console.warn('⚠️ classes-display element not found');
           }
           
           console.log('🎉 EVA CSS initialization complete!');
+          
         } catch (error) {
           console.error('💥 Error initializing EVA CSS:', error);
           console.error('Error details:', {
@@ -200,21 +285,57 @@
             stack: error.stack,
             type: error.name
           });
+          
+          // Afficher l'erreur à l'utilisateur
+          const configDisplay = document.getElementById('config-display');
+          if (configDisplay) {
+            configDisplay.innerHTML = `<div style="color: red; padding: 20px; background: #ffe6e6; border-radius: 8px;">
+              <h3>❌ Erreur d'initialisation</h3>
+              <p><strong>Message:</strong> ${error.message}</p>
+              <p><strong>Type:</strong> ${error.name}</p>
+              <details>
+                <summary>Stack trace (cliquez pour voir)</summary>
+                <pre style="font-size: 11px; background: #f5f5f5; padding: 10px; margin-top: 10px; overflow-x: auto;">${error.stack}</pre>
+              </details>
+              <p>Consultez la console pour plus de détails.</p>
+            </div>`;
+          }
         }
       }
 
+      // Empêcher l'auto-initialisation en définissant un flag
+      window.EVA_MANUAL_INIT = true;
+      
       // Log l'état initial
       console.log('📝 Setting up load listener');
       
-      // Attendre le chargement complet de la page
-      window.addEventListener('load', function() {
-        console.log('🌟 Window loaded!', {
-          readyState: document.readyState,
-          EvaCSSExists: typeof EvaCSSGenerator !== 'undefined'
-        });
-        console.log('⏳ Starting initialization delay...');
-        setTimeout(initEvaCSS, 100);
-      });
+      // Attendre le chargement complet de la page avec plusieurs stratégies
+      if (document.readyState === 'complete') {
+        console.log('🌟 Document already loaded!');
+        setTimeout(initEvaCSS, 200);
+      } else {
+        // Essayer plusieurs événements pour plus de robustesse
+        let initialized = false;
+        
+        function tryInit() {
+          if (!initialized) {
+            initialized = true;
+            console.log('🌟 Starting initialization...');
+            setTimeout(initEvaCSS, 200);
+          }
+        }
+        
+        window.addEventListener('load', tryInit);
+        document.addEventListener('DOMContentLoaded', tryInit);
+        
+        // Fallback après 3 secondes
+        setTimeout(() => {
+          if (!initialized) {
+            console.log('⏰ Fallback initialization after timeout');
+            tryInit();
+          }
+        }, 3000);
+      }
 
       // Log aussi DOMContentLoaded pour comparaison
       document.addEventListener('DOMContentLoaded', function() {

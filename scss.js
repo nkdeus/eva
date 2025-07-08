@@ -656,7 +656,8 @@ window.EvaCSSGenerator = EvaCSSGenerator;
 window.EvaConfigInterface = EvaConfigInterface;
 
 // Auto-initialisation si on est sur la page js-calculator.html
-if (window.location.pathname.includes('js-calculator.html')) {
+// Mais seulement si l'initialisation manuelle n'est pas demandée
+if (window.location.pathname.includes('js-calculator.html') && !window.EVA_MANUAL_INIT) {
   document.addEventListener('DOMContentLoaded', () => {
     const interface = new EvaConfigInterface();
     interface.generator.generate().applyToDocument();
