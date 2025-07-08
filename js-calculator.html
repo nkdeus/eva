@@ -8,50 +8,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/Draggable.min.js"></script>
     <link rel="stylesheet" href="styles/main.css" />
-    <script src="app.js"></script>
-    <script src="scss.js"></script>
-    <script>
-      function initEvaCSS() {
-        if (typeof EvaCSSGenerator === 'undefined') {
-          console.error('EvaCSSGenerator not loaded. Retrying in 500ms...');
-          setTimeout(initEvaCSS, 500);
-          return;
-        }
-
-        try {
-          const generator = new EvaCSSGenerator();
-          generator.generate().applyToDocument();
-          
-          // Afficher les variables générées
-          const variablesDisplay = document.getElementById('variables-display');
-          const variables = generator.getVariables();
-          if (variablesDisplay) {
-            variablesDisplay.innerHTML = Object.entries(variables)
-              .map(([name, value]) => `<div>${name}: ${value};</div>`)
-              .join('');
-          }
-          
-          // Afficher les classes générées
-          const classesDisplay = document.getElementById('classes-display');
-          const classes = generator.getClasses();
-          if (classesDisplay) {
-            classesDisplay.innerHTML = classes
-              .map(cls => `<div>${cls}</div>`)
-              .join('');
-          }
-        } catch (error) {
-          console.error('Error initializing EVA CSS:', error);
-        }
-      }
-
-      // Attendre que le DOM soit chargé
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initEvaCSS);
-      } else {
-        // Si le DOM est déjà chargé, on attend un peu pour s'assurer que scss.js est chargé
-        setTimeout(initEvaCSS, 100);
-      }
-    </script>
     <title>JS Calculator</title>
   </head>
   <body class="current-theme theme-eva">
@@ -151,5 +107,102 @@
         </filter>
       </defs>
     </svg>
+    <script src="app.js"></script>
+    <script src="scss.js"></script>
+    <script>
+      console.log('🚀 Script initial load');
+      console.log('EvaCSSGenerator exists?', typeof EvaCSSGenerator !== 'undefined');
+      console.log('Current document readyState:', document.readyState);
+
+      let retryCount = 0;
+      const MAX_RETRIES = 10;
+      const RETRY_DELAY = 300;
+
+      function initEvaCSS() {
+        console.log('⚡ Trying initEvaCSS()', { retryCount, readyState: document.readyState });
+        
+        if (typeof EvaCSSGenerator === 'undefined') {
+          console.log('❌ EvaCSSGenerator not found');
+          if (retryCount < MAX_RETRIES) {
+            console.log(`🔄 Retry ${retryCount + 1}/${MAX_RETRIES} in ${RETRY_DELAY}ms...`);
+            retryCount++;
+            setTimeout(initEvaCSS, RETRY_DELAY);
+            return;
+          } else {
+            console.error('💥 Failed to load EvaCSSGenerator after maximum retries');
+            return;
+          }
+        }
+
+        try {
+          console.log('✨ EvaCSSGenerator found, initializing...');
+          const generator = new EvaCSSGenerator();
+          console.log('📦 Generator instance created');
+          
+          generator.generate().applyToDocument();
+          console.log('🎨 Generator applied to document');
+          
+          // Afficher les variables générées
+          const variablesDisplay = document.getElementById('variables-display');
+          const variables = generator.getVariables();
+          console.log('📊 Variables generated:', Object.keys(variables).length);
+          
+          if (variablesDisplay) {
+            console.log('🔧 Updating variables display...');
+            variablesDisplay.innerHTML = Object.entries(variables)
+              .map(([name, value]) => `<div>${name}: ${value};</div>`)
+              .join('');
+            console.log('✅ Variables display updated');
+          } else {
+            console.warn('⚠️ variables-display element not found');
+          }
+          
+          // Afficher les classes générées
+          const classesDisplay = document.getElementById('classes-display');
+          const classes = generator.getClasses();
+          console.log('📊 Classes generated:', classes.length);
+          
+          if (classesDisplay) {
+            console.log('🔧 Updating classes display...');
+            classesDisplay.innerHTML = classes
+              .map(cls => `<div>${cls}</div>`)
+              .join('');
+            console.log('✅ Classes display updated');
+          } else {
+            console.warn('⚠️ classes-display element not found');
+          }
+          
+          console.log('🎉 EVA CSS initialization complete!');
+        } catch (error) {
+          console.error('💥 Error initializing EVA CSS:', error);
+          console.error('Error details:', {
+            error: error.message,
+            stack: error.stack,
+            type: error.name
+          });
+        }
+      }
+
+      // Log l'état initial
+      console.log('📝 Setting up load listener');
+      
+      // Attendre le chargement complet de la page
+      window.addEventListener('load', function() {
+        console.log('🌟 Window loaded!', {
+          readyState: document.readyState,
+          EvaCSSExists: typeof EvaCSSGenerator !== 'undefined'
+        });
+        console.log('⏳ Starting initialization delay...');
+        setTimeout(initEvaCSS, 100);
+      });
+
+      // Log aussi DOMContentLoaded pour comparaison
+      document.addEventListener('DOMContentLoaded', function() {
+        console.log('📄 DOMContentLoaded fired!', {
+          readyState: document.readyState,
+          EvaCSSExists: typeof EvaCSSGenerator !== 'undefined'
+        });
+      });
+    </script>
   </body>
 </html> 
