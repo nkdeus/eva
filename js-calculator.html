@@ -11,24 +11,46 @@
     <script src="app.js"></script>
     <script src="scss.js"></script>
     <script>
-      document.addEventListener('DOMContentLoaded', () => {
-        const generator = new EvaCSSGenerator();
-        generator.generate().applyToDocument();
-        
-        // Afficher les variables générées
-        const variablesDisplay = document.getElementById('variables-display');
-        const variables = generator.getVariables();
-        variablesDisplay.innerHTML = Object.entries(variables)
-          .map(([name, value]) => `<div>${name}: ${value};</div>`)
-          .join('');
-        
-        // Afficher les classes générées
-        const classesDisplay = document.getElementById('classes-display');
-        const classes = generator.getClasses();
-        classesDisplay.innerHTML = classes
-          .map(cls => `<div>${cls}</div>`)
-          .join('');
-      });
+      function initEvaCSS() {
+        if (typeof EvaCSSGenerator === 'undefined') {
+          console.error('EvaCSSGenerator not loaded. Retrying in 500ms...');
+          setTimeout(initEvaCSS, 500);
+          return;
+        }
+
+        try {
+          const generator = new EvaCSSGenerator();
+          generator.generate().applyToDocument();
+          
+          // Afficher les variables générées
+          const variablesDisplay = document.getElementById('variables-display');
+          const variables = generator.getVariables();
+          if (variablesDisplay) {
+            variablesDisplay.innerHTML = Object.entries(variables)
+              .map(([name, value]) => `<div>${name}: ${value};</div>`)
+              .join('');
+          }
+          
+          // Afficher les classes générées
+          const classesDisplay = document.getElementById('classes-display');
+          const classes = generator.getClasses();
+          if (classesDisplay) {
+            classesDisplay.innerHTML = classes
+              .map(cls => `<div>${cls}</div>`)
+              .join('');
+          }
+        } catch (error) {
+          console.error('Error initializing EVA CSS:', error);
+        }
+      }
+
+      // Attendre que le DOM soit chargé
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initEvaCSS);
+      } else {
+        // Si le DOM est déjà chargé, on attend un peu pour s'assurer que scss.js est chargé
+        setTimeout(initEvaCSS, 100);
+      }
     </script>
     <title>JS Calculator</title>
   </head>
