@@ -5669,6 +5669,10 @@ section nav {
   flex: 1;
 }
 
+.pointer {
+  cursor: pointer;
+}
+
 .poa {
   position: absolute;
 }

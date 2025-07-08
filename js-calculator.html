@@ -42,6 +42,7 @@
       
         <h1 class="title fs-52__ lh-1 reverse">EVA CSS JavaScript Generator ( v-alpha )</h1>
         <p class="fs-16_">This interface allows you to configure and generate EVA CSS variables in JavaScript instead of SCSS.</p>
+        <a onclick="resetEvaConfig()" class="h-52 px-12 flex y center _bg-brand _c-light br-12 pointer">Reset Configuration</a>
     </section>
     <section class="px-220__ pb-136 flex y g-32">
    
@@ -113,6 +114,25 @@
       console.log('🚀 Script initial load');
       console.log('EvaCSSGenerator exists?', typeof EvaCSSGenerator !== 'undefined');
       console.log('Current document readyState:', document.readyState);
+
+      function resetEvaConfig() {
+        console.log('🗑️ Clearing EVA CSS configuration from localStorage...');
+        try {
+          // Supprime toutes les clés qui commencent par 'eva'
+          Object.keys(localStorage).forEach(key => {
+            if (key.toLowerCase().includes('eva')) {
+              console.log('Removing:', key);
+              localStorage.removeItem(key);
+            }
+          });
+          console.log('✨ localStorage cleared for EVA CSS');
+          // Recharge la page
+          location.reload();
+        } catch (error) {
+          console.error('💥 Error clearing localStorage:', error);
+          alert('Error clearing configuration. Please check console for details.');
+        }
+      }
 
       let retryCount = 0;
       const MAX_RETRIES = 10;
