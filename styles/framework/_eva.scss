@@ -35,13 +35,13 @@ $eva: 0;
 $setters-type: "__", "_", "", "-", "-px", "-rem";
 
 $sizing-class: "__", "_", "", "-";
-@if $dev-mode {
+@if $no-fluid-suffix {
   $sizing-class: append($sizing-class, "-px");
   $sizing-class: append($sizing-class, "-rem");
 }
 
 $font-size-class: "__", "_", "";
-@if $dev-mode {
+@if $no-fluid-suffix {
   $font-size-class: append($font-size-class, "-px");
   $font-size-class: append($font-size-class, "-rem");
 }
@@ -115,11 +115,6 @@ $font-class-config: (
       #{$prop}: var(--#{$eva}#{$class});
     }
   }
-  @if $dev-mode {
-    .#{$key}-#{$eva}-\@ {
-      #{$prop}: var(--abstract-getter);
-    }
-  }
 }
 
 @mixin getAllFontSizeClass($prop, $key, $eva) {
@@ -184,7 +179,7 @@ $font-class-config: (
       ),
     );
 
-    @if $dev-mode {
+    @if $no-fluid-suffix {
       $css-vars-dev: (
         "-px": $size-px,
         "-rem": $size-rem,
@@ -246,7 +241,7 @@ $font-class-config: (
       ),
     );
 
-    @if $dev-mode {
+    @if $no-fluid-suffix {
       $css-vars-dev: (
         "-px": $size-px,
         "-rem": $size-rem,

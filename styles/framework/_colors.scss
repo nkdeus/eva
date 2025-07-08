@@ -129,7 +129,7 @@ $color-map: (
   }
 }
 
-$prefix: "_";
+$suffix: "_";
 $colors-class: "brand", "accent", "extra", "dark", "light", "white";
 $fades: "_", "__", "___";
 $shades: "-b", "-d", "-b_", "-d_";
@@ -144,7 +144,7 @@ $colors: (
 
 @mixin getAllColors($prop, $key) {
   @each $class in $colors-class {
-    .#{$prefix}#{$key}-#{$class} {
+    .#{$suffix}#{$key}-#{$class} {
       --current-#{$key}-color: var(--#{$class});
 
       @each $fade in $fades {
@@ -161,12 +161,12 @@ $colors: (
   }
 
   @if ($key == "f") {
-    [class*="#{$prefix}#{$key}"] path,
-    [class*="#{$prefix}#{$key}"] {
+    [class*="#{$suffix}#{$key}"] path,
+    [class*="#{$suffix}#{$key}"] {
       #{$prop}: var(--current-#{$key}-color);
     }
   } @else {
-    [class*="#{$prefix}#{$key}"] {
+    [class*="#{$suffix}#{$key}"] {
       #{$prop}: var(--current-#{$key}-color);
     }
   }

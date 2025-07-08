@@ -6,6 +6,12 @@
   }
   &.start {
     align-items: flex-start;
+    &-center {
+      
+      justify-items: flex-start;
+      align-items: center;
+      
+    }
   }
   &.space {
     justify-content: space-between;

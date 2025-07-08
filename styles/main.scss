@@ -1,4 +1,4 @@
-$dev-mode: true; // false for prod usage
+$no-fluid-suffix: true; // false for prod usage
 $build-class: true; // false to use only CSS var
 $custom-class: false;
 $name-by-size: true; // true = utilise les valeurs de taille, false = utilise les index
