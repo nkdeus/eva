@@ -4102,294 +4102,6 @@ textarea:not([rows]) {
   --extra-hue: 0;
 }
 
-._a-5 {
-  --grad-angle: 5deg;
-}
-
-._a-10 {
-  --grad-angle: 10deg;
-}
-
-._a-15 {
-  --grad-angle: 15deg;
-}
-
-._a-20 {
-  --grad-angle: 20deg;
-}
-
-._a-25 {
-  --grad-angle: 25deg;
-}
-
-._a-30 {
-  --grad-angle: 30deg;
-}
-
-._a-35 {
-  --grad-angle: 35deg;
-}
-
-._a-40 {
-  --grad-angle: 40deg;
-}
-
-._a-45 {
-  --grad-angle: 45deg;
-}
-
-._a-50 {
-  --grad-angle: 50deg;
-}
-
-._a-55 {
-  --grad-angle: 55deg;
-}
-
-._a-60 {
-  --grad-angle: 60deg;
-}
-
-._a-65 {
-  --grad-angle: 65deg;
-}
-
-._a-70 {
-  --grad-angle: 70deg;
-}
-
-._a-75 {
-  --grad-angle: 75deg;
-}
-
-._a-80 {
-  --grad-angle: 80deg;
-}
-
-._a-85 {
-  --grad-angle: 85deg;
-}
-
-._a-90 {
-  --grad-angle: 90deg;
-}
-
-._a-95 {
-  --grad-angle: 95deg;
-}
-
-._a-100 {
-  --grad-angle: 100deg;
-}
-
-._a-105 {
-  --grad-angle: 105deg;
-}
-
-._a-110 {
-  --grad-angle: 110deg;
-}
-
-._a-115 {
-  --grad-angle: 115deg;
-}
-
-._a-120 {
-  --grad-angle: 120deg;
-}
-
-._a-125 {
-  --grad-angle: 125deg;
-}
-
-._a-130 {
-  --grad-angle: 130deg;
-}
-
-._a-135 {
-  --grad-angle: 135deg;
-}
-
-._a-140 {
-  --grad-angle: 140deg;
-}
-
-._a-145 {
-  --grad-angle: 145deg;
-}
-
-._a-150 {
-  --grad-angle: 150deg;
-}
-
-._a-155 {
-  --grad-angle: 155deg;
-}
-
-._a-160 {
-  --grad-angle: 160deg;
-}
-
-._a-165 {
-  --grad-angle: 165deg;
-}
-
-._a-170 {
-  --grad-angle: 170deg;
-}
-
-._a-175 {
-  --grad-angle: 175deg;
-}
-
-._a-180 {
-  --grad-angle: 180deg;
-}
-
-._a-185 {
-  --grad-angle: 185deg;
-}
-
-._a-190 {
-  --grad-angle: 190deg;
-}
-
-._a-195 {
-  --grad-angle: 195deg;
-}
-
-._a-200 {
-  --grad-angle: 200deg;
-}
-
-._a-205 {
-  --grad-angle: 205deg;
-}
-
-._a-210 {
-  --grad-angle: 210deg;
-}
-
-._a-215 {
-  --grad-angle: 215deg;
-}
-
-._a-220 {
-  --grad-angle: 220deg;
-}
-
-._a-225 {
-  --grad-angle: 225deg;
-}
-
-._a-230 {
-  --grad-angle: 230deg;
-}
-
-._a-235 {
-  --grad-angle: 235deg;
-}
-
-._a-240 {
-  --grad-angle: 240deg;
-}
-
-._a-245 {
-  --grad-angle: 245deg;
-}
-
-._a-250 {
-  --grad-angle: 250deg;
-}
-
-._a-255 {
-  --grad-angle: 255deg;
-}
-
-._a-260 {
-  --grad-angle: 260deg;
-}
-
-._a-265 {
-  --grad-angle: 265deg;
-}
-
-._a-270 {
-  --grad-angle: 270deg;
-}
-
-._a-275 {
-  --grad-angle: 275deg;
-}
-
-._a-280 {
-  --grad-angle: 280deg;
-}
-
-._a-285 {
-  --grad-angle: 285deg;
-}
-
-._a-290 {
-  --grad-angle: 290deg;
-}
-
-._a-295 {
-  --grad-angle: 295deg;
-}
-
-._a-300 {
-  --grad-angle: 300deg;
-}
-
-._a-305 {
-  --grad-angle: 305deg;
-}
-
-._a-310 {
-  --grad-angle: 310deg;
-}
-
-._a-315 {
-  --grad-angle: 315deg;
-}
-
-._a-320 {
-  --grad-angle: 320deg;
-}
-
-._a-325 {
-  --grad-angle: 325deg;
-}
-
-._a-330 {
-  --grad-angle: 330deg;
-}
-
-._a-335 {
-  --grad-angle: 335deg;
-}
-
-._a-340 {
-  --grad-angle: 340deg;
-}
-
-._a-345 {
-  --grad-angle: 345deg;
-}
-
-._a-350 {
-  --grad-angle: 350deg;
-}
-
-._a-355 {
-  --grad-angle: 355deg;
-}
-
-._a-360 {
-  --grad-angle: 360deg;
-}
-
 .current-theme {
   --root-brand: var(--brand-lightness) var(--brand-chroma) var(--brand-hue);
   --brand: oklch(var(--root-brand));
@@ -4445,245 +4157,6 @@ textarea:not([rows]) {
   --light-b: oklch(calc(var(--current-lightness) + var(--brighter)) var(--light-chroma) var(--brand-hue));
   --light-d_: oklch(calc(var(--current-lightness) + var(--darker_)) var(--light-chroma) var(--brand-hue));
   --light-b_: oklch(calc(var(--current-lightness) + var(--brighter_)) var(--light-chroma) var(--brand-hue));
-  --bg-color: var(--brand);
-  --bg-color-2: var(--brand-d);
-  --h1-color: var(--dark);
-  --bt-wallet-color: var(--accent);
-  --sh-wallet-color: var(--accent-d);
-  --bt-twitter-color: var(--twitter);
-  --sh-twitter-color: var(--twitter-d);
-  --bg-timer-color: var(--extra);
-  --bg-block: var(--light);
-  --sh-block: var(--dark);
-}
-
-.current-grad {
-  --grad-angle: 90deg;
-  --grad-brand: linear-gradient(var(--grad-angle), oklch(var(--root-brand)) 0%, transparent 100%);
-  --grad-brand-d-brand: linear-gradient(
-    var(--grad-angle),
-    var(--brand-d) 0%,
-    oklch(var(--root-brand)) 100%
-  );
-  --grad-brand-brand-d: linear-gradient(
-    var(--grad-angle),
-    oklch(var(--root-brand)) 0%,
-    var(--brand-d) 100%
-  );
-  --grad-brand-d_-brand: linear-gradient(
-    var(--grad-angle),
-    var(--brand-d_) 0%,
-    oklch(var(--root-brand)) 100%
-  );
-  --grad-brand-brand-d_: linear-gradient(
-    var(--grad-angle),
-    oklch(var(--root-brand)) 0%,
-    var(--brand-d_) 100%
-  );
-  --grad-brand-b-brand: linear-gradient(
-    var(--grad-angle),
-    var(--brand-b) 0%,
-    oklch(var(--root-brand)) 100%
-  );
-  --grad-brand-brand-b: linear-gradient(
-    var(--grad-angle),
-    oklch(var(--root-brand)) 0%,
-    var(--brand-b) 100%
-  );
-  --grad-brand-b_-brand: linear-gradient(
-    var(--grad-angle),
-    var(--brand-b_) 0%,
-    oklch(var(--root-brand)) 100%
-  );
-  --grad-brand-brand-b_: linear-gradient(
-    var(--grad-angle),
-    oklch(var(--root-brand)) 0%,
-    var(--brand-b_) 100%
-  );
-  --grad-brand-accent: linear-gradient(var(--grad-angle), oklch(var(--root-brand)) 0%, oklch(var(--root-accent)) 100%);
-  --grad-brand-dark: linear-gradient(var(--grad-angle), oklch(var(--root-brand)) 0%, oklch(var(--root-dark)) 100%);
-  --grad-brand-light: linear-gradient(var(--grad-angle), oklch(var(--root-brand)) 0%, oklch(var(--root-light)) 100%);
-  --grad-brand-extra: linear-gradient(var(--grad-angle), oklch(var(--root-brand)) 0%, oklch(var(--root-extra)) 100%);
-  --grad-accent-brand: linear-gradient(var(--grad-angle), oklch(var(--root-accent)) 0%, oklch(var(--root-brand)) 100%);
-  --grad-accent: linear-gradient(var(--grad-angle), oklch(var(--root-accent)) 0%, transparent 100%);
-  --grad-accent-d-accent: linear-gradient(
-    var(--grad-angle),
-    var(--accent-d) 0%,
-    oklch(var(--root-accent)) 100%
-  );
-  --grad-accent-accent-d: linear-gradient(
-    var(--grad-angle),
-    oklch(var(--root-accent)) 0%,
-    var(--accent-d) 100%
-  );
-  --grad-accent-d_-accent: linear-gradient(
-    var(--grad-angle),
-    var(--accent-d_) 0%,
-    oklch(var(--root-accent)) 100%
-  );
-  --grad-accent-accent-d_: linear-gradient(
-    var(--grad-angle),
-    oklch(var(--root-accent)) 0%,
-    var(--accent-d_) 100%
-  );
-  --grad-accent-b-accent: linear-gradient(
-    var(--grad-angle),
-    var(--accent-b) 0%,
-    oklch(var(--root-accent)) 100%
-  );
-  --grad-accent-accent-b: linear-gradient(
-    var(--grad-angle),
-    oklch(var(--root-accent)) 0%,
-    var(--accent-b) 100%
-  );
-  --grad-accent-b_-accent: linear-gradient(
-    var(--grad-angle),
-    var(--accent-b_) 0%,
-    oklch(var(--root-accent)) 100%
-  );
-  --grad-accent-accent-b_: linear-gradient(
-    var(--grad-angle),
-    oklch(var(--root-accent)) 0%,
-    var(--accent-b_) 100%
-  );
-  --grad-accent-dark: linear-gradient(var(--grad-angle), oklch(var(--root-accent)) 0%, oklch(var(--root-dark)) 100%);
-  --grad-accent-light: linear-gradient(var(--grad-angle), oklch(var(--root-accent)) 0%, oklch(var(--root-light)) 100%);
-  --grad-accent-extra: linear-gradient(var(--grad-angle), oklch(var(--root-accent)) 0%, oklch(var(--root-extra)) 100%);
-  --grad-dark-brand: linear-gradient(var(--grad-angle), oklch(var(--root-dark)) 0%, oklch(var(--root-brand)) 100%);
-  --grad-dark-accent: linear-gradient(var(--grad-angle), oklch(var(--root-dark)) 0%, oklch(var(--root-accent)) 100%);
-  --grad-dark: linear-gradient(var(--grad-angle), oklch(var(--root-dark)) 0%, transparent 100%);
-  --grad-dark-d-dark: linear-gradient(
-    var(--grad-angle),
-    var(--dark-d) 0%,
-    oklch(var(--root-dark)) 100%
-  );
-  --grad-dark-dark-d: linear-gradient(
-    var(--grad-angle),
-    oklch(var(--root-dark)) 0%,
-    var(--dark-d) 100%
-  );
-  --grad-dark-d_-dark: linear-gradient(
-    var(--grad-angle),
-    var(--dark-d_) 0%,
-    oklch(var(--root-dark)) 100%
-  );
-  --grad-dark-dark-d_: linear-gradient(
-    var(--grad-angle),
-    oklch(var(--root-dark)) 0%,
-    var(--dark-d_) 100%
-  );
-  --grad-dark-b-dark: linear-gradient(
-    var(--grad-angle),
-    var(--dark-b) 0%,
-    oklch(var(--root-dark)) 100%
-  );
-  --grad-dark-dark-b: linear-gradient(
-    var(--grad-angle),
-    oklch(var(--root-dark)) 0%,
-    var(--dark-b) 100%
-  );
-  --grad-dark-b_-dark: linear-gradient(
-    var(--grad-angle),
-    var(--dark-b_) 0%,
-    oklch(var(--root-dark)) 100%
-  );
-  --grad-dark-dark-b_: linear-gradient(
-    var(--grad-angle),
-    oklch(var(--root-dark)) 0%,
-    var(--dark-b_) 100%
-  );
-  --grad-dark-light: linear-gradient(var(--grad-angle), oklch(var(--root-dark)) 0%, oklch(var(--root-light)) 100%);
-  --grad-dark-extra: linear-gradient(var(--grad-angle), oklch(var(--root-dark)) 0%, oklch(var(--root-extra)) 100%);
-  --grad-light-brand: linear-gradient(var(--grad-angle), oklch(var(--root-light)) 0%, oklch(var(--root-brand)) 100%);
-  --grad-light-accent: linear-gradient(var(--grad-angle), oklch(var(--root-light)) 0%, oklch(var(--root-accent)) 100%);
-  --grad-light-dark: linear-gradient(var(--grad-angle), oklch(var(--root-light)) 0%, oklch(var(--root-dark)) 100%);
-  --grad-light: linear-gradient(var(--grad-angle), oklch(var(--root-light)) 0%, transparent 100%);
-  --grad-light-d-light: linear-gradient(
-    var(--grad-angle),
-    var(--light-d) 0%,
-    oklch(var(--root-light)) 100%
-  );
-  --grad-light-light-d: linear-gradient(
-    var(--grad-angle),
-    oklch(var(--root-light)) 0%,
-    var(--light-d) 100%
-  );
-  --grad-light-d_-light: linear-gradient(
-    var(--grad-angle),
-    var(--light-d_) 0%,
-    oklch(var(--root-light)) 100%
-  );
-  --grad-light-light-d_: linear-gradient(
-    var(--grad-angle),
-    oklch(var(--root-light)) 0%,
-    var(--light-d_) 100%
-  );
-  --grad-light-b-light: linear-gradient(
-    var(--grad-angle),
-    var(--light-b) 0%,
-    oklch(var(--root-light)) 100%
-  );
-  --grad-light-light-b: linear-gradient(
-    var(--grad-angle),
-    oklch(var(--root-light)) 0%,
-    var(--light-b) 100%
-  );
-  --grad-light-b_-light: linear-gradient(
-    var(--grad-angle),
-    var(--light-b_) 0%,
-    oklch(var(--root-light)) 100%
-  );
-  --grad-light-light-b_: linear-gradient(
-    var(--grad-angle),
-    oklch(var(--root-light)) 0%,
-    var(--light-b_) 100%
-  );
-  --grad-light-extra: linear-gradient(var(--grad-angle), oklch(var(--root-light)) 0%, oklch(var(--root-extra)) 100%);
-  --grad-extra-brand: linear-gradient(var(--grad-angle), oklch(var(--root-extra)) 0%, oklch(var(--root-brand)) 100%);
-  --grad-extra-accent: linear-gradient(var(--grad-angle), oklch(var(--root-extra)) 0%, oklch(var(--root-accent)) 100%);
-  --grad-extra-dark: linear-gradient(var(--grad-angle), oklch(var(--root-extra)) 0%, oklch(var(--root-dark)) 100%);
-  --grad-extra-light: linear-gradient(var(--grad-angle), oklch(var(--root-extra)) 0%, oklch(var(--root-light)) 100%);
-  --grad-extra: linear-gradient(var(--grad-angle), oklch(var(--root-extra)) 0%, transparent 100%);
-  --grad-extra-d-extra: linear-gradient(
-    var(--grad-angle),
-    var(--extra-d) 0%,
-    oklch(var(--root-extra)) 100%
-  );
-  --grad-extra-extra-d: linear-gradient(
-    var(--grad-angle),
-    oklch(var(--root-extra)) 0%,
-    var(--extra-d) 100%
-  );
-  --grad-extra-d_-extra: linear-gradient(
-    var(--grad-angle),
-    var(--extra-d_) 0%,
-    oklch(var(--root-extra)) 100%
-  );
-  --grad-extra-extra-d_: linear-gradient(
-    var(--grad-angle),
-    oklch(var(--root-extra)) 0%,
-    var(--extra-d_) 100%
-  );
-  --grad-extra-b-extra: linear-gradient(
-    var(--grad-angle),
-    var(--extra-b) 0%,
-    oklch(var(--root-extra)) 100%
-  );
-  --grad-extra-extra-b: linear-gradient(
-    var(--grad-angle),
-    oklch(var(--root-extra)) 0%,
-    var(--extra-b) 100%
-  );
-  --grad-extra-b_-extra: linear-gradient(
-    var(--grad-angle),
-    var(--extra-b_) 0%,
-    oklch(var(--root-extra)) 100%
-  );
-  --grad-extra-extra-b_: linear-gradient(
-    var(--grad-angle),
-    oklch(var(--root-extra)) 0%,
-    var(--extra-b_) 100%
-  );
 }
 
 ._c-brand {
@@ -5469,6 +4942,757 @@ textarea:not([rows]) {
     --light-chroma: 0.2;
   }
 }
+.all-grads {
+  --current-angle: 90deg;
+  --current-from-color: var(--brand);
+  --current-to-color: var(--accent);
+}
+
+.grad-linear {
+  background: linear-gradient(var(--current-angle), var(--current-from-color) 0%, var(--current-to-color) 100%);
+}
+
+.grad-radial {
+  background: radial-gradient(circle at center, var(--current-from-color) 0%, var(--current-to-color) 100%);
+}
+
+.grad-linear-text {
+  background: linear-gradient(var(--current-angle), var(--current-from-color) 0%, var(--current-to-color) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.grad-radial-text {
+  background: radial-gradient(circle at center, var(--current-from-color) 0%, var(--current-to-color) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.grad-linear-border {
+  border-image: linear-gradient(var(--current-angle), var(--current-from-color) 0%, var(--current-to-color) 100%) 1;
+}
+
+.grad-radial-border {
+  border-image: radial-gradient(circle at center, var(--current-from-color) 0%, var(--current-to-color) 100%) 1;
+}
+
+.from-brand {
+  --current-from-color: var(--brand);
+}
+
+.to-brand {
+  --current-to-color: var(--brand);
+}
+
+.from-brand_ {
+  --current-from-color: var(--brand_);
+}
+
+.to-brand_ {
+  --current-to-color: var(--brand_);
+}
+
+.from-brand__ {
+  --current-from-color: var(--brand__);
+}
+
+.to-brand__ {
+  --current-to-color: var(--brand__);
+}
+
+.from-brand___ {
+  --current-from-color: var(--brand___);
+}
+
+.to-brand___ {
+  --current-to-color: var(--brand___);
+}
+
+.from-brand-d {
+  --current-from-color: var(--brand-d);
+}
+
+.to-brand-d {
+  --current-to-color: var(--brand-d);
+}
+
+.from-brand-d_ {
+  --current-from-color: var(--brand-d_);
+}
+
+.to-brand-d_ {
+  --current-to-color: var(--brand-d_);
+}
+
+.from-brand-b {
+  --current-from-color: var(--brand-b);
+}
+
+.to-brand-b {
+  --current-to-color: var(--brand-b);
+}
+
+.from-brand-b_ {
+  --current-from-color: var(--brand-b_);
+}
+
+.to-brand-b_ {
+  --current-to-color: var(--brand-b_);
+}
+
+.from-accent {
+  --current-from-color: var(--accent);
+}
+
+.to-accent {
+  --current-to-color: var(--accent);
+}
+
+.from-accent_ {
+  --current-from-color: var(--accent_);
+}
+
+.to-accent_ {
+  --current-to-color: var(--accent_);
+}
+
+.from-accent__ {
+  --current-from-color: var(--accent__);
+}
+
+.to-accent__ {
+  --current-to-color: var(--accent__);
+}
+
+.from-accent___ {
+  --current-from-color: var(--accent___);
+}
+
+.to-accent___ {
+  --current-to-color: var(--accent___);
+}
+
+.from-accent-d {
+  --current-from-color: var(--accent-d);
+}
+
+.to-accent-d {
+  --current-to-color: var(--accent-d);
+}
+
+.from-accent-d_ {
+  --current-from-color: var(--accent-d_);
+}
+
+.to-accent-d_ {
+  --current-to-color: var(--accent-d_);
+}
+
+.from-accent-b {
+  --current-from-color: var(--accent-b);
+}
+
+.to-accent-b {
+  --current-to-color: var(--accent-b);
+}
+
+.from-accent-b_ {
+  --current-from-color: var(--accent-b_);
+}
+
+.to-accent-b_ {
+  --current-to-color: var(--accent-b_);
+}
+
+.from-dark {
+  --current-from-color: var(--dark);
+}
+
+.to-dark {
+  --current-to-color: var(--dark);
+}
+
+.from-dark_ {
+  --current-from-color: var(--dark_);
+}
+
+.to-dark_ {
+  --current-to-color: var(--dark_);
+}
+
+.from-dark__ {
+  --current-from-color: var(--dark__);
+}
+
+.to-dark__ {
+  --current-to-color: var(--dark__);
+}
+
+.from-dark___ {
+  --current-from-color: var(--dark___);
+}
+
+.to-dark___ {
+  --current-to-color: var(--dark___);
+}
+
+.from-dark-d {
+  --current-from-color: var(--dark-d);
+}
+
+.to-dark-d {
+  --current-to-color: var(--dark-d);
+}
+
+.from-dark-d_ {
+  --current-from-color: var(--dark-d_);
+}
+
+.to-dark-d_ {
+  --current-to-color: var(--dark-d_);
+}
+
+.from-dark-b {
+  --current-from-color: var(--dark-b);
+}
+
+.to-dark-b {
+  --current-to-color: var(--dark-b);
+}
+
+.from-dark-b_ {
+  --current-from-color: var(--dark-b_);
+}
+
+.to-dark-b_ {
+  --current-to-color: var(--dark-b_);
+}
+
+.from-light {
+  --current-from-color: var(--light);
+}
+
+.to-light {
+  --current-to-color: var(--light);
+}
+
+.from-light_ {
+  --current-from-color: var(--light_);
+}
+
+.to-light_ {
+  --current-to-color: var(--light_);
+}
+
+.from-light__ {
+  --current-from-color: var(--light__);
+}
+
+.to-light__ {
+  --current-to-color: var(--light__);
+}
+
+.from-light___ {
+  --current-from-color: var(--light___);
+}
+
+.to-light___ {
+  --current-to-color: var(--light___);
+}
+
+.from-light-d {
+  --current-from-color: var(--light-d);
+}
+
+.to-light-d {
+  --current-to-color: var(--light-d);
+}
+
+.from-light-d_ {
+  --current-from-color: var(--light-d_);
+}
+
+.to-light-d_ {
+  --current-to-color: var(--light-d_);
+}
+
+.from-light-b {
+  --current-from-color: var(--light-b);
+}
+
+.to-light-b {
+  --current-to-color: var(--light-b);
+}
+
+.from-light-b_ {
+  --current-from-color: var(--light-b_);
+}
+
+.to-light-b_ {
+  --current-to-color: var(--light-b_);
+}
+
+.from-extra {
+  --current-from-color: var(--extra);
+}
+
+.to-extra {
+  --current-to-color: var(--extra);
+}
+
+.from-extra_ {
+  --current-from-color: var(--extra_);
+}
+
+.to-extra_ {
+  --current-to-color: var(--extra_);
+}
+
+.from-extra__ {
+  --current-from-color: var(--extra__);
+}
+
+.to-extra__ {
+  --current-to-color: var(--extra__);
+}
+
+.from-extra___ {
+  --current-from-color: var(--extra___);
+}
+
+.to-extra___ {
+  --current-to-color: var(--extra___);
+}
+
+.from-extra-d {
+  --current-from-color: var(--extra-d);
+}
+
+.to-extra-d {
+  --current-to-color: var(--extra-d);
+}
+
+.from-extra-d_ {
+  --current-from-color: var(--extra-d_);
+}
+
+.to-extra-d_ {
+  --current-to-color: var(--extra-d_);
+}
+
+.from-extra-b {
+  --current-from-color: var(--extra-b);
+}
+
+.to-extra-b {
+  --current-to-color: var(--extra-b);
+}
+
+.from-extra-b_ {
+  --current-from-color: var(--extra-b_);
+}
+
+.to-extra-b_ {
+  --current-to-color: var(--extra-b_);
+}
+
+.from-transparent {
+  --current-from-color: transparent;
+}
+
+.to-transparent {
+  --current-to-color: transparent;
+}
+
+.from-white {
+  --current-from-color: var(--white);
+}
+
+.to-white {
+  --current-to-color: var(--white);
+}
+
+.d-t {
+  --current-angle: to top !important;
+}
+
+.d-b {
+  --current-angle: to bottom !important;
+}
+
+.d-l {
+  --current-angle: to left !important;
+}
+
+.d-r {
+  --current-angle: to right !important;
+}
+
+.d-tl {
+  --current-angle: to top left !important;
+}
+
+.d-tr {
+  --current-angle: to top right !important;
+}
+
+.d-bl {
+  --current-angle: to bottom left !important;
+}
+
+.d-br {
+  --current-angle: to bottom right !important;
+}
+
+.a-0 {
+  --current-angle: 0deg !important;
+}
+
+.a-5 {
+  --current-angle: 5deg !important;
+}
+
+.a-10 {
+  --current-angle: 10deg !important;
+}
+
+.a-15 {
+  --current-angle: 15deg !important;
+}
+
+.a-20 {
+  --current-angle: 20deg !important;
+}
+
+.a-25 {
+  --current-angle: 25deg !important;
+}
+
+.a-30 {
+  --current-angle: 30deg !important;
+}
+
+.a-35 {
+  --current-angle: 35deg !important;
+}
+
+.a-40 {
+  --current-angle: 40deg !important;
+}
+
+.a-45 {
+  --current-angle: 45deg !important;
+}
+
+.a-50 {
+  --current-angle: 50deg !important;
+}
+
+.a-55 {
+  --current-angle: 55deg !important;
+}
+
+.a-60 {
+  --current-angle: 60deg !important;
+}
+
+.a-65 {
+  --current-angle: 65deg !important;
+}
+
+.a-70 {
+  --current-angle: 70deg !important;
+}
+
+.a-75 {
+  --current-angle: 75deg !important;
+}
+
+.a-80 {
+  --current-angle: 80deg !important;
+}
+
+.a-85 {
+  --current-angle: 85deg !important;
+}
+
+.a-90 {
+  --current-angle: 90deg !important;
+}
+
+.a-95 {
+  --current-angle: 95deg !important;
+}
+
+.a-100 {
+  --current-angle: 100deg !important;
+}
+
+.a-105 {
+  --current-angle: 105deg !important;
+}
+
+.a-110 {
+  --current-angle: 110deg !important;
+}
+
+.a-115 {
+  --current-angle: 115deg !important;
+}
+
+.a-120 {
+  --current-angle: 120deg !important;
+}
+
+.a-125 {
+  --current-angle: 125deg !important;
+}
+
+.a-130 {
+  --current-angle: 130deg !important;
+}
+
+.a-135 {
+  --current-angle: 135deg !important;
+}
+
+.a-140 {
+  --current-angle: 140deg !important;
+}
+
+.a-145 {
+  --current-angle: 145deg !important;
+}
+
+.a-150 {
+  --current-angle: 150deg !important;
+}
+
+.a-155 {
+  --current-angle: 155deg !important;
+}
+
+.a-160 {
+  --current-angle: 160deg !important;
+}
+
+.a-165 {
+  --current-angle: 165deg !important;
+}
+
+.a-170 {
+  --current-angle: 170deg !important;
+}
+
+.a-175 {
+  --current-angle: 175deg !important;
+}
+
+.a-180 {
+  --current-angle: 180deg !important;
+}
+
+.a-185 {
+  --current-angle: 185deg !important;
+}
+
+.a-190 {
+  --current-angle: 190deg !important;
+}
+
+.a-195 {
+  --current-angle: 195deg !important;
+}
+
+.a-200 {
+  --current-angle: 200deg !important;
+}
+
+.a-205 {
+  --current-angle: 205deg !important;
+}
+
+.a-210 {
+  --current-angle: 210deg !important;
+}
+
+.a-215 {
+  --current-angle: 215deg !important;
+}
+
+.a-220 {
+  --current-angle: 220deg !important;
+}
+
+.a-225 {
+  --current-angle: 225deg !important;
+}
+
+.a-230 {
+  --current-angle: 230deg !important;
+}
+
+.a-235 {
+  --current-angle: 235deg !important;
+}
+
+.a-240 {
+  --current-angle: 240deg !important;
+}
+
+.a-245 {
+  --current-angle: 245deg !important;
+}
+
+.a-250 {
+  --current-angle: 250deg !important;
+}
+
+.a-255 {
+  --current-angle: 255deg !important;
+}
+
+.a-260 {
+  --current-angle: 260deg !important;
+}
+
+.a-265 {
+  --current-angle: 265deg !important;
+}
+
+.a-270 {
+  --current-angle: 270deg !important;
+}
+
+.a-275 {
+  --current-angle: 275deg !important;
+}
+
+.a-280 {
+  --current-angle: 280deg !important;
+}
+
+.a-285 {
+  --current-angle: 285deg !important;
+}
+
+.a-290 {
+  --current-angle: 290deg !important;
+}
+
+.a-295 {
+  --current-angle: 295deg !important;
+}
+
+.a-300 {
+  --current-angle: 300deg !important;
+}
+
+.a-305 {
+  --current-angle: 305deg !important;
+}
+
+.a-310 {
+  --current-angle: 310deg !important;
+}
+
+.a-315 {
+  --current-angle: 315deg !important;
+}
+
+.a-320 {
+  --current-angle: 320deg !important;
+}
+
+.a-325 {
+  --current-angle: 325deg !important;
+}
+
+.a-330 {
+  --current-angle: 330deg !important;
+}
+
+.a-335 {
+  --current-angle: 335deg !important;
+}
+
+.a-340 {
+  --current-angle: 340deg !important;
+}
+
+.a-345 {
+  --current-angle: 345deg !important;
+}
+
+.a-350 {
+  --current-angle: 350deg !important;
+}
+
+.a-355 {
+  --current-angle: 355deg !important;
+}
+
+.a-360 {
+  --current-angle: 360deg !important;
+}
+
+.bg-size {
+  background-size: 150% 150%;
+}
+
+.bg-size_ {
+  background-size: 200% 200%;
+}
+
+.bg-size__ {
+  background-size: 300% 300%;
+}
+
+.bg-center {
+  background-position: center;
+}
+
+.bg-top {
+  background-position: top;
+}
+
+.bg-bottom {
+  background-position: bottom;
+}
+
+.bg-left {
+  background-position: left;
+}
+
+.bg-right {
+  background-position: right;
+}
+
+.animated {
+  animation: gradient-shift 3s ease infinite;
+}
+
+.animated-slow {
+  animation: gradient-shift 6s ease infinite;
+}
+
+.animated-fast {
+  animation: gradient-shift 1s ease infinite;
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
 .theme-eva {
   --brand-lightness: 80%;
   --brand-chroma: 0.1924;
@@ -5478,7 +5702,7 @@ textarea:not([rows]) {
   --accent-hue: 10;
   --extra-lightness: 80%;
   --extra-chroma: 0.1924;
-  --extra-hue: 0;
+  --extra-hue: 200;
 }
 
 .theme-ghost {
@@ -5549,7 +5773,7 @@ body {
   font-family: var(--body-font), sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
-  background-color: var(--light);
+  background-color: var(--light-b);
   font-weight: var(--body-weight);
   color: var(--dark);
   overflow: auto;
@@ -5581,7 +5805,7 @@ p {
 }
 
 nav {
-  background-color: var(--light_);
+  background-color: var(--light___);
   backdrop-filter: blur(1rem);
   top: 0px;
   width: 100%;

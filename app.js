@@ -47,20 +47,33 @@ function applyThemeFromUrl() {
       applyHueFromCookie();
     } else {
       body.style.removeProperty('--brand-hue');
+      body.style.removeProperty('--accent-hue');
+      body.style.removeProperty('--extra-hue');
     }
   }
 }
 
-// Fonction pour appliquer une HUE depuis les cookies ou en générer une nouvelle
+// Fonction pour appliquer des HUE depuis les cookies ou en générer de nouvelles
 function applyHueFromCookie() {
-  const savedHue = getCookie('eva-hue');
-  if (savedHue) {
-    body.style.setProperty('--brand-hue', savedHue);
+  // Gérer --brand-hue (seule HUE sauvegardée, les autres sont calculées)
+  const savedBrandHue = getCookie('eva-brand-hue');
+  let brandHue;
+  
+  if (savedBrandHue) {
+    brandHue = parseFloat(savedBrandHue);
   } else {
-    const randomHue = Math.floor(Math.random() * 360);
-    body.style.setProperty('--brand-hue', randomHue);
-    setCookie('eva-hue', randomHue, 10);
+    brandHue = Math.floor(Math.random() * 360);
+    setCookie('eva-brand-hue', brandHue, 10);
   }
+  
+  // Calculer les HUE harmoniques basées sur la brand-hue (harmonie triadique)
+  const accentHue = (brandHue + 120) % 360;
+  const extraHue = (brandHue + 240) % 360;
+  
+  // Appliquer toutes les HUE
+  body.style.setProperty('--brand-hue', brandHue);
+  body.style.setProperty('--accent-hue', accentHue);
+  body.style.setProperty('--extra-hue', extraHue);
 }
 
 // Fonction pour appliquer une HUE aléatoire si theme-eva est présent
@@ -88,8 +101,10 @@ function initBallzzzDraggable() {
   ballzzzElements.forEach(element => {
     let startAngle = 0;
     let currentAngle = 0;
-    let startHue = 0;
-    let currentHue = 0;
+    let startBrandHue = 0;
+    let currentBrandHue = 0;
+    let currentAccentHue = 0;
+    let currentExtraHue = 0;
     
     // Créer l'instance Draggable
     Draggable.create(element, {
@@ -113,10 +128,10 @@ function initBallzzzDraggable() {
         startAngle = parseFloat(currentAngleValue);
         currentAngle = startAngle;
         
-        // Récupérer la HUE actuelle
-        const currentHueValue = getComputedStyle(body).getPropertyValue('--brand-hue') || '169';
-        startHue = parseFloat(currentHueValue);
-        currentHue = startHue;
+        // Récupérer la HUE principale actuelle
+        const currentBrandHueValue = getComputedStyle(body).getPropertyValue('--brand-hue') || '169';
+        startBrandHue = parseFloat(currentBrandHueValue);
+        currentBrandHue = startBrandHue;
       },
       onDrag: function() {
         // Calculer la distance de déplacement
@@ -132,20 +147,30 @@ function initBallzzzDraggable() {
         element.style.setProperty('--angle', newAngle);
         currentAngle = newAngle;
         
-        // Calculer la nouvelle HUE basée sur la distance
+        // Calculer le changement de HUE basé sur la distance
         const hueSpeed = 0.3;
-        const newHue = (startHue + (distance * hueSpeed)) % 360;
+        const hueChange = distance * hueSpeed;
         
-        // Appliquer la nouvelle HUE
-        body.style.setProperty('--brand-hue', newHue);
-        currentHue = newHue;
+        // Appliquer le changement à toutes les HUE
+        const newBrandHue = (startBrandHue + hueChange) % 360;
+        const newAccentHue = (newBrandHue + 120) % 360;
+        const newExtraHue = (newBrandHue + 240) % 360;
+        
+        // Appliquer les nouvelles HUE
+        body.style.setProperty('--brand-hue', newBrandHue);
+        body.style.setProperty('--accent-hue', newAccentHue);
+        body.style.setProperty('--extra-hue', newExtraHue);
+        
+        currentBrandHue = newBrandHue;
+        currentAccentHue = newAccentHue;
+        currentExtraHue = newExtraHue;
       },
       onDragEnd: function() {
         // Retirer la classe de drag
         element.classList.remove('dragging');
         
-        // Sauvegarder la nouvelle HUE dans les cookies
-        setCookie('eva-hue', Math.round(currentHue), 10);
+        // Sauvegarder seulement la brand-hue (les autres sont calculées automatiquement)
+        setCookie('eva-brand-hue', Math.round(currentBrandHue), 10);
         
         // Animation de retour à la position initiale
         gsap.to(element, {

@@ -1,0 +1,1153 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/Draggable.min.js"></script>
+    <link rel="stylesheet" href="https://use.typekit.net/vjo0ssd.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Display:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css" />
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="3c9b4552-d24d-48aa-a6b4-877d0ceffe04"></script>
+    <title>EVA CSS - Colors & Gradients</title>
+  </head>
+  <body class="current-theme theme-eva all-grads">
+    
+  <nav id="nav" class="px-220__ flex space py-12- pof">
+    <a href="index.html" class="logo flex x center px-20">
+      <div class="ballzzz por " style="--max:6">
+        <div class="ball poa  ar-1 circle _bg-brand" style="--offset:0"></div>
+        <div class="ball poa  ar-1 circle _bg-brand" style="--offset:1"></div>
+        <div class="ball poa  ar-1 circle _bg-brand" style="--offset:2"></div>
+        <div class="ball poa  ar-1 circle _bg-brand" style="--offset:3"></div>
+        <div class="ball poa  ar-1 circle _bg-brand" style="--offset:4"></div>
+        <div class="ball poa  ar-1 circle _bg-brand" style="--offset:5"></div>
+      </div>
+      <h1 class="title fs-36__ lh-1 reverse">EVA CSS</h1>
+    </a>
+    <div class="flex x center g-20">
+      
+      <a href="doc.html" class="h-52 px-12 flex y center _c-brand br-12">
+        <span>Docs</span>
+      </a>
+
+      <a href="https://github.com/nkdeus/eva" target="_blank" class="h-52 px-8 flex x g-20 center _c-brand br-8">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" class="lh-0" height="20" viewBox="0 0 16 16" width="20" aria-hidden="true" class="d-block"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+        <span class="_c-brand_  flex y center">v.1</span>
+      </a>
+    </div>
+  </nav>
+
+  <div id="tuto" class="poa" style="top: 6rem; left: calc(var(--220__) + 0.5rem); z-index: 10;">
+    <div class="flex x center ">
+      <svg width="80" height="50" viewBox="0 0 80 60" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform: translateY(-0.7rem) rotate(-110deg);">
+        <!-- Courbe de la flèche -->
+        <path d="M20 40 Q50 10 60 20" stroke="var(--brand)" stroke-width="1" fill="none" stroke-linecap="round"/>
+        <!-- Pointe de la flèche -->
+        <path d="M60 20L55 15M60 20L55 25" stroke="var(--brand)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+             <p class="fs-12 _c-brand">
+         Drag the balls, release when you've found your mood color
+       </p>
+    </div>
+  </div>
+
+  <section class="px-220__ pt-220- pb-136 flex y g-32">
+      <p class="fs-36_ py-52- flex y g-20">
+        <span class="bold">The <span class="_c-brand">COLORS & GRADIENTS</span> of EVA CSS</span>
+        <div class="flex y wrap g-20">
+          <a href="#colors" class="h-52 px-12 flex y center _c-brand br-12">Colors</a>
+          <a href="#gradients" class="h-52 px-12 flex y center _c-brand br-12">Gradients</a>
+        </div>
+      </p>
+  </section>
+
+  <section id="colors" class="px-220__ py-136 flex y g-20">
+    <h2 class=" _bg-brand pr-356__">
+      <span class="_c-light fs-72 fwd-1 fwg-1 f-scale lh-1 ttu offset_">Col</span><span class="_c-light fs-72 fwg-8 fwd-16 f-scale f-scale lh-1 ttu offset_">ors</span>
+    </h2>
+    <p class="fs-16">
+      The next generation of theming
+    </p>
+    
+          <!-- Documentation Colors -->
+      <div class="flex y g-20">
+        <div class="flex y g-20">
+          <h3 class="fs-24 bold">Documentation</h3>
+          <p class="fs-12_">Ultra-modern color system based on OKLCH with automatic variations</p>
+          <div class="flex y g-8">
+            <p class="fs-12"><strong>Main colors:</strong> brand, accent, extra, dark, light, white</p>
+            <p class="fs-12"><strong>Fade variations:</strong> _ (65%), __ (35%), ___ (5%)</p>
+            <p class="fs-12"><strong>Brightness variations:</strong> -d (darker), -b (brighter), -d_ (darker_), -b_ (brighter_)</p>
+            <p class="fs-12"><strong>Properties:</strong> _c- (color), _bg- (background), _bc- (border), _f- (fill), _s- (stroke)</p>
+          </div>
+        </div>
+
+        <!-- Real-time CSS Variables Display -->
+        <div class="flex y g-20">
+          <h4 class="fs-18 bold">Real-time CSS Variables</h4>
+          <p class="fs-12_">The entire EVA theme is based on these 3 simple HUE values:</p>
+          
+          <div class="flex wrap g-20">
+            <div class="px-20 py-20 _bg-brand__ br-12 flex y g-8">
+              <span class="fs-14 bold _c-brand">Brand HUE</span>
+              <span id="brand-hue-value" class="fs-20 bold _c-brand">169°</span>
+              <span class="fs-10 _c-brand_">--brand-hue</span>
+            </div>
+            <div class="px-20 py-20 _bg-accent__ br-12 flex y g-8">
+              <span class="fs-14 bold _c-accent">Accent HUE</span>
+              <span id="accent-hue-value" class="fs-20 bold _c-accent">10°</span>
+              <span class="fs-10 _c-accent_">--accent-hue</span>
+            </div>
+            <div class="px-20 py-20 _bg-extra__ br-12 flex y g-8">
+              <span class="fs-14 bold _c-extra">Extra HUE</span>
+              <span id="extra-hue-value" class="fs-20 bold _c-extra">200°</span>
+              <span class="fs-10 _c-extra_">--extra-hue</span>
+            </div>
+          </div>
+          
+          <div class="px-20 py-20 _bg-light br-12">
+            <p class="fs-12 _c-dark"><strong>Magic EVA:</strong> These 3 values automatically generate <strong>all the variations</strong> of colors you see on this page!</p>
+            <p class="fs-10 _c-dark_">Each color (brand, accent, extra) uses the same lightness (80%) and chroma (0.1924), only the HUE changes.</p>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        // Function to retrieve and display CSS values in real-time
+        function updateCSSVariables() {
+          const body = document.body;
+          const computedStyle = getComputedStyle(body);
+          
+          // Get HUE values
+          const brandHue = computedStyle.getPropertyValue('--brand-hue').trim();
+          const accentHue = computedStyle.getPropertyValue('--accent-hue').trim();
+          const extraHue = computedStyle.getPropertyValue('--extra-hue').trim();
+          
+          // Update display
+          const brandHueElement = document.getElementById('brand-hue-value');
+          const accentHueElement = document.getElementById('accent-hue-value');
+          const extraHueElement = document.getElementById('extra-hue-value');
+          
+          if (brandHueElement) brandHueElement.textContent = brandHue + '°';
+          if (accentHueElement) accentHueElement.textContent = accentHue + '°';
+          if (extraHueElement) extraHueElement.textContent = extraHue + '°';
+        }
+        
+        // Update on load
+        document.addEventListener('DOMContentLoaded', updateCSSVariables);
+        
+        // Update every 100ms to capture real-time changes
+        setInterval(updateCSSVariables, 100);
+        
+        // Observe style changes on body
+        if ('MutationObserver' in window) {
+          const observer = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+              if (mutation.type === 'attributes' && mutation.attributeName === 'style') {
+                updateCSSVariables();
+              }
+            });
+          });
+          
+          observer.observe(document.body, {
+            attributes: true,
+            attributeFilter: ['style']
+          });
+        }
+      </script>
+
+    <!-- Color Palette Showcase -->
+    <div class="flex y g-32">
+              <!-- Brand Colors -->
+        <div class="flex y g-20">
+          <h4 class="fs-18 bold">Brand Colors</h4>
+          <div class="flex wrap g-20">
+            <div class="flex x g-20">
+              <div class="w-120 h-120 _bg-brand br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-light bold">brand</span>
+              </div>
+              <div class="w-120 h-120 _bg-brand_ br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-light bold">brand_</span>
+              </div>
+              <div class="w-120 h-120 _bg-brand__ br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">brand__</span>
+              </div>
+              <div class="w-120 h-120 _bg-brand___ br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">brand___</span>
+              </div>
+            </div>
+            <div class="flex x g-20">
+              <div class="w-120 h-120 _bg-brand-d br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-light bold">brand-d</span>
+              </div>
+              <div class="w-120 h-120 _bg-brand-b br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">brand-b</span>
+              </div>
+              <div class="w-120 h-120 _bg-brand-d_ br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-light bold">brand-d_</span>
+              </div>
+              <div class="w-120 h-120 _bg-brand-b_ br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">brand-b_</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+              <!-- Accent Colors -->
+        <div class="flex y g-20">
+          <h4 class="fs-18 bold">Accent Colors</h4>
+          <div class="flex wrap g-20">
+            <div class="flex x g-20">
+              <div class="w-120 h-120 _bg-accent br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-light bold">accent</span>
+              </div>
+              <div class="w-120 h-120 _bg-accent_ br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-light bold">accent_</span>
+              </div>
+              <div class="w-120 h-120 _bg-accent__ br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">accent__</span>
+              </div>
+              <div class="w-120 h-120 _bg-accent___ br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">accent___</span>
+              </div>
+            </div>
+            <div class="flex x g-20">
+              <div class="w-120 h-120 _bg-accent-d br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-light bold">accent-d</span>
+              </div>
+              <div class="w-120 h-120 _bg-accent-b br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">accent-b</span>
+              </div>
+              <div class="w-120 h-120 _bg-accent-d_ br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-light bold">accent-d_</span>
+              </div>
+              <div class="w-120 h-120 _bg-accent-b_ br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">accent-b_</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+              <!-- Extra Colors -->
+        <div class="flex y g-20">
+          <h4 class="fs-18 bold">Extra Colors</h4>
+          <div class="flex wrap g-20">
+            <div class="flex x g-20">
+              <div class="w-120 h-120 _bg-extra br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-light bold">extra</span>
+              </div>
+              <div class="w-120 h-120 _bg-extra_ br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-light bold">extra_</span>
+              </div>
+              <div class="w-120 h-120 _bg-extra__ br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">extra__</span>
+              </div>
+              <div class="w-120 h-120 _bg-extra___ br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">extra___</span>
+              </div>
+            </div>
+            <div class="flex x g-20">
+              <div class="w-120 h-120 _bg-extra-d br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-light bold">extra-d</span>
+              </div>
+              <div class="w-120 h-120 _bg-extra-b br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">extra-b</span>
+              </div>
+              <div class="w-120 h-120 _bg-extra-d_ br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-light bold">extra-d_</span>
+              </div>
+              <div class="w-120 h-120 _bg-extra-b_ br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">extra-b_</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+              <!-- Dark Colors -->
+        <div class="flex y g-20">
+          <h4 class="fs-18 bold">Dark Colors</h4>
+          <div class="flex wrap g-20">
+            <div class="flex x g-20">
+              <div class="w-120 h-120 _bg-dark br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-light bold">dark</span>
+              </div>
+              <div class="w-120 h-120 _bg-dark_ br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-light bold">dark_</span>
+              </div>
+              <div class="w-120 h-120 _bg-dark__ br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-light bold">dark__</span>
+              </div>
+              <div class="w-120 h-120 _bg-dark___ br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-light bold">dark___</span>
+              </div>
+            </div>
+            <div class="flex x g-20">
+              <div class="w-120 h-120 _bg-dark-d br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-light bold">dark-d</span>
+              </div>
+              <div class="w-120 h-120 _bg-dark-b br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-light bold">dark-b</span>
+              </div>
+              <div class="w-120 h-120 _bg-dark-d_ br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-light bold">dark-d_</span>
+              </div>
+              <div class="w-120 h-120 _bg-dark-b_ br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-light bold">dark-b_</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Light Colors -->
+        <div class="flex y g-20">
+          <h4 class="fs-18 bold">Light Colors</h4>
+          <div class="flex wrap g-20">
+            <div class="flex x g-20">
+              <div class="w-120 h-120 _bg-light br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">light</span>
+              </div>
+              <div class="w-120 h-120 _bg-light_ br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">light_</span>
+              </div>
+              <div class="w-120 h-120 _bg-light__ br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">light__</span>
+              </div>
+              <div class="w-120 h-120 _bg-light___ br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">light___</span>
+              </div>
+            </div>
+            <div class="flex x g-20">
+              <div class="w-120 h-120 _bg-light-d br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">light-d</span>
+              </div>
+              <div class="w-120 h-120 _bg-light-b br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">light-b</span>
+              </div>
+              <div class="w-120 h-120 _bg-light-d_ br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">light-d_</span>
+              </div>
+              <div class="w-120 h-120 _bg-light-b_ br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">light-b_</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- White Colors -->
+        <div class="flex y g-20">
+          <h4 class="fs-18 bold">White Colors</h4>
+          <div class="flex wrap g-20">
+            <div class="flex x g-20">
+              <div class="w-120 h-120 _bg-white br-12 flex y center p-8 px-12 _bc-dark">
+                <span class="fs-12_ _c-dark bold">white</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+    
+      </div>
+
+
+    </div>
+    
+  </section>
+
+  <section id="gradients" class="px-220__ py-136 flex y g-20">
+    <h2 class=" _bg-brand pr-356__">
+      <span class="_c-light fs-72 fwd-1 fwg-1 f-scale lh-1 ttu offset_" >Grad</span><span class="_c-light fs-72 fwg-8 fwd-16 f-scale f-scale lh-1 ttu offset_">ients</span>
+    </h2>
+    <p class="fs-16">
+      Unlimited gradients variations
+    </p>
+    
+    <!-- Documentation Gradients -->
+    <div class="flex y g-20">
+      <div class="flex y g-20">
+        <h3 class="fs-24 bold">Documentation</h3>
+        <p class="fs-12_">Ultra-modern gradient system with complete control via Emmet-style classes</p>
+        <div class="flex y g-8">
+          <p class="fs-12"><strong>Types:</strong> grad-linear, grad-radial, grad-linear-text, grad-radial-text</p>
+          <p class="fs-12"><strong>Colors:</strong> from-[color] to-[color] (all color variations available)</p>
+          <p class="fs-12"><strong>Effects:</strong> animated, hover-shift, hover-scale, bg-size variants</p>
+        </div>
+        
+        <!-- Direction Controls Explanation -->
+        <div class="flex y g-8">
+          <h4 class="fs-16 bold _c-brand">Direction Controls</h4>
+          <p class="fs-12"><strong>Main directions:</strong></p>
+          <div class="flex wrap g-8">
+            <span class="fs-11 px-8 py-4 _bg-brand__ br-8 _c-brand"><strong>d-t</strong> (top)</span>
+            <span class="fs-11 px-8 py-4 _bg-brand__ br-8 _c-brand"><strong>d-r</strong> (right)</span>
+            <span class="fs-11 px-8 py-4 _bg-brand__ br-8 _c-brand"><strong>d-b</strong> (bottom)</span>
+            <span class="fs-11 px-8 py-4 _bg-brand__ br-8 _c-brand"><strong>d-l</strong> (left)</span>
+          </div>
+          <p class="fs-12"><strong>Diagonal directions:</strong></p>
+          <div class="flex wrap g-8">
+            <span class="fs-11 px-8 py-4 _bg-accent__ br-8 _c-accent"><strong>d-tl</strong> (top-left)</span>
+            <span class="fs-11 px-8 py-4 _bg-accent__ br-8 _c-accent"><strong>d-tr</strong> (top-right)</span>
+            <span class="fs-11 px-8 py-4 _bg-accent__ br-8 _c-accent"><strong>d-bl</strong> (bottom-left)</span>
+            <span class="fs-11 px-8 py-4 _bg-accent__ br-8 _c-accent"><strong>d-br</strong> (bottom-right)</span>
+          </div>
+          <p class="fs-10 _c-dark_">Example: <code>grad-linear from-brand to-accent d-tr</code></p>
+        </div>
+
+        <!-- Angles Explanation -->
+        <div class="flex y g-8">
+          <h4 class="fs-16 bold _c-extra">Angle Controls</h4>
+          <p class="fs-12"><strong>Custom angles:</strong> from <code>a-0</code> to <code>a-360</code> in 5° intervals</p>
+          <div class="flex wrap g-8">
+            <span class="fs-11 px-8 py-4 _bg-extra__ br-8 _c-extra"><strong>a-0</strong> (0°)</span>
+            <span class="fs-11 px-8 py-4 _bg-extra__ br-8 _c-extra"><strong>a-45</strong> (45°)</span>
+            <span class="fs-11 px-8 py-4 _bg-extra__ br-8 _c-extra"><strong>a-90</strong> (90°)</span>
+            <span class="fs-11 px-8 py-4 _bg-extra__ br-8 _c-extra"><strong>a-135</strong> (135°)</span>
+            <span class="fs-11 px-8 py-4 _bg-extra__ br-8 _c-extra"><strong>a-180</strong> (180°)</span>
+            <span class="fs-11 px-8 py-4 _bg-extra__ br-8 _c-extra"><strong>a-270</strong> (270°)</span>
+          </div>
+          <p class="fs-10 _c-dark_">Example: <code>grad-linear from-brand to-accent a-45</code></p>
+          <p class="fs-10 _c-dark_">Warning: Angles replace directions (don't use d-* and a-* together)</p>
+        </div>
+
+        <!-- Text Gradients Explanation -->
+        <div class="flex y g-8">
+          <h4 class="fs-16 bold _c-accent">Text Gradients</h4>
+          <p class="fs-12"><strong>Special types:</strong></p>
+          <div class="flex wrap g-8">
+            <span class="fs-11 px-8 py-4 _bg-light br-8 _c-dark"><strong>grad-linear-text</strong> - Linear gradient on text</span>
+            <span class="fs-11 px-8 py-4 _bg-light br-8 _c-dark"><strong>grad-radial-text</strong> - Radial gradient on text</span>
+          </div>
+          <p class="fs-12"><strong>How it works:</strong> Uses the same modifiers (from-*, to-*, d-*, a-*)</p>
+          <div class="flex wrap g-12">
+            <div class="flex y center">
+              <span class="fs-20 grad-linear-text from-brand to-accent bold">EXAMPLE</span>
+              <p class="fs-10">grad-linear-text from-brand to-accent</p>
+            </div>
+            <div class="flex y center">
+              <span class="fs-20 grad-radial-text from-extra to-light bold">RADIAL</span>
+              <p class="fs-10">grad-radial-text from-extra to-light</p>
+            </div>
+          </div>
+          <p class="fs-10 _c-dark_">Perfect for titles and catchy texts</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Directions et Angles Généraux -->
+    <div class="flex y g-20">
+      
+      
+      <!-- Directions -->
+      <div class="flex y g-12 mt-84">
+        <h4 class="fs-24 bold">Directions & Angles</h4>
+       
+        <div class="flex wrap g-12">
+          <h5 class="fs-16 bold w-full">Available Directions</h5>
+          <div class="w-80 h-80 grad-linear from-brand to-accent d-t br-8 flex y center p-4">
+            <span class="fs-10 _c-light bold">d-t</span>
+          </div>
+          <div class="w-80 h-80 grad-linear from-brand to-accent d-r br-8 flex y center p-4">
+            <span class="fs-10 _c-light bold">d-r</span>
+          </div>
+          <div class="w-80 h-80 grad-linear from-brand to-accent d-b br-8 flex y center p-4">
+            <span class="fs-10 _c-light bold">d-b</span>
+          </div>
+          <div class="w-80 h-80 grad-linear from-brand to-accent d-l br-8 flex y center p-4">
+            <span class="fs-10 _c-light bold">d-l</span>
+          </div>
+          <div class="w-80 h-80 grad-linear from-brand to-accent d-tl br-8 flex y center p-4">
+            <span class="fs-10 _c-light bold">d-tl</span>
+          </div>
+          <div class="w-80 h-80 grad-linear from-brand to-accent d-tr br-8 flex y center p-4">
+            <span class="fs-10 _c-light bold">d-tr</span>
+          </div>
+          <div class="w-80 h-80 grad-linear from-brand to-accent d-bl br-8 flex y center p-4">
+            <span class="fs-10 _c-light bold">d-bl</span>
+          </div>
+          <div class="w-80 h-80 grad-linear from-brand to-accent d-br br-8 flex y center p-4">
+            <span class="fs-10 _c-light bold">d-br</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Angles -->
+      <div class="flex y g-12">
+        <h5 class="fs-16 bold">Available Angles</h5>
+        <div class="flex wrap g-12">
+          <div class="w-80 h-80 grad-linear from-brand to-accent a-0 br-8 flex y center p-4">
+            <span class="fs-10 _c-light bold">0°</span>
+          </div>
+          <div class="w-80 h-80 grad-linear from-brand to-accent a-45 br-8 flex y center p-4">
+            <span class="fs-10 _c-light bold">45°</span>
+          </div>
+          <div class="w-80 h-80 grad-linear from-brand to-accent a-90 br-8 flex y center p-4">
+            <span class="fs-10 _c-light bold">90°</span>
+          </div>
+          <div class="w-80 h-80 grad-linear from-brand to-accent a-135 br-8 flex y center p-4">
+            <span class="fs-10 _c-light bold">135°</span>
+          </div>
+          <div class="w-80 h-80 grad-linear from-brand to-accent a-180 br-8 flex y center p-4">
+            <span class="fs-10 _c-light bold">180°</span>
+          </div>
+          <div class="w-80 h-80 grad-linear from-brand to-accent a-225 br-8 flex y center p-4">
+            <span class="fs-10 _c-light bold">225°</span>
+          </div>
+          <div class="w-80 h-80 grad-linear from-brand to-accent a-270 br-8 flex y center p-4">
+            <span class="fs-10 _c-light bold">270°</span>
+          </div>
+          <div class="w-80 h-80 grad-linear from-brand to-accent a-315 br-8 flex y center p-4">
+            <span class="fs-10 _c-light bold">315°</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Gradient Showcase by Color -->
+    <div class="flex y g-220">
+      
+      <!-- BRAND Gradients -->
+      <div class="flex y g-20 mt-84">
+        <h4 class="fs-24 bold _c-brand">Brand Gradients</h4>
+        
+        <!-- Brand to Other Colors -->
+        <div class="flex y g-12">
+          <h5 class="fs-16 bold">Brand to other colors</h5>
+          <div class="flex wrap g-12">
+            <div class="w-120 h-80 grad-linear from-brand to-accent br-8 flex y center p-4">
+              <span class="fs-10 _c-light bold">to accent</span>
+            </div>
+            <div class="w-120 h-80 grad-linear from-brand to-extra br-8 flex y center p-4">
+              <span class="fs-10 _c-light bold">to extra</span>
+            </div>
+            <div class="w-120 h-80 grad-linear from-brand to-dark br-8 flex y center p-4">
+              <span class="fs-10 _c-light bold">to dark</span>
+            </div>
+            <div class="w-120 h-80 grad-linear from-brand to-light br-8 flex y center p-4">
+              <span class="fs-10 _c-dark bold">to light</span>
+            </div>
+            <div class="w-120 h-80 grad-linear from-brand to-white br-8 flex y center p-4">
+              <span class="fs-10 _c-dark bold">to white</span>
+            </div>
+            <div class="w-120 h-80 grad-linear from-brand to-transparent br-8 flex y center p-4">
+              <span class="fs-10 _c-light bold">to transparent</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Brand Variations -->
+        <div class="flex y g-12">
+          <h5 class="fs-16 bold">Brand Variations</h5>
+          <div class="flex wrap g-12">
+            <div class="w-120 h-80 grad-linear from-brand to-brand_ br-8 flex y center p-4">
+              <span class="fs-10 _c-light bold">brand → brand_</span>
+            </div>
+            <div class="w-120 h-80 grad-linear from-brand to-brand__ br-8 flex y center p-4">
+              <span class="fs-10 _c-light bold">brand → brand__</span>
+            </div>
+            <div class="w-120 h-80 grad-linear from-brand-d to-brand-b br-8 flex y center p-4">
+              <span class="fs-10 _c-light bold">brand-d → brand-b</span>
+            </div>
+            <div class="w-120 h-80 grad-linear from-brand-d_ to-brand-b_ br-8 flex y center p-4">
+              <span class="fs-10 _c-light bold">brand-d_ → brand-b_</span>
+            </div>
+          </div>
+        </div>
+
+
+
+        <!-- Brand Radial -->
+        <div class="flex y g-12">
+          <h5 class="fs-16 bold">Radial Brand</h5>
+          <div class="flex wrap g-12">
+            <div class="w-120 h-80 grad-radial from-brand to-accent br-8 flex y center p-4">
+              <span class="fs-10 _c-light bold">radial to accent</span>
+            </div>
+            <div class="w-120 h-80 grad-radial from-brand to-extra br-8 flex y center p-4">
+              <span class="fs-10 _c-light bold">radial to extra</span>
+            </div>
+            <div class="w-120 h-80 grad-radial from-brand to-light br-8 flex y center p-4">
+              <span class="fs-10 _c-dark bold">radial to light</span>
+            </div>
+            <div class="w-120 h-80 grad-radial from-brand to-transparent br-8 flex y center p-4">
+              <span class="fs-10 _c-light bold">radial transparent</span>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+
+      <!-- ACCENT Gradients -->
+      <div class="flex y g-20">
+        <h4 class="fs-24 bold _c-accent">Accent Gradients</h4>
+        
+        <!-- Accent to Other Colors -->
+        <div class="flex y g-12">
+          <h5 class="fs-16 bold">Accent to other colors</h5>
+          <div class="flex wrap g-12">
+            <div class="w-120 h-80 grad-linear from-accent to-brand br-8 flex y center p-4">
+              <span class="fs-10 _c-light bold">to brand</span>
+            </div>
+            <div class="w-120 h-80 grad-linear from-accent to-extra br-8 flex y center p-4">
+              <span class="fs-10 _c-light bold">to extra</span>
+            </div>
+            <div class="w-120 h-80 grad-linear from-accent to-dark br-8 flex y center p-4">
+              <span class="fs-10 _c-light bold">to dark</span>
+            </div>
+            <div class="w-120 h-80 grad-linear from-accent to-light br-8 flex y center p-4">
+              <span class="fs-10 _c-dark bold">to light</span>
+            </div>
+            <div class="w-120 h-80 grad-linear from-accent to-white br-8 flex y center p-4">
+              <span class="fs-10 _c-dark bold">to white</span>
+            </div>
+            <div class="w-120 h-80 grad-linear from-accent to-transparent br-8 flex y center p-4">
+              <span class="fs-10 _c-light bold">to transparent</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Accent Variations -->
+        <div class="flex y g-12">
+          <h5 class="fs-16 bold">Accent Variations</h5>
+          <div class="flex wrap g-12">
+            <div class="w-120 h-80 grad-linear from-accent to-accent_ br-8 flex y center p-4">
+              <span class="fs-10 _c-light bold">accent → accent_</span>
+            </div>
+            <div class="w-120 h-80 grad-linear from-accent to-accent__ br-8 flex y center p-4">
+              <span class="fs-10 _c-light bold">accent → accent__</span>
+            </div>
+            <div class="w-120 h-80 grad-linear from-accent-d to-accent-b br-8 flex y center p-4">
+              <span class="fs-10 _c-light bold">accent-d → accent-b</span>
+            </div>
+            <div class="w-120 h-80 grad-linear from-accent-d_ to-accent-b_ br-8 flex y center p-4">
+              <span class="fs-10 _c-light bold">accent-d_ → accent-b_</span>
+            </div>
+          </div>
+        </div>
+
+
+
+        <!-- Accent Radial -->
+        <div class="flex y g-12">
+          <h5 class="fs-16 bold">Radial Accent</h5>
+          <div class="flex wrap g-12">
+            <div class="w-120 h-80 grad-radial from-accent to-brand br-8 flex y center p-4">
+              <span class="fs-10 _c-light bold">radial to brand</span>
+            </div>
+            <div class="w-120 h-80 grad-radial from-accent to-extra br-8 flex y center p-4">
+              <span class="fs-10 _c-light bold">radial to extra</span>
+            </div>
+            <div class="w-120 h-80 grad-radial from-accent to-light br-8 flex y center p-4">
+              <span class="fs-10 _c-dark bold">radial to light</span>
+            </div>
+            <div class="w-120 h-80 grad-radial from-accent to-transparent br-8 flex y center p-4">
+              <span class="fs-10 _c-light bold">radial transparent</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- EXTRA Gradients -->
+      <div class="flex y g-20">
+        <h4 class="fs-24 bold _c-extra">Extra Gradients</h4>
+        
+        <!-- Extra to Other Colors -->
+        <div class="flex y g-12">
+          <h5 class="fs-16 bold">Extra to other colors</h5>
+          <div class="flex wrap g-12">
+            <div class="w-120 h-80 grad-linear from-extra to-brand br-8 flex y center p-4">
+              <span class="fs-10 _c-light bold">to brand</span>
+            </div>
+            <div class="w-120 h-80 grad-linear from-extra to-accent br-8 flex y center p-4">
+              <span class="fs-10 _c-light bold">to accent</span>
+            </div>
+            <div class="w-120 h-80 grad-linear from-extra to-dark br-8 flex y center p-4">
+              <span class="fs-10 _c-light bold">to dark</span>
+            </div>
+            <div class="w-120 h-80 grad-linear from-extra to-light br-8 flex y center p-4">
+              <span class="fs-10 _c-dark bold">to light</span>
+            </div>
+            <div class="w-120 h-80 grad-linear from-extra to-white br-8 flex y center p-4">
+              <span class="fs-10 _c-dark bold">to white</span>
+            </div>
+            <div class="w-120 h-80 grad-linear from-extra to-transparent br-8 flex y center p-4">
+              <span class="fs-10 _c-light bold">to transparent</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Extra Variations -->
+        <div class="flex y g-12">
+          <h5 class="fs-16 bold">Extra Variations</h5>
+          <div class="flex wrap g-12">
+            <div class="w-120 h-80 grad-linear from-extra to-extra_ br-8 flex y center p-4">
+              <span class="fs-10 _c-light bold">extra → extra_</span>
+            </div>
+            <div class="w-120 h-80 grad-linear from-extra to-extra__ br-8 flex y center p-4">
+              <span class="fs-10 _c-light bold">extra → extra__</span>
+            </div>
+            <div class="w-120 h-80 grad-linear from-extra-d to-extra-b br-8 flex y center p-4">
+              <span class="fs-10 _c-light bold">extra-d → extra-b</span>
+            </div>
+            <div class="w-120 h-80 grad-linear from-extra-d_ to-extra-b_ br-8 flex y center p-4">
+              <span class="fs-10 _c-light bold">extra-d_ → extra-b_</span>
+            </div>
+          </div>
+        </div>
+
+
+
+        <!-- Extra Radial -->
+        <div class="flex y g-12">
+          <h5 class="fs-16 bold">Radial Extra</h5>
+          <div class="flex wrap g-12">
+            <div class="w-120 h-80 grad-radial from-extra to-brand br-8 flex y center p-4">
+              <span class="fs-10 _c-light bold">radial to brand</span>
+            </div>
+            <div class="w-120 h-80 grad-radial from-extra to-accent br-8 flex y center p-4">
+              <span class="fs-10 _c-light bold">radial to accent</span>
+            </div>
+            <div class="w-120 h-80 grad-radial from-extra to-light br-8 flex y center p-4">
+              <span class="fs-10 _c-dark bold">radial to light</span>
+            </div>
+            <div class="w-120 h-80 grad-radial from-extra to-transparent br-8 flex y center p-4">
+              <span class="fs-10 _c-light bold">radial transparent</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DARK Gradients -->
+      <div class="flex y g-20">
+        <h4 class="fs-24 bold _c-dark">Dark Gradients</h4>
+        
+        <!-- Dark to Other Colors -->
+        <div class="flex y g-12">
+          <h5 class="fs-16 bold">Dark to other colors</h5>
+          <div class="flex wrap g-12">
+            <div class="w-120 h-80 grad-linear from-dark to-brand br-8 flex y center p-4">
+              <span class="fs-10 _c-light bold">to brand</span>
+            </div>
+            <div class="w-120 h-80 grad-linear from-dark to-accent br-8 flex y center p-4">
+              <span class="fs-10 _c-light bold">to accent</span>
+            </div>
+            <div class="w-120 h-80 grad-linear from-dark to-extra br-8 flex y center p-4">
+              <span class="fs-10 _c-light bold">to extra</span>
+            </div>
+            <div class="w-120 h-80 grad-linear from-dark to-light br-8 flex y center p-4">
+              <span class="fs-10 _c-dark bold">to light</span>
+            </div>
+            <div class="w-120 h-80 grad-linear from-dark to-white br-8 flex y center p-4">
+              <span class="fs-10 _c-dark bold">to white</span>
+            </div>
+            <div class="w-120 h-80 grad-linear from-dark to-transparent br-8 flex y center p-4">
+              <span class="fs-10 _c-light bold">to transparent</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dark Variations -->
+        <div class="flex y g-12">
+          <h5 class="fs-16 bold">Dark Variations</h5>
+          <div class="flex wrap g-12">
+            <div class="w-120 h-80 grad-linear from-dark to-dark_ br-8 flex y center p-4">
+              <span class="fs-10 _c-light bold">dark → dark_</span>
+            </div>
+            <div class="w-120 h-80 grad-linear from-dark to-dark__ br-8 flex y center p-4">
+              <span class="fs-10 _c-light bold">dark → dark__</span>
+            </div>
+            <div class="w-120 h-80 grad-linear from-dark-d to-dark-b br-8 flex y center p-4">
+              <span class="fs-10 _c-light bold">dark-d → dark-b</span>
+            </div>
+            <div class="w-120 h-80 grad-linear from-dark-d_ to-dark-b_ br-8 flex y center p-4">
+              <span class="fs-10 _c-light bold">dark-d_ → dark-b_</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dark Radial -->
+        <div class="flex y g-12">
+          <h5 class="fs-16 bold">Radial Dark</h5>
+          <div class="flex wrap g-12">
+            <div class="w-120 h-80 grad-radial from-dark to-brand br-8 flex y center p-4">
+              <span class="fs-10 _c-light bold">radial to brand</span>
+            </div>
+            <div class="w-120 h-80 grad-radial from-dark to-accent br-8 flex y center p-4">
+              <span class="fs-10 _c-light bold">radial to accent</span>
+            </div>
+            <div class="w-120 h-80 grad-radial from-dark to-light br-8 flex y center p-4">
+              <span class="fs-10 _c-dark bold">radial to light</span>
+            </div>
+            <div class="w-120 h-80 grad-radial from-dark to-transparent br-8 flex y center p-4">
+              <span class="fs-10 _c-light bold">radial transparent</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- LIGHT Gradients -->
+      <div class="flex y g-20">
+        <h4 class="fs-24 bold _c-light-d_">Light Gradients</h4>
+        
+        <!-- Light to Other Colors -->
+        <div class="flex y g-12">
+          <h5 class="fs-16 bold">Light to other colors</h5>
+          <div class="flex wrap g-12">
+            <div class="w-120 h-80 grad-linear from-light to-brand br-8 flex y center p-4">
+              <span class="fs-10 _c-dark bold">to brand</span>
+            </div>
+            <div class="w-120 h-80 grad-linear from-light to-accent br-8 flex y center p-4">
+              <span class="fs-10 _c-dark bold">to accent</span>
+            </div>
+            <div class="w-120 h-80 grad-linear from-light to-extra br-8 flex y center p-4">
+              <span class="fs-10 _c-dark bold">to extra</span>
+            </div>
+            <div class="w-120 h-80 grad-linear from-light to-dark br-8 flex y center p-4">
+              <span class="fs-10 _c-light bold">to dark</span>
+            </div>
+            <div class="w-120 h-80 grad-linear from-light to-white br-8 flex y center p-4">
+              <span class="fs-10 _c-dark bold">to white</span>
+            </div>
+            <div class="w-120 h-80 grad-linear from-light to-transparent br-8 flex y center p-4">
+              <span class="fs-10 _c-dark bold">to transparent</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Light Variations -->
+        <div class="flex y g-12">
+          <h5 class="fs-16 bold">Light Variations</h5>
+          <div class="flex wrap g-12">
+            <div class="w-120 h-80 grad-linear from-light to-light_ br-8 flex y center p-4">
+              <span class="fs-10 _c-dark bold">light → light_</span>
+            </div>
+            <div class="w-120 h-80 grad-linear from-light to-light__ br-8 flex y center p-4">
+              <span class="fs-10 _c-dark bold">light → light__</span>
+            </div>
+            <div class="w-120 h-80 grad-linear from-light-d to-light-b br-8 flex y center p-4">
+              <span class="fs-10 _c-dark bold">light-d → light-b</span>
+            </div>
+            <div class="w-120 h-80 grad-linear from-light-d_ to-light-b_ br-8 flex y center p-4">
+              <span class="fs-10 _c-dark bold">light-d_ → light-b_</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Light Radial -->
+        <div class="flex y g-12">
+          <h5 class="fs-16 bold">Radial Light</h5>
+          <div class="flex wrap g-12">
+            <div class="w-120 h-80 grad-radial from-light to-brand br-8 flex y center p-4">
+              <span class="fs-10 _c-dark bold">radial to brand</span>
+            </div>
+            <div class="w-120 h-80 grad-radial from-light to-accent br-8 flex y center p-4">
+              <span class="fs-10 _c-dark bold">radial to accent</span>
+            </div>
+            <div class="w-120 h-80 grad-radial from-light to-dark br-8 flex y center p-4">
+              <span class="fs-10 _c-light bold">radial to dark</span>
+            </div>
+            <div class="w-120 h-80 grad-radial from-light to-transparent br-8 flex y center p-4">
+              <span class="fs-10 _c-dark bold">radial transparent</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Complex Combinations -->
+      <div class="flex y g-20">
+        <h4 class="fs-24 bold">Complex Combinations</h4>
+        <div class="flex wrap g-20">
+          <div class="px-20 py-32 grad-linear from-brand-d to-accent-b d-tr br-12">
+            <p class="fs-12_ _c-light">Brand-d → Accent-b diagonal</p>
+            <p class="fs-10 _c-light_">grad-linear from-brand-d to-accent-b d-tr</p>
+          </div>
+          <div class="px-20 py-32 grad-radial from-extra_ to-light a-45 br-12">
+            <p class="fs-12_ _c-dark">Extra fade → Light 45°</p>
+            <p class="fs-10 _c-dark_">grad-radial from-extra_ to-light a-45</p>
+          </div>
+          <div class="px-20 py-32 grad-linear from-dark-b_ to-brand__ d-bl br-12">
+            <p class="fs-12_ _c-light">Dark bright → Brand ultra-fade</p>
+            <p class="fs-10 _c-light_">grad-linear from-dark-b_ to-brand__ d-bl</p>
+          </div>
+        </div>
+      </div>
+    </div>
+   
+  </section>
+
+  <!-- Section Grille Complète des Gradients -->
+  <section class="py-136 flex y g-20">
+    <div class="px-220__ flex y g-20">
+      <h2 class="_bg-brand pr-356__">
+        <span class="_c-light fs-72 fwd-1 fwg-1 f-scale lh-1 ttu offset_">All</span><span class="_c-light fs-72 fwg-8 fwd-16 f-scale f-scale lh-1 ttu offset_">Combinations</span>
+      </h2>
+      <p class="fs-16">
+        All possible combinations of EVA CSS linear gradients
+      </p>
+      <p class="fs-12_ _c-dark_">
+        This grid shows a random sample among the <strong id="total-combinations">142,884</strong> possible combinations!
+      </p>
+              <div class="flex wrap g-12 py-20">
+          <div class="px-20 py-8 _bg-brand__ br-8">
+            <span class="fs-12 _c-brand bold">1 type</span>
+            <span class="fs-12 _c-brand_ block">linear</span>
+          </div>
+          <div class="px-20 py-8 _bg-accent__ br-8">
+            <span class="fs-12 _c-accent bold">42 colors</span>
+            <span class="fs-12 _c-accent_ block">+ variations</span>
+          </div>
+          <div class="px-20 py-8 _bg-extra__ br-8">
+            <span class="fs-12 _c-extra bold">8 directions</span>
+            <span class="fs-12 _c-extra_ block">basic + diagonal</span>
+          </div>
+        </div>
+    </div>
+    
+    <!-- Grille des gradients -->
+    <div id="gradient-grid" class="w-full" style="display: grid; gap: 0; justify-content: center; grid-template-columns: repeat(auto-fit, 4px);">
+      <!-- Les gradients seront générés par JavaScript -->
+    </div>
+  </section>
+
+  <div class="stage">
+    <div class="flex stage-top">
+      <div class="line-y h-4"></div>
+      <div class="line-y h-8"></div>
+      <div class="line-y h-12"></div>
+      <div class="line-y h-20"></div>
+      <div class="line-y h-32"></div>
+      <div class="line-y h-34"></div>
+      <div class="line-y h-52"></div>
+      <div class="line-y h-84"></div>
+      <div class="line-y h-136"></div>
+      <div class="line-y h-220"></div>
+      <div class="line-y h-356"></div>
+      <div class="line-y h-220"></div>
+      <div class="line-y h-136"></div>
+      <div class="line-y h-84"></div>
+      <div class="line-y h-52"></div>
+      <div class="line-y h-34"></div>
+      <div class="line-y h-32"></div>
+      <div class="line-y h-20"></div>
+      <div class="line-y h-12"></div>
+      <div class="line-y h-8"></div>
+      <div class="line-y h-4"></div>
+    </div>
+  </div>
+
+  <footer class="px-220__ py-136 flex x g-20 w-full">
+
+    <div class="flex w-full y space center g-32">
+      <p class="fs-12_ _c-brand_">© 2024</p>
+      <p class="fs-12_ _c-brand_">Tati Michaël</p>
+
+    </div>
+
+         <div class="flex  w-full y space g-32">
+       <a href="https://www.linkedin.com/in/mtati/" target="_blank">LinkedIn</a>
+       <a href="https://ulysse-2029.com/" target="_blank">ulysse-2029.com</a>
+     </div>
+  
+  </footer>
+
+  <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="hide">
+    <defs>
+      <filter id="fancy-goo">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="2.5" result="blur" />
+        <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 14 -3" result="goo" />
+        <feComposite in="SourceGraphic" in2="goo" operator="atop"/>
+      </filter>
+    </defs>
+  </svg>
+  <script src="app.js"></script>
+  
+  <script>
+    // Générateur de grille de gradients complète
+    document.addEventListener('DOMContentLoaded', function() {
+      const gridContainer = document.getElementById('gradient-grid');
+      let isGenerating = false;
+      let hasGenerated = false;
+      
+      // Définition de toutes les possibilités
+      const gradientTypes = ['grad-linear'];
+      
+      const baseColors = ['brand', 'accent', 'extra', 'dark', 'light', 'white'];
+      const colorVariations = ['', '_', '__', '___', '-d', '-b', '-d_', '-b_'];
+      
+      // Générer toutes les variations de couleurs
+      const allColors = [];
+      baseColors.forEach(base => {
+        if (base === 'white') {
+          allColors.push('white'); // white n'a pas de variations
+        } else {
+          colorVariations.forEach(variation => {
+            allColors.push(base + variation);
+          });
+        }
+      });
+      
+      // Ajouter transparent
+      allColors.push('transparent');
+      
+      const directions = ['d-t', 'd-r', 'd-b', 'd-l', 'd-tl', 'd-tr', 'd-bl', 'd-br'];
+      
+      // Calculer le nombre total de combinaisons possibles
+      const totalTypes = gradientTypes.length; // 1
+      const totalColors = allColors.length; // 42
+      const totalDirectionsAndAngles = directions.length; // 8
+      const totalCombinations = totalTypes * totalColors * totalColors * totalDirectionsAndAngles;
+      
+      // Mettre à jour l'affichage du nombre de combinaisons
+      const combinationsElement = document.getElementById('total-combinations');
+      if (combinationsElement) {
+        combinationsElement.textContent = totalCombinations.toLocaleString();
+      }
+      
+      console.log(`EVA CSS Gradients System:`);
+      console.log(`   ${totalTypes} type × ${totalColors} FROM colors × ${totalColors} TO colors × ${totalDirectionsAndAngles} directions`);
+      console.log(`   = ${totalCombinations.toLocaleString()} possible combinations!`);
+      console.log(`   Detail: ${directions.length} directions = ${totalDirectionsAndAngles} modifiers`);
+      
+      // Function to get a random element from an array
+      function getRandomElement(arr) {
+        return arr[Math.floor(Math.random() * arr.length)];
+      }
+      
+      // Function to generate a random combination
+      function generateRandomGradient() {
+        const type = getRandomElement(gradientTypes);
+        const fromColor = getRandomElement(allColors);
+        let toColor = getRandomElement(allColors);
+        
+        // Avoid identical from-to combinations
+        while (toColor === fromColor && allColors.length > 1) {
+          toColor = getRandomElement(allColors);
+        }
+        
+        // Use only directions
+        const direction = getRandomElement(directions);
+        
+        return `${type} from-${fromColor} to-${toColor} ${direction}`;
+      }
+      
+      // Configure CSS grid
+      function updateGrid() {
+        const squareSize = 4;
+        const currentWidth = window.innerWidth;
+        const currentSquaresPerRow = Math.floor(currentWidth / squareSize);
+        gridContainer.style.gridTemplateColumns = `repeat(${currentSquaresPerRow}, 4px)`;
+        return { squareSize, currentSquaresPerRow };
+      }
+      
+      // Function to generate grid progressively
+      async function generateGrid() {
+        if (isGenerating || hasGenerated) return;
+        
+        isGenerating = true;
+        hasGenerated = true;
+        
+        const { squareSize, currentSquaresPerRow } = updateGrid();
+        const numberOfRows = 100; // More rows for more diversity
+        const totalSquares = currentSquaresPerRow * numberOfRows;
+        
+        console.log(`Starting progressive generation of ${totalSquares} gradients (${currentSquaresPerRow} × ${numberOfRows})`);
+        
+        // Create squares progressively with 0.1s delay
+        for (let i = 0; i < totalSquares; i++) {
+          const square = document.createElement('div');
+          const gradientClass = generateRandomGradient();
+          
+          square.className = gradientClass;
+          square.style.cssText = 'width: 4px; height: 4px; display: block; opacity: 1; transition: opacity 0.3s ease;';
+          
+          gridContainer.appendChild(square);
+          
+    
+          // Progress log for large volumes
+          if (i % 1000 === 0 && i > 0) {
+            console.log(`Generated ${i}/${totalSquares} gradients...`);
+          }
+          
+          // Wait 0.01s before creating next square
+          await new Promise(resolve => setTimeout(resolve, 4));
+        }
+        
+        console.log('Gradient grid generated successfully!');
+        isGenerating = false;
+      }
+      
+      // Intersection Observer to trigger generation when scrolling into view
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting && !hasGenerated) {
+            console.log('Grid section is visible, starting generation...');
+            generateGrid();
+          }
+        });
+      }, {
+        threshold: 0.1, // Trigger when 10% of the grid is visible
+        rootMargin: '100px' // Start generating 100px before the grid comes into view
+      });
+      
+      // Start observing the grid container
+      observer.observe(gridContainer);
+      
+      // Update grid on resize (with debounce)
+      let resizeTimeout;
+      window.addEventListener('resize', function() {
+        if (!isGenerating && hasGenerated) {
+          clearTimeout(resizeTimeout);
+          resizeTimeout = setTimeout(updateGrid, 150);
+        }
+      });
+    });
+  </script>
+  
+  <style>
+    /* Hover Effects for Colors */
+    .hover-effect-bg:hover {
+      background-color: var(--accent) !important;
+    }
+    
+    .hover-effect-color:hover {
+      color: var(--accent) !important;
+    }
+    
+    .hover-effect-border:hover {
+      border-color: var(--brand) !important;
+      border-width: 2px;
+    }
+    
+    .hover-effect-scale:hover {
+      transform: scale(1.05);
+    }
+    
+    /* Hover Effects for Gradients */
+    .grad-hover-example-1:hover {
+      background: linear-gradient(225deg, var(--extra), var(--brand)) !important;
+      transform: rotate(5deg);
+    }
+    
+    .grad-hover-example-2:hover {
+      background: radial-gradient(circle, var(--brand), var(--accent)) !important;
+      transform: scale(1.1);
+    }
+    
+    .grad-hover-example-3:hover {
+      background: linear-gradient(270deg, var(--accent), var(--extra)) !important;
+      transform: translateX(5px);
+    }
+    
+    .grad-hover-example-4:hover {
+      background: radial-gradient(ellipse at top, var(--brand), var(--light)) !important;
+      transform: scale(1.05) rotate(-3deg);
+    }
+  </style>
+  </body>
+</html> 

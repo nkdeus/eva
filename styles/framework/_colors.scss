@@ -40,19 +40,6 @@ $darkbright-map: (
   "-b_": var(--brighter_),
 );
 
-//angle
-
-$step: 5;
-$total-degrees: 360;
-$number-of-steps: math.div($total-degrees, $step);
-
-@for $i from 1 through $number-of-steps {
-  $angle: $i * $step;
-
-  ._a-#{$angle} {
-    --grad-angle: #{$angle * 1deg};
-  }
-}
 
 $gradients: "brand", "accent", "dark", "light", "extra";
 $gradients-darkbright: "-d", "-d_", "-b", "-b_";
@@ -87,47 +74,9 @@ $color-map: (
     }
   }
 
-  // asign color to UI elements
-  --bg-color: var(--brand);
-  --bg-color-2: var(--brand-d);
-
-  --h1-color: var(--dark);
-  --bt-wallet-color: var(--accent);
-  --sh-wallet-color: var(--accent-d);
-
-  --bt-twitter-color: var(--twitter);
-  --sh-twitter-color: var(--twitter-d);
-
-  --bg-timer-color: var(--extra);
-
-  --bg-block: var(--light);
-  --sh-block: var(--dark);
 }
 
-.current-grad {
-  --grad-angle: 90deg;
-  @each $grad-from in $gradients {
-    @each $grad-to in $gradients {
-      @if ($grad-from != $grad-to) {
-        --grad-#{$grad-from}-#{$grad-to}: linear-gradient(var(--grad-angle), oklch(var(--root-#{$grad-from})) 0%, oklch(var(--root-#{$grad-to})) 100%);
-      } @else {
-        --grad-#{$grad-from}: linear-gradient(var(--grad-angle), oklch(var(--root-#{$grad-from})) 0%, transparent 100%);
-        @each $grad-db in $gradients-darkbright {
-          --grad-#{$grad-from}#{$grad-db}-#{$grad-from}: linear-gradient(
-            var(--grad-angle),
-            var(--#{$grad-from}#{$grad-db}) 0%,
-            oklch(var(--root-#{$grad-from})) 100%
-          );
-          --grad-#{$grad-from}-#{$grad-from}#{$grad-db}: linear-gradient(
-            var(--grad-angle),
-            oklch(var(--root-#{$grad-from})) 0%,
-            var(--#{$grad-from}#{$grad-db}) 100%
-          );
-        }
-      }
-    }
-  }
-}
+
 
 $suffix: "_";
 $colors-class: "brand", "accent", "extra", "dark", "light", "white";

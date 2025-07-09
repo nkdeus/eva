@@ -1,0 +1,131 @@
+// _gradients.scss
+// Système ultra-moderne pour les gradients - Emmet-style only!
+// Contrôle complet des couleurs et angles via variables CSS
+
+// Définition des variations
+$all-variations: "", "_", "__", "___", "-d", "-d_", "-b", "-b_";
+
+// Conteneur pour toutes les variables de gradient
+.all-grads {
+  --current-angle: 90deg; // Angle pour le système dynamique
+  --current-from-color: var(--brand); // Couleur de départ dynamique
+  --current-to-color: var(--accent); // Couleur d'arrivée dynamique
+}
+
+// =============================================================================
+// APPLICATEURS MODERNES : Classes Emmet-style pour les gradients
+// =============================================================================
+
+.grad-linear {
+  background: linear-gradient(var(--current-angle), var(--current-from-color) 0%, var(--current-to-color) 100%);
+}
+
+.grad-radial {
+  background: radial-gradient(circle at center, var(--current-from-color) 0%, var(--current-to-color) 100%);
+}
+
+.grad-linear-text {
+  background: linear-gradient(var(--current-angle), var(--current-from-color) 0%, var(--current-to-color) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.grad-radial-text {
+  background: radial-gradient(circle at center, var(--current-from-color) 0%, var(--current-to-color) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.grad-linear-border {
+  border-image: linear-gradient(var(--current-angle), var(--current-from-color) 0%, var(--current-to-color) 100%) 1;
+}
+
+.grad-radial-border {
+  border-image: radial-gradient(circle at center, var(--current-from-color) 0%, var(--current-to-color) 100%) 1;
+}
+
+// =============================================================================
+// EMMET-STYLE COULEURS : Version ultra-compacte
+// =============================================================================
+
+// Emmet-style color setters
+@each $color in $gradients {
+  @each $variation in $all-variations {
+    $color-name: if($variation == "", $color, "#{$color}#{$variation}");
+    
+    .from-#{$color-name} {
+      --current-from-color: var(--#{$color-name});
+    }
+    
+    .to-#{$color-name} {
+      --current-to-color: var(--#{$color-name});
+    }
+  }
+}
+
+// Emmet-style couleurs spéciales
+.from-transparent { --current-from-color: transparent; }
+.to-transparent { --current-to-color: transparent; }
+.from-white { --current-from-color: var(--white); }
+.to-white { --current-to-color: var(--white); }
+
+// =============================================================================
+// EMMET-STYLE ANGLES : Contrôle ultra-compact
+// =============================================================================
+
+// Emmet-style direction modificateurs
+.d-t { --current-angle: to top !important; }
+.d-b { --current-angle: to bottom !important; }
+.d-l { --current-angle: to left !important; }
+.d-r { --current-angle: to right !important; }
+.d-tl { --current-angle: to top left !important; }
+.d-tr { --current-angle: to top right !important; }
+.d-bl { --current-angle: to bottom left !important; }
+.d-br { --current-angle: to bottom right !important; }
+
+// Emmet-style angle modificateurs (génération automatique)
+@for $i from 0 through 72 {
+  $angle: $i * 5;
+  .a-#{$angle} { --current-angle: #{$angle}deg !important; }
+}
+
+// =============================================================================
+// EMMET-STYLE BACKGROUND ZOOM : Contrôle ultra-compact du background-size
+// =============================================================================
+
+// Background zoom classes - style Emmet
+.bg-size { background-size: 150% 150%; }
+.bg-size_ { background-size: 200% 200%; }
+.bg-size__ { background-size: 300% 300%; }
+
+
+
+// Background position pour les zooms
+.bg-center { background-position: center; }
+.bg-top { background-position: top; }
+.bg-bottom { background-position: bottom; }
+.bg-left { background-position: left; }
+.bg-right { background-position: right; }
+
+// =============================================================================
+// EFFETS ET ANIMATIONS MODERNES
+// =============================================================================
+
+// Animations ultra-compactes
+.animated { animation: gradient-shift 3s ease infinite; }
+.animated-slow { animation: gradient-shift 6s ease infinite; }
+.animated-fast { animation: gradient-shift 1s ease infinite; }
+
+
+
+// =============================================================================
+// KEYFRAMES pour les animations
+// =============================================================================
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
