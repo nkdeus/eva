@@ -80,7 +80,7 @@ class EvaCSSGenerator {
   }
 
   getMinRem(percent) {
-    return this.round2(percent * this.min);
+    return this.round2(percent * 0.5);
   }
 
   getMaxRem(percent) {
@@ -123,28 +123,30 @@ class EvaCSSGenerator {
       const vwStrong = `${this.round2(this.getVW(calcPercent) / 1.33)}vw + ${this.round2((size / 16) / 4)}rem`;
       const vwExtrem = `${this.getVW(calcPercent_)}vw - ${remMin}rem`;
 
+      // Seul le mode "__" utilise la valeur min configurée
       const finalMin__ = this.min;
+      // Les autres modes utilisent leurs propres calculs basés sur remMin uniquement
       const finalMin_ = this.getFinalMinDiv(remMin, this.phi);
       const finalMin = this.getFinalMinMulti(remMin, this.phi);
 
       const cssVars = {
         '__': {
-          min: `${finalMin__}rem`,
+          min: `${finalMin__}rem`, // Utilise la valeur min configurée (0.5rem)
           fluid: vwExtrem,
           max: `${remMax}rem`,
         },
         '_': {
-          min: `${finalMin_}rem`,
+          min: `${finalMin_}rem`, // Calcul indépendant : remMin / phi
           fluid: vwStrong,
           max: `${remMax}rem`,
         },
         '': {
-          min: `${remMin}rem`,
+          min: `${remMin}rem`, // Calcul indépendant : remMin calculé
           fluid: vwMedium,
           max: `${remMax}rem`,
         },
         '-': {
-          min: `${finalMin}rem`,
+          min: `${finalMin}rem`, // Calcul indépendant : remMin * phi
           fluid: vwLight,
           max: `${remMax}rem`,
         },
@@ -336,6 +338,11 @@ class EvaConfigInterface {
     this.generator = new EvaCSSGenerator();
     this.loadSavedConfig();
     this.createInterface();
+    
+    // Application initiale avec injection des variables CSS
+    setTimeout(() => {
+      this.applyConfigurationRealTime();
+    }, 200);
   }
 
   createInterface() {
@@ -358,36 +365,36 @@ class EvaConfigInterface {
   
 
     configContainer.innerHTML = `
-      <h3 class="mb-16 _c-dark bold fs-36_" >Sizes & font-sizes</h3>
+     
       
-      <div class="mb-12 flex x start-center w-full">
+      <div class=" flex x start-center w-full">
         <input type="checkbox" id="noFluidSuffix" ${this.generator.config.noFluidSuffix ? 'checked' : ''}>
         <label for="noFluidSuffix" class="_c-dark bold lh-1" style="display: block;">No Fluid Suffix (px & rem):</label>
       </div>
 
-      <div class="mb-12 flex x start-center w-full">
+      <div class=" flex x start-center w-full">
         <input type="checkbox" id="buildClass" ${this.generator.config.buildClass ? 'checked' : ''}>
         <label for="buildClass" class="_c-dark bold lh-1" style="display: block;">Build Classes:</label>
       </div>
 
-      <div class="mb-12 w-full">
+      <div class="w-full">
         <label class="mb-4 _c-dark bold lh-1" style="display: block;">Sizes (comma separated):</label>
         <textarea id="sizes" class="w-full _p-4" style="height: 40px; resize: none;">${this.generator.config.sizes.join(', ')}</textarea>
       </div>
 
-      <div class="mb-12 w-full">
+      <div class=" w-full">
         <label class="mb-4 _c-dark bold" style="display: block;">Font Sizes (comma separated):</label>
         <textarea id="fontSizes" class="w-full _p-4" style="height: 40px; resize: none;">${this.generator.config.fontSizes.join(', ')}</textarea>
       </div>
 
-      <h3 class="mb-12 _c-dark bold fs-36_">Deep config</h3>
+    
 
-      <div class="mb-12 w-full">
+      <div class="w-full">
         <label class="mb-4 _c-dark bold lh-1" style="display: block;">Figma Screen Width (px):</label>
         <input type="number" id="screen" value="${this.generator.screen}" min="320" max="2560" step="1" class="w-full _p-4">
       </div>
 
-            <div class="mb-12 w-full">
+      <div class="w-full">
         <label class="mb-4 _c-dark bold lh-1" style="display: block;">Base Ratio (Φ):</label>
         <select id="phi" class="w-full _p-4">
           <option value="1.61803398875" ${this.generator.phi === 1.61803398875 ? 'selected' : ''}>Golden Ratio (1.618)</option>
@@ -400,29 +407,21 @@ class EvaConfigInterface {
       </div>
 
 
-      <div class="mb-12 w-full">
-        <label class="mb-4 _c-dark bold lh-1" style="display: block;">Clamp() fluid ratio (vw):</label>
-        <input type="range" id="unitFluid" value="${this.generator.unitFluid}" min="0.5" max="1.5" step="0.1" class="w-full">
-        <span id="unitFluidValue" class="_c-dark" style="display: block; text-align: center;">${this.generator.unitFluid}</span>
+      <div class="w-full">
+        <label class="mb-4 _c-dark bold lh-1" style="display: block;">Slow resize:         <span id="unitFluidValue" class="_c-dark" style="display: inline-block">${this.generator.unitFluid}</span></label>
+        <input type="range" id="unitFluid" value="${this.generator.unitFluid}" min="0.8" max="1.2" step="0.01" class="w-full">
+
       </div>
 
-      <div class="mb-12 w-full">
-        <label class="mb-4 _c-dark bold lh-1" style="display: block;">Clamp() extrem easing minium :</label>
+      <div class="w-full">
+        <label class="mb-4 _c-dark bold lh-1" style="display: block;">Extrem min: <span id="minValue" class="_c-dark" style="display: inline-block">${this.generator.min}rem</span> </label>
         <input type="range" id="min" value="${this.generator.min}" min="0.5" max="1.5" step="0.1" class="w-full">
-        <span id="minValue" class="_c-dark" style="display: block; text-align: center;">${this.generator.min}rem</span>
+        
       </div>
 
-      <div class="mb-12 w-full">
-        <label class="mb-4 _c-dark bold lh-1" style="display: block;">Clamp() max ratio :</label>
-        <input type="range" id="max" value="${this.generator.max}" min="0.5" max="1.5" step="0.1" class="w-full">
-        <span id="maxValue" class="_c-dark" style="display: block; text-align: center;">${this.generator.max}rem</span>
-      </div>
+      
 
    
-
-      <button id="applyConfig" class="w-full _p-8 _bg-brand _c-light border thin mb-8" style="cursor: pointer;">
-        Apply Configuration
-      </button>
 
       <button id="downloadCSS" class="w-full _p-8 _bg-accent _c-light border thin mb-8" style="cursor: pointer;">
         Download CSS
@@ -445,36 +444,48 @@ class EvaConfigInterface {
   }
 
   bindEvents() {
-    document.getElementById('applyConfig').addEventListener('click', () => {
-      this.applyConfiguration();
-    });
-
     document.getElementById('downloadCSS').addEventListener('click', () => {
       this.downloadCSS();
     });
 
-    // Écouter les changements des checkboxes pour mettre à jour l'interface
+    // Écouter les changements des checkboxes pour appliquer en temps réel
     document.getElementById('noFluidSuffix').addEventListener('change', () => {
-      this.updateInterfaceFromConfig();
+      this.applyConfigurationRealTime();
     });
 
     document.getElementById('buildClass').addEventListener('change', () => {
-      this.updateInterfaceFromConfig();
-      this.toggleClassesDisplay();
+      this.applyConfigurationRealTime();
     });
 
-    // Écouter les changements des range inputs pour mettre à jour les valeurs affichées
+    // Écouter les changements des inputs texte pour appliquer en temps réel
+    document.getElementById('sizes').addEventListener('input', () => {
+      this.applyConfigurationRealTime();
+    });
+
+    document.getElementById('fontSizes').addEventListener('input', () => {
+      this.applyConfigurationRealTime();
+    });
+
+    document.getElementById('screen').addEventListener('input', () => {
+      this.applyConfigurationRealTime();
+    });
+
+    document.getElementById('phi').addEventListener('change', () => {
+      this.applyConfigurationRealTime();
+    });
+
+    // Écouter les changements des range inputs pour mettre à jour les valeurs affichées ET appliquer en temps réel
     document.getElementById('unitFluid').addEventListener('input', (e) => {
       document.getElementById('unitFluidValue').textContent = e.target.value;
+      this.applyConfigurationRealTime();
     });
 
     document.getElementById('min').addEventListener('input', (e) => {
       document.getElementById('minValue').textContent = e.target.value + 'rem';
+      this.applyConfigurationRealTime();
     });
 
-    document.getElementById('max').addEventListener('input', (e) => {
-      document.getElementById('maxValue').textContent = e.target.value + 'rem';
-    });
+
 
     // Écouter le bouton reset
     document.getElementById('resetConstants').addEventListener('click', () => {
@@ -482,20 +493,35 @@ class EvaConfigInterface {
     });
   }
 
-  applyConfiguration() {
+  // Nouvelle méthode pour appliquer en temps réel
+  applyConfigurationRealTime() {
+    // Validation des entrées pour éviter les erreurs
+    const sizesInput = document.getElementById('sizes').value.trim();
+    const fontSizesInput = document.getElementById('fontSizes').value.trim();
+    
+    // Éviter de traiter si les champs critiques sont vides
+    if (!sizesInput || !fontSizesInput) {
+      return;
+    }
+
     const newConfig = {
       noFluidSuffix: document.getElementById('noFluidSuffix').checked,
       buildClass: document.getElementById('buildClass').checked,
       nameBySize: true, // Toujours true dans la version JS
-      sizes: document.getElementById('sizes').value.split(',').map(s => parseInt(s.trim())).filter(n => !isNaN(n)),
-      fontSizes: document.getElementById('fontSizes').value.split(',').map(s => parseInt(s.trim())).filter(n => !isNaN(n)),
+      sizes: sizesInput.split(',').map(s => parseInt(s.trim())).filter(n => !isNaN(n)),
+      fontSizes: fontSizesInput.split(',').map(s => parseInt(s.trim())).filter(n => !isNaN(n)),
       // Nouvelles constantes configurables
-      screen: parseFloat(document.getElementById('screen').value),
-      unitFluid: parseFloat(document.getElementById('unitFluid').value),
-      min: parseFloat(document.getElementById('min').value),
-      phi: parseFloat(document.getElementById('phi').value),
-      max: parseFloat(document.getElementById('max').value)
+      screen: parseFloat(document.getElementById('screen').value) || 1440,
+      unitFluid: parseFloat(document.getElementById('unitFluid').value) || 1,
+      min: parseFloat(document.getElementById('min').value) || 0.5,
+      phi: parseFloat(document.getElementById('phi').value) || 1.61803398875,
+      max: 1 // Valeur fixe, plus d'interface
     };
+
+    // Éviter de traiter si les arrays sont vides
+    if (newConfig.sizes.length === 0 || newConfig.fontSizes.length === 0) {
+      return;
+    }
 
     // Mettre à jour les constantes du générateur
     this.generator.screen = newConfig.screen;
@@ -510,31 +536,54 @@ class EvaConfigInterface {
     this.saveConfig(newConfig);
     
     // Mettre à jour l'affichage des variables
+    this.updateDisplays();
+    
+    // Injecter les variables CSS dans le conteneur de démonstration
+    this.injectCSSVariables();
+  }
+
+  // Méthode legacy pour compatibilité
+  applyConfiguration() {
+    this.applyConfigurationRealTime();
+  }
+
+  // Méthode pour mettre à jour les affichages
+  updateDisplays() {
     const variablesDisplay = document.getElementById('variables-display');
     const variables = this.generator.getVariables();
     variablesDisplay.innerHTML = Object.entries(variables)
-      .map(([name, value]) => `<div>${name}: ${value};</div>`)
+      .map(([name, value]) => `<div style="margin-bottom: 2px;">${name}: ${value};</div>`)
       .join('');
     
-    // Mettre à jour l'affichage des classes
     const classesDisplay = document.getElementById('classes-display');
     const classes = this.generator.getClasses();
     classesDisplay.innerHTML = classes
-      .map(cls => `<div>${cls}</div>`)
-      .join('');
+      .slice(0, 100)
+      .map(cls => `<div style="margin-bottom: 1px; font-size: 11px;">${cls}</div>`)
+      .join('') + (classes.length > 100 ? `<div style="margin-top: 10px; font-style: italic;">... and ${classes.length - 100} more classes</div>` : '');
     
-    // Mettre à jour la visibilité de la section classes
     this.toggleClassesDisplay();
+  }
+
+  // Méthode pour injecter les variables CSS dans le conteneur de démonstration
+  injectCSSVariables() {
+    const demoContainer = document.getElementById('demo-container');
+    if (!demoContainer) {
+      console.warn('Demo container not found');
+      return;
+    }
+
+    const variables = this.generator.getVariables();
     
-    // Feedback visuel
-    const button = document.getElementById('applyConfig');
-    const originalText = button.textContent;
-    button.textContent = 'Applied!';
-    button.style.background = '#28a745';
-    setTimeout(() => {
-      button.textContent = originalText;
-      button.style.background = '#007bff';
-    }, 1000);
+    // Créer le style inline avec toutes les variables générées
+    const cssText = Object.entries(variables)
+      .map(([name, value]) => `${name}: ${value}`)
+      .join('; ');
+    
+    // Appliquer les variables au conteneur
+    demoContainer.style.cssText = demoContainer.style.cssText + '; ' + cssText;
+    
+    console.log('✨ Variables CSS injectées dans #demo-container:', Object.keys(variables).length);
   }
 
   updateInterfaceFromConfig() {
@@ -641,21 +690,9 @@ class EvaConfigInterface {
     document.getElementById('min').value = defaultValues.min;
     document.getElementById('minValue').textContent = defaultValues.min + 'rem';
     document.getElementById('phi').value = defaultValues.phi;
-    document.getElementById('max').value = defaultValues.max;
-    document.getElementById('maxValue').textContent = defaultValues.max + 'rem';
 
-    // Mettre à jour le générateur
-    this.generator.screen = defaultValues.screen;
-    this.generator.unitFluid = defaultValues.unitFluid;
-    this.generator.min = defaultValues.min;
-    this.generator.phi = defaultValues.phi;
-    this.generator.max = defaultValues.max;
-
-    // Sauvegarder la configuration reset
-    this.saveConfig({
-      ...this.generator.config,
-      ...defaultValues
-    });
+    // Appliquer la configuration en temps réel
+    this.applyConfigurationRealTime();
 
     // Feedback visuel
     const button = document.getElementById('resetConstants');
@@ -664,7 +701,7 @@ class EvaConfigInterface {
     button.style.background = '#ffc107';
     setTimeout(() => {
       button.textContent = originalText;
-      button.style.background = '#fd7e14';
+      button.style.background = '';
     }, 1000);
   }
 }
