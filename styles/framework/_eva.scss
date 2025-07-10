@@ -67,10 +67,7 @@ $font-properties: (
   fs: font-size,
 );
 
-// Configuration granulaire des font-sizes à générer
-$font-class-config: (
-  fs: (14, 16, 18, 24,32), // font-size: seulement pour les tailles 14, 16, 24
-);
+
 
 @function round2($number) {
   @return math.div(round($number * 100), 100);
@@ -311,25 +308,7 @@ $fs: "fs";
       $eva: $size;
     }
     @each $key, $prop in $font-properties {
-      // Vérifier si cette propriété font-size doit être générée pour cette taille
-      $should-generate: false;
-      @if $custom-class {
-        // Si custom-class est true, utiliser le filtrage par $font-class-config
-        $allowed-sizes: map-get($font-class-config, $key);
-        @if $allowed-sizes {
-          @each $allowed-size in $allowed-sizes {
-            @if $allowed-size == $size {
-              $should-generate: true;
-            }
-          }
-        }
-      } @else {
-        // Si custom-class est false, générer toutes les classes
-        $should-generate: true;
-      }
-      @if $should-generate {
-        @include getAllFontSizeClass($prop, $key, $eva);
-      }
+      @include getAllFontSizeClass($prop, $key, $eva);
     }
   }
 }
