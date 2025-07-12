@@ -225,20 +225,33 @@ function updateBodyClass() {
 
 // Fonction pour générer un titre avec des classes aléatoires
 function randomTitle() {
-  const titleElement = document.querySelector('.title');
-  if (!titleElement) return;
+  const titleElements = document.querySelectorAll('.title');
+  if (!titleElements.length) {
+    console.warn('⚠️ No .title elements found');
+    return;
+  }
 
-  const titleText = titleElement.textContent;
+  console.log(`🎨 Applying random classes to ${titleElements.length} .title elements`);
+  
+  titleElements.forEach((titleElement, index) => {
+    const titleText = titleElement.textContent;
+    console.log(`Processing title ${index + 1}: "${titleText}"`);
+    
+    applyRandomClassesToElement(titleElement, titleText);
+  });
+}
 
-  // Fonction pour générer une classe aléatoire pour fwg
+function applyRandomClassesToElement(titleElement, titleText) {
+
+  // Fonction pour générer une classe aléatoire pour fwg (1-8)
   function getRandomFwgClass() {
-    const randomNum = Math.floor(Math.random() * 9) + 1;
+    const randomNum = Math.floor(Math.random() * 8) + 1;
     return `fwg-${randomNum}`;
   }
 
-  // Fonction pour générer une classe aléatoire pour fwd
+  // Fonction pour générer une classe aléatoire pour fwd (1-13)
   function getRandomFwdClass() {
-    const randomNum = Math.floor(Math.random() * 16) + 1;
+    const randomNum = Math.floor(Math.random() * 13) + 1;
     return `fwd-${randomNum}`;
   }
 
@@ -263,6 +276,7 @@ function randomTitle() {
 
   // Remplacez le contenu du titre par le nouveau HTML
   titleElement.innerHTML = newTitleHTML;
+  console.log(`✅ Applied random classes to: "${titleText}"`);
 }
 
 // Fonction pour appliquer le thème initial (priorité aux préférences sauvegardées)
@@ -360,6 +374,48 @@ function initThemeToggle() {
   });
 }
 
+// Fonction pour initialiser le burger menu
+function initBurgerMenu() {
+  const burgerButton = document.getElementById('burger-menu');
+  const menu = document.getElementById('menu');
+  
+  if (!burgerButton || !menu) return;
+
+  burgerButton.addEventListener('click', function() {
+    // Toggle la classe active sur le bouton burger
+    burgerButton.classList.toggle('active');
+    
+    // Toggle la classe menu-open sur le menu
+    menu.classList.toggle('menu-open');
+    
+    // Optionnel : empêcher le scroll du body quand le menu est ouvert
+    if (menu.classList.contains('menu-open')) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+  });
+  
+  // Fermer le menu quand on clique sur un lien
+  const menuLinks = menu.querySelectorAll('a');
+  menuLinks.forEach(link => {
+    link.addEventListener('click', function() {
+      burgerButton.classList.remove('active');
+      menu.classList.remove('menu-open');
+      document.body.style.overflow = 'auto';
+    });
+  });
+  
+  // Fermer le menu quand on redimensionne la fenêtre (responsive)
+  window.addEventListener('resize', function() {
+    if (window.innerWidth > 768) {
+      burgerButton.classList.remove('active');
+      menu.classList.remove('menu-open');
+      document.body.style.overflow = 'auto';
+    }
+  });
+}
+
 // Fonction principale d'initialisation
 function initApp() {
   // Générer le titre aléatoire
@@ -394,6 +450,9 @@ function initApp() {
 
   // Initialiser le toggle de thème
   initThemeToggle();
+
+  // Initialiser le burger menu
+  initBurgerMenu();
 
   // Initialiser le draggable sur les éléments .ballzzz
   // Attendre un peu que tous les éléments soient bien rendus

@@ -15,7 +15,7 @@
     <script defer src="https://cloud.umami.is/script.js" data-website-id="3c9b4552-d24d-48aa-a6b4-877d0ceffe04"></script>
     <title>EVA CSS - Roadmap</title>
   </head>
-  <body class="current-theme theme-eva">
+  <body class="current-theme theme-eva all-grads toggle-theme">
   <a href="" class="dark-light-toggle no-hover">
     <svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 100 100" x="0px" y="0px"><path d="M50,77.62A27.62,27.62,0,1,0,22.38,50,27.61,27.61,0,0,0,50,77.62ZM50,26A24,24,0,1,1,26,50,24,24,0,0,1,50,26ZM69.62,50.52A19.36,19.36,0,0,0,50.26,31.15V69.88A19.36,19.36,0,0,0,69.62,50.52Zm-19.88,31a1.81,1.81,0,0,0-1.81,1.81V95.69a1.81,1.81,0,0,0,3.62,0V83.3A1.81,1.81,0,0,0,49.74,81.49Zm24.9-9A1.81,1.81,0,0,0,72.09,75l8.76,8.76a1.81,1.81,0,0,0,2.55-2.56Zm6.85-22.19a1.81,1.81,0,0,0,1.81,1.81H95.69a1.81,1.81,0,1,0,0-3.62H83.3A1.81,1.81,0,0,0,81.49,50.26ZM75,27.91l8.76-8.76a1.81,1.81,0,0,0-2.56-2.55l-8.76,8.76A1.81,1.81,0,0,0,75,27.91Zm-24.75-9.4a1.81,1.81,0,0,0,1.81-1.81V4.31a1.81,1.81,0,0,0-3.62,0V16.7A1.81,1.81,0,0,0,50.26,18.51Zm-24.9,9A1.81,1.81,0,0,0,27.91,25l-8.76-8.76a1.81,1.81,0,1,0-2.55,2.56Zm-21,24H16.7a1.81,1.81,0,0,0,0-3.62H4.31a1.81,1.81,0,1,0,0,3.62Zm22,20a1.78,1.78,0,0,0-1.28.53l-8.76,8.76a1.8,1.8,0,0,0,0,2.56,1.82,1.82,0,0,0,2.56,0l8.76-8.77a1.81,1.81,0,0,0-1.28-3.08Z"/></svg>
   </a>
@@ -31,41 +31,64 @@
       </div>
       <a href="index.html" class="logo no-hover title fs-36__ lh-1">EVA CSS</a>
     </div>
-    <div class="flex x center g-12">
+    <!-- Burger menu button -->
+    <button id="burger-menu" class="burger-menu">
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+    </button>
+    
+    <div id="menu" class="flex x center g-12">
       
-      <a href="doc.html" class="h-52 px-12 flex y center _c-brand br-12">
-        <span>Docs</span>
+      <a href="figma-to-eva.html" class="h-52 px-12 flex y center _c-brand br-12 active:_c-brand active:_bg-brand__">
+        <span class="fs-12">Figma to EVA</span>
+      </a>
+      <a href="colors.html" class="h-52 px-12 flex y center _c-brand br-12 active:_c-brand active:_bg-brand__">
+        <span class="fs-12">Colors & Gradients</span>
+      </a>
+   
+      <a href="js-calculator.html" class="h-52 px-12 flex y center _c-brand br-12 active:_c-brand active:_bg-brand__">
+        <span class="fs-12">Calculator</span>
+      </a>
+      <a href="doc.html" class="h-52 px-12 flex y center _c-brand br-12 active:_c-brand active:_bg-brand__">
+        <span class="fs-12">Docs</span>
+      </a>
+      <a href="roadmap.html" class="h-52 px-12 flex y center _c-brand br-12 active active:_c-brand active:_bg-brand__">
+        <span class="fs-12">Roadmap</span>
       </a>
 
       <a href="https://github.com/nkdeus/eva" target="_blank" class="h-52 px-8 flex x g-12 center _c-brand br-8">
-        
+       
         <svg xmlns="http://www.w3.org/2000/svg" class="lh-0" height="20" viewBox="0 0 16 16" width="20" aria-hidden="true" class="d-block"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
-        <span class="_c-brand_  flex y center">v.1</span>
+        
       </a>
     </div>
   </nav>
 
   <section class="px-220__ pt-220- pb-136 flex y g-32">
       <p class="fs-36_ py-52- flex y g-12">
-        <span class="bold">The <span class="_c-brand">ROADMAP</span> of EVA CSS</span>
+        <h1 class="fs-52__ lh-1">
+          <span>The <span class="title grad-linear-text grad-linear from-accent to-extra">ROADMAP</span> of EVA CSS</span>
+        </h1>
         <div class="flex y wrap g-12">
-          <a href="#2025" class="h-52 px-12 flex y center _c-brand br-12">2025</a>
-          <a href="#2026" class="h-52 px-12 flex y center _c-brand br-12">2026</a>
+          <a href="#figma-mcp" class="h-52 px-12 flex y center _c-brand br-12">Figma MCP Server</a>
+          <a href="#evacolors" class="h-52 px-12 flex y center _c-brand br-12">EVAColors Documentation</a>
+          <a href="#no-scss" class="h-52 px-12 flex y center _c-brand br-12">No SCSS Version</a>
+          <a href="#boilerplates" class="h-52 px-12 flex y center _c-brand br-12">Boilerplates</a>
         </div>
       </p>
   </section>
 
-  <section id="2025" class="px-220__ py-136 flex y g-20">
+  <section id="figma-mcp" class="px-220__ py-136 flex y g-20">
     <h2 class=" _bg-brand pr-356__">
-      <span class="_c-light fs-72 fwd-1 fwg-1 f-scale lh-1 ttu offset_">20</span><span class="_c-light fs-72 fwg-8 fwd-16 f-scale f-scale lh-1 ttu offset_">25</span>
+      <span class="_c-light fs-48 fwd-1 fwg-1 f-scale lh-1 ttu offset_">Figma MCP Server</span>
     </h2>
     <p class="fs-16">
-      Focus on Figma integration and theme system documentation.
+      Automatic design tokens retrieval and direct integration with Figma projects.
     </p>
     
     <div class="flex y g-32">
       <div class="flex y g-20">
-        <h3 class="fs-24- _c-brand mt-32">Figma MCP Server</h3>
         <div class="flex x wrap g-20">
           <div class="p-32_ border thin br-1 flex y g-8">
             <span class="bold">Figma MCP Server Connection</span>
@@ -73,33 +96,47 @@
             <p class="fs-14 _c-dark_">Direct integration with Figma projects</p>
           </div>
         </div>
+        <a href="figma-to-eva.html" class="h-52 px-12 flex y center _c-brand br-12">
+          <span>Try Figma to EVA →</span>
+        </a>
       </div>
+    </div>
+  </section>
 
-              <div class="flex y g-20">
-        <h3 class="fs-24- _c-brand mt-32">EVAColors Documentation</h3>
+  <section id="evacolors" class="px-220__ py-136 flex y g-20">
+    <h2 class=" _bg-brand pr-356__">
+      <span class="_c-light fs-48 fwd-1 fwg-1 f-scale lh-1 ttu offset_">EVAColors Documentation</span>
+    </h2>
+    <p class="fs-16">
+      Complete color system documentation and usage guide.
+    </p>
+    
+    <div class="flex y g-32">
+      <div class="flex y g-20">
         <div class="flex x wrap g-20">
           <div class="p-32_ border thin br-1 flex y g-8">
             <span class="bold">OKLCH Theming System</span>
             <p class="fs-14 _c-dark_">Complete color system documentation</p>
             <p class="fs-14 _c-dark_">Usage guide and best practices</p>
-            <a href="https://github.com/nkdeus/eva/blob/main/styles/framework/_colors.scss" target="_blank" class="fs-14 _c-brand">View EVAColors →</a>
           </div>
         </div>
+        <a href="https://github.com/nkdeus/eva/blob/main/styles/framework/_colors.scss" target="_blank" class="h-52 px-12 flex y center _c-brand br-12">
+          <span>View EVAColors →</span>
+        </a>
       </div>
     </div>
   </section>
 
-  <section id="2026" class="px-220__ py-136 flex y g-20">
+  <section id="no-scss" class="px-220__ py-136 flex y g-20">
     <h2 class=" _bg-brand pr-356__">
-      <span class="_c-light fs-72 fwd-1 fwg-1 f-scale lh-1 ttu offset_">20</span><span class="_c-light fs-72 fwg-8 fwd-16 f-scale f-scale lh-1 ttu offset_">26</span>
+      <span class="_c-light fs-48 fwd-1 fwg-1 f-scale lh-1 ttu offset_">No SCSS Version</span>
     </h2>
     <p class="fs-16">
-      Development of tools for no-code solutions and boilerplate creation.
+      CSS variables generation and tool adapted for no-code solutions.
     </p>
     
     <div class="flex y g-32">
       <div class="flex y g-20">
-        <h3 class="fs-24- _c-brand mt-32">No SCSS Version</h3>
         <div class="flex x wrap g-20">
           <div class="p-32_ border thin br-1 flex y g-8">
             <span class="bold">JS Generator</span>
@@ -108,12 +145,22 @@
           </div>
         </div>
         <a href="js-calculator.html" class="h-52 px-12 flex y center _c-brand br-12">
-          <span>WIP - JS Calculator</span>
+          <span>Try JS Calculator →</span>
         </a>
       </div>
+    </div>
+  </section>
 
+  <section id="boilerplates" class="px-220__ py-136 flex y g-20">
+    <h2 class=" _bg-brand pr-356__">
+      <span class="_c-light fs-48 fwd-1 fwg-1 f-scale lh-1 ttu offset_">Boilerplates</span>
+    </h2>
+    <p class="fs-16">
+      Ready-to-use templates for no-code platforms.
+    </p>
+    
+    <div class="flex y g-32">
       <div class="flex y g-20">
-        <h3 class="fs-24- _c-brand mt-32">Boilerplates</h3>
         <div class="flex x wrap g-20">
           <div class="p-32_ border thin br-1 flex y g-8">
             <span class="bold">Webflow Boilerplate</span>

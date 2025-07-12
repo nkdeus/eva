@@ -15,7 +15,7 @@
     <script defer src="https://cloud.umami.is/script.js" data-website-id="3c9b4552-d24d-48aa-a6b4-877d0ceffe04"></script>
     <title>EVA CSS - Documentation</title>
   </head>
-  <body class="current-theme theme-eva">
+  <body class="current-theme theme-eva all-grads toggle-theme">
   <a href="" class="dark-light-toggle no-hover">
     <svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 100 100" x="0px" y="0px"><path d="M50,77.62A27.62,27.62,0,1,0,22.38,50,27.61,27.61,0,0,0,50,77.62ZM50,26A24,24,0,1,1,26,50,24,24,0,0,1,50,26ZM69.62,50.52A19.36,19.36,0,0,0,50.26,31.15V69.88A19.36,19.36,0,0,0,69.62,50.52Zm-19.88,31a1.81,1.81,0,0,0-1.81,1.81V95.69a1.81,1.81,0,0,0,3.62,0V83.3A1.81,1.81,0,0,0,49.74,81.49Zm24.9-9A1.81,1.81,0,0,0,72.09,75l8.76,8.76a1.81,1.81,0,0,0,2.55-2.56Zm6.85-22.19a1.81,1.81,0,0,0,1.81,1.81H95.69a1.81,1.81,0,1,0,0-3.62H83.3A1.81,1.81,0,0,0,81.49,50.26ZM75,27.91l8.76-8.76a1.81,1.81,0,0,0-2.56-2.55l-8.76,8.76A1.81,1.81,0,0,0,75,27.91Zm-24.75-9.4a1.81,1.81,0,0,0,1.81-1.81V4.31a1.81,1.81,0,0,0-3.62,0V16.7A1.81,1.81,0,0,0,50.26,18.51Zm-24.9,9A1.81,1.81,0,0,0,27.91,25l-8.76-8.76a1.81,1.81,0,1,0-2.55,2.56Zm-21,24H16.7a1.81,1.81,0,0,0,0-3.62H4.31a1.81,1.81,0,1,0,0,3.62Zm22,20a1.78,1.78,0,0,0-1.28.53l-8.76,8.76a1.8,1.8,0,0,0,0,2.56,1.82,1.82,0,0,0,2.56,0l8.76-8.77a1.81,1.81,0,0,0-1.28-3.08Z"/></svg>
   </a>
@@ -31,23 +31,47 @@
       </div>
       <a href="index.html" class="logo no-hover title fs-36__ lh-1">EVA CSS</a>
     </div>
-    <div class="flex x center g-12">
+    
+    <!-- Burger menu button -->
+    <button id="burger-menu" class="burger-menu">
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+    </button>
+    
+    <div id="menu" class="flex x center g-12">
       
-      <a href="roadmap.html" class="h-52 px-12 flex y center _c-brand br-12">
-        <span>Roadmap</span>
+      <a href="figma-to-eva.html" class="h-52 px-12 flex y center _c-brand br-12 active:_c-brand active:_bg-brand__">
+        <span class="fs-12">Figma to EVA</span>
+      </a>
+      <a href="colors.html" class="h-52 px-12 flex y center _c-brand br-12 active:_c-brand active:_bg-brand__">
+        <span class="fs-12">Colors & Gradients</span>
+      </a>
+   
+      <a href="js-calculator.html" class="h-52 px-12 flex y center _c-brand br-12 active:_c-brand active:_bg-brand__">
+        <span class="fs-12">Calculator</span>
+      </a>
+      <a href="doc.html" class="h-52 px-12 flex y center _c-brand br-12 active active:_c-brand active:_bg-brand__">
+        <span class="fs-12">Docs</span>
+      </a>
+      <a href="roadmap.html" class="h-52 px-12 flex y center _c-brand br-12 active:_c-brand active:_bg-brand__">
+        <span class="fs-12">Roadmap</span>
       </a>
 
       <a href="https://github.com/nkdeus/eva" target="_blank" class="h-52 px-8 flex x g-12 center _c-brand br-8">
-        
+       
         <svg xmlns="http://www.w3.org/2000/svg" class="lh-0" height="20" viewBox="0 0 16 16" width="20" aria-hidden="true" class="d-block"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
-        <span class="_c-brand_  flex y center">v.1</span>
+        
       </a>
     </div>
+
   </nav>
 
   <section class="px-220__ pt-220- pb-136 flex y g-32">
       <p class="fs-36_ py-52- flex y g-12">
-        <span class="bold">The fluid <span class="_c-brand">DOCS</span> of EVA CSS</span>
+        <h1 class="fs-52__ lh-1">
+          <span>The fluid <span class="title grad-linear-text grad-linear from-accent to-extra">DOCS</span> of EVA CSS</span>
+        </h1>
         <div class="flex y wrap g-12">
           <a href="#core-system" class="h-52 px-12 flex y center _c-brand br-12">Core System</a>
           <a href="#scss-configuration" class="h-52 px-12 flex y center _c-brand br-12">SCSS Options</a>
@@ -156,10 +180,10 @@
         
         <div class="flex x wrap g-20">
           <div class="p-32_ border thin br-1 flex y g-8">
-            <span class="bold">$no-fluid-suffix</span>
+            <span class="bold">$px-rem-suffix</span>
             <p class="fs-14 _c-dark_">Development mode toggle</p>
-            <pre class="fs-12">$no-fluid-suffix: true;  // Development
-$no-fluid-suffix: false; // Production</pre>
+            <pre class="fs-12">$px-rem-suffix: true;  // Development
+$px-rem-suffix: false; // Production</pre>
             <p class="fs-14 _c-dark_">Enables additional classes and debugging features</p>
           </div>
           
@@ -291,40 +315,6 @@ $ez: varies; // Typography</pre>
         </div>
       </div>
 
-      <div class="flex y g-20">
-        <h3 class="fs-24- _c-brand mt-32">Configuration Examples</h3>
-        <p class="fs-16">Common configuration patterns for different use cases.</p>
-        <p class="fs-16"><a href="https://github.com/nkdeus/eva/blob/main/styles/projets/try.scss" target="_blank" class="_c-brand">try.scss</a> - Example project configuration</p>
-        
-        <div class="flex x wrap g-20">
-          <div class="p-32_ border thin br-1 flex y g-8">
-            <span class="bold">Development Setup</span>
-            <pre class="fs-12">$no-fluid-suffix: true;
-$build-class: true;
-$custom-class: false;
-$name-by-size: true;</pre>
-            <p class="fs-14 _c-dark_">Full feature set with debugging</p>
-          </div>
-          
-          <div class="p-32_ border thin br-1 flex y g-8">
-            <span class="bold">Production Setup</span>
-            <pre class="fs-12">$no-fluid-suffix: false;
-$build-class: true;
-$custom-class: true;
-$name-by-size: true;</pre>
-            <p class="fs-14 _c-dark_">Optimized for production with filtered classes</p>
-          </div>
-          
-          <div class="p-32_ border thin br-1 flex y g-8">
-            <span class="bold">CSS Variables Only</span>
-            <pre class="fs-12">$no-fluid-suffix: false;
-$build-class: false;
-$custom-class: false;
-$name-by-size: true;</pre>
-            <p class="fs-14 _c-dark_">Generate only CSS variables, no utility classes</p>
-          </div>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -949,35 +939,58 @@ cd eva</pre>
       <div class="flex y g-20">
         <h3 class="fs-24- _c-brand mt-32">Project Structure</h3>
         <p class="fs-16">Understanding the key files and directories in your EVA CSS project.</p>
-        <p class="fs-16"><a href="https://github.com/nkdeus/eva/tree/main/styles/framework" target="_blank" class="_c-brand">styles/framework/</a> - Core SCSS files</p>
-        <p class="fs-16"><a href="https://github.com/nkdeus/eva/tree/main/styles/projets" target="_blank" class="_c-brand">styles/projets/</a> - Project-specific files</p>
+        
+        <div class="flex y g-12">
+          <p class="fs-16"><a href="https://github.com/nkdeus/eva/tree/main/styles" target="_blank" class="_c-brand">styles/</a> - Main CSS and framework</p>
+          <p class="fs-16"><a href="https://github.com/nkdeus/eva/tree/main/projects" target="_blank" class="_c-brand">projects/</a> - Individual project files</p>
+          <p class="fs-16"><a href="https://github.com/nkdeus/eva/tree/main/scripts" target="_blank" class="_c-brand">scripts/</a> - Build and utility scripts</p>
+          <p class="fs-16"><a href="https://github.com/nkdeus/eva/tree/main/assets" target="_blank" class="_c-brand">assets/</a> - Images and resources</p>
+        </div>
         
         <div class="flex x wrap g-20">
+          <div class="p-32_ border thin br-1 flex y g-8">
+            <span class="bold">styles/</span>
+            <p class="fs-14 _c-dark_">Main CSS files and framework</p>
+            <ul class="fs-12 _c-dark_ mt-8">
+              <li><a href="https://github.com/nkdeus/eva/blob/main/styles/main.scss" target="_blank" class="_c-brand">main.scss</a> - Main entry point</li>
+              <li><a href="https://github.com/nkdeus/eva/blob/main/styles/main.css" target="_blank" class="_c-brand">main.css</a> - Compiled CSS</li>
+              <li><strong>framework/</strong> - SCSS framework files</li>
+            </ul>
+          </div>
+          
           <div class="p-32_ border thin br-1 flex y g-8">
             <span class="bold">styles/framework/</span>
             <p class="fs-14 _c-dark_">Core SCSS files and configuration</p>
             <ul class="fs-12 _c-dark_ mt-8">
               <li><a href="https://github.com/nkdeus/eva/blob/main/styles/framework/_eva.scss" target="_blank" class="_c-brand">_eva.scss</a> - Main framework file</li>
               <li><a href="https://github.com/nkdeus/eva/blob/main/styles/framework/_colors.scss" target="_blank" class="_c-brand">_colors.scss</a> - Color system</li>
+              <li><a href="https://github.com/nkdeus/eva/blob/main/styles/framework/_gradients.scss" target="_blank" class="_c-brand">_gradients.scss</a> - Gradient system</li>
+              <li><a href="https://github.com/nkdeus/eva/blob/main/styles/framework/_grid.scss" target="_blank" class="_c-brand">_grid.scss</a> - Grid and spacing</li>
+              <li><a href="https://github.com/nkdeus/eva/blob/main/styles/framework/_font.scss" target="_blank" class="_c-brand">_font.scss</a> - Typography</li>
               <li><a href="https://github.com/nkdeus/eva/blob/main/styles/framework/_theme.scss" target="_blank" class="_c-brand">_theme.scss</a> - Theme configuration</li>
+              <li><a href="https://github.com/nkdeus/eva/blob/main/styles/framework/_utils.scss" target="_blank" class="_c-brand">_utils.scss</a> - Utility classes</li>
+              <li><a href="https://github.com/nkdeus/eva/blob/main/styles/framework/_components.scss" target="_blank" class="_c-brand">_components.scss</a> - Components</li>
+              <li><a href="https://github.com/nkdeus/eva/blob/main/styles/framework/_reset.scss" target="_blank" class="_c-brand">_reset.scss</a> - CSS reset</li>
+              <li><a href="https://github.com/nkdeus/eva/blob/main/styles/framework/_ballzzz.scss" target="_blank" class="_c-brand">_ballzzz.scss</a> - Special animations</li>
             </ul>
           </div>
           
           <div class="p-32_ border thin br-1 flex y g-8">
-            <span class="bold">styles/projets/</span>
+            <span class="bold">projects/</span>
             <p class="fs-14 _c-dark_">Your project-specific SCSS files</p>
             <ul class="fs-12 _c-dark_ mt-8">
-              <li><a href="https://github.com/nkdeus/eva/blob/main/styles/projets/try.scss" target="_blank" class="_c-brand">try.scss</a> - Example project file</li>
-              <li><a href="https://github.com/nkdeus/eva/blob/main/styles/projets/lili.scss" target="_blank" class="_c-brand">lili.scss</a> - Another example</li>
+              <li><a href="https://github.com/nkdeus/eva/blob/main/projects/try/styles/try.scss" target="_blank" class="_c-brand">projects/try/styles/try.scss</a> - Example project file</li>
+              <li><a href="https://github.com/nkdeus/eva/blob/main/projects/lili/styles/lili.scss" target="_blank" class="_c-brand">projects/lili/styles/lili.scss</a> - Another example</li>
+              <li><a href="https://github.com/nkdeus/eva/blob/main/projects/ulysse/styles/ulysse.scss" target="_blank" class="_c-brand">projects/ulysse/styles/ulysse.scss</a> - Ulysse project</li>
             </ul>
           </div>
           
           <div class="p-32_ border thin br-1 flex y g-8">
-            <span class="bold">styles/render/</span>
+            <span class="bold">projects/{name}/render/</span>
             <p class="fs-14 _c-dark_">Compiled CSS output</p>
             <ul class="fs-12 _c-dark_ mt-8">
-              <li>try.css - Compiled CSS</li>
-              <li>try.css.map - Source maps</li>
+              <li>{project}.css - Compiled CSS</li>
+              <li>{project}.css.map - Source maps</li>
             </ul>
           </div>
         </div>
@@ -989,10 +1002,11 @@ cd eva</pre>
         
         <div class="flex x wrap g-20">
           <div class="p-32_ border thin br-1 flex y g-12">
-            <span class="bold">1. Rename try.scss</span>
-            <pre class="fs-14"># Copy try.scss to your-project.scss
+            <span class="bold">1. Create your project</span>
+            <pre class="fs-14"># Copy projects/try/ to projects/your-project/
+# Rename try.scss to your-project.scss
 # Configure your project settings</pre>
-            <p class="fs-14 _c-dark_">Create your own project file based on the example</p>
+            <p class="fs-14 _c-dark_">Create your own project folder based on the example</p>
           </div>
           
           <div class="p-32_ border thin br-1 flex y g-12">
@@ -1019,14 +1033,14 @@ cd eva</pre>
         <div class="flex x wrap g-20">
           <div class="p-32_ border thin br-1 flex y g-8">
             <span class="bold">Development Mode</span>
-            <pre class="fs-14">$no-fluid-suffix: true;  // Enable all features
+            <pre class="fs-14">$px-rem-suffix: true;  // Enable all features
 $build-class: true; // Generate utility classes</pre>
             <p class="fs-14 _c-dark_">Use during development for full feature access</p>
           </div>
           
           <div class="p-32_ border thin br-1 flex y g-8">
             <span class="bold">Production Mode</span>
-            <pre class="fs-14">$no-fluid-suffix: false; // Disable debug features
+            <pre class="fs-14">$px-rem-suffix: false; // Disable debug features
 $custom-class: true; // Filter classes</pre>
             <p class="fs-14 _c-dark_">Optimize for production with filtered output</p>
           </div>

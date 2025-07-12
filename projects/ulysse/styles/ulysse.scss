@@ -1,7 +1,8 @@
-$no-fluid-suffix: false; // false for prod usage
+$px-rem-suffix: false; // false for prod usage
 $build-class: false; // false to use only CSS var
 $custom-class: false;
 $name-by-size: true; // false to use class name by 1, 2, 3, 4, 5, 6, 7, 8, 9, 10...
+$build-color-classes: false; // false to use only CSS var
 
 // Override de la configuration des couleurs
 $auto-theme-switch: false; // true = changement automatique sur prefers-color-scheme

@@ -127,7 +127,7 @@ projects/
 // Choix du mode d'utilisation
 $build-class: true;        // true = classes utilitaires / false = variables CSS uniquement
 $custom-class: false;      // Réservé pour usages avancés
-$no-fluid-suffix: false;   // false = tailles fluides / true = tailles fixes
+$px-rem-suffix: false;   // false = tailles fluides / true = tailles fixes
 $name-by-size: true;       // true = variables nommées par taille (--16) / false = par index (--1)
 
 // ===========================================

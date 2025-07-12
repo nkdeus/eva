@@ -168,8 +168,8 @@ $build-color-classes: true !default;
       --brighter_: -15%;
 
 
-      --current-lightness: 5% !important;
-      --current-darkness: 95% !important;
+      --current-lightness: 5%;
+      --current-darkness: 95%;
 
       --dark-lightness: var(--current-darkness) !important;
       --light-lightness: var(--current-lightness) !important;
@@ -186,8 +186,8 @@ $build-color-classes: true !default;
     --brighter_: -15%;
 
 
-    --current-lightness: 5% !important;
-    --current-darkness: 95% !important;
+    --current-lightness: 5%;
+    --current-darkness: 95%;
 
     --dark-lightness: var(--current-darkness) !important;
     --light-lightness: var(--current-lightness) !important;

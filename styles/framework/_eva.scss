@@ -15,11 +15,25 @@ $screen: 1440;
 
 $eva: 0;
 
-// Variable pour contrôler la génération des classes
-$no-fluid-suffix: true !default; // activate var PX & REM no fluid suffix
-$build-class: true !default; // false to use only CSS var
-$custom-class: false !default; // true to use custom class for each property
-$name-by-size: true !default; // true = use size values, false = use index
+// CONFIGURATION ENVIRONNEMENT
+// =============================================================================
+// Variables pour contrôler le mode de génération selon l'environnement
+
+// DÉVELOPPEMENT (serveur MCP Figma + IA)
+// $px-rem-suffix: true    → Ajoute valeurs statiques -px et -rem pour debug uniquement
+// $build-class: false     → Utilise uniquement les variables CSS (pas de classes générées)
+// $build-color-classes: false → Pas de génération des classes de couleurs
+
+// PRODUCTION (avec script de purge CSS)
+// $px-rem-suffix: false   → Supprime les valeurs debug -px et -rem
+// $build-class: true      → Génère toutes les classes CSS
+// $build-color-classes: true → Génère les classes de couleurs
+
+$px-rem-suffix: true !default;   // Valeurs statiques de debug uniquement
+$build-class: false !default;      // DEV: false | PROD: true  
+$build-color-classes: false !default; // DEV: false | PROD: true
+$custom-class: false !default;     // true pour filtrage personnalisé des classes
+$name-by-size: true !default;      // true = utilise les valeurs, false = utilise l'index
 
 
 // Y
@@ -41,13 +55,13 @@ $name-by-size: true !default; // true = use size values, false = use index
 $setters-type: "__", "_", "", "-", "-px", "-rem";
 
 $sizing-class: "__", "_", "", "-";
-@if $no-fluid-suffix {
+@if $px-rem-suffix {
   $sizing-class: append($sizing-class, "-px");
   $sizing-class: append($sizing-class, "-rem");
 }
 
 $font-size-class: "__", "_", "";
-@if $no-fluid-suffix {
+@if $px-rem-suffix {
   $font-size-class: append($font-size-class, "-px");
   $font-size-class: append($font-size-class, "-rem");
 }
@@ -133,9 +147,11 @@ $font-properties: (
   @return type-of($var) == "map";
 }
 
-// Boucle pour les var
+// GÉNÉRATION DES VARIABLES CSS PERSONNALISÉES
+// =============================================================================
+// Génère toujours les variables CSS (mode dev et prod)
 :root {
-  // Variables pour les tailles
+  // Variables pour les tailles de spacing/layout
   @each $size in $sizes {
     $eva: $eva + 1;
     @if $name-by-size {
@@ -183,7 +199,8 @@ $font-properties: (
       ),
     );
 
-    @if $no-fluid-suffix {
+    // Ajout des variables de debug en mode développement
+    @if $px-rem-suffix {
       $css-vars-dev: (
         "-px": $size-px,
         "-rem": $size-rem,
@@ -245,7 +262,8 @@ $font-properties: (
       ),
     );
 
-    @if $no-fluid-suffix {
+    // Ajout des variables de debug pour les font-sizes en mode développement  
+    @if $px-rem-suffix {
       $css-vars-dev: (
         "-px": $size-px,
         "-rem": $size-rem,
@@ -267,8 +285,9 @@ $font-properties: (
 }
 
 @if $build-class {
-  // Boucle SCSS pour générer des class avec classe
-  $eva: 0; // Réinitialiser $eva
+  // GÉNÉRATION DES CLASSES CSS (MODE PRODUCTION)
+  // Génère les classes utilitaires pour toutes les propriétés
+  $eva: 0;
   @each $size in $sizes {
     $eva: $eva + 1;
     @if $name-by-size {
@@ -305,9 +324,9 @@ $min: 0.6rem;
 $Φ: 1.3;
 $fs: "fs";
 
-// Boucle SCSS pour générer des class des font-size avec classe
+// GÉNÉRATION DES CLASSES FONT-SIZE (MODE PRODUCTION)
 @if ($build-class) {
-  $eva: 0; // Réinitialiser $eva pour les font-sizes
+  $eva: 0;
   @each $size in $font-sizes {
     $eva: $eva + 1;
     @if $name-by-size {

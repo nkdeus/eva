@@ -31,32 +31,49 @@
       </div>
       <a href="index.html" class="logo no-hover title fs-36__ lh-1">EVA CSS</a>
     </div>
-    <div class="flex x center g-12">
+    
+    <!-- Burger menu button -->
+    <button id="burger-menu" class="burger-menu">
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+    </button>
+    
+    <div id="menu" class="flex x center g-12">
       
-      <a href="doc.html" class="h-52 px-12 flex y center _c-brand br-12">
-        <span>Docs</span>
+      <a href="figma-to-eva.html" class="h-52 px-12 flex y center _c-brand br-12">
+        <span class="fs-12">Figma to EVA</span>
       </a>
-
+      <a href="colors.html" class="h-52 px-12 flex y center _c-brand br-12">
+        <span class="fs-12">Colors & Gradients</span>
+      </a>
+   
+      <a href="js-calculator.html" class="h-52 px-12 flex y center _c-brand br-12">
+        <span class="fs-12">Calculator</span>
+      </a>
+      <a href="doc.html" class="h-52 px-12 flex y center _c-brand br-12">
+        <span class="fs-12">Docs</span>
+      </a>
       <a href="roadmap.html" class="h-52 px-12 flex y center _c-brand br-12">
-        <span>Roadmap</span>
+        <span class="fs-12">Roadmap</span>
       </a>
 
       <a href="https://github.com/nkdeus/eva" target="_blank" class="h-52 px-8 flex x g-12 center _c-brand br-8">
-        
+       
         <svg xmlns="http://www.w3.org/2000/svg" class="lh-0" height="20" viewBox="0 0 16 16" width="20" aria-hidden="true" class="d-block"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
-        <span class="_c-brand_  flex y center">v.1</span>
+        
       </a>
     </div>
 
   </nav>
 
-  <!-- Flèche arrondie vers les balles du logo -->
+  <!-- Rounded arrow pointing to the logo balls -->
   <div id="tuto" class="poa" style="top: 6rem; left: calc(var(--220__) + 0.5rem); z-index: 10;">
     <div class="flex x center ">
       <svg width="80" height="50" viewBox="0 0 80 60" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform: translateY(-0.7rem) rotate(-110deg);">
-        <!-- Courbe de la flèche -->
+        <!-- Arrow curve -->
         <path d="M20 40 Q50 10 60 20" stroke="var(--brand)" stroke-width="1" fill="none" stroke-linecap="round"/>
-        <!-- Pointe de la flèche -->
+        <!-- Arrow tip -->
         <path d="M60 20L55 15M60 20L55 25" stroke="var(--brand)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
              <p class="fs-12 _c-brand">
@@ -66,15 +83,16 @@
   </div>
 
   <section class="px-220__ pt-220- flex y g-32">
-      <p class="fs-36_ py-52-">
-        <span class="bold">The fluid S<span class="grad-linear-text grad-linear from-accent to-extra">CSS</span> framework</span>, converting static UI designs into a truly scalable and responsive system. By 2029, breakpoints will be a thing of the past ;)
+    <div class="flex y g-20 py-52-">
+      <h1 class="fs-52__ lh-1">
+        <span>The fluid S<span class="title grad-linear-text grad-linear from-accent to-extra">CSS</span> framework</span>
+      </h1>
+      <p class="fs-36_">
+        <span>Converting static UI designs into a truly scalable and responsive system. By 2029, breakpoints will be a thing of the past ;)
       </p>
+    </div>
       <div class="flex x wrap g-12">
-        <a href="#demo" class="h-52 px-12 flex y center _bg-brand_ _c-dark-d br-12">Live demo</a>
-        <a href="./js-calculator.html" class="h-52 px-12 flex y center _bg-brand__ _c-dark br-12">JS Calculator</a>
-
-        <a href="./doc.html#ready-to-try" class="h-52 px-12 flex y center _bg-brand___ _c-dark br-12">Docs</a>
-        <a href="./colors.html" class="h-52 px-12 flex y center grad-linear from-accent to-extra animated-slow _c-light br-12">Colors & Gradients</a>
+         <a href="#demo" class="h-52 px-32 flex y center grad-linear from-accent to-extra animated-fast _c-light br-12">Live demo</a>
       </div>
   
   
@@ -128,7 +146,7 @@
       <input type="range" class="progress" id="sizeRange" min="0" max="100" value="100">
     </div>
     <div class="container-frame por">
-      <!-- Bouton flèche gauche -->
+      <!-- Left arrow button -->
       <button id="prevSite" class="_c-light arrow-btn-left flex x center _bg-brand br-1 px-12 py-8" style="cursor: pointer; position: absolute; left: 1rem; z-index: 20; width: 50px; height: 50px; border-radius: 50%; background: var(--brand); border: 2px solid var(--brand)">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -146,7 +164,7 @@
         </iframe>
       </div>
       
-      <!-- Bouton flèche droite -->
+      <!-- Right arrow button -->
       <button id="nextSite" class="_c-light arrow-btn-right flex x center _bg-brand br-1 px-12 py-8" style="cursor: pointer; position: absolute; right: 1rem; z-index: 20; width: 50px; height: 50px; border-radius: 50%; background: var(--brand); border: 2px solid var(--brand); box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -154,7 +172,7 @@
       </button>
     </div>
    
-    <!-- SVG pour la ligne de connexion -->
+    <!-- SVG for connection line -->
     <svg class="connection-line" width="100%" height="100%" style="position: absolute; top: 0; left: 0; pointer-events: none; z-index: 0;">
       <defs>
         <filter id="glow">

@@ -73,7 +73,7 @@ Built around a **1440px** design system with carefully crafted spacing scales:
 
 ```scss
 // Core configuration
-$no-fluid-suffix: true;                  // false pour la production
+$px-rem-suffix: true;                  // false pour la production
 $build-class: true;               // false pour utiliser seulement les CSS variables
 $custom-class: false;
 $name-by-size: true;              // true = utilise les valeurs de taille, false = utilise les index
@@ -88,7 +88,7 @@ La configuration se fait directement dans le fichier `main.scss` principal ou da
 
 **Configuration principale (`styles/main.scss`) :**
 ```scss
-$no-fluid-suffix: true;                  // false pour la production
+$px-rem-suffix: true;                  // false pour la production
 $build-class: true;               // false pour utiliser seulement les CSS variables
 $custom-class: false;
 $name-by-size: true;              // true = utilise les valeurs de taille, false = utilise les index
@@ -99,7 +99,7 @@ $font-sizes: 12, 16, 18, 24, 36, 52, 72;
 
 **Configuration de projet (ex: `styles/projets/lili.scss`) :**
 ```scss
-$no-fluid-suffix: false;                 // Production mode
+$px-rem-suffix: false;                 // Production mode
 $build-class: true;
 $custom-class: true;
 $name-by-size: true;

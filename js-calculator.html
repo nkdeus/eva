@@ -7,11 +7,17 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/Draggable.min.js"></script>
+    <link rel="stylesheet" href="https://use.typekit.net/vjo0ssd.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Display:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css" />
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="3c9b4552-d24d-48aa-a6b4-877d0ceffe04"></script>
     <link rel="stylesheet" href="styles/main.css" />
 
     <title>JS Calculator</title>
   </head>
-  <body class="current-theme theme-eva">
+  <body class="current-theme theme-eva all-grads toggle-theme">
   <a href="" class="dark-light-toggle no-hover">
     <svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 100 100" x="0px" y="0px"><path d="M50,77.62A27.62,27.62,0,1,0,22.38,50,27.61,27.61,0,0,0,50,77.62ZM50,26A24,24,0,1,1,26,50,24,24,0,0,1,50,26ZM69.62,50.52A19.36,19.36,0,0,0,50.26,31.15V69.88A19.36,19.36,0,0,0,69.62,50.52Zm-19.88,31a1.81,1.81,0,0,0-1.81,1.81V95.69a1.81,1.81,0,0,0,3.62,0V83.3A1.81,1.81,0,0,0,49.74,81.49Zm24.9-9A1.81,1.81,0,0,0,72.09,75l8.76,8.76a1.81,1.81,0,0,0,2.55-2.56Zm6.85-22.19a1.81,1.81,0,0,0,1.81,1.81H95.69a1.81,1.81,0,1,0,0-3.62H83.3A1.81,1.81,0,0,0,81.49,50.26ZM75,27.91l8.76-8.76a1.81,1.81,0,0,0-2.56-2.55l-8.76,8.76A1.81,1.81,0,0,0,75,27.91Zm-24.75-9.4a1.81,1.81,0,0,0,1.81-1.81V4.31a1.81,1.81,0,0,0-3.62,0V16.7A1.81,1.81,0,0,0,50.26,18.51Zm-24.9,9A1.81,1.81,0,0,0,27.91,25l-8.76-8.76a1.81,1.81,0,1,0-2.55,2.56Zm-21,24H16.7a1.81,1.81,0,0,0,0-3.62H4.31a1.81,1.81,0,1,0,0,3.62Zm22,20a1.78,1.78,0,0,0-1.28.53l-8.76,8.76a1.8,1.8,0,0,0,0,2.56,1.82,1.82,0,0,0,2.56,0l8.76-8.77a1.81,1.81,0,0,0-1.28-3.08Z"/></svg>
   </a>
@@ -27,26 +33,50 @@
         </div>
         <a href="index.html" class="logo no-hover title fs-36__ lh-1">EVA CSS</a>
       </div>
-      <div class="flex x center g-12">
-        <a href="doc.html" class="h-52 px-12 flex y center _c-brand br-12">
-          <span>Docs</span>
+      
+      <!-- Burger menu button -->
+      <button id="burger-menu" class="burger-menu">
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+      </button>
+      
+      <div id="menu" class="flex x center g-12">
+        
+        <a href="figma-to-eva.html" class="h-52 px-12 flex y center _c-brand br-12 active:_c-brand active:_bg-brand__">
+          <span class="fs-12">Figma to EVA</span>
         </a>
-        <a href="roadmap.html" class="h-52 px-12 flex y center _c-brand br-12">
-          <span>Roadmap</span>
+        <a href="colors.html" class="h-52 px-12 flex y center _c-brand br-12 active:_c-brand active:_bg-brand__">
+          <span class="fs-12">Colors & Gradients</span>
         </a>
-        <a href="https://github.com/nkdeus/eva" target="_blank" class="h-52 px-8 flex x g-12 center _c-brand ">
+     
+        <a href="js-calculator.html" class="h-52 px-12 flex y center _c-brand br-12 active active:_c-brand active:_bg-brand__">
+          <span class="fs-12">Calculator</span>
+        </a>
+        <a href="doc.html" class="h-52 px-12 flex y center _c-brand br-12 active:_c-brand active:_bg-brand__">
+          <span class="fs-12">Docs</span>
+        </a>
+        <a href="roadmap.html" class="h-52 px-12 flex y center _c-brand br-12 active:_c-brand active:_bg-brand__">
+          <span class="fs-12">Roadmap</span>
+        </a>
+
+        <a href="https://github.com/nkdeus/eva" target="_blank" class="h-52 px-8 flex x g-12 center _c-brand br-8">
+         
           <svg xmlns="http://www.w3.org/2000/svg" class="lh-0" height="20" viewBox="0 0 16 16" width="20" aria-hidden="true" class="d-block"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
-          <span class="_c-brand_  flex y center">v.1</span>
+          
         </a>
       </div>
+
     </nav>
 
-    <section class="px-220__ py-220_ flex y g-32">
+    <section class="px-220__ pt-220- pb-136 flex y g-32">
       
-      
-        <h1 class="title fs-52__ lh-1 reverse">EVA CSS JavaScript Generator ( v-alpha )</h1>
+      <div class=" py-52- flex y g-20">
+        <h1 class="fs-52__ lh-1">EVA CSS <span class="title grad-linear-text grad-linear from-accent to-extra">JavaScript</span> Generator</h1>
         <p class="fs-16_">This interface allows you to configure and generate EVA CSS variables in JavaScript instead of SCSS.</p>
-        <a onclick="resetEvaConfig()" class="h-52 px-12 flex y center _bg-brand _c-light br-12 pointer">Reset Configuration</a>
+        <a onclick="resetEvaConfig()" class="h-52 px-32 flex y center _bg-brand___ _c-dark  br-12 pointer">Reset Configuration</a>
+      
+      </div>
     </section>
     <section class="px-220__ pb-136 flex y g-32">
    
@@ -137,23 +167,7 @@
     <script src="app.js"></script>
     <script src="scss.js"></script>
     <script>
-      // Logs de démarrage
-      console.log('🚀 Script initial load');
-      console.log('⚡ EvaCSSGenerator exists?', typeof EvaCSSGenerator !== 'undefined');
-      console.log('📝 Document state:', document.readyState);
-      
-      // Nettoyage immédiat du localStorage si nécessaire
-      autoCleanCorruptedValues();
-      
-      // Tester localStorage
-      try {
-        localStorage.setItem('eva-test', 'test');
-        localStorage.removeItem('eva-test');
-        console.log('✅ localStorage working');
-      } catch (e) {
-        console.error('❌ localStorage blocked:', e.message);
-      }
-
+      // Fonction pour réinitialiser la configuration EVA
       function resetEvaConfig() {
         console.log('🗑️ Clearing EVA CSS configuration from localStorage...');
         try {
@@ -192,39 +206,37 @@
       // Variable globale pour éviter la double initialisation
       let evaInitialized = false;
 
-      let retryCount = 0;
-      const MAX_RETRIES = 10;
-      const RETRY_DELAY = 300;
-
       function initEvaCSS() {
         if (evaInitialized) {
           console.log('🛑 EVA CSS already initialized, skipping');
           return;
         }
 
-        console.log('⚡ Trying initEvaCSS()', { retryCount, readyState: document.readyState });
+        console.log('⚡ Initializing EVA CSS Generator...');
+        
+        // Vérifier la disponibilité des classes requises
+        console.log('🔍 Checking EVA CSS classes availability:');
+        console.log('  - EvaCSSGenerator:', typeof EvaCSSGenerator !== 'undefined' ? '✅' : '❌');
+        console.log('  - EvaConfigInterface:', typeof EvaConfigInterface !== 'undefined' ? '✅' : '❌');
         
         if (typeof EvaCSSGenerator === 'undefined' || typeof EvaConfigInterface === 'undefined') {
-          console.log('❌ EVA classes not found');
-          if (retryCount < MAX_RETRIES) {
-            console.log(`🔄 Retry ${retryCount + 1}/${MAX_RETRIES} in ${RETRY_DELAY}ms...`);
-            retryCount++;
-            setTimeout(initEvaCSS, RETRY_DELAY);
-            return;
-          } else {
-            console.error('💥 Failed to load EVA CSS after maximum retries');
-            
-            // Afficher l'erreur de chargement
-            const configDisplay = document.getElementById('config-display');
-            if (configDisplay) {
-              configDisplay.innerHTML = `<div style="color: red; padding: 20px; background: #ffe6e6; border-radius: 8px;">
-                <h3>❌ Échec du chargement</h3>
-                <p>Le générateur EVA CSS n'a pas pu être chargé après ${MAX_RETRIES} tentatives.</p>
-                <p>Consultez la console pour plus de détails.</p>
-              </div>`;
-            }
-            return;
+          console.error('❌ EVA CSS classes not found. Make sure scss.js is loaded.');
+          
+          // Afficher l'erreur de chargement
+          const configDisplay = document.getElementById('config-display');
+          if (configDisplay) {
+            configDisplay.innerHTML = `<div style="color: red; padding: 20px; background: #ffe6e6; border-radius: 8px;">
+              <h3>❌ Loading Failed</h3>
+              <p>EVA CSS generator could not be loaded.</p>
+              <p>Make sure scss.js is properly loaded.</p>
+              <p><strong>Debug info:</strong></p>
+              <ul>
+                <li>EvaCSSGenerator: ${typeof EvaCSSGenerator !== 'undefined' ? 'Available' : 'Missing'}</li>
+                <li>EvaConfigInterface: ${typeof EvaConfigInterface !== 'undefined' ? 'Available' : 'Missing'}</li>
+              </ul>
+            </div>`;
           }
+          return;
         }
 
         try {
@@ -241,7 +253,7 @@
           
           console.log('🔧 Environment detected:', isProduction ? 'Production' : 'Development');
           
-          // Créer l'interface de configuration (protégée contre la duplication)
+          // Créer l'interface de configuration
           console.log('🎨 Creating configuration interface...');
           const configInterface = new EvaConfigInterface();
           
@@ -318,25 +330,39 @@
         }
       }
 
-      // Empêcher l'auto-initialisation en définissant un flag
-      window.EVA_MANUAL_INIT = true;
-      
-      // Une seule méthode d'initialisation robuste
-      function tryInitOnce() {
-        if (evaInitialized) return;
-        
-        console.log('🌟 Starting EVA CSS initialization...');
-        setTimeout(initEvaCSS, 100);
+      // Debug: vérifier le chargement des scripts
+      function checkScriptLoading() {
+        console.log('📊 Script loading status:');
+        console.log('  - app.js functions available:', typeof initApp !== 'undefined' ? '✅' : '❌');
+        console.log('  - scss.js classes available:', typeof EvaCSSGenerator !== 'undefined' ? '✅' : '❌');
+        console.log('  - All scripts loaded:', document.readyState);
       }
 
-      // Attendre le bon moment pour initialiser
-      if (document.readyState === 'complete') {
-        tryInitOnce();
-      } else if (document.readyState === 'interactive') {
-        setTimeout(tryInitOnce, 100);
-      } else {
-        document.addEventListener('DOMContentLoaded', tryInitOnce);
-      }
+      // Initialisation après que app.js ait fini son initialisation
+      document.addEventListener('DOMContentLoaded', function() {
+        console.log('🚀 DOM Content Loaded - EVA CSS Calculator Page');
+        checkScriptLoading();
+        
+        // Appeler initApp() de app.js
+        if (typeof initApp === 'function') {
+          console.log('🚀 Calling initApp()...');
+          initApp();
+        } else {
+          console.warn('❌ initApp function not available');
+        }
+        
+        // Attendre que app.js ait fini son initialisation et que scss.js soit chargé
+        setTimeout(initEvaCSS, 500);
+      });
+
+      // Alternative plus robuste - attendre que window soit complètement chargé
+      window.addEventListener('load', function() {
+        // Double vérification si l'initialisation n'a pas encore eu lieu
+        if (!evaInitialized) {
+          console.log('🔄 Retrying EVA CSS initialization after window load...');
+          setTimeout(initEvaCSS, 100);
+        }
+      });
     </script>
   </body>
 </html> 

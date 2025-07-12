@@ -86,3 +86,14 @@
 [class*="hover\:_bg"] {
   transition: background-color 0.2s;
 }
+
+// acticve
+
+.active.active\:_bg-brand__ {
+  background: var(--brand__);
+}
+
+
+.active.active\:_c-brand {
+  color: var(--brand);
+}
