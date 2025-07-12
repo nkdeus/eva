@@ -265,12 +265,36 @@ function randomTitle() {
   titleElement.innerHTML = newTitleHTML;
 }
 
+// Fonction pour appliquer le thème initial (priorité aux préférences sauvegardées)
+function applyInitialTheme() {
+  const savedTheme = getCookie('eva-theme-preference');
+  
+  if (savedTheme) {
+    // Appliquer la préférence sauvegardée (prioritaire)
+    if (savedTheme === 'dark') {
+      body.classList.add('toggle-theme');
+    } else {
+      body.classList.remove('toggle-theme');
+    }
+  } else {
+    // Appliquer les préférences système si aucune préférence sauvegardée
+    const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    updateTheme(darkModeMediaQuery);
+  }
+}
+
 // Fonction pour mettre à jour le thème selon les préférences système
 function updateTheme(e) {
+  // Ne pas écraser les préférences sauvegardées
+  const savedTheme = getCookie('eva-theme-preference');
+  if (savedTheme) return;
+  
   if (e.matches) {
-    // document.body.classList.add('dark');
+    // L'utilisateur préfère le mode sombre
+    body.classList.add('toggle-theme');
   } else {
-    // document.body.classList.remove('dark');
+    // L'utilisateur ne préfère pas le mode sombre
+    body.classList.remove('toggle-theme');
   }
 }
 
@@ -321,6 +345,21 @@ function initDemoNavigation() {
   });
 }
 
+// Fonction pour initialiser le toggle de thème
+function initThemeToggle() {
+  const toggleElement = document.querySelector('.dark-light-toggle');
+  if (!toggleElement) return;
+
+  toggleElement.addEventListener('click', function(e) {
+    e.preventDefault();
+    body.classList.toggle('toggle-theme');
+    
+    // Sauvegarder la préférence utilisateur
+    const isDarkMode = body.classList.contains('toggle-theme');
+    setCookie('eva-theme-preference', isDarkMode ? 'dark' : 'light', 43200); // 30 jours
+  });
+}
+
 // Fonction principale d'initialisation
 function initApp() {
   // Générer le titre aléatoire
@@ -339,7 +378,12 @@ function initApp() {
   if (darkModeByHour) {
     updateBodyClass();
   } else {
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', updateTheme);
+    // Appliquer le thème initial (priorité aux préférences sauvegardées)
+    applyInitialTheme();
+    
+    // Écouter les changements des préférences système
+    const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    darkModeMediaQuery.addEventListener('change', updateTheme);
   }
 
   // Initialiser les animations GSAP
@@ -347,6 +391,9 @@ function initApp() {
 
   // Initialiser la navigation de démonstration
   initDemoNavigation();
+
+  // Initialiser le toggle de thème
+  initThemeToggle();
 
   // Initialiser le draggable sur les éléments .ballzzz
   // Attendre un peu que tous les éléments soient bien rendus

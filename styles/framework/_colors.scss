@@ -1,16 +1,12 @@
 @use "sass:math";
 
+// Configuration du système de couleurs
+$auto-theme-switch: false !default;     // true = changement automatique sur prefers-color-scheme, false = changement manuel avec .toggle-theme
+
 :root {
-  --current-lightness: 99%;
+
+  --current-lightness: 95%;
   --current-darkness: 5%;
-
-  --dark-chroma: 0.01;
-  --light-chroma: 0.01;
-
-  --darker: -5%;
-  --brighter: 10%;
-  --darker_: -15%;
-  --brighter_: 30%;
 
   --brand-lightness: 80%;
   --brand-chroma: 0;
@@ -24,34 +20,71 @@
   --extra-chroma: 0;
   --extra-hue: 0;
 
+  --dark-lightness: var(--current-darkness);  
+  --dark-chroma: 0.05;      
+  --dark-hue: var(--brand-hue);           
+
+  --light-lightness: var(--current-lightness); 
+  --light-chroma: 0.1;      
+  --light-hue: var(--brand-hue);   
+
+  --darker: -5%;
+  --brighter: 10%;
+  --darker_: -15%;
+  --brighter_: 30%;
+
 }
 
-// Map des valeurs de fade avec des underscores
-$fade-map: (
-  "_": 65%,
-  "__": 35%,
-  "___": 5%,
-);
+// =====================================================================
+// VARIABLES DE BASE - Source unique de vérité
+// =====================================================================
 
-$darkbright-map: (
-  "-d": var(--darker),
-  "-b": var(--brighter),
-  "-d_": var(--darker_),
-  "-b_": var(--brighter_),
-);
+// Noms des couleurs de base (utilisés partout)
+$base-colors: "brand", "accent", "extra", "dark", "light";
 
+// Variations fade (opacité)
+$fade-variations: "_", "__", "___";
+$fade-values: 65%, 35%, 5%;
 
-$gradients: "brand", "accent", "dark", "light", "extra";
-$gradients-darkbright: "-d", "-d_", "-b", "-b_";
+// Variations brightness (luminosité)
+$brightness-variations: "-d", "-b", "-d_", "-b_";
+$brightness-values: var(--darker), var(--brighter), var(--darker_), var(--brighter_);
 
+// =====================================================================
+// MAPS GÉNÉRÉES À PARTIR DES VARIABLES DE BASE
+// =====================================================================
+
+// Map des couleurs principales
 $color-map: (
   "brand": var(--brand-lightness) var(--brand-chroma) var(--brand-hue),
   "accent": var(--accent-lightness) var(--accent-chroma) var(--accent-hue),
   "extra": var(--extra-lightness) var(--extra-chroma) var(--extra-hue),
-  "white": 100% 0 0,
-  "dark": var(--current-darkness) var(--dark-chroma) var(--brand-hue),
-  "light": var(--current-lightness) var(--light-chroma) var(--brand-hue)
+  "dark": var(--dark-lightness) var(--dark-chroma) var(--dark-hue),
+  "light": var(--light-lightness) var(--light-chroma) var(--light-hue)
 );
+
+// Map des variations fade (générée dynamiquement)
+$fade-map: ();
+@for $i from 1 through length($fade-variations) {
+  $variation: nth($fade-variations, $i);
+  $value: nth($fade-values, $i);
+  $fade-map: map-merge($fade-map, ($variation: $value));
+}
+
+// Map des variations brightness (générée dynamiquement)
+$darkbright-map: ();
+@for $i from 1 through length($brightness-variations) {
+  $variation: nth($brightness-variations, $i);
+  $value: nth($brightness-values, $i);
+  $darkbright-map: map-merge($darkbright-map, ($variation: $value));
+}
+
+// Variables partagées consolidées
+$gradients: $base-colors;
+$gradients-darkbright: $brightness-variations;
+$all-variations: join(join(("",), $fade-variations), $brightness-variations);
+
+
 
 // Génération des variables CSS avec les bons suffixes
 .current-theme {
@@ -64,13 +97,7 @@ $color-map: (
     }
 
     @each $suffix, $darkbright-value in $darkbright-map {
-      @if $color-name == "light" {
-        --#{$color-name}#{$suffix}: oklch(calc(var(--current-lightness) + #{$darkbright-value}) var(--light-chroma) var(--brand-hue));
-      } @else if $color-name == "dark" {
-        --#{$color-name}#{$suffix}: oklch(calc(var(--current-darkness) + #{$darkbright-value}) var(--dark-chroma) var(--brand-hue));
-      } @else {
-        --#{$color-name}#{$suffix}: oklch(calc(var(--#{$color-name}-lightness) + #{$darkbright-value}) var(--#{$color-name}-chroma) var(--#{$color-name}-hue));
-      }
+      --#{$color-name}#{$suffix}: oklch(calc(var(--#{$color-name}-lightness) + #{$darkbright-value}) var(--#{$color-name}-chroma) var(--#{$color-name}-hue));
     }
   }
 
@@ -79,9 +106,9 @@ $color-map: (
 
 
 $suffix: "_";
-$colors-class: "brand", "accent", "extra", "dark", "light", "white";
-$fades: "_", "__", "___";
-$shades: "-b", "-d", "-b_", "-d_";
+$colors-class: $base-colors;
+$fades: $fade-variations;
+$shades: $brightness-variations;
 
 $colors: (
   c: color,
@@ -121,23 +148,49 @@ $colors: (
   }
 }
 
-@each $key, $prop in $colors {
-  @include getAllColors($prop, $key);
+// Variable pour contrôler la génération des classes de couleurs
+$build-color-classes: true !default;
+
+@if $build-color-classes {
+  @each $key, $prop in $colors {
+    @include getAllColors($prop, $key);
+  }
 }
 
-// Gestion du mode sombre
+// Gestion du changement de thème
+@if $auto-theme-switch {
+  // Mode automatique basé sur prefers-color-scheme
+  @media (prefers-color-scheme: dark) {
+    .current-theme {
+      --darker: 10%;
+      --brighter: -5%;
+      --darker_: 30%;
+      --brighter_: -15%;
 
-@media (prefers-color-scheme: dark) {
-  .current-theme {
+
+      --current-lightness: 5% !important;
+      --current-darkness: 95% !important;
+
+      --dark-lightness: var(--current-darkness) !important;
+      --light-lightness: var(--current-lightness) !important;
+
+
+    }
+  }
+} @else {
+  // Mode manuel avec classe .toggle-theme
+  .current-theme.toggle-theme {
     --darker: 10%;
     --brighter: -5%;
     --darker_: 30%;
     --brighter_: -15%;
 
-    --current-lightness: 15%;
-    --current-darkness: 90%;
 
-    --dark-chroma: 0.01;
-    --light-chroma: 0.2;
+    --current-lightness: 5% !important;
+    --current-darkness: 95% !important;
+
+    --dark-lightness: var(--current-darkness) !important;
+    --light-lightness: var(--current-lightness) !important;
+
   }
 }

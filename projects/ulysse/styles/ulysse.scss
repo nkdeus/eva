@@ -1,0 +1,163 @@
+$no-fluid-suffix: false; // false for prod usage
+$build-class: false; // false to use only CSS var
+$custom-class: false;
+$name-by-size: true; // false to use class name by 1, 2, 3, 4, 5, 6, 7, 8, 9, 10...
+
+// Override de la configuration des couleurs
+$auto-theme-switch: false; // true = changement automatique sur prefers-color-scheme
+
+// Tailles extraites du Figma Ulysse (toutes les tailles utilisées)
+$sizes: 4, 8, 16, 32, 54, 64, 120, 141; // 4px (gap content), 8px (gap colors), 16px (non utilisé), 32px (gap colors réel), 54px (toggle button), 64px (gap hero), 120px (H1), 141px (circles)
+$font-sizes: 16, 120; // 16px (p), 120px (H1)
+
+$class-config: (
+  w: (), // width
+  h: (), // height
+  p: (), // padding
+  px: (), // padding-inline
+  pr: (), // padding-right
+  py: (), // padding-block
+  br: (), // border-radius
+  mb: (), // margin-bottom
+  g: (), // gap
+);
+
+/* BUILD EVA CSS FRAMEWORK */
+@import "../../../styles/framework/eva";
+@import "../../../styles/framework/colors";
+@import "../../../styles/framework/theme";
+
+// Thème spécifique au projet Ulysse (couleurs extraites du Figma)
+.theme-ulysse {
+  // Couleurs principales extraites du Figma
+  --brand-lightness: 62.8%;   // #ff0000 → oklch(62.8% 0.258 29.23)
+  --brand-chroma: 0.258;
+  --brand-hue: 29.23;
+
+  --accent-lightness: 51.7%;  // #7300ff → oklch(51.7% 0.293 289.66)
+  --accent-chroma: 0.293;
+  --accent-hue: 289.66;
+
+  --extra-lightness: 91.5%;   // #ffe500 → oklch(91.5% 0.191 101.03)
+  --extra-chroma: 0.191;
+  --extra-hue: 101.03;
+
+  // Configuration automatique des lightness
+  --current-lightness: 96.4%; // #f3f3f3 → oklch(96.4% 0.000 0)
+  --current-darkness: 26.4%;  // #252525 → oklch(26.4% 0.000 0)
+
+  // Configuration complète dark/light (extraits du Figma)
+  --dark-lightness: var(--current-darkness);  // Auto-lié
+  --dark-chroma: 0.000;        // #252525 → chroma
+  --dark-hue: 0;              // #252525 → hue
+
+  --light-lightness: var(--current-lightness); // Auto-lié
+  --light-chroma: 0.000;       // #f3f3f3 → chroma
+  --light-hue: 0;             // #f3f3f3 → hue
+}
+
+// Styles spécifiques à la page Ulysse
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--light);
+  color: var(--dark);
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  gap: var(--64);
+  padding: var(--16);
+}
+
+.content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: var(--4);
+}
+
+.title {
+  font-size: var(--fs-120);
+  margin: 0;
+  line-height: 1.2;
+  color: var(--dark);
+}
+
+.title-regular {
+  font-weight: 400;
+}
+
+.title-bold {
+  font-weight: 900;
+}
+
+.subtitle {
+  font-size: var(--fs-16);
+  margin: 0;
+  color: var(--dark);
+  font-weight: 400;
+}
+
+.colors {
+  display: flex;
+  gap: var(--32);
+  align-items: center;
+  justify-content: center;
+}
+
+.color-circle {
+  width: var(--141);
+  height: var(--141);
+  border-radius: 50%;
+}
+
+.brand-circle {
+  background-color: var(--brand);
+}
+
+.extra-circle {
+  background-color: var(--extra);
+}
+
+.accent-circle {
+  background-color: var(--accent);
+}
+
+// Bouton toggle theme
+.btn-toggle-theme {
+
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  
+  &:hover {
+    transform: scale(1.5);
+  }
+}
+
+.toggle-circle {
+  width: var(--54);
+  height: var(--54);
+  border-radius: 50%;
+  background-color: var(--dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.toggle-text {
+  font-family: 'Inter', sans-serif;
+  font-size: var(--fs-16);
+  font-weight: 400;
+  color: var(--light);
+  line-height: 1;
+  user-select: none;
+}

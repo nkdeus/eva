@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ulysse 2029</title>
+  <link rel="stylesheet" href="render/ulysse.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;900&display=swap" rel="stylesheet">
+</head>
+<body class="current-theme theme-ulysse">
+  <main class="hero">
+    <div class="content">
+      <h1 class="title">
+        <span class="title-regular">Ulysse</span><span class="title-bold">2029</span>
+      </h1>
+      <p class="subtitle">FIGMA - CLAUDE - EVACSS</p>
+    </div>
+    
+    <div class="colors">
+      <div class="color-circle brand-circle"></div>
+      <div class="color-circle extra-circle"></div>
+      <div class="color-circle accent-circle"></div>
+    </div>
+    
+    <a href="#" class="btn-toggle-theme" id="toggleTheme">
+      <div class="toggle-circle">
+        <span class="toggle-text">D</span>
+      </div>
+    </a>
+  </main>
+
+  <script>
+    document.getElementById('toggleTheme').addEventListener('click', function(e) {
+      e.preventDefault();
+      document.body.classList.toggle('toggle-theme');
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir:*)",
+      "Bash(mv:*)",
+      "Bash(rm:*)",
+      "WebFetch(domain:www.figma.com)",
+      "Bash(rg:*)",
+      "Bash(sed:*)",
+      "Bash(npm run build-css:*)",
+      "Bash(ls:*)"
+    ],
+    "deny": []
+  }
+}

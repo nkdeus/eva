@@ -1,0 +1,72 @@
+$no-fluid-suffix: false; // false for prod usage
+$build-class: false; // false to use only CSS var
+$custom-class: false;
+$name-by-size: true; // false to use class name by 1, 2, 3, 4, 5, 6, 7, 8, 9, 10...
+
+$sizes: 16,35,64,128,141;
+$font-sizes: 128;
+
+$class-config: (
+  w: (), // width: seulement pour la taille 50
+  h: (), // height: pour les tailles 24 et 50
+  p: (), // padding: seulement pour la taille 50
+  px: (), // padding-inline: seulement pour la taille 24
+  pr: (), // padding-right: aucune classe générée
+  py: (), // padding-block: pour les tailles 24 et 50
+  br: (), // border-radius: seulement pour la taille 50
+  mb: (), // margin-bottom: pour les tailles 24 et 50
+  g: (), // gap: pour les tailles 24 et 50
+);
+
+/* BUILD ONLY FLUID CSS VAR */
+@import "../../../styles/framework/eva";
+@import "../../../styles/framework/colors";
+@import "../../../styles/framework/theme";
+
+.theme-try {
+  --brand-lightness: 62.7%;
+  --brand-chroma: 0.257;
+  --brand-hue: 29.23;
+
+  --accent-lightness: 96.4%;
+  --accent-chroma: 0.209;
+  --accent-hue: 104.6;
+
+  --extra-lightness: 56.6%;
+  --extra-chroma: 0.278;
+  --extra-hue: 282.6;
+}
+
+.style-guide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: var(--dark);
+}
+
+.evacss-title {
+  font-family: 'Inter', sans-serif;
+  font-size: var(--fs-128_);
+  color: var(--light);
+  margin-bottom: var(--64);
+  text-align: center;
+  font-weight: 400;
+}
+
+.evacss-colors {
+  display: flex;
+  gap: var(--35);
+  justify-content: center;
+}
+
+.evacss-color {
+  width: var(--141_);
+  height: var(--141_);
+  border-radius: 50%;
+}
+
+.evacss-color.brand { background: var(--brand); }
+.evacss-color.extra { background: var(--extra); }
+.evacss-color.accent { background: var(--accent); }

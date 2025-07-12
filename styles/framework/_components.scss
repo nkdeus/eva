@@ -3,7 +3,7 @@ a{
   color: var(--dark-d);
 }
 
-a:not(.logo) {
+a:not(.no-hover) {
   text-decoration: none;
   &:hover {
     background-color: var(--brand__);
@@ -32,13 +32,17 @@ body {
   container-type: inline-size;
 }
 
-h1 {
+h1, .logo {
   margin: 0;
   padding: 0;
   font-optical-sizing: auto;
   font-style: normal;
   font-variation-settings: "wght" var(--title-weight);
   font-family: var(--title-font), sans-serif;
+}
+
+.logo{
+  margin-top: 0.2em;
 }
 
 h2,
@@ -55,7 +59,25 @@ h4 {
 p {
   margin: 0;
 }
-
+.dark-light-toggle{
+  position: fixed;
+  bottom: calc(50% - calc(var(--52_) / 2));
+  right: 1rem;
+  z-index: 1000;
+  cursor: pointer;  
+  background-color: var(--brand__);
+  border-radius: 50%;
+  width: var(--52_);
+  height: var(--52_);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  svg{
+    width: 50%;
+    height: auto;
+    fill: var(--dark);  
+  }
+}
 nav {
   background-color: var(--light___);
   backdrop-filter: blur(1rem);

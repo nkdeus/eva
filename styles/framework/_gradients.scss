@@ -2,8 +2,7 @@
 // Système ultra-moderne pour les gradients - Emmet-style only!
 // Contrôle complet des couleurs et angles via variables CSS
 
-// Définition des variations
-$all-variations: "", "_", "__", "___", "-d", "-d_", "-b", "-b_";
+@use "colors" as colors;
 
 // Conteneur pour toutes les variables de gradient
 .all-grads {
@@ -51,8 +50,8 @@ $all-variations: "", "_", "__", "___", "-d", "-d_", "-b", "-b_";
 // =============================================================================
 
 // Emmet-style color setters
-@each $color in $gradients {
-  @each $variation in $all-variations {
+@each $color in colors.$gradients {
+  @each $variation in colors.$all-variations {
     $color-name: if($variation == "", $color, "#{$color}#{$variation}");
     
     .from-#{$color-name} {
@@ -68,8 +67,6 @@ $all-variations: "", "_", "__", "___", "-d", "-d_", "-b", "-b_";
 // Emmet-style couleurs spéciales
 .from-transparent { --current-from-color: transparent; }
 .to-transparent { --current-to-color: transparent; }
-.from-white { --current-from-color: var(--white); }
-.to-white { --current-to-color: var(--white); }
 
 // =============================================================================
 // EMMET-STYLE ANGLES : Contrôle ultra-compact

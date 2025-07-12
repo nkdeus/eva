@@ -4,7 +4,7 @@ $custom-class: true;
 $name-by-size: true; // false to use class name by 1, 2, 3, 4, 5, 6, 7, 8, 9, 10...
 
 $sizes: 24, 50, 100;
-$font-sizes: 14, 16, 18, 24, 32, 48, 60, 120;
+$font-sizes: 14, 16, 18, 24, 32, 48, 60, 80, 120;
 
 $class-config: (
   w: (50), // width: seulement pour la taille 50
@@ -18,17 +18,5 @@ $class-config: (
   g: (), // gap: pour les tailles 24 et 50
 );
 
-/* BUILD EVA CSS FRAMEWORK
-@import "./framework/reset";
-@import "./framework/eva";
-@import "./framework/colors";
-@import "./framework/theme";
-@import "./framework/components";
-@import "./framework/utils";
-@import "./framework/ballzzz";
-@import "./framework/font";
-@import "./framework/index"; */
-
-/* BUILD ONLY FLUID CSS VAR */
-@import "../framework/eva";
-
+/* BUILD EVA CSS FRAMEWORK */
+@import "../../../styles/framework/eva";

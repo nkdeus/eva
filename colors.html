@@ -11,24 +11,26 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Display:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles/main-compressed.css" />
+    <link rel="stylesheet" href="styles/main.css" />
     <script defer src="https://cloud.umami.is/script.js" data-website-id="3c9b4552-d24d-48aa-a6b4-877d0ceffe04"></script>
     <title>EVA CSS - Colors & Gradients</title>
   </head>
   <body class="current-theme theme-eva all-grads">
-    
+  <a href="" class="dark-light-toggle no-hover">
+    <svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 100 100" x="0px" y="0px"><path d="M50,77.62A27.62,27.62,0,1,0,22.38,50,27.61,27.61,0,0,0,50,77.62ZM50,26A24,24,0,1,1,26,50,24,24,0,0,1,50,26ZM69.62,50.52A19.36,19.36,0,0,0,50.26,31.15V69.88A19.36,19.36,0,0,0,69.62,50.52Zm-19.88,31a1.81,1.81,0,0,0-1.81,1.81V95.69a1.81,1.81,0,0,0,3.62,0V83.3A1.81,1.81,0,0,0,49.74,81.49Zm24.9-9A1.81,1.81,0,0,0,72.09,75l8.76,8.76a1.81,1.81,0,0,0,2.55-2.56Zm6.85-22.19a1.81,1.81,0,0,0,1.81,1.81H95.69a1.81,1.81,0,1,0,0-3.62H83.3A1.81,1.81,0,0,0,81.49,50.26ZM75,27.91l8.76-8.76a1.81,1.81,0,0,0-2.56-2.55l-8.76,8.76A1.81,1.81,0,0,0,75,27.91Zm-24.75-9.4a1.81,1.81,0,0,0,1.81-1.81V4.31a1.81,1.81,0,0,0-3.62,0V16.7A1.81,1.81,0,0,0,50.26,18.51Zm-24.9,9A1.81,1.81,0,0,0,27.91,25l-8.76-8.76a1.81,1.81,0,1,0-2.55,2.56Zm-21,24H16.7a1.81,1.81,0,0,0,0-3.62H4.31a1.81,1.81,0,1,0,0,3.62Zm22,20a1.78,1.78,0,0,0-1.28.53l-8.76,8.76a1.8,1.8,0,0,0,0,2.56,1.82,1.82,0,0,0,2.56,0l8.76-8.77a1.81,1.81,0,0,0-1.28-3.08Z"/></svg>
+  </a>
   <nav id="nav" class="px-220__ flex space py-12- pof">
-    <a href="index.html" class="logo flex x center px-20">
-      <div class="ballzzz por " style="--max:6">
-        <div class="ball poa  ar-1 circle _bg-brand" style="--offset:0"></div>
-        <div class="ball poa  ar-1 circle _bg-brand" style="--offset:1"></div>
-        <div class="ball poa  ar-1 circle _bg-brand" style="--offset:2"></div>
-        <div class="ball poa  ar-1 circle _bg-brand" style="--offset:3"></div>
-        <div class="ball poa  ar-1 circle _bg-brand" style="--offset:4"></div>
-        <div class="ball poa  ar-1 circle _bg-brand" style="--offset:5"></div>
+    <div id="logo" class="flex x center px-20">
+      <div class="ballzzz por" style="--max:6">
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:0"></div>
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:1"></div>
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:2"></div>
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:3"></div>
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:4"></div>
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:5"></div>
       </div>
-      <h1 class="title fs-36__ lh-1 reverse">EVA CSS</h1>
-    </a>
+      <a href="index.html" class="logo no-hover title fs-36__ lh-1">EVA CSS</a>
+    </div>
     <div class="flex x center g-20">
       
       <a href="doc.html" class="h-52 px-12 flex y center _c-brand br-12">
@@ -81,7 +83,7 @@
           <h3 class="fs-24 bold">Documentation</h3>
           <p class="fs-12_">Ultra-modern color system based on OKLCH with automatic variations</p>
           <div class="flex y g-8">
-            <p class="fs-12"><strong>Main colors:</strong> brand, accent, extra, dark, light, white</p>
+            <p class="fs-12"><strong>Main colors:</strong> brand, accent, extra, dark, light</p>
             <p class="fs-12"><strong>Fade variations:</strong> _ (65%), __ (35%), ___ (5%)</p>
             <p class="fs-12"><strong>Brightness variations:</strong> -d (darker), -b (brighter), -d_ (darker_), -b_ (brighter_)</p>
             <p class="fs-12"><strong>Properties:</strong> _c- (color), _bg- (background), _bc- (border), _f- (fill), _s- (stroke)</p>
@@ -91,7 +93,7 @@
         <!-- Real-time CSS Variables Display -->
         <div class="flex y g-20">
           <h4 class="fs-18 bold">Real-time CSS Variables</h4>
-          <p class="fs-12_">The entire EVA theme is based on these 3 simple HUE values:</p>
+          <p class="fs-12_">The entire EVA theme is based on these CSS variables and HUE values:</p>
           
           <div class="flex wrap g-20">
             <div class="px-20 py-20 _bg-brand__ br-12 flex y g-8">
@@ -113,7 +115,7 @@
           
           <div class="px-20 py-20 _bg-light br-12">
             <p class="fs-12 _c-dark"><strong>Magic EVA:</strong> These 3 values automatically generate <strong>all the variations</strong> of colors you see on this page!</p>
-            <p class="fs-10 _c-dark_">Each color (brand, accent, extra) uses the same lightness (80%) and chroma (0.1924), only the HUE changes.</p>
+            <p class="fs-10 _c-dark_">Each color (brand, accent, extra) uses custom lightness and chroma values, with only the HUE changing to create variations.</p>
           </div>
         </div>
       </div>
@@ -339,17 +341,6 @@
           </div>
         </div>
 
-        <!-- White Colors -->
-        <div class="flex y g-20">
-          <h4 class="fs-18 bold">White Colors</h4>
-          <div class="flex wrap g-20">
-            <div class="flex x g-20">
-              <div class="w-120 h-120 _bg-white br-12 flex y center p-8 px-12 _bc-dark">
-                <span class="fs-12_ _c-dark bold">white</span>
-              </div>
-            </div>
-          </div>
-        </div>
 
     
       </div>
@@ -530,8 +521,8 @@
             <div class="w-120 h-80 grad-linear from-brand to-light br-8 flex y center p-4">
               <span class="fs-10 _c-dark bold">to light</span>
             </div>
-            <div class="w-120 h-80 grad-linear from-brand to-white br-8 flex y center p-4">
-              <span class="fs-10 _c-dark bold">to white</span>
+            <div class="w-120 h-80 grad-linear from-brand to-light br-8 flex y center p-4">
+              <span class="fs-10 _c-dark bold">to light</span>
             </div>
             <div class="w-120 h-80 grad-linear from-brand to-transparent br-8 flex y center p-4">
               <span class="fs-10 _c-light bold">to transparent</span>
@@ -602,8 +593,8 @@
             <div class="w-120 h-80 grad-linear from-accent to-light br-8 flex y center p-4">
               <span class="fs-10 _c-dark bold">to light</span>
             </div>
-            <div class="w-120 h-80 grad-linear from-accent to-white br-8 flex y center p-4">
-              <span class="fs-10 _c-dark bold">to white</span>
+            <div class="w-120 h-80 grad-linear from-accent to-light_ br-8 flex y center p-4">
+              <span class="fs-10 _c-dark bold">to light_</span>
             </div>
             <div class="w-120 h-80 grad-linear from-accent to-transparent br-8 flex y center p-4">
               <span class="fs-10 _c-light bold">to transparent</span>
@@ -672,8 +663,8 @@
             <div class="w-120 h-80 grad-linear from-extra to-light br-8 flex y center p-4">
               <span class="fs-10 _c-dark bold">to light</span>
             </div>
-            <div class="w-120 h-80 grad-linear from-extra to-white br-8 flex y center p-4">
-              <span class="fs-10 _c-dark bold">to white</span>
+            <div class="w-120 h-80 grad-linear from-extra to-light_ br-8 flex y center p-4">
+              <span class="fs-10 _c-dark bold">to light_</span>
             </div>
             <div class="w-120 h-80 grad-linear from-extra to-transparent br-8 flex y center p-4">
               <span class="fs-10 _c-light bold">to transparent</span>
@@ -742,8 +733,8 @@
             <div class="w-120 h-80 grad-linear from-dark to-light br-8 flex y center p-4">
               <span class="fs-10 _c-dark bold">to light</span>
             </div>
-            <div class="w-120 h-80 grad-linear from-dark to-white br-8 flex y center p-4">
-              <span class="fs-10 _c-dark bold">to white</span>
+            <div class="w-120 h-80 grad-linear from-dark to-light_ br-8 flex y center p-4">
+              <span class="fs-10 _c-dark bold">to light_</span>
             </div>
             <div class="w-120 h-80 grad-linear from-dark to-transparent br-8 flex y center p-4">
               <span class="fs-10 _c-light bold">to transparent</span>
@@ -810,8 +801,8 @@
             <div class="w-120 h-80 grad-linear from-light to-dark br-8 flex y center p-4">
               <span class="fs-10 _c-light bold">to dark</span>
             </div>
-            <div class="w-120 h-80 grad-linear from-light to-white br-8 flex y center p-4">
-              <span class="fs-10 _c-dark bold">to white</span>
+            <div class="w-120 h-80 grad-linear from-light to-light_ br-8 flex y center p-4">
+              <span class="fs-10 _c-dark bold">to light_</span>
             </div>
             <div class="w-120 h-80 grad-linear from-light to-transparent br-8 flex y center p-4">
               <span class="fs-10 _c-dark bold">to transparent</span>
@@ -899,7 +890,7 @@
             <span class="fs-12 _c-brand_ block">linear</span>
           </div>
           <div class="px-20 py-8 _bg-accent__ br-8">
-            <span class="fs-12 _c-accent bold">42 colors</span>
+            <span class="fs-12 _c-accent bold">41 colors</span>
             <span class="fs-12 _c-accent_ block">+ variations</span>
           </div>
           <div class="px-20 py-8 _bg-extra__ br-8">
@@ -977,19 +968,15 @@
       // Définition de toutes les possibilités
       const gradientTypes = ['grad-linear'];
       
-      const baseColors = ['brand', 'accent', 'extra', 'dark', 'light', 'white'];
+      const baseColors = ['brand', 'accent', 'extra', 'dark', 'light'];
       const colorVariations = ['', '_', '__', '___', '-d', '-b', '-d_', '-b_'];
       
       // Générer toutes les variations de couleurs
       const allColors = [];
       baseColors.forEach(base => {
-        if (base === 'white') {
-          allColors.push('white'); // white n'a pas de variations
-        } else {
-          colorVariations.forEach(variation => {
-            allColors.push(base + variation);
-          });
-        }
+        colorVariations.forEach(variation => {
+          allColors.push(base + variation);
+        });
       });
       
       // Ajouter transparent

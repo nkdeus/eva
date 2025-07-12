@@ -1,0 +1,203 @@
+# Eva CSS Framework - Cursor Rules
+
+## Principes Fondamentaux d'Eva CSS
+
+### 1. Système de Tailles Fluides
+- **TOUJOURS** utiliser les variables CSS générées : `var(--size)`, `var(--size_)`, `var(--size__)`, `var(--size-)`
+- **NE JAMAIS** utiliser de valeurs fixes en px/rem dans le CSS
+- **CONFIGURER** `$sizes` dans chaque projet avec seulement les tailles réellement utilisées
+- **PRÉFÉRER** les suffixes selon le contexte :
+  - `__` : minimum (espacements très serrés)
+  - `_` : réduit (espacement léger)
+  - `` : standard (utilisation normale)
+  - `-` : étendu (espacement généreux)
+
+### 2. Système de Couleurs OKLCH
+- **UTILISER** les variables de thème : `var(--brand)`, `var(--accent)`, `var(--extra)`, `var(--dark)`, `var(--light)`
+- **CONFIGURER** les couleurs avec lightness, chroma, hue dans `.theme-xxx`
+- **APPLIQUER** les classes utilitaires avec préfixe `_` :
+  - `_c-brand` pour color
+  - `_bg-accent` pour background
+  - `_bc-extra` pour border-color
+- **UTILISER** les modificateurs d'opacité :
+  - `_c-brand_` (65% opacité)
+  - `_c-brand__` (35% opacité)
+  - `_c-brand___` (5% opacité)
+- **UTILISER** les modificateurs de luminosité :
+  - `_bg-brand-d` (plus sombre)
+  - `_bg-brand-b` (plus brillant)
+  - `_bg-brand-d_` (beaucoup plus sombre)
+  - `_bg-brand-b_` (beaucoup plus brillant)
+
+### 3. Architecture SCSS
+```scss
+// Configuration obligatoire au début de chaque projet
+$build-class: true; // true = génère les classes utilitaires / false = variables CSS uniquement
+$sizes: 4, 8, 16, 32, 64; // SEULEMENT les tailles utilisées
+$font-sizes: 16, 24, 32; // SEULEMENT les tailles de police utilisées
+
+// Import Eva CSS Framework
+@import "../../../styles/framework/eva";
+@import "../../../styles/framework/colors";
+@import "../../../styles/framework/theme";
+
+// Thème spécifique au projet
+.theme-mon-projet {
+  // Couleurs principales en OKLCH
+  --brand-lightness: 62.8%;
+  --brand-chroma: 0.258;
+  --brand-hue: 29.23;
+  
+  --accent-lightness: 51.7%;
+  --accent-chroma: 0.293;
+  --accent-hue: 289.66;
+  
+  // Configuration du dark/light
+  --current-lightness: 96.4%;
+  --current-darkness: 26.4%;
+}
+```
+
+### 4. Structure HTML
+```html
+<!-- TOUJOURS inclure ces classes sur body -->
+<body class="current-theme theme-mon-projet">
+  <!-- Le toggle-theme s'applique automatiquement -->
+</body>
+```
+
+### 5. Choix du Mode d'Utilisation
+
+#### 🔧 CHOISIR `$build-class: true` QUAND :
+- Projet avec beaucoup de composants similaires
+- Développement rapide/prototypage
+- Équipe préfère les classes utilitaires (style Tailwind)
+- Besoin de réutiliser des styles communs rapidement
+
+#### 🎯 CHOISIR `$build-class: false` QUAND :
+- Projet avec design très spécifique/unique
+- Préférence pour les classes sémantiques
+- Optimisation du CSS final (moins de classes générées)
+- Contrôle total sur le CSS généré
+
+#### ✅ BONNES PRATIQUES (TOUJOURS)
+```scss
+// Dans les deux modes, TOUJOURS utiliser les variables Eva CSS
+.ma-classe {
+  width: var(--64);           // Variable Eva CSS
+  padding: var(--16);         // Variable Eva CSS
+  gap: var(--8);             // Variable Eva CSS
+  font-size: var(--fs-24);   // Variable de font-size
+  background-color: var(--brand); // Variable de couleur
+}
+```
+
+#### ❌ NE JAMAIS FAIRE (DANS LES DEUX MODES)
+```scss
+.ma-classe {
+  width: 64px;               // Valeur fixe interdite
+  padding: 1rem;             // Valeur fixe interdite
+  gap: 8px;                  // Valeur fixe interdite
+  font-size: 24px;           // Valeur fixe interdite
+  background-color: #ff0000; // Couleur hard-codée interdite
+}
+```
+
+### 6. Modes d'Utilisation du Framework
+
+#### 🔧 MODE `$build-class: true` (Classes Utilitaires)
+**HTML** : Utiliser les classes générées directement
+```html
+<!-- Classes Eva CSS générées automatiquement -->
+<div class="_bg-brand w-64 p-16">Contenu</div>
+<p class="_c-dark fs-16">Texte</p>
+<button class="_bg-accent_ hover:_bg-accent">Bouton</button>
+```
+
+**SCSS** : Minimal, seulement pour les styles spécifiques
+```scss
+.ma-classe-specifique {
+  // Utiliser les variables pour les propriétés non-couvertes
+  border: 1px solid var(--brand);
+  transform: rotate(45deg);
+}
+```
+
+#### 🎯 MODE `$build-class: false` (Variables CSS uniquement)
+**HTML** : Classes sémantiques uniquement
+```html
+<!-- PAS de classes utilitaires Eva CSS -->
+<div class="hero-section">Contenu</div>
+<p class="subtitle">Texte</p>
+<button class="primary-button">Bouton</button>
+```
+
+**SCSS** : Utiliser UNIQUEMENT les variables CSS
+```scss
+.hero-section {
+  background-color: var(--brand);
+  width: var(--64);
+  padding: var(--16);
+}
+
+.subtitle {
+  color: var(--dark);
+  font-size: var(--fs-16);
+}
+
+.primary-button {
+  background-color: var(--accent);
+  &:hover {
+    background-color: var(--accent-d);
+  }
+}
+```
+
+#### ❌ ERREURS COURANTES
+```html
+<!-- ERREUR : Classes utilitaires avec $build-class: false -->
+<div class="w-64 p-16">Ne fonctionnera pas</div>
+
+<!-- ERREUR : Variables mal utilisées -->
+<div class="ma-classe" style="width: 64px;">Valeur fixe interdite</div>
+```
+
+### 7. Gestion des Thèmes
+- **UTILISER** `.current-theme` comme classe de base obligatoire
+- **BASCULER** avec `.toggle-theme` pour le mode sombre
+- **CONFIGURER** `$auto-theme-switch: false` pour contrôle manuel
+- **DÉFINIR** les variables de thème dans une classe `.theme-xxx` spécifique
+
+### 8. Performance et Maintenance
+- **OPTIMISER** en ne déclarant que les tailles réellement utilisées dans `$sizes`
+- **RÉUTILISER** les variables existantes avant d'en créer de nouvelles
+- **DOCUMENTER** les nouvelles tailles ajoutées avec des commentaires
+- **COMPILER** après chaque modification avec `npx sass styles/projet.scss:render/projet.css`
+
+### 9. Naming Conventions
+- **Fichiers** : `nomprojet.scss` dans `styles/`
+- **Thèmes** : `.theme-nomprojet`
+- **Classes custom** : préfixer avec le nom du projet si nécessaire
+- **Variables** : suivre la convention Eva CSS `--taille` et `--fs-taille`
+
+### 10. Debug et Validation
+- **VÉRIFIER** que toutes les variables utilisées sont définies dans `$sizes`
+- **CONTRÔLER** la cohérence avec `$build-class` :
+  - Si `true` : vérifier que les classes utilitaires existent dans le HTML
+  - Si `false` : vérifier qu'aucune classe utilitaire Eva CSS n'est utilisée dans le HTML
+- **TESTER** le toggle de thème fonctionne correctement
+- **VALIDER** que les couleurs respectent les contrastes accessibilité
+- **COMPILER** sans erreurs SCSS
+- **OPTIMISER** la taille du CSS final selon le mode choisi
+
+## Workflow Recommandé
+1. **Analyser le design** (Figma/maquette)
+2. **Décider du mode** : `$build-class: true` ou `false` selon le projet
+3. **Extraire TOUTES les tailles utilisées** → `$sizes`
+4. **Extraire les couleurs** → convertir en OKLCH → variables de thème
+5. **Définir le thème** `.theme-projet`
+6. **Développer selon le mode choisi** :
+   - Si `true` : utiliser les classes utilitaires Eva CSS dans le HTML
+   - Si `false` : créer des classes sémantiques et utiliser les variables CSS
+7. **Compiler et tester**
+8. **Valider la cohérence** du mode choisi 

@@ -1,14 +1,4 @@
-/* BUILD EVA CSS FRAMEWORK
-@import "./framework/reset";
-@import "./framework/eva";
-@import "./framework/colors";
-@import "./framework/theme";
-@import "./framework/components";
-@import "./framework/utils";
-@import "./framework/ballzzz";
-@import "./framework/font";
-@import "./framework/index"; */
-/* BUILD ONLY FLUID CSS VAR */
+/* BUILD EVA CSS FRAMEWORK */
 :root {
   --24__: clamp(0.5rem, 2.37vw - 0.84rem, 1.67rem);
   --24_: clamp(0.52rem, 1.26vw + 0.38rem, 1.67rem);
@@ -43,6 +33,9 @@
   --fs-60__: clamp(1.61rem, 3.14vw + 0.94rem, 4.17rem);
   --fs-60_: clamp(2.09rem, 2.09vw + 1.88rem, 4.17rem);
   --fs-60: clamp(2.72rem, 1.04vw + 2.82rem, 4.17rem);
+  --fs-80__: clamp(2.14rem, 4.18vw + 1.25rem, 5.56rem);
+  --fs-80_: clamp(2.78rem, 2.78vw + 2.5rem, 5.56rem);
+  --fs-80: clamp(3.61rem, 1.39vw + 3.76rem, 5.56rem);
   --fs-120__: clamp(3.21rem, 6.26vw + 1.88rem, 8.33rem);
   --fs-120_: clamp(4.17rem, 4.17vw + 3.75rem, 8.33rem);
   --fs-120: clamp(5.42rem, 2.08vw + 5.64rem, 8.33rem);
@@ -162,6 +155,18 @@
 
 .fs-60 {
   font-size: var(--fs-60);
+}
+
+.fs-80__ {
+  font-size: var(--fs-80__);
+}
+
+.fs-80_ {
+  font-size: var(--fs-80_);
+}
+
+.fs-80 {
+  font-size: var(--fs-80);
 }
 
 .fs-120__ {

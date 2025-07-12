@@ -2,17 +2,22 @@
   "name": "fluid-ui",
   "version": "1.0.0",
   "scripts": {
-    "watch": "npx sass --watch styles/main.scss:styles/main.css styles/projets/:styles/render/ --style expanded",
-    "build-css": "npx sass styles/main.scss:styles/main.css styles/projets/:styles/render/ --style expanded",
+    "watch": "npx sass --watch styles/main.scss:styles/main.css --style expanded",
+    "watch-projects": "node scripts/watch-projects.js",
+    "build-css": "npx sass styles/main.scss:styles/main.css --style expanded",
     "build": "npm run build-css && npm run purge",
     "purge": "node scripts/purge-css.js"
   },
   "devDependencies": {
+    "culori": "^4.0.2",
+    "glob": "^10.3.10",
     "sass": "^1.49.0",
     "stylelint": "^14.14.1",
     "stylelint-config-rational-order": "^0.1.2",
     "stylelint-config-standard-scss": "^3.0.0",
-    "stylelint-order": "^5.0.0",
-    "glob": "^10.3.10"
+    "stylelint-order": "^5.0.0"
+  },
+  "dependencies": {
+    "claude-talk-to-figma-mcp": "^0.5.3"
   }
 }

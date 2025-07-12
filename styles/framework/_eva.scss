@@ -15,6 +15,12 @@ $screen: 1440;
 
 $eva: 0;
 
+// Variable pour contrôler la génération des classes
+$no-fluid-suffix: true !default; // activate var PX & REM no fluid suffix
+$build-class: true !default; // false to use only CSS var
+$custom-class: false !default; // true to use custom class for each property
+$name-by-size: true !default; // true = use size values, false = use index
+
 
 // Y
 //$sizes: 5, 15, 30, 40, 70, 145, 180, 400, 540;
