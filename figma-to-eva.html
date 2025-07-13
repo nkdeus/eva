@@ -82,6 +82,7 @@
           <a href="#size-system" class="h-52 px-12 flex y center _c-brand br-12">Size Variables</a>
           <a href="#theme-management" class="h-52 px-12 flex y center _c-brand br-12">Theme Management</a>
           <a href="#practical-example" class="h-52 px-12 flex y center _c-brand br-12">Practical Example</a>
+          <a href="#live-demo" class="h-52 px-12 flex y center _bg-accent _c-dark br-12">Live Demo</a>
         </div>
       </p>
   </section>
@@ -444,15 +445,15 @@ mcp_Figma_get_variable_defs(nodeId: "1:2")</pre>
         </div>
         
         <div class="p-32_ border thin br-1">
-          <span class="bold">Exemple d'extraction JSON :</span>
+          <span class="bold">Exemple d'extraction JSON (Projet Ulysse) :</span>
           <pre class="fs-12 mt-12">{
-  "dark": "#252525",
-  "H1": "120",
-  "p": "16", 
-  "brand": "#ff0000",
-  "extra": "#ffe500",
-  "accent": "#7300ff",
-  "light": "#f3f3f3"
+  "sizes": "4, 8, 16, 32, 54, 64, 120, 141",
+  "font-sizes": "10, 16, 36, 120",
+  "brand": "#00d4ff",
+  "accent": "#e5ff00", 
+  "extra": "#5f6769",
+  "light": "#f4f5eb",
+  "dark": "#232526"
 }</pre>
         </div>
       </div>
@@ -481,12 +482,12 @@ node scripts/hex-to-oklch.js #ff0000 #ffe500 #7300ff</pre>
         </div>
         
         <div class="p-32_ border thin br-1">
-          <span class="bold">Résultat de conversion :</span>
-          <pre class="fs-12 mt-12">oklch(62.8% 0.258 29.23)  // brand
-oklch(91.5% 0.191 101.03) // extra
-oklch(51.7% 0.293 289.66) // accent
-oklch(96.4% 0.000 0)      // light
-oklch(26.4% 0.000 0)      // dark</pre>
+          <span class="bold">Résultat de conversion (Projet Ulysse) :</span>
+          <pre class="fs-12 mt-12">oklch(84.1% 0.155 200.4)  // brand (#00d4ff)
+oklch(93.6% 0.202 101.8)  // accent (#e5ff00)
+oklch(42.8% 0.008 220.3)  // extra (#5f6769)
+oklch(95.8% 0.018 84.6)   // light (#f4f5eb)
+oklch(15.2% 0.005 220.3)  // dark (#232526)</pre>
         </div>
       </div>
       
@@ -1085,6 +1086,177 @@ $class-config: (
         </div>
       </div>
     </div>
+  </section>
+
+  <section id="live-demo" class="px-220__ py-136 flex y g-20 w-full">
+    <h2 class="fs-52__ _bg-brand pr-356__ lh-1 ttu fwd-13 f-scale offset">
+      <span class="_c-light">Démo Live : Projet Ulysse</span>
+    </h2>
+    <p class="fs-16">
+      Visualisez le résultat final en action : le projet Ulysse intégrant toutes les fonctionnalités EVA CSS.
+    </p>
+    
+    <div class="flex y g-32 w-full">
+      <div class="flex y g-20 w-full">
+        <h3 class="fs-24_ _c-brand mt-32">Responsive Preview</h3>
+        
+        <div class="projects-demo-container flex x wrap g-32 center">
+          <!-- Desktop Preview -->
+          <div class="device-preview desktop-preview flex y g-8 center">
+           
+            <div class="project-preview-iframe-container desktop-frame">
+              <iframe 
+                src="projects/ulysse/index.html" 
+                title="Ulysse Project - Desktop View">
+              </iframe>
+            </div>
+          </div>
+          
+          <!-- Tablet Preview -->
+          <div class="device-preview tablet-preview flex y g-8 center">
+           
+            <div class="project-preview-iframe-container tablet-frame">
+              <iframe 
+                src="projects/ulysse/index.html" 
+      
+                
+                title="Ulysse Project - Tablet View">
+              </iframe>
+            </div>
+          </div>
+          
+          <!-- Mobile Preview -->
+          <div class="device-preview mobile-preview flex y g-8 center">
+            
+            <div class="project-preview-iframe-container mobile-frame">
+              <iframe 
+                src="projects/ulysse/index.html" 
+              
+                
+                title="Ulysse Project - Mobile View">
+              </iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="flex y g-20">
+        <h3 class="fs-24_ _c-brand mt-32">Accès Direct</h3>
+        
+        <div class="flex x wrap g-20">
+          <a href="projects/ulysse/index.html" target="_blank" class="p-32_ border thin br-1 flex y g-8 _c-brand no-underline hover:_bg-brand__ transition">
+            <span class="bold">Ouvrir le Projet Ulysse</span>
+            <p class="fs-14 _c-dark_">Découvrez l'intégration complète Figma → EVA CSS</p>
+          </a>
+          
+          <a href="https://www.figma.com/design/91DhBPs6br8UVhxEdiuJFd/Ulysse?node-id=0-1&t=Yk0cWMSeR8DGzApw-1" target="_blank" class="p-32_ border thin br-1 flex y g-8 _c-brand no-underline hover:_bg-extra__ transition">
+            <span class="bold">Voir le Design Figma</span>
+            <p class="fs-14 _c-dark_">Comparez avec le design original dans Figma</p>
+          </a>
+          
+          <div class="p-32_ border thin br-1 flex y g-8">
+            <span class="bold">Fonctionnalités démontrées</span>
+            <ul class="fs-12 _c-dark_">
+              <li>Variables fluides responsive</li>
+              <li>Système de couleurs OKLCH</li>
+              <li>Toggle dark/light mode</li>
+              <li>Correspondance exacte Figma → CSS</li>
+              <li>Palette de couleurs interactive</li>
+            </ul>
+          </div>
+          
+          <div class="p-32_ border thin br-1 flex y g-8">
+            <span class="bold">Configuration utilisée</span>
+            <pre class="fs-11">// Projet Ulysse
+$build-class: false; // Variables CSS
+$sizes: 4, 8, 16, 32, 54, 64, 120, 141;
+$font-sizes: 10, 16, 36, 120;
+
+// Couleurs OKLCH
+#00d4ff → oklch(84.1% 0.155 200.4)
+#e5ff00 → oklch(93.6% 0.202 101.8)
+#5f6769 → oklch(42.8% 0.008 220.3)</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <style >
+      .projects-demo-container {
+        height: 100vh;
+        width: 100%;
+        position: relative;
+
+        @media (max-width: 1024px) {
+          height: 60vh;
+          scale: 0.5;
+        }
+
+        @media (max-width: 768px) {
+          height: 50vh;
+          scale: 0.4;
+        }
+
+        @media (max-width: 480px) {
+          height: 30vh;
+          scale: 0.2;
+        }
+      
+      }
+      
+      .device-preview {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    
+      }
+
+      .device-preview iframe{
+        width: 100%;
+        height: 100%;
+      
+        transform-origin: 0 0;
+        border: 2px solid var(--brand_);
+        border-radius: 8px;
+
+     
+      }
+      
+      .project-preview-iframe-container {
+        overflow: hidden;
+        background: var(--light);
+        border-radius: 8px;
+      }
+      
+      .desktop-frame {
+        width: 1440px;
+        height: 800px;
+        scale: 0.5;
+        transform: translate(0%, 0%);
+      }
+      
+      .tablet-frame {
+        height: 460px;
+        width: 614px;
+        scale: 0.5;
+        transform: translate(150%, 0%);
+      }
+      
+      .mobile-frame {
+        width: 400px;
+        height: 667px;
+        scale: 0.5;
+        transform: translate(-200%, 0%);
+      }
+      
+      h2 span{
+        line-break: anywhere;
+      }
+        
+
+      
+    </style>
   </section>
 
   <section class="px-220__ py-136 flex y g-20">
