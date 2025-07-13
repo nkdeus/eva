@@ -14,7 +14,9 @@ $wdth-step: 10;
   --body-font: "Noto Sans Display";
 
   --title-weight: 700;
-  --sub-title-weight: 500;
+  --sub-title-weight: 200;
+  --sub-title-width: 600;
+  --sub-title-spacing: 0.1em;
   --body-weight: 400;
 
   $wght-steps: math.div(($wght-max - $wght-min), $wght-step) + 1;

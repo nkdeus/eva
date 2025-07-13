@@ -8,130 +8,261 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;900&display=swap" rel="stylesheet">
 </head>
 <body class="current-theme theme-ulysse">
-  <main class="hero">
-    <div class="content">
+  <!-- Section Hero (nommage Figma: section-hero) -->
+  <main class="hero" data-name="section-hero">
+    <!-- Content group avec gap-4 (nommage Figma: content) -->
+    <div class="content" data-name="content">
       <h1 class="title">
         <span class="title-regular">Ulysse</span><span class="title-bold">2029</span>
       </h1>
       <p class="subtitle">FIGMA - CLAUDE - EVACSS</p>
     </div>
     
-    <div class="colors">
-      <div class="color-circle brand-circle"></div>
-      <div class="color-circle extra-circle"></div>
-      <div class="color-circle accent-circle"></div>
+    <!-- Colors group avec gap-32 (nommage Figma: colors) -->
+    <div class="colors" data-name="colors">
+      <div class="color-circle brand-circle" data-name="brand"></div>
+      <div class="color-circle extra-circle" data-name="extra"></div>
+      <div class="color-circle accent-circle" data-name="accent"></div>
     </div>
     
-    <a href="#" class="btn-toggle-theme" id="toggleTheme">
+    <!-- Toggle theme button (nommage Figma: a:toggle-theme) -->
+    <a href="#" class="btn-toggle-theme" id="toggleTheme" data-name="a:toggle-theme">
       <div class="toggle-circle">
-        <span class="toggle-text">D</span>
+        <!-- Icône sun (visible en mode light) -->
+        <svg class="toggle-icon sun-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/>
+          <path d="m12 2 0 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path d="m12 20 0 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path d="m4.93 4.93 1.41 1.41" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path d="m17.66 17.66 1.41 1.41" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path d="m2 12 2 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path d="m20 12 2 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path d="m6.34 17.66-1.41 1.41" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path d="m19.07 4.93-1.41 1.41" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        
+        <!-- Icône moon (visible en mode dark) -->
+        <svg class="toggle-icon moon-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
       </div>
     </a>
   </main>
 
-  <section class="palette-section">
-    <div class="palette-group palette-brand">
-      <span class="palette-label">BRAND</span>
-      <div class="palette-circles">
-        <div class="palette-item">
-          <div class="palette-circle brand"></div>
-          <div class="palette-variation-label">BRAND</div>
+  <!-- Section Theme avec py-120 (nommage Figma: section-theme) -->
+  <section class="palette-section" data-name="section-theme">
+    <!-- Groupe principal avec gap-64 et py-120 (nommage Figma: g-64 py-120) -->
+    <div class="palette-group palette-brand" data-name="g-64 py-120">
+      <!-- Titre et description avec gap-16 (nommage Figma: g-16) -->
+      <div class="palette-header" data-name="g-16">
+        <span class="palette-label">--BRAND</span>
+        <p class="palette-description">Brand color + 3 shades + 4 varations</p>
+      </div>
+      
+      <!-- Cercles avec gap-32 (nommage Figma: g-32) -->
+      <div class="palette-circles" data-name="g-32">
+        <!-- Variations classiques avec gap-16 (nommage Figma: g-16) -->
+        <div class="palette-item" data-name="g-16">
+          <div class="palette-circle brand" data-name="64"></div>
+          <div class="palette-variation-label">--brand</div>
         </div>
-        <div class="palette-item">
-          <div class="palette-circle brand_"></div>
-          <div class="palette-variation-label">BRAND_</div>
+        <div class="palette-item" data-name="g-16">
+          <div class="palette-circle brand_" data-name="64"></div>
+          <div class="palette-variation-label">--brand_</div>
         </div>
-        <div class="palette-item">
-          <div class="palette-circle brand__"></div>
-          <div class="palette-variation-label">BRAND__</div>
+        <div class="palette-item" data-name="g-16">
+          <div class="palette-circle brand__" data-name="64"></div>
+          <div class="palette-variation-label">--brand__</div>
         </div>
-        <div class="palette-item">
-          <div class="palette-circle brand___"></div>
-          <div class="palette-variation-label">BRAND___</div>
+        <div class="palette-item" data-name="g-16">
+          <div class="palette-circle brand___" data-name="64"></div>
+          <div class="palette-variation-label">--brand___</div>
+        </div>
+        
+        <!-- Nouvelles variations 2025 avec gap-16 (nommage Figma: g-16) -->
+        <div class="palette-item" data-name="g-16">
+          <div class="palette-circle brand-d" data-name="64"></div>
+          <div class="palette-variation-label">--brand-d</div>
+        </div>
+        <div class="palette-item" data-name="g-16">
+          <div class="palette-circle brand-d_" data-name="64"></div>
+          <div class="palette-variation-label">--brand-d_</div>
+        </div>
+        <div class="palette-item" data-name="g-16">
+          <div class="palette-circle brand-b" data-name="64"></div>
+          <div class="palette-variation-label">--brand-b</div>
+        </div>
+        <div class="palette-item" data-name="g-16">
+          <div class="palette-circle brand-b_" data-name="64"></div>
+          <div class="palette-variation-label">--brand-b_</div>
         </div>
       </div>
     </div>
-    <div class="palette-group palette-extra">
-      <span class="palette-label">EXTRA</span>
-      <div class="palette-circles">
-        <div class="palette-item">
-          <div class="palette-circle extra"></div>
-          <div class="palette-variation-label">EXTRA</div>
+
+    <!-- Extra palette group (structure similaire pour cohérence) -->
+    <div class="palette-group palette-extra" data-name="g-64 py-120">
+      <div class="palette-header" data-name="g-16">
+        <span class="palette-label">--EXTRA</span>
+        <p class="palette-description">Extra color + 3 shades + 4 varations</p>
+      </div>
+      <div class="palette-circles" data-name="g-32">
+        <div class="palette-item" data-name="g-16">
+          <div class="palette-circle extra" data-name="64"></div>
+          <div class="palette-variation-label">--extra</div>
         </div>
-        <div class="palette-item">
-          <div class="palette-circle extra_"></div>
-          <div class="palette-variation-label">EXTRA_</div>
+        <div class="palette-item" data-name="g-16">
+          <div class="palette-circle extra_" data-name="64"></div>
+          <div class="palette-variation-label">--extra_</div>
         </div>
-        <div class="palette-item">
-          <div class="palette-circle extra__"></div>
-          <div class="palette-variation-label">EXTRA__</div>
+        <div class="palette-item" data-name="g-16">
+          <div class="palette-circle extra__" data-name="64"></div>
+          <div class="palette-variation-label">--extra__</div>
         </div>
-        <div class="palette-item">
-          <div class="palette-circle extra___"></div>
-          <div class="palette-variation-label">EXTRA___</div>
+        <div class="palette-item" data-name="g-16">
+          <div class="palette-circle extra___" data-name="64"></div>
+          <div class="palette-variation-label">--extra___</div>
+        </div>
+        <div class="palette-item" data-name="g-16">
+          <div class="palette-circle extra-d" data-name="64"></div>
+          <div class="palette-variation-label">--extra-d</div>
+        </div>
+        <div class="palette-item" data-name="g-16">
+          <div class="palette-circle extra-d_" data-name="64"></div>
+          <div class="palette-variation-label">--extra-d_</div>
+        </div>
+        <div class="palette-item" data-name="g-16">
+          <div class="palette-circle extra-b" data-name="64"></div>
+          <div class="palette-variation-label">--extra-b</div>
+        </div>
+        <div class="palette-item" data-name="g-16">
+          <div class="palette-circle extra-b_" data-name="64"></div>
+          <div class="palette-variation-label">--extra-b_</div>
         </div>
       </div>
     </div>
-    <div class="palette-group palette-accent">
-      <span class="palette-label">ACCENT</span>
-      <div class="palette-circles">
-        <div class="palette-item">
-          <div class="palette-circle accent"></div>
-          <div class="palette-variation-label">ACCENT</div>
+
+    <!-- Accent palette group -->
+    <div class="palette-group palette-accent" data-name="g-64 py-120">
+      <div class="palette-header" data-name="g-16">
+        <span class="palette-label">--ACCENT</span>
+        <p class="palette-description">Accent color + 3 shades + 4 varations</p>
+      </div>
+      <div class="palette-circles" data-name="g-32">
+        <div class="palette-item" data-name="g-16">
+          <div class="palette-circle accent" data-name="64"></div>
+          <div class="palette-variation-label">--accent</div>
         </div>
-        <div class="palette-item">
-          <div class="palette-circle accent_"></div>
-          <div class="palette-variation-label">ACCENT_</div>
+        <div class="palette-item" data-name="g-16">
+          <div class="palette-circle accent_" data-name="64"></div>
+          <div class="palette-variation-label">--accent_</div>
         </div>
-        <div class="palette-item">
-          <div class="palette-circle accent__"></div>
-          <div class="palette-variation-label">ACCENT__</div>
+        <div class="palette-item" data-name="g-16">
+          <div class="palette-circle accent__" data-name="64"></div>
+          <div class="palette-variation-label">--accent__</div>
         </div>
-        <div class="palette-item">
-          <div class="palette-circle accent___"></div>
-          <div class="palette-variation-label">ACCENT___</div>
+        <div class="palette-item" data-name="g-16">
+          <div class="palette-circle accent___" data-name="64"></div>
+          <div class="palette-variation-label">--accent___</div>
+        </div>
+        <div class="palette-item" data-name="g-16">
+          <div class="palette-circle accent-d" data-name="64"></div>
+          <div class="palette-variation-label">--accent-d</div>
+        </div>
+        <div class="palette-item" data-name="g-16">
+          <div class="palette-circle accent-d_" data-name="64"></div>
+          <div class="palette-variation-label">--accent-d_</div>
+        </div>
+        <div class="palette-item" data-name="g-16">
+          <div class="palette-circle accent-b" data-name="64"></div>
+          <div class="palette-variation-label">--accent-b</div>
+        </div>
+        <div class="palette-item" data-name="g-16">
+          <div class="palette-circle accent-b_" data-name="64"></div>
+          <div class="palette-variation-label">--accent-b_</div>
         </div>
       </div>
     </div>
-    <div class="palette-group palette-dark">
-      <span class="palette-label">DARK</span>
-      <div class="palette-circles">
-        <div class="palette-item">
-          <div class="palette-circle dark"></div>
-          <div class="palette-variation-label">DARK</div>
+
+    <!-- Dark palette group -->
+    <div class="palette-group palette-dark" data-name="g-64 py-120">
+      <div class="palette-header" data-name="g-16">
+        <span class="palette-label">--DARK</span>
+        <p class="palette-description">Dark color + 3 shades + 4 varations</p>
+      </div>
+      <div class="palette-circles" data-name="g-32">
+        <div class="palette-item" data-name="g-16">
+          <div class="palette-circle dark" data-name="64"></div>
+          <div class="palette-variation-label">--dark</div>
         </div>
-        <div class="palette-item">
-          <div class="palette-circle dark_"></div>
-          <div class="palette-variation-label">DARK_</div>
+        <div class="palette-item" data-name="g-16">
+          <div class="palette-circle dark_" data-name="64"></div>
+          <div class="palette-variation-label">--dark_</div>
         </div>
-        <div class="palette-item">
-          <div class="palette-circle dark__"></div>
-          <div class="palette-variation-label">DARK__</div>
+        <div class="palette-item" data-name="g-16">
+          <div class="palette-circle dark__" data-name="64"></div>
+          <div class="palette-variation-label">--dark__</div>
         </div>
-        <div class="palette-item">
-          <div class="palette-circle dark___"></div>
-          <div class="palette-variation-label">DARK___</div>
+        <div class="palette-item" data-name="g-16">
+          <div class="palette-circle dark___" data-name="64"></div>
+          <div class="palette-variation-label">--dark___</div>
+        </div>
+        <div class="palette-item" data-name="g-16">
+          <div class="palette-circle dark-d" data-name="64"></div>
+          <div class="palette-variation-label">--dark-d</div>
+        </div>
+        <div class="palette-item" data-name="g-16">
+          <div class="palette-circle dark-d_" data-name="64"></div>
+          <div class="palette-variation-label">--dark-d_</div>
+        </div>
+        <div class="palette-item" data-name="g-16">
+          <div class="palette-circle dark-b" data-name="64"></div>
+          <div class="palette-variation-label">--dark-b</div>
+        </div>
+        <div class="palette-item" data-name="g-16">
+          <div class="palette-circle dark-b_" data-name="64"></div>
+          <div class="palette-variation-label">--dark-b_</div>
         </div>
       </div>
     </div>
-    <div class="palette-group palette-light">
-      <span class="palette-label">LIGHT</span>
-      <div class="palette-circles">
-        <div class="palette-item">
-          <div class="palette-circle light"></div>
-          <div class="palette-variation-label">LIGHT</div>
+
+    <!-- Light palette group -->
+    <div class="palette-group palette-light" data-name="g-64 py-120">
+      <div class="palette-header" data-name="g-16">
+        <span class="palette-label">--LIGHT</span>
+        <p class="palette-description">Light color + 3 shades + 4 varations</p>
+      </div>
+      <div class="palette-circles" data-name="g-32">
+        <div class="palette-item" data-name="g-16">
+          <div class="palette-circle light" data-name="64"></div>
+          <div class="palette-variation-label">--light</div>
         </div>
-        <div class="palette-item">
-          <div class="palette-circle light_"></div>
-          <div class="palette-variation-label">LIGHT_</div>
+        <div class="palette-item" data-name="g-16">
+          <div class="palette-circle light_" data-name="64"></div>
+          <div class="palette-variation-label">--light_</div>
         </div>
-        <div class="palette-item">
-          <div class="palette-circle light__"></div>
-          <div class="palette-variation-label">LIGHT__</div>
+        <div class="palette-item" data-name="g-16">
+          <div class="palette-circle light__" data-name="64"></div>
+          <div class="palette-variation-label">--light__</div>
         </div>
-        <div class="palette-item">
-          <div class="palette-circle light___"></div>
-          <div class="palette-variation-label">LIGHT___</div>
+        <div class="palette-item" data-name="g-16">
+          <div class="palette-circle light___" data-name="64"></div>
+          <div class="palette-variation-label">--light___</div>
+        </div>
+        <div class="palette-item" data-name="g-16">
+          <div class="palette-circle light-d" data-name="64"></div>
+          <div class="palette-variation-label">--light-d</div>
+        </div>
+        <div class="palette-item" data-name="g-16">
+          <div class="palette-circle light-d_" data-name="64"></div>
+          <div class="palette-variation-label">--light-d_</div>
+        </div>
+        <div class="palette-item" data-name="g-16">
+          <div class="palette-circle light-b" data-name="64"></div>
+          <div class="palette-variation-label">--light-b</div>
+        </div>
+        <div class="palette-item" data-name="g-16">
+          <div class="palette-circle light-b_" data-name="64"></div>
+          <div class="palette-variation-label">--light-b_</div>
         </div>
       </div>
     </div>

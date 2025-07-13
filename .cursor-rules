@@ -2,15 +2,81 @@
 
 ## Principes Fondamentaux d'Eva CSS
 
-### 1. Système de Tailles Fluides
-- **TOUJOURS** utiliser les variables CSS générées : `var(--size)`, `var(--size_)`, `var(--size__)`, `var(--size-)`
-- **NE JAMAIS** utiliser de valeurs fixes en px/rem dans le CSS
-- **CONFIGURER** `$sizes` dans chaque projet avec seulement les tailles réellement utilisées
-- **PRÉFÉRER** les suffixes selon le contexte :
-  - `__` : minimum (espacements très serrés)
-  - `_` : réduit (espacement léger)
-  - `` : standard (utilisation normale)
-  - `-` : étendu (espacement généreux)
+### 1. Système de Tailles Fluides avec Modificateurs Responsifs Intelligents
+
+#### 🧠 Logique des Modificateurs Automatiques
+EVA CSS applique automatiquement des modificateurs selon la valeur numérique :
+
+| Plage de valeurs | Modificateur | Adaptation | Cas d'usage |
+|------------------|--------------|------------|-------------|
+| **< 30** | *(aucun)* | Stable | Micro espacements (4px, 8px, 16px) |
+| **30-80** | `_` | Légère | Espacements moyens, font-sizes standards |
+| **> 80** (font-sizes) | `__` | Forte | Grands titres uniquement |
+
+#### ✅ UTILISATION CORRECTE (Selon la logique automatique)
+```scss
+// Tailles stables (< 30) - AUCUN modificateur
+gap: var(--4);           // 4px reste 4px sur mobile
+padding: var(--16);      // 16px reste 16px sur mobile  
+border-width: var(--8);  // 8px reste 8px sur mobile
+
+// Adaptation légère (30-80) - Modificateur _
+gap: var(--32_);         // 32px → réduction légère sur mobile
+padding: var(--64_);     // 64px → réduction légère sur mobile
+width: var(--54_);       // 54px → réduction légère sur mobile
+
+// Font-sizes standards (30-80) - Modificateur _
+font-size: var(--fs-36_); // 36px → réduction légère sur mobile
+font-size: var(--fs-48_); // 48px → réduction légère sur mobile
+
+// Grands titres (> 80) - Modificateur __ (adaptation forte)
+font-size: var(--fs-120__); // 120px → réduction forte sur mobile
+font-size: var(--fs-100__); // 100px → réduction forte sur mobile
+```
+
+#### ⚙️ CONFIGURATION SCSS - Modificateurs Automatiques
+```scss
+// Le système applique automatiquement les modificateurs selon les valeurs
+$sizes: 4, 8, 16, 32, 54, 64, 120, 141;
+// Résultat automatique :
+// - var(--4), var(--8), var(--16) → stables
+// - var(--32_), var(--54_), var(--64_), var(--120_), var(--141_) → adaptation légère
+
+$font-sizes: 10, 16, 36, 120;
+// Résultat automatique :
+// - var(--fs-10), var(--fs-16) → stables  
+// - var(--fs-36_) → adaptation légère
+// - var(--fs-120__) → adaptation forte
+```
+
+#### 🔄 Modificateurs Manuels (Override si nécessaire)
+```scss
+// Forcer une adaptation sur une petite valeur (rare)
+padding: var(--16_);     // Force l'adaptation sur 16px
+
+// Forcer la stabilité sur une grande valeur (très rare)
+width: var(--64);        // Force 64px à rester fixe
+
+// Adaptation forte manuelle sur font-size moyenne
+font-size: var(--fs-60__); // Force adaptation forte sur 60px
+```
+
+#### 🚫 ERREURS COURANTES
+```scss
+// ❌ Utiliser des modificateurs incohérents
+gap: var(--4_);          // Inutile : 4px doit rester stable
+font-size: var(--fs-120_); // Erreur : 120px a besoin de __
+
+// ❌ Ignorer la logique automatique
+width: var(--64__);      // Erreur : 64px utilise _ pas __
+padding: var(--32);      // Suboptimal : 32px devrait avoir _
+```
+
+#### 💡 RÈGLE D'OR : Suivre la Logique Automatique
+1. **Valeurs < 30** → Pas de modificateur (stabilité)
+2. **Valeurs 30-80** → Modificateur `_` (adaptation légère)  
+3. **Font-sizes > 80** → Modificateur `__` (adaptation forte)
+4. **Override uniquement si justifié** par le design spécifique
 
 ### 2. Système de Couleurs OKLCH
 - **UTILISER** les variables de thème : `var(--brand)`, `var(--accent)`, `var(--extra)`, `var(--dark)`, `var(--light)`

@@ -6571,7 +6571,8 @@ h4 {
   padding: 0;
   font-optical-sizing: auto;
   font-style: normal;
-  font-variation-settings: "wght" var(--sub-title-weight);
+  font-variation-settings: "wght" var(--sub-title-weight), "wdth" var(--sub-title-width);
+  letter-spacing: var(--sub-title-spacing);
   font-family: var(--title-font), sans-serif;
 }
 
@@ -6882,7 +6883,9 @@ img {
   --title-font: "scale-variable";
   --body-font: "Noto Sans Display";
   --title-weight: 700;
-  --sub-title-weight: 500;
+  --sub-title-weight: 200;
+  --sub-title-width: 600;
+  --sub-title-spacing: 0.1em;
   --body-weight: 400;
   --f-wg-1: 200;
   --f-wg-2: 300;

@@ -11,6 +11,141 @@ Le processus permet de :
 4. Configurer EVAcss avec ces paramètres
 5. Générer un projet autonome et intégré
 
+## 📖 Guide de Lecture des Fichiers Figma pour EVA CSS
+
+### 🔍 Identification des Groupes et Nommages
+
+Dans Figma, les designers utilisent des conventions de nommage spécifiques que nous devons respecter à la lettre :
+
+**Exemples de nommages Figma :**
+- `g-16` = Gap de 16px → Utiliser `var(--16)`
+- `g-32` = Gap de 32px → Utiliser `var(--32_)` (adaptation automatique)
+- `w-64` = Width de 64px → Utiliser `var(--64_)`
+- `p-24` = Padding de 24px → Utiliser `var(--24)`
+
+### ⚡ Règle de Correspondance Exacte
+
+**🔥 RÈGLE D'OR :** Le chiffre dans le nommage Figma doit correspondre exactement à la variable CSS.
+
+```scss
+// ✅ CORRECT
+// Figma: g-16 → CSS: var(--16)
+gap: var(--16); // correspond au nommage Figma g-16
+
+// ❌ INCORRECT  
+// Figma: g-16 → CSS: var(--4)
+gap: var(--4); // ❌ ERREUR : ne correspond pas au g-16 du Figma
+```
+
+### 📏 Extraction des Tailles depuis Figma
+
+**1. Dimensions des éléments :**
+- Largeur/hauteur affichées dans l'inspecteur Figma
+- Extraire TOUTES les valeurs uniques utilisées
+
+**2. Espacements (gaps, padding, margin) :**
+- Regarder les nommages des groupes : `g-16`, `g-32`, etc.
+- Mesurer les distances entre éléments
+- Noter les espacements intérieurs des conteneurs
+
+**3. Typographie :**
+- Font-size affiché pour chaque élément de texte
+- Identifier les tailles récurrentes (H1, H2, paragraphes, etc.)
+
+### 🟢 Exemple Concret : Palette de Couleurs Ulysse
+
+| Élément Figma                  | Nommage/Taille Figma | Variable EVA CSS | Modificateur |
+|--------------------------------|----------------------|------------------|--------------|
+| Cercle principal (hero)        | 141px                | `var(--141_)`    | `_` (>30)    |
+| Cercle palette (color-list)    | 64px                 | `var(--64_)`     | `_` (>30)    |
+| Gap entre groups               | g-32                 | `var(--32_)`     | `_` (>30)    |
+| Gap label/cercles              | g-16                 | `var(--16)`      | stable (<30) |
+| Gap entre cercles              | g-8                  | `var(--8)`       | stable (<30) |
+| Gap cercle/label sous          | g-4                  | `var(--4)`       | stable (<30) |
+
+### 🎨 Lecture des Couleurs Figma
+
+**Couleurs principales :**
+- Identifier chaque couleur avec son nom : `brand`, `accent`, `extra`, `light`, `dark`
+- Noter les valeurs HEX exactes
+- Convertir en OKLCH avec `scripts/hex-to-oklch.js`
+
+**Variables de couleur générées automatiquement :**
+```scss
+// Pour chaque couleur, EVA CSS génère 8 variations :
+var(--brand)     // Couleur de base
+var(--brand_)    // 65% opacité  
+var(--brand__)   // 35% opacité
+var(--brand___)  // 5% opacité
+var(--brand-d)   // Plus sombre
+var(--brand-d_)  // Beaucoup plus sombre
+var(--brand-b)   // Plus brillant
+var(--brand-b_)  // Beaucoup plus brillant
+```
+
+### 🔧 Workflow d'Intégration
+
+#### 1. **Analyse du Figma**
+```bash
+# Utiliser l'outil MCP Figma pour extraction automatique
+mcp_Figma_get_code(nodeId: "1:2")
+mcp_Figma_get_variable_defs(nodeId: "1:2")
+```
+
+#### 2. **Extraction manuelle des données**
+- **Sizes** : `4, 8, 16, 32, 54, 64, 120, 141`
+- **Font-sizes** : `10, 16, 36, 120`
+- **Couleurs** : `#00d4ff, #5f6769, #e5ff00, #232526, #f4f5eb`
+
+#### 3. **Configuration SCSS**
+```scss
+// Correspondance exacte avec les valeurs Figma
+$sizes: 4, 8, 16, 32, 54, 64, 120, 141;
+$font-sizes: 10, 16, 36, 120;
+```
+
+#### 4. **Application dans le CSS**
+```scss
+// Utiliser les nommages Figma comme référence
+.palette-item {
+  gap: var(--16); // Figma: g-16 ✅
+}
+
+.palette-circles {
+  gap: var(--32_); // Figma: g-32 ✅ (avec adaptif)
+}
+```
+
+### 🚫 Erreurs Courantes à Éviter
+
+❌ **Mauvaise interprétation du nommage**
+```scss
+// Figma: g-16 mais utilisation incorrecte
+gap: var(--4); // ❌ Ne correspond pas
+```
+
+❌ **Oublier les modificateurs automatiques**
+```scss
+// Valeur 32 sans modificateur adaptatif
+gap: var(--32); // ❌ Devrait être var(--32_)
+```
+
+❌ **Valeurs approximatives**
+```scss
+// Figma: 64px mais approximation
+width: var(--60); // ❌ Utiliser la valeur exacte var(--64_)
+```
+
+### ✅ Règles de Validation
+
+1. **🎯 Correspondance exacte** : Nommage Figma = Variable CSS
+2. **🔢 Tailles complètes** : Toutes les valeurs Figma dans `$sizes`
+3. **🎨 Couleurs exactes** : Valeurs HEX converties en OKLCH
+4. **📱 Modificateurs appropriés** : Système automatique selon valeurs
+5. **🚫 Zéro CSS inline** : Tout via variables et classes
+
+Perfect pour une fidélité design parfaite ! 🎨
+
 ## 🔧 Choix du Mode d'Utilisation
 
 ### Mode Classes Utilitaires (`$build-class: true`)
@@ -343,49 +478,88 @@ var(--brand-b_)  /* Beaucoup plus brillant (+30%) */
 <div class="_bg-brand-b_">Background brand beaucoup plus brillant</div>
 ```
 
-## 🛠 Variables de Tailles EVAcss
+## 🛠 Variables de Tailles EVAcss avec Modificateurs Responsifs Intelligents
 
-### Tailles fluides (responsive automatique)
+### 🧠 Système de Modificateurs Automatiques
+
+EVA CSS applique automatiquement des modificateurs selon la valeur numérique :
+
+| Plage de valeurs | Modificateur | Adaptation | Application |
+|------------------|--------------|------------|-------------|
+| **< 30** | *(aucun)* | Stable | Micro espacements restent fixes |
+| **30-80** | `_` | Légère | Réduction modérée sur mobile |
+| **> 80** (font-sizes) | `__` | Forte | Réduction agressive pour grands titres |
+
+### 🎯 Exemples selon les Valeurs
+
+#### Tailles Stables (< 30)
 ```css
-var(--16)    /* 16px avec adaptation fluide */
-var(--120)   /* 120px avec adaptation fluide */
-var(--141)   /* 141px avec adaptation fluide */
+var(--4)     /* 4px - reste fixe sur mobile */
+var(--8)     /* 8px - reste fixe sur mobile */
+var(--16)    /* 16px - reste fixe sur mobile */
 ```
 
-### Modificateurs de tailles
+#### Adaptation Légère (30-80)
 ```css
-var(--16__)  /* Version extrem (espacements très serrés) */
-var(--16_)   /* Version réduite (espacement léger) */
-var(--16)    /* Version standard (utilisation normale) */
-var(--16-)   /* Version étendue (espacement généreux) */
+var(--32_)   /* 32px → ~24px sur mobile */
+var(--54_)   /* 54px → ~40px sur mobile */ 
+var(--64_)   /* 64px → ~48px sur mobile */
 ```
 
-### Variables de typographie
+#### Variables de Typographie
+
+**Font-sizes Stables (< 30)**
 ```css
-var(--fs-16)   /* Font-size 16px */
-var(--fs-120)  /* Font-size 120px */
-var(--fs-16_)  /* Font-size 16px version réduite */
-var(--fs-16__)  /* Font-size 16px version extrem */
+var(--fs-10)  /* 10px - reste fixe */
+var(--fs-16)  /* 16px - reste fixe */
 ```
 
-### Classes utilitaires tailles (`$build-class: true`)
+**Font-sizes avec Adaptation Légère (30-80)**
+```css
+var(--fs-36_) /* 36px → ~28px sur mobile */
+var(--fs-48_) /* 48px → ~36px sur mobile */
+```
+
+**Font-sizes avec Adaptation Forte (> 80)**
+```css
+var(--fs-120__) /* 120px → ~60px sur mobile */
+var(--fs-100__) /* 100px → ~50px sur mobile */
+```
+
+### Classes Utilitaires avec Modificateurs Automatiques (`$build-class: true`)
+
+#### Classes Stables (< 30)
 ```html
-<!-- Largeur/hauteur -->
-<div class="w-64">Width 64px</div>
-<div class="h-120">Height 120px</div>
+<!-- Tailles qui restent fixes sur mobile -->
+<div class="w-16">Width 16px (stable)</div>
+<div class="p-8">Padding 8px (stable)</div>
+<div class="g-4">Gap 4px (stable)</div>
+<div class="fs-16">Font-size 16px (stable)</div>
+```
 
-<!-- Padding -->
-<div class="p-16">Padding 16px</div>
-<div class="px-32">Padding inline 32px</div>
-<div class="py-16">Padding block 16px</div>
+#### Classes avec Adaptation Légère (30-80)
+```html
+<!-- Tailles qui s'adaptent légèrement sur mobile -->
+<div class="w-64_">Width 64px → ~48px mobile</div>
+<div class="p-32_">Padding 32px → ~24px mobile</div>
+<div class="g-54_">Gap 54px → ~40px mobile</div>
+<div class="fs-36_">Font-size 36px → ~28px mobile</div>
+```
 
-<!-- Espacement -->
-<div class="g-32">Gap 32px</div>
-<div class="mb-16">Margin bottom 16px</div>
+#### Classes avec Adaptation Forte (> 80 pour font-sizes)
+```html
+<!-- Font-sizes qui s'adaptent fortement sur mobile -->
+<div class="fs-120__">Font-size 120px → ~60px mobile</div>
+<div class="fs-100__">Font-size 100px → ~50px mobile</div>
+```
 
-<!-- Modifications -->
-<div class="p-16_">Padding 16px version réduite</div>
-<div class="p-16-">Padding 16px version étendue</div>
+#### 🔄 Override Manuel (si nécessaire)
+```html
+<!-- Forcer adaptation sur petite valeur -->
+<div class="p-16_">Force adaptation sur 16px</div>
+
+<!-- Forcer stabilité sur grande valeur -->
+<div class="w-64">Force 64px à rester fixe</div>
 ```
 
 ## 🎯 Gestion des Thèmes

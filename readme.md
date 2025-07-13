@@ -135,9 +135,96 @@ $class-config: (
 
 ## 🔧 Responsive Modifiers
 
-- **`_`** (underscore) - Stronger responsive scaling for mobile/tablet
-- **`-`** (dash) - Minimal responsive scaling  
-- **`px/rem`** - Traditional unit suffixes for clarity
+EVA CSS utilise un **système de modificateurs responsifs intelligent** basé sur les valeurs numériques pour une adaptation progressive et cohérente.
+
+### 📐 Logique des Modificateurs
+
+Le système applique automatiquement des modificateurs selon la valeur numérique :
+
+| Plage de valeurs | Modificateur | Adaptation | Cas d'usage |
+|------------------|--------------|------------|-------------|
+| **< 30** | *(aucun)* | Stable | Micro espacements (4px, 8px, 16px) |
+| **30-80** | `_` | Légère | Espacements moyens, font-sizes standards |
+| **> 80** (font-sizes) | `__` | Forte | Grands titres uniquement |
+
+### 🎯 Exemples Pratiques
+
+```scss
+// Tailles stables (< 30) - restent fixes
+gap: var(--4);           // 4px reste 4px sur mobile
+padding: var(--16);      // 16px reste 16px sur mobile
+margin: var(--8);        // 8px reste 8px sur mobile
+
+// Adaptation légère (30-80) - réduction modérée
+gap: var(--32_);         // 32px → ~24px sur mobile
+padding: var(--64_);     // 64px → ~48px sur mobile
+width: var(--54_);       // 54px → ~40px sur mobile
+
+// Font-sizes standards (30-80) - adaptation légère
+font-size: var(--fs-36_); // 36px → ~28px sur mobile
+
+// Grands titres (> 80) - adaptation forte
+font-size: var(--fs-120__); // 120px → ~60px sur mobile
+```
+
+### ⚙️ Configuration Projet
+
+Dans votre SCSS, définissez quelles valeurs ont besoin d'adaptation :
+
+```scss
+// Tailles extraites du design
+$sizes: 4, 8, 16, 32, 54, 64, 120, 141;
+// Automatiquement :
+// - 4, 8, 16 restent stables
+// - 32, 54, 64 utilisent le modificateur _ 
+// - 120, 141 utilisent le modificateur _
+
+$font-sizes: 10, 16, 36, 120;
+// Automatiquement :
+// - 10, 16 restent stables
+// - 36 utilise le modificateur _
+// - 120 utilise le modificateur __ (adaptation forte)
+```
+
+### 🔄 Modificateurs Manuels
+
+Si nécessaire, forcez un comportement spécifique :
+
+```scss
+// Forcer une adaptation légère sur une petite valeur
+padding: var(--16_);     // 16px avec adaptation légère
+
+// Forcer la stabilité sur une grande valeur  
+width: var(--64);        // 64px reste fixe (rare)
+
+// Adaptation extra-forte (manuel)
+font-size: var(--fs-60__); // Adaptation forte sur font-size 60px
+```
+
+### 🎨 Avantages du Système
+
+- **🤖 Automatique** : Pas besoin de définir manuellement les breakpoints
+- **🎯 Intelligent** : Adaptation proportionnelle à l'importance visuelle
+- **📱 Progressif** : Transition fluide entre toutes les tailles d'écran
+- **⚡ Cohérent** : Même logique pour tous les projets EVA CSS
+- **🛠️ Flexible** : Possibilité de surcharger si nécessaire
+
+### 💡 Bonnes Pratiques
+
+```html
+<!-- Utilisez les modificateurs générés automatiquement -->
+<div class="hero" style="
+  gap: var(--64_);           /* Adaptation légère automatique */
+  padding: var(--16);        /* Stable automatiquement */
+  font-size: var(--fs-120__); /* Adaptation forte automatique */
+">
+
+<!-- Classes utilitaires avec modificateurs (si $build-class: true) -->
+<div class="g-64_ p-16 fs-120__">
+  <h1 class="fs-36_">Titre adaptatif</h1>
+  <p class="fs-16">Texte stable</p>
+</div>
+```
 
 ## 📋 Common Use Cases
 
@@ -241,105 +328,8 @@ For older browsers, consider using a polyfill or fallback approach.
 
 ---
 
-## 🎯 Figma → Intégration : Règles de fidélité et mapping
 
-### 🟢 Tableau des tailles et gaps (palette de couleurs)
-
-| Élément                        | Taille/gap Figma | Variable evaCSS |
-|------------------------------- |------------------|-----------------|
-| Cercle principal (header)      | 141px            | var(--141)      |
-| Cercle palette (color-list)    | 64px             | var(--64)       |
-| Gap entre palette-group        | 32px             | var(--32)       |
-| Gap label principal/cercles    | 16px             | var(--16)       |
-| Gap entre cercles (palette)    | 8px              | var(--8)        |
-| Gap cercle/label sous cercle   | 4px              | var(--4)        |
-
-### 🚫 Règle stricte : AUCUN CSS inline
-> Toute couleur, taille, espacement, etc. doit être appliquée via une classe et une variable CSS, jamais via un attribut `style` dans le HTML.
-
-### ✅ Checklist Figma → SCSS/HTML
-- [ ] Toutes les tailles Figma sont extraites et ajoutées à `$sizes`
-- [ ] Tous les gaps sont identifiés et mappés
-- [ ] Les variations de couleur sont bien générées
-- [ ] Les labels sous les cercles sont présents si dans le Figma
-- [ ] Les backgrounds de groupe sont conformes au Figma
-- [ ] Aucune valeur fixe ni CSS inline
-
-### 🏷️ Convention de nommage pour les variations
-Pour chaque variation d’opacité, utiliser la convention :
-```html
-<div class="palette-circle brand__"></div> <!-- var(--brand__) -->
-```
-
-### 💡 Exemple complet palette (HTML + SCSS)
-```html
-<div class="palette-group palette-brand">
-  <span class="palette-label">BRAND</span>
-  <div class="palette-circles">
-    <div class="palette-item">
-      <div class="palette-circle brand"></div>
-      <div class="palette-variation-label">BRAND</div>
-    </div>
-    <div class="palette-item">
-      <div class="palette-circle brand_"></div>
-      <div class="palette-variation-label">BRAND_</div>
-    </div>
-    <div class="palette-item">
-      <div class="palette-circle brand__"></div>
-      <div class="palette-variation-label">BRAND__</div>
-    </div>
-    <div class="palette-item">
-      <div class="palette-circle brand___"></div>
-      <div class="palette-variation-label">BRAND___</div>
-    </div>
-  </div>
-</div>
-```
-```scss
-.palette-circles { gap: var(--8); }
-.palette-item { gap: var(--4); }
-.palette-circle { width: var(--64); height: var(--64); }
-.palette-group { gap: var(--16); }
-.palette-section { gap: var(--32); }
-```
-
-> **Toujours relire la maquette Figma pour chaque détail (taille, gap, label, couleur) avant d’intégrer.**
 
 ---
-
-## 🚀 Utilisation du serveur MCP Figma (Cursor) pour l'intégration fidèle
-
-Pour garantir une intégration 100% fidèle à la maquette Figma :
-
-1. **Lancer le serveur MCP Figma** (via Cursor ou extension compatible).
-2. **Utiliser les outils `getCode` et `getVar`** pour extraire :
-   - Les tailles (gaps, padding, width, height)
-   - Les font-sizes (labels, titres, sous-titres)
-   - Les couleurs (brand, accent, extra, dark, light)
-   - Les opacités, backgrounds, etc.
-3. **Reporter ces valeurs dans `$sizes`, `$font-sizes` et le SCSS** :
-   - Ajouter toutes les tailles extraites à `$sizes` et `$font-sizes`.
-   - Utiliser les variables générées (`var(--fs-36)`, `var(--64)`, etc.) dans le SCSS/HTML.
-   - Vérifier les gaps (`gap: var(--8)`, `gap: var(--16)`, etc.) et les labels (`font-size: var(--fs-10)` pour les sous-labels, etc.).
-4. **Toujours valider chaque détail avec la maquette Figma** (taille, couleur, espacement, label, opacité).
-
-**Exemple d'extraction avec MCP** :
-- `getVar` retourne : `--fs-36: 36`, `--fs-10: 10`, `64: 64`, `32: 32`, `brand: #ff0000`, etc.
-- Reporter dans le SCSS :
-  ```scss
-  $sizes: 4, 8, 10, 16, 32, 36, 54, 64, 120, 141, 183;
-  $font-sizes: 10, 16, 36, 120;
-  ```
-- Utiliser dans le HTML/SCSS :
-  ```scss
-  .palette-label { font-size: var(--fs-36); }
-  .palette-variation-label { font-size: var(--fs-10); }
-  .palette-circle { width: var(--64); height: var(--64); }
-  .palette-circles { gap: var(--8); }
-  .palette-group { gap: var(--16); }
-  .palette-section { gap: var(--32); }
-  ```
-
-**Astuce** : Toujours relire la maquette Figma et utiliser MCP pour chaque détail, afin d'éviter toute approximation ou oubli.
 
 **© 2024 Tati Michaël** - [LinkedIn](https://www.linkedin.com/in/mtati/) | [ulysse-2029.com](https://ulysse-2029.com/)

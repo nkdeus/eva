@@ -8,8 +8,8 @@ $build-color-classes: false; // false to use only CSS var
 $auto-theme-switch: false; // true = changement automatique sur prefers-color-scheme
 
 // Tailles extraites du Figma Ulysse (toutes les tailles utilisées)
-$sizes: 4, 8, 16, 32, 54, 64, 120, 141, 183; // Ajouté 183 pour la largeur colonne/cercle palette
-$font-sizes: 10, 16, 36, 120; // 16px (p), 120px (H1)
+$sizes: 4, 8, 16, 32, 54, 64, 120, 141; // Tailles principales du design
+$font-sizes: 10, 16, 36, 120; // 10px (labels), 16px (p), 36px (section titles), 120px (H1)
 
 $class-config: (
   w: (), // width
@@ -31,33 +31,33 @@ $fade-values: 60%, 30%, 5% !default;
 @import "../../../styles/framework/colors";
 @import "../../../styles/framework/theme";
 
-// Thème spécifique au projet Ulysse (couleurs extraites du Figma)
+// Thème spécifique au projet Ulysse (couleurs extraites du Figma 2025)
 .theme-ulysse {
   // Couleurs principales extraites du Figma
-  --brand-lightness: 62.8%;   // #ff0000 → oklch(62.8% 0.258 29.23)
-  --brand-chroma: 0.258;
-  --brand-hue: 29.23;
+  --brand-lightness: 84.1%;   // #00d4ff → oklch(84.1% 0.155 200.4)
+  --brand-chroma: 0.155;
+  --brand-hue: 200.4;
 
-  --accent-lightness: 51.7%;  // #7300ff → oklch(51.7% 0.293 289.66)
-  --accent-chroma: 0.293;
-  --accent-hue: 289.66;
+  --accent-lightness: 93.6%;  // #e5ff00 → oklch(93.6% 0.202 101.8)
+  --accent-chroma: 0.202;
+  --accent-hue: 101.8;
 
-  --extra-lightness: 91.5%;   // #ffe500 → oklch(91.5% 0.191 101.03)
-  --extra-chroma: 0.191;
-  --extra-hue: 101.03;
+  --extra-lightness: 42.8%;   // #5f6769 → oklch(42.8% 0.008 220.3)
+  --extra-chroma: 0.008;
+  --extra-hue: 220.3;
 
   // Configuration automatique des lightness
-  --current-lightness: 96.4%; // #f3f3f3 → oklch(96.4% 0.000 0)
-  --current-darkness: 26.4%;  // #252525 → oklch(26.4% 0.000 0)
+  --current-lightness: 95.8%; // #f4f5eb → oklch(95.8% 0.018 84.6)
+  --current-darkness: 15.2%;  // #232526 → oklch(15.2% 0.005 220.3)
 
   // Configuration complète dark/light (extraits du Figma)
   --dark-lightness: var(--current-darkness);  // Auto-lié
-  --dark-chroma: 0.000;        // #252525 → chroma
-  --dark-hue: 0;              // #252525 → hue
+  --dark-chroma: 0.005;        // #232526 → chroma
+  --dark-hue: 220.3;          // #232526 → hue
 
   --light-lightness: var(--current-lightness); // Auto-lié
-  --light-chroma: 0.000;       // #f3f3f3 → chroma
-  --light-hue: 0;             // #f3f3f3 → hue
+  --light-chroma: 0.018;       // #f4f5eb → chroma
+  --light-hue: 84.6;          // #f4f5eb → hue
 }
 
 // Styles spécifiques à la page Ulysse
@@ -76,7 +76,7 @@ body {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  gap: var(--64);
+  gap: var(--64_); // 64 > 60 : modifieur _ (léger)
   padding: var(--16);
 }
 
@@ -88,7 +88,7 @@ body {
 }
 
 .title {
-  font-size: var(--fs-120__);
+  font-size: var(--fs-120__); // font-size 120 > 80 : modifieur __ (fort)
   margin: 0;
   line-height: 1.2;
   color: var(--dark);
@@ -111,14 +111,14 @@ body {
 
 .colors {
   display: flex;
-  gap: var(--32);
+  gap: var(--32_); // 32 entre 30-60 : modifieur _ (léger)
   align-items: center;
   justify-content: center;
 }
 
 .color-circle {
-  width: var(--141);
-  height: var(--141);
+  width: var(--141_); // 141 > 60 : modifieur _ (léger)
+  height: var(--141_); // 141 > 60 : modifieur _ (léger)
   border-radius: 50%;
   outline: var(--4) solid var(--dark___);
 }
@@ -135,64 +135,108 @@ body {
   background-color: var(--accent);
 }
 
-// Bouton toggle theme
+// Bouton toggle theme avec icônes SVG moon/sun (position fixed à droite, centré en Y)
 .btn-toggle-theme {
-
+  position: fixed;
+  right: var(--32_); // Espacement depuis le bord droit + adaptation mobile
+  top: 50%; // Centré verticalement
+  transform: translateY(-50%); // Compensation pour centrage parfait
   text-decoration: none;
   cursor: pointer;
   transition: transform 0.2s ease;
+  z-index: 1000; // Au-dessus du contenu
   
   &:hover {
-    transform: scale(1.5);
+    transform: translateY(-50%) scale(1.5); // Maintenir le centrage lors du hover
   }
 }
 
 .toggle-circle {
-  width: var(--54);
-  height: var(--54);
+  width: var(--54_); // 54 entre 30-60 : modifieur _ (léger)
+  height: var(--54_); // 54 entre 30-60 : modifieur _ (léger)
   border-radius: 50%;
   background-color: var(--dark);
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
+  overflow: hidden;
 }
 
-.toggle-text {
-  font-family: 'Inter', sans-serif;
-  font-size: var(--fs-16);
-  font-weight: 400;
+.toggle-icon {
   color: var(--light);
-  line-height: 1;
-  user-select: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  position: absolute;
+  
+  &.moon-icon {
+    opacity: 1;
+    transform: scale(1);
+  }
+  
+  &.sun-icon {
+    opacity: 0;
+    transform: scale(0.8);
+  }
 }
 
-// === Palette de couleurs (section ajoutée) ===
+// Mode dark : afficher le soleil, cacher la lune
+.toggle-theme {
+  .toggle-icon {
+    &.moon-icon {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    
+    &.sun-icon {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+}
+
+// === Palette de couleurs (section theme avec nommage Figma: section-theme) ===
 .palette-section {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: flex-start;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
   width: 100%;
+  min-height: 100vh;
 }
 
 .palette-group {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--64);
+  gap: var(--64_); // 64 > 60 : modifieur _ (léger)
   width: 100%;
-  padding-block: var(--120); // padding haut/bas de la section
+  padding-block: var(--120_); // 120 > 60 : modifieur _ (léger)
+}
+
+// Header group pour titre et description (nommage Figma: g-16)
+.palette-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--4);
+  margin-bottom: var(--64_); // 64 > 60 : modifieur _ (léger)
 }
 
 .palette-label {
-  font-size: var(--fs-36); // correspond à la maquette Figma
+  font-size: var(--fs-36_); // font-size 36 entre 30-80 : modifieur _ (léger)
   font-family: 'Inter', sans-serif;
   font-weight: 400;
   letter-spacing: 0.1em;
-  margin-bottom: var(--16);
   text-transform: uppercase;
+  margin: 0;
+}
+
+.palette-description {
+  font-size: var(--fs-16);
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  margin: 0;
+  opacity: 0.8;
 }
 
 // Couleur du label par palette
@@ -200,24 +244,26 @@ body {
 .palette-group.palette-extra   .palette-label { color: var(--extra); }
 .palette-group.palette-accent  .palette-label { color: var(--accent); }
 .palette-group.palette-dark    .palette-label { color: var(--dark); }
-.palette-group.palette-light   .palette-label { color: var(--light); }
+.palette-group.palette-light   .palette-label { color: var(--light-d_); }
 
 .palette-circles {
   display: flex;
   flex-direction: row;
-  gap: var(--32__);
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--32_); // correspond au nommage Figma g-32 + adaptation mobile
 }
 
 .palette-item {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--4);
+  gap: var(--16); // correspond au nommage Figma g-16 (gap entre cercle et label)
 }
 
 .palette-circle {
-  width: var(--64);
-  height: var(--64);
+  width: var(--64_); // 64 > 60 : modifieur _ (léger)
+  height: var(--64_); // 64 > 60 : modifieur _ (léger)
   border-radius: 50%;
 
  
@@ -236,29 +282,53 @@ body {
   line-height: 1;
 }
 
-// Brand
-.palette-circle.brand    { background: var(--brand); }
-.palette-circle.brand_   { background: var(--brand_); }
-.palette-circle.brand__  { background: var(--brand__); }
-.palette-circle.brand___ { background: var(--brand___); }
-// Extra
-.palette-circle.extra    { background: var(--extra); }
-.palette-circle.extra_   { background: var(--extra_); }
-.palette-circle.extra__  { background: var(--extra__); }
-.palette-circle.extra___ { background: var(--extra___); }
-// Accent
-.palette-circle.accent    { background: var(--accent); }
-.palette-circle.accent_   { background: var(--accent_); }
-.palette-circle.accent__  { background: var(--accent__); }
-.palette-circle.accent___ { background: var(--accent___); }
-// Dark
-.palette-circle.dark    { background: var(--dark); }
-.palette-circle.dark_   { background: var(--dark_); }
-.palette-circle.dark__  { background: var(--dark__); }
-.palette-circle.dark___ { background: var(--dark___); }
-// Light
-.palette-circle.light    { background: var(--light); }
-.palette-circle.light_   { background: var(--light_); }
-.palette-circle.light__  { background: var(--light__); }
-.palette-circle.light___ { background: var(--light___); }
+// Brand variations (incluant les nouvelles variations du design 2025)
+.palette-circle.brand      { background: var(--brand); }
+.palette-circle.brand_     { background: var(--brand_); }
+.palette-circle.brand__    { background: var(--brand__); }
+.palette-circle.brand___   { background: var(--brand___); }
+.palette-circle.brand-d    { background: var(--brand-d); }
+.palette-circle.brand-d_   { background: var(--brand-d_); }
+.palette-circle.brand-b    { background: var(--brand-b); }
+.palette-circle.brand-b_   { background: var(--brand-b_); }
+
+// Extra variations (incluant les nouvelles variations du design 2025)
+.palette-circle.extra      { background: var(--extra); }
+.palette-circle.extra_     { background: var(--extra_); }
+.palette-circle.extra__    { background: var(--extra__); }
+.palette-circle.extra___   { background: var(--extra___); }
+.palette-circle.extra-d    { background: var(--extra-d); }
+.palette-circle.extra-d_   { background: var(--extra-d_); }
+.palette-circle.extra-b    { background: var(--extra-b); }
+.palette-circle.extra-b_   { background: var(--extra-b_); }
+
+// Accent variations (incluant les nouvelles variations du design 2025)
+.palette-circle.accent      { background: var(--accent); }
+.palette-circle.accent_     { background: var(--accent_); }
+.palette-circle.accent__    { background: var(--accent__); }
+.palette-circle.accent___   { background: var(--accent___); }
+.palette-circle.accent-d    { background: var(--accent-d); }
+.palette-circle.accent-d_   { background: var(--accent-d_); }
+.palette-circle.accent-b    { background: var(--accent-b); }
+.palette-circle.accent-b_   { background: var(--accent-b_); }
+
+// Dark variations (incluant les nouvelles variations du design 2025)
+.palette-circle.dark      { background: var(--dark); }
+.palette-circle.dark_     { background: var(--dark_); }
+.palette-circle.dark__    { background: var(--dark__); }
+.palette-circle.dark___   { background: var(--dark___); }
+.palette-circle.dark-d    { background: var(--dark-d); }
+.palette-circle.dark-d_   { background: var(--dark-d_); }
+.palette-circle.dark-b    { background: var(--dark-b); }
+.palette-circle.dark-b_   { background: var(--dark-b_); }
+
+// Light variations (incluant les nouvelles variations du design 2025)
+.palette-circle.light      { background: var(--light); }
+.palette-circle.light_     { background: var(--light_); }
+.palette-circle.light__    { background: var(--light__); }
+.palette-circle.light___   { background: var(--light___); }
+.palette-circle.light-d    { background: var(--light-d); }
+.palette-circle.light-d_   { background: var(--light-d_); }
+.palette-circle.light-b    { background: var(--light-b); }
+.palette-circle.light-b_   { background: var(--light-b_); }
 

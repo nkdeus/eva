@@ -52,7 +52,8 @@ h4 {
   padding: 0;
   font-optical-sizing: auto;
   font-style: normal;
-  font-variation-settings: "wght" var(--sub-title-weight);
+  font-variation-settings: "wght" var(--sub-title-weight), "wdth" var(--sub-title-width);
+  letter-spacing: var(--sub-title-spacing);
   font-family: var(--title-font), sans-serif;
 }
 
