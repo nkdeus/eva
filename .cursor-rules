@@ -201,3 +201,95 @@ $font-sizes: 16, 24, 32; // SEULEMENT les tailles de police utilisées
    - Si `false` : créer des classes sémantiques et utiliser les variables CSS
 7. **Compiler et tester**
 8. **Valider la cohérence** du mode choisi 
+
+---
+
+## 🎯 Figma → Intégration : Règles de fidélité et mapping
+
+### 🟢 Tableau des tailles et gaps (palette de couleurs)
+
+| Élément                        | Taille/gap Figma | Variable evaCSS |
+|------------------------------- |------------------|-----------------|
+| Cercle principal (header)      | 141px            | var(--141)      |
+| Cercle palette (color-list)    | 64px             | var(--64)       |
+| Gap entre palette-group        | 32px             | var(--32)       |
+| Gap label principal/cercles    | 16px             | var(--16)       |
+| Gap entre cercles (palette)    | 8px              | var(--8)        |
+| Gap cercle/label sous cercle   | 4px              | var(--4)        |
+
+### 🚫 Règle stricte : AUCUN CSS inline
+> Toute couleur, taille, espacement, etc. doit être appliquée via une classe et une variable CSS, jamais via un attribut `style` dans le HTML.
+
+### ✅ Checklist Figma → SCSS/HTML
+- [ ] Toutes les tailles Figma sont extraites et ajoutées à `$sizes`
+- [ ] Tous les gaps sont identifiés et mappés
+- [ ] Les variations de couleur sont bien générées
+- [ ] Les labels sous les cercles sont présents si dans le Figma
+- [ ] Les backgrounds de groupe sont conformes au Figma
+- [ ] Aucune valeur fixe ni CSS inline
+
+### 🏷️ Convention de nommage pour les variations
+Pour chaque variation d’opacité, utiliser la convention :
+```html
+<div class="palette-circle brand__"></div> <!-- var(--brand__) -->
+```
+
+### 💡 Exemple complet palette (HTML + SCSS)
+```html
+<div class="palette-group palette-brand">
+  <span class="palette-label">BRAND</span>
+  <div class="palette-circles">
+    <div class="palette-item">
+      <div class="palette-circle brand"></div>
+      <div class="palette-variation-label">BRAND</div>
+    </div>
+    <div class="palette-item">
+      <div class="palette-circle brand_"></div>
+      <div class="palette-variation-label">BRAND_</div>
+    </div>
+    <div class="palette-item">
+      <div class="palette-circle brand__"></div>
+      <div class="palette-variation-label">BRAND__</div>
+    </div>
+    <div class="palette-item">
+      <div class="palette-circle brand___"></div>
+      <div class="palette-variation-label">BRAND___</div>
+    </div>
+  </div>
+</div>
+```
+```scss
+.palette-circles { gap: var(--8); }
+.palette-item { gap: var(--4); }
+.palette-circle { width: var(--64); height: var(--64); }
+.palette-group { gap: var(--16); }
+.palette-section { gap: var(--32); }
+```
+
+> **Toujours relire la maquette Figma pour chaque détail (taille, gap, label, couleur) avant d’intégrer.** 
+
+## Règle d'intégration Figma via MCP (Cursor)
+
+- **Toujours utiliser le serveur MCP Figma (Cursor) pour extraire toutes les variables de la maquette** :
+  - Gaps, paddings, tailles, font-sizes, couleurs, opacités, backgrounds…
+- **Utiliser les outils `getCode` et `getVar`** pour obtenir les valeurs exactes (ex : `--fs-36`, `--fs-10`, `64`, `32`, `brand: #ff0000`…)
+- **Reporter ces valeurs dans `$sizes`, `$font-sizes` et le SCSS**
+- **Utiliser les variables générées dans le HTML/SCSS** (ex : `font-size: var(--fs-36)`, `gap: var(--8)`, etc.)
+- **Toujours valider chaque détail avec la maquette Figma**
+
+**Exemple** :
+- MCP retourne : `--fs-36: 36`, `--fs-10: 10`, `64: 64`, `32: 32`, `brand: #ff0000`
+- Dans le SCSS :
+  ```scss
+  $sizes: 4, 8, 10, 16, 32, 36, 54, 64, 120, 141, 183;
+  $font-sizes: 10, 16, 36, 120;
+  ```
+- Dans le HTML/SCSS :
+  ```scss
+  .palette-label { font-size: var(--fs-36); }
+  .palette-variation-label { font-size: var(--fs-10); }
+  .palette-circle { width: var(--64); height: var(--64); }
+  .palette-circles { gap: var(--8); }
+  .palette-group { gap: var(--16); }
+  .palette-section { gap: var(--32); }
+  ``` 

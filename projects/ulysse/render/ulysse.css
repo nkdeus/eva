@@ -4,60 +4,50 @@
   --4_: clamp(0.09rem, 0.21vw + 0.06rem, 0.28rem);
   --4: clamp(0.14rem, 0.14vw + 0.13rem, 0.28rem);
   --4-: clamp(0.23rem, 0.07vw + 0.19rem, 0.28rem);
-  --4-px: 4px;
-  --4-rem: 0.25rem;
   --8__: clamp(0.5rem, 0.79vw - 0.28rem, 0.56rem);
   --8_: clamp(0.17rem, 0.42vw + 0.13rem, 0.56rem);
   --8: clamp(0.28rem, 0.28vw + 0.25rem, 0.56rem);
   --8-: clamp(0.45rem, 0.14vw + 0.38rem, 0.56rem);
-  --8-px: 8px;
-  --8-rem: 0.5rem;
   --16__: clamp(0.5rem, 1.58vw - 0.56rem, 1.11rem);
   --16_: clamp(0.35rem, 0.83vw + 0.25rem, 1.11rem);
   --16: clamp(0.56rem, 0.56vw + 0.5rem, 1.11rem);
   --16-: clamp(0.91rem, 0.28vw + 0.75rem, 1.11rem);
-  --16-px: 16px;
-  --16-rem: 1rem;
   --32__: clamp(0.5rem, 3.16vw - 1.11rem, 2.22rem);
   --32_: clamp(0.69rem, 1.67vw + 0.5rem, 2.22rem);
   --32: clamp(1.11rem, 1.11vw + 1rem, 2.22rem);
   --32-: clamp(1.8rem, 0.56vw + 1.5rem, 2.22rem);
-  --32-px: 32px;
-  --32-rem: 2rem;
   --54__: clamp(0.5rem, 5.34vw - 1.88rem, 3.75rem);
   --54_: clamp(1.16rem, 2.82vw + 0.84rem, 3.75rem);
   --54: clamp(1.88rem, 1.88vw + 1.69rem, 3.75rem);
   --54-: clamp(3.04rem, 0.94vw + 2.54rem, 3.75rem);
-  --54-px: 54px;
-  --54-rem: 3.375rem;
   --64__: clamp(0.5rem, 6.33vw - 2.22rem, 4.44rem);
   --64_: clamp(1.37rem, 3.34vw + 1rem, 4.44rem);
   --64: clamp(2.22rem, 2.22vw + 2rem, 4.44rem);
   --64-: clamp(3.59rem, 1.11vw + 3.01rem, 4.44rem);
-  --64-px: 64px;
-  --64-rem: 4rem;
   --120__: clamp(0.5rem, 11.87vw - 4.17rem, 8.33rem);
   --120_: clamp(2.58rem, 6.26vw + 1.88rem, 8.33rem);
   --120: clamp(4.17rem, 4.17vw + 3.75rem, 8.33rem);
   --120-: clamp(6.75rem, 2.08vw + 5.64rem, 8.33rem);
-  --120-px: 120px;
-  --120-rem: 7.5rem;
   --141__: clamp(0.5rem, 13.94vw - 4.89rem, 9.79rem);
   --141_: clamp(3.02rem, 7.36vw + 2.2rem, 9.79rem);
   --141: clamp(4.89rem, 4.89vw + 4.41rem, 9.79rem);
   --141-: clamp(7.91rem, 2.45vw + 6.63rem, 9.79rem);
-  --141-px: 141px;
-  --141-rem: 8.8125rem;
+  --183__: clamp(0.5rem, 18.1vw - 6.36rem, 12.71rem);
+  --183_: clamp(3.93rem, 9.56vw + 2.86rem, 12.71rem);
+  --183: clamp(6.36rem, 6.36vw + 5.72rem, 12.71rem);
+  --183-: clamp(10.29rem, 3.18vw + 8.6rem, 12.71rem);
+  --fs-10__: clamp(0.27rem, 0.52vw + 0.16rem, 0.69rem);
+  --fs-10_: clamp(0.35rem, 0.35vw + 0.31rem, 0.69rem);
+  --fs-10: clamp(0.45rem, 0.17vw + 0.47rem, 0.69rem);
   --fs-16__: clamp(0.43rem, 0.83vw + 0.25rem, 1.11rem);
   --fs-16_: clamp(0.56rem, 0.56vw + 0.5rem, 1.11rem);
   --fs-16: clamp(0.73rem, 0.28vw + 0.75rem, 1.11rem);
-  --fs-16-px: 16px;
-  --fs-16-rem: 1rem;
+  --fs-36__: clamp(0.96rem, 1.88vw + 0.56rem, 2.5rem);
+  --fs-36_: clamp(1.25rem, 1.25vw + 1.13rem, 2.5rem);
+  --fs-36: clamp(1.63rem, 0.63vw + 1.69rem, 2.5rem);
   --fs-120__: clamp(3.21rem, 6.26vw + 1.88rem, 8.33rem);
   --fs-120_: clamp(4.17rem, 4.17vw + 3.75rem, 8.33rem);
   --fs-120: clamp(5.42rem, 2.08vw + 5.64rem, 8.33rem);
-  --fs-120-px: 120px;
-  --fs-120-rem: 7.5rem;
 }
 
 :root {
@@ -87,8 +77,8 @@
 .current-theme {
   --root-brand: var(--brand-lightness) var(--brand-chroma) var(--brand-hue);
   --brand: oklch(var(--root-brand));
-  --brand_: oklch(var(--root-brand) / 65%);
-  --brand__: oklch(var(--root-brand) / 35%);
+  --brand_: oklch(var(--root-brand) / 60%);
+  --brand__: oklch(var(--root-brand) / 30%);
   --brand___: oklch(var(--root-brand) / 5%);
   --brand-d: oklch(calc(var(--brand-lightness) + var(--darker)) var(--brand-chroma) var(--brand-hue));
   --brand-b: oklch(calc(var(--brand-lightness) + var(--brighter)) var(--brand-chroma) var(--brand-hue));
@@ -96,8 +86,8 @@
   --brand-b_: oklch(calc(var(--brand-lightness) + var(--brighter_)) var(--brand-chroma) var(--brand-hue));
   --root-accent: var(--accent-lightness) var(--accent-chroma) var(--accent-hue);
   --accent: oklch(var(--root-accent));
-  --accent_: oklch(var(--root-accent) / 65%);
-  --accent__: oklch(var(--root-accent) / 35%);
+  --accent_: oklch(var(--root-accent) / 60%);
+  --accent__: oklch(var(--root-accent) / 30%);
   --accent___: oklch(var(--root-accent) / 5%);
   --accent-d: oklch(calc(var(--accent-lightness) + var(--darker)) var(--accent-chroma) var(--accent-hue));
   --accent-b: oklch(calc(var(--accent-lightness) + var(--brighter)) var(--accent-chroma) var(--accent-hue));
@@ -105,8 +95,8 @@
   --accent-b_: oklch(calc(var(--accent-lightness) + var(--brighter_)) var(--accent-chroma) var(--accent-hue));
   --root-extra: var(--extra-lightness) var(--extra-chroma) var(--extra-hue);
   --extra: oklch(var(--root-extra));
-  --extra_: oklch(var(--root-extra) / 65%);
-  --extra__: oklch(var(--root-extra) / 35%);
+  --extra_: oklch(var(--root-extra) / 60%);
+  --extra__: oklch(var(--root-extra) / 30%);
   --extra___: oklch(var(--root-extra) / 5%);
   --extra-d: oklch(calc(var(--extra-lightness) + var(--darker)) var(--extra-chroma) var(--extra-hue));
   --extra-b: oklch(calc(var(--extra-lightness) + var(--brighter)) var(--extra-chroma) var(--extra-hue));
@@ -114,8 +104,8 @@
   --extra-b_: oklch(calc(var(--extra-lightness) + var(--brighter_)) var(--extra-chroma) var(--extra-hue));
   --root-dark: var(--dark-lightness) var(--dark-chroma) var(--dark-hue);
   --dark: oklch(var(--root-dark));
-  --dark_: oklch(var(--root-dark) / 65%);
-  --dark__: oklch(var(--root-dark) / 35%);
+  --dark_: oklch(var(--root-dark) / 60%);
+  --dark__: oklch(var(--root-dark) / 30%);
   --dark___: oklch(var(--root-dark) / 5%);
   --dark-d: oklch(calc(var(--dark-lightness) + var(--darker)) var(--dark-chroma) var(--dark-hue));
   --dark-b: oklch(calc(var(--dark-lightness) + var(--brighter)) var(--dark-chroma) var(--dark-hue));
@@ -123,8 +113,8 @@
   --dark-b_: oklch(calc(var(--dark-lightness) + var(--brighter_)) var(--dark-chroma) var(--dark-hue));
   --root-light: var(--light-lightness) var(--light-chroma) var(--light-hue);
   --light: oklch(var(--root-light));
-  --light_: oklch(var(--root-light) / 65%);
-  --light__: oklch(var(--root-light) / 35%);
+  --light_: oklch(var(--root-light) / 60%);
+  --light__: oklch(var(--root-light) / 30%);
   --light___: oklch(var(--root-light) / 5%);
   --light-d: oklch(calc(var(--light-lightness) + var(--darker)) var(--light-chroma) var(--light-hue));
   --light-b: oklch(calc(var(--light-lightness) + var(--brighter)) var(--light-chroma) var(--light-hue));
@@ -137,8 +127,8 @@
   --brighter: -5%;
   --darker_: 30%;
   --brighter_: -15%;
-  --current-lightness: 5% !important;
-  --current-darkness: 95% !important;
+  --current-lightness: 5%;
+  --current-darkness: 95%;
   --dark-lightness: var(--current-darkness) !important;
   --light-lightness: var(--current-lightness) !important;
 }
@@ -211,6 +201,14 @@
   transition: background-color 0.2s;
 }
 
+.active.active\:_bg-brand__ {
+  background: var(--brand__);
+}
+
+.active.active\:_c-brand {
+  color: var(--brand);
+}
+
 .theme-ulysse {
   --brand-lightness: 62.8%;
   --brand-chroma: 0.258;
@@ -258,7 +256,7 @@ body {
 }
 
 .title {
-  font-size: var(--fs-120);
+  font-size: var(--fs-120__);
   margin: 0;
   line-height: 1.2;
   color: var(--dark);
@@ -290,6 +288,7 @@ body {
   width: var(--141);
   height: var(--141);
   border-radius: 50%;
+  outline: var(--4) solid var(--dark___);
 }
 
 .brand-circle {
@@ -331,6 +330,165 @@ body {
   color: var(--light);
   line-height: 1;
   user-select: none;
+}
+
+.palette-section {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.palette-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--64);
+  width: 100%;
+  padding-block: var(--120);
+}
+
+.palette-label {
+  font-size: var(--fs-36);
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  margin-bottom: var(--16);
+  text-transform: uppercase;
+}
+
+.palette-group.palette-brand .palette-label {
+  color: var(--brand);
+}
+
+.palette-group.palette-extra .palette-label {
+  color: var(--extra);
+}
+
+.palette-group.palette-accent .palette-label {
+  color: var(--accent);
+}
+
+.palette-group.palette-dark .palette-label {
+  color: var(--dark);
+}
+
+.palette-group.palette-light .palette-label {
+  color: var(--light);
+}
+
+.palette-circles {
+  display: flex;
+  flex-direction: row;
+  gap: var(--32__);
+}
+
+.palette-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--4);
+}
+
+.palette-circle {
+  width: var(--64);
+  height: var(--64);
+  border-radius: 50%;
+  background: var(--brand);
+  transition: background 0.2s;
+  outline: var(--4) solid var(--dark___);
+}
+
+.palette-variation-label {
+  font-size: var(--fs-10);
+  font-family: "Inter", sans-serif;
+  color: var(--dark);
+  opacity: 0.7;
+  margin-top: var(--4);
+  text-align: center;
+  line-height: 1;
+}
+
+.palette-circle.brand {
+  background: var(--brand);
+}
+
+.palette-circle.brand_ {
+  background: var(--brand_);
+}
+
+.palette-circle.brand__ {
+  background: var(--brand__);
+}
+
+.palette-circle.brand___ {
+  background: var(--brand___);
+}
+
+.palette-circle.extra {
+  background: var(--extra);
+}
+
+.palette-circle.extra_ {
+  background: var(--extra_);
+}
+
+.palette-circle.extra__ {
+  background: var(--extra__);
+}
+
+.palette-circle.extra___ {
+  background: var(--extra___);
+}
+
+.palette-circle.accent {
+  background: var(--accent);
+}
+
+.palette-circle.accent_ {
+  background: var(--accent_);
+}
+
+.palette-circle.accent__ {
+  background: var(--accent__);
+}
+
+.palette-circle.accent___ {
+  background: var(--accent___);
+}
+
+.palette-circle.dark {
+  background: var(--dark);
+}
+
+.palette-circle.dark_ {
+  background: var(--dark_);
+}
+
+.palette-circle.dark__ {
+  background: var(--dark__);
+}
+
+.palette-circle.dark___ {
+  background: var(--dark___);
+}
+
+.palette-circle.light {
+  background: var(--light);
+}
+
+.palette-circle.light_ {
+  background: var(--light_);
+}
+
+.palette-circle.light__ {
+  background: var(--light__);
+}
+
+.palette-circle.light___ {
+  background: var(--light___);
 }
 
 /*# sourceMappingURL=ulysse.css.map */

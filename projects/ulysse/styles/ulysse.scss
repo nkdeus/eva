@@ -8,8 +8,8 @@ $build-color-classes: false; // false to use only CSS var
 $auto-theme-switch: false; // true = changement automatique sur prefers-color-scheme
 
 // Tailles extraites du Figma Ulysse (toutes les tailles utilisées)
-$sizes: 4, 8, 16, 32, 54, 64, 120, 141; // 4px (gap content), 8px (gap colors), 16px (non utilisé), 32px (gap colors réel), 54px (toggle button), 64px (gap hero), 120px (H1), 141px (circles)
-$font-sizes: 16, 120; // 16px (p), 120px (H1)
+$sizes: 4, 8, 16, 32, 54, 64, 120, 141, 183; // Ajouté 183 pour la largeur colonne/cercle palette
+$font-sizes: 10, 16, 36, 120; // 16px (p), 120px (H1)
 
 $class-config: (
   w: (), // width
@@ -22,6 +22,9 @@ $class-config: (
   mb: (), // margin-bottom
   g: (), // gap
 );
+
+// Redéfinition des opacités pour les variations fade (pour ce projet)
+$fade-values: 60%, 30%, 5% !default;
 
 /* BUILD EVA CSS FRAMEWORK */
 @import "../../../styles/framework/eva";
@@ -85,7 +88,7 @@ body {
 }
 
 .title {
-  font-size: var(--fs-120);
+  font-size: var(--fs-120__);
   margin: 0;
   line-height: 1.2;
   color: var(--dark);
@@ -117,6 +120,7 @@ body {
   width: var(--141);
   height: var(--141);
   border-radius: 50%;
+  outline: var(--4) solid var(--dark___);
 }
 
 .brand-circle {
@@ -162,3 +166,99 @@ body {
   line-height: 1;
   user-select: none;
 }
+
+// === Palette de couleurs (section ajoutée) ===
+.palette-section {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.palette-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--64);
+  width: 100%;
+  padding-block: var(--120); // padding haut/bas de la section
+}
+
+.palette-label {
+  font-size: var(--fs-36); // correspond à la maquette Figma
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  margin-bottom: var(--16);
+  text-transform: uppercase;
+}
+
+// Couleur du label par palette
+.palette-group.palette-brand   .palette-label { color: var(--brand); }
+.palette-group.palette-extra   .palette-label { color: var(--extra); }
+.palette-group.palette-accent  .palette-label { color: var(--accent); }
+.palette-group.palette-dark    .palette-label { color: var(--dark); }
+.palette-group.palette-light   .palette-label { color: var(--light); }
+
+.palette-circles {
+  display: flex;
+  flex-direction: row;
+  gap: var(--32__);
+}
+
+.palette-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--4);
+}
+
+.palette-circle {
+  width: var(--64);
+  height: var(--64);
+  border-radius: 50%;
+
+ 
+  background: var(--brand); // fallback
+  transition: background 0.2s;
+  outline: var(--4) solid var(--dark___);
+}
+
+.palette-variation-label {
+  font-size: var(--fs-10); // correspond à la maquette Figma
+  font-family: 'Inter', sans-serif;
+  color: var(--dark);
+  opacity: 0.7;
+  margin-top: var(--4);
+  text-align: center;
+  line-height: 1;
+}
+
+// Brand
+.palette-circle.brand    { background: var(--brand); }
+.palette-circle.brand_   { background: var(--brand_); }
+.palette-circle.brand__  { background: var(--brand__); }
+.palette-circle.brand___ { background: var(--brand___); }
+// Extra
+.palette-circle.extra    { background: var(--extra); }
+.palette-circle.extra_   { background: var(--extra_); }
+.palette-circle.extra__  { background: var(--extra__); }
+.palette-circle.extra___ { background: var(--extra___); }
+// Accent
+.palette-circle.accent    { background: var(--accent); }
+.palette-circle.accent_   { background: var(--accent_); }
+.palette-circle.accent__  { background: var(--accent__); }
+.palette-circle.accent___ { background: var(--accent___); }
+// Dark
+.palette-circle.dark    { background: var(--dark); }
+.palette-circle.dark_   { background: var(--dark_); }
+.palette-circle.dark__  { background: var(--dark__); }
+.palette-circle.dark___ { background: var(--dark___); }
+// Light
+.palette-circle.light    { background: var(--light); }
+.palette-circle.light_   { background: var(--light_); }
+.palette-circle.light__  { background: var(--light__); }
+.palette-circle.light___ { background: var(--light___); }
+

@@ -241,4 +241,105 @@ For older browsers, consider using a polyfill or fallback approach.
 
 ---
 
+## 🎯 Figma → Intégration : Règles de fidélité et mapping
+
+### 🟢 Tableau des tailles et gaps (palette de couleurs)
+
+| Élément                        | Taille/gap Figma | Variable evaCSS |
+|------------------------------- |------------------|-----------------|
+| Cercle principal (header)      | 141px            | var(--141)      |
+| Cercle palette (color-list)    | 64px             | var(--64)       |
+| Gap entre palette-group        | 32px             | var(--32)       |
+| Gap label principal/cercles    | 16px             | var(--16)       |
+| Gap entre cercles (palette)    | 8px              | var(--8)        |
+| Gap cercle/label sous cercle   | 4px              | var(--4)        |
+
+### 🚫 Règle stricte : AUCUN CSS inline
+> Toute couleur, taille, espacement, etc. doit être appliquée via une classe et une variable CSS, jamais via un attribut `style` dans le HTML.
+
+### ✅ Checklist Figma → SCSS/HTML
+- [ ] Toutes les tailles Figma sont extraites et ajoutées à `$sizes`
+- [ ] Tous les gaps sont identifiés et mappés
+- [ ] Les variations de couleur sont bien générées
+- [ ] Les labels sous les cercles sont présents si dans le Figma
+- [ ] Les backgrounds de groupe sont conformes au Figma
+- [ ] Aucune valeur fixe ni CSS inline
+
+### 🏷️ Convention de nommage pour les variations
+Pour chaque variation d’opacité, utiliser la convention :
+```html
+<div class="palette-circle brand__"></div> <!-- var(--brand__) -->
+```
+
+### 💡 Exemple complet palette (HTML + SCSS)
+```html
+<div class="palette-group palette-brand">
+  <span class="palette-label">BRAND</span>
+  <div class="palette-circles">
+    <div class="palette-item">
+      <div class="palette-circle brand"></div>
+      <div class="palette-variation-label">BRAND</div>
+    </div>
+    <div class="palette-item">
+      <div class="palette-circle brand_"></div>
+      <div class="palette-variation-label">BRAND_</div>
+    </div>
+    <div class="palette-item">
+      <div class="palette-circle brand__"></div>
+      <div class="palette-variation-label">BRAND__</div>
+    </div>
+    <div class="palette-item">
+      <div class="palette-circle brand___"></div>
+      <div class="palette-variation-label">BRAND___</div>
+    </div>
+  </div>
+</div>
+```
+```scss
+.palette-circles { gap: var(--8); }
+.palette-item { gap: var(--4); }
+.palette-circle { width: var(--64); height: var(--64); }
+.palette-group { gap: var(--16); }
+.palette-section { gap: var(--32); }
+```
+
+> **Toujours relire la maquette Figma pour chaque détail (taille, gap, label, couleur) avant d’intégrer.**
+
+---
+
+## 🚀 Utilisation du serveur MCP Figma (Cursor) pour l'intégration fidèle
+
+Pour garantir une intégration 100% fidèle à la maquette Figma :
+
+1. **Lancer le serveur MCP Figma** (via Cursor ou extension compatible).
+2. **Utiliser les outils `getCode` et `getVar`** pour extraire :
+   - Les tailles (gaps, padding, width, height)
+   - Les font-sizes (labels, titres, sous-titres)
+   - Les couleurs (brand, accent, extra, dark, light)
+   - Les opacités, backgrounds, etc.
+3. **Reporter ces valeurs dans `$sizes`, `$font-sizes` et le SCSS** :
+   - Ajouter toutes les tailles extraites à `$sizes` et `$font-sizes`.
+   - Utiliser les variables générées (`var(--fs-36)`, `var(--64)`, etc.) dans le SCSS/HTML.
+   - Vérifier les gaps (`gap: var(--8)`, `gap: var(--16)`, etc.) et les labels (`font-size: var(--fs-10)` pour les sous-labels, etc.).
+4. **Toujours valider chaque détail avec la maquette Figma** (taille, couleur, espacement, label, opacité).
+
+**Exemple d'extraction avec MCP** :
+- `getVar` retourne : `--fs-36: 36`, `--fs-10: 10`, `64: 64`, `32: 32`, `brand: #ff0000`, etc.
+- Reporter dans le SCSS :
+  ```scss
+  $sizes: 4, 8, 10, 16, 32, 36, 54, 64, 120, 141, 183;
+  $font-sizes: 10, 16, 36, 120;
+  ```
+- Utiliser dans le HTML/SCSS :
+  ```scss
+  .palette-label { font-size: var(--fs-36); }
+  .palette-variation-label { font-size: var(--fs-10); }
+  .palette-circle { width: var(--64); height: var(--64); }
+  .palette-circles { gap: var(--8); }
+  .palette-group { gap: var(--16); }
+  .palette-section { gap: var(--32); }
+  ```
+
+**Astuce** : Toujours relire la maquette Figma et utiliser MCP pour chaque détail, afin d'éviter toute approximation ou oubli.
+
 **© 2024 Tati Michaël** - [LinkedIn](https://www.linkedin.com/in/mtati/) | [ulysse-2029.com](https://ulysse-2029.com/)
