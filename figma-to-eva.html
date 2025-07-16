@@ -69,7 +69,7 @@
 
   <section class="px-220__ pt-220- pb-136 flex y g-32">
       <p class="fs-36_ py-52- flex y g-12">
-        <h1 class="fs-52__ lh-1">
+        <h1 class="fs-52__ lh-1 ttu">
           <span>From <span class="title grad-linear-text grad-linear from-accent to-extra">Figma</span> to EVA CSS</span>
         </h1>
         <div class="flex y wrap g-12">
@@ -88,96 +88,96 @@
   </section>
 
   <section id="reading-guide" class="px-220__ py-136 flex y g-20">
-    <h2 class="fs-52__ _bg-brand pr-356__ lh-1 ttu fwd-13 f-scale offset">
-      <span class="_c-light">Guide de Lecture des Fichiers Figma</span>
+    <h2 class="fs-52__ _bg-brand pr-356__ lh-1 ttu fwd-4 f-scale offset">
+      <span class="_c-light">Figma File Reading Guide</span>
     </h2>
     <p class="fs-16">
-      Comprendre comment interpréter correctement les designs Figma pour une intégration parfaite avec EVA CSS.
+      Understanding how to correctly interpret Figma designs for perfect integration with EVA CSS.
     </p>
     
     <div class="flex y g-32">
       <div class="flex y g-20">
-        <h3 class="fs-24_ _c-brand mt-32">Règle d'Or : Correspondance Exacte</h3>
+        <h3 class="fs-24_ _c-brand mt-32">Golden Rule: Exact Correspondence</h3>
         
         <div class="p-32_ border thin br-1">
-          <span class="bold">Le chiffre dans le nommage Figma doit correspondre exactement à la variable CSS.</span>
+          <span class="bold">The number in Figma naming must correspond exactly to the CSS variable.</span>
           <pre class="fs-12 mt-12">// CORRECT
 // Figma: g-16 → CSS: var(--16)
-gap: var(--16); // correspond au nommage Figma g-16
+gap: var(--16); // corresponds to Figma naming g-16
 
 // INCORRECT  
 // Figma: g-16 → CSS: var(--4)
-gap: var(--4); // ERREUR : ne correspond pas au g-16 du Figma</pre>
+gap: var(--4); // ERROR: doesn't correspond to Figma g-16</pre>
         </div>
       </div>
       
       <div class="flex y g-20">
-        <h3 class="fs-24_ _c-brand mt-32">Identification des Groupes et Nommages</h3>
+        <h3 class="fs-24_ _c-brand mt-32">Group Identification and Naming</h3>
         
         <div class="flex x wrap g-20">
           <div class="p-32_ border thin br-1 flex y g-8">
-            <span class="bold">Exemples de nommages Figma</span>
-            <pre class="fs-12">g-16 = Gap de 16px → Utiliser var(--16)
-g-32 = Gap de 32px → Utiliser var(--32_)
-w-64 = Width de 64px → Utiliser var(--64_)
-p-24 = Padding de 24px → Utiliser var(--24)</pre>
+            <span class="bold">Figma naming examples</span>
+            <pre class="fs-12">g-16 = Gap of 16px → Use var(--16)
+g-32 = Gap of 32px → Use var(--32_)
+w-64 = Width of 64px → Use var(--64_)
+p-24 = Padding of 24px → Use var(--24)</pre>
           </div>
           
           <div class="p-32_ border thin br-1 flex y g-8">
-            <span class="bold">Extraction des tailles</span>
+            <span class="bold">Size extraction</span>
             <ul class="fs-12 _c-dark_">
-              <li><strong>Dimensions</strong> : Largeur/hauteur dans l'inspecteur Figma</li>
-              <li><strong>Espacements</strong> : Nommages des groupes (g-16, g-32, etc.)</li>
-              <li><strong>Typographie</strong> : Font-size de chaque élément de texte</li>
+              <li><strong>Dimensions</strong>: Width/height in Figma inspector</li>
+              <li><strong>Spacing</strong>: Group naming (g-16, g-32, etc.)</li>
+              <li><strong>Typography</strong>: Font-size of each text element</li>
             </ul>
           </div>
         </div>
       </div>
       
-      <div class="flex y g-20">
-        <h3 class="fs-24_ _c-brand mt-32">Exemple Concret : Palette de Couleurs Ulysse</h3>
-        
-        <div class="p-32_ border thin br-1">
-          <span class="bold">Correspondance Figma → EVA CSS :</span>
+              <div class="flex y g-20">
+          <h3 class="fs-24_ _c-brand mt-32">Concrete Example: Figma to CSS Mapping</h3>
+          
+          <div class="p-32_ border thin br-1">
+            <span class="bold">Figma → EVA CSS correspondence:</span>
           <table class="fs-12 mt-12" style="width: 100%; border-collapse: collapse;">
             <tr style="border-bottom: 1px solid var(--brand_); font-weight: bold;">
-              <td style="padding: 8px;">Élément Figma</td>
-              <td style="padding: 8px;">Nommage/Taille Figma</td>
-              <td style="padding: 8px;">Variable EVA CSS</td>
-              <td style="padding: 8px;">Modificateur</td>
+              <td style="padding: 8px;">Figma Element</td>
+              <td style="padding: 8px;">Figma Naming/Size</td>
+              <td style="padding: 8px;">EVA CSS Variable</td>
+              <td style="padding: 8px;">Modifier</td>
             </tr>
             <tr style="border-bottom: 1px solid var(--brand__);">
-              <td style="padding: 8px;">Cercle principal (hero)</td>
+              <td style="padding: 8px;">Main circle (hero)</td>
               <td style="padding: 8px;">141px</td>
               <td style="padding: 8px;">var(--141_)</td>
               <td style="padding: 8px;">_ (>30)</td>
             </tr>
             <tr style="border-bottom: 1px solid var(--brand__);">
-              <td style="padding: 8px;">Cercle palette (color-list)</td>
+              <td style="padding: 8px;">Palette circle (color-list)</td>
               <td style="padding: 8px;">64px</td>
               <td style="padding: 8px;">var(--64_)</td>
               <td style="padding: 8px;">_ (>30)</td>
             </tr>
             <tr style="border-bottom: 1px solid var(--brand__);">
-              <td style="padding: 8px;">Gap entre groups</td>
+              <td style="padding: 8px;">Gap between groups</td>
               <td style="padding: 8px;">g-32</td>
               <td style="padding: 8px;">var(--32_)</td>
               <td style="padding: 8px;">_ (>30)</td>
             </tr>
             <tr style="border-bottom: 1px solid var(--brand__);">
-              <td style="padding: 8px;">Gap label/cercles</td>
+              <td style="padding: 8px;">Gap label/circles</td>
               <td style="padding: 8px;">g-16</td>
               <td style="padding: 8px;">var(--16)</td>
               <td style="padding: 8px;">stable (<30)</td>
             </tr>
             <tr style="border-bottom: 1px solid var(--brand__);">
-              <td style="padding: 8px;">Gap entre cercles</td>
+              <td style="padding: 8px;">Gap between circles</td>
               <td style="padding: 8px;">g-8</td>
               <td style="padding: 8px;">var(--8)</td>
               <td style="padding: 8px;">stable (<30)</td>
             </tr>
             <tr>
-              <td style="padding: 8px;">Gap cercle/label sous</td>
+              <td style="padding: 8px;">Gap circle/label below</td>
               <td style="padding: 8px;">g-4</td>
               <td style="padding: 8px;">var(--4)</td>
               <td style="padding: 8px;">stable (<30)</td>
@@ -187,51 +187,51 @@ p-24 = Padding de 24px → Utiliser var(--24)</pre>
       </div>
       
       <div class="flex y g-20">
-        <h3 class="fs-24_ _c-brand mt-32">Erreurs Courantes à Éviter</h3>
+        <h3 class="fs-24_ _c-brand mt-32">Common Errors to Avoid</h3>
         
         <div class="flex x wrap g-20">
           <div class="p-32_ border thin br-1 flex y g-8">
-            <span class="bold">Mauvaise interprétation du nommage</span>
-            <pre class="fs-12">// Figma: g-16 mais utilisation incorrecte
-gap: var(--4); // Ne correspond pas</pre>
+            <span class="bold">Misinterpreting naming</span>
+            <pre class="fs-12">// Figma: g-16 but incorrect usage
+gap: var(--4); // Doesn't correspond</pre>
           </div>
           
           <div class="p-32_ border thin br-1 flex y g-8">
-            <span class="bold">Oublier les modificateurs automatiques</span>
-            <pre class="fs-12">// Valeur 32 sans modificateur adaptatif
-gap: var(--32); // Devrait être var(--32_)</pre>
+            <span class="bold">Forgetting automatic modifiers</span>
+            <pre class="fs-12">// Value 32 without adaptive modifier
+gap: var(--32); // Should be var(--32_)</pre>
           </div>
           
           <div class="p-32_ border thin br-1 flex y g-8">
-            <span class="bold">Valeurs approximatives</span>
-            <pre class="fs-12">// Figma: 64px mais approximation
-width: var(--60); // Utiliser la valeur exacte var(--64_)</pre>
+            <span class="bold">Approximate values</span>
+            <pre class="fs-12">// Figma: 64px but approximation
+width: var(--60); // Use exact value var(--64_)</pre>
           </div>
         </div>
       </div>
       
       <div class="flex y g-20">
-        <h3 class="fs-24_ _c-brand mt-32">Règles de Validation</h3>
+        <h3 class="fs-24_ _c-brand mt-32">Validation Rules</h3>
         
         <div class="flex x wrap g-20">
           <div class="p-32_ border thin br-1 flex y g-8">
-            <span class="bold">Correspondance exacte</span>
-            <p class="fs-14 _c-dark_">Nommage Figma = Variable CSS</p>
+            <span class="bold">Exact correspondence</span>
+            <p class="fs-14 _c-dark_">Figma naming = CSS variable</p>
           </div>
           
           <div class="p-32_ border thin br-1 flex y g-8">
-            <span class="bold">Tailles complètes</span>
-            <p class="fs-14 _c-dark_">Toutes les valeurs Figma dans $sizes</p>
+            <span class="bold">Complete sizes</span>
+            <p class="fs-14 _c-dark_">All Figma values in $sizes</p>
           </div>
           
           <div class="p-32_ border thin br-1 flex y g-8">
-            <span class="bold">Couleurs exactes</span>
-            <p class="fs-14 _c-dark_">Valeurs HEX converties en OKLCH</p>
+            <span class="bold">Exact colors</span>
+            <p class="fs-14 _c-dark_">HEX values converted to OKLCH</p>
           </div>
           
           <div class="p-32_ border thin br-1 flex y g-8">
-            <span class="bold">Zéro CSS inline</span>
-            <p class="fs-14 _c-dark_">Tout via variables et classes</p>
+            <span class="bold">Zero inline CSS</span>
+            <p class="fs-14 _c-dark_">Everything via variables and classes</p>
           </div>
         </div>
       </div>
@@ -239,7 +239,7 @@ width: var(--60); // Utiliser la valeur exacte var(--64_)</pre>
   </section>
 
   <section id="workflow-overview" class="px-220__ py-136 flex y g-20">
-    <h2 class="fs-52__ _bg-brand pr-356__ lh-1 ttu fwd-13 f-scale offset">
+    <h2 class="fs-52__ _bg-brand pr-356__ lh-1 ttu fwd-4 f-scale offset">
       <span class="_c-light">Process Overview</span>
     </h2>
     <p class="fs-16">
@@ -281,13 +281,13 @@ mcp_Figma_get_variable_defs()</pre>
             <span class="bold _c-brand">5. Size Analysis</span>
             <p class="fs-14 _c-dark_">Complete dimension extraction + exact correspondence</p>
             <pre class="fs-12">$sizes: 4, 8, 16, 32, 54, 64, 120, 141;
-// Correspondance exacte avec nommages Figma</pre>
+// Exact correspondence with Figma naming</pre>
           </div>
           
           <div class="p-32_ border thin br-1 flex y g-8">
             <span class="bold _c-brand">6. SCSS Configuration</span>
             <p class="fs-14 _c-dark_">Variables and custom theme</p>
-            <pre class="fs-12">.theme-nom-projet { ... }</pre>
+            <pre class="fs-12">.theme-project-name { ... }</pre>
           </div>
           
           <div class="p-32_ border thin br-1 flex y g-8">
@@ -299,7 +299,7 @@ mcp_Figma_get_variable_defs()</pre>
           <div class="p-32_ border thin br-1 flex y g-8">
             <span class="bold _c-brand">8. HTML Integration</span>
             <p class="fs-14 _c-dark_">Structure according to selected mode</p>
-            <pre class="fs-12">&lt;body class="current-theme theme-projet"&gt;</pre>
+            <pre class="fs-12">&lt;body class="current-theme theme-project"&gt;</pre>
           </div>
           
           <div class="p-32_ border thin br-1 flex y g-8">
@@ -345,7 +345,7 @@ mcp_Figma_get_variable_defs()</pre>
   </section>
 
   <section id="mode-selection" class="px-220__ py-136 flex y g-20">
-    <h2 class="fs-52__ _bg-brand pr-356__ lh-1 ttu fwd-13 f-scale offset">
+    <h2 class="fs-52__ _bg-brand pr-356__ lh-1 ttu fwd-4 f-scale offset">
       <span class="_c-light">Usage Mode Selection</span>
     </h2>
     
@@ -353,53 +353,53 @@ mcp_Figma_get_variable_defs()</pre>
       <div class="flex x wrap g-20">
         <div class="p-32_ border thin br-1 flex y g-20 w-full">
           <div class="flex y g-12">
-            <span class="bold fs-20 _c-brand">Mode Classes Utilitaires</span>
+            <span class="bold fs-20 _c-brand">Utility Classes Mode</span>
             <pre class="fs-14">$build-class: true;</pre>
           </div>
           
           <div class="flex y g-12">
-            <span class="bold">Idéal pour :</span>
+            <span class="bold">Ideal for:</span>
             <ul class="fs-14 _c-dark_">
-              <li>Développement rapide/prototypage</li>
-              <li>Projets avec beaucoup de composants similaires</li>
-              <li>Équipes préférant les classes utilitaires (style Tailwind)</li>
-              <li>Besoin de réutiliser des styles communs rapidement</li>
+              <li>Rapid development/prototyping</li>
+              <li>Projects with many similar components</li>
+              <li>Teams preferring utility classes (Tailwind style)</li>
+              <li>Need to reuse common styles quickly</li>
             </ul>
           </div>
           
           <div class="flex y g-12">
-            <span class="bold">Utilisation :</span>
-            <pre class="fs-12">&lt;!-- Classes EVAcss générées automatiquement --&gt;
-&lt;div class="_bg-brand w-64 p-16"&gt;Contenu avec classes utilitaires&lt;/div&gt;
-&lt;p class="_c-dark fs-16"&gt;Texte avec classe de couleur&lt;/p&gt;
-&lt;button class="_bg-accent_ hover:_bg-accent"&gt;Bouton avec opacité&lt;/button&gt;</pre>
+            <span class="bold">Usage:</span>
+            <pre class="fs-12">&lt;!-- EVAcss generated classes automatically --&gt;
+&lt;div class="_bg-brand w-64 p-16"&gt;Content with utility classes&lt;/div&gt;
+&lt;p class="_c-dark fs-16"&gt;Text with color class&lt;/p&gt;
+&lt;button class="_bg-accent_ hover:_bg-accent"&gt;Button with opacity&lt;/button&gt;</pre>
           </div>
         </div>
         
         <div class="p-32_ border thin br-1 flex y g-20 w-full">
           <div class="flex y g-12">
-            <span class="bold fs-20 _c-brand">Mode Variables CSS</span>
+            <span class="bold fs-20 _c-brand">CSS Variables Mode</span>
             <pre class="fs-14">$build-class: false;</pre>
           </div>
           
           <div class="flex y g-12">
-            <span class="bold">Idéal pour :</span>
+            <span class="bold">Ideal for:</span>
             <ul class="fs-14 _c-dark_">
-              <li>Design très spécifique/unique</li>
-              <li>Préférence pour les classes sémantiques</li>
-              <li>Optimisation du CSS final (moins de classes générées)</li>
-              <li>Contrôle total sur le CSS généré</li>
+              <li>Very specific/unique design</li>
+              <li>Preference for semantic classes</li>
+              <li>Final CSS optimization (fewer generated classes)</li>
+              <li>Full control over generated CSS</li>
             </ul>
           </div>
           
           <div class="flex y g-12">
-            <span class="bold">Utilisation :</span>
-            <pre class="fs-12">&lt;!-- Classes sémantiques uniquement --&gt;
-&lt;div class="hero-section"&gt;Contenu sémantique&lt;/div&gt;
-&lt;p class="subtitle"&gt;Texte sémantique&lt;/p&gt;
-&lt;button class="primary-button"&gt;Bouton sémantique&lt;/button&gt;</pre>
+            <span class="bold">Usage:</span>
+            <pre class="fs-12">&lt;!-- Semantic classes only --&gt;
+&lt;div class="hero-section"&gt;Semantic content&lt;/div&gt;
+&lt;p class="subtitle"&gt;Semantic text&lt;/p&gt;
+&lt;button class="primary-button"&gt;Semantic button&lt;/button&gt;</pre>
             
-            <pre class="fs-12">// SCSS avec variables EVAcss
+            <pre class="fs-12">// SCSS with EVAcss variables
 .hero-section {
   background-color: var(--brand);
   width: var(--64);
@@ -412,40 +412,40 @@ mcp_Figma_get_variable_defs()</pre>
   </section>
 
   <section id="extraction-process" class="px-220__ py-136 flex y g-20">
-    <h2 class="fs-52__ _bg-brand pr-356__ lh-1 ttu fwd-13 f-scale offset">
-      <span class="_c-light">Extraction automatique</span>
+    <h2 class="fs-52__ _bg-brand pr-356__ lh-1 ttu fwd-4 f-scale offset">
+      <span class="_c-light">Automatic Extraction</span>
     </h2>
     
     <div class="flex y g-32">
       <div class="flex y g-20">
-        <h3 class="fs-24_ _c-brand mt-32">1. Analyse du Figma via MCP</h3>
-        <p class="fs-16">Claude utilise le protocole MCP pour analyser directement votre design Figma.</p>
+        <h3 class="fs-24_ _c-brand mt-32">1. Figma Analysis via MCP</h3>
+        <p class="fs-16">Claude uses the MCP protocol to directly analyze your Figma design.</p>
         
         <div class="flex x wrap g-20">
           <div class="p-32_ border thin br-1 flex y g-8">
-            <span class="bold">Entrée</span>
-            <p class="fs-14 _c-dark_">Lien vers la frame Figma</p>
+            <span class="bold">Input</span>
+            <p class="fs-14 _c-dark_">Link to the Figma frame</p>
             <pre class="fs-12">https://www.figma.com/design/fileId/fileName?node-id=1-2</pre>
           </div>
           
           <div class="p-32_ border thin br-1 flex y g-8">
-            <span class="bold">Actions automatiques</span>
+            <span class="bold">Automatic actions</span>
             <pre class="fs-12">mcp_Figma_get_code(nodeId: "1:2")
 mcp_Figma_get_variable_defs(nodeId: "1:2")</pre>
           </div>
           
           <div class="p-32_ border thin br-1 flex y g-8">
-            <span class="bold">Données extraites</span>
+            <span class="bold">Extracted data</span>
             <ul class="fs-12 _c-dark_">
-              <li><strong>Sizes</strong> : Dimensions récurrentes (padding, margin, width, height)</li>
-              <li><strong>Font-sizes</strong> : Tailles de police utilisées (H1, p, etc.)</li>
-              <li><strong>Couleurs</strong> : Palette complète (brand, accent, extra, light, dark)</li>
+              <li><strong>Sizes</strong>: Recurring dimensions (padding, margin, width, height)</li>
+              <li><strong>Font-sizes</strong>: Used font sizes (H1, p, etc.)</li>
+              <li><strong>Colors</strong>: Complete palette (brand, accent, extra, light, dark)</li>
             </ul>
           </div>
         </div>
         
         <div class="p-32_ border thin br-1">
-          <span class="bold">Exemple d'extraction JSON (Projet Ulysse) :</span>
+          <span class="bold">JSON extraction example (Ulysse Project):</span>
           <pre class="fs-12 mt-12">{
   "sizes": "4, 8, 16, 32, 54, 64, 120, 141",
   "font-sizes": "10, 16, 36, 120",
@@ -459,30 +459,30 @@ mcp_Figma_get_variable_defs(nodeId: "1:2")</pre>
       </div>
       
       <div class="flex y g-20">
-        <h3 class="fs-24_ _c-brand mt-32">2. Conversion des couleurs en OKLCH</h3>
-        <p class="fs-16">Les couleurs hex sont automatiquement converties en OKLCH pour une cohérence optimale.</p>
+        <h3 class="fs-24_ _c-brand mt-32">2. OKLCH Color Conversion</h3>
+        <p class="fs-16">Hex colors are automatically converted to OKLCH for optimal consistency.</p>
         
         <div class="flex x wrap g-20">
           <div class="p-32_ border thin br-1 flex y g-8">
-            <span class="bold">Pourquoi OKLCH ?</span>
-            <p class="fs-14 _c-dark_">Format colorimétrique moderne permettant des modifications de luminosité et d'opacité cohérentes</p>
+            <span class="bold">Why OKLCH?</span>
+            <p class="fs-14 _c-dark_">Modern colorimetric format allowing consistent brightness and opacity modifications</p>
           </div>
           
           <div class="p-32_ border thin br-1 flex y g-8">
-            <span class="bold">Outil disponible</span>
+            <span class="bold">Available tool</span>
             <pre class="fs-12">scripts/hex-to-oklch.js</pre>
-            <p class="fs-14 _c-dark_">Conversion automatique avec Claude ou manuelle</p>
+            <p class="fs-14 _c-dark_">Automatic conversion with Claude or manual</p>
           </div>
           
           <div class="p-32_ border thin br-1 flex y g-8">
-            <span class="bold">Commande manuelle</span>
+            <span class="bold">Manual command</span>
             <pre class="fs-12">npm install culori --save-dev
 node scripts/hex-to-oklch.js #ff0000 #ffe500 #7300ff</pre>
           </div>
         </div>
         
         <div class="p-32_ border thin br-1">
-          <span class="bold">Résultat de conversion (Projet Ulysse) :</span>
+          <span class="bold">Conversion result (Ulysse Project):</span>
           <pre class="fs-12 mt-12">oklch(84.1% 0.155 200.4)  // brand (#00d4ff)
 oklch(93.6% 0.202 101.8)  // accent (#e5ff00)
 oklch(42.8% 0.008 220.3)  // extra (#5f6769)
@@ -492,45 +492,45 @@ oklch(15.2% 0.005 220.3)  // dark (#232526)</pre>
       </div>
       
       <div class="flex y g-20">
-        <h3 class="fs-24_ _c-brand mt-32">3. Extraction complète des tailles</h3>
-        <p class="fs-16">Analyse du code Figma pour identifier toutes les dimensions utilisées dans le design.</p>
+        <h3 class="fs-24_ _c-brand mt-32">3. Complete Size Extraction</h3>
+        <p class="fs-16">Analysis of Figma code to identify all dimensions used in the design.</p>
         
         <div class="p-32_ border thin br-1">
-          <span class="bold">Méthode d'extraction complète :</span>
+          <span class="bold">Complete extraction method:</span>
           <ol class="fs-12 mt-12 _c-dark_">
-            <li><strong>Analyser le code Figma</strong> → Identifier tous les gap-X, w-[X], h-[X], text-[X], etc.</li>
-            <li><strong>Lister les tailles</strong> → Créer une liste complète de toutes les valeurs numériques</li>
-            <li><strong>Catégoriser les usages</strong> → Identifier l'usage de chaque taille</li>
-            <li><strong>Vérifier visuellement</strong> → Comparer avec le design pour les écarts</li>
+            <li><strong>Analyze Figma code</strong> → Identify all gap-X, w-[X], h-[X], text-[X], etc.</li>
+            <li><strong>List sizes</strong> → Create complete list of all numeric values</li>
+            <li><strong>Categorize usage</strong> → Identify usage of each size</li>
+            <li><strong>Visual verification</strong> → Compare with design for discrepancies</li>
           </ol>
         </div>
         
         <div class="p-32_ border thin br-1">
-          <span class="bold">Exemple : Code Figma analysé</span>
+          <span class="bold">Example: Analyzed Figma code</span>
           <pre class="fs-12 mt-12">&lt;div className="flex flex-col gap-64"&gt;        // 64px gap hero 
   &lt;div className="flex flex-col gap-4"&gt;       // 4px gap content
     &lt;p className="text-[120px]"&gt;Ulysse2029&lt;/p&gt;  // 120px font-size
     &lt;p className="text-[16px]"&gt;FIGMA - CLAUDE - EVACSS&lt;/p&gt;  // 16px font-size
   &lt;/div&gt;
   &lt;div className="flex flex-row gap-32"&gt;       // 32px gap colors 
-    &lt;div className="size-[141px] rounded-full"&gt;&lt;/div&gt;  // 141px cercles
-    &lt;div className="size-[141px] rounded-full"&gt;&lt;/div&gt;  // 141px cercles
+    &lt;div className="size-[141px] rounded-full"&gt;&lt;/div&gt;  // 141px circles
+    &lt;div className="size-[141px] rounded-full"&gt;&lt;/div&gt;  // 141px circles
   &lt;/div&gt;
 &lt;/div&gt;</pre>
         </div>
         
         <div class="p-32_ border thin br-1">
-          <span class="bold">Configuration générée avec correspondance exacte :</span>
-          <pre class="fs-12 mt-12">// Toutes les tailles identifiées dans le design (correspondance exacte)
+          <span class="bold">Generated configuration with exact correspondence:</span>
+          <pre class="fs-12 mt-12">// All sizes identified in the design (exact correspondence)
 $sizes: 4, 8, 16, 32, 54, 64, 120, 141; 
 
-// Utilisation des nommages Figma comme référence
+// Using Figma naming as reference
 .palette-item {
   gap: var(--16); // Figma: g-16 ✅
 }
 
 .palette-circles {
-  gap: var(--32_); // Figma: g-32 (avec adaptif)
+  gap: var(--32_); // Figma: g-32 (with adaptive)
 }</pre>
         </div>
       </div>
@@ -538,73 +538,73 @@ $sizes: 4, 8, 16, 32, 54, 64, 120, 141;
   </section>
 
   <section id="configuration-template" class="px-220__ py-136 flex y g-20">
-    <h2 class="fs-52__ _bg-brand pr-356__ lh-1 ttu fwd-13 f-scale offset">
-      <span class="_c-light">Configuration SCSS complète</span>
+    <h2 class="fs-52__ _bg-brand pr-356__ lh-1 ttu fwd-4 f-scale offset">
+      <span class="_c-light">Complete SCSS Configuration</span>
     </h2>
     
     <div class="flex y g-32">
       <div class="flex y g-20">
-        <h3 class="fs-24_ _c-brand mt-32">Template de configuration automatique</h3>
-        <p class="fs-16">Claude génère automatiquement cette configuration basée sur l'analyse Figma.</p>
+        <h3 class="fs-24_ _c-brand mt-32">Automatic configuration template</h3>
+        <p class="fs-16">Claude automatically generates this configuration based on Figma analysis.</p>
         
         <div class="p-32_ border thin br-1">
           <pre class="fs-11">// ===========================================
-// CONFIGURATION EVAcss
+// EVAcss CONFIGURATION
 // ===========================================
 
-// Choix du mode d'utilisation
-$build-class: true;        // true = classes utilitaires / false = variables CSS uniquement
-$custom-class: false;      // Réservé pour usages avancés
-$px-rem-suffix: false;     // false = pas de variables debug / true = ajoute variables -px et -rem
-$name-by-size: true;       // true = variables nommées par taille (--16) / false = par index (--1)
+// Usage mode selection
+$build-class: true;        // true = utility classes / false = CSS variables only
+$custom-class: false;      // Reserved for advanced usage
+$px-rem-suffix: false;     // false = no debug variables / true = adds -px and -rem variables
+$name-by-size: true;       // true = variables named by size (--16) / false = by index (--1)
 
 // ===========================================
-// TAILLES EXTRAITES DU FIGMA
+// SIZES EXTRACTED FROM FIGMA
 // ===========================================
 
-// OBLIGATOIRE : Toutes les tailles utilisées dans le design
+// REQUIRED: All sizes used in the design
 $sizes: 4, 8, 16, 32, 64, 120, 141; 
 
-// OBLIGATOIRE : Toutes les tailles de police utilisées
-$font-sizes: 16, 120; // 16px (paragraphe), 120px (titre H1)
+// REQUIRED: All font sizes used
+$font-sizes: 16, 120; // 16px (paragraph), 120px (H1 title)
 
 // ===========================================
-// CONFIGURATION DES CLASSES UTILITAIRES
+// UTILITY CLASSES CONFIGURATION
 // ===========================================
 
-// Configuration des classes générées (si $build-class: true)
+// Configuration of generated classes (if $build-class: true)
 $class-config: (
-  w: (),          // Classes width: w-16, w-32, etc.
-  h: (),          // Classes height: h-16, h-32, etc.
-  p: (),          // Classes padding: p-16, p-32, etc.
-  px: (),         // Classes padding-inline: px-16, px-32, etc.
-  py: (),         // Classes padding-block: py-16, py-32, etc.
-  br: (),         // Classes border-radius: br-16, br-32, etc.
-  mb: (),         // Classes margin-bottom: mb-16, mb-32, etc.
-  g: (),          // Classes gap: g-16, g-32, etc.
+  w: (),          // Width classes: w-16, w-32, etc.
+  h: (),          // Height classes: h-16, h-32, etc.
+  p: (),          // Padding classes: p-16, p-32, etc.
+  px: (),         // Padding-inline classes: px-16, px-32, etc.
+  py: (),         // Padding-block classes: py-16, py-32, etc.
+  br: (),         // Border-radius classes: br-16, br-32, etc.
+  mb: (),         // Margin-bottom classes: mb-16, mb-32, etc.
+  g: (),          // Gap classes: g-16, g-32, etc.
 );
 
 // ===========================================
-// IMPORTS EVAcss (ORDRE OBLIGATOIRE)
+// EVAcss IMPORTS (REQUIRED ORDER)
 // ===========================================
 
-@import "../../../styles/framework/eva";      // Core EVAcss + variables de tailles
-@import "../../../styles/framework/colors";   // Système de couleurs OKLCH
-@import "../../../styles/framework/theme";    // Variables de thème</pre>
+@import "../../../styles/framework/eva";      // Core EVAcss + size variables
+@import "../../../styles/framework/colors";   // OKLCH color system
+@import "../../../styles/framework/theme";    // Theme variables</pre>
         </div>
       </div>
       
       <div class="flex y g-20">
-        <h3 class="fs-24_ _c-brand mt-32">Configuration du thème personnalisé</h3>
-        <p class="fs-16">Thème généré automatiquement basé sur les couleurs Figma converties en OKLCH.</p>
+        <h3 class="fs-24_ _c-brand mt-32">Custom theme configuration</h3>
+        <p class="fs-16">Theme automatically generated based on Figma colors converted to OKLCH.</p>
         
         <div class="p-32_ border thin br-1">
           <pre class="fs-11">// ===========================================
-// THÈME SPÉCIFIQUE AU PROJET
+// PROJECT-SPECIFIC THEME
 // ===========================================
 
-.theme-nom-projet {
-  // Couleurs principales (extraites du Figma + converties OKLCH)
+.theme-project-name {
+  // Main colors (extracted from Figma + converted to OKLCH)
   --brand-lightness: 62.8%;
   --brand-chroma: 0.258;
   --brand-hue: 29.23;
@@ -617,46 +617,46 @@ $class-config: (
   --extra-chroma: 0.191;
   --extra-hue: 101.03;
 
-  // Configuration hybride des current-* (AUTO-LIÉES)
-  --current-lightness: 96.4%;  // Lightness de light depuis Figma
-  --current-darkness: 26.4%;   // Lightness de dark depuis Figma
+  // Hybrid configuration of current-* (AUTO-LINKED)
+  --current-lightness: 96.4%;  // Light lightness from Figma
+  --current-darkness: 26.4%;   // Dark lightness from Figma
 
-  // Configuration dark/light (composants C/H extraits du Figma)
-  --dark-lightness: var(--current-darkness);  // ✨ Auto-lié
-  --dark-chroma: 0.000;     // Chroma de dark depuis Figma
-  --dark-hue: 0;           // Hue de dark depuis Figma
+  // Dark/light configuration (C/H components extracted from Figma)
+  --dark-lightness: var(--current-darkness);  // ✨ Auto-linked
+  --dark-chroma: 0.000;     // Dark chroma from Figma
+  --dark-hue: 0;           // Dark hue from Figma
 
-  --light-lightness: var(--current-lightness); // ✨ Auto-lié
-  --light-chroma: 0.000;    // Chroma de light depuis Figma
-  --light-hue: 0;          // Hue de light depuis Figma
+  --light-lightness: var(--current-lightness); // ✨ Auto-linked
+  --light-chroma: 0.000;    // Light chroma from Figma
+  --light-hue: 0;          // Light hue from Figma
 }</pre>
         </div>
       </div>
       
       <div class="flex y g-20">
-        <h3 class="fs-24_ _c-brand mt-32">Structure projet générée</h3>
+        <h3 class="fs-24_ _c-brand mt-32">Generated project structure</h3>
         
         <div class="flex x wrap g-20">
           <div class="p-32_ border thin br-1 flex y g-8">
-            <span class="bold">Architecture automatique</span>
+            <span class="bold">Automatic architecture</span>
             <pre class="fs-12">projects/
-└── nom-du-projet/
+└── project-name/
     ├── index.html
     ├── styles/
-    │   └── nom-du-projet.scss
+    │   └── project-name.scss
     └── render/
-        └── nom-du-projet.css (généré)</pre>
+        └── project-name.css (generated)</pre>
           </div>
           
           <div class="p-32_ border thin br-1 flex y g-8">
-            <span class="bold">Compilation automatique</span>
+            <span class="bold">Automatic compilation</span>
             <pre class="fs-12">npm run watch-projects</pre>
-            <p class="fs-14 _c-dark_">Surveille et compile automatiquement les changements</p>
+            <p class="fs-14 _c-dark_">Watches and automatically compiles changes</p>
           </div>
           
           <div class="p-32_ border thin br-1 flex y g-8">
-            <span class="bold">Compilation manuelle</span>
-            <pre class="fs-12">npx sass projects/nom-projet/styles/nom-projet.scss:projects/nom-projet/render/nom-projet.css</pre>
+            <span class="bold">Manual compilation</span>
+            <pre class="fs-12">npx sass projects/project-name/styles/project-name.scss:projects/project-name/render/project-name.css</pre>
           </div>
         </div>
       </div>
@@ -664,91 +664,91 @@ $class-config: (
   </section>
 
   <section id="color-system" class="px-220__ py-136 flex y g-20">
-    <h2 class="fs-52__ _bg-brand pr-356__ lh-1 ttu fwd-13 f-scale offset">
-      <span class="_c-light">Système de couleurs EVAcss</span>
+    <h2 class="fs-52__ _bg-brand pr-356__ lh-1 ttu fwd-4 f-scale offset">
+      <span class="_c-light">EVAcss Color System</span>
     </h2>
     
     <div class="flex y g-32">
       <div class="flex y g-20">
-        <h3 class="fs-24_ _c-brand mt-32">Variables de base</h3>
+        <h3 class="fs-24_ _c-brand mt-32">Base variables</h3>
         
         <div class="flex x wrap g-20">
           <div class="p-32_ border thin br-1 flex y g-8">
-            <span class="bold">Couleurs principales</span>
-            <pre class="fs-12">var(--brand)   /* Couleur principale */
-var(--accent)  /* Couleur d'accent */
-var(--extra)   /* Couleur supplémentaire */
-var(--light)   /* Couleur claire */
-var(--dark)    /* Couleur sombre */
-var(--white)   /* Blanc pur */</pre>
+            <span class="bold">Main colors</span>
+            <pre class="fs-12">var(--brand)   /* Main color */
+var(--accent)  /* Accent color */
+var(--extra)   /* Extra color */
+var(--light)   /* Light color */
+var(--dark)    /* Dark color */
+var(--white)   /* Pure white */</pre>
           </div>
           
           <div class="p-32_ border thin br-1 flex y g-8">
-            <span class="bold">Modificateurs d'opacité</span>
-            <pre class="fs-12">var(--brand_)   /* 65% opacité */
-var(--brand__)  /* 35% opacité */
-var(--brand___) /* 5% opacité */</pre>
+            <span class="bold">Opacity modifiers</span>
+            <pre class="fs-12">var(--brand_)   /* 65% opacity */
+var(--brand__)  /* 35% opacity */
+var(--brand___) /* 5% opacity */</pre>
           </div>
           
           <div class="p-32_ border thin br-1 flex y g-8">
-            <span class="bold">Modificateurs de luminosité</span>
-            <pre class="fs-12">var(--brand-d)   /* Plus sombre (-5%) */
-var(--brand-b)   /* Plus brillant (+10%) */
-var(--brand-d_)  /* Beaucoup plus sombre (-15%) */
-var(--brand-b_)  /* Beaucoup plus brillant (+30%) */</pre>
+            <span class="bold">Brightness modifiers</span>
+            <pre class="fs-12">var(--brand-d)   /* Darker (-5%) */
+var(--brand-b)   /* Brighter (+10%) */
+var(--brand-d_)  /* Much darker (-15%) */
+var(--brand-b_)  /* Much brighter (+30%) */</pre>
           </div>
         </div>
       </div>
       
       <div class="flex y g-20">
-        <h3 class="fs-24_ _c-brand mt-32">Classes utilitaires couleurs (Mode $build-class: true)</h3>
+        <h3 class="fs-24_ _c-brand mt-32">Color utility classes (Mode $build-class: true)</h3>
         
         <div class="flex x wrap g-20">
           <div class="p-32_ border thin br-1 flex y g-8">
-            <span class="bold">Couleurs de base</span>
+            <span class="bold">Base colors</span>
             <pre class="fs-12">&lt;!-- Background --&gt;
-&lt;div class="_bg-brand"&gt;Background brand&lt;/div&gt;
-&lt;div class="_bg-accent"&gt;Background accent&lt;/div&gt;
+&lt;div class="_bg-brand"&gt;Brand background&lt;/div&gt;
+&lt;div class="_bg-accent"&gt;Accent background&lt;/div&gt;
 
-&lt;!-- Couleur du texte --&gt;
-&lt;p class="_c-dark"&gt;Couleur dark&lt;/p&gt;
-&lt;p class="_c-light"&gt;Couleur light&lt;/p&gt;
+&lt;!-- Text color --&gt;
+&lt;p class="_c-dark"&gt;Dark color&lt;/p&gt;
+&lt;p class="_c-light"&gt;Light color&lt;/p&gt;
 
 &lt;!-- Border --&gt;
-&lt;div class="_bc-accent"&gt;Border accent&lt;/div&gt;</pre>
+&lt;div class="_bc-accent"&gt;Accent border&lt;/div&gt;</pre>
           </div>
           
           <div class="p-32_ border thin br-1 flex y g-8">
-            <span class="bold">Avec modificateurs d'opacité</span>
-            <pre class="fs-12">&lt;div class="_bg-brand_"&gt;Background brand 65%&lt;/div&gt;
-&lt;div class="_bg-brand__"&gt;Background brand 35%&lt;/div&gt;
-&lt;div class="_bg-brand___"&gt;Background brand 5%&lt;/div&gt;
+            <span class="bold">With opacity modifiers</span>
+            <pre class="fs-12">&lt;div class="_bg-brand_"&gt;Brand background 65%&lt;/div&gt;
+&lt;div class="_bg-brand__"&gt;Brand background 35%&lt;/div&gt;
+&lt;div class="_bg-brand___"&gt;Brand background 5%&lt;/div&gt;
 
-&lt;p class="_c-dark_"&gt;Texte dark avec opacité&lt;/p&gt;</pre>
+&lt;p class="_c-dark_"&gt;Dark text with opacity&lt;/p&gt;</pre>
           </div>
           
           <div class="p-32_ border thin br-1 flex y g-8">
-            <span class="bold">Avec modificateurs de luminosité</span>
-            <pre class="fs-12">&lt;div class="_bg-brand-d"&gt;Brand plus sombre&lt;/div&gt;
-&lt;div class="_bg-brand-b"&gt;Brand plus brillant&lt;/div&gt;
-&lt;div class="_bg-brand-d_"&gt;Brand beaucoup plus sombre&lt;/div&gt;
-&lt;div class="_bg-brand-b_"&gt;Brand beaucoup plus brillant&lt;/div&gt;</pre>
+            <span class="bold">With brightness modifiers</span>
+            <pre class="fs-12">&lt;div class="_bg-brand-d"&gt;Darker brand&lt;/div&gt;
+&lt;div class="_bg-brand-b"&gt;Brighter brand&lt;/div&gt;
+&lt;div class="_bg-brand-d_"&gt;Much darker brand&lt;/div&gt;
+&lt;div class="_bg-brand-b_"&gt;Much brighter brand&lt;/div&gt;</pre>
           </div>
         </div>
       </div>
       
       <div class="flex y g-20">
-        <h3 class="fs-24_ _c-brand mt-32">Utilisation en mode Variables CSS ($build-class: false)</h3>
+        <h3 class="fs-24_ _c-brand mt-32">Usage in CSS Variables mode ($build-class: false)</h3>
         
         <div class="p-32_ border thin br-1">
-          <span class="bold">Classes sémantiques avec variables :</span>
-          <pre class="fs-12 mt-12">// SCSS avec variables EVAcss
+          <span class="bold">Semantic classes with variables:</span>
+          <pre class="fs-12 mt-12">// SCSS with EVAcss variables
 .hero-section {
   background-color: var(--brand);
   color: var(--light);
   
   &:hover {
-    background-color: var(--brand-d);  // Plus sombre au survol
+    background-color: var(--brand-d);  // Darker on hover
   }
 }
 
@@ -757,7 +757,7 @@ var(--brand-b_)  /* Beaucoup plus brillant (+30%) */</pre>
   border: 1px solid var(--accent-d);
   
   &.disabled {
-    background-color: var(--accent_);  // Avec opacité
+    background-color: var(--accent_);  // With opacity
   }
 }</pre>
         </div>
@@ -766,51 +766,51 @@ var(--brand-b_)  /* Beaucoup plus brillant (+30%) */</pre>
   </section>
 
   <section id="size-system" class="px-220__ py-136 flex y g-20">
-    <h2 class="fs-52__ _bg-brand pr-356__ lh-1 ttu fwd-13 f-scale offset">
-      <span class="_c-light">Variables de tailles EVAcss</span>
+    <h2 class="fs-52__ _bg-brand pr-356__ lh-1 ttu fwd-4 f-scale offset">
+      <span class="_c-light">EVAcss Size Variables</span>
     </h2>
     
     <div class="flex y g-32">
       <div class="flex y g-20">
-        <h3 class="fs-24_ _c-brand mt-32">Tailles fluides (responsive automatique)</h3>
+        <h3 class="fs-24_ _c-brand mt-32">Fluid sizes (automatic responsive)</h3>
         
         <div class="flex x wrap g-20">
           <div class="p-32_ border thin br-1 flex y g-8">
-            <span class="bold">Variables de base</span>
-            <pre class="fs-12">var(--16)    /* 16px avec adaptation fluide */
-var(--32)    /* 32px avec adaptation fluide */
-var(--64)    /* 64px avec adaptation fluide */
-var(--120)   /* 120px avec adaptation fluide */
-var(--141)   /* 141px avec adaptation fluide */</pre>
+            <span class="bold">Base variables</span>
+            <pre class="fs-12">var(--16)    /* 16px with fluid adaptation */
+var(--32)    /* 32px with fluid adaptation */
+var(--64)    /* 64px with fluid adaptation */
+var(--120)   /* 120px with fluid adaptation */
+var(--141)   /* 141px with fluid adaptation */</pre>
           </div>
           
           <div class="p-32_ border thin br-1 flex y g-8">
-            <span class="bold">Modificateurs de tailles</span>
-            <pre class="fs-12">var(--16__)  /* Version extrem (espacement très serré) */
-var(--16_)   /* Version réduite (espacement léger) */
-var(--16)    /* Version standard (utilisation normale) */
-var(--16-)   /* Version étendue (espacement généreux) */</pre>
+            <span class="bold">Size modifiers</span>
+            <pre class="fs-12">var(--16__)  /* Extreme version (very tight spacing) */
+var(--16_)   /* Reduced version (light spacing) */
+var(--16)    /* Standard version (normal usage) */
+var(--16-)   /* Extended version (generous spacing) */</pre>
           </div>
           
           <div class="p-32_ border thin br-1 flex y g-8">
-            <span class="bold">Variables de typographie</span>
+            <span class="bold">Typography variables</span>
             <pre class="fs-12">var(--fs-16)   /* Font-size 16px */
 var(--fs-120)  /* Font-size 120px */
-var(--fs-120_) /* Font-size 120px version réduite */
-var(--fs-120__) /* Font-size 120px version extrem */</pre>
+var(--fs-120_) /* Font-size 120px reduced version */
+var(--fs-120__) /* Font-size 120px extreme version */</pre>
           </div>
         </div>
       </div>
       
       <div class="flex y g-20">
-        <h3 class="fs-24_ _c-brand mt-32">Classes utilitaires tailles (Mode $build-class: true)</h3>
+        <h3 class="fs-24_ _c-brand mt-32">Size utility classes (Mode $build-class: true)</h3>
         
         <div class="flex x wrap g-20">
           <div class="p-32_ border thin br-1 flex y g-8">
-            <span class="bold">Largeur / Hauteur</span>
+            <span class="bold">Width / Height</span>
             <pre class="fs-12">&lt;div class="w-64"&gt;Width 64px&lt;/div&gt;
 &lt;div class="h-120"&gt;Height 120px&lt;/div&gt;
-&lt;div class="w-141 h-141"&gt;Cercle 141px&lt;/div&gt;</pre>
+&lt;div class="w-141 h-141"&gt;Circle 141px&lt;/div&gt;</pre>
           </div>
           
           <div class="p-32_ border thin br-1 flex y g-8">
@@ -821,38 +821,38 @@ var(--fs-120__) /* Font-size 120px version extrem */</pre>
           </div>
           
           <div class="p-32_ border thin br-1 flex y g-8">
-            <span class="bold">Espacement</span>
+            <span class="bold">Spacing</span>
             <pre class="fs-12">&lt;div class="g-32"&gt;Gap 32px&lt;/div&gt;
 &lt;div class="mb-16"&gt;Margin bottom 16px&lt;/div&gt;</pre>
           </div>
           
           <div class="p-32_ border thin br-1 flex y g-8">
-            <span class="bold">Typographie</span>
-            <pre class="fs-12">&lt;h1 class="fs-120"&gt;Titre principal&lt;/h1&gt;
-&lt;p class="fs-16"&gt;Paragraphe&lt;/p&gt;
-&lt;p class="fs-16_"&gt;Paragraphe version réduite&lt;/p&gt;</pre>
+            <span class="bold">Typography</span>
+            <pre class="fs-12">&lt;h1 class="fs-120"&gt;Main title&lt;/h1&gt;
+&lt;p class="fs-16"&gt;Paragraph&lt;/p&gt;
+&lt;p class="fs-16_"&gt;Paragraph reduced version&lt;/p&gt;</pre>
           </div>
         </div>
       </div>
       
       <div class="flex y g-20">
-        <h3 class="fs-24_ _c-brand mt-32">Modificateurs responsives</h3>
+        <h3 class="fs-24_ _c-brand mt-32">Responsive modifiers</h3>
         
         <div class="flex x wrap g-20">
           <div class="p-32_ border thin br-1 flex y g-8">
-            <span class="bold">Classes avec modificateurs</span>
-            <pre class="fs-12">&lt;div class="p-16_"&gt;Padding 16px version réduite&lt;/div&gt;
-&lt;div class="p-16-"&gt;Padding 16px version étendue&lt;/div&gt;
-&lt;div class="g-32__"&gt;Gap 32px version extrem&lt;/div&gt;</pre>
+            <span class="bold">Classes with modifiers</span>
+            <pre class="fs-12">&lt;div class="p-16_"&gt;Padding 16px reduced version&lt;/div&gt;
+&lt;div class="p-16-"&gt;Padding 16px extended version&lt;/div&gt;
+&lt;div class="g-32__"&gt;Gap 32px extreme version&lt;/div&gt;</pre>
           </div>
           
           <div class="p-32_ border thin br-1 flex y g-8">
-            <span class="bold">Comportement responsive</span>
+            <span class="bold">Responsive behavior</span>
             <ul class="fs-12 _c-dark_">
-              <li><strong>__</strong> : Adaptation maximale (mobile très serré)</li>
-              <li><strong>_</strong> : Adaptation forte (mobile/tablet)</li>
-              <li><strong>aucun</strong> : Adaptation standard</li>
-              <li><strong>-</strong> : Adaptation minimale (desktop généreux)</li>
+              <li><strong>__</strong>: Maximum adaptation (very tight mobile)</li>
+              <li><strong>_</strong>: Strong adaptation (mobile/tablet)</li>
+              <li><strong>none</strong>: Standard adaptation</li>
+              <li><strong>-</strong>: Minimal adaptation (generous desktop)</li>
             </ul>
           </div>
         </div>
@@ -861,47 +861,47 @@ var(--fs-120__) /* Font-size 120px version extrem */</pre>
   </section>
 
   <section id="theme-management" class="px-220__ py-136 flex y g-20">
-    <h2 class="fs-52__ _bg-brand pr-356__ lh-1 ttu fwd-13 f-scale offset">
-      <span class="_c-light">Gestion des thèmes</span>
+    <h2 class="fs-52__ _bg-brand pr-356__ lh-1 ttu fwd-4 f-scale offset">
+      <span class="_c-light">Theme Management</span>
     </h2>
     
     <div class="flex y g-32">
       <div class="flex y g-20">
-        <h3 class="fs-24_ _c-brand mt-32">Configuration du thème</h3>
+        <h3 class="fs-24_ _c-brand mt-32">Theme configuration</h3>
         
         <div class="flex x wrap g-20">
           <div class="p-32_ border thin br-1 flex y g-8">
-            <span class="bold">Configuration manuelle (recommandé)</span>
-            <pre class="fs-12">// Configuration manuel du toggle
+            <span class="bold">Manual configuration (recommended)</span>
+            <pre class="fs-12">// Manual toggle configuration
 $auto-theme-switch: false;</pre>
-            <p class="fs-14 _c-dark_">Permet un contrôle total sur le basculement des thèmes</p>
+            <p class="fs-14 _c-dark_">Allows full control over theme switching</p>
           </div>
           
           <div class="p-32_ border thin br-1 flex y g-8">
-            <span class="bold">Configuration automatique</span>
-            <pre class="fs-12">// Configuration automatique basée sur prefers-color-scheme
+            <span class="bold">Automatic configuration</span>
+            <pre class="fs-12">// Automatic configuration based on prefers-color-scheme
 $auto-theme-switch: true;</pre>
-            <p class="fs-14 _c-dark_">Suit automatiquement les préférences système</p>
+            <p class="fs-14 _c-dark_">Automatically follows system preferences</p>
           </div>
         </div>
       </div>
       
       <div class="flex y g-20">
-        <h3 class="fs-24_ _c-brand mt-32">Intégration HTML</h3>
+        <h3 class="fs-24_ _c-brand mt-32">HTML integration</h3>
         
         <div class="p-32_ border thin br-1">
-          <span class="bold">Structure HTML obligatoire :</span>
-          <pre class="fs-12 mt-12">&lt;!-- Classes obligatoires --&gt;
-&lt;body class="current-theme theme-nom-projet"&gt;
+          <span class="bold">Required HTML structure:</span>
+          <pre class="fs-12 mt-12">&lt;!-- Required classes --&gt;
+&lt;body class="current-theme theme-project-name"&gt;
   
-  &lt;!-- Bouton pour basculer le thème (si $auto-theme-switch: false) --&gt;
+  &lt;!-- Button to toggle theme (if $auto-theme-switch: false) --&gt;
   &lt;button onclick="document.body.classList.toggle('toggle-theme')"&gt;
     Toggle Dark Mode
   &lt;/button&gt;
   
-  &lt;!-- Contenu avec classes thématiques --&gt;
+  &lt;!-- Content with thematic classes --&gt;
   &lt;div class="_bg-brand _c-light"&gt;
-    Contenu qui s'adapte automatiquement au thème
+    Content that automatically adapts to theme
   &lt;/div&gt;
   
 &lt;/body&gt;</pre>
@@ -909,18 +909,18 @@ $auto-theme-switch: true;</pre>
       </div>
       
       <div class="flex y g-20">
-        <h3 class="fs-24_ _c-brand mt-32">JavaScript pour la persistance</h3>
+        <h3 class="fs-24_ _c-brand mt-32">JavaScript for persistence</h3>
         
         <div class="p-32_ border thin br-1">
-          <span class="bold">Sauvegarde et restauration du thème :</span>
-          <pre class="fs-12 mt-12">// Fonction pour basculer le thème
+          <span class="bold">Theme saving and restoration:</span>
+          <pre class="fs-12 mt-12">// Function to toggle theme
 function toggleTheme() {
   document.body.classList.toggle('toggle-theme');
   const isDark = document.body.classList.contains('toggle-theme');
   localStorage.setItem('theme', isDark ? 'dark' : 'light');
 }
 
-// Restauration du thème au chargement de la page
+// Theme restoration on page load
 document.addEventListener('DOMContentLoaded', function() {
   const savedTheme = localStorage.getItem('theme');
   if (savedTheme === 'dark') {
@@ -928,30 +928,30 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 
-// Integration avec un bouton
+// Integration with a button
 document.querySelector('.theme-toggle').addEventListener('click', toggleTheme);</pre>
         </div>
       </div>
       
       <div class="flex y g-20">
-        <h3 class="fs-24_ _c-brand mt-32">Fonctionnement automatique</h3>
+        <h3 class="fs-24_ _c-brand mt-32">Automatic functionality</h3>
         
         <div class="flex x wrap g-20">
           <div class="p-32_ border thin br-1 flex y g-8">
-            <span class="bold">Variables hybrides auto-liées</span>
-            <pre class="fs-12">--current-lightness: 96.4%;  // Mode clair
---current-darkness: 26.4%;   // Mode sombre
+            <span class="bold">Auto-linked hybrid variables</span>
+            <pre class="fs-12">--current-lightness: 96.4%;  // Light mode
+--current-darkness: 26.4%;   // Dark mode
 
-// Ces variables s'inversent automatiquement
-// lors du toggle du thème</pre>
+// These variables automatically reverse
+// when toggling theme</pre>
           </div>
           
           <div class="p-32_ border thin br-1 flex y g-8">
-            <span class="bold">Classes dynamiques</span>
-            <p class="fs-14 _c-dark_">Les classes <code>_bg-*</code> et <code>_c-*</code> s'adaptent automatiquement au thème actif</p>
+            <span class="bold">Dynamic classes</span>
+            <p class="fs-14 _c-dark_">Classes <code>_bg-*</code> and <code>_c-*</code> automatically adapt to the active theme</p>
             <pre class="fs-12">&lt;div class="_bg-brand"&gt;
-  /* Couleur brand en mode clair */
-  /* Couleur brand adaptée en mode sombre */
+  /* Brand color in light mode */
+  /* Adapted brand color in dark mode */
 &lt;/div&gt;</pre>
           </div>
         </div>
@@ -960,19 +960,19 @@ document.querySelector('.theme-toggle').addEventListener('click', toggleTheme);<
   </section>
 
   <section id="practical-example" class="px-220__ py-136 flex y g-20">
-    <h2 class="fs-52__ _bg-brand pr-356__ lh-1 ttu fwd-13 f-scale offset">
-      <span class="_c-light">Exemple concret : Projet Ulysse</span>
+    <h2 class="fs-52__ _bg-brand pr-356__ lh-1 ttu fwd-4 f-scale offset">
+      <span class="_c-light">Practical Example: Ulysse Project</span>
     </h2>
     
     <div class="flex y g-32">
       <div class="flex y g-20">
-        <h3 class="fs-24_ _c-brand mt-32">1. Input Figma</h3>
+        <h3 class="fs-24_ _c-brand mt-32">1. Figma Input</h3>
         
         <div class="p-32_ border thin br-1">
-          <span class="bold">Lien Figma analysé :</span>
+          <span class="bold">Analyzed Figma link:</span>
           <pre class="fs-12 mt-8">https://www.figma.com/design/91DhBPs6br8UVhxEdiuJFd/Ulysse?node-id=1-2</pre>
           
-          <span class="bold mt-16">Extraction automatique :</span>
+          <span class="bold mt-16">Automatic extraction:</span>
           <pre class="fs-12 mt-8">{
   "H1": "120",
   "p": "16",
@@ -986,22 +986,22 @@ document.querySelector('.theme-toggle').addEventListener('click', toggleTheme);<
       </div>
       
       <div class="flex y g-20">
-        <h3 class="fs-24_ _c-brand mt-32">2. Configuration générée automatiquement</h3>
+        <h3 class="fs-24_ _c-brand mt-32">2. Automatically generated configuration</h3>
         
         <div class="p-32_ border thin br-1">
-          <pre class="fs-11">// Mode choisi : Classes utilitaires
+          <pre class="fs-11">// Chosen mode: Utility classes
 $build-class: true;
 $name-by-size: true;
 $px-rem-suffix: false;
 
-// Tailles extraites du Figma Ulysse (analyse complète)
+// Sizes extracted from Figma Ulysse (complete analysis)
 $sizes: 4, 8, 16, 32, 54, 64, 120, 141; 
-// 4px (gap content), 8px (gap colors), 16px (padding), 
-// 32px (gap colors réel), 54px (autres espacements), 64px (gap hero), 120px (H1), 141px (circles)
+// 4px (content gap), 8px (colors gap), 16px (padding), 
+// 32px (real colors gap), 54px (other spacing), 64px (hero gap), 120px (H1), 141px (circles)
 
 $font-sizes: 16, 120; // 16px (p), 120px (H1)
 
-// Classes utilitaires à générer
+// Utility classes to generate
 $class-config: (
   w: (),    // width classes
   h: (),    // height classes
@@ -1041,10 +1041,10 @@ $class-config: (
       </div>
       
       <div class="flex y g-20">
-        <h3 class="fs-24_ _c-brand mt-32">3. Utilisation avec classes utilitaires</h3>
+        <h3 class="fs-24_ _c-brand mt-32">3. Usage with utility classes</h3>
         
         <div class="p-32_ border thin br-1">
-          <span class="bold">HTML final généré :</span>
+          <span class="bold">Generated final HTML:</span>
           <pre class="fs-12 mt-12">&lt;body class="current-theme theme-ulysse"&gt;
   &lt;div class="hero _bg-brand _c-light p-64"&gt;
     &lt;div class="content g-4"&gt;
@@ -1061,27 +1061,27 @@ $class-config: (
       </div>
       
       <div class="flex y g-20">
-        <h3 class="fs-24_ _c-brand mt-32">4. Résultat final</h3>
+        <h3 class="fs-24_ _c-brand mt-32">4. Final result</h3>
         
         <div class="flex x wrap g-20">
           <div class="p-32_ border thin br-1 flex y g-8">
-            <span class="bold">Cohérence parfaite</span>
-            <p class="fs-14 _c-dark_">Design Figma → Web responsive en quelques minutes</p>
+            <span class="bold">Perfect consistency</span>
+            <p class="fs-14 _c-dark_">Figma design → Responsive web in minutes</p>
           </div>
           
           <div class="p-32_ border thin br-1 flex y g-8">
-            <span class="bold">Responsive automatique</span>
-            <p class="fs-14 _c-dark_">Toutes les tailles s'adaptent fluidement</p>
+            <span class="bold">Automatic responsive</span>
+            <p class="fs-14 _c-dark_">All sizes adapt fluidly</p>
           </div>
           
           <div class="p-32_ border thin br-1 flex y g-8">
-            <span class="bold">Thème fonctionnel</span>
-            <p class="fs-14 _c-dark_">Dark/light mode prêt à l'emploi</p>
+            <span class="bold">Functional theme</span>
+            <p class="fs-14 _c-dark_">Dark/light mode ready to use</p>
           </div>
           
           <div class="p-32_ border thin br-1 flex y g-8">
-            <span class="bold">Performance optimale</span>
-            <p class="fs-14 _c-dark_">CSS minimal et variables centralisées</p>
+            <span class="bold">Optimal performance</span>
+            <p class="fs-14 _c-dark_">Minimal CSS and centralized variables</p>
           </div>
         </div>
       </div>
@@ -1089,11 +1089,11 @@ $class-config: (
   </section>
 
   <section id="live-demo" class="px-220__ py-136 flex y g-20 w-full">
-    <h2 class="fs-52__ _bg-brand pr-356__ lh-1 ttu fwd-13 f-scale offset">
-      <span class="_c-light">Démo Live : Projet Ulysse</span>
+    <h2 class="fs-52__ _bg-brand pr-356__ lh-1 ttu fwd-4 f-scale offset">
+      <span class="_c-light">Live Demo: Ulysse Project</span>
     </h2>
     <p class="fs-16">
-      Visualisez le résultat final en action : le projet Ulysse intégrant toutes les fonctionnalités EVA CSS.
+      Visualize the final result in action: the Ulysse project integrating all EVA CSS features.
     </p>
     
     <div class="flex y g-32 w-full">
@@ -1141,38 +1141,38 @@ $class-config: (
       </div>
       
       <div class="flex y g-20">
-        <h3 class="fs-24_ _c-brand mt-32">Accès Direct</h3>
+        <h3 class="fs-24_ _c-brand mt-32">Direct Access</h3>
         
         <div class="flex x wrap g-20">
           <a href="projects/ulysse/index.html" target="_blank" class="p-32_ border thin br-1 flex y g-8 _c-brand no-underline hover:_bg-brand__ transition">
-            <span class="bold">Ouvrir le Projet Ulysse</span>
-            <p class="fs-14 _c-dark_">Découvrez l'intégration complète Figma → EVA CSS</p>
+            <span class="bold">Open Ulysse Project</span>
+            <p class="fs-14 _c-dark_">Discover the complete Figma → EVA CSS integration</p>
           </a>
           
           <a href="https://www.figma.com/design/91DhBPs6br8UVhxEdiuJFd/Ulysse?node-id=0-1&t=Yk0cWMSeR8DGzApw-1" target="_blank" class="p-32_ border thin br-1 flex y g-8 _c-brand no-underline hover:_bg-extra__ transition">
-            <span class="bold">Voir le Design Figma</span>
-            <p class="fs-14 _c-dark_">Comparez avec le design original dans Figma</p>
+            <span class="bold">View Figma Design</span>
+            <p class="fs-14 _c-dark_">Compare with the original design in Figma</p>
           </a>
           
           <div class="p-32_ border thin br-1 flex y g-8">
-            <span class="bold">Fonctionnalités démontrées</span>
+            <span class="bold">Demonstrated features</span>
             <ul class="fs-12 _c-dark_">
-              <li>Variables fluides responsive</li>
-              <li>Système de couleurs OKLCH</li>
-              <li>Toggle dark/light mode</li>
-              <li>Correspondance exacte Figma → CSS</li>
-              <li>Palette de couleurs interactive</li>
+              <li>Responsive fluid variables</li>
+              <li>OKLCH color system</li>
+              <li>Dark/light mode toggle</li>
+              <li>Exact Figma → CSS correspondence</li>
+              <li>Interactive color palette</li>
             </ul>
           </div>
           
           <div class="p-32_ border thin br-1 flex y g-8">
-            <span class="bold">Configuration utilisée</span>
-            <pre class="fs-11">// Projet Ulysse
-$build-class: false; // Variables CSS
+            <span class="bold">Configuration used</span>
+            <pre class="fs-11">// Ulysse Project
+$build-class: false; // CSS variables
 $sizes: 4, 8, 16, 32, 54, 64, 120, 141;
 $font-sizes: 10, 16, 36, 120;
 
-// Couleurs OKLCH
+// OKLCH colors
 #00d4ff → oklch(84.1% 0.155 200.4)
 #e5ff00 → oklch(93.6% 0.202 101.8)
 #5f6769 → oklch(42.8% 0.008 220.3)</pre>
@@ -1260,44 +1260,44 @@ $font-sizes: 10, 16, 36, 120;
   </section>
 
   <section class="px-220__ py-136 flex y g-20">
-    <h2 class="fs-52__ _bg-brand pr-356__ lh-1 ttu fwd-13 f-scale offset">
-      <span class="_c-light">Commandes utiles</span>
+    <h2 class="fs-52__ _bg-brand pr-356__ lh-1 ttu fwd-4 f-scale offset">
+      <span class="_c-light">Useful Commands</span>
     </h2>
     
     <div class="flex y g-32">
       <div class="flex x wrap g-20">
         <div class="p-32_ border thin br-1 flex y g-8">
-          <span class="bold">Surveiller les projets</span>
+          <span class="bold">Watch projects</span>
           <pre class="fs-12">npm run watch-projects</pre>
-          <p class="fs-14 _c-dark_">Compilation automatique de tous les projets</p>
+          <p class="fs-14 _c-dark_">Automatic compilation of all projects</p>
         </div>
         
         <div class="p-32_ border thin br-1 flex y g-8">
-          <span class="bold">Compiler un projet spécifique</span>
-          <pre class="fs-12">npx sass projects/nom-projet/styles/nom-projet.scss:projects/nom-projet/render/nom-projet.css</pre>
+          <span class="bold">Compile specific project</span>
+          <pre class="fs-12">npx sass projects/project-name/styles/project-name.scss:projects/project-name/render/project-name.css</pre>
         </div>
         
         <div class="p-32_ border thin br-1 flex y g-8">
-          <span class="bold">Convertir couleurs hex en OKLCH</span>
+          <span class="bold">Convert hex colors to OKLCH</span>
           <pre class="fs-12">node scripts/hex-to-oklch.js #ff0000 #ffe500 #7300ff</pre>
         </div>
         
         <div class="p-32_ border thin br-1 flex y g-8">
-          <span class="bold">Installer dépendance couleurs</span>
+          <span class="bold">Install color dependency</span>
           <pre class="fs-12">npm install culori --save-dev</pre>
         </div>
       </div>
       
       <div class="p-32_ border thin br-1 flex y g-20">
-        <span class="bold fs-20 _c-brand">Avec EVAcss, votre Figma devient un site web parfaitement responsive et maintenable en quelques étapes ! 🚀</span>
+        <span class="bold fs-20 _c-brand">With EVAcss, your Figma becomes a perfectly responsive and maintainable website in just a few steps! 🚀</span>
         
         <div class="flex y g-12">
-          <p class="fs-16"><strong>Choix du mode</strong> : Classes utilitaires ou variables CSS selon le projet</p>
-          <p class="fs-16"><strong>Extraction complète</strong> : Toutes les tailles identifiées et intégrées</p>
-          <p class="fs-16"><strong>Variables fluides</strong> : Responsive automatique avec modificateurs</p>
-          <p class="fs-16"><strong>Couleurs avancées</strong> : Système OKLCH avec opacité/luminosité</p>
-          <p class="fs-16"><strong>Thèmes intelligents</strong> : Dark/light mode avec configuration hybride</p>
-          <p class="fs-16"><strong>Performance optimale</strong> : Compilation ciblée et variables CSS</p>
+          <p class="fs-16"><strong>Mode selection</strong>: Utility classes or CSS variables according to the project</p>
+          <p class="fs-16"><strong>Complete extraction</strong>: All sizes identified and integrated</p>
+          <p class="fs-16"><strong>Fluid variables</strong>: Automatic responsive with modifiers</p>
+          <p class="fs-16"><strong>Advanced colors</strong>: OKLCH system with opacity/brightness</p>
+          <p class="fs-16"><strong>Smart themes</strong>: Dark/light mode with hybrid configuration</p>
+          <p class="fs-16"><strong>Optimal performance</strong>: Targeted compilation and CSS variables</p>
         </div>
       </div>
     </div>
