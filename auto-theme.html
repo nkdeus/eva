@@ -132,7 +132,7 @@
       </p>
   </section>
 
-  <section class="px-220__ py-136 flex y g-32">
+  <section class="px-220__ py-136 flex y g-136">
     
     <!-- Drop Zone -->
     <div class="flex y g-20">
@@ -189,7 +189,7 @@
             <h3 id="picker-title" class="fs-18 bold">Select color for brand</h3>
             <button id="close-picker" class="fs-20 _c-brand">✕</button>
           </div>
-          <div class="flex wrap g-12" id="color-picker-swatches">
+          <div class="flex wrap g-20" id="color-picker-swatches">
             <!-- Color options will be generated here -->
           </div>
           
@@ -255,12 +255,7 @@
   
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      console.log('Using embedded OKLCH conversion (scientific accuracy)');
-      
-      // Test the conversion
-      const testColor = '#ff0000';
-      const testResult = hexToOklch(testColor);
-      console.log(`Test conversion ${testColor}:`, testResult);
+      // Using embedded OKLCH conversion (scientific accuracy)
       const dropZone = document.getElementById('drop-zone');
       const fileInput = document.getElementById('file-input');
       const previewSection = document.getElementById('preview-section');
@@ -319,7 +314,10 @@
           previewImage.src = e.target.result;
           previewImage.onload = function() {
             previewSection.classList.remove('hide');
+            // Séquencer le travail pour éviter les blocages
+          setTimeout(() => {
             extractColors();
+          }, 100);
           };
         };
         reader.readAsDataURL(file);
@@ -335,8 +333,15 @@
           
           displayColorPalette();
           createThemeMapping();
+          
+          // Auto-assign theme colors
+          // Séquencer l'auto-assignment après l'affichage
           colorPalette.classList.remove('hide');
           themeAssignment.classList.remove('hide');
+          
+          setTimeout(() => {
+            autoAssignThemeColors();
+          }, 200);
         } catch (error) {
           console.error('Error extracting colors:', error);
         }
@@ -380,7 +385,7 @@
           mapping.style.cssText = `
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 16px;
             padding: 16px;
             background-color: var(--light);
             border-radius: 12px;
@@ -393,7 +398,7 @@
           header.style.cssText = `
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 16px;
             cursor: pointer;
           `;
           
@@ -409,8 +414,8 @@
           const colorBox = document.createElement('div');
           colorBox.id = `theme-${varName}`;
           colorBox.style.cssText = `
-            width: 40px;
-            height: 40px;
+            width: 64px;
+            height: 64px;
             border-radius: 6px;
             border: 2px solid var(--brand);
             background-color: var(--${varName});
@@ -425,7 +430,7 @@
           controls.style.cssText = `
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 16px;
           `;
           
           // Lightness slider
@@ -433,7 +438,7 @@
           lightnessContainer.style.cssText = `
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 16px;
           `;
           
           const lightnessLabel = document.createElement('span');
@@ -470,8 +475,8 @@
           const chromaContainer = document.createElement('div');
           chromaContainer.style.cssText = `
             display: flex;
-            align-items: center;
-            gap: 8px;
+            align-items: center;  
+            gap: 16px;
           `;
           
           const chromaLabel = document.createElement('span');
@@ -602,8 +607,7 @@
         const controls = document.getElementById(`controls-${varName}`);
         controls.classList.remove('hide');
         
-        console.log(`Updated ${varName}: hue=${oklch.h}, chroma=${oklch.c}, lightness=${oklch.l}%`);
-        console.log(`Root color: --root-${varName}: ${rootColor}`);
+        // Updated color variables
         
         // Generate theme for display
         generateTheme();
@@ -649,7 +653,138 @@
         const rootColor = `var(--${varName}-lightness) var(--${varName}-chroma) var(--${varName}-hue)`;
         document.body.style.setProperty(`--root-${varName}`, rootColor);
         
-        console.log(`Live update ${varName}: L=${newLightness}%, C=${newChroma}, H=${newHue}`);
+        // Live color update applied
+      }
+      
+      function autoAssignThemeColors() {
+        if (extractedColors.length === 0) return;
+        
+        // Auto-assigning theme colors
+        
+        // Convert all colors to OKLCH for analysis
+        const colorsWithOklch = extractedColors.map((color, index) => ({
+          ...color,
+          oklch: hexToOklchWrapper(color.hex),
+          dominance: index // ColorThief returns colors by dominance
+        }));
+        
+        // Processing colors with OKLCH
+        
+        // Find BRAND: highest chroma (most vibrant color)
+        const brandColor = colorsWithOklch
+          .sort((a, b) => b.oklch.c - a.oklch.c)[0];
+        
+        // Selected BRAND (highest chroma)
+        
+        // Find ACCENT: second highest chroma, excluding brand
+        const accentColor = colorsWithOklch
+          .filter(c => c !== brandColor)
+          .sort((a, b) => b.oklch.c - a.oklch.c)[0];
+        
+        // Selected ACCENT (second highest chroma)
+        
+        // Find EXTRA: best balance between dominance and hue contrast with brand
+        const extraColor = colorsWithOklch
+          .filter(c => c !== brandColor && c !== accentColor)
+          .sort((a, b) => {
+            // Balance between dominance (lower is better) and hue difference (higher is better)
+            const aScore = a.dominance - (Math.abs(a.oklch.h - brandColor.oklch.h) / 20);
+            const bScore = b.dominance - (Math.abs(b.oklch.h - brandColor.oklch.h) / 20);
+            return aScore - bScore;
+          })[0];
+        
+        // Selected EXTRA (balanced dominance + hue contrast)
+        
+        // Apply color assignments
+        if (brandColor) applyColorToTheme('brand', brandColor);
+        if (accentColor) applyColorToTheme('accent', accentColor);
+        if (extraColor) applyColorToTheme('extra', extraColor);
+        
+        // Smart Dark/Light based on brand-hue and image analysis
+        if (brandColor) {
+          setupSmartDarkLight(colorsWithOklch, brandColor);
+        }
+        
+        // Auto assignments completed
+        generateTheme();
+      }
+      
+      function setupSmartDarkLight(colorsWithOklch, brandColor) {
+        // Analyze image to determine if it's mostly dark or light
+        const avgLightness = colorsWithOklch.reduce((sum, c) => sum + c.oklch.l, 0) / colorsWithOklch.length;
+        // Average image lightness calculated
+        
+        // Find darkest and lightest colors for reference
+        const darkestColor = colorsWithOklch.sort((a, b) => a.oklch.l - b.oklch.l)[0];
+        const lightestColor = colorsWithOklch.sort((a, b) => b.oklch.l - a.oklch.l)[0];
+        
+        // Keep default EVA CSS values for current-darkness/lightness
+        // Don't modify these to preserve theme toggle functionality
+        // Keeping default --current-darkness and --current-lightness values for theme toggle
+        
+        // Setup DARK using brand-hue
+        document.body.style.setProperty('--dark-lightness', 'var(--current-darkness)');
+        document.body.style.setProperty('--dark-chroma', '0.05');
+        document.body.style.setProperty('--dark-hue', 'var(--brand-hue)');
+        
+        // Setup LIGHT using brand-hue
+        document.body.style.setProperty('--light-lightness', 'var(--current-lightness)');
+        document.body.style.setProperty('--light-chroma', '0.01');
+        document.body.style.setProperty('--light-hue', 'var(--brand-hue)');
+        
+        // Rebuild root variables
+        document.body.style.setProperty('--root-dark', 'var(--dark-lightness) var(--dark-chroma) var(--dark-hue)');
+        document.body.style.setProperty('--root-light', 'var(--light-lightness) var(--light-chroma) var(--light-hue)');
+        
+        // Update sliders for dark/light using default EVA values
+        updateSliders('dark', { 
+          l: 15, // Default EVA CSS dark value
+          c: 0.05, 
+          h: brandColor.oklch.h 
+        });
+        
+        updateSliders('light', { 
+          l: 90, // Default EVA CSS light value
+          c: 0.01, 
+          h: brandColor.oklch.h 
+        });
+        
+        // Show controls
+        const darkControls = document.getElementById('controls-dark');
+        const lightControls = document.getElementById('controls-light');
+        if (darkControls) darkControls.classList.remove('hide');
+        if (lightControls) lightControls.classList.remove('hide');
+        
+        // Update theme colors object
+        themeColors.dark = { hex: `oklch(15% 0.05 ${brandColor.oklch.h})`, oklch: { l: 15, c: 0.05, h: brandColor.oklch.h } };
+        themeColors.light = { hex: `oklch(90% 0.01 ${brandColor.oklch.h})`, oklch: { l: 90, c: 0.01, h: brandColor.oklch.h } };
+      }
+      
+      function applyColorToTheme(varName, colorData) {
+        const oklch = colorData.oklch;
+        
+        // Update theme variables
+        document.body.style.setProperty(`--${varName}-hue`, oklch.h);
+        document.body.style.setProperty(`--${varName}-chroma`, oklch.c);
+        document.body.style.setProperty(`--${varName}-lightness`, `${oklch.l}%`);
+        
+        // Rebuild root color variable
+        const rootColor = `var(--${varName}-lightness) var(--${varName}-chroma) var(--${varName}-hue)`;
+        document.body.style.setProperty(`--root-${varName}`, rootColor);
+        
+        // Update theme colors object
+        themeColors[varName] = colorData;
+        
+        // Update sliders
+        updateSliders(varName, oklch);
+        
+        // Show controls
+        const controls = document.getElementById(`controls-${varName}`);
+        if (controls) {
+          controls.classList.remove('hide');
+        }
+        
+        // Auto-applied color
       }
       
       
@@ -662,31 +797,29 @@
       });
       
       function generateTheme() {
-        // Only generate if we have at least one color
-        const hasColors = Object.values(themeColors).some(color => color !== null);
-        if (!hasColors) return;
-        
-        console.log('Current themeColors:', themeColors);
-        
-        const css = Object.entries(themeColors)
-          .filter(([varName, color]) => {
-            console.log(`Checking ${varName}:`, color);
-            return color !== null;
+        // Get actual CSS variables from document.body
+        const themeVars = ['brand', 'accent', 'extra', 'dark', 'light'];
+        const css = themeVars
+          .filter(varName => {
+            // Check if this variable exists in the body
+            const hue = document.body.style.getPropertyValue(`--${varName}-hue`);
+            return hue !== '';
           })
-          .map(([varName, color]) => {
-            const oklch = hexToOklch(color.hex);
-            console.log(`Theme ${varName} (${color.hex}):`, oklch);
+          .map(varName => {
+            const lightness = document.body.style.getPropertyValue(`--${varName}-lightness`);
+            const chroma = document.body.style.getPropertyValue(`--${varName}-chroma`);
+            const hue = document.body.style.getPropertyValue(`--${varName}-hue`);
             return `
-  --${varName}-lightness: ${oklch.l}%;
-  --${varName}-chroma: ${oklch.c};
-  --${varName}-hue: ${oklch.h};`;
+  --${varName}-lightness: ${lightness};
+  --${varName}-chroma: ${chroma};
+  --${varName}-hue: ${hue};`;
           })
           .join('\n');
         
         const fullCss = `.theme-auto {${css}
 }`;
         
-        console.log('Generated CSS:', fullCss);
+        // Generated CSS
         themeCss.textContent = fullCss;
         generatedTheme.classList.remove('hide');
       }
@@ -700,7 +833,7 @@
             document.body.style.setProperty(`--${varName}-chroma`, oklch.c);
             document.body.style.setProperty(`--${varName}-lightness`, `${oklch.l}%`);
             
-            console.log(`Updated ${varName}: hue=${oklch.h}, chroma=${oklch.c}, lightness=${oklch.l}%`);
+            // Updated color variables
           }
         });
       }
@@ -708,7 +841,7 @@
       function hexToOklchWrapper(hex) {
         try {
           const result = hexToOklch(hex);
-          console.log(`Converting ${hex} to OKLCH (embedded):`, result);
+          // Converting hex to OKLCH
           return result;
         } catch (error) {
           console.error('Error converting to OKLCH:', error);
@@ -849,46 +982,87 @@
       background: none;
       border: none;
       cursor: pointer;
-      font-size: 20px;
+      font-size: 24px;
       padding: 8px;
       border-radius: 8px;
       transition: all 0.3s ease;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     
     #close-picker:hover {
       background-color: var(--brand__);
       color: var(--brand);
+      transform: scale(1.1);
     }
     
     /* Color sliders */
     .color-slider {
+      -webkit-appearance: none;
+      appearance: none;
       width: 100%;
-      height: 8px;
-      border-radius: 4px;
-      background: linear-gradient(to right, var(--light), var(--brand));
+      height: 4px;
+      border-radius: 2px;
+      background: linear-gradient(to right, var(--light), var(--dark));
       outline: none;
       cursor: pointer;
     }
     
-    .color-slider::-webkit-slider-thumb {
+    .color-slider::-webkit-slider-track {
+      -webkit-appearance: none;
       appearance: none;
-      width: 20px;
-      height: 20px;
+      height: 4px;
+      border-radius: 2px;
+      background: linear-gradient(to right, var(--light), var(--dark));
+    }
+    
+    .color-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 32px;
+      height: 32px;
       border-radius: 50%;
-      background: var(--brand);
+      background: var(--dark);
       cursor: pointer;
-      border: 2px solid var(--light);
-      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+      border: 4px solid var(--light);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      transition: all 0.2s ease;
+    }
+    
+    .color-slider::-webkit-slider-thumb:hover {
+      transform: scale(1.15);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+      background: var(--light);
+      border: 4px solid var(--dark);
+    }
+    
+    .color-slider::-moz-range-track {
+      width: 100%;
+      height: 4px;
+      border-radius: 2px;
+      background: linear-gradient(to right, var(--light), var(--dark));
+      border: none;
     }
     
     .color-slider::-moz-range-thumb {
-      width: 20px;
-      height: 20px;
+      width: 32px;
+      height: 32px;
       border-radius: 50%;
-      background: var(--brand);
+      background: var(--dark);
       cursor: pointer;
-      border: 2px solid var(--light);
-      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+      border: 4px solid var(--light);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      transition: all 0.2s ease;
+    }
+    
+    .color-slider::-moz-range-thumb:hover {
+      transform: scale(1.15);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+      background: var(--light);
+      border: 4px solid var(--dark);
     }
   </style>
   </body>
