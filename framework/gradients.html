@@ -52,7 +52,7 @@
             </a>
           </li>
           <li>
-            <a href="gradients.html" class="h-52 px-12 flex y center _c-light _bg-brand br-12">
+            <a href="gradients.html" class="h-52 px-12 flex y center _c-dark _bg-brand br-12">
               <span class="fs-12">Gradients</span>
             </a>
           </li>
@@ -123,6 +123,7 @@
 
       <div class="flex y wrap g-12  fs-16">
         <a href="#gradients" class="h-52 px-12 flex y center _c-brand br-12">Gradient System</a>
+        <a href="#all-combinations" class="h-52 px-12 flex y center _c-brand br-12">All Combinations</a>
       </div>
     </div>
 </section>
@@ -136,503 +137,758 @@
     </p>
     
     <!-- Documentation Gradients -->
-    <div class="flex y g-20">
-      <div class="flex y g-20">
-        <h3 class="fs-24 bold">Documentation</h3>
-        <p class="fs-12_">Ultra-modern gradient system with complete control via Emmet-style classes</p>
-        <div class="flex y g-8">
-          <p class="fs-12"><strong>Types:</strong> grad-linear, grad-radial, grad-linear-text, grad-radial-text</p>
-          <p class="fs-12"><strong>Colors:</strong> from-[color] to-[color] (all color variations available)</p>
-          <p class="fs-12"><strong>Effects:</strong> animated, hover-shift, hover-scale, bg-size variants</p>
+    <div class="flex y g-136">
+
+      <!-- Gradient Types -->
+      <div class="flex y g-52">
+        <h4 class="fs-18 bold">Gradient Types</h4>
+        <p class="fs-12">Four main gradient types available in EVA CSS</p>
+        <div class="flex wrap g-20">
+          <div class="flex x g-20">
+            <div class="w-136 h-136 item-card grad-linear from-brand to-accent br-12 flex y center p-8 px-12">
+              <div class="flex y center">
+                <span class="fs-12_ _c-dark bold">grad-linear</span>
+                <span class="fs-10 _c-dark_">Linear gradients</span>
+              </div>
+            </div>
+            <div class="w-136 h-136 item-card grad-radial from-brand to-accent br-12 flex y center p-8 px-12">
+              <div class="flex y center">
+                <span class="fs-12_ _c-dark bold">grad-radial</span>
+                <span class="fs-10 _c-dark_">Radial gradients</span>
+              </div>
+            </div>
+            <div class="w-136 h-136 item-card _bg-light br-12 flex y center p-8 px-12">
+              <div class="flex y center">
+                <span class="fs-16 grad-linear-text from-brand to-accent bold">TEXT</span>
+                <span class="fs-10 _c-dark">grad-linear-text</span>
+              </div>
+            </div>
+            <div class="w-136 h-136 item-card _bg-light br-12 flex y center p-8 px-12">
+              <div class="flex y center">
+                <span class="fs-16 grad-radial-text from-extra to-accent bold">TEXT</span>
+                <span class="fs-10 _c-dark">grad-radial-text</span>
+              </div>
+            </div>
+          </div>
         </div>
-      </a>
-        <!-- Direction Controls Explanation -->
-        <div class="flex y g-8">
-          <h4 class="fs-16 bold _c-brand">Direction Controls</h4>
-          <p class="fs-12"><strong>Main directions:</strong></p>
-          <div class="flex wrap g-8">
-            <span class="fs-11 px-8 py-4 _bg-brand__ br-8 _c-brand"><strong>d-t</strong> (top)</span>
-            <span class="fs-11 px-8 py-4 _bg-brand__ br-8 _c-brand"><strong>d-r</strong> (right)</span>
-            <span class="fs-11 px-8 py-4 _bg-brand__ br-8 _c-brand"><strong>d-b</strong> (bottom)</span>
-            <span class="fs-11 px-8 py-4 _bg-brand__ br-8 _c-brand"><strong>d-l</strong> (left)</span>
+      </div>
+
+      <!-- Direction Controls -->
+      <div class="flex y g-52">
+        <h4 class="fs-18 bold">Direction Controls</h4>
+        <p class="fs-12">Control gradient direction with intuitive classes</p>
+        
+        <div class="flex y g-20">
+          <h5 class="fs-16 bold">Main Directions</h5>
+          <div class="flex wrap g-20">
+            <div class="flex x g-20">
+              <div class="w-136 h-136 item-card grad-linear from-brand to-light d-t br-12 flex y center p-8 px-12">
+                <div class="flex y center">
+                  <span class="fs-12_ _c-dark bold">d-t</span>
+                  <span class="fs-10 _c-dark_">to top ↑</span>
+                </div>
+              </div>
+              <div class="w-136 h-136 item-card grad-linear from-brand to-light d-r br-12 flex y center p-8 px-12">
+                <div class="flex y center">
+                  <span class="fs-12_ _c-dark bold">d-r</span>
+                  <span class="fs-10 _c-dark_">to right →</span>
+                </div>
+              </div>
+              <div class="w-136 h-136 item-card grad-linear from-brand to-light d-b br-12 flex y center p-8 px-12">
+                <div class="flex y center">
+                  <span class="fs-12_ _c-dark bold">d-b</span>
+                  <span class="fs-10 _c-dark_">to bottom ↓</span>
+                </div>
+              </div>
+              <div class="w-136 h-136 item-card grad-linear from-brand to-light d-l br-12 flex y center p-8 px-12">
+                <div class="flex y center">
+                  <span class="fs-12_ _c-dark bold">d-l</span>
+                  <span class="fs-10 _c-dark_">to left ←</span>
+                </div>
+              </div>
+            </div>
           </div>
-          <p class="fs-12"><strong>Diagonal directions:</strong></p>
-          <div class="flex wrap g-8">
-            <span class="fs-11 px-8 py-4 _bg-accent__ br-8 _c-accent"><strong>d-tl</strong> (top-left)</span>
-            <span class="fs-11 px-8 py-4 _bg-accent__ br-8 _c-accent"><strong>d-tr</strong> (top-right)</span>
-            <span class="fs-11 px-8 py-4 _bg-accent__ br-8 _c-accent"><strong>d-bl</strong> (bottom-left)</span>
-            <span class="fs-11 px-8 py-4 _bg-accent__ br-8 _c-accent"><strong>d-br</strong> (bottom-right)</span>
-          </div>
-          <p class="fs-10 _c-dark_">Example: <code>grad-linear from-brand to-accent d-tr</code></p>
         </div>
 
-        <!-- Angles Explanation -->
-        <div class="flex y g-8">
-          <h4 class="fs-16 bold _c-extra">Angle Controls</h4>
-          <p class="fs-12"><strong>Custom angles:</strong> from <code>a-0</code> to <code>a-360</code> in 5° intervals</p>
-          <div class="flex wrap g-8">
-            <span class="fs-11 px-8 py-4 _bg-extra__ br-8 _c-extra"><strong>a-0</strong> (0°)</span>
-            <span class="fs-11 px-8 py-4 _bg-extra__ br-8 _c-extra"><strong>a-45</strong> (45°)</span>
-            <span class="fs-11 px-8 py-4 _bg-extra__ br-8 _c-extra"><strong>a-90</strong> (90°)</span>
-            <span class="fs-11 px-8 py-4 _bg-extra__ br-8 _c-extra"><strong>a-135</strong> (135°)</span>
-            <span class="fs-11 px-8 py-4 _bg-extra__ br-8 _c-extra"><strong>a-180</strong> (180°)</span>
-            <span class="fs-11 px-8 py-4 _bg-extra__ br-8 _c-extra"><strong>a-270</strong> (270°)</span>
+        <div class="flex y g-20">
+          <h5 class="fs-16 bold">Diagonal Directions</h5>
+          <div class="flex wrap g-20">
+            <div class="flex x g-20">
+                             <div class="w-136 h-136 item-card grad-linear from-accent to-light d-tl br-12 flex y center p-8 px-12">
+                 <div class="flex y center">
+                   <span class="fs-12_ _c-dark bold">d-tl</span>
+                   <span class="fs-10 _c-dark_">top-left ↖</span>
+                 </div>
+               </div>
+               <div class="w-136 h-136 item-card grad-linear from-accent to-light d-tr br-12 flex y center p-8 px-12">
+                 <div class="flex y center">
+                   <span class="fs-12_ _c-dark bold">d-tr</span>
+                   <span class="fs-10 _c-dark_">top-right ↗</span>
+                 </div>
+               </div>
+               <div class="w-136 h-136 item-card grad-linear from-accent to-light d-bl br-12 flex y center p-8 px-12">
+                 <div class="flex y center">
+                   <span class="fs-12_ _c-dark bold">d-bl</span>
+                   <span class="fs-10 _c-dark_">bottom-left ↙</span>
+                 </div>
+               </div>
+               <div class="w-136 h-136 item-card grad-linear from-accent to-light d-br br-12 flex y center p-8 px-12">
+                 <div class="flex y center">
+                   <span class="fs-12_ _c-dark bold">d-br</span>
+                   <span class="fs-10 _c-dark_">bottom-right ↘</span>
+                 </div>
+               </div>
+            </div>
           </div>
+        </div>
+      </div>
+
+      <!-- Angle Controls -->
+      <div class="flex y g-52">
+        <h4 class="fs-18 bold">Angle Controls</h4>
+        <p class="fs-12">Precise angle control from 0° to 360° in 5° intervals</p>
+        <div class="flex wrap g-20">
+          <div class="flex x g-20">
+                         <div class="w-136 h-136 item-card grad-linear from-extra to-light a-0 br-12 flex y center p-8 px-12">
+               <div class="flex y center">
+                 <span class="fs-12_ _c-dark bold">a-0</span>
+                 <span class="fs-10 _c-dark_">0 degrees</span>
+               </div>
+             </div>
+             <div class="w-136 h-136 item-card grad-linear from-extra to-light a-45 br-12 flex y center p-8 px-12">
+               <div class="flex y center">
+                 <span class="fs-12_ _c-dark bold">a-45</span>
+                 <span class="fs-10 _c-dark_">45 degrees</span>
+               </div>
+             </div>
+             <div class="w-136 h-136 item-card grad-linear from-extra to-light a-90 br-12 flex y center p-8 px-12">
+               <div class="flex y center">
+                 <span class="fs-12_ _c-dark bold">a-90</span>
+                 <span class="fs-10 _c-dark_">90 degrees</span>
+               </div>
+             </div>
+             <div class="w-136 h-136 item-card grad-linear from-extra to-light a-135 br-12 flex y center p-8 px-12">
+               <div class="flex y center">
+                 <span class="fs-12_ _c-dark bold">a-135</span>
+                 <span class="fs-10 _c-dark_">135 degrees</span>
+               </div>
+             </div>
+          </div>
+        </div>
+        <div class="px-20 py-20 _bg-light br-12 mt-20">
+          <p class="fs-12 _c-dark"><strong>Note:</strong> Angles override directions. Don't use d-* and a-* together.</p>
           <p class="fs-10 _c-dark_">Example: <code>grad-linear from-brand to-accent a-45</code></p>
-          <p class="fs-10 _c-dark_">Warning: Angles replace directions (don't use d-* and a-* together)</p>
         </div>
+      </div>
 
-        <!-- Text Gradients Explanation -->
-        <div class="flex y g-8">
-          <h4 class="fs-16 bold _c-accent">Text Gradients</h4>
-          <p class="fs-12"><strong>Special types:</strong></p>
-          <div class="flex wrap g-8">
-            <span class="fs-11 px-8 py-4 _bg-light br-8 _c-dark"><strong>grad-linear-text</strong> - Linear gradient on text</span>
-            <span class="fs-11 px-8 py-4 _bg-light br-8 _c-dark"><strong>grad-radial-text</strong> - Radial gradient on text</span>
-          </div>
-          <p class="fs-12"><strong>How it works:</strong> Uses the same modifiers (from-*, to-*, d-*, a-*)</p>
-          <div class="flex wrap g-12">
-            <div class="flex y center">
-              <span class="fs-20 grad-linear-text from-brand to-accent bold">EXAMPLE</span>
-              <p class="fs-10">grad-linear-text from-brand to-accent</p>
+      <!-- Text Gradients -->
+      <div class="flex y g-52">
+        <h4 class="fs-18 bold">Text Gradients</h4>
+        <p class="fs-12">Apply gradients directly to text for stunning typography effects</p>
+        <div class="flex wrap g-20">
+          <div class="flex x g-20">
+            <div class="w-136 h-136 item-card _bg-light br-12 flex y center p-8 px-12">
+              <div class="flex y center">
+                <span class="fs-20 grad-linear-text from-brand to-accent bold">LINEAR</span>
+                <span class="fs-10 _c-dark">grad-linear-text</span>
+              </div>
             </div>
-            <div class="flex y center">
-              <span class="fs-20 grad-radial-text from-extra to-light bold">RADIAL</span>
-              <p class="fs-10">grad-radial-text from-extra to-light</p>
+            <div class="w-136 h-136 item-card _bg-light br-12 flex y center p-8 px-12">
+              <div class="flex y center">
+                <span class="fs-20 grad-radial-text from-extra to-accent bold">RADIAL</span>
+                <span class="fs-10 _c-dark">grad-radial-text</span>
+              </div>
+            </div>
+            <div class="w-136 h-136 item-card _bg-dark br-12 flex y center p-8 px-12">
+              <div class="flex y center">
+                <span class="fs-20 grad-linear-text from-accent to-extra d-tr bold">ANGLE</span>
+                <span class="fs-10 _c-dark">with direction</span>
+              </div>
+            </div>
+            <div class="w-136 h-136 item-card _bg-dark br-12 flex y center p-8 px-12">
+              <div class="flex y center">
+                <span class="fs-20 grad-linear-text from-brand_ to-light a-90 bold">FADE</span>
+                <span class="fs-10 _c-dark">with angle</span>
+              </div>
             </div>
           </div>
-          <p class="fs-10 _c-dark_">Perfect for titles and catchy texts</p>
+        </div>
+        <div class="px-20 py-20 _bg-light br-12 mt-20">
+          <p class="fs-12 _c-dark"><strong>Perfect for:</strong> Titles, headers, call-to-action text, and branding elements</p>
+          <p class="fs-10 _c-dark_">Example: <code>grad-linear-text from-brand to-accent d-tr</code></p>
         </div>
       </div>
     </div>
 
     <!-- General Directions and Angles -->
-    <div class="flex y g-20">
+    <div class="flex y g-52 mt-136">
       
-      
+      <h4 class="fs-18 bold">Directions & Angles</h4>
       <!-- Directions -->
-      <div class="flex y g-12 mt-84">
-        <h4 class="fs-24 bold">Directions & Angles</h4>
+      <div class="flex y g-136">
+        
        
-        <div class="flex wrap g-12">
-          <h5 class="fs-16 bold w-full">Available Directions</h5>
-          <div class="w-80 h-80 grad-linear from-brand to-accent d-t br-8 flex y center p-4">
-            <span class="fs-10 _c-light bold">d-t</span>
-          </div>
-          <div class="w-80 h-80 grad-linear from-brand to-accent d-r br-8 flex y center p-4">
-            <span class="fs-10 _c-light bold">d-r</span>
-          </div>
-          <div class="w-80 h-80 grad-linear from-brand to-accent d-b br-8 flex y center p-4">
-            <span class="fs-10 _c-light bold">d-b</span>
-          </div>
-          <div class="w-80 h-80 grad-linear from-brand to-accent d-l br-8 flex y center p-4">
-            <span class="fs-10 _c-light bold">d-l</span>
-          </div>
-          <div class="w-80 h-80 grad-linear from-brand to-accent d-tl br-8 flex y center p-4">
-            <span class="fs-10 _c-light bold">d-tl</span>
-          </div>
-          <div class="w-80 h-80 grad-linear from-brand to-accent d-tr br-8 flex y center p-4">
-            <span class="fs-10 _c-light bold">d-tr</span>
-          </div>
-          <div class="w-80 h-80 grad-linear from-brand to-accent d-bl br-8 flex y center p-4">
-            <span class="fs-10 _c-light bold">d-bl</span>
-          </div>
-          <div class="w-80 h-80 grad-linear from-brand to-accent d-br br-8 flex y center p-4">
-            <span class="fs-10 _c-light bold">d-br</span>
+        <div class="flex y g-20">
+          <h5 class="fs-16 bold">Available Directions</h5>
+          <div class="flex wrap g-20">
+            <div class="flex x g-20">
+              <div class="w-136 h-136 item-card grad-linear from-brand to-accent d-t br-12 flex y center p-8 px-12">
+                <div class="flex y center">
+                  <span class="fs-12_ _c-dark bold">d-t</span>
+                  <span class="fs-10 _c-dark_">top ↑</span>
+                </div>
+              </div>
+              <div class="w-136 h-136 item-card grad-linear from-brand to-accent d-r br-12 flex y center p-8 px-12">
+                <div class="flex y center">
+                  <span class="fs-12_ _c-dark bold">d-r</span>
+                  <span class="fs-10 _c-dark_">right →</span>
+                </div>
+              </div>
+              <div class="w-136 h-136 item-card grad-linear from-brand to-accent d-b br-12 flex y center p-8 px-12">
+                <div class="flex y center">
+                  <span class="fs-12_ _c-dark bold">d-b</span>
+                  <span class="fs-10 _c-dark_">bottom ↓</span>
+                </div>
+              </div>
+              <div class="w-136 h-136 item-card grad-linear from-brand to-accent d-l br-12 flex y center p-8 px-12">
+                <div class="flex y center">
+                  <span class="fs-12_ _c-dark bold">d-l</span>
+                  <span class="fs-10 _c-dark_">left ←</span>
+                </div>
+              </div>
+            </div>
+            <div class="flex x g-20">
+              <div class="w-136 h-136 item-card grad-linear from-brand to-accent d-tl br-12 flex y center p-8 px-12">
+                <div class="flex y center">
+                  <span class="fs-12_ _c-dark bold">d-tl</span>
+                  <span class="fs-10 _c-dark_">top-left ↖</span>
+                </div>
+              </div>
+              <div class="w-136 h-136 item-card grad-linear from-brand to-accent d-tr br-12 flex y center p-8 px-12">
+                <div class="flex y center">
+                  <span class="fs-12_ _c-dark bold">d-tr</span>
+                  <span class="fs-10 _c-dark_">top-right ↗</span>
+                </div>
+              </div>
+              <div class="w-136 h-136 item-card grad-linear from-brand to-accent d-bl br-12 flex y center p-8 px-12">
+                <div class="flex y center">
+                  <span class="fs-12_ _c-dark bold">d-bl</span>
+                  <span class="fs-10 _c-dark_">bottom-left ↙</span>
+                </div>
+              </div>
+              <div class="w-136 h-136 item-card grad-linear from-brand to-accent d-br br-12 flex y center p-8 px-12">
+                <div class="flex y center">
+                  <span class="fs-12_ _c-dark bold">d-br</span>
+                  <span class="fs-10 _c-dark_">bottom-right ↘</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- Angles -->
-      <div class="flex y g-12">
-        <h5 class="fs-16 bold">Available Angles</h5>
-        <div class="flex wrap g-12">
-          <div class="w-80 h-80 grad-linear from-brand to-accent a-0 br-8 flex y center p-4">
-            <span class="fs-10 _c-light bold">0°</span>
+             <!-- Angles -->
+       <div class="flex y g-20">
+         <h5 class="fs-16 bold">Available Angles</h5>
+        <div class="flex wrap g-20">
+          <div class="flex x g-20">
+                         <div class="w-136 h-136 item-card grad-linear from-brand to-accent a-0 br-12 flex y center p-8 px-12">
+               <div class="flex y center">
+                 <span class="fs-12_ _c-dark bold">a-0</span>
+                 <span class="fs-10 _c-dark_">0°</span>
+               </div>
+             </div>
+             <div class="w-136 h-136 item-card grad-linear from-brand to-accent a-45 br-12 flex y center p-8 px-12">
+               <div class="flex y center">
+                 <span class="fs-12_ _c-dark bold">a-45</span>
+                 <span class="fs-10 _c-dark_">45°</span>
+               </div>
+             </div>
+             <div class="w-136 h-136 item-card grad-linear from-brand to-accent a-90 br-12 flex y center p-8 px-12">
+               <div class="flex y center">
+                 <span class="fs-12_ _c-dark bold">a-90</span>
+                 <span class="fs-10 _c-dark_">90°</span>
+               </div>
+             </div>
+             <div class="w-136 h-136 item-card grad-linear from-brand to-accent a-135 br-12 flex y center p-8 px-12">
+               <div class="flex y center">
+                 <span class="fs-12_ _c-dark bold">a-135</span>
+                 <span class="fs-10 _c-dark_">135°</span>
+               </div>
+             </div>
           </div>
-          <div class="w-80 h-80 grad-linear from-brand to-accent a-45 br-8 flex y center p-4">
-            <span class="fs-10 _c-light bold">45°</span>
-          </div>
-          <div class="w-80 h-80 grad-linear from-brand to-accent a-90 br-8 flex y center p-4">
-            <span class="fs-10 _c-light bold">90°</span>
-          </div>
-          <div class="w-80 h-80 grad-linear from-brand to-accent a-135 br-8 flex y center p-4">
-            <span class="fs-10 _c-light bold">135°</span>
-          </div>
-          <div class="w-80 h-80 grad-linear from-brand to-accent a-180 br-8 flex y center p-4">
-            <span class="fs-10 _c-light bold">180°</span>
-          </div>
-          <div class="w-80 h-80 grad-linear from-brand to-accent a-225 br-8 flex y center p-4">
-            <span class="fs-10 _c-light bold">225°</span>
-          </div>
-          <div class="w-80 h-80 grad-linear from-brand to-accent a-270 br-8 flex y center p-4">
-            <span class="fs-10 _c-light bold">270°</span>
-          </div>
-          <div class="w-80 h-80 grad-linear from-brand to-accent a-315 br-8 flex y center p-4">
-            <span class="fs-10 _c-light bold">315°</span>
+          <div class="flex x g-20">
+                         <div class="w-136 h-136 item-card grad-linear from-brand to-accent a-180 br-12 flex y center p-8 px-12">
+               <div class="flex y center">
+                 <span class="fs-12_ _c-dark bold">a-180</span>
+                 <span class="fs-10 _c-dark_">180°</span>
+               </div>
+             </div>
+             <div class="w-136 h-136 item-card grad-linear from-brand to-accent a-225 br-12 flex y center p-8 px-12">
+               <div class="flex y center">
+                 <span class="fs-12_ _c-dark bold">a-225</span>
+                 <span class="fs-10 _c-dark_">225°</span>
+               </div>
+             </div>
+             <div class="w-136 h-136 item-card grad-linear from-brand to-accent a-270 br-12 flex y center p-8 px-12">
+               <div class="flex y center">
+                 <span class="fs-12_ _c-dark bold">a-270</span>
+                 <span class="fs-10 _c-dark_">270°</span>
+               </div>
+             </div>
+             <div class="w-136 h-136 item-card grad-linear from-brand to-accent a-315 br-12 flex y center p-8 px-12">
+               <div class="flex y center">
+                 <span class="fs-12_ _c-dark bold">a-315</span>
+                 <span class="fs-10 _c-dark_">315°</span>
+               </div>
+             </div>
           </div>
         </div>
       </div>
     </div>
 
     <!-- Gradient Showcase by Color -->
-    <div class="flex y g-220">
+    <div class="flex y g-136 mt-136">
       
       <!-- BRAND Gradients -->
-      <div class="flex y g-20 mt-84">
-        <h4 class="fs-24 bold _c-brand">Brand Gradients</h4>
-      </a>
+      <div class="flex y  g-52">
+        <h4 class="fs-18 bold">Brand Gradients</h4>
+        
         <!-- Brand to Other Colors -->
-        <div class="flex y g-12">
+        <div class="flex y g-20">
           <h5 class="fs-16 bold">Brand to other colors</h5>
-          <div class="flex wrap g-12">
-            <div class="w-120 h-80 grad-linear from-brand to-accent br-8 flex y center p-4">
-              <span class="fs-10 _c-light bold">to accent</span>
+          <div class="flex wrap g-20">
+            <div class="flex x g-20">
+              <div class="w-136 h-136 item-card grad-linear from-brand to-accent br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">to accent</span>
+              </div>
+              <div class="w-136 h-136 item-card grad-linear from-brand to-extra br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">to extra</span>
+              </div>
+              <div class="w-136 h-136 item-card grad-linear from-brand to-dark br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">to dark</span>
+              </div>
+              <div class="w-136 h-136 item-card grad-linear from-brand to-light br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">to light</span>
+              </div>
             </div>
-            <div class="w-120 h-80 grad-linear from-brand to-extra br-8 flex y center p-4">
-              <span class="fs-10 _c-light bold">to extra</span>
-            </div>
-            <div class="w-120 h-80 grad-linear from-brand to-dark br-8 flex y center p-4">
-              <span class="fs-10 _c-light bold">to dark</span>
-            </div>
-            <div class="w-120 h-80 grad-linear from-brand to-light br-8 flex y center p-4">
-              <span class="fs-10 _c-dark bold">to light</span>
-            </div>
-            <div class="w-120 h-80 grad-linear from-brand to-light br-8 flex y center p-4">
-              <span class="fs-10 _c-dark bold">to light</span>
-            </div>
-            <div class="w-120 h-80 grad-linear from-brand to-transparent br-8 flex y center p-4">
-              <span class="fs-10 _c-light bold">to transparent</span>
+            <div class="flex x g-20">
+              <div class="w-136 h-136 item-card grad-linear from-brand to-transparent br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">to transparent</span>
+              </div>
+              <div class="w-136 h-136 item-card grad-linear from-brand to-accent d-tr br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">diagonal ↗</span>
+              </div>
+              <div class="w-136 h-136 item-card grad-linear from-brand to-extra d-bl br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">diagonal ↙</span>
+              </div>
+              <div class="w-136 h-136 item-card grad-linear from-brand to-accent a-45 br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">45° angle</span>
+              </div>
             </div>
           </div>
         </div>
 
         <!-- Brand Variations -->
-        <div class="flex y g-12">
-          <h5 class="fs-16 bold">Brand Variations</h5>
-          <div class="flex wrap g-12">
-            <div class="w-120 h-80 grad-linear from-brand to-brand_ br-8 flex y center p-4">
-              <span class="fs-10 _c-light bold">brand → brand_</span>
-            </div>
-            <div class="w-120 h-80 grad-linear from-brand to-brand__ br-8 flex y center p-4">
-              <span class="fs-10 _c-light bold">brand → brand__</span>
-            </div>
-            <div class="w-120 h-80 grad-linear from-brand-d to-brand-b br-8 flex y center p-4">
-              <span class="fs-10 _c-light bold">brand-d → brand-b</span>
-            </div>
-            <div class="w-120 h-80 grad-linear from-brand-d_ to-brand-b_ br-8 flex y center p-4">
-              <span class="fs-10 _c-light bold">brand-d_ → brand-b_</span>
+        <div class="flex y g-20">
+          <h5 class="fs-16 bold">Brand variations</h5>
+          <div class="flex wrap g-20">
+            <div class="flex x g-20">
+              <div class="w-136 h-136 item-card grad-linear from-brand to-brand_ br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">brand → brand_</span>
+              </div>
+              <div class="w-136 h-136 item-card grad-linear from-brand to-brand__ br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">brand → brand__</span>
+              </div>
+              <div class="w-136 h-136 item-card grad-linear from-brand-d to-brand-b br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">brand-d → brand-b</span>
+              </div>
+              <div class="w-136 h-136 item-card grad-linear from-brand-d_ to-brand-b_ br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">brand-d_ → brand-b_</span>
+              </div>
             </div>
           </div>
         </div>
 
         <!-- Brand Radial -->
-        <div class="flex y g-12">
-          <h5 class="fs-16 bold">Radial Brand</h5>
-          <div class="flex wrap g-12">
-            <div class="w-120 h-80 grad-radial from-brand to-accent br-8 flex y center p-4">
-              <span class="fs-10 _c-light bold">radial to accent</span>
-            </div>
-            <div class="w-120 h-80 grad-radial from-brand to-extra br-8 flex y center p-4">
-              <span class="fs-10 _c-light bold">radial to extra</span>
-            </div>
-            <div class="w-120 h-80 grad-radial from-brand to-light br-8 flex y center p-4">
-              <span class="fs-10 _c-dark bold">radial to light</span>
-            </div>
-            <div class="w-120 h-80 grad-radial from-brand to-transparent br-8 flex y center p-4">
-              <span class="fs-10 _c-light bold">radial transparent</span>
+        <div class="flex y g-20">
+          <h5 class="fs-16 bold">Radial brand</h5>
+          <div class="flex wrap g-20">
+            <div class="flex x g-20">
+              <div class="w-136 h-136 item-card grad-radial from-brand to-accent br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">radial to accent</span>
+              </div>
+              <div class="w-136 h-136 item-card grad-radial from-brand to-extra br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">radial to extra</span>
+              </div>
+              <div class="w-136 h-136 item-card grad-radial from-brand to-light br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">radial to light</span>
+              </div>
+              <div class="w-136 h-136 item-card grad-radial from-brand to-transparent br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">radial transparent</span>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
       <!-- ACCENT Gradients -->
-      <div class="flex y g-20">
-        <h4 class="fs-24 bold _c-accent">Accent Gradients</h4>
-      </a>
+      <div class="flex y  g-52">
+        <h4 class="fs-18 bold">Accent Gradients</h4>
+        
         <!-- Accent to Other Colors -->
-        <div class="flex y g-12">
+        <div class="flex y g-20">
           <h5 class="fs-16 bold">Accent to other colors</h5>
-          <div class="flex wrap g-12">
-            <div class="w-120 h-80 grad-linear from-accent to-brand br-8 flex y center p-4">
-              <span class="fs-10 _c-light bold">to brand</span>
+          <div class="flex wrap g-20">
+            <div class="flex x g-20">
+              <div class="w-136 h-136 item-card grad-linear from-accent to-brand br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">to brand</span>
+              </div>
+              <div class="w-136 h-136 item-card grad-linear from-accent to-extra br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">to extra</span>
+              </div>
+              <div class="w-136 h-136 item-card grad-linear from-accent to-dark br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">to dark</span>
+              </div>
+              <div class="w-136 h-136 item-card grad-linear from-accent to-light br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">to light</span>
+              </div>
             </div>
-            <div class="w-120 h-80 grad-linear from-accent to-extra br-8 flex y center p-4">
-              <span class="fs-10 _c-light bold">to extra</span>
-            </div>
-            <div class="w-120 h-80 grad-linear from-accent to-dark br-8 flex y center p-4">
-              <span class="fs-10 _c-light bold">to dark</span>
-            </div>
-            <div class="w-120 h-80 grad-linear from-accent to-light br-8 flex y center p-4">
-              <span class="fs-10 _c-dark bold">to light</span>
-            </div>
-            <div class="w-120 h-80 grad-linear from-accent to-light_ br-8 flex y center p-4">
-              <span class="fs-10 _c-dark bold">to light_</span>
-            </div>
-            <div class="w-120 h-80 grad-linear from-accent to-transparent br-8 flex y center p-4">
-              <span class="fs-10 _c-light bold">to transparent</span>
+            <div class="flex x g-20">
+              <div class="w-136 h-136 item-card grad-linear from-accent to-transparent br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">to transparent</span>
+              </div>
+              <div class="w-136 h-136 item-card grad-linear from-accent to-brand d-tr br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">diagonal ↗</span>
+              </div>
+              <div class="w-136 h-136 item-card grad-linear from-accent to-extra d-bl br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">diagonal ↙</span>
+              </div>
+              <div class="w-136 h-136 item-card grad-linear from-accent to-brand a-90 br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">90° angle</span>
+              </div>
             </div>
           </div>
         </div>
 
         <!-- Accent Variations -->
-        <div class="flex y g-12">
-          <h5 class="fs-16 bold">Accent Variations</h5>
-          <div class="flex wrap g-12">
-            <div class="w-120 h-80 grad-linear from-accent to-accent_ br-8 flex y center p-4">
-              <span class="fs-10 _c-light bold">accent → accent_</span>
-            </div>
-            <div class="w-120 h-80 grad-linear from-accent to-accent__ br-8 flex y center p-4">
-              <span class="fs-10 _c-light bold">accent → accent__</span>
-            </div>
-            <div class="w-120 h-80 grad-linear from-accent-d to-accent-b br-8 flex y center p-4">
-              <span class="fs-10 _c-light bold">accent-d → accent-b</span>
-            </div>
-            <div class="w-120 h-80 grad-linear from-accent-d_ to-accent-b_ br-8 flex y center p-4">
-              <span class="fs-10 _c-light bold">accent-d_ → accent-b_</span>
+        <div class="flex y g-20">
+          <h5 class="fs-16 bold">Accent variations</h5>
+          <div class="flex wrap g-20">
+            <div class="flex x g-20">
+              <div class="w-136 h-136 item-card grad-linear from-accent to-accent_ br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">accent → accent_</span>
+              </div>
+              <div class="w-136 h-136 item-card grad-linear from-accent to-accent__ br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">accent → accent__</span>
+              </div>
+              <div class="w-136 h-136 item-card grad-linear from-accent-d to-accent-b br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">accent-d → accent-b</span>
+              </div>
+              <div class="w-136 h-136 item-card grad-linear from-accent-d_ to-accent-b_ br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">accent-d_ → accent-b_</span>
+              </div>
             </div>
           </div>
         </div>
 
         <!-- Accent Radial -->
-        <div class="flex y g-12">
-          <h5 class="fs-16 bold">Radial Accent</h5>
-          <div class="flex wrap g-12">
-            <div class="w-120 h-80 grad-radial from-accent to-brand br-8 flex y center p-4">
-              <span class="fs-10 _c-light bold">radial to brand</span>
-            </div>
-            <div class="w-120 h-80 grad-radial from-accent to-extra br-8 flex y center p-4">
-              <span class="fs-10 _c-light bold">radial to extra</span>
-            </div>
-            <div class="w-120 h-80 grad-radial from-accent to-light br-8 flex y center p-4">
-              <span class="fs-10 _c-dark bold">radial to light</span>
-            </div>
-            <div class="w-120 h-80 grad-radial from-accent to-transparent br-8 flex y center p-4">
-              <span class="fs-10 _c-light bold">radial transparent</span>
+        <div class="flex y g-20">
+          <h5 class="fs-16 bold">Radial accent</h5>
+          <div class="flex wrap g-20">
+            <div class="flex x g-20">
+              <div class="w-136 h-136 item-card grad-radial from-accent to-brand br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">radial to brand</span>
+              </div>
+              <div class="w-136 h-136 item-card grad-radial from-accent to-extra br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">radial to extra</span>
+              </div>
+              <div class="w-136 h-136 item-card grad-radial from-accent to-light br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">radial to light</span>
+              </div>
+              <div class="w-136 h-136 item-card grad-radial from-accent to-transparent br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">radial transparent</span>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
       <!-- EXTRA Gradients -->
-      <div class="flex y g-20">
-        <h4 class="fs-24 bold _c-extra">Extra Gradients</h4>
-      </a>
+      <div class="flex y  g-52">
+        <h4 class="fs-18 bold">Extra Gradients</h4>
+        
         <!-- Extra to Other Colors -->
-        <div class="flex y g-12">
+        <div class="flex y g-20">
           <h5 class="fs-16 bold">Extra to other colors</h5>
-          <div class="flex wrap g-12">
-            <div class="w-120 h-80 grad-linear from-extra to-brand br-8 flex y center p-4">
-              <span class="fs-10 _c-light bold">to brand</span>
+          <div class="flex wrap g-20">
+            <div class="flex x g-20">
+              <div class="w-136 h-136 item-card grad-linear from-extra to-brand br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">to brand</span>
+              </div>
+              <div class="w-136 h-136 item-card grad-linear from-extra to-accent br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">to accent</span>
+              </div>
+              <div class="w-136 h-136 item-card grad-linear from-extra to-dark br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">to dark</span>
+              </div>
+              <div class="w-136 h-136 item-card grad-linear from-extra to-light br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">to light</span>
+              </div>
             </div>
-            <div class="w-120 h-80 grad-linear from-extra to-accent br-8 flex y center p-4">
-              <span class="fs-10 _c-light bold">to accent</span>
-            </div>
-            <div class="w-120 h-80 grad-linear from-extra to-dark br-8 flex y center p-4">
-              <span class="fs-10 _c-light bold">to dark</span>
-            </div>
-            <div class="w-120 h-80 grad-linear from-extra to-light br-8 flex y center p-4">
-              <span class="fs-10 _c-dark bold">to light</span>
-            </div>
-            <div class="w-120 h-80 grad-linear from-extra to-light_ br-8 flex y center p-4">
-              <span class="fs-10 _c-dark bold">to light_</span>
-            </div>
-            <div class="w-120 h-80 grad-linear from-extra to-transparent br-8 flex y center p-4">
-              <span class="fs-10 _c-light bold">to transparent</span>
+            <div class="flex x g-20">
+              <div class="w-136 h-136 item-card grad-linear from-extra to-transparent br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">to transparent</span>
+              </div>
+              <div class="w-136 h-136 item-card grad-linear from-extra to-brand d-tr br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">diagonal ↗</span>
+              </div>
+              <div class="w-136 h-136 item-card grad-linear from-extra to-accent d-bl br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">diagonal ↙</span>
+              </div>
+              <div class="w-136 h-136 item-card grad-linear from-extra to-brand a-135 br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">135° angle</span>
+              </div>
             </div>
           </div>
         </div>
 
         <!-- Extra Variations -->
-        <div class="flex y g-12">
-          <h5 class="fs-16 bold">Extra Variations</h5>
-          <div class="flex wrap g-12">
-            <div class="w-120 h-80 grad-linear from-extra to-extra_ br-8 flex y center p-4">
-              <span class="fs-10 _c-light bold">extra → extra_</span>
-            </div>
-            <div class="w-120 h-80 grad-linear from-extra to-extra__ br-8 flex y center p-4">
-              <span class="fs-10 _c-light bold">extra → extra__</span>
-            </div>
-            <div class="w-120 h-80 grad-linear from-extra-d to-extra-b br-8 flex y center p-4">
-              <span class="fs-10 _c-light bold">extra-d → extra-b</span>
-            </div>
-            <div class="w-120 h-80 grad-linear from-extra-d_ to-extra-b_ br-8 flex y center p-4">
-              <span class="fs-10 _c-light bold">extra-d_ → extra-b_</span>
+        <div class="flex y g-20">
+          <h5 class="fs-16 bold">Extra variations</h5>
+          <div class="flex wrap g-20">
+            <div class="flex x g-20">
+              <div class="w-136 h-136 item-card grad-linear from-extra to-extra_ br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">extra → extra_</span>
+              </div>
+              <div class="w-136 h-136 item-card grad-linear from-extra to-extra__ br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">extra → extra__</span>
+              </div>
+              <div class="w-136 h-136 item-card grad-linear from-extra-d to-extra-b br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">extra-d → extra-b</span>
+              </div>
+              <div class="w-136 h-136 item-card grad-linear from-extra-d_ to-extra-b_ br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">extra-d_ → extra-b_</span>
+              </div>
             </div>
           </div>
         </div>
 
         <!-- Extra Radial -->
-        <div class="flex y g-12">
-          <h5 class="fs-16 bold">Radial Extra</h5>
-          <div class="flex wrap g-12">
-            <div class="w-120 h-80 grad-radial from-extra to-brand br-8 flex y center p-4">
-              <span class="fs-10 _c-light bold">radial to brand</span>
-            </div>
-            <div class="w-120 h-80 grad-radial from-extra to-accent br-8 flex y center p-4">
-              <span class="fs-10 _c-light bold">radial to accent</span>
-            </div>
-            <div class="w-120 h-80 grad-radial from-extra to-light br-8 flex y center p-4">
-              <span class="fs-10 _c-dark bold">radial to light</span>
-            </div>
-            <div class="w-120 h-80 grad-radial from-extra to-transparent br-8 flex y center p-4">
-              <span class="fs-10 _c-light bold">radial transparent</span>
+        <div class="flex y g-20">
+          <h5 class="fs-16 bold">Radial extra</h5>
+          <div class="flex wrap g-20">
+            <div class="flex x g-20">
+              <div class="w-136 h-136 item-card grad-radial from-extra to-brand br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">radial to brand</span>
+              </div>
+              <div class="w-136 h-136 item-card grad-radial from-extra to-accent br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">radial to accent</span>
+              </div>
+              <div class="w-136 h-136 item-card grad-radial from-extra to-light br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">radial to light</span>
+              </div>
+              <div class="w-136 h-136 item-card grad-radial from-extra to-transparent br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">radial transparent</span>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
       <!-- DARK Gradients -->
-      <div class="flex y g-20">
-        <h4 class="fs-24 bold _c-dark">Dark Gradients</h4>
-      </a>
-        <!-- Dark to Other Colors -->
-        <div class="flex y g-12">
-          <h5 class="fs-16 bold">Dark to other colors</h5>
-          <div class="flex wrap g-12">
-            <div class="w-120 h-80 grad-linear from-dark to-brand br-8 flex y center p-4">
-              <span class="fs-10 _c-light bold">to brand</span>
+      <div class="flex y  g-52">
+        <h4 class="fs-18 bold">Dark Gradients</h4>
+        
+                 <!-- Dark to Other Colors -->
+         <div class="flex y g-20">
+           <h5 class="fs-16 bold">Dark to other colors</h5>
+          <div class="flex wrap g-20">
+            <div class="flex x g-20">
+              <div class="w-136 h-136 item-card grad-linear from-dark to-brand br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">to brand</span>
+              </div>
+              <div class="w-136 h-136 item-card grad-linear from-dark to-accent br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">to accent</span>
+              </div>
+              <div class="w-136 h-136 item-card grad-linear from-dark to-extra br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">to extra</span>
+              </div>
+              <div class="w-136 h-136 item-card grad-linear from-dark to-light br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">to light</span>
+              </div>
             </div>
-            <div class="w-120 h-80 grad-linear from-dark to-accent br-8 flex y center p-4">
-              <span class="fs-10 _c-light bold">to accent</span>
-            </div>
-            <div class="w-120 h-80 grad-linear from-dark to-extra br-8 flex y center p-4">
-              <span class="fs-10 _c-light bold">to extra</span>
-            </div>
-            <div class="w-120 h-80 grad-linear from-dark to-light br-8 flex y center p-4">
-              <span class="fs-10 _c-dark bold">to light</span>
-            </div>
-            <div class="w-120 h-80 grad-linear from-dark to-light_ br-8 flex y center p-4">
-              <span class="fs-10 _c-dark bold">to light_</span>
-            </div>
-            <div class="w-120 h-80 grad-linear from-dark to-transparent br-8 flex y center p-4">
-              <span class="fs-10 _c-light bold">to transparent</span>
+            <div class="flex x g-20">
+              <div class="w-136 h-136 item-card grad-linear from-dark to-transparent br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">to transparent</span>
+              </div>
+              <div class="w-136 h-136 item-card grad-linear from-dark to-brand d-tr br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">diagonal ↗</span>
+              </div>
+              <div class="w-136 h-136 item-card grad-linear from-dark to-accent d-bl br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">diagonal ↙</span>
+              </div>
+              <div class="w-136 h-136 item-card grad-linear from-dark to-extra a-180 br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">180° angle</span>
+              </div>
             </div>
           </div>
         </div>
 
         <!-- Dark Variations -->
-        <div class="flex y g-12">
-          <h5 class="fs-16 bold">Dark Variations</h5>
-          <div class="flex wrap g-12">
-            <div class="w-120 h-80 grad-linear from-dark to-dark_ br-8 flex y center p-4">
-              <span class="fs-10 _c-light bold">dark → dark_</span>
-            </div>
-            <div class="w-120 h-80 grad-linear from-dark to-dark__ br-8 flex y center p-4">
-              <span class="fs-10 _c-light bold">dark → dark__</span>
-            </div>
-            <div class="w-120 h-80 grad-linear from-dark-d to-dark-b br-8 flex y center p-4">
-              <span class="fs-10 _c-light bold">dark-d → dark-b</span>
-            </div>
-            <div class="w-120 h-80 grad-linear from-dark-d_ to-dark-b_ br-8 flex y center p-4">
-              <span class="fs-10 _c-light bold">dark-d_ → dark-b_</span>
+        <div class="flex y g-20">
+          <h5 class="fs-16 bold">Dark variations</h5>
+          <div class="flex wrap g-20">
+            <div class="flex x g-20">
+              <div class="w-136 h-136 item-card grad-linear from-dark to-dark_ br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">dark → dark_</span>
+              </div>
+              <div class="w-136 h-136 item-card grad-linear from-dark to-dark__ br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">dark → dark__</span>
+              </div>
+              <div class="w-136 h-136 item-card grad-linear from-dark-d to-dark-b br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">dark-d → dark-b</span>
+              </div>
+              <div class="w-136 h-136 item-card grad-linear from-dark-d_ to-dark-b_ br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">dark-d_ → dark-b_</span>
+              </div>
             </div>
           </div>
         </div>
 
         <!-- Dark Radial -->
-        <div class="flex y g-12">
-          <h5 class="fs-16 bold">Radial Dark</h5>
-          <div class="flex wrap g-12">
-            <div class="w-120 h-80 grad-radial from-dark to-brand br-8 flex y center p-4">
-              <span class="fs-10 _c-light bold">radial to brand</span>
-            </div>
-            <div class="w-120 h-80 grad-radial from-dark to-accent br-8 flex y center p-4">
-              <span class="fs-10 _c-light bold">radial to accent</span>
-            </div>
-            <div class="w-120 h-80 grad-radial from-dark to-light br-8 flex y center p-4">
-              <span class="fs-10 _c-dark bold">radial to light</span>
-            </div>
-            <div class="w-120 h-80 grad-radial from-dark to-transparent br-8 flex y center p-4">
-              <span class="fs-10 _c-light bold">radial transparent</span>
+        <div class="flex y g-20">
+          <h5 class="fs-16 bold">Radial dark</h5>
+          <div class="flex wrap g-20">
+            <div class="flex x g-20">
+              <div class="w-136 h-136 item-card grad-radial from-dark to-brand br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">radial to brand</span>
+              </div>
+              <div class="w-136 h-136 item-card grad-radial from-dark to-accent br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">radial to accent</span>
+              </div>
+              <div class="w-136 h-136 item-card grad-radial from-dark to-light br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">radial to light</span>
+              </div>
+              <div class="w-136 h-136 item-card grad-radial from-dark to-transparent br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">radial transparent</span>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- LIGHT Gradients -->
-      <div class="flex y g-20">
-        <h4 class="fs-24 bold _c-light-d_">Light Gradients</h4>
-      </a>
-        <!-- Light to Other Colors -->
-        <div class="flex y g-12">
-          <h5 class="fs-16 bold">Light to other colors</h5>
-          <div class="flex wrap g-12">
-            <div class="w-120 h-80 grad-linear from-light to-brand br-8 flex y center p-4">
-              <span class="fs-10 _c-dark bold">to brand</span>
+              <!-- LIGHT Gradients -->
+        <div class="flex y g-52">
+          <h4 class="fs-18 bold">Light Gradients</h4>
+          
+          <!-- Light to Other Colors -->
+          <div class="flex y g-20">
+            <h5 class="fs-16 bold">Light to other colors</h5>
+          <div class="flex wrap g-20">
+            <div class="flex x g-20">
+              <div class="w-136 h-136 item-card grad-linear from-light to-brand br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">to brand</span>
+              </div>
+              <div class="w-136 h-136 item-card grad-linear from-light to-accent br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">to accent</span>
+              </div>
+              <div class="w-136 h-136 item-card grad-linear from-light to-extra br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">to extra</span>
+              </div>
+              <div class="w-136 h-136 item-card grad-linear from-light to-dark br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">to dark</span>
+              </div>
             </div>
-            <div class="w-120 h-80 grad-linear from-light to-accent br-8 flex y center p-4">
-              <span class="fs-10 _c-dark bold">to accent</span>
-            </div>
-            <div class="w-120 h-80 grad-linear from-light to-extra br-8 flex y center p-4">
-              <span class="fs-10 _c-dark bold">to extra</span>
-            </div>
-            <div class="w-120 h-80 grad-linear from-light to-dark br-8 flex y center p-4">
-              <span class="fs-10 _c-light bold">to dark</span>
-            </div>
-            <div class="w-120 h-80 grad-linear from-light to-light_ br-8 flex y center p-4">
-              <span class="fs-10 _c-dark bold">to light_</span>
-            </div>
-            <div class="w-120 h-80 grad-linear from-light to-transparent br-8 flex y center p-4">
-              <span class="fs-10 _c-dark bold">to transparent</span>
+            <div class="flex x g-20">
+              <div class="w-136 h-136 item-card grad-linear from-light to-transparent br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">to transparent</span>
+              </div>
+              <div class="w-136 h-136 item-card grad-linear from-light to-brand d-tr br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">diagonal ↗</span>
+              </div>
+              <div class="w-136 h-136 item-card grad-linear from-light to-accent d-bl br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">diagonal ↙</span>
+              </div>
+              <div class="w-136 h-136 item-card grad-linear from-light to-dark a-270 br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">270° angle</span>
+              </div>
             </div>
           </div>
         </div>
 
         <!-- Light Variations -->
-        <div class="flex y g-12">
-          <h5 class="fs-16 bold">Light Variations</h5>
-          <div class="flex wrap g-12">
-            <div class="w-120 h-80 grad-linear from-light to-light_ br-8 flex y center p-4">
-              <span class="fs-10 _c-dark bold">light → light_</span>
-            </div>
-            <div class="w-120 h-80 grad-linear from-light to-light__ br-8 flex y center p-4">
-              <span class="fs-10 _c-dark bold">light → light__</span>
-            </div>
-            <div class="w-120 h-80 grad-linear from-light-d to-light-b br-8 flex y center p-4">
-              <span class="fs-10 _c-dark bold">light-d → light-b</span>
-            </div>
-            <div class="w-120 h-80 grad-linear from-light-d_ to-light-b_ br-8 flex y center p-4">
-              <span class="fs-10 _c-dark bold">light-d_ → light-b_</span>
+        <div class="flex y g-20">
+          <h5 class="fs-16 bold">Light variations</h5>
+          <div class="flex wrap g-20">
+            <div class="flex x g-20">
+              <div class="w-136 h-136 item-card grad-linear from-light to-light_ br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">light → light_</span>
+              </div>
+              <div class="w-136 h-136 item-card grad-linear from-light to-light__ br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">light → light__</span>
+              </div>
+              <div class="w-136 h-136 item-card grad-linear from-light-d to-light-b br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">light-d → light-b</span>
+              </div>
+              <div class="w-136 h-136 item-card grad-linear from-light-d_ to-light-b_ br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">light-d_ → light-b_</span>
+              </div>
             </div>
           </div>
         </div>
 
         <!-- Light Radial -->
-        <div class="flex y g-12">
-          <h5 class="fs-16 bold">Radial Light</h5>
-          <div class="flex wrap g-12">
-            <div class="w-120 h-80 grad-radial from-light to-brand br-8 flex y center p-4">
-              <span class="fs-10 _c-dark bold">radial to brand</span>
-            </div>
-            <div class="w-120 h-80 grad-radial from-light to-accent br-8 flex y center p-4">
-              <span class="fs-10 _c-dark bold">radial to accent</span>
-            </div>
-            <div class="w-120 h-80 grad-radial from-light to-dark br-8 flex y center p-4">
-              <span class="fs-10 _c-light bold">radial to dark</span>
-            </div>
-            <div class="w-120 h-80 grad-radial from-light to-transparent br-8 flex y center p-4">
-              <span class="fs-10 _c-dark bold">radial transparent</span>
+        <div class="flex y g-20">
+          <h5 class="fs-16 bold">Radial light</h5>
+          <div class="flex wrap g-20">
+            <div class="flex x g-20">
+              <div class="w-136 h-136 item-card grad-radial from-light to-brand br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">radial to brand</span>
+              </div>
+              <div class="w-136 h-136 item-card grad-radial from-light to-accent br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">radial to accent</span>
+              </div>
+              <div class="w-136 h-136 item-card grad-radial from-light to-dark br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">radial to dark</span>
+              </div>
+              <div class="w-136 h-136 item-card grad-radial from-light to-transparent br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">radial transparent</span>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
       <!-- Complex Combinations -->
-      <div class="flex y g-20">
-        <h4 class="fs-24 bold">Complex Combinations</h4>
+      <div class="flex y g-52">
+        <h4 class="fs-18 bold">Complex Combinations</h4>
         <div class="flex wrap g-20">
-          <div class="px-20 py-32 grad-linear from-brand-d to-accent-b d-tr br-12">
-            <p class="fs-12_ _c-light">Brand-d → Accent-b diagonal</p>
-            <p class="fs-10 _c-light_">grad-linear from-brand-d to-accent-b d-tr</p>
-          </div>
-          <div class="px-20 py-32 grad-radial from-extra_ to-light a-45 br-12">
-            <p class="fs-12_ _c-dark">Extra fade → Light 45°</p>
-            <p class="fs-10 _c-dark_">grad-radial from-extra_ to-light a-45</p>
-          </div>
-          <div class="px-20 py-32 grad-linear from-dark-b_ to-brand__ d-bl br-12">
-            <p class="fs-12_ _c-light">Dark bright → Brand ultra-fade</p>
-            <p class="fs-10 _c-light_">grad-linear from-dark-b_ to-brand__ d-bl</p>
+          <div class="flex x g-20">
+            <div class="w-136 h-136 item-card grad-linear from-brand-d to-accent-b d-tr br-12 flex y center p-8 px-12">
+              <div class="flex y center">
+                <span class="fs-12_ _c-dark bold">Brand-d → Accent-b</span>
+                <span class="fs-10 _c-dark_">diagonal ↗</span>
+              </div>
+            </div>
+            <div class="w-136 h-136 item-card grad-radial from-extra_ to-light a-45 br-12 flex y center p-8 px-12">
+              <div class="flex y center">
+                <span class="fs-12_ _c-dark bold">Extra_ → Light</span>
+                <span class="fs-10 _c-dark_">radial</span>
+              </div>
+            </div>
+            <div class="w-136 h-136 item-card grad-linear from-dark-b_ to-brand__ d-bl br-12 flex y center p-8 px-12">
+              <div class="flex y center">
+                <span class="fs-12_ _c-dark bold">Dark-b_ → Brand__</span>
+                <span class="fs-10 _c-dark_">diagonal ↙</span>
+              </div>
+            </div>
+            <div class="w-136 h-136 item-card grad-linear from-accent-d to-extra-b a-315 br-12 flex y center p-8 px-12">
+              <div class="flex y center">
+                <span class="fs-12_ _c-dark bold">Accent-d → Extra-b</span>
+                <span class="fs-10 _c-dark_">315° angle</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -641,10 +897,10 @@
   </section>
 
   <!-- Complete Gradient Grid Section -->
-  <section class="py-136 flex y g-20">
+  <section id="all-combinations" class="py-136 flex y g-20">
     <div class="px-220__ flex y g-20">
       <h2 class="_bg-brand pr-356__">
-        <span class="_c-light fs-72 fwd-1 fwg-1 f-scale lh-1 ttu offset_">All</span><span class="_c-light fs-72 fwg-8 fwd-16 f-scale f-scale lh-1 ttu offset_">Combinations</span>
+        <span class="_c-dark fs-72 fwd-1 fwg-1 f-scale lh-1 ttu offset_">All</span><span class="_c-dark fs-72 fwg-8 fwd-16 f-scale f-scale lh-1 ttu offset_">Combinations</span>
       </h2>
       <p class="fs-16">
         All possible combinations of EVA CSS linear gradients
@@ -885,6 +1141,7 @@
       background: radial-gradient(ellipse at top, var(--brand), var(--light)) !important;
       transform: scale(1.05) rotate(-3deg);
     }
+
   </style>
   </body>
 </html>

@@ -10,7 +10,6 @@
 
 .grid {
   display: grid;
-  gap: var(--32);
 }
 
 [class*=auto-fit] {
@@ -18,7 +17,7 @@
 }
 
 // Variable de taille minimale pour les grilles
-$grid-min-size: 220 !default;
+$grid-min-size: 100 !default;
 
 // Génération automatique des classes auto-fit basée sur $sizes
 @each $size in $sizes {
@@ -87,16 +86,9 @@ $breakpoints: (
 // Génération des classes col-X avec calcul CSS dynamique
 @for $i from 1 through $max-columns {
   .col-#{$i} {
-    --col-span: #{$i}; // Variable CSS pour le nombre de colonnes occupées
+    --col-span: #{$i};
     flex: 0 0 auto;
-    // Calcul avec gaps entre éléments uniquement (logique flexbox)
-    // Nombre d'éléments sur une ligne = grid-columns / col-span
-    // Nombre de gaps entre ces éléments = (nb_elements - 1)
-    // Gap total par ligne = (nb_elements - 1) * current-gap
-    // Gap par élément = gap_total / nb_elements
-    // min() pour ne jamais dépasser 100%
     width: min(calc(var(--col-span) / var(--grid-columns) * 100% - (var(--grid-columns) / var(--col-span) - 1) * var(--current-gap) / (var(--grid-columns) / var(--col-span))), 100%);
-    @debug "col-#{$i} avec gaps entre éléments et min 100%";
   }
 }
 
@@ -111,18 +103,6 @@ $breakpoints: (
   }
 }
 
-// ==========================================
-// CLASSES POUR MODIFIER LE GAP
-// ==========================================
-
-// Classes pour différentes tailles de gap
-.gap-0 { --current-gap: 0; }
-.gap-xs { --current-gap: 0.25rem; }
-.gap-sm { --current-gap: 0.5rem; }
-.gap-md { --current-gap: 1rem; }
-.gap-lg { --current-gap: 1.5rem; }
-.gap-xl { --current-gap: 2rem; }
-.gap-xxl { --current-gap: 3rem; }
 
 // ==========================================
 // CLASSES RESPONSIVES POUR MAX-COLUMNS

@@ -139,6 +139,22 @@ p {
   max-width: var(--576);
 }
 
+
+.item-card{
+  position: relative;
+  > * {
+    background-color: var(--light);
+    border-radius: var(--4);
+    padding: var(--4) var(--8);
+    font-size: var(--fs-10);
+    position: absolute;
+    bottom:0px;
+    left:50%;
+    width: max-content;
+    transform: translateX(-50%) translateY(50%);
+  }
+}
+
 section {
   width: 100%;
 

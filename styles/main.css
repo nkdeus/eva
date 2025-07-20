@@ -6965,11 +6965,58 @@ textarea:not([rows]) {
 
 .grid {
   display: grid;
-  gap: var(--32);
 }
 
 [class*=auto-fit] {
   grid-template-columns: repeat(auto-fit, minmax(var(--current-minmax), 1fr));
+}
+
+.auto-fit-136__ {
+  --current-minmax: var(--136__);
+}
+
+.auto-fit-136_ {
+  --current-minmax: var(--136_);
+}
+
+.auto-fit-136 {
+  --current-minmax: var(--136);
+}
+
+.auto-fit-136- {
+  --current-minmax: var(--136-);
+}
+
+.auto-fit-136-px {
+  --current-minmax: var(--136-px);
+}
+
+.auto-fit-136-rem {
+  --current-minmax: var(--136-rem);
+}
+
+.auto-fit-156__ {
+  --current-minmax: var(--156__);
+}
+
+.auto-fit-156_ {
+  --current-minmax: var(--156_);
+}
+
+.auto-fit-156 {
+  --current-minmax: var(--156);
+}
+
+.auto-fit-156- {
+  --current-minmax: var(--156-);
+}
+
+.auto-fit-156-px {
+  --current-minmax: var(--156-px);
+}
+
+.auto-fit-156-rem {
+  --current-minmax: var(--156-rem);
 }
 
 .auto-fit-220__ {
@@ -7258,34 +7305,6 @@ textarea:not([rows]) {
 
 .max-col-12 {
   --grid-columns: 12;
-}
-
-.gap-0 {
-  --current-gap: 0;
-}
-
-.gap-xs {
-  --current-gap: 0.25rem;
-}
-
-.gap-sm {
-  --current-gap: 0.5rem;
-}
-
-.gap-md {
-  --current-gap: 1rem;
-}
-
-.gap-lg {
-  --current-gap: 1.5rem;
-}
-
-.gap-xl {
-  --current-gap: 2rem;
-}
-
-.gap-xxl {
-  --current-gap: 3rem;
 }
 
 @media (min-width: 200px) {
@@ -7655,6 +7674,21 @@ p {
   width: 100%;
   line-height: 1.6;
   max-width: var(--576);
+}
+
+.item-card {
+  position: relative;
+}
+.item-card > * {
+  background-color: var(--light);
+  border-radius: var(--4);
+  padding: var(--4) var(--8);
+  font-size: var(--fs-10);
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  width: max-content;
+  transform: translateX(-50%) translateY(50%);
 }
 
 section {

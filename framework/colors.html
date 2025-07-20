@@ -47,7 +47,7 @@
         </a>
         <ul>
           <li>
-            <a href="colors.html" class="h-52 px-12 flex y center _c-light _bg-brand br-12">
+            <a href="colors.html" class="h-52 px-12 flex y center _c-dark _bg-brand br-12">
               <span class="fs-12">Colors</span>
             </a>
           </li>
@@ -136,24 +136,19 @@
       <p class="fs-16 mb-32">The next generation of theming with OKLCH color system and automatic variations.</p>
 
       <div class="flex y wrap g-12  fs-16">
-        <a href="#colors" class="h-52 px-12 flex y center _c-brand br-12">Color System</a>
+        <a href="#colors-system" class="h-52 px-12 flex y center _c-brand br-12">Color System</a>
+        <a href="auto-theme.html" class="h-52 px-12 flex y center _c-brand br-12">Auto theme</a>
       </div>
     </div>
 </section>
 
-  <section id="colors" class="px-220__ py-136 flex y g-20">
- 
-    <h2 class="fs-52__ _bg-brand pr-356__ lh-1 ttu fwd-4 f-scale offset">
-      <span>Colors</span>
-    </h2>
-    <p class="fs-16">
-      The next generation of theming
-    </p>
+  <section id="colors-system" class="px-220__ py-136 flex y g-20 w-full">
     
+
           <!-- Documentation Colors -->
-      <div class="flex y g-20">
+      <div class="flex y g-136 w-full">
         <div class="flex y g-20">
-          <h3 class="fs-24 bold">Documentation</h3>
+          <h2 class="fs-52__ _bg-brand pr-356__ lh-1 ttu fwd-4 f-scale offset">Colors System</h2>
           <p class="fs-12_">Ultra-modern color system based on OKLCH with automatic variations</p>
           <div class="flex y g-8">
             <p class="fs-12"><strong>Main colors:</strong> brand, accent, extra, dark, light</p>
@@ -164,22 +159,22 @@
         </div>
 
         <!-- Real-time CSS Variables Display -->
-        <div class="flex y g-20">
+        <div class="flex y g-20 w-full">
           <h4 class="fs-18 bold">Real-time CSS Variables</h4>
           <p class="fs-12_">The entire EVA theme is based on these CSS variables and HUE values:</p>
           
-          <div class="flex wrap g-20">
-            <div class="px-20 py-20 _bg-brand__ br-12 flex y g-8">
+          <div class="flex-grid gap-20 w-full">
+            <div class="col-6 px-20 py-20 _bg-brand__ br-12 flex y g-8">
               <span class="fs-16 bold _c-brand">Brand HUE</span>
               <span id="brand-hue-value" class="fs-20 bold _c-brand">169°</span>
               <span class="fs-10 _c-brand_">--brand-hue</span>
             </div>
-            <div class="px-20 py-20 _bg-accent__ br-12 flex y g-8">
+            <div class="col-3 px-20 py-20 _bg-accent__ br-12 flex y g-8">
               <span class="fs-16 bold _c-accent">Accent HUE</span>
               <span id="accent-hue-value" class="fs-20 bold _c-accent">10°</span>
               <span class="fs-10 _c-accent_">--accent-hue</span>
             </div>
-            <div class="px-20 py-20 _bg-extra__ br-12 flex y g-8">
+            <div class="col-3 px-20 py-20 _bg-extra__ br-12 flex y g-8">
               <span class="fs-16 bold _c-extra">Extra HUE</span>
               <span id="extra-hue-value" class="fs-20 bold _c-extra">200°</span>
               <span class="fs-10 _c-extra_">--extra-hue</span>
@@ -213,13 +208,11 @@
           if (accentHueElement) accentHueElement.textContent = accentHue + '°';
           if (extraHueElement) extraHueElement.textContent = extraHue + '°';
         }
-      </a>
+     
         // Update on load
         document.addEventListener('DOMContentLoaded', updateCSSVariables);
-      </a>
         // Update every 100ms to capture real-time changes
         setInterval(updateCSSVariables, 100);
-      </a>
         // Observe style changes on body
         if ('MutationObserver' in window) {
           const observer = new MutationObserver(function(mutations) {
@@ -238,36 +231,36 @@
       </script>
 
     <!-- Color Palette Showcase -->
-    <div class="flex y g-32">
+    <div class="flex y g-136 mt-136">
               <!-- Brand Colors -->
         <div class="flex y g-20">
           <h4 class="fs-18 bold">Brand Colors</h4>
           <div class="flex wrap g-20">
             <div class="flex x g-20">
-              <div class="w-120 h-120 _bg-brand br-12 flex y center p-8 px-12">
-                <span class="fs-12_ _c-light bold">brand</span>
+              <div class="w-136 h-136 item-card _bg-brand br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">brand</span>
               </div>
-              <div class="w-120 h-120 _bg-brand_ br-12 flex y center p-8 px-12">
-                <span class="fs-12_ _c-light bold">brand_</span>
+              <div class="w-136 h-136 item-card _bg-brand_ br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">brand_</span>
               </div>
-              <div class="w-120 h-120 _bg-brand__ br-12 flex y center p-8 px-12">
+              <div class="w-136 h-136 item-card _bg-brand__ br-12 flex y center p-8 px-12">
                 <span class="fs-12_ _c-dark bold">brand__</span>
               </div>
-              <div class="w-120 h-120 _bg-brand___ br-12 flex y center p-8 px-12">
+              <div class="w-136 h-136 item-card _bg-brand___ br-12 flex y center p-8 px-12">
                 <span class="fs-12_ _c-dark bold">brand___</span>
               </div>
             </div>
             <div class="flex x g-20">
-              <div class="w-120 h-120 _bg-brand-d br-12 flex y center p-8 px-12">
-                <span class="fs-12_ _c-light bold">brand-d</span>
+              <div class="w-136 h-136 item-card _bg-brand-d br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">brand-d</span>
               </div>
-              <div class="w-120 h-120 _bg-brand-b br-12 flex y center p-8 px-12">
+              <div class="w-136 h-136 item-card _bg-brand-b br-12 flex y center p-8 px-12">
                 <span class="fs-12_ _c-dark bold">brand-b</span>
               </div>
-              <div class="w-120 h-120 _bg-brand-d_ br-12 flex y center p-8 px-12">
-                <span class="fs-12_ _c-light bold">brand-d_</span>
+              <div class="w-136 h-136 item-card _bg-brand-d_ br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">brand-d_</span>
               </div>
-              <div class="w-120 h-120 _bg-brand-b_ br-12 flex y center p-8 px-12">
+              <div class="w-136 h-136 item-card _bg-brand-b_ br-12 flex y center p-8 px-12">
                 <span class="fs-12_ _c-dark bold">brand-b_</span>
               </div>
             </div>
@@ -279,30 +272,30 @@
           <h4 class="fs-18 bold">Accent Colors</h4>
           <div class="flex wrap g-20">
             <div class="flex x g-20">
-              <div class="w-120 h-120 _bg-accent br-12 flex y center p-8 px-12">
-                <span class="fs-12_ _c-light bold">accent</span>
+              <div class="w-136 h-136 item-card _bg-accent br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">accent</span>
               </div>
-              <div class="w-120 h-120 _bg-accent_ br-12 flex y center p-8 px-12">
-                <span class="fs-12_ _c-light bold">accent_</span>
+              <div class="w-136 h-136 item-card _bg-accent_ br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">accent_</span>
               </div>
-              <div class="w-120 h-120 _bg-accent__ br-12 flex y center p-8 px-12">
+              <div class="w-136 h-136 item-card _bg-accent__ br-12 flex y center p-8 px-12">
                 <span class="fs-12_ _c-dark bold">accent__</span>
               </div>
-              <div class="w-120 h-120 _bg-accent___ br-12 flex y center p-8 px-12">
+              <div class="w-136 h-136 item-card _bg-accent___ br-12 flex y center p-8 px-12">
                 <span class="fs-12_ _c-dark bold">accent___</span>
               </div>
             </div>
             <div class="flex x g-20">
-              <div class="w-120 h-120 _bg-accent-d br-12 flex y center p-8 px-12">
-                <span class="fs-12_ _c-light bold">accent-d</span>
+              <div class="w-136 h-136 item-card _bg-accent-d br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">accent-d</span>
               </div>
-              <div class="w-120 h-120 _bg-accent-b br-12 flex y center p-8 px-12">
+              <div class="w-136 h-136 item-card _bg-accent-b br-12 flex y center p-8 px-12">
                 <span class="fs-12_ _c-dark bold">accent-b</span>
               </div>
-              <div class="w-120 h-120 _bg-accent-d_ br-12 flex y center p-8 px-12">
-                <span class="fs-12_ _c-light bold">accent-d_</span>
+              <div class="w-136 h-136 item-card _bg-accent-d_ br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">accent-d_</span>
               </div>
-              <div class="w-120 h-120 _bg-accent-b_ br-12 flex y center p-8 px-12">
+              <div class="w-136 h-136 item-card _bg-accent-b_ br-12 flex y center p-8 px-12">
                 <span class="fs-12_ _c-dark bold">accent-b_</span>
               </div>
             </div>
@@ -314,30 +307,30 @@
           <h4 class="fs-18 bold">Extra Colors</h4>
           <div class="flex wrap g-20">
             <div class="flex x g-20">
-              <div class="w-120 h-120 _bg-extra br-12 flex y center p-8 px-12">
-                <span class="fs-12_ _c-light bold">extra</span>
+              <div class="w-136 h-136 item-card _bg-extra br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">extra</span>
               </div>
-              <div class="w-120 h-120 _bg-extra_ br-12 flex y center p-8 px-12">
-                <span class="fs-12_ _c-light bold">extra_</span>
+              <div class="w-136 h-136 item-card _bg-extra_ br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">extra_</span>
               </div>
-              <div class="w-120 h-120 _bg-extra__ br-12 flex y center p-8 px-12">
+              <div class="w-136 h-136 item-card _bg-extra__ br-12 flex y center p-8 px-12">
                 <span class="fs-12_ _c-dark bold">extra__</span>
               </div>
-              <div class="w-120 h-120 _bg-extra___ br-12 flex y center p-8 px-12">
+              <div class="w-136 h-136 item-card _bg-extra___ br-12 flex y center p-8 px-12">
                 <span class="fs-12_ _c-dark bold">extra___</span>
               </div>
             </div>
             <div class="flex x g-20">
-              <div class="w-120 h-120 _bg-extra-d br-12 flex y center p-8 px-12">
-                <span class="fs-12_ _c-light bold">extra-d</span>
+              <div class="w-136 h-136 item-card _bg-extra-d br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">extra-d</span>
               </div>
-              <div class="w-120 h-120 _bg-extra-b br-12 flex y center p-8 px-12">
+              <div class="w-136 h-136 item-card _bg-extra-b br-12 flex y center p-8 px-12">
                 <span class="fs-12_ _c-dark bold">extra-b</span>
               </div>
-              <div class="w-120 h-120 _bg-extra-d_ br-12 flex y center p-8 px-12">
-                <span class="fs-12_ _c-light bold">extra-d_</span>
+              <div class="w-136 h-136 item-card _bg-extra-d_ br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">extra-d_</span>
               </div>
-              <div class="w-120 h-120 _bg-extra-b_ br-12 flex y center p-8 px-12">
+              <div class="w-136 h-136 item-card _bg-extra-b_ br-12 flex y center p-8 px-12">
                 <span class="fs-12_ _c-dark bold">extra-b_</span>
               </div>
             </div>
@@ -349,31 +342,31 @@
           <h4 class="fs-18 bold">Dark Colors</h4>
           <div class="flex wrap g-20">
             <div class="flex x g-20">
-              <div class="w-120 h-120 _bg-dark br-12 flex y center p-8 px-12">
-                <span class="fs-12_ _c-light bold">dark</span>
+              <div class="w-136 h-136 item-card _bg-dark br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">dark</span>
               </div>
-              <div class="w-120 h-120 _bg-dark_ br-12 flex y center p-8 px-12">
-                <span class="fs-12_ _c-light bold">dark_</span>
+              <div class="w-136 h-136 item-card _bg-dark_ br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">dark_</span>
               </div>
-              <div class="w-120 h-120 _bg-dark__ br-12 flex y center p-8 px-12">
-                <span class="fs-12_ _c-light bold">dark__</span>
+              <div class="w-136 h-136 item-card _bg-dark__ br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">dark__</span>
               </div>
-              <div class="w-120 h-120 _bg-dark___ br-12 flex y center p-8 px-12">
-                <span class="fs-12_ _c-light bold">dark___</span>
+              <div class="w-136 h-136 item-card _bg-dark___ br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">dark___</span>
               </div>
             </div>
             <div class="flex x g-20">
-              <div class="w-120 h-120 _bg-dark-d br-12 flex y center p-8 px-12">
-                <span class="fs-12_ _c-light bold">dark-d</span>
+              <div class="w-136 h-136 item-card _bg-dark-d br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">dark-d</span>
               </div>
-              <div class="w-120 h-120 _bg-dark-b br-12 flex y center p-8 px-12">
-                <span class="fs-12_ _c-light bold">dark-b</span>
+              <div class="w-136 h-136 item-card _bg-dark-b br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">dark-b</span>
               </div>
-              <div class="w-120 h-120 _bg-dark-d_ br-12 flex y center p-8 px-12">
-                <span class="fs-12_ _c-light bold">dark-d_</span>
+              <div class="w-136 h-136 item-card _bg-dark-d_ br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">dark-d_</span>
               </div>
-              <div class="w-120 h-120 _bg-dark-b_ br-12 flex y center p-8 px-12">
-                <span class="fs-12_ _c-light bold">dark-b_</span>
+              <div class="w-136 h-136 item-card _bg-dark-b_ br-12 flex y center p-8 px-12">
+                <span class="fs-12_ _c-dark bold">dark-b_</span>
               </div>
             </div>
           </div>
@@ -384,30 +377,30 @@
           <h4 class="fs-18 bold">Light Colors</h4>
           <div class="flex wrap g-20">
             <div class="flex x g-20">
-              <div class="w-120 h-120 _bg-light br-12 flex y center p-8 px-12">
+              <div class="w-136 h-136 item-card _bg-light br-12 flex y center p-8 px-12">
                 <span class="fs-12_ _c-dark bold">light</span>
               </div>
-              <div class="w-120 h-120 _bg-light_ br-12 flex y center p-8 px-12">
+              <div class="w-136 h-136 item-card _bg-light_ br-12 flex y center p-8 px-12">
                 <span class="fs-12_ _c-dark bold">light_</span>
               </div>
-              <div class="w-120 h-120 _bg-light__ br-12 flex y center p-8 px-12">
+              <div class="w-136 h-136 item-card _bg-light__ br-12 flex y center p-8 px-12">
                 <span class="fs-12_ _c-dark bold">light__</span>
               </div>
-              <div class="w-120 h-120 _bg-light___ br-12 flex y center p-8 px-12">
+              <div class="w-136 h-136 item-card _bg-light___ br-12 flex y center p-8 px-12">
                 <span class="fs-12_ _c-dark bold">light___</span>
               </div>
             </div>
             <div class="flex x g-20">
-              <div class="w-120 h-120 _bg-light-d br-12 flex y center p-8 px-12">
+              <div class="w-136 h-136 item-card _bg-light-d br-12 flex y center p-8 px-12">
                 <span class="fs-12_ _c-dark bold">light-d</span>
               </div>
-              <div class="w-120 h-120 _bg-light-b br-12 flex y center p-8 px-12">
+              <div class="w-136 h-136 item-card _bg-light-b br-12 flex y center p-8 px-12">
                 <span class="fs-12_ _c-dark bold">light-b</span>
               </div>
-              <div class="w-120 h-120 _bg-light-d_ br-12 flex y center p-8 px-12">
+              <div class="w-136 h-136 item-card _bg-light-d_ br-12 flex y center p-8 px-12">
                 <span class="fs-12_ _c-dark bold">light-d_</span>
               </div>
-              <div class="w-120 h-120 _bg-light-b_ br-12 flex y center p-8 px-12">
+              <div class="w-136 h-136 item-card _bg-light-b_ br-12 flex y center p-8 px-12">
                 <span class="fs-12_ _c-dark bold">light-b_</span>
               </div>
             </div>
