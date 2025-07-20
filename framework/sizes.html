@@ -1,0 +1,685 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/Draggable.min.js"></script>
+    <link rel="stylesheet" href="https://use.typekit.net/vjo0ssd.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Display:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/main.css" />
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="3c9b4552-d24d-48aa-a6b4-877d0ceffe04"></script>
+    <title>EVA CSS - Sizing System</title>
+  </head>
+  <body class="current-theme theme-eva all-grads toggle-theme">
+  <a href="" class="dark-light-toggle no-hover">
+    <svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 100 100" x="0px" y="0px"><path d="M50,77.62A27.62,27.62,0,1,0,22.38,50,27.61,27.61,0,0,0,50,77.62ZM50,26A24,24,0,1,1,26,50,24,24,0,0,1,50,26ZM69.62,50.52A19.36,19.36,0,0,0,50.26,31.15V69.88A19.36,19.36,0,0,0,69.62,50.52Zm-19.88,31a1.81,1.81,0,0,0-1.81,1.81V95.69a1.81,1.81,0,0,0,3.62,0V83.3A1.81,1.81,0,0,0,49.74,81.49Zm24.9-9A1.81,1.81,0,0,0,72.09,75l8.76,8.76a1.81,1.81,0,0,0,2.55-2.56Zm6.85-22.19a1.81,1.81,0,0,0,1.81,1.81H95.69a1.81,1.81,0,1,0,0-3.62H83.3A1.81,1.81,0,0,0,81.49,50.26ZM75,27.91l8.76-8.76a1.81,1.81,0,0,0-2.56-2.55l-8.76,8.76A1.81,1.81,0,0,0,75,27.91Zm-24.75-9.4a1.81,1.81,0,0,0,1.81-1.81V4.31a1.81,1.81,0,0,0-3.62,0V16.7A1.81,1.81,0,0,0,50.26,18.51Zm-24.9,9A1.81,1.81,0,0,0,27.91,25l-8.76-8.76a1.81,1.81,0,1,0-2.55,2.56Zm-21,24H16.7a1.81,1.81,0,0,0,0-3.62H4.31a1.81,1.81,0,1,0,0,3.62Zm22,20a1.78,1.78,0,0,0-1.28.53l-8.76,8.76a1.8,1.8,0,0,0,0,2.56,1.82,1.82,0,0,0,2.56,0l8.76-8.77a1.81,1.81,0,0,0-1.28-3.08Z"/></svg>
+  </a>
+  <nav id="nav" class="px-220__ flex space py-12- pof">
+    <div id="logo" class="flex x center px-20">
+      <div class="ballzzz por" style="--max:6">
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:0"></div>
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:1"></div>
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:2"></div>
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:3"></div>
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:4"></div>
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:5"></div>
+      </div>
+      <a href="../index.html" class="logo no-hover title fs-36__ lh-1">EVA CSS</a>
+    </div>
+    
+    <!-- Burger menu button -->
+    <button id="burger-menu" class="burger-menu">
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+    </button>
+    
+    <div id="menu" class="flex x center g-12">
+      
+      <div class="inner-menu">
+        <a href="../framework.html" class="h-52 px-12 flex y center _c-brand br-12">
+          <span class="fs-12">Framework</span>
+        </a>
+        <ul>
+          <li>
+            <a href="colors.html" class="h-52 px-12 flex y center _c-brand br-12">
+              <span class="fs-12">Colors</span>
+            </a>
+          </li>
+          <li>
+            <a href="gradients.html" class="h-52 px-12 flex y center _c-brand br-12">
+              <span class="fs-12">Gradients</span>
+            </a>
+          </li>
+          <li>
+            <a href="grids.html" class="h-52 px-12 flex y center _c-brand br-12">
+              <span class="fs-12">Grids</span>
+            </a>
+          </li>
+          <li>
+            <a href="css-fluid.html" class="h-52 px-12 flex y center _c-brand br-12">
+              <span class="fs-12">Fluid CSS</span>
+            </a>
+          </li>
+          <li>
+            <a href="doc.html" class="h-52 px-12 flex y center _c-brand br-12">
+              <span class="fs-12">Docs</span>
+            </a>
+          </li>  
+          <li>
+            <a href="fonts.html" class="h-52 px-12 flex y center _c-brand br-12">
+              <span class="fs-12">Fonts</span>
+            </a>
+          </li>
+          <li>
+            <a href="sizes.html" class="h-52 px-12 flex y center _c-light _bg-brand br-12">
+              <span class="fs-12">Sizes</span>
+            </a>
+          </li>
+          <li>
+            <a href="auto-theme.html" class="h-52 px-12 flex y center _c-brand br-12">
+              <span class="fs-12">Auto theme</span>
+            </a>
+          </li>  
+          <li>
+            <a href="js-calculator.html" class="h-52 px-12 flex y center _c-brand br-12">
+              <span class="fs-12">JS Calculator</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <a href="../figma-to-eva.html" class="h-52 px-12 flex y center _c-brand br-12">
+        <span class="fs-12">Figma to EVA</span>
+      </a>
+
+      <a href="https://github.com/nkdeus/eva" target="_blank" class="h-52 px-8 flex x g-12 center _c-brand br-8">
+       
+        <svg xmlns="http://www.w3.org/2000/svg" class="lh-0" height="20" viewBox="0 0 16 16" width="20" aria-hidden="true" class="d-block"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+        
+      </a>
+    </div>
+
+  </nav>
+
+  <section class="px-220__ pt-220- pb-136 flex y g-32">
+   
+      <div class="fs-36_ py-52- flex y g-12">
+        <a href="doc.html" class="flex x center g-8 py-12 _c-brand no-hover">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m12 19-7-7 7-7"/>
+            <path d="M19 12H5"/>
+          </svg>
+          <span class="fs-16">Back to Docs</span>
+        </a>
+        <h1 class="fs-52__ lh-1 ttu">
+          <span>EVA CSS <span class="title grad-linear-text grad-linear from-accent to-extra">Sizing System</span></span>
+        </h1>
+        <p class="fs-16 mb-32">Fluid spacing and sizing system that adapts seamlessly to any viewport.</p>
+
+        <div class="flex y wrap g-12  fs-16">
+          <a href="#sizing-scale" class="h-52 px-12 flex y center _c-brand br-12">Sizing Scale</a>
+          <a href="#spacing-examples" class="h-52 px-12 flex y center _c-brand br-12">Spacing Examples</a>
+          <a href="#naming-conventions" class="h-52 px-12 flex y center _c-brand br-12">Naming Conventions</a>
+          <a href="#spacing-variables" class="h-52 px-12 flex y center _c-brand br-12">Spacing Variables</a>
+          <a href="#spacing-mathematics" class="h-52 px-12 flex y center _c-brand br-12">Spacing Mathematics</a>
+        </div>
+      </div>
+  </section>
+
+  <section id="sizing-scale" class="px-220__ py-136 flex y g-20">
+    <h2 class="fs-52__ _bg-brand pr-356__ lh-1 ttu fwd-4 f-scale offset">
+      <span class="_c-light">Spacing & Sizing Scale</span>
+    </h2>
+    <p class="fs-16">
+      The spacing system uses a carefully crafted scale that works harmoniously across all viewport sizes.
+      Each value is designed to create balanced proportions in your layouts.
+    </p>
+    
+    <div class="flex x wrap g-20">
+      <div class="p-32_ border thin _bc-brand__ flex y g-8">
+        <span class="bold">Micro Spacing</span>
+        <p class="fs-16">4px, 8px, 12px</p>
+        <p class="fs-16 _c-dark_">For fine adjustments and tight layouts</p>
+      </div>
+      <div class="p-32_ border thin _bc-brand__ flex y g-8">
+        <span class="bold">Component Spacing</span>
+        <p class="fs-16">20px, 32px, 52px</p>
+        <p class="fs-16 _c-dark_">For component padding and margins</p>
+      </div>
+      <div class="p-32_ border thin _bc-brand__ flex y g-8">
+        <span class="bold">Section Spacing</span>
+        <p class="fs-16">84px, 136px, 220px</p>
+        <p class="fs-16 _c-dark_">For section gaps and major spacing</p>
+      </div>
+      <div class="p-32_ border thin _bc-brand__ flex y g-8">
+        <span class="bold">Layout Spacing</span>
+        <p class="fs-16">356px, 576px, 712px</p>
+        <p class="fs-16 _c-dark_">For container widths and large layouts</p>
+      </div>
+    </div>
+
+    <h3 class="fs-24- _c-brand mt-32">Responsive Modifiers</h3>
+    <div class="flex y g-12">
+    <p class="fs-16">
+        <strong>_</strong> (underscore) - Stronger responsive scaling for mobile/tablet
+    </p>
+    <p class="fs-16">
+        <strong>-</strong> (dash) - Minimal responsive scaling
+    </p>
+    <p class="fs-16">
+        <strong>px/rem</strong> - Traditional unit suffixes for clarity
+    </p>
+    </div>
+    
+    <h3 class="fs-24- _c-brand mt-32">Variable Naming</h3>
+    <div class="flex x wrap g-20">
+      <div class="p-32_ border thin _bc-brand__">
+        <span class="bold">$name-by-size: false</span>
+        <br><span class="_c-dark_">Sequential naming:</span>
+        <br>--1, --2, --3, --4, --5, --6...
+      </div>
+      <div class="p-32_ border thin _bc-brand__ _bg-brand_">
+        <span class="bold">$name-by-size: true</span> (default)
+        <br><span class="_c-dark_">Design-based naming:</span>
+        <br>--4, --8, --12, --20, --32, --52...
+      </div>
+    </div>
+    <p class="fs-16">
+      Design-based naming makes it easy to match your Figma specifications directly!
+    </p>
+  </section>
+
+  <section id="spacing-examples" class="px-220__ py-136 flex y g-20">
+    <h2 class="fs-52__ _bg-brand pr-356__ lh-1 ttu fwd-4 f-scale offset">
+      <span class="_c-light">Spacing & Sizing Examples</span>
+    </h2>
+    
+    <div class="flex y g-32">
+      <div class="flex y g-20">
+        <h3 class="fs-24- _c-brand mt-32">Common Use Cases</h3>
+        <div class="flex x wrap g-20">
+          <div class="p-32_ border thin _bc-brand__ flex y g-12">
+            <span class="bold">Button Spacing</span>
+            <div class="flex y g-8">
+              <code class="fs-16">px-20 py-12</code>
+              <p class="fs-16 _c-dark_">Standard button padding</p>
+            </div>
+            <div class="flex y g-8">
+              <code class="fs-16">px-32 py-16</code>
+              <p class="fs-16 _c-dark_">Large button padding</p>
+            </div>
+          </div>
+          
+          <div class="p-32_ border thin _bc-brand__ flex y g-12">
+            <span class="bold">Card Layouts</span>
+            <div class="flex y g-8">
+              <code class="fs-16">p-32</code>
+              <p class="fs-16 _c-dark_">Card padding</p>
+            </div>
+            <div class="flex y g-8">
+              <code class="fs-16">g-20</code>
+              <p class="fs-16 _c-dark_">Card content gap</p>
+            </div>
+          </div>
+          
+          <div class="p-32_ border thin _bc-brand__ flex y g-12">
+            <span class="bold">Section Spacing</span>
+            <div class="flex y g-8">
+              <code class="fs-16">py-136</code>
+              <p class="fs-16 _c-dark_">Section vertical padding</p>
+            </div>
+            <div class="flex y g-8">
+              <code class="fs-16">px-220</code>
+              <p class="fs-16 _c-dark_">Section horizontal padding</p>
+            </div>
+          </div>
+          
+          <div class="p-32_ border thin _bc-brand__ flex y g-12">
+            <span class="bold">Container Widths</span>
+            <div class="flex y g-8">
+              <code class="fs-16">w-356</code>
+              <p class="fs-16 _c-dark_">Medium container</p>
+            </div>
+            <div class="flex y g-8">
+              <code class="fs-16">w-576</code>
+              <p class="fs-16 _c-dark_">Large container</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="flex y g-20">
+        <h3 class="fs-24- _c-brand mt-32">Responsive Behavior</h3>
+        <div class="flex x wrap g-20">
+          <div class="p-32_ border thin _bc-brand__ flex y g-12">
+            <span class="bold">Desktop (1440px)</span>
+            <p class="fs-16">px-220</p>
+            <p class="fs-16 _c-dark_">220px horizontal padding</p>
+          </div>
+          <div class="p-32_ border thin _bc-brand__ flex y g-12">
+            <span class="bold">Tablet (768px)</span>
+            <p class="fs-16">px-220_</p>
+            <p class="fs-16 _c-dark_">~120px horizontal padding</p>
+          </div>
+          <div class="p-32_ border thin _bc-brand__ flex y g-12">
+            <span class="bold">Mobile (375px)</span>
+            <p class="fs-16">px-220__</p>
+            <p class="fs-16 _c-dark_">~40px horizontal padding</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="naming-conventions" class="px-220__ py-136 flex y g-20">
+    <h2 class="fs-52__ _bg-brand pr-356__ lh-1 ttu fwd-4 f-scale offset">
+      <span class="_c-light">Naming Conventions</span>
+    </h2>
+   
+    <div class="flex y g-20">
+      <p class="fs-16">EVA CSS uses intuitive Emmet-style suffixes for consistent and efficient styling.</p>
+
+      <div class="flex x wrap g-20">
+       <div class="p-32_ border thin _bc-brand__ flex y g-8">
+          <span class="bold">Property suffixes</span>
+         <p class="fs-16"><span class="bold">w</span><span class="_c-dark_"> == </span><span>width</span></p>
+         <p class="fs-16"><span class="bold">h</span><span class="_c-dark_"> == </span><span>height</span></p>
+         <p class="fs-16"><span class="bold">p</span><span class="_c-dark_"> == </span><span>padding</span></p>
+         <p class="fs-16"><span class="bold">px</span><span class="_c-dark_"> == </span><span>padding-inline</span></p>
+         <p class="fs-16"><span class="bold">py</span><span class="_c-dark_"> == </span><span>padding-block</span></p>
+         <p class="fs-16"><span class="bold">pr</span><span class="_c-dark_"> == </span><span>padding-right</span></p>
+         <p class="fs-16"><span class="bold">br</span><span class="_c-dark_"> == </span><span>border-radius</span></p>
+         <p class="fs-16"><span class="bold">mb</span><span class="_c-dark_"> == </span><span>margin-bottom</span></p>
+         <p class="fs-16"><span class="bold">g</span><span class="_c-dark_"> == </span><span>gap</span></p>
+       </div>
+
+       <div class="p-32_ border thin _bc-brand__ flex y g-8">
+          <span class="bold">SCSS Configuration</span>
+         <pre>
+           $properties: (
+                   w: width,
+                   h: height,
+                   p: padding,
+                   px: padding-inline,
+                   pr: padding-right,
+                   py: padding-block,
+                   br: border-radius,
+                   mb: margin-bottom,
+                   g: gap
+           );
+         </pre>
+       </div>
+
+       <div class="p-32_ border thin _bc-brand__ flex y g-8">
+          <span class="bold">Class Generation Control</span>
+          <p class="fs-16">Optimize CSS bundle size by generating only needed classes:</p>
+         <pre>
+            $custom-class: true;
+           
+           $class-config: (
+              w: (50),        // Only width:50 classes
+              h: (),          // No height classes
+              px: (24),       // Only padding-inline:24
+              // Empty arrays = no classes generated
+           );
+         </pre>
+       </div>
+     </div>
+   </div>
+ </section>
+
+  <section id="spacing-variables" class="px-220__ py-136 flex y g-20">
+    <h2 class="fs-52__ _bg-brand pr-356__ lh-1 ttu fwd-4 f-scale offset">
+      <span class="_c-light">Spacing Variables</span>
+    </h2>
+    
+    <div class="flex y g-52">
+      <h3 class="fs-24- _c-brand mt-32">Spacing Variables</h3>
+      <div class="flex y g-20">
+        <div class="flex y">
+          <div class="flex x center g-8">
+            <span class="fwg-2 f-scale _c-dark_"><span class="_c-dark__">var</span>(<span class="_c-brand">--20</span><span class="_c-accent">-</span>)</span>
+            <span class="fwg-2 f-scale _c-dark_">clamp(1.13rem, 0.35vw + 0.94rem, 1.39rem)</span>
+          </div>
+          <div class="fs-12 _c-dark_ px-12 flex y g-4">
+            <div class="flex x center g-4">
+              <img src="assets/icone-mobile.svg" width="16" height="16" alt="mobile" style="vertical-align:middle;"/>
+              <span class="_c-dark_">1.13rem = 18px</span>
+            </div>
+            <div class="flex x center g-4">
+              <img src="assets/icone-laptop.svg" width="16" height="16" alt="laptop" style="vertical-align:middle;"/>
+              <span class="_c-dark_">0.35vw + 0.94rem = 20px</span>
+            </div>
+            <div class="flex x center g-4">
+              <img src="assets/icone-desktop.svg" width="16" height="16" alt="desktop" style="vertical-align:middle;"/>
+              <span class="_c-dark_">1.39rem = 22px</span>
+            </div>
+          </div>
+        </div>
+        <div class="flex y">
+          <div class="flex x center g-8">
+            <span class="fwg-2 f-scale _c-dark_"><span class="_c-dark__">var</span>(<span class="_c-brand">--20</span>)</span>
+            <span class="fwg-2 f-scale _c-dark_">clamp(0.7rem, 0.7vw + 0.63rem, 1.39rem)</span>
+          </div>
+          <div class="fs-12 _c-dark_ px-12 flex y g-4">
+            <div class="flex x center g-4">
+              <img src="assets/icone-mobile.svg" width="16" height="16" alt="mobile" style="vertical-align:middle;"/>
+              <span class="_c-dark_">0.7rem = 11px</span>
+            </div>
+            <div class="flex x center g-4">
+              <img src="assets/icone-laptop.svg" width="16" height="16" alt="laptop" style="vertical-align:middle;"/>
+              <span class="_c-dark_">0.7vw + 0.63rem = 20px</span>
+            </div>
+            <div class="flex x center g-4">
+              <img src="assets/icone-desktop.svg" width="16" height="16" alt="desktop" style="vertical-align:middle;"/>
+              <span class="_c-dark_">1.39rem = 22px</span>
+            </div>
+          </div>
+        </div>
+        <div class="flex y">
+          <div class="flex x center g-8">
+            <span class="fwg-2 f-scale _c-dark_"><span class="_c-dark__">var</span>(<span class="_c-brand">--20</span><span class="_c-accent">_</span>)</span>
+            <span class="fwg-2 f-scale _c-dark_">clamp(0.43rem, 1.05vw + 0.31rem, 1.39rem)</span>
+          </div>
+          <div class="fs-12 _c-dark_ px-12 flex y g-4">
+            <div class="flex x center g-4">
+              <img src="assets/icone-mobile.svg" width="16" height="16" alt="mobile" style="vertical-align:middle;" class="_c-dark"/>
+              <span class="_c-dark_">0.43rem = 7px</span>
+            </div>
+            <div class="flex x center g-4">
+              <img src="assets/icone-laptop.svg" width="16" height="16" alt="laptop" style="vertical-align:middle;" class="_c-dark"/>
+              <span class="_c-dark_">1.05vw + 0.31rem = 20px</span>
+            </div>
+            <div class="flex x center g-4">
+              <img src="assets/icone-desktop.svg" width="16" height="16" alt="desktop" style="vertical-align:middle;" class="_c-dark"/>
+              <span class="_c-dark_">1.39rem = 22px</span>
+            </div>
+          </div>
+        </div>
+        <div class="flex y">
+          <div class="flex x center g-8">
+            <span class="fwg-2 f-scale _c-dark_"><span class="_c-dark__">var</span>(<span class="_c-brand">--20</span><span class="_c-accent lt">__</span>)</span>
+            <span class="fwg-2 f-scale _c-dark_">clamp(0.5rem, 1.98vw - 0.7rem, 1.39rem)</span>
+          </div>
+          <div class="fs-12 _c-dark_ px-12 flex y g-4">
+            <div class="flex x center g-4">
+              <img src="assets/icone-mobile.svg" width="16" height="16" alt="mobile" style="vertical-align:middle;" class="_c-dark"/>
+              <span class="_c-dark_">0.5rem = 8px</span>
+            </div>
+            <div class="flex x center g-4">
+              <img src="assets/icone-laptop.svg" width="16" height="16" alt="laptop" style="vertical-align:middle;" class="_c-dark"/>
+              <span class="_c-dark_">1.98vw - 0.7rem = 20px</span>
+            </div>
+            <div class="flex x center g-4">
+              <img src="assets/icone-desktop.svg" width="16" height="16" alt="desktop" style="vertical-align:middle;" class="_c-dark"/>
+              <span class="_c-dark_">1.39rem = 22px</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="spacing-mathematics" class="px-220__ py-136 flex y g-20">
+    <h2 class="fs-52__ _bg-brand pr-356__ lh-1 ttu fwd-4 f-scale offset">
+      <span class="_c-light">Spacing Mathematics</span>
+    </h2>
+    
+    <div class="flex y g-32">
+      <div class="flex y g-20">
+        <h3 class="fs-24- _c-brand mt-32">The Mathematical Foundation</h3>
+        <p class="fs-16">
+          EVA CSS transforms pixel values from Figma into fluid CSS variables using advanced mathematical calculations.
+          Every variable is generated using the clamp() function with carefully calculated minimum, fluid, and maximum values.
+        </p>
+        
+        <div class="flex x wrap g-20">
+          <div class="p-32_ border thin _bc-brand__ flex y g-8">
+            <span class="bold">Base Constants</span>
+            <pre class="fs-12">$screen: 1440px;     // Figma design width
+$min: 0.5rem;        // Minimum scaling limit
+$max: 1rem;          // Maximum scaling limit
+$Φ: 1.61803398875;   // Golden ratio
+$ez: 142.4;          // Extreme scaling factor</pre>
+          </div>
+          
+          <div class="p-32_ border thin _bc-brand__ flex y g-8">
+            <span class="bold">Core Formula</span>
+            <pre class="fs-12">clamp(min, fluid, max)</pre>
+            <p class="fs-16 _c-dark_">CSS clamp() function with calculated values</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex y g-20">
+        <h3 class="fs-24- _c-brand mt-32">Step-by-Step Calculation Process</h3>
+        <p class="fs-16">How a Figma pixel value becomes a fluid CSS variable.</p>
+        
+        <div class="flex y g-20">
+          <div class="p-32_ border thin _bc-brand__ flex y g-12">
+            <span class="bold">Step 1: Calculate Percentage</span>
+            <pre class="fs-12">getPercent($size) = ($size / $screen) * 100
+
+Example for 20px:
+getPercent(20) = (20 / 1440) * 100 = 1.39%</pre>
+            <p class="fs-16 _c-dark_">Converts pixel value to percentage of screen width</p>
+          </div>
+          
+          <div class="p-32_ border thin _bc-brand__ flex y g-12">
+            <span class="bold">Step 2: Calculate REM Values</span>
+            <pre class="fs-12">toRem($size) = $size / 16 * 1rem
+getMinRem($percent) = $percent * $min
+getMaxRem($percent) = $percent * $max
+
+Note: The actual mathematical formula in EVA CSS is more complex
+than these simplified examples. See the CSS output for real values.</pre>
+          </div>
+          
+          <div class="p-32_ border thin _bc-brand__ flex y g-12">
+            <span class="bold">Step 3: Calculate Fluid Values</span>
+            <pre class="fs-12">getVW($percent) = $percent * 1vw
+
+vw-light: (getVW(percent) / 4) + (toRem(size) / 1.33)
+vw-medium: (getVW(percent) / 2) + (toRem(size) / 2)
+vw-strong: (getVW(percent) / 1.33) + (toRem(size) / 4)
+vw-extrem: getVW(percent * $ez) - $rem-min</pre>
+            <p class="fs-16 _c-dark_">Different fluid calculations for each modifier</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex y g-20">
+        <h3 class="fs-24- _c-brand mt-32">Modifier Calculations</h3>
+        <p class="fs-16">How each modifier affects the final clamp() values.</p>
+        
+        <div class="flex x wrap g-20">
+          <div class="p-32_ border thin _bc-brand__ flex y g-8">
+            <span class="bold">No Modifier (default)</span>
+            <pre class="fs-12">min: $rem-min
+fluid: vw-medium
+max: $rem-max</pre>
+            <p class="fs-16 _c-dark_">Standard responsive scaling</p>
+          </div>
+          
+          <div class="p-32_ border thin _bc-brand__ flex y g-8">
+            <span class="bold">Single Underscore (_)</span>
+            <pre class="fs-12">min: $rem-min / $Φ
+fluid: vw-strong
+max: $rem-max</pre>
+            <p class="fs-16 _c-dark_">Stronger responsive scaling</p>
+          </div>
+          
+          <div class="p-32_ border thin _bc-brand__ flex y g-8">
+            <span class="bold">Double Underscore (__)</span>
+            <pre class="fs-12">min: $min (0.5rem)
+fluid: vw-extrem
+max: $rem-max</pre>
+            <p class="fs-16 _c-dark_">Maximum responsive scaling</p>
+          </div>
+          
+          <div class="p-32_ border thin _bc-brand__ flex y g-8">
+            <span class="bold">Dash (-)</span>
+            <pre class="fs-12">min: $rem-min * $Φ
+fluid: vw-light
+max: $rem-max</pre>
+            <p class="fs-16 _c-dark_">Minimal responsive scaling</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex y g-20">
+        <h3 class="fs-24- _c-brand mt-32">Real Example: 20px to CSS Variable</h3>
+        <p class="fs-16">Complete calculation breakdown for a 20px value from Figma.</p>
+        
+        <div class="p-32_ border thin _bc-brand__">
+          <div class="flex y g-16">
+            <div class="flex y g-8">
+              <span class="bold">Input: 20px from Figma (1440px design)</span>
+              
+              <div class="flex x wrap g-20">
+                <div class="flex y g-8">
+                  <span class="bold">Step 1: Percentage</span>
+                  <pre class="fs-12">getPercent(20) = (20 / 1440) * 100 = 1.39%</pre>
+                </div>
+                
+                <div class="flex y g-8">
+                  <span class="bold">Step 2: Base REM</span>
+                  <pre class="fs-12">toRem(20) = 20 / 16 = 1.25rem</pre>
+                </div>
+              </div>
+            </div>
+            
+            <div class="flex y g-8">
+              <span class="bold">Step 3: Calculate clamp() values for each modifier</span>
+              
+              <div class="flex x wrap g-20">
+                <div class="flex y g-8">
+                  <span class="bold">--20 (default)</span>
+                  <pre class="fs-12">min: 0.7rem
+fluid: 0.7vw + 0.63rem
+max: 1.39rem
+
+Result: clamp(0.7rem, 0.7vw + 0.63rem, 1.39rem)
+
+Note: The actual mathematical formula is more complex
+than the simplified examples shown above.</pre>
+                </div>
+                
+                <div class="flex y g-8">
+                  <span class="bold">--20<span class="_c-accent">_</span> (strong)</span>
+                  <pre class="fs-12">min: 0.43rem
+fluid: 1.05vw + 0.31rem
+max: 1.39rem
+
+Result: clamp(0.43rem, 1.05vw + 0.31rem, 1.39rem)</pre>
+                </div>
+                
+                <div class="flex y g-8">
+                  <span class="bold">--20<span class="_c-accent">__</span> (extreme)</span>
+                  <pre class="fs-12">min: 0.5rem
+fluid: 1.98vw - 0.7rem
+max: 1.39rem
+
+Result: clamp(0.5rem, 1.98vw - 0.7rem, 1.39rem)</pre>
+                </div>
+                
+                <div class="flex y g-8">
+                  <span class="bold">--20<span class="_c-accent">-</span> (light)</span>
+                  <pre class="fs-12">min: 1.13rem
+fluid: 0.35vw + 0.94rem
+max: 1.39rem
+
+Result: clamp(1.13rem, 0.35vw + 0.94rem, 1.39rem)</pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex y g-20">
+        <h3 class="fs-24- _c-brand mt-32">Spacing vs Typography</h3>
+        <p class="fs-16">Different mathematical approaches for spacing calculations.</p>
+        
+        <div class="flex x wrap g-20">
+          <div class="p-32_ border thin _bc-brand__ flex y g-8">
+            <span class="bold">Spacing Variables</span>
+            <pre class="fs-12">$min: 0.5rem
+$max: 1rem
+$Φ: 1.61803398875
+$ez: 142.4</pre>
+            <p class="fs-16 _c-dark_">Optimized for layout and spacing</p>
+          </div>
+        </div>
+        
+        <div class="p-32_ border thin _bc-brand__">
+          <span class="bold">Key Spacing Features:</span>
+          <ul class="fs-16 _c-dark_ mt-12">
+            <li>Spacing uses minimum values of 0.5rem for maximum responsiveness</li>
+            <li>Uses the golden ratio (1.618) for proportional scaling</li>
+            <li>Extreme scaling factor allows for dramatic size changes</li>
+            <li>All values maintain visual hierarchy across viewport sizes</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="stage">
+    <div class="flex stage-top">
+      <div class="line-y h-4"></div>
+      <div class="line-y h-8"></div>
+      <div class="line-y h-12"></div>
+      <div class="line-y h-20"></div>
+      <div class="line-y h-32"></div>
+      <div class="line-y h-34"></div>
+      <div class="line-y h-52"></div>
+      <div class="line-y h-84"></div>
+      <div class="line-y h-136"></div>
+      <div class="line-y h-220"></div>
+      <div class="line-y h-356"></div>
+      <div class="line-y h-220"></div>
+      <div class="line-y h-136"></div>
+      <div class="line-y h-84"></div>
+      <div class="line-y h-52"></div>
+      <div class="line-y h-34"></div>
+      <div class="line-y h-32"></div>
+      <div class="line-y h-20"></div>
+      <div class="line-y h-12"></div>
+      <div class="line-y h-8"></div>
+      <div class="line-y h-4"></div>
+    </div>
+  </div>
+
+  <footer class="px-220__ py-136 flex x g-20 w-full">
+
+    <div class="flex w-full y space center g-32">
+      <p class="fs-16 _c-brand_">© 2024</p>
+      <p class="fs-16 _c-brand_">Tati Michaël</p>
+
+    </div>
+
+    <div class="flex  w-full y space g-32">
+      <a href="https://www.linkedin.com/in/mtati/" target="_blank">LinkedIn</a>
+      <a href="https://ulysse-2029.com/" target="_blank">ulysse-2029.com</a>
+    </div>
+  
+  </footer>
+
+  <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="hide">
+    <defs>
+      <filter id="fancy-goo">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="2.5" result="blur" />
+        <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 14 -3" result="goo" />
+        <feComposite in="SourceGraphic" in2="goo" operator="atop"/>
+      </filter>
+    </defs>
+  </svg>
+  <script src="../app.js"></script>
+  </body>
+</html>
