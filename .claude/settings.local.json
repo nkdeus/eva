@@ -10,7 +10,17 @@
       "Bash(npm run build-css:*)",
       "Bash(ls:*)",
       "WebFetch(domain:github.com)",
-      "Bash(grep:*)"
+      "Bash(grep:*)",
+      "Bash(find:*)",
+      "Bash(for file in framework/auto-theme.html framework/colors.html framework/doc.html framework/gradients.html framework/js-calculator.html)",
+      "Bash(do echo \"=== $file ===\")",
+      "Bash(done)",
+      "Bash(for file in framework/auto-theme.html framework/colors.html framework/doc.html framework/gradients.html)",
+      "Bash(do sed -i 's|<span class=\"\"fs-12\"\">JS Calculator</span>|<span class=\"\"fs-12\"\">JS Calculator</span>\\n            </a>|' \"$file\")",
+      "Bash(do sed -i 's/<span class=\"\"fs-12\"\">JS Calculator<\\/span>/<span class=\"\"fs-12\"\">JS Calculator<\\/span>\\n            <\\/a>/' \"$file\")",
+      "Bash(do sed -i 's/<span class=\"\"fs-12\"\">Figma to EVA<\\/span>/<span class=\"\"fs-12\"\">Figma to EVA<\\/span>\\n      <\\/a>/' \"$file\")",
+      "Bash(do sed -i 's|        \\n    </div>|      </a>\\n    </div>|' \"$file\")",
+      "Bash(do sed -i 's/^        $/      <\\/a>/' \"$file\")"
     ],
     "deny": []
   }

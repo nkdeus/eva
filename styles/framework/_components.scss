@@ -66,7 +66,15 @@ h4 {
   letter-spacing: var(--sub-title-spacing);
   font-family: var(--title-font), sans-serif;
 }
-
+h5 {
+  margin: 0;
+  padding: 0;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings: "wght" var(--sub-title-weight), "wdth" 40;
+  letter-spacing: var(--sub-title-spacing);
+  font-family: var(--title-font), sans-serif;
+}
 p {
   margin: 0;
 }
@@ -217,4 +225,79 @@ section {
     }
   }
   
+}
+
+/* Inner Menu Dropdown Styles */
+.inner-menu {
+  position: relative;
+  display: inline-block;
+  
+  ul {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--light);
+    min-width: 200px;
+    border-radius: var(--12-);
+    border: 1px solid var(--dark___);
+    padding: var(--8_);
+    margin: 0;
+    list-style: none;
+    display: none;
+    z-index: 200;
+    
+    li {
+      margin: 0;
+      
+      a {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        width: 100%;
+        margin: var(--4_) 0;
+        border-radius: var(--8_);
+        
+        &:hover {
+          background-color: var(--brand__);
+          
+          span {
+            color: var(--brand-d);
+          }
+        }
+      }
+    }
+  }
+  
+  &:hover {
+    ul {
+      display: block;
+    }
+  }
+}
+
+/* Responsive adjustments for inner-menu */
+@media (max-width: 768px) {
+  .inner-menu {
+    width: 100%;
+    
+    ul {
+      position: static;
+      opacity: 1;
+      visibility: visible;
+      transform: none;
+      box-shadow: none;
+      border: none;
+      background-color: transparent;
+      padding: 0;
+      margin-top: var(--8_);
+      
+      li {
+        a {
+          &:hover {
+            transform: none;
+          }
+        }
+      }
+    }
+  }
 }

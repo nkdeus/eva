@@ -82,7 +82,6 @@ pre {
   border-style: solid;
   &.thin {
     border-width: 1px;
-    border-color: var(--dark__);
   }
 }
 
@@ -130,4 +129,9 @@ img {
 
 .w-full{
   width: 100%;
+}
+
+
+.h-full{
+  height: 100%;
 }

@@ -1,0 +1,488 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/Draggable.min.js"></script>
+    <link rel="stylesheet" href="https://use.typekit.net/vjo0ssd.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Display:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/main.css" />
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="3c9b4552-d24d-48aa-a6b4-877d0ceffe04"></script>
+    <title>EVA CSS - Grids</title>
+  </head>
+  <body class="current-theme theme-eva all-grads toggle-theme">
+  <a href="" class="dark-light-toggle no-hover">
+    <svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 100 100" x="0px" y="0px"><path d="M50,77.62A27.62,27.62,0,1,0,22.38,50,27.61,27.61,0,0,0,50,77.62ZM50,26A24,24,0,1,1,26,50,24,24,0,0,1,50,26ZM69.62,50.52A19.36,19.36,0,0,0,50.26,31.15V69.88A19.36,19.36,0,0,0,69.62,50.52Zm-19.88,31a1.81,1.81,0,0,0-1.81,1.81V95.69a1.81,1.81,0,0,0,3.62,0V83.3A1.81,1.81,0,0,0,49.74,81.49Zm24.9-9A1.81,1.81,0,0,0,72.09,75l8.76,8.76a1.81,1.81,0,0,0,2.55-2.56Zm6.85-22.19a1.81,1.81,0,0,0,1.81,1.81H95.69a1.81,1.81,0,1,0,0-3.62H83.3A1.81,1.81,0,0,0,81.49,50.26ZM75,27.91l8.76-8.76a1.81,1.81,0,0,0-2.56-2.55l-8.76,8.76A1.81,1.81,0,0,0,75,27.91Zm-24.75-9.4a1.81,1.81,0,0,0,1.81-1.81V4.31a1.81,1.81,0,0,0-3.62,0V16.7A1.81,1.81,0,0,0,50.26,18.51Zm-24.9,9A1.81,1.81,0,0,0,27.91,25l-8.76-8.76a1.81,1.81,0,1,0-2.55,2.56Zm-21,24H16.7a1.81,1.81,0,0,0,0-3.62H4.31a1.81,1.81,0,1,0,0,3.62Zm22,20a1.78,1.78,0,0,0-1.28.53l-8.76,8.76a1.8,1.8,0,0,0,0,2.56,1.82,1.82,0,0,0,2.56,0l8.76-8.77a1.81,1.81,0,0,0-1.28-3.08Z"/></svg>
+  <nav id="nav" class="px-220__ flex space py-12- pof">
+    <div id="logo" class="flex x center px-20">
+      <div class="ballzzz por" style="--max:6">
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:0"></div>
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:1"></div>
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:2"></div>
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:3"></div>
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:4"></div>
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:5"></div>
+      </div>
+      <a href="../index.html" class="logo no-hover title fs-36__ lh-1">EVA CSS</a>
+    </div>
+    
+    <!-- Burger menu button -->
+    <button id="burger-menu" class="burger-menu">
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+    </button>
+    
+    <div id="menu" class="flex x center g-12">
+      
+      <div class="inner-menu">
+        <a href="../framework.html" class="h-52 px-12 flex y center _c-brand br-12">
+          <span class="fs-12">Framework</span>
+        </a>
+        <ul>
+          <li>
+            <a href="colors.html" class="h-52 px-12 flex y center _c-brand br-12">
+              <span class="fs-12">Colors</span>
+            </a>
+          </li>
+          <li>
+            <a href="gradients.html" class="h-52 px-12 flex y center _c-brand br-12">
+              <span class="fs-12">Gradients</span>
+            </a>
+          </li>
+          <li>
+            <a href="grids.html" class="h-52 px-12 flex y center _c-light _bg-brand br-12">
+              <span class="fs-12">Grids</span>
+            </a>
+          </li>
+          <li>
+            <a href="css-fluid.html" class="h-52 px-12 flex y center _c-brand br-12">
+              <span class="fs-12">Fluid CSS</span>
+            </a>
+          </li>
+          <li>
+            <a href="doc.html" class="h-52 px-12 flex y center _c-brand br-12">
+              <span class="fs-12">Docs</span>
+            </a>
+          </li>  
+          <li>
+            <a href="auto-theme.html" class="h-52 px-12 flex y center _c-brand br-12">
+              <span class="fs-12">Auto theme</span>
+            </a>
+          </li>  
+          <li>
+            <a href="js-calculator.html" class="h-52 px-12 flex y center _c-brand br-12">
+              <span class="fs-12">JS Calculator</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <a href="../figma-to-eva.html" class="h-52 px-12 flex y center _c-brand br-12">
+        <span class="fs-12">Figma to EVA</span>
+      </a>
+
+      <a href="https://github.com/nkdeus/eva" target="_blank" class="h-52 px-8 flex x g-12 center _c-brand br-8">
+       
+        <svg xmlns="http://www.w3.org/2000/svg" class="lh-0" height="20" viewBox="0 0 16 16" width="20" aria-hidden="true" class="d-block"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+        
+      </a>
+    </div>
+
+  </nav>
+
+  <section class="px-220__ pt-220- pb-136 flex y g-32">
+      <p class="fs-36_ py-52- flex y g-20">
+        <h1 class="fs-52__ lh-1 ttu">
+          <span>The <span class="title grad-linear-text grad-linear from-accent to-extra">grids</span> system</span>
+        </h1>
+      </p>
+  </section>
+
+  <section id="auto-fit-grids" class="px-220__ py-220 flex y g-52">
+    <h2 class="fs-52__ _bg-brand pr-356__ lh-1 ttu fwd-4 f-scale offset">
+      <span>Auto-Fit Grids</span>
+    </h2>
+    <p class="fs-16">
+      Responsive grids that adapt automatically to screen size
+    </p>
+    
+    <!-- Documentation Auto-Fit -->
+    <div class="flex y g-52 w-full">
+      <div class="flex y g-20">
+        <h3 class="fs-24 bold">Documentation</h3>
+        <p class="fs-12_">Modern CSS Grid with auto-fit for responsive layouts without media queries</p>
+        <div class="flex y g-8">
+          <p class="fs-12"><strong>Base class:</strong> .grid + .auto-fit-[size][suffix]</p>
+          <p class="fs-12"><strong>Available sizes:</strong> Based on $sizes array (220 and above)</p>
+          <p class="fs-12"><strong>Suffixes:</strong> none, _, __, -</p>
+          <p class="fs-12"><strong>Automatic gap:</strong> var(--32) by default</p>
+        </div>
+      </div>
+
+      <!-- Auto-Fit Examples -->
+      <div class="flex y g-84 w-full">
+        <div class="flex y g-52 w-full">
+          <h4 class="fs-18 bold">auto-fit-220 (Standard)</h4>
+          <p class="fs-12_">Cards with minimum width of 220px</p>
+          <div class="grid auto-fit-220 g-12 w-full">
+            <div class="px-20 py-20 br-12 border thin _bc-brand__ flex y center">
+              <span class="fs-14 bold _c-brand">Card 1</span>
+            </div>
+            <div class="px-20 py-20 br-12 border thin _bc-brand__ flex y center">
+              <span class="fs-14 bold _c-brand">Card 2</span>
+            </div>
+            <div class="px-20 py-20 br-12 border thin _bc-brand__ flex y center">
+              <span class="fs-14 bold _c-brand">Card 3</span>
+            </div>
+            <div class="px-20 py-20 br-12 border thin _bc-brand__ flex y center">
+              <span class="fs-14 bold _c-brand">Card 4</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex y g-52 w-full">
+          <h4 class="fs-18 bold">auto-fit-356 (Larger cards)</h4>
+          <p class="fs-12_">Cards with minimum width of 356px</p>
+          <div class="grid auto-fit-356 g-12 w-full">
+            <div class="px-20 py-32 br-12 border thin _bc-brand__ flex y g-8">
+              <span class="fs-16 bold _c-brand">Feature Card</span>
+              <p class="fs-12 _c-brand_">Larger minimum width for feature cards</p>
+            </div>
+            <div class="px-20 py-32 br-12 border thin _bc-brand__ flex y g-8">
+              <span class="fs-16 bold _c-brand">Feature Card</span>
+              <p class="fs-12 _c-brand_">Automatically adjusts to screen size</p>
+            </div>
+            <div class="px-20 py-32 br-12 border thin _bc-brand__ flex y g-8">
+              <span class="fs-16 bold _c-brand">Feature Card</span>
+              <p class="fs-12 _c-brand_">No media queries needed</p>
+            </div>
+          </div>
+        </div>
+
+          <div class="flex y g-52 w-full">
+          <h4 class="fs-18 bold">auto-fit-220_ (Reduced size)</h4>
+          <p class="fs-12_">Cards with reduced minimum width using _ suffix</p>
+          <div class="grid auto-fit-220_ g-12 w-full">
+            <div class="px-16 py-16 br-8 border thin _bc-brand__ flex y center">
+              <span class="fs-12 bold _c-brand">Small</span>
+            </div>
+            <div class="px-16 py-16 br-8 border thin _bc-brand__ flex y center">
+              <span class="fs-12 bold _c-brand">Small</span>
+            </div>
+            <div class="px-16 py-16 br-8 border thin _bc-brand__ flex y center">
+              <span class="fs-12 bold _c-brand">Small</span>
+            </div>
+            <div class="px-16 py-16 br-8 border thin _bc-brand__ flex y center">
+              <span class="fs-12 bold _c-brand">Small</span>
+            </div>
+            <div class="px-16 py-16 br-8 border thin _bc-brand__ flex y center">
+              <span class="fs-12 bold _c-brand">Small</span>
+            </div>
+            <div class="px-16 py-16 br-8 border thin _bc-brand__ flex y center">
+              <span class="fs-12 bold _c-brand">Small</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="classic-grids" class="px-220__ py-220 flex y g-52">
+    <h2 class="fs-52__ _bg-brand pr-356__ lh-1 ttu fwd-4 f-scale offset">
+      <span>Classic Grid</span>
+    </h2>
+    <p class="fs-16">
+      Traditional column-based system with responsive breakpoints
+    </p>
+    
+    <!-- Documentation Classic Grid -->
+    <div class="flex y g-52 w-full">
+      <div class="flex y g-20">
+        <h3 class="fs-24 bold">Documentation</h3>
+        <p class="fs-12_">Flexbox-based grid system with dynamic column calculation using CSS variables</p>
+        <div class="flex y g-8">
+          <p class="fs-12"><strong>Container:</strong> .flex-grid or .container:flex-grid (with container queries)</p>
+          <p class="fs-12"><strong>Columns:</strong> .col-1 to .col-12</p>
+          <p class="fs-12"><strong>Container queries:</strong> Automatic column calculation based on container width</p>
+          <p class="fs-12"><strong>Local control:</strong> .max-col-X (1-12) to override grid columns locally</p>
+          <p class="fs-12"><strong>Responsive control:</strong> .xs:max-col-X, .sm:max-col-X, .md:max-col-X, .lg:max-col-X, .xl:max-col-X, .xxl:max-col-X</p>
+          <p class="fs-12"><strong>Breakpoints:</strong> xs (200px), sm (500px), md (700px), lg (1000px), xl (1200px), xxl (1400px)</p>
+          <p class="fs-12"><strong>Dynamic:</strong> Uses CSS variable --grid-columns for calculations</p>
+        </div>
+      </div>
+
+
+
+      <!-- Classic Grid Examples -->
+      <div class="flex y g-84 w-full">
+        <div class="flex y g-52 w-full">
+          <h4 class="fs-18 bold">12-Column Layout</h4>
+          <p class="fs-12_">Traditional 12-column grid system</p>
+          <div class="flex-grid">
+            <div class="col-12">
+              <div class="px-12 py-12 br-8 border thin _bc-brand__ flex y center">
+                <span class="fs-12 bold _c-brand">col-12 (Full width)</span>
+              </div>
+            </div>
+          </div>
+          <div class="flex-grid gap-20">
+            <div class="col-6">
+              <div class="px-12 py-12 br-8 border thin _bc-brand__ flex y center">
+                <span class="fs-12 bold _c-brand">col-6</span>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="px-12 py-12 br-8 border thin _bc-brand__ flex y center">
+                <span class="fs-12 bold _c-brand">col-6</span>
+              </div>
+            </div>
+          </div>
+          <div class="flex-grid gap-20">
+            <div class="col-4">
+              <div class="px-12 py-12 br-8 border thin _bc-brand__ flex y center">
+                <span class="fs-12 bold _c-brand">col-4</span>
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="px-12 py-12 br-8 border thin _bc-brand__ flex y center">
+                <span class="fs-12 bold _c-brand">col-4</span>
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="px-12 py-12 br-8 border thin _bc-brand__ flex y center">
+                <span class="fs-12 bold _c-brand">col-4</span>
+              </div>
+            </div>
+          </div>
+          <div class="flex-grid gap-20">
+            <div class="col-3">
+              <div class="px-8 py-12 br-8 border thin _bc-brand__ flex y center">
+                <span class="fs-10 bold _c-brand">col-3</span>
+              </div>
+            </div>
+            <div class="col-3">
+              <div class="px-8 py-12 br-8 border thin _bc-brand__ flex y center">
+                <span class="fs-10 bold _c-brand">col-3</span>
+              </div>
+            </div>
+            <div class="col-3">
+              <div class="px-8 py-12 br-8 border thin _bc-brand__ flex y center">
+                <span class="fs-10 bold _c-brand">col-3</span>
+              </div>
+            </div>
+            <div class="col-3">
+              <div class="px-8 py-12 br-8 border thin _bc-brand__ flex y center">
+                <span class="fs-10 bold _c-brand">col-3</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex y g-52 w-full ">
+          <h4 class="fs-18 bold">Mixed Column Layout</h4>
+          <p class="fs-12_">Combining different column sizes</p>
+          <div class="flex-grid gap-20">
+            <div class="col-8">
+              <div class="p-20 br-8 border thin _bc-brand__ h-full flex y">
+                <h5 class="fs-16 bold _c-brand">Main Content (col-8)</h5>
+                <p class="fs-12 _c-brand_">This column takes 8/12 of the available width on desktop, automatically adjusting on tablet and mobile.</p>
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="p-20 br-8 border thin _bc-brand__ h-full flex y">
+                <h5 class="fs-16 bold _c-brand">Sidebar (col-4)</h5>
+                <p class="fs-12 _c-brand_">This column takes 4/12 of the width.</p>
+              </div>
+            </div>
+            <div class="col-2">
+              <div class="p-20 br-8 border thin _bc-brand__ h-full flex y center">
+                <span class="fs-12 _c-brand">col-2</span>
+              </div>
+            </div>
+            <div class="col-10">
+              <div class="p-20 br-8 border thin _bc-brand__ h-full flex y center">
+                <span class="fs-12 _c-brand">col-10 (Wide content area)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex y g-52 w-full">
+          <h4 class="fs-18 bold">Local Grid Control with .max-col-X</h4>
+          <p class="fs-12_">Override the global grid column count locally using .max-col-X classes</p>
+          
+            <div class="flex-grid max-col-6 gap-20">
+              <div class="col-3">
+                <div class="px-12 py-12 br-8 border thin _bc-brand__ flex y center">
+                  <span class="fs-12 bold _c-brand">col-3 in 6-col grid</span>
+                </div>
+              </div>
+              <div class="col-3">
+                <div class="px-12 py-12 br-8 border thin _bc-brand__ flex y center">
+                  <span class="fs-12 bold _c-brand">col-3 in 6-col grid</span>
+                </div>
+              </div>
+            </div>
+        
+        
+            <div class="flex-grid max-col-8 gap-20 w-full">
+              <div class="col-2">
+                <div class="px-8 py-12 br-8 border thin _bc-brand__ flex y center">
+                  <span class="fs-10 bold _c-brand">col-2</span>
+                </div>
+              </div>
+              <div class="col-2">
+                <div class="px-8 py-12 br-8 border thin _bc-brand__ flex y center">
+                  <span class="fs-10 bold _c-brand">col-2</span>
+                </div>
+              </div>
+              <div class="col-2">
+                <div class="px-8 py-12 br-8 border thin _bc-brand__ flex y center">
+                  <span class="fs-10 bold _c-brand">col-2</span>
+                </div>
+              </div>
+              <div class="col-2">
+                <div class="px-8 py-12 br-8 border thin _bc-brand__ flex y center">
+                  <span class="fs-10 bold _c-brand">col-2</span>
+                </div>
+              </div>
+            </div>
+       
+        </div>
+
+        <div class="flex y g-52 w-full">
+          <h4 class="fs-18 bold">Container Query Auto Columns</h4>
+          <p class="fs-12_">Automatic column calculation using container width</p>
+          <div class="container:flex-grid flex x center gap-20 w-full">
+            <div class="col-3">
+              <div class="px-12 py-12 br-8 border thin _bc-brand__ flex y center">
+                <span class="fs-12 bold _c-brand">col-3 auto</span>
+              </div>
+            </div>
+            <div class="col-3">
+              <div class="px-12 py-12 br-8 border thin _bc-brand__ flex y center">
+                <span class="fs-12 bold _c-brand">col-3 auto</span>
+              </div>
+            </div>
+            <div class="col-2">
+              <div class="px-12 py-12 br-8 border thin _bc-brand__ flex y center">
+                <span class="fs-12 bold _c-brand">col-2 auto</span>
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="px-12 py-12 br-8 border thin _bc-brand__ flex y center">
+                <span class="fs-12 bold _c-brand">col-4 auto</span>
+              </div>
+            </div>
+            <div class="col-3">
+              <div class="px-12 py-12 br-8 border thin _bc-brand__ flex y center">
+                <span class="fs-12 bold _c-brand">col-3 auto</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex y g-52 w-full">
+          <h4 class="fs-18 bold">Responsive Max Columns</h4>
+          <p class="fs-12_">Breakpoint-based column control with responsive prefixes</p>
+          <div class="flex-grid gap-20 xs:max-col-2 sm:max-col-4 md:max-col-6 lg:max-col-8 xl:max-col-12">
+            <div class="col-2">
+              <div class="px-12 py-12 br-8 border thin _bc-brand__ flex y center">
+                <span class="fs-10 bold _c-brand">col-2</span>
+              </div>
+            </div>
+            <div class="col-2">
+              <div class="px-12 py-12 br-8 border thin _bc-brand__ flex y center">
+                <span class="fs-10 bold _c-brand">col-2</span>
+              </div>
+            </div>
+            <div class="col-2">
+              <div class="px-12 py-12 br-8 border thin _bc-brand__ flex y center">
+                <span class="fs-10 bold _c-brand">col-2</span>
+              </div>
+            </div>
+            <div class="col-2">
+              <div class="px-12 py-12 br-8 border thin _bc-brand__ flex y center">
+                <span class="fs-10 bold _c-brand">col-2</span>
+              </div>
+            </div>
+            <div class="col-2">
+              <div class="px-12 py-12 br-8 border thin _bc-brand__ flex y center">
+                <span class="fs-10 bold _c-brand">col-2</span>
+              </div>
+            </div>
+            <div class="col-2">
+              <div class="px-12 py-12 br-8 border thin _bc-brand__ flex y center">
+                <span class="fs-10 bold _c-brand">col-2</span>
+              </div>
+            </div>
+          </div>
+          <div class="flex y g-12 _bg-light br-8 p-16">
+            <p class="fs-10 bold _c-dark">Breakpoints actifs :</p>
+            <p class="fs-10 _c-dark_">xs (200px+): 2 cols → sm (500px+): 4 cols → md (700px+): 6 cols → lg (1000px+): 8 cols → xl (1200px+): 12 cols</p>
+          </div>
+        </div>
+
+     
+      </div>
+    </div>
+  </section>
+
+  <div class="stage">
+    <div class="flex stage-top">
+      <div class="line-y h-4"></div>
+      <div class="line-y h-8"></div>
+      <div class="line-y h-12"></div>
+      <div class="line-y h-20"></div>
+      <div class="line-y h-32"></div>
+      <div class="line-y h-34"></div>
+      <div class="line-y h-52"></div>
+      <div class="line-y h-84"></div>
+      <div class="line-y h-136"></div>
+      <div class="line-y h-220"></div>
+      <div class="line-y h-356"></div>
+      <div class="line-y h-220"></div>
+      <div class="line-y h-136"></div>
+      <div class="line-y h-84"></div>
+      <div class="line-y h-52"></div>
+      <div class="line-y h-34"></div>
+      <div class="line-y h-32"></div>
+      <div class="line-y h-20"></div>
+      <div class="line-y h-12"></div>
+      <div class="line-y h-8"></div>
+      <div class="line-y h-4"></div>
+    </div>
+  </div>
+
+  <footer class="px-220__ py-136 flex x g-20 w-full">
+
+    <div class="flex w-full y space center g-32">
+      <p class="fs-12_ _c-brand_">© 2024</p>
+      <p class="fs-12_ _c-brand_">Tati Michaël</p>
+
+    </div>
+
+         <div class="flex  w-full y space g-32">
+       <a href="https://www.linkedin.com/in/mtati/" target="_blank">LinkedIn</a>
+       <a href="https://ulysse-2029.com/" target="_blank">ulysse-2029.com</a>
+     </div>
+  
+  </footer>
+
+  <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="hide">
+    <defs>
+      <filter id="fancy-goo">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="2.5" result="blur" />
+        <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 14 -3" result="goo" />
+        <feComposite in="SourceGraphic" in2="goo" operator="atop"/>
+      </filter>
+    </defs>
+  </svg>
+  <script src="../app.js"></script>
+  </body>
+</html>

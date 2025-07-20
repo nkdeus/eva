@@ -12,9 +12,9 @@
   --100_: clamp(2.14rem, 5.22vw + 1.56rem, 6.94rem);
   --100: clamp(3.47rem, 3.47vw + 3.13rem, 6.94rem);
   --100-: clamp(5.61rem, 1.74vw + 4.7rem, 6.94rem);
-  --fs-14__: clamp(0.38rem, 0.73vw + 0.22rem, 0.97rem);
-  --fs-14_: clamp(0.49rem, 0.49vw + 0.44rem, 0.97rem);
-  --fs-14: clamp(0.64rem, 0.24vw + 0.66rem, 0.97rem);
+  --fs-16__: clamp(0.38rem, 0.73vw + 0.22rem, 0.97rem);
+  --fs-16_: clamp(0.49rem, 0.49vw + 0.44rem, 0.97rem);
+  --fs-16: clamp(0.64rem, 0.24vw + 0.66rem, 0.97rem);
   --fs-16__: clamp(0.43rem, 0.83vw + 0.25rem, 1.11rem);
   --fs-16_: clamp(0.56rem, 0.56vw + 0.5rem, 1.11rem);
   --fs-16: clamp(0.73rem, 0.28vw + 0.75rem, 1.11rem);
@@ -73,16 +73,16 @@
   width: var(--50-);
 }
 
-.fs-14__ {
-  font-size: var(--fs-14__);
+.fs-16__ {
+  font-size: var(--fs-16__);
 }
 
-.fs-14_ {
-  font-size: var(--fs-14_);
+.fs-16_ {
+  font-size: var(--fs-16_);
 }
 
-.fs-14 {
-  font-size: var(--fs-14);
+.fs-16 {
+  font-size: var(--fs-16);
 }
 
 .fs-16__ {

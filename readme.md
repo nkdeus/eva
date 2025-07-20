@@ -275,7 +275,7 @@ font-size: var(--fs-60__); // Adaptation forte sur font-size 60px
 <!-- Body Text -->
 <p class="fs-18">Large body text (18px → 16px)</p>
 <p class="fs-16">Standard body text (16px)</p>
-<p class="fs-14">Small text (14px → 12px)</p>
+<p class="fs-16">Small text (14px → 12px)</p>
 ```
 
 ## 🌐 Ecosystem

@@ -41,18 +41,40 @@
     
     <div id="menu" class="flex x center g-12">
       
-      <a href="figma-to-eva.html" class="h-52 px-12 flex y center _c-brand br-12 active active:_c-brand active:_bg-brand__">
+      <div class="inner-menu">
+        <a href="framework.html" class="h-52 px-12 flex y center _c-brand br-12">
+          <span class="fs-12">Framework</span>
+        </a>
+        <ul>
+          <li>
+            <a href="framework/colors.html" class="h-52 px-12 flex y center _c-brand br-12">
+              <span class="fs-12">Colors</span>
+            </a>
+          </li>
+          <li>
+            <a href="framework/gradients.html" class="h-52 px-12 flex y center _c-brand br-12">
+              <span class="fs-12">Gradients</span>
+            </a>
+          </li>
+          <li>
+            <a href="framework/doc.html" class="h-52 px-12 flex y center _c-brand br-12">
+              <span class="fs-12">Docs</span>
+            </a>
+          </li>
+          <li>
+            <a href="framework/auto-theme.html" class="h-52 px-12 flex y center _c-brand br-12">
+              <span class="fs-12">Auto theme</span>
+            </a>
+          </li>
+          <li>
+            <a href="framework/js-calculator.html" class="h-52 px-12 flex y center _c-brand br-12">
+              <span class="fs-12">JS Calculator</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <a href="figma-to-eva.html" class="h-52 px-12 flex y center _c-light _bg-brand br-12">
         <span class="fs-12">Figma to EVA</span>
-      </a>
-      <a href="colors.html" class="h-52 px-12 flex y center _c-brand br-12">
-        <span class="fs-12">Colors & Gradients</span>
-      </a>
-   
-      <a href="js-calculator.html" class="h-52 px-12 flex y center _c-brand br-12">
-        <span class="fs-12">Calculator</span>
-      </a>
-      <a href="doc.html" class="h-52 px-12 flex y center _c-brand br-12">
-        <span class="fs-12">Docs</span>
       </a>
       <a href="roadmap.html" class="h-52 px-12 flex y center _c-brand br-12">
         <span class="fs-12">Roadmap</span>
@@ -99,7 +121,7 @@
       <div class="flex y g-20">
         <h3 class="fs-24_ _c-brand mt-32">Golden Rule: Exact Correspondence</h3>
         
-        <div class="p-32_ border thin br-1">
+        <div class="p-32_ border thin _bc-brand__">
           <span class="bold">The number in Figma naming must correspond exactly to the CSS variable.</span>
           <pre class="fs-12 mt-12">// CORRECT
 // Figma: g-16 → CSS: var(--16)
@@ -115,7 +137,7 @@ gap: var(--4); // ERROR: doesn't correspond to Figma g-16</pre>
         <h3 class="fs-24_ _c-brand mt-32">Group Identification and Naming</h3>
         
         <div class="flex x wrap g-20">
-          <div class="p-32_ border thin br-1 flex y g-8">
+          <div class="p-32_ border thin _bc-brand__ flex y g-8">
             <span class="bold">Figma naming examples</span>
             <pre class="fs-12">g-16 = Gap of 16px → Use var(--16)
 g-32 = Gap of 32px → Use var(--32_)
@@ -123,7 +145,7 @@ w-64 = Width of 64px → Use var(--64_)
 p-24 = Padding of 24px → Use var(--24)</pre>
           </div>
           
-          <div class="p-32_ border thin br-1 flex y g-8">
+          <div class="p-32_ border thin _bc-brand__ flex y g-8">
             <span class="bold">Size extraction</span>
             <ul class="fs-12 _c-dark_">
               <li><strong>Dimensions</strong>: Width/height in Figma inspector</li>
@@ -137,7 +159,7 @@ p-24 = Padding of 24px → Use var(--24)</pre>
               <div class="flex y g-20">
           <h3 class="fs-24_ _c-brand mt-32">Concrete Example: Figma to CSS Mapping</h3>
           
-          <div class="p-32_ border thin br-1">
+          <div class="p-32_ border thin _bc-brand__">
             <span class="bold">Figma → EVA CSS correspondence:</span>
           <table class="fs-12 mt-12" style="width: 100%; border-collapse: collapse;">
             <tr style="border-bottom: 1px solid var(--brand_); font-weight: bold;">
@@ -190,19 +212,19 @@ p-24 = Padding of 24px → Use var(--24)</pre>
         <h3 class="fs-24_ _c-brand mt-32">Common Errors to Avoid</h3>
         
         <div class="flex x wrap g-20">
-          <div class="p-32_ border thin br-1 flex y g-8">
+          <div class="p-32_ border thin _bc-brand__ flex y g-8">
             <span class="bold">Misinterpreting naming</span>
             <pre class="fs-12">// Figma: g-16 but incorrect usage
 gap: var(--4); // Doesn't correspond</pre>
           </div>
           
-          <div class="p-32_ border thin br-1 flex y g-8">
+          <div class="p-32_ border thin _bc-brand__ flex y g-8">
             <span class="bold">Forgetting automatic modifiers</span>
             <pre class="fs-12">// Value 32 without adaptive modifier
 gap: var(--32); // Should be var(--32_)</pre>
           </div>
           
-          <div class="p-32_ border thin br-1 flex y g-8">
+          <div class="p-32_ border thin _bc-brand__ flex y g-8">
             <span class="bold">Approximate values</span>
             <pre class="fs-12">// Figma: 64px but approximation
 width: var(--60); // Use exact value var(--64_)</pre>
@@ -214,24 +236,24 @@ width: var(--60); // Use exact value var(--64_)</pre>
         <h3 class="fs-24_ _c-brand mt-32">Validation Rules</h3>
         
         <div class="flex x wrap g-20">
-          <div class="p-32_ border thin br-1 flex y g-8">
+          <div class="p-32_ border thin _bc-brand__ flex y g-8">
             <span class="bold">Exact correspondence</span>
-            <p class="fs-14 _c-dark_">Figma naming = CSS variable</p>
+            <p class="fs-16 _c-dark_">Figma naming = CSS variable</p>
           </div>
           
-          <div class="p-32_ border thin br-1 flex y g-8">
+          <div class="p-32_ border thin _bc-brand__ flex y g-8">
             <span class="bold">Complete sizes</span>
-            <p class="fs-14 _c-dark_">All Figma values in $sizes</p>
+            <p class="fs-16 _c-dark_">All Figma values in $sizes</p>
           </div>
           
-          <div class="p-32_ border thin br-1 flex y g-8">
+          <div class="p-32_ border thin _bc-brand__ flex y g-8">
             <span class="bold">Exact colors</span>
-            <p class="fs-14 _c-dark_">HEX values converted to OKLCH</p>
+            <p class="fs-16 _c-dark_">HEX values converted to OKLCH</p>
           </div>
           
-          <div class="p-32_ border thin br-1 flex y g-8">
+          <div class="p-32_ border thin _bc-brand__ flex y g-8">
             <span class="bold">Zero inline CSS</span>
-            <p class="fs-14 _c-dark_">Everything via variables and classes</p>
+            <p class="fs-16 _c-dark_">Everything via variables and classes</p>
           </div>
         </div>
       </div>
@@ -251,66 +273,66 @@ width: var(--60); // Use exact value var(--64_)</pre>
         <h3 class="fs-24_ _c-brand mt-32">10-Step Workflow</h3>
         
         <div class="flex x wrap g-20">
-          <div class="p-32_ border thin br-1 flex y g-8">
+          <div class="p-32_ border thin _bc-brand__ flex y g-8">
             <span class="bold _c-brand">1. Figma Link</span>
-            <p class="fs-14 _c-dark_">Provide the Figma frame URL</p>
+            <p class="fs-16 _c-dark_">Provide the Figma frame URL</p>
             <pre class="fs-12">https://figma.com/design/fileId?node-id=1-2</pre>
           </div>
           
-          <div class="p-32_ border thin br-1 flex y g-8">
+          <div class="p-32_ border thin _bc-brand__ flex y g-8">
             <span class="bold _c-brand">2. Mode Selection</span>
-            <p class="fs-14 _c-dark_">Utility classes or CSS variables</p>
+            <p class="fs-16 _c-dark_">Utility classes or CSS variables</p>
             <pre class="fs-12">$build-class: true  // Utility classes
 $build-class: false // CSS variables</pre>
           </div>
           
-          <div class="p-32_ border thin br-1 flex y g-8">
+          <div class="p-32_ border thin _bc-brand__ flex y g-8">
             <span class="bold _c-brand">3. MCP Extraction</span>
-            <p class="fs-14 _c-dark_">Automatic analysis via Claude</p>
+            <p class="fs-16 _c-dark_">Automatic analysis via Claude</p>
             <pre class="fs-12">mcp_Figma_get_code()
 mcp_Figma_get_variable_defs()</pre>
           </div>
           
-          <div class="p-32_ border thin br-1 flex y g-8">
+          <div class="p-32_ border thin _bc-brand__ flex y g-8">
             <span class="bold _c-brand">4. OKLCH Conversion</span>
-            <p class="fs-14 _c-dark_">Modern and consistent colors</p>
+            <p class="fs-16 _c-dark_">Modern and consistent colors</p>
             <pre class="fs-12">node scripts/hex-to-oklch.js</pre>
           </div>
           
-          <div class="p-32_ border thin br-1 flex y g-8">
+          <div class="p-32_ border thin _bc-brand__ flex y g-8">
             <span class="bold _c-brand">5. Size Analysis</span>
-            <p class="fs-14 _c-dark_">Complete dimension extraction + exact correspondence</p>
+            <p class="fs-16 _c-dark_">Complete dimension extraction + exact correspondence</p>
             <pre class="fs-12">$sizes: 4, 8, 16, 32, 54, 64, 120, 141;
 // Exact correspondence with Figma naming</pre>
           </div>
           
-          <div class="p-32_ border thin br-1 flex y g-8">
+          <div class="p-32_ border thin _bc-brand__ flex y g-8">
             <span class="bold _c-brand">6. SCSS Configuration</span>
-            <p class="fs-14 _c-dark_">Variables and custom theme</p>
+            <p class="fs-16 _c-dark_">Variables and custom theme</p>
             <pre class="fs-12">.theme-project-name { ... }</pre>
           </div>
           
-          <div class="p-32_ border thin br-1 flex y g-8">
+          <div class="p-32_ border thin _bc-brand__ flex y g-8">
             <span class="bold _c-brand">7. Compilation</span>
-            <p class="fs-14 _c-dark_">Automatic CSS generation</p>
+            <p class="fs-16 _c-dark_">Automatic CSS generation</p>
             <pre class="fs-12">npm run watch-projects</pre>
           </div>
           
-          <div class="p-32_ border thin br-1 flex y g-8">
+          <div class="p-32_ border thin _bc-brand__ flex y g-8">
             <span class="bold _c-brand">8. HTML Integration</span>
-            <p class="fs-14 _c-dark_">Structure according to selected mode</p>
+            <p class="fs-16 _c-dark_">Structure according to selected mode</p>
             <pre class="fs-12">&lt;body class="current-theme theme-project"&gt;</pre>
           </div>
           
-          <div class="p-32_ border thin br-1 flex y g-8">
+          <div class="p-32_ border thin _bc-brand__ flex y g-8">
             <span class="bold _c-brand">9. Validation</span>
-            <p class="fs-14 _c-dark_">Consistency and functionality verification</p>
+            <p class="fs-16 _c-dark_">Consistency and functionality verification</p>
             <pre class="fs-12">Compilation + Responsive testing</pre>
           </div>
           
-          <div class="p-32_ border thin br-1 flex y g-8">
+          <div class="p-32_ border thin _bc-brand__ flex y g-8">
             <span class="bold _c-brand">10. Optimization</span>
-            <p class="fs-14 _c-dark_">Final adjustments and performance</p>
+            <p class="fs-16 _c-dark_">Final adjustments and performance</p>
             <pre class="fs-12">CSS purge + Production testing</pre>
           </div>
         </div>
@@ -320,24 +342,24 @@ mcp_Figma_get_variable_defs()</pre>
         <h3 class="fs-24_ _c-brand mt-32">Process Benefits</h3>
         
         <div class="flex x wrap g-20">
-          <div class="p-32_ border thin br-1 flex y g-8">
+          <div class="p-32_ border thin _bc-brand__ flex y g-8">
             <span class="bold">Complete Automation</span>
-            <p class="fs-14 _c-dark_">MCP extraction + OKLCH conversion + Automatic compilation</p>
+            <p class="fs-16 _c-dark_">MCP extraction + OKLCH conversion + Automatic compilation</p>
           </div>
           
-          <div class="p-32_ border thin br-1 flex y g-8">
+          <div class="p-32_ border thin _bc-brand__ flex y g-8">
             <span class="bold">Maximum Flexibility</span>
-            <p class="fs-14 _c-dark_">Two modes + Fluid sizes + Advanced colors + Themes</p>
+            <p class="fs-16 _c-dark_">Two modes + Fluid sizes + Advanced colors + Themes</p>
           </div>
           
-          <div class="p-32_ border thin br-1 flex y g-8">
+          <div class="p-32_ border thin _bc-brand__ flex y g-8">
             <span class="bold">Optimized Performance</span>
-            <p class="fs-14 _c-dark_">Targeted sizes + Minimal CSS + Centralized variables</p>
+            <p class="fs-16 _c-dark_">Targeted sizes + Minimal CSS + Centralized variables</p>
           </div>
           
-          <div class="p-32_ border thin br-1 flex y g-8">
+          <div class="p-32_ border thin _bc-brand__ flex y g-8">
             <span class="bold">Maintainability</span>
-            <p class="fs-14 _c-dark_">Clear structure + Documentation + Validation + Scalability</p>
+            <p class="fs-16 _c-dark_">Clear structure + Documentation + Validation + Scalability</p>
           </div>
         </div>
       </div>
@@ -351,15 +373,15 @@ mcp_Figma_get_variable_defs()</pre>
     
     <div class="flex y g-32">
       <div class="flex x wrap g-20">
-        <div class="p-32_ border thin br-1 flex y g-20 w-full">
+        <div class="p-32_ border thin _bc-brand__ flex y g-20 w-full">
           <div class="flex y g-12">
             <span class="bold fs-20 _c-brand">Utility Classes Mode</span>
-            <pre class="fs-14">$build-class: true;</pre>
+            <pre class="fs-16">$build-class: true;</pre>
           </div>
           
           <div class="flex y g-12">
             <span class="bold">Ideal for:</span>
-            <ul class="fs-14 _c-dark_">
+            <ul class="fs-16 _c-dark_">
               <li>Rapid development/prototyping</li>
               <li>Projects with many similar components</li>
               <li>Teams preferring utility classes (Tailwind style)</li>
@@ -376,15 +398,15 @@ mcp_Figma_get_variable_defs()</pre>
           </div>
         </div>
         
-        <div class="p-32_ border thin br-1 flex y g-20 w-full">
+        <div class="p-32_ border thin _bc-brand__ flex y g-20 w-full">
           <div class="flex y g-12">
             <span class="bold fs-20 _c-brand">CSS Variables Mode</span>
-            <pre class="fs-14">$build-class: false;</pre>
+            <pre class="fs-16">$build-class: false;</pre>
           </div>
           
           <div class="flex y g-12">
             <span class="bold">Ideal for:</span>
-            <ul class="fs-14 _c-dark_">
+            <ul class="fs-16 _c-dark_">
               <li>Very specific/unique design</li>
               <li>Preference for semantic classes</li>
               <li>Final CSS optimization (fewer generated classes)</li>
@@ -422,19 +444,19 @@ mcp_Figma_get_variable_defs()</pre>
         <p class="fs-16">Claude uses the MCP protocol to directly analyze your Figma design.</p>
         
         <div class="flex x wrap g-20">
-          <div class="p-32_ border thin br-1 flex y g-8">
+          <div class="p-32_ border thin _bc-brand__ flex y g-8">
             <span class="bold">Input</span>
-            <p class="fs-14 _c-dark_">Link to the Figma frame</p>
+            <p class="fs-16 _c-dark_">Link to the Figma frame</p>
             <pre class="fs-12">https://www.figma.com/design/fileId/fileName?node-id=1-2</pre>
           </div>
           
-          <div class="p-32_ border thin br-1 flex y g-8">
+          <div class="p-32_ border thin _bc-brand__ flex y g-8">
             <span class="bold">Automatic actions</span>
             <pre class="fs-12">mcp_Figma_get_code(nodeId: "1:2")
 mcp_Figma_get_variable_defs(nodeId: "1:2")</pre>
           </div>
           
-          <div class="p-32_ border thin br-1 flex y g-8">
+          <div class="p-32_ border thin _bc-brand__ flex y g-8">
             <span class="bold">Extracted data</span>
             <ul class="fs-12 _c-dark_">
               <li><strong>Sizes</strong>: Recurring dimensions (padding, margin, width, height)</li>
@@ -444,7 +466,7 @@ mcp_Figma_get_variable_defs(nodeId: "1:2")</pre>
           </div>
         </div>
         
-        <div class="p-32_ border thin br-1">
+        <div class="p-32_ border thin _bc-brand__">
           <span class="bold">JSON extraction example (Ulysse Project):</span>
           <pre class="fs-12 mt-12">{
   "sizes": "4, 8, 16, 32, 54, 64, 120, 141",
@@ -463,25 +485,25 @@ mcp_Figma_get_variable_defs(nodeId: "1:2")</pre>
         <p class="fs-16">Hex colors are automatically converted to OKLCH for optimal consistency.</p>
         
         <div class="flex x wrap g-20">
-          <div class="p-32_ border thin br-1 flex y g-8">
+          <div class="p-32_ border thin _bc-brand__ flex y g-8">
             <span class="bold">Why OKLCH?</span>
-            <p class="fs-14 _c-dark_">Modern colorimetric format allowing consistent brightness and opacity modifications</p>
+            <p class="fs-16 _c-dark_">Modern colorimetric format allowing consistent brightness and opacity modifications</p>
           </div>
           
-          <div class="p-32_ border thin br-1 flex y g-8">
+          <div class="p-32_ border thin _bc-brand__ flex y g-8">
             <span class="bold">Available tool</span>
             <pre class="fs-12">scripts/hex-to-oklch.js</pre>
-            <p class="fs-14 _c-dark_">Automatic conversion with Claude or manual</p>
+            <p class="fs-16 _c-dark_">Automatic conversion with Claude or manual</p>
           </div>
           
-          <div class="p-32_ border thin br-1 flex y g-8">
+          <div class="p-32_ border thin _bc-brand__ flex y g-8">
             <span class="bold">Manual command</span>
             <pre class="fs-12">npm install culori --save-dev
 node scripts/hex-to-oklch.js #ff0000 #ffe500 #7300ff</pre>
           </div>
         </div>
         
-        <div class="p-32_ border thin br-1">
+        <div class="p-32_ border thin _bc-brand__">
           <span class="bold">Conversion result (Ulysse Project):</span>
           <pre class="fs-12 mt-12">oklch(84.1% 0.155 200.4)  // brand (#00d4ff)
 oklch(93.6% 0.202 101.8)  // accent (#e5ff00)
@@ -495,7 +517,7 @@ oklch(15.2% 0.005 220.3)  // dark (#232526)</pre>
         <h3 class="fs-24_ _c-brand mt-32">3. Complete Size Extraction</h3>
         <p class="fs-16">Analysis of Figma code to identify all dimensions used in the design.</p>
         
-        <div class="p-32_ border thin br-1">
+        <div class="p-32_ border thin _bc-brand__">
           <span class="bold">Complete extraction method:</span>
           <ol class="fs-12 mt-12 _c-dark_">
             <li><strong>Analyze Figma code</strong> → Identify all gap-X, w-[X], h-[X], text-[X], etc.</li>
@@ -505,7 +527,7 @@ oklch(15.2% 0.005 220.3)  // dark (#232526)</pre>
           </ol>
         </div>
         
-        <div class="p-32_ border thin br-1">
+        <div class="p-32_ border thin _bc-brand__">
           <span class="bold">Example: Analyzed Figma code</span>
           <pre class="fs-12 mt-12">&lt;div className="flex flex-col gap-64"&gt;        // 64px gap hero 
   &lt;div className="flex flex-col gap-4"&gt;       // 4px gap content
@@ -519,7 +541,7 @@ oklch(15.2% 0.005 220.3)  // dark (#232526)</pre>
 &lt;/div&gt;</pre>
         </div>
         
-        <div class="p-32_ border thin br-1">
+        <div class="p-32_ border thin _bc-brand__">
           <span class="bold">Generated configuration with exact correspondence:</span>
           <pre class="fs-12 mt-12">// All sizes identified in the design (exact correspondence)
 $sizes: 4, 8, 16, 32, 54, 64, 120, 141; 
@@ -547,7 +569,7 @@ $sizes: 4, 8, 16, 32, 54, 64, 120, 141;
         <h3 class="fs-24_ _c-brand mt-32">Automatic configuration template</h3>
         <p class="fs-16">Claude automatically generates this configuration based on Figma analysis.</p>
         
-        <div class="p-32_ border thin br-1">
+        <div class="p-32_ border thin _bc-brand__">
           <pre class="fs-11">// ===========================================
 // EVAcss CONFIGURATION
 // ===========================================
@@ -598,7 +620,7 @@ $class-config: (
         <h3 class="fs-24_ _c-brand mt-32">Custom theme configuration</h3>
         <p class="fs-16">Theme automatically generated based on Figma colors converted to OKLCH.</p>
         
-        <div class="p-32_ border thin br-1">
+        <div class="p-32_ border thin _bc-brand__">
           <pre class="fs-11">// ===========================================
 // PROJECT-SPECIFIC THEME
 // ===========================================
@@ -637,7 +659,7 @@ $class-config: (
         <h3 class="fs-24_ _c-brand mt-32">Generated project structure</h3>
         
         <div class="flex x wrap g-20">
-          <div class="p-32_ border thin br-1 flex y g-8">
+          <div class="p-32_ border thin _bc-brand__ flex y g-8">
             <span class="bold">Automatic architecture</span>
             <pre class="fs-12">projects/
 └── project-name/
@@ -648,13 +670,13 @@ $class-config: (
         └── project-name.css (generated)</pre>
           </div>
           
-          <div class="p-32_ border thin br-1 flex y g-8">
+          <div class="p-32_ border thin _bc-brand__ flex y g-8">
             <span class="bold">Automatic compilation</span>
             <pre class="fs-12">npm run watch-projects</pre>
-            <p class="fs-14 _c-dark_">Watches and automatically compiles changes</p>
+            <p class="fs-16 _c-dark_">Watches and automatically compiles changes</p>
           </div>
           
-          <div class="p-32_ border thin br-1 flex y g-8">
+          <div class="p-32_ border thin _bc-brand__ flex y g-8">
             <span class="bold">Manual compilation</span>
             <pre class="fs-12">npx sass projects/project-name/styles/project-name.scss:projects/project-name/render/project-name.css</pre>
           </div>
@@ -673,7 +695,7 @@ $class-config: (
         <h3 class="fs-24_ _c-brand mt-32">Base variables</h3>
         
         <div class="flex x wrap g-20">
-          <div class="p-32_ border thin br-1 flex y g-8">
+          <div class="p-32_ border thin _bc-brand__ flex y g-8">
             <span class="bold">Main colors</span>
             <pre class="fs-12">var(--brand)   /* Main color */
 var(--accent)  /* Accent color */
@@ -683,14 +705,14 @@ var(--dark)    /* Dark color */
 var(--white)   /* Pure white */</pre>
           </div>
           
-          <div class="p-32_ border thin br-1 flex y g-8">
+          <div class="p-32_ border thin _bc-brand__ flex y g-8">
             <span class="bold">Opacity modifiers</span>
             <pre class="fs-12">var(--brand_)   /* 65% opacity */
 var(--brand__)  /* 35% opacity */
 var(--brand___) /* 5% opacity */</pre>
           </div>
           
-          <div class="p-32_ border thin br-1 flex y g-8">
+          <div class="p-32_ border thin _bc-brand__ flex y g-8">
             <span class="bold">Brightness modifiers</span>
             <pre class="fs-12">var(--brand-d)   /* Darker (-5%) */
 var(--brand-b)   /* Brighter (+10%) */
@@ -704,7 +726,7 @@ var(--brand-b_)  /* Much brighter (+30%) */</pre>
         <h3 class="fs-24_ _c-brand mt-32">Color utility classes (Mode $build-class: true)</h3>
         
         <div class="flex x wrap g-20">
-          <div class="p-32_ border thin br-1 flex y g-8">
+          <div class="p-32_ border thin _bc-brand__ flex y g-8">
             <span class="bold">Base colors</span>
             <pre class="fs-12">&lt;!-- Background --&gt;
 &lt;div class="_bg-brand"&gt;Brand background&lt;/div&gt;
@@ -718,7 +740,7 @@ var(--brand-b_)  /* Much brighter (+30%) */</pre>
 &lt;div class="_bc-accent"&gt;Accent border&lt;/div&gt;</pre>
           </div>
           
-          <div class="p-32_ border thin br-1 flex y g-8">
+          <div class="p-32_ border thin _bc-brand__ flex y g-8">
             <span class="bold">With opacity modifiers</span>
             <pre class="fs-12">&lt;div class="_bg-brand_"&gt;Brand background 65%&lt;/div&gt;
 &lt;div class="_bg-brand__"&gt;Brand background 35%&lt;/div&gt;
@@ -727,7 +749,7 @@ var(--brand-b_)  /* Much brighter (+30%) */</pre>
 &lt;p class="_c-dark_"&gt;Dark text with opacity&lt;/p&gt;</pre>
           </div>
           
-          <div class="p-32_ border thin br-1 flex y g-8">
+          <div class="p-32_ border thin _bc-brand__ flex y g-8">
             <span class="bold">With brightness modifiers</span>
             <pre class="fs-12">&lt;div class="_bg-brand-d"&gt;Darker brand&lt;/div&gt;
 &lt;div class="_bg-brand-b"&gt;Brighter brand&lt;/div&gt;
@@ -740,7 +762,7 @@ var(--brand-b_)  /* Much brighter (+30%) */</pre>
       <div class="flex y g-20">
         <h3 class="fs-24_ _c-brand mt-32">Usage in CSS Variables mode ($build-class: false)</h3>
         
-        <div class="p-32_ border thin br-1">
+        <div class="p-32_ border thin _bc-brand__">
           <span class="bold">Semantic classes with variables:</span>
           <pre class="fs-12 mt-12">// SCSS with EVAcss variables
 .hero-section {
@@ -775,7 +797,7 @@ var(--brand-b_)  /* Much brighter (+30%) */</pre>
         <h3 class="fs-24_ _c-brand mt-32">Fluid sizes (automatic responsive)</h3>
         
         <div class="flex x wrap g-20">
-          <div class="p-32_ border thin br-1 flex y g-8">
+          <div class="p-32_ border thin _bc-brand__ flex y g-8">
             <span class="bold">Base variables</span>
             <pre class="fs-12">var(--16)    /* 16px with fluid adaptation */
 var(--32)    /* 32px with fluid adaptation */
@@ -784,7 +806,7 @@ var(--120)   /* 120px with fluid adaptation */
 var(--141)   /* 141px with fluid adaptation */</pre>
           </div>
           
-          <div class="p-32_ border thin br-1 flex y g-8">
+          <div class="p-32_ border thin _bc-brand__ flex y g-8">
             <span class="bold">Size modifiers</span>
             <pre class="fs-12">var(--16__)  /* Extreme version (very tight spacing) */
 var(--16_)   /* Reduced version (light spacing) */
@@ -792,7 +814,7 @@ var(--16)    /* Standard version (normal usage) */
 var(--16-)   /* Extended version (generous spacing) */</pre>
           </div>
           
-          <div class="p-32_ border thin br-1 flex y g-8">
+          <div class="p-32_ border thin _bc-brand__ flex y g-8">
             <span class="bold">Typography variables</span>
             <pre class="fs-12">var(--fs-16)   /* Font-size 16px */
 var(--fs-120)  /* Font-size 120px */
@@ -806,27 +828,27 @@ var(--fs-120__) /* Font-size 120px extreme version */</pre>
         <h3 class="fs-24_ _c-brand mt-32">Size utility classes (Mode $build-class: true)</h3>
         
         <div class="flex x wrap g-20">
-          <div class="p-32_ border thin br-1 flex y g-8">
+          <div class="p-32_ border thin _bc-brand__ flex y g-8">
             <span class="bold">Width / Height</span>
             <pre class="fs-12">&lt;div class="w-64"&gt;Width 64px&lt;/div&gt;
 &lt;div class="h-120"&gt;Height 120px&lt;/div&gt;
 &lt;div class="w-141 h-141"&gt;Circle 141px&lt;/div&gt;</pre>
           </div>
           
-          <div class="p-32_ border thin br-1 flex y g-8">
+          <div class="p-32_ border thin _bc-brand__ flex y g-8">
             <span class="bold">Padding</span>
             <pre class="fs-12">&lt;div class="p-16"&gt;Padding 16px&lt;/div&gt;
 &lt;div class="px-32"&gt;Padding inline 32px&lt;/div&gt;
 &lt;div class="py-16"&gt;Padding block 16px&lt;/div&gt;</pre>
           </div>
           
-          <div class="p-32_ border thin br-1 flex y g-8">
+          <div class="p-32_ border thin _bc-brand__ flex y g-8">
             <span class="bold">Spacing</span>
             <pre class="fs-12">&lt;div class="g-32"&gt;Gap 32px&lt;/div&gt;
 &lt;div class="mb-16"&gt;Margin bottom 16px&lt;/div&gt;</pre>
           </div>
           
-          <div class="p-32_ border thin br-1 flex y g-8">
+          <div class="p-32_ border thin _bc-brand__ flex y g-8">
             <span class="bold">Typography</span>
             <pre class="fs-12">&lt;h1 class="fs-120"&gt;Main title&lt;/h1&gt;
 &lt;p class="fs-16"&gt;Paragraph&lt;/p&gt;
@@ -839,14 +861,14 @@ var(--fs-120__) /* Font-size 120px extreme version */</pre>
         <h3 class="fs-24_ _c-brand mt-32">Responsive modifiers</h3>
         
         <div class="flex x wrap g-20">
-          <div class="p-32_ border thin br-1 flex y g-8">
+          <div class="p-32_ border thin _bc-brand__ flex y g-8">
             <span class="bold">Classes with modifiers</span>
             <pre class="fs-12">&lt;div class="p-16_"&gt;Padding 16px reduced version&lt;/div&gt;
 &lt;div class="p-16-"&gt;Padding 16px extended version&lt;/div&gt;
 &lt;div class="g-32__"&gt;Gap 32px extreme version&lt;/div&gt;</pre>
           </div>
           
-          <div class="p-32_ border thin br-1 flex y g-8">
+          <div class="p-32_ border thin _bc-brand__ flex y g-8">
             <span class="bold">Responsive behavior</span>
             <ul class="fs-12 _c-dark_">
               <li><strong>__</strong>: Maximum adaptation (very tight mobile)</li>
@@ -870,18 +892,18 @@ var(--fs-120__) /* Font-size 120px extreme version */</pre>
         <h3 class="fs-24_ _c-brand mt-32">Theme configuration</h3>
         
         <div class="flex x wrap g-20">
-          <div class="p-32_ border thin br-1 flex y g-8">
+          <div class="p-32_ border thin _bc-brand__ flex y g-8">
             <span class="bold">Manual configuration (recommended)</span>
             <pre class="fs-12">// Manual toggle configuration
 $auto-theme-switch: false;</pre>
-            <p class="fs-14 _c-dark_">Allows full control over theme switching</p>
+            <p class="fs-16 _c-dark_">Allows full control over theme switching</p>
           </div>
           
-          <div class="p-32_ border thin br-1 flex y g-8">
+          <div class="p-32_ border thin _bc-brand__ flex y g-8">
             <span class="bold">Automatic configuration</span>
             <pre class="fs-12">// Automatic configuration based on prefers-color-scheme
 $auto-theme-switch: true;</pre>
-            <p class="fs-14 _c-dark_">Automatically follows system preferences</p>
+            <p class="fs-16 _c-dark_">Automatically follows system preferences</p>
           </div>
         </div>
       </div>
@@ -889,7 +911,7 @@ $auto-theme-switch: true;</pre>
       <div class="flex y g-20">
         <h3 class="fs-24_ _c-brand mt-32">HTML integration</h3>
         
-        <div class="p-32_ border thin br-1">
+        <div class="p-32_ border thin _bc-brand__">
           <span class="bold">Required HTML structure:</span>
           <pre class="fs-12 mt-12">&lt;!-- Required classes --&gt;
 &lt;body class="current-theme theme-project-name"&gt;
@@ -911,7 +933,7 @@ $auto-theme-switch: true;</pre>
       <div class="flex y g-20">
         <h3 class="fs-24_ _c-brand mt-32">JavaScript for persistence</h3>
         
-        <div class="p-32_ border thin br-1">
+        <div class="p-32_ border thin _bc-brand__">
           <span class="bold">Theme saving and restoration:</span>
           <pre class="fs-12 mt-12">// Function to toggle theme
 function toggleTheme() {
@@ -937,7 +959,7 @@ document.querySelector('.theme-toggle').addEventListener('click', toggleTheme);<
         <h3 class="fs-24_ _c-brand mt-32">Automatic functionality</h3>
         
         <div class="flex x wrap g-20">
-          <div class="p-32_ border thin br-1 flex y g-8">
+          <div class="p-32_ border thin _bc-brand__ flex y g-8">
             <span class="bold">Auto-linked hybrid variables</span>
             <pre class="fs-12">--current-lightness: 96.4%;  // Light mode
 --current-darkness: 26.4%;   // Dark mode
@@ -946,9 +968,9 @@ document.querySelector('.theme-toggle').addEventListener('click', toggleTheme);<
 // when toggling theme</pre>
           </div>
           
-          <div class="p-32_ border thin br-1 flex y g-8">
+          <div class="p-32_ border thin _bc-brand__ flex y g-8">
             <span class="bold">Dynamic classes</span>
-            <p class="fs-14 _c-dark_">Classes <code>_bg-*</code> and <code>_c-*</code> automatically adapt to the active theme</p>
+            <p class="fs-16 _c-dark_">Classes <code>_bg-*</code> and <code>_c-*</code> automatically adapt to the active theme</p>
             <pre class="fs-12">&lt;div class="_bg-brand"&gt;
   /* Brand color in light mode */
   /* Adapted brand color in dark mode */
@@ -968,7 +990,7 @@ document.querySelector('.theme-toggle').addEventListener('click', toggleTheme);<
       <div class="flex y g-20">
         <h3 class="fs-24_ _c-brand mt-32">1. Figma Input</h3>
         
-        <div class="p-32_ border thin br-1">
+        <div class="p-32_ border thin _bc-brand__">
           <span class="bold">Analyzed Figma link:</span>
           <pre class="fs-12 mt-8">https://www.figma.com/design/91DhBPs6br8UVhxEdiuJFd/Ulysse?node-id=1-2</pre>
           
@@ -988,7 +1010,7 @@ document.querySelector('.theme-toggle').addEventListener('click', toggleTheme);<
       <div class="flex y g-20">
         <h3 class="fs-24_ _c-brand mt-32">2. Automatically generated configuration</h3>
         
-        <div class="p-32_ border thin br-1">
+        <div class="p-32_ border thin _bc-brand__">
           <pre class="fs-11">// Chosen mode: Utility classes
 $build-class: true;
 $name-by-size: true;
@@ -1043,7 +1065,7 @@ $class-config: (
       <div class="flex y g-20">
         <h3 class="fs-24_ _c-brand mt-32">3. Usage with utility classes</h3>
         
-        <div class="p-32_ border thin br-1">
+        <div class="p-32_ border thin _bc-brand__">
           <span class="bold">Generated final HTML:</span>
           <pre class="fs-12 mt-12">&lt;body class="current-theme theme-ulysse"&gt;
   &lt;div class="hero _bg-brand _c-light p-64"&gt;
@@ -1064,24 +1086,24 @@ $class-config: (
         <h3 class="fs-24_ _c-brand mt-32">4. Final result</h3>
         
         <div class="flex x wrap g-20">
-          <div class="p-32_ border thin br-1 flex y g-8">
+          <div class="p-32_ border thin _bc-brand__ flex y g-8">
             <span class="bold">Perfect consistency</span>
-            <p class="fs-14 _c-dark_">Figma design → Responsive web in minutes</p>
+            <p class="fs-16 _c-dark_">Figma design → Responsive web in minutes</p>
           </div>
           
-          <div class="p-32_ border thin br-1 flex y g-8">
+          <div class="p-32_ border thin _bc-brand__ flex y g-8">
             <span class="bold">Automatic responsive</span>
-            <p class="fs-14 _c-dark_">All sizes adapt fluidly</p>
+            <p class="fs-16 _c-dark_">All sizes adapt fluidly</p>
           </div>
           
-          <div class="p-32_ border thin br-1 flex y g-8">
+          <div class="p-32_ border thin _bc-brand__ flex y g-8">
             <span class="bold">Functional theme</span>
-            <p class="fs-14 _c-dark_">Dark/light mode ready to use</p>
+            <p class="fs-16 _c-dark_">Dark/light mode ready to use</p>
           </div>
           
-          <div class="p-32_ border thin br-1 flex y g-8">
+          <div class="p-32_ border thin _bc-brand__ flex y g-8">
             <span class="bold">Optimal performance</span>
-            <p class="fs-14 _c-dark_">Minimal CSS and centralized variables</p>
+            <p class="fs-16 _c-dark_">Minimal CSS and centralized variables</p>
           </div>
         </div>
       </div>
@@ -1144,17 +1166,17 @@ $class-config: (
         <h3 class="fs-24_ _c-brand mt-32">Direct Access</h3>
         
         <div class="flex x wrap g-20">
-          <a href="projects/ulysse/index.html" target="_blank" class="p-32_ border thin br-1 flex y g-8 _c-brand no-underline hover:_bg-brand__ transition">
+          <a href="projects/ulysse/index.html" target="_blank" class="p-32_ border thin _bc-brand__ flex y g-8 _c-brand no-underline hover:_bg-brand__ transition">
             <span class="bold">Open Ulysse Project</span>
-            <p class="fs-14 _c-dark_">Discover the complete Figma → EVA CSS integration</p>
+            <p class="fs-16 _c-dark_">Discover the complete Figma → EVA CSS integration</p>
           </a>
           
-          <a href="https://www.figma.com/design/91DhBPs6br8UVhxEdiuJFd/Ulysse?node-id=0-1&t=Yk0cWMSeR8DGzApw-1" target="_blank" class="p-32_ border thin br-1 flex y g-8 _c-brand no-underline hover:_bg-extra__ transition">
+          <a href="https://www.figma.com/design/91DhBPs6br8UVhxEdiuJFd/Ulysse?node-id=0-1&t=Yk0cWMSeR8DGzApw-1" target="_blank" class="p-32_ border thin _bc-brand__ flex y g-8 _c-brand no-underline hover:_bg-extra__ transition">
             <span class="bold">View Figma Design</span>
-            <p class="fs-14 _c-dark_">Compare with the original design in Figma</p>
+            <p class="fs-16 _c-dark_">Compare with the original design in Figma</p>
           </a>
           
-          <div class="p-32_ border thin br-1 flex y g-8">
+          <div class="p-32_ border thin _bc-brand__ flex y g-8">
             <span class="bold">Demonstrated features</span>
             <ul class="fs-12 _c-dark_">
               <li>Responsive fluid variables</li>
@@ -1165,7 +1187,7 @@ $class-config: (
             </ul>
           </div>
           
-          <div class="p-32_ border thin br-1 flex y g-8">
+          <div class="p-32_ border thin _bc-brand__ flex y g-8">
             <span class="bold">Configuration used</span>
             <pre class="fs-11">// Ulysse Project
 $build-class: false; // CSS variables
@@ -1266,29 +1288,29 @@ $font-sizes: 10, 16, 36, 120;
     
     <div class="flex y g-32">
       <div class="flex x wrap g-20">
-        <div class="p-32_ border thin br-1 flex y g-8">
+        <div class="p-32_ border thin _bc-brand__ flex y g-8">
           <span class="bold">Watch projects</span>
           <pre class="fs-12">npm run watch-projects</pre>
-          <p class="fs-14 _c-dark_">Automatic compilation of all projects</p>
+          <p class="fs-16 _c-dark_">Automatic compilation of all projects</p>
         </div>
         
-        <div class="p-32_ border thin br-1 flex y g-8">
+        <div class="p-32_ border thin _bc-brand__ flex y g-8">
           <span class="bold">Compile specific project</span>
           <pre class="fs-12">npx sass projects/project-name/styles/project-name.scss:projects/project-name/render/project-name.css</pre>
         </div>
         
-        <div class="p-32_ border thin br-1 flex y g-8">
+        <div class="p-32_ border thin _bc-brand__ flex y g-8">
           <span class="bold">Convert hex colors to OKLCH</span>
           <pre class="fs-12">node scripts/hex-to-oklch.js #ff0000 #ffe500 #7300ff</pre>
         </div>
         
-        <div class="p-32_ border thin br-1 flex y g-8">
+        <div class="p-32_ border thin _bc-brand__ flex y g-8">
           <span class="bold">Install color dependency</span>
           <pre class="fs-12">npm install culori --save-dev</pre>
         </div>
       </div>
       
-      <div class="p-32_ border thin br-1 flex y g-20">
+      <div class="p-32_ border thin _bc-brand__ flex y g-20">
         <span class="bold fs-20 _c-brand">With EVAcss, your Figma becomes a perfectly responsive and maintainable website in just a few steps! 🚀</span>
         
         <div class="flex y g-12">
@@ -1331,8 +1353,8 @@ $font-sizes: 10, 16, 36, 120;
 
   <footer class="px-220__ py-136 flex x g-20 w-full">
     <div class="flex w-full y space center g-32">
-      <p class="fs-14 _c-brand_">© 2024</p>
-      <p class="fs-14 _c-brand_">Tati Michaël</p>
+      <p class="fs-16 _c-brand_">© 2024</p>
+      <p class="fs-16 _c-brand_">Tati Michaël</p>
     </div>
     <div class="flex w-full y space g-32">
       <a href="https://www.linkedin.com/in/mtati/" target="_blank">LinkedIn</a>

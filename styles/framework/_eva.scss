@@ -65,6 +65,7 @@ $properties: (
   pt: padding-top,
   pb: padding-bottom,
   g: gap,
+  gap: gap,
 );
 
 
@@ -116,6 +117,9 @@ $font-properties: (
   @each $class in $sizing-class {
     .#{$key}-#{$eva}#{$class} {
       #{$prop}: var(--#{$eva}#{$class});
+      @if $key =='gap' {
+        --current-gap: var(--#{$eva}-px);
+      }
     }
   }
 }
