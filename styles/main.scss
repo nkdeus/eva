@@ -3,7 +3,7 @@ $build-class: true; // false to use only CSS var
 $custom-class: false; // true to use custom class for each property
 $name-by-size: true; // true = use size values, false = use index
 
-$sizes: 4, 8, 12, 20, 32, 34, 52, 84, 136, 156, 220, 356, 576, 712;
+$sizes: 4, 8, 12, 16, 20, 32, 34, 52, 84, 136, 156, 220, 356, 576, 712;
 $font-sizes: 10, 12, 16, 18, 24, 36, 52, 72;
 
 $auto-theme-switch: false; // true = auto switch theme on prefers-color-scheme, false = manual switch with .toggle-theme
@@ -18,6 +18,7 @@ $auto-theme-switch: false; // true = auto switch theme on prefers-color-scheme, 
 @import "./framework/components";
 @import "./framework/utils";
 @import "./framework/ballzzz";
+@import "./framework/flex";
 @import "./framework/font";
 @import "./framework/index";
 

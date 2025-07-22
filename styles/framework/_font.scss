@@ -13,10 +13,13 @@ $wdth-step: 10;
   --title-font: "scale-variable";
   --body-font: "Noto Sans Display";
 
-  --title-weight: 700;
-  --sub-title-weight: 200;
-  --sub-title-width: 600;
-  --sub-title-spacing: 0.1em;
+  --title-weight: 800;
+  --title-width: 100;
+  --sub-title-weight:700;
+  --sub-title-width: 100;
+  --sub-sub-title-weight: 600;
+  --sub-sub-title-width: 60;
+  --sub-sub-title-spacing: 0.1em;
   --body-weight: 400;
 
   $wght-steps: math.div(($wght-max - $wght-min), $wght-step) + 1;
@@ -32,8 +35,11 @@ $wdth-step: 10;
 
 $wght-steps: math.div(($wght-max - $wght-min), $wght-step) + 1;
 @for $i from 0 through $wght-steps - 1 {
+ 
+
   .fwg-#{$i + 1} {
     --current-f-wg: var(--f-wg-#{$i + 1});
+    @debug var(--f-wg-#{$i + 1});
   }
 }
 

@@ -37,7 +37,7 @@ h1, .logo {
   padding: 0;
   font-optical-sizing: auto;
   font-style: normal;
-  font-variation-settings: "wght" var(--title-weight);
+  font-variation-settings: "wght" var(--title-weight), "wdth" var(--title-width);
   font-family: var(--title-font), sans-serif;
 }
 
@@ -50,8 +50,7 @@ h2{
   padding: 0;
   font-optical-sizing: auto;
   font-style: normal;
-  font-variation-settings: "wght" 200, "wdth" 200;
-  letter-spacing: var(--sub-title-spacing);
+  font-variation-settings: "wght" var(--sub-title-weight), "wdth" var(--sub-title-width);
   font-family: var(--title-font), sans-serif;
 }
 
@@ -62,8 +61,8 @@ h4 {
   padding: 0;
   font-optical-sizing: auto;
   font-style: normal;
-  font-variation-settings: "wght" var(--sub-title-weight), "wdth" var(--sub-title-width);
-  letter-spacing: var(--sub-title-spacing);
+  font-variation-settings: "wght" var(--sub-sub-title-weight), "wdth" var(--sub-sub-title-width);
+  letter-spacing: var(--sub-sub-title-spacing);
   font-family: var(--title-font), sans-serif;
 }
 h5 {
@@ -71,7 +70,7 @@ h5 {
   padding: 0;
   font-optical-sizing: auto;
   font-style: normal;
-  font-variation-settings: "wght" var(--sub-title-weight), "wdth" 40;
+  font-variation-settings: "wght" var(--sub-sub-title-weight), "wdth" var(--sub-sub-title-width);
   letter-spacing: var(--sub-title-spacing);
   font-family: var(--title-font), sans-serif;
 }
@@ -152,6 +151,53 @@ p {
     left:50%;
     width: max-content;
     transform: translateX(-50%) translateY(50%);
+  }
+}
+
+.framework-card {
+  
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: 2px solid var(--brand___);
+  position: relative;
+  &.no-border{
+    border: none;
+  }
+
+}
+
+.framework-card:hover {
+  
+  border-color: var(--brand__);
+}
+
+.card-icon {
+  width: var(--84_);
+  aspect-ratio: 1/1;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  &.deco{
+    width: 50%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    opacity: 1;
+    transform: translate(-10%, -10%);
+    filter: blur(20px);
+  }
+  
+  svg{
+
+    width: 100% !important;
+    height: auto !important;
+    * {stroke-width: 0.5px!important;}
+    
   }
 }
 

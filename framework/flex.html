@@ -1,0 +1,1152 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/Draggable.min.js"></script>
+    <link rel="stylesheet" href="https://use.typekit.net/vjo0ssd.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Display:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/main.css" />
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="3c9b4552-d24d-48aa-a6b4-877d0ceffe04"></script>
+    <title>EVA CSS - Flex</title>
+  </head>
+  <body class="current-theme theme-eva all-grads toggle-theme">
+  <a href="" class="dark-light-toggle no-hover">
+    <svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 100 100" x="0px" y="0px"><path d="M50,77.62A27.62,27.62,0,1,0,22.38,50,27.61,27.61,0,0,0,50,77.62ZM50,26A24,24,0,1,1,26,50,24,24,0,0,1,50,26ZM69.62,50.52A19.36,19.36,0,0,0,50.26,31.15V69.88A19.36,19.36,0,0,0,69.62,50.52Zm-19.88,31a1.81,1.81,0,0,0-1.81,1.81V95.69a1.81,1.81,0,0,0,3.62,0V83.3A1.81,1.81,0,0,0,49.74,81.49Zm24.9-9A1.81,1.81,0,0,0,72.09,75l8.76,8.76a1.81,1.81,0,0,0,2.55-2.56Zm6.85-22.19a1.81,1.81,0,0,0,1.81,1.81H95.69a1.81,1.81,0,1,0,0-3.62H83.3A1.81,1.81,0,0,0,81.49,50.26ZM75,27.91l8.76-8.76a1.81,1.81,0,0,0-2.56-2.55l-8.76,8.76A1.81,1.81,0,0,0,75,27.91Zm-24.75-9.4a1.81,1.81,0,0,0,1.81-1.81V4.31a1.81,1.81,0,0,0-3.62,0V16.7A1.81,1.81,0,0,0,50.26,18.51Zm-24.9,9A1.81,1.81,0,0,0,27.91,25l-8.76-8.76a1.81,1.81,0,1,0-2.55,2.56Zm-21,24H16.7a1.81,1.81,0,0,0,0-3.62H4.31a1.81,1.81,0,1,0,0,3.62Zm22,20a1.78,1.78,0,0,0-1.28.53l-8.76,8.76a1.8,1.8,0,0,0,0,2.56,1.82,1.82,0,0,0,2.56,0l8.76-8.77a1.81,1.81,0,0,0-1.28-3.08Z"/></svg>
+  </a>
+  <nav id="nav" class="px-220__ flex space py-12- pof">
+    <div id="logo" class="flex x center px-20">
+      <div class="ballzzz por" style="--max:6">
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:0"></div>
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:1"></div>
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:2"></div>
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:3"></div>
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:4"></div>
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:5"></div>
+      </div>
+      <a href="../index.html" class="logo no-hover title fs-36__ lh-1">EVA CSS</a>
+    </div>
+    
+    <!-- Burger menu button -->
+    <button id="burger-menu" class="burger-menu">
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+    </button>
+    
+    <div id="menu" class="flex x center g-12">
+      
+      <div class="inner-menu">
+        <a href="../framework.html" class="h-52 px-12 flex y center _c-brand br-12">
+          <span class="fs-12">Framework</span>
+        </a>
+        <ul>
+          <li>
+            <a href="colors.html" class="h-52 px-12 flex y center _c-brand br-12">
+              <span class="fs-12">Colors</span>
+            </a>
+          </li>
+          <li>
+            <a href="gradients.html" class="h-52 px-12 flex y center _c-brand br-12">
+              <span class="fs-12">Gradients</span>
+            </a>
+          </li>
+          <li>
+            <a href="grids.html" class="h-52 px-12 flex y center _c-brand br-12">
+              <span class="fs-12">Grids</span>
+            </a>
+          </li>
+          <li>
+            <a href="flex.html" class="h-52 px-12 flex y center _c-light _bg-brand br-12">
+              <span class="fs-12">Flex</span>
+            </a>
+          </li>
+          <li>
+            <a href="css-fluid.html" class="h-52 px-12 flex y center _c-brand br-12">
+              <span class="fs-12">Fluid CSS</span>
+            </a>
+          </li>
+          <li>
+            <a href="doc.html" class="h-52 px-12 flex y center _c-brand br-12">
+              <span class="fs-12">Docs</span>
+            </a>
+          </li>  
+          <li>
+            <a href="fonts.html" class="h-52 px-12 flex y center _c-brand br-12">
+              <span class="fs-12">Fonts</span>
+            </a>
+          </li>
+          <li>
+            <a href="sizes.html" class="h-52 px-12 flex y center _c-brand br-12">
+              <span class="fs-12">Sizes</span>
+            </a>
+          </li>
+          <li>
+            <a href="auto-theme.html" class="h-52 px-12 flex y center _c-brand br-12">
+              <span class="fs-12">Auto theme</span>
+            </a>
+          </li>  
+          <li>
+            <a href="js-calculator.html" class="h-52 px-12 flex y center _c-brand br-12">
+              <span class="fs-12">JS Calculator</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <a href="../figma-to-eva.html" class="h-52 px-12 flex y center _c-brand br-12">
+        <span class="fs-12">Figma to EVA</span>
+      </a>
+
+      <a href="https://github.com/nkdeus/eva" target="_blank" class="h-52 px-8 flex x g-12 center _c-brand br-8">
+       
+        <svg xmlns="http://www.w3.org/2000/svg" class="lh-0" height="20" viewBox="0 0 16 16" width="20" aria-hidden="true" class="d-block"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.84-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.84 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+        
+      </a>
+    </div>
+
+  </nav>
+
+  <section class="px-220__ pt-220- pb-136 flex y g-32">
+ 
+    <div class="fs-36_ py-52- flex y g-12">
+      <a href="doc.html" class="flex x center g-8 py-12 _c-brand no-hover">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="m12 19-7-7 7-7"/>
+          <path d="M19 12H5"/>
+        </svg>
+        <span class="fs-16">Back to Docs</span>
+      </a>
+      <h1 class="fs-52__ lh-1 ttu">
+        <span>EVA CSS <span class="title grad-linear-text grad-linear from-accent to-extra">Flex</span></span>
+      </h1>
+      <p class="fs-16 mb-32">Complete flexbox system with all .flex combinations for column and row directions.</p>
+
+      <div class="flex y wrap g-12  fs-16">
+        <a href="#classic-flex" class="h-52 px-12 flex y center _c-brand br-12">Classic Flex Y</a>
+        <a href="#classic-flex-x" class="h-52 px-12 flex y center _c-brand br-12">Classic Flex X</a>
+      </div>
+    </div>
+</section>
+
+  <section id="classic-flex" class="px-220__ py-220 flex y g-52">
+    <h2 class="fs-52__ _bg-brand pr-356__ lh-1 ttu fwd-4 f-scale offset">
+      <span>Classic Flex Y</span>
+    </h2>
+    <p class="fs-16">
+      Complete flexbox system with all .flex.y combinations
+    </p>
+    
+    <!-- Documentation Classic Flex -->
+    <div class="flex y g-52 w-full">
+              <div class="flex y g-20">
+          <h3 class="fs-24 bold">Documentation</h3>
+          <p class="fs-12_">Comprehensive examples of .flex.y (column direction) with unique hyphenated selectors</p>
+          <div class="flex y g-8">
+            <p class="fs-12"><strong>Direction:</strong> .flex.y = flex-direction: column</p>
+            <p class="fs-12"><strong>Main axis (Y):</strong> start, center, end, space, around, evenly → justify-content</p>
+            <p class="fs-12"><strong>Cross axis (X):</strong> start, center, end, stretch, baseline → align-items</p>
+            <p class="fs-12"><strong>Pattern:</strong> .flex.y.[main-axis]-[cross-axis] (unique selectors)</p>
+            <p class="fs-12"><strong>Example:</strong> .flex.y.start-center → justify-content: flex-start + align-items: center</p>
+          </div>
+        </div>
+
+      <!-- Complete Y-Axis Examples -->
+      <div class="flex y g-84 w-full">
+        
+                 <!-- Y.START combinations -->
+         <div class="flex y g-32 w-full">
+           <h4 class="fs-18 bold">.flex.y.start-* (justify-content: flex-start)</h4>
+           <p class="fs-12_">Content aligned to the top (main axis start)</p>
+           
+           <div class="grid auto-fit-220 g-20">
+             <div class="flex y g-8">
+               <span class="fs-12 bold _c-brand">.flex.y.start-center</span>
+               <p class="fs-10 _c-brand_">align-items: center</p>
+               <div class="flex y start-center w-full h-220 border thin _bc-brand__ br-8 p-12">
+                 <div class="w-84 h-32 br-4 _bg-brand"></div>
+                 <div class="w-52 h-32 br-4 _bg-brand_"></div>
+                 <div class="w-32 h-32 br-4 _bg-brand__"></div>
+               </div>
+             </div>
+             
+             <div class="flex y g-8">
+               <span class="fs-12 bold _c-brand">.flex.y.start-end</span>
+               <p class="fs-10 _c-brand_">align-items: flex-end</p>
+               <div class="flex y start-end w-full h-220 border thin _bc-brand__ br-8 p-12">
+                 <div class="w-84 h-32 br-4 _bg-brand"></div>
+                 <div class="w-52 h-32 br-4 _bg-brand_"></div>
+                 <div class="w-32 h-32 br-4 _bg-brand__"></div>
+               </div>
+             </div>
+             
+             <div class="flex y g-8">
+               <span class="fs-12 bold _c-brand">.flex.y.start-stretch</span>
+               <p class="fs-10 _c-brand_">align-items: stretch</p>
+               <div class="flex y start-stretch w-full h-220 border thin _bc-brand__ br-8 p-12">
+                 <div class="h-32 br-4 _bg-brand"></div>
+                 <div class="h-32 br-4 _bg-brand_"></div>
+                 <div class="h-32 br-4 _bg-brand__"></div>
+               </div>
+             </div>
+             
+             <div class="flex y g-8">
+               <span class="fs-12 bold _c-brand">.flex.y.start</span>
+               <p class="fs-10 _c-brand_">justify-content: flex-start (simple)</p>
+               <div class="flex y start w-full h-220 border thin _bc-brand__ br-8 p-12">
+                 <div class="w-84 h-32 br-4 _bg-brand flex y center">
+                   
+                 </div>
+                 <div class="w-52 h-32 br-4 _bg-brand_ flex y center">
+                   
+                 </div>
+                 <div class="w-32 h-32 br-4 _bg-brand__ flex y center">
+                   
+                 </div>
+               </div>
+             </div>
+           </div>
+         </div>
+
+         <!-- Y Simple Examples (without cross-axis) -->
+         <div class="flex y g-32 w-full">
+           <h4 class="fs-18 bold">Simple .flex.y examples (main axis only)</h4>
+           <p class="fs-12_">Basic flex direction column with common justify-content values</p>
+           
+           <div class="grid auto-fit-220 g-20">
+             <div class="flex y g-8">
+               <span class="fs-12 bold _c-brand">.flex.y</span>
+               <p class="fs-10 _c-brand_">flex-direction: column (default)</p>
+               <div class="flex y w-full h-220 border thin _bc-brand__ br-8 p-12">
+                 <div class="w-84 h-32 br-4 _bg-brand"></div>
+                 <div class="w-52 h-32 br-4 _bg-brand_"></div>
+                 <div class="w-32 h-32 br-4 _bg-brand__"></div>
+               </div>
+             </div>
+             
+             <div class="flex y g-8">
+               <span class="fs-12 bold _c-brand">.flex.y.center</span>
+               <p class="fs-10 _c-brand_">justify-content: center</p>
+               <div class="flex y center w-full h-220 border thin _bc-brand__ br-8 p-12">
+                 <div class="w-84 h-32 br-4 _bg-brand"></div>
+                 <div class="w-52 h-32 br-4 _bg-brand_"></div>
+                 <div class="w-32 h-32 br-4 _bg-brand__"></div>
+               </div>
+             </div>
+             
+             <div class="flex y g-8">
+               <span class="fs-12 bold _c-brand">.flex.y.end</span>
+               <p class="fs-10 _c-brand_">justify-content: flex-end</p>
+               <div class="flex y end w-full h-220 border thin _bc-brand__ br-8 p-12">
+                 <div class="w-84 h-32 br-4 _bg-brand"></div>
+                 <div class="w-52 h-32 br-4 _bg-brand_"></div>
+                 <div class="w-32 h-32 br-4 _bg-brand__"></div>
+               </div>
+             </div>
+             
+             <div class="flex y g-8">
+               <span class="fs-12 bold _c-brand">.flex.y.space</span>
+               <p class="fs-10 _c-brand_">justify-content: space-between</p>
+               <div class="flex y space w-full h-220 border thin _bc-brand__ br-8 p-12">
+                 <div class="w-84 h-32 br-4 _bg-brand"></div>
+                 <div class="w-52 h-32 br-4 _bg-brand_"></div>
+                 <div class="w-32 h-32 br-4 _bg-brand__"></div>
+               </div>
+             </div>
+             
+             <div class="flex y g-8">
+               <span class="fs-12 bold _c-brand">.flex.y.around</span>
+               <p class="fs-10 _c-brand_">justify-content: space-around</p>
+               <div class="flex y around w-full h-220 border thin _bc-brand__ br-8 p-12">
+                 <div class="w-84 h-32 br-4 _bg-brand"></div>
+                 <div class="w-52 h-32 br-4 _bg-brand_"></div>
+                 <div class="w-32 h-32 br-4 _bg-brand__"></div>
+               </div>
+             </div>
+             
+             <div class="flex y g-8">
+               <span class="fs-12 bold _c-brand">.flex.y.evenly</span>
+               <p class="fs-10 _c-brand_">justify-content: space-evenly</p>
+               <div class="flex y evenly w-full h-220 border thin _bc-brand__ br-8 p-12">
+                 <div class="w-84 h-32 br-4 _bg-brand"></div>
+                 <div class="w-52 h-32 br-4 _bg-brand_"></div>
+                 <div class="w-32 h-32 br-4 _bg-brand__"></div>
+               </div>
+             </div>
+           </div>
+         </div>
+
+                 <!-- Y.CENTER combinations -->
+         <div class="flex y g-32 w-full">
+           <h4 class="fs-18 bold">.flex.y.center-* (justify-content: center)</h4>
+           <p class="fs-12_">Content centered vertically (main axis center)</p>
+           
+           <div class="grid auto-fit-220 g-20">
+             <div class="flex y g-8">
+               <span class="fs-12 bold _c-brand">.flex.y.center-start</span>
+               <p class="fs-10 _c-brand_">align-items: flex-start</p>
+               <div class="flex y center-start w-full h-220 border thin _bc-brand__ br-8 p-12">
+                 <div class="w-84 h-32 br-4 _bg-brand"></div>
+                 <div class="w-52 h-32 br-4 _bg-brand_"></div>
+                 <div class="w-32 h-32 br-4 _bg-brand__"></div>
+               </div>
+             </div>
+             
+             <div class="flex y g-8">
+               <span class="fs-12 bold _c-brand">.flex.y.center-center</span>
+               <p class="fs-10 _c-brand_">align-items: center</p>
+               <div class="flex y center-center w-full h-220 border thin _bc-brand__ br-8 p-12">
+                 <div class="w-84 h-32 br-4 _bg-brand"></div>
+                 <div class="w-52 h-32 br-4 _bg-brand_"></div>
+                 <div class="w-32 h-32 br-4 _bg-brand__"></div>
+               </div>
+             </div>
+             
+             <div class="flex y g-8">
+               <span class="fs-12 bold _c-brand">.flex.y.center-end</span>
+               <p class="fs-10 _c-brand_">align-items: flex-end</p>
+               <div class="flex y center-end w-full h-220 border thin _bc-brand__ br-8 p-12">
+                 <div class="w-84 h-32 br-4 _bg-brand"></div>
+                 <div class="w-52 h-32 br-4 _bg-brand_"></div>
+                 <div class="w-32 h-32 br-4 _bg-brand__"></div>
+               </div>
+             </div>
+             
+             <div class="flex y g-8">
+               <span class="fs-12 bold _c-brand">.flex.y.center-stretch</span>
+               <p class="fs-10 _c-brand_">align-items: stretch</p>
+               <div class="flex y center-stretch w-full h-220 border thin _bc-brand__ br-8 p-12">
+                 <div class="h-32 br-4 _bg-brand"></div>
+                 <div class="h-32 br-4 _bg-brand_"></div>
+                 <div class="h-32 br-4 _bg-brand__"></div>
+               </div>
+             </div>
+           </div>
+         </div>
+
+                 <!-- Y.END combinations -->
+         <div class="flex y g-32 w-full">
+           <h4 class="fs-18 bold">.flex.y.end-* (justify-content: flex-end)</h4>
+           <p class="fs-12_">Content aligned to the bottom (main axis end)</p>
+           
+           <div class="grid auto-fit-220 g-20">
+             <div class="flex y g-8">
+               <span class="fs-12 bold _c-brand">.flex.y.end-start</span>
+               <p class="fs-10 _c-brand_">align-items: flex-start</p>
+               <div class="flex y end-start w-full h-220 border thin _bc-brand__ br-8 p-12">
+                 <div class="w-84 h-32 br-4 _bg-brand"></div>
+                 <div class="w-52 h-32 br-4 _bg-brand_"></div>
+                 <div class="w-32 h-32 br-4 _bg-brand__"></div>
+               </div>
+             </div>
+             
+             <div class="flex y g-8">
+               <span class="fs-12 bold _c-brand">.flex.y.end-center</span>
+               <p class="fs-10 _c-brand_">align-items: center</p>
+               <div class="flex y end-center w-full h-220 border thin _bc-brand__ br-8 p-12">
+                 <div class="w-84 h-32 br-4 _bg-brand"></div>
+                 <div class="w-52 h-32 br-4 _bg-brand_"></div>
+                 <div class="w-32 h-32 br-4 _bg-brand__"></div>
+               </div>
+             </div>
+             
+             <div class="flex y g-8">
+               <span class="fs-12 bold _c-brand">.flex.y.end-end</span>
+               <p class="fs-10 _c-brand_">align-items: flex-end</p>
+               <div class="flex y end-end w-full h-220 border thin _bc-brand__ br-8 p-12">
+                 <div class="w-84 h-32 br-4 _bg-brand"></div>
+                 <div class="w-52 h-32 br-4 _bg-brand_"></div>
+                 <div class="w-32 h-32 br-4 _bg-brand__"></div>
+               </div>
+             </div>
+             
+             <div class="flex y g-8">
+               <span class="fs-12 bold _c-brand">.flex.y.end-stretch</span>
+               <p class="fs-10 _c-brand_">align-items: stretch</p>
+               <div class="flex y end-stretch w-full h-220 border thin _bc-brand__ br-8 p-12">
+                 <div class="h-32 br-4 _bg-brand"></div>
+                 <div class="h-32 br-4 _bg-brand_"></div>
+                 <div class="h-32 br-4 _bg-brand__"></div>
+               </div>
+             </div>
+           </div>
+         </div>
+
+         <!-- Y.SPACE combinations -->
+         <div class="flex y g-32 w-full">
+           <h4 class="fs-18 bold">.flex.y.space-* (justify-content: space-between)</h4>
+           <p class="fs-12_">Content spaced between top and bottom (requires 2+ items)</p>
+           
+           <div class="grid auto-fit-220 g-20">
+             <div class="flex y g-8">
+               <span class="fs-12 bold _c-brand">.flex.y.space-start</span>
+               <p class="fs-10 _c-brand_">align-items: flex-start</p>
+               <div class="flex y space-start w-full h-220 border thin _bc-brand__ br-8 p-12">
+                 <div class="w-84 h-32 br-4 _bg-brand"></div>
+                 <div class="w-52 h-32 br-4 _bg-brand_"></div>
+                 <div class="w-32 h-32 br-4 _bg-brand__"></div>
+               </div>
+             </div>
+             
+             <div class="flex y g-8">
+               <span class="fs-12 bold _c-brand">.flex.y.space-center</span>
+               <p class="fs-10 _c-brand_">align-items: center</p>
+               <div class="flex y space-center w-full h-220 border thin _bc-brand__ br-8 p-12">
+                 <div class="w-84 h-32 br-4 _bg-brand"></div>
+                 <div class="w-52 h-32 br-4 _bg-brand_"></div>
+                 <div class="w-32 h-32 br-4 _bg-brand__"></div>
+               </div>
+             </div>
+             
+             <div class="flex y g-8">
+               <span class="fs-12 bold _c-brand">.flex.y.space-end</span>
+               <p class="fs-10 _c-brand_">align-items: flex-end</p>
+               <div class="flex y space-end w-full h-220 border thin _bc-brand__ br-8 p-12">
+                 <div class="w-84 h-32 br-4 _bg-brand"></div>
+                 <div class="w-52 h-32 br-4 _bg-brand_"></div>
+                 <div class="w-32 h-32 br-4 _bg-brand__"></div>
+               </div>
+             </div>
+             
+             <div class="flex y g-8">
+               <span class="fs-12 bold _c-brand">.flex.y.space-stretch</span>
+               <p class="fs-10 _c-brand_">align-items: stretch</p>
+               <div class="flex y space-stretch w-full h-220 border thin _bc-brand__ br-8 p-12">
+                 <div class="h-32 br-4 _bg-brand"></div>
+                 <div class="h-32 br-4 _bg-brand_"></div>
+                 <div class="h-32 br-4 _bg-brand__"></div>
+               </div>
+             </div>
+           </div>
+         </div>
+
+                 <!-- Y.AROUND combinations -->
+         <div class="flex y g-32 w-full">
+           <h4 class="fs-18 bold">.flex.y.around-* (justify-content: space-around)</h4>
+           <p class="fs-12_">Content with equal space around each item</p>
+           
+           <div class="grid auto-fit-220 g-20">
+             <div class="flex y g-8">
+               <span class="fs-12 bold _c-brand">.flex.y.around-start</span>
+               <p class="fs-10 _c-brand_">align-items: flex-start</p>
+               <div class="flex y around-start w-full h-220 border thin _bc-brand__ br-8 p-12">
+                 <div class="w-84 h-32 br-4 _bg-brand"></div>
+                 <div class="w-52 h-32 br-4 _bg-brand_"></div>
+                 <div class="w-32 h-32 br-4 _bg-brand__"></div>
+               </div>
+             </div>
+             
+             <div class="flex y g-8">
+               <span class="fs-12 bold _c-brand">.flex.y.around-center</span>
+               <p class="fs-10 _c-brand_">align-items: center</p>
+               <div class="flex y around-center w-full h-220 border thin _bc-brand__ br-8 p-12">
+                 <div class="w-84 h-32 br-4 _bg-brand"></div>
+                 <div class="w-52 h-32 br-4 _bg-brand_"></div>
+                 <div class="w-32 h-32 br-4 _bg-brand__"></div>
+               </div>
+             </div>
+             
+             <div class="flex y g-8">
+               <span class="fs-12 bold _c-brand">.flex.y.around-end</span>
+               <p class="fs-10 _c-brand_">align-items: flex-end</p>
+               <div class="flex y around-end w-full h-220 border thin _bc-brand__ br-8 p-12">
+                 <div class="w-84 h-32 br-4 _bg-brand"></div>
+                 <div class="w-52 h-32 br-4 _bg-brand_"></div>
+                 <div class="w-32 h-32 br-4 _bg-brand__"></div>
+               </div>
+             </div>
+             
+             <div class="flex y g-8">
+               <span class="fs-12 bold _c-brand">.flex.y.around-stretch</span>
+               <p class="fs-10 _c-brand_">align-items: stretch</p>
+               <div class="flex y around-stretch w-full h-220 border thin _bc-brand__ br-8 p-12">
+                 <div class="h-32 br-4 _bg-brand"></div>
+                 <div class="h-32 br-4 _bg-brand_"></div>
+                 <div class="h-32 br-4 _bg-brand__"></div>
+               </div>
+             </div>
+           </div>
+         </div>
+
+         <!-- Y.EVENLY combinations -->
+         <div class="flex y g-32 w-full">
+           <h4 class="fs-18 bold">.flex.y.evenly-* (justify-content: space-evenly)</h4>
+           <p class="fs-12_">Content with equal space everywhere (including edges)</p>
+           
+           <div class="grid auto-fit-220 g-20">
+             <div class="flex y g-8">
+               <span class="fs-12 bold _c-brand">.flex.y.evenly-start</span>
+               <p class="fs-10 _c-brand_">align-items: flex-start</p>
+               <div class="flex y evenly-start w-full h-220 border thin _bc-brand__ br-8 p-12">
+                 <div class="w-84 h-32 br-4 _bg-brand"></div>
+                 <div class="w-52 h-32 br-4 _bg-brand_"></div>
+                 <div class="w-32 h-32 br-4 _bg-brand__"></div>
+               </div>
+             </div>
+             
+             <div class="flex y g-8">
+               <span class="fs-12 bold _c-brand">.flex.y.evenly-center</span>
+               <p class="fs-10 _c-brand_">align-items: center</p>
+               <div class="flex y evenly-center w-full h-220 border thin _bc-brand__ br-8 p-12">
+                 <div class="w-84 h-32 br-4 _bg-brand"></div>
+                 <div class="w-52 h-32 br-4 _bg-brand_"></div>
+                 <div class="w-32 h-32 br-4 _bg-brand__"></div>
+               </div>
+             </div>
+             
+             <div class="flex y g-8">
+               <span class="fs-12 bold _c-brand">.flex.y.evenly-end</span>
+               <p class="fs-10 _c-brand_">align-items: flex-end</p>
+               <div class="flex y evenly-end w-full h-220 border thin _bc-brand__ br-8 p-12">
+                 <div class="w-84 h-32 br-4 _bg-brand"></div>
+                 <div class="w-52 h-32 br-4 _bg-brand_"></div>
+                 <div class="w-32 h-32 br-4 _bg-brand__"></div>
+               </div>
+             </div>
+             
+             <div class="flex y g-8">
+               <span class="fs-12 bold _c-brand">.flex.y.evenly-stretch</span>
+               <p class="fs-10 _c-brand_">align-items: stretch</p>
+               <div class="flex y evenly-stretch w-full h-220 border thin _bc-brand__ br-8 p-12">
+                 <div class="h-32 br-4 _bg-brand"></div>
+                 <div class="h-32 br-4 _bg-brand_"></div>
+                 <div class="h-32 br-4 _bg-brand__"></div>
+               </div>
+             </div>
+           </div>
+         </div>
+
+
+
+      </div>
+    </div>
+  </section>
+
+  <section id="classic-flex-x" class="px-220__ py-220 flex y g-52">
+    <h2 class="fs-52__ _bg-brand pr-356__ lh-1 ttu fwd-4 f-scale offset">
+      <span>Classic Flex X</span>
+    </h2>
+    <p class="fs-16">
+      Complete flexbox system with all .flex.x combinations (row direction)
+    </p>
+    
+    <!-- Documentation Classic Flex X -->
+    <div class="flex y g-52 w-full">
+      <div class="flex y g-20">
+        <h3 class="fs-24 bold">Documentation</h3>
+        <p class="fs-12_">Comprehensive examples of .flex.x (row direction) with unique hyphenated selectors</p>
+        <div class="flex y g-8">
+          <p class="fs-12"><strong>Direction:</strong> .flex.x = flex-direction: row</p>
+          <p class="fs-12"><strong>Main axis (X):</strong> start, center, end, space, around, evenly → justify-content</p>
+          <p class="fs-12"><strong>Cross axis (Y):</strong> start, center, end, stretch, baseline → align-items</p>
+          <p class="fs-12"><strong>Pattern:</strong> .flex.x.[main-axis]-[cross-axis] (unique selectors)</p>
+          <p class="fs-12"><strong>Example:</strong> .flex.x.start-center → justify-content: flex-start + align-items: center</p>
+        </div>
+      </div>
+
+      <!-- Complete X-Axis Examples -->
+      <div class="flex y g-84 w-full">
+        
+        <!-- X.START combinations -->
+        <div class="flex y g-32 w-full">
+          <h4 class="fs-18 bold">.flex.x.start-* (justify-content: flex-start)</h4>
+          <p class="fs-12_">Content aligned to the left (main axis start)</p>
+          
+          <div class="grid auto-fit-220 g-20">
+            <div class="flex y g-8">
+              <span class="fs-12 bold _c-brand">.flex.x.start-center</span>
+              <p class="fs-10 _c-brand_">align-items: center</p>
+              <div class="flex x start-center w-full h-220 border thin _bc-brand__ br-8 p-12 g-8">
+                <div class="w-52 h-32 br-4 _bg-brand"></div>
+                <div class="w-84 h-52 br-4 _bg-brand_"></div>
+                <div class="w-32 h-32 br-4 _bg-brand__"></div>
+              </div>
+            </div>
+            
+            <div class="flex y g-8">
+              <span class="fs-12 bold _c-brand">.flex.x.start-end</span>
+              <p class="fs-10 _c-brand_">align-items: flex-end</p>
+              <div class="flex x start-end w-full h-220 border thin _bc-brand__ br-8 p-12 g-8">
+                <div class="w-52 h-32 br-4 _bg-brand"></div>
+                <div class="w-84 h-52 br-4 _bg-brand_"></div>
+                <div class="w-32 h-32 br-4 _bg-brand__"></div>
+              </div>
+            </div>
+            
+            <div class="flex y g-8">
+              <span class="fs-12 bold _c-brand">.flex.x.start-stretch</span>
+              <p class="fs-10 _c-brand_">align-items: stretch</p>
+              <div class="flex x start-stretch w-full h-220 border thin _bc-brand__ br-8 p-12 g-8">
+                <div class="w-52 br-4 _bg-brand"></div>
+                <div class="w-84 br-4 _bg-brand_"></div>
+                <div class="w-32 br-4 _bg-brand__"></div>
+              </div>
+            </div>
+            
+            <div class="flex y g-8">
+              <span class="fs-12 bold _c-brand">.flex.x.start</span>
+              <p class="fs-10 _c-brand_">justify-content: flex-start (simple)</p>
+              <div class="flex x start w-full h-220 border thin _bc-brand__ br-8 p-12 g-8">
+                <div class="w-52 h-32 br-4 _bg-brand flex x center">
+                  
+                </div>
+                <div class="w-84 h-32 br-4 _bg-brand_ flex x center">
+                  
+                </div>
+                <div class="w-32 h-32 br-4 _bg-brand__ flex x center">
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- X Simple Examples (without cross-axis) -->
+        <div class="flex y g-32 w-full">
+          <h4 class="fs-18 bold">Simple .flex.x examples (main axis only)</h4>
+          <p class="fs-12_">Basic flex direction row with common justify-content values</p>
+          
+          <div class="grid auto-fit-220 g-20">
+            <div class="flex y g-8">
+              <span class="fs-12 bold _c-brand">.flex.x</span>
+              <p class="fs-10 _c-brand_">flex-direction: row (default)</p>
+              <div class="flex x w-full h-220 border thin _bc-brand__ br-8 p-12 g-8">
+                <div class="w-52 h-32 br-4 _bg-brand"></div>
+                <div class="w-84 h-32 br-4 _bg-brand_"></div>
+                <div class="w-32 h-32 br-4 _bg-brand__"></div>
+              </div>
+            </div>
+            
+            <div class="flex y g-8">
+              <span class="fs-12 bold _c-brand">.flex.x.center</span>
+              <p class="fs-10 _c-brand_">justify-content: center</p>
+              <div class="flex x center w-full h-220 border thin _bc-brand__ br-8 p-12 g-8">
+                <div class="w-52 h-32 br-4 _bg-brand"></div>
+                <div class="w-84 h-32 br-4 _bg-brand_"></div>
+                <div class="w-32 h-32 br-4 _bg-brand__"></div>
+              </div>
+            </div>
+            
+            <div class="flex y g-8">
+              <span class="fs-12 bold _c-brand">.flex.x.end</span>
+              <p class="fs-10 _c-brand_">justify-content: flex-end</p>
+              <div class="flex x end w-full h-220 border thin _bc-brand__ br-8 p-12 g-8">
+                <div class="w-52 h-32 br-4 _bg-brand"></div>
+                <div class="w-84 h-32 br-4 _bg-brand_"></div>
+                <div class="w-32 h-32 br-4 _bg-brand__"></div>
+              </div>
+            </div>
+            
+            <div class="flex y g-8">
+              <span class="fs-12 bold _c-brand">.flex.x.space</span>
+              <p class="fs-10 _c-brand_">justify-content: space-between</p>
+              <div class="flex x space w-full h-220 border thin _bc-brand__ br-8 p-12 g-8">
+                <div class="w-52 h-32 br-4 _bg-brand"></div>
+                <div class="w-84 h-32 br-4 _bg-brand_"></div>
+                <div class="w-32 h-32 br-4 _bg-brand__"></div>
+              </div>
+            </div>
+            
+            <div class="flex y g-8">
+              <span class="fs-12 bold _c-brand">.flex.x.around</span>
+              <p class="fs-10 _c-brand_">justify-content: space-around</p>
+              <div class="flex x around w-full h-220 border thin _bc-brand__ br-8 p-12 g-8">
+                <div class="w-52 h-32 br-4 _bg-brand"></div>
+                <div class="w-84 h-32 br-4 _bg-brand_"></div>
+                <div class="w-32 h-32 br-4 _bg-brand__"></div>
+              </div>
+            </div>
+            
+            <div class="flex y g-8">
+              <span class="fs-12 bold _c-brand">.flex.x.evenly</span>
+              <p class="fs-10 _c-brand_">justify-content: space-evenly</p>
+              <div class="flex x evenly w-full h-220 border thin _bc-brand__ br-8 p-12 g-8">
+                <div class="w-52 h-32 br-4 _bg-brand"></div>
+                <div class="w-84 h-32 br-4 _bg-brand_"></div>
+                <div class="w-32 h-32 br-4 _bg-brand__"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- .flex.center (center both axes) -->
+        <div class="flex y g-32 w-full">
+          <h4 class="fs-18 bold">.flex.center (center both main and cross axis)</h4>
+          <p class="fs-12_">Shorthand for centering content both horizontally and vertically</p>
+          
+          <div class="grid auto-fit-220 g-20">
+            <div class="flex y g-8">
+              <span class="fs-12 bold _c-brand">.flex.center</span>
+              <p class="fs-10 _c-brand_">justify-content: center + align-items: center</p>
+              <div class="flex center w-full h-220 border thin _bc-brand__ br-8 p-12 g-8">
+                <div class="w-52 h-32 br-4 _bg-brand"></div>
+                <div class="w-84 h-32 br-4 _bg-brand_"></div>
+                <div class="w-32 h-32 br-4 _bg-brand__"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- X.CENTER combinations -->
+        <div class="flex y g-32 w-full">
+          <h4 class="fs-18 bold">.flex.x.center-* (justify-content: center)</h4>
+          <p class="fs-12_">Content centered horizontally (main axis center)</p>
+          
+          <div class="grid auto-fit-220 g-20">
+            <div class="flex y g-8">
+              <span class="fs-12 bold _c-brand">.flex.x.center-start</span>
+              <p class="fs-10 _c-brand_">align-items: flex-start</p>
+              <div class="flex x center-start w-full h-220 border thin _bc-brand__ br-8 p-12 g-8">
+                <div class="w-52 h-32 br-4 _bg-brand"></div>
+                <div class="w-84 h-52 br-4 _bg-brand_"></div>
+                <div class="w-32 h-32 br-4 _bg-brand__"></div>
+              </div>
+            </div>
+            
+            <div class="flex y g-8">
+              <span class="fs-12 bold _c-brand">.flex.x.center-center</span>
+              <p class="fs-10 _c-brand_">align-items: center</p>
+              <div class="flex x center-center w-full h-220 border thin _bc-brand__ br-8 p-12 g-8">
+                <div class="w-52 h-32 br-4 _bg-brand"></div>
+                <div class="w-84 h-52 br-4 _bg-brand_"></div>
+                <div class="w-32 h-32 br-4 _bg-brand__"></div>
+              </div>
+            </div>
+            
+            <div class="flex y g-8">
+              <span class="fs-12 bold _c-brand">.flex.x.center-end</span>
+              <p class="fs-10 _c-brand_">align-items: flex-end</p>
+              <div class="flex x center-end w-full h-220 border thin _bc-brand__ br-8 p-12 g-8">
+                <div class="w-52 h-32 br-4 _bg-brand"></div>
+                <div class="w-84 h-52 br-4 _bg-brand_"></div>
+                <div class="w-32 h-32 br-4 _bg-brand__"></div>
+              </div>
+            </div>
+            
+            <div class="flex y g-8">
+              <span class="fs-12 bold _c-brand">.flex.x.center-stretch</span>
+              <p class="fs-10 _c-brand_">align-items: stretch</p>
+              <div class="flex x center-stretch w-full h-220 border thin _bc-brand__ br-8 p-12 g-8">
+                <div class="w-52 br-4 _bg-brand"></div>
+                <div class="w-84 br-4 _bg-brand_"></div>
+                <div class="w-32 br-4 _bg-brand__"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- X.END combinations -->
+        <div class="flex y g-32 w-full">
+          <h4 class="fs-18 bold">.flex.x.end-* (justify-content: flex-end)</h4>
+          <p class="fs-12_">Content aligned to the right (main axis end)</p>
+          
+          <div class="grid auto-fit-220 g-20">
+            <div class="flex y g-8">
+              <span class="fs-12 bold _c-brand">.flex.x.end-start</span>
+              <p class="fs-10 _c-brand_">align-items: flex-start</p>
+              <div class="flex x end-start w-full h-220 border thin _bc-brand__ br-8 p-12 g-8">
+                <div class="w-52 h-32 br-4 _bg-brand"></div>
+                <div class="w-84 h-52 br-4 _bg-brand_"></div>
+                <div class="w-32 h-32 br-4 _bg-brand__"></div>
+              </div>
+            </div>
+            
+            <div class="flex y g-8">
+              <span class="fs-12 bold _c-brand">.flex.x.end-center</span>
+              <p class="fs-10 _c-brand_">align-items: center</p>
+              <div class="flex x end-center w-full h-220 border thin _bc-brand__ br-8 p-12 g-8">
+                <div class="w-52 h-32 br-4 _bg-brand"></div>
+                <div class="w-84 h-52 br-4 _bg-brand_"></div>
+                <div class="w-32 h-32 br-4 _bg-brand__"></div>
+              </div>
+            </div>
+            
+            <div class="flex y g-8">
+              <span class="fs-12 bold _c-brand">.flex.x.end-end</span>
+              <p class="fs-10 _c-brand_">align-items: flex-end</p>
+              <div class="flex x end-end w-full h-220 border thin _bc-brand__ br-8 p-12 g-8">
+                <div class="w-52 h-32 br-4 _bg-brand"></div>
+                <div class="w-84 h-52 br-4 _bg-brand_"></div>
+                <div class="w-32 h-32 br-4 _bg-brand__"></div>
+              </div>
+            </div>
+            
+            <div class="flex y g-8">
+              <span class="fs-12 bold _c-brand">.flex.x.end-stretch</span>
+              <p class="fs-10 _c-brand_">align-items: stretch</p>
+              <div class="flex x end-stretch w-full h-220 border thin _bc-brand__ br-8 p-12 g-8">
+                <div class="w-52 br-4 _bg-brand"></div>
+                <div class="w-84 br-4 _bg-brand_"></div>
+                <div class="w-32 br-4 _bg-brand__"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- X.SPACE combinations -->
+        <div class="flex y g-32 w-full">
+          <h4 class="fs-18 bold">.flex.x.space-* (justify-content: space-between)</h4>
+          <p class="fs-12_">Content spaced between left and right (requires 2+ items)</p>
+          
+          <div class="grid auto-fit-220 g-20">
+            <div class="flex y g-8">
+              <span class="fs-12 bold _c-brand">.flex.x.space-start</span>
+              <p class="fs-10 _c-brand_">align-items: flex-start</p>
+              <div class="flex x space-start w-full h-220 border thin _bc-brand__ br-8 p-12">
+                <div class="w-52 h-32 br-4 _bg-brand"></div>
+                <div class="w-84 h-52 br-4 _bg-brand_"></div>
+                <div class="w-32 h-84 br-4 _bg-brand__"></div>
+              </div>
+            </div>
+            
+            <div class="flex y g-8">
+              <span class="fs-12 bold _c-brand">.flex.x.space-center</span>
+              <p class="fs-10 _c-brand_">align-items: center</p>
+              <div class="flex x space-center w-full h-220 border thin _bc-brand__ br-8 p-12">
+                <div class="w-52 h-32 br-4 _bg-brand"></div>
+                <div class="w-84 h-52 br-4 _bg-brand_"></div>
+                <div class="w-32 h-84 br-4 _bg-brand__"></div>
+              </div>
+            </div>
+            
+            <div class="flex y g-8">
+              <span class="fs-12 bold _c-brand">.flex.x.space-end</span>
+              <p class="fs-10 _c-brand_">align-items: flex-end</p>
+              <div class="flex x space-end w-full h-220 border thin _bc-brand__ br-8 p-12">
+                <div class="w-52 h-32 br-4 _bg-brand"></div>
+                <div class="w-84 h-52 br-4 _bg-brand_"></div>
+                <div class="w-32 h-84 br-4 _bg-brand__"></div>
+              </div>
+            </div>
+            
+            <div class="flex y g-8">
+              <span class="fs-12 bold _c-brand">.flex.x.space-stretch</span>
+              <p class="fs-10 _c-brand_">align-items: stretch</p>
+              <div class="flex x space-stretch w-full h-220 border thin _bc-brand__ br-8 p-12">
+                <div class="w-52 br-4 _bg-brand"></div>
+                <div class="w-84 br-4 _bg-brand_"></div>
+                <div class="w-32 br-4 _bg-brand__"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- X.AROUND combinations -->
+        <div class="flex y g-32 w-full">
+          <h4 class="fs-18 bold">.flex.x.around-* (justify-content: space-around)</h4>
+          <p class="fs-12_">Content with equal space around each item</p>
+          
+          <div class="grid auto-fit-220 g-20">
+            <div class="flex y g-8">
+              <span class="fs-12 bold _c-brand">.flex.x.around-start</span>
+              <p class="fs-10 _c-brand_">align-items: flex-start</p>
+              <div class="flex x around-start w-full h-220 border thin _bc-brand__ br-8 p-12">
+                <div class="w-52 h-32 br-4 _bg-brand"></div>
+                <div class="w-84 h-52 br-4 _bg-brand_"></div>
+                <div class="w-32 h-84 br-4 _bg-brand__"></div>
+              </div>
+            </div>
+            
+            <div class="flex y g-8">
+              <span class="fs-12 bold _c-brand">.flex.x.around-center</span>
+              <p class="fs-10 _c-brand_">align-items: center</p>
+              <div class="flex x around-center w-full h-220 border thin _bc-brand__ br-8 p-12">
+                <div class="w-52 h-32 br-4 _bg-brand"></div>
+                <div class="w-84 h-52 br-4 _bg-brand_"></div>
+                <div class="w-32 h-84 br-4 _bg-brand__"></div>
+              </div>
+            </div>
+            
+            <div class="flex y g-8">
+              <span class="fs-12 bold _c-brand">.flex.x.around-end</span>
+              <p class="fs-10 _c-brand_">align-items: flex-end</p>
+              <div class="flex x around-end w-full h-220 border thin _bc-brand__ br-8 p-12">
+                <div class="w-52 h-32 br-4 _bg-brand"></div>
+                <div class="w-84 h-52 br-4 _bg-brand_"></div>
+                <div class="w-32 h-84 br-4 _bg-brand__"></div>
+              </div>
+            </div>
+            
+            <div class="flex y g-8">
+              <span class="fs-12 bold _c-brand">.flex.x.around-stretch</span>
+              <p class="fs-10 _c-brand_">align-items: stretch</p>
+              <div class="flex x around-stretch w-full h-220 border thin _bc-brand__ br-8 p-12">
+                <div class="w-52 br-4 _bg-brand"></div>
+                <div class="w-84 br-4 _bg-brand_"></div>
+                <div class="w-32 br-4 _bg-brand__"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- X.EVENLY combinations -->
+        <div class="flex y g-32 w-full">
+          <h4 class="fs-18 bold">.flex.x.evenly-* (justify-content: space-evenly)</h4>
+          <p class="fs-12_">Content with equal space everywhere (including edges)</p>
+          
+          <div class="grid auto-fit-220 g-20">
+            <div class="flex y g-8">
+              <span class="fs-12 bold _c-brand">.flex.x.evenly-start</span>
+              <p class="fs-10 _c-brand_">align-items: flex-start</p>
+              <div class="flex x evenly-start w-full h-220 border thin _bc-brand__ br-8 p-12">
+                <div class="w-52 h-32 br-4 _bg-brand"></div>
+                <div class="w-84 h-52 br-4 _bg-brand_"></div>
+                <div class="w-32 h-84 br-4 _bg-brand__"></div>
+              </div>
+            </div>
+            
+            <div class="flex y g-8">
+              <span class="fs-12 bold _c-brand">.flex.x.evenly-center</span>
+              <p class="fs-10 _c-brand_">align-items: center</p>
+              <div class="flex x evenly-center w-full h-220 border thin _bc-brand__ br-8 p-12">
+                <div class="w-52 h-32 br-4 _bg-brand"></div>
+                <div class="w-84 h-52 br-4 _bg-brand_"></div>
+                <div class="w-32 h-84 br-4 _bg-brand__"></div>
+              </div>
+            </div>
+            
+            <div class="flex y g-8">
+              <span class="fs-12 bold _c-brand">.flex.x.evenly-end</span>
+              <p class="fs-10 _c-brand_">align-items: flex-end</p>
+              <div class="flex x evenly-end w-full h-220 border thin _bc-brand__ br-8 p-12">
+                <div class="w-52 h-32 br-4 _bg-brand"></div>
+                <div class="w-84 h-52 br-4 _bg-brand_"></div>
+                <div class="w-32 h-84 br-4 _bg-brand__"></div>
+              </div>
+            </div>
+            
+            <div class="flex y g-8">
+              <span class="fs-12 bold _c-brand">.flex.x.evenly-stretch</span>
+              <p class="fs-10 _c-brand_">align-items: stretch</p>
+              <div class="flex x evenly-stretch w-full h-220 border thin _bc-brand__ br-8 p-12">
+                <div class="w-52 br-4 _bg-brand"></div>
+                <div class="w-84 br-4 _bg-brand_"></div>
+                <div class="w-32 br-4 _bg-brand__"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Multi-line Flex with align-content -->
+        <div class="flex y g-32 w-full">
+          <h4 class="fs-18 bold">Multi-line Flex with align-content</h4>
+          <p class="fs-12_">Examples using flex-wrap: wrap and align-content for multiple lines</p>
+          
+          <div class="grid auto-fit-220 g-20">
+            <div class="flex y g-8">
+              <span class="fs-12 bold _c-brand">.flex.x.wrap.content-start</span>
+              <p class="fs-10 _c-brand_">align-content: flex-start</p>
+              <div class="flex x wrap content-start w-full h-220 border thin _bc-brand__ br-8 p-12 g-8">
+                <div class="w-84 h-32 br-4 _bg-brand"></div>
+                <div class="w-84 h-32 br-4 _bg-brand_"></div>
+                <div class="w-84 h-32 br-4 _bg-brand__"></div>
+                <div class="w-84 h-32 br-4 _bg-brand"></div>
+                <div class="w-84 h-32 br-4 _bg-brand_"></div>
+              </div>
+            </div>
+            
+            <div class="flex y g-8">
+              <span class="fs-12 bold _c-brand">.flex.x.wrap.content-center</span>
+              <p class="fs-10 _c-brand_">align-content: center</p>
+              <div class="flex x wrap content-center w-full h-220 border thin _bc-brand__ br-8 p-12 g-8">
+                <div class="w-84 h-32 br-4 _bg-brand"></div>
+                <div class="w-84 h-32 br-4 _bg-brand_"></div>
+                <div class="w-84 h-32 br-4 _bg-brand__"></div>
+                <div class="w-84 h-32 br-4 _bg-brand"></div>
+                <div class="w-84 h-32 br-4 _bg-brand_"></div>
+              </div>
+            </div>
+            
+            <div class="flex y g-8">
+              <span class="fs-12 bold _c-brand">.flex.x.wrap.content-end</span>
+              <p class="fs-10 _c-brand_">align-content: flex-end</p>
+              <div class="flex x wrap content-end w-full h-220 border thin _bc-brand__ br-8 p-12 g-8">
+                <div class="w-84 h-32 br-4 _bg-brand"></div>
+                <div class="w-84 h-32 br-4 _bg-brand_"></div>
+                <div class="w-84 h-32 br-4 _bg-brand__"></div>
+                <div class="w-84 h-32 br-4 _bg-brand"></div>
+                <div class="w-84 h-32 br-4 _bg-brand_"></div>
+              </div>
+            </div>
+            
+            <div class="flex y g-8">
+              <span class="fs-12 bold _c-brand">.flex.x.wrap.content-space</span>
+              <p class="fs-10 _c-brand_">align-content: space-between</p>
+              <div class="flex x wrap content-space w-full h-220 border thin _bc-brand__ br-8 p-12 g-8">
+                <div class="w-84 h-32 br-4 _bg-brand"></div>
+                <div class="w-84 h-32 br-4 _bg-brand_"></div>
+                <div class="w-84 h-32 br-4 _bg-brand__"></div>
+                <div class="w-84 h-32 br-4 _bg-brand"></div>
+                <div class="w-84 h-32 br-4 _bg-brand_"></div>
+              </div>
+            </div>
+            
+            <div class="flex y g-8">
+              <span class="fs-12 bold _c-brand">.flex.x.wrap.content-around</span>
+              <p class="fs-10 _c-brand_">align-content: space-around</p>
+              <div class="flex x wrap content-around w-full h-220 border thin _bc-brand__ br-8 p-12 g-8">
+                <div class="w-84 h-32 br-4 _bg-brand"></div>
+                <div class="w-84 h-32 br-4 _bg-brand_"></div>
+                <div class="w-84 h-32 br-4 _bg-brand__"></div>
+                <div class="w-84 h-32 br-4 _bg-brand"></div>
+                <div class="w-84 h-32 br-4 _bg-brand_"></div>
+              </div>
+            </div>
+            
+            <div class="flex y g-8">
+              <span class="fs-12 bold _c-brand">.flex.x.wrap.content-evenly</span>
+              <p class="fs-10 _c-brand_">align-content: space-evenly</p>
+              <div class="flex x wrap content-evenly w-full h-220 border thin _bc-brand__ br-8 p-12 g-8">
+                <div class="w-84 h-32 br-4 _bg-brand"></div>
+                <div class="w-84 h-32 br-4 _bg-brand_"></div>
+                <div class="w-84 h-32 br-4 _bg-brand__"></div>
+                <div class="w-84 h-32 br-4 _bg-brand"></div>
+                <div class="w-84 h-32 br-4 _bg-brand_"></div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="flex y g-12 _bg-light br-8 p-20 mt-20">
+            <h5 class="fs-14 bold _c-dark">align-content vs align-items</h5>
+            <div class="flex y g-8 fs-10 _c-dark_">
+              <p><strong>align-items:</strong> Aligns flex items along the cross axis (single line)</p>
+              <p><strong>align-content:</strong> Aligns flex lines when there are multiple lines (requires flex-wrap)</p>
+              <p><strong>Usage:</strong> Use .flex.x.wrap + .content-* for multi-line layouts</p>
+            </div>
+          </div>
+        </div>
+
+ 
+
+        <!-- Bento Grid Layout Example -->
+        <div class="flex y g-32 w-full">
+          <h4 class="fs-18 bold">Bento Grid Layout Example</h4>
+          <p class="fs-12_">Complex layout mixing different .flex.x alignments and sizes</p>
+          
+          <!-- Main Bento Container -->
+          <div class="flex-grid flex x center-stretch gap-4 w-full">
+            
+            <!-- Hero Card - center-center -->
+            <div class="flex y center-end col-5 h-356  grad-linear to-brand___ d-br br-16">
+              <div class="w-220 h-220  grad-linear from-brand___ to-brand___ d-tl br-16"></div>
+              <div class="w-136 h-136 grad-linear from-extra to-accent d-bl br-12"></div>
+          
+            </div>
+            
+            <!-- Stats Card - start-end -->
+            <div class="w-220 h-220 mt-auto  grad-linear from-brand_ to-brand___ d-tr br-16"></div>
+            
+            <!-- Network Card - space-center -->
+            <div class="flex stretch h-356  grad-linear from-brand__ to-brand___ d-bl br-16"></div>
+            
+
+            <!-- Crystal Card - evenly-center -->
+            <div class="col-5 h-220  grad-linear from-brand_ to-brand___ d-center br-12"></div>
+            
+            <!-- Pulse Card - end-start -->
+            <div class="col-6 h-356  grad-linear from-brand__ to-brand___ d-tr br-12">
+              <div class="w-220 h-220 grad-linear from-brand___ d-bl br-16"></div>
+            </div>
+            
+
+            
+          </div>
+          
+   
+
+          <!-- Bento 2: Soft Flow Layout -->
+          <div class="flex y g-32 w-full mt-84">
+            <h4 class="fs-18 bold">Soft Flow Bento</h4>
+            <p class="fs-12_">Gentle composition with centered elements</p>
+            
+            <div class="flex-grid flex content-center gap-12 w-full">
+              
+              <!-- Center Hero - center-center -->
+              <div class="col-6 flex x center-center h-356 grad-linear from-brand___ to-brand__ d-br br-20">
+                <div class="w-220 h-220 grad-linear from-brand___ d-tl br-16"></div>
+              </div>
+              
+              <!-- Top Card - start-center -->
+              <div class="col-3 grid-flex flex y end-center h-356 grad-linear from-brand__ to-brand___ d-r br-16">
+                <div class="col-1/1 h-136 grad-linear from-extra to-accent d-bl br-12"></div>
+          
+                
+              </div>
+              
+              <!-- Side Card - center-end -->
+              <div class="col-3 flex x center-end h-220 grad-linear from-brand_ to-brand__ d-l br-16"></div>
+              
+              <!-- Bottom Left - space-center -->
+              <div class="col-4 flex x space-center h-136 grad-linear from-brand___ to-brand_ d-center br-12"></div>
+              
+              <!-- Bottom Right - around-center -->
+              <div class="col-8 flex x around-center h-136 grad-linear from-brand__ to-brand___ d-tr br-12"></div>
+              
+            </div>
+          </div>
+
+          <!-- Bento 3: Minimal Grid -->
+          <div class="flex y g-32 w-full mt-84">
+            <h4 class="fs-18 bold">Minimal Grid Bento</h4>
+            <p class="fs-12_">Simple geometric harmony</p>
+            
+            <div class="flex-grid flex content-center gap-8 w-full">
+              
+              <!-- Main Block - center-center -->
+              <div class="col-4 flex x center-center h-356 grad-linear from-brand_ to-brand___ d-t br-16">
+                <div class="w-136 h-136 grad-linear from-extra to-accent d-bl br-12"></div>
+              </div>
+              
+              <!-- Vertical Bar - evenly-center -->
+              <div class="col-2 flex y evenly-center h-356 grad-linear from-brand___ to-brand__ d-r br-16"></div>
+              
+              <!-- Side Panel - start-stretch -->
+              <div class="col-6 flex x start-stretch h-220 grad-linear from-brand__ to-brand_ d-center br-16"></div>
+              
+              <!-- Small Square - center-center -->
+              <div class="col-3 flex x center-center h-136 grad-linear from-brand_ to-brand__ d-bl br-12"></div>
+              
+              <!-- Long Bar - around-stretch -->
+              <div class="col-9 flex x around-stretch h-136 grad-linear from-brand___ to-brand_ d-tr br-12"></div>
+              
+            </div>
+          </div>
+
+  
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="px-220__ py-136 flex x g-20 w-full">
+
+    <div class="flex w-full y space center g-32">
+      <p class="fs-12_ _c-brand_">© 2024</p>
+      <p class="fs-12_ _c-brand_">Tati Michaël</p>
+
+    </div>
+
+         <div class="flex  w-full y space g-32">
+       <a href="https://www.linkedin.com/in/mtati/" target="_blank">LinkedIn</a>
+       <a href="https://ulysse-2029.com/" target="_blank">ulysse-2029.com</a>
+     </div>
+  
+  </footer>
+
+  <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="hide">
+    <defs>
+      <filter id="fancy-goo">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="2.5" result="blur" />
+        <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 14 -3" result="goo" />
+        <feComposite in="SourceGraphic" in2="goo" operator="atop"/>
+      </filter>
+    </defs>
+  </svg>
+  <script src="../app.js"></script>
+  </body>
+</html>

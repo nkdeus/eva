@@ -62,6 +62,11 @@
             </a>
           </li>
           <li>
+            <a href="flex.html" class="h-52 px-12 flex y center _c-brand br-12">
+              <span class="fs-12">Flex</span>
+            </a>
+          </li>
+          <li>
             <a href="css-fluid.html" class="h-52 px-12 flex y center _c-brand br-12">
               <span class="fs-12">Fluid CSS</span>
             </a>
@@ -99,7 +104,7 @@
 
       <a href="https://github.com/nkdeus/eva" target="_blank" class="h-52 px-8 flex x g-12 center _c-brand br-8">
        
-        <svg xmlns="http://www.w3.org/2000/svg" class="lh-0" height="20" viewBox="0 0 16 16" width="20" aria-hidden="true" class="d-block"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" class="lh-0" height="20" viewBox="0 0 16 16" width="20" aria-hidden="true" class="d-block"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.84-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.84 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
         
       </a>
     </div>
@@ -124,6 +129,7 @@
       <div class="flex y wrap g-12  fs-16">
         <a href="#auto-fit-grids" class="h-52 px-12 flex y center _c-brand br-12">Auto-Fit Grids</a>
         <a href="#classic-grids" class="h-52 px-12 flex y center _c-brand br-12">Classic Grids</a>
+        <a href="#fraction-grids" class="h-52 px-12 flex y center _c-brand br-12">Fraction Notation</a>
       </div>
     </div>
 </section>
@@ -458,6 +464,232 @@
     </div>
   </section>
 
+  <section id="fraction-grids" class="px-220__ py-220 flex y g-52">
+    <h2 class="fs-52__ _bg-brand pr-356__ lh-1 ttu fwd-4 f-scale offset">
+      <span>Fraction Notation</span>
+    </h2>
+    <p class="fs-16">
+      Intuitive fraction-based column system with self-contained width calculations
+    </p>
+    
+    <!-- Documentation Fraction Grid -->
+    <div class="flex y g-52 w-full">
+      <div class="flex y g-20">
+        <h3 class="fs-24 bold">Documentation</h3>
+        <p class="fs-12_">Self-contained fraction notation that defines both column span and total columns</p>
+        <div class="flex y g-8">
+          <p class="fs-12"><strong>Pattern:</strong> .col-1/X where X defines the total number of columns</p>
+          <p class="fs-12"><strong>Available:</strong> .col-1/1 to .col-1/12</p>
+          <p class="fs-12"><strong>Width calculation:</strong> Each class defines its own --col-span and --grid-columns</p>
+          <p class="fs-12"><strong>Self-contained:</strong> No need for parent container column setup</p>
+          <p class="fs-12"><strong>Examples:</strong> col-1/2 = 50%, col-1/3 = 33.33%, col-1/4 = 25%</p>
+        </div>
+      </div>
+
+      <!-- Fraction Grid Examples -->
+      <div class="flex y g-84 w-full">
+        <div class="flex y g-52 w-full">
+          <h4 class="fs-18 bold">Basic Fractions</h4>
+          <p class="fs-12_">Simple fraction layouts with self-contained widths</p>
+          
+          <!-- Full width -->
+          <div class="flex-grid">
+            <div class="col-1/1">
+              <div class="px-12 py-12 br-8 border thin _bc-brand__ flex y center">
+                <span class="fs-12 bold _c-brand">col-1/1 (100%)</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Half width -->
+          <div class="flex-grid gap-20">
+            <div class="col-1/2">
+              <div class="px-12 py-12 br-8 border thin _bc-brand__ flex y center">
+                <span class="fs-12 bold _c-brand">col-1/2 (50%)</span>
+              </div>
+            </div>
+            <div class="col-1/2">
+              <div class="px-12 py-12 br-8 border thin _bc-brand__ flex y center">
+                <span class="fs-12 bold _c-brand">col-1/2 (50%)</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Third width -->
+          <div class="flex-grid gap-20">
+            <div class="col-1/3">
+              <div class="px-12 py-12 br-8 border thin _bc-brand__ flex y center">
+                <span class="fs-12 bold _c-brand">col-1/3 (33.33%)</span>
+              </div>
+            </div>
+            <div class="col-1/3">
+              <div class="px-12 py-12 br-8 border thin _bc-brand__ flex y center">
+                <span class="fs-12 bold _c-brand">col-1/3 (33.33%)</span>
+              </div>
+            </div>
+            <div class="col-1/3">
+              <div class="px-12 py-12 br-8 border thin _bc-brand__ flex y center">
+                <span class="fs-12 bold _c-brand">col-1/3 (33.33%)</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Quarter width -->
+          <div class="flex-grid gap-20">
+            <div class="col-1/4">
+              <div class="px-8 py-12 br-8 border thin _bc-brand__ flex y center">
+                <span class="fs-10 bold _c-brand">col-1/4 (25%)</span>
+              </div>
+            </div>
+            <div class="col-1/4">
+              <div class="px-8 py-12 br-8 border thin _bc-brand__ flex y center">
+                <span class="fs-10 bold _c-brand">col-1/4 (25%)</span>
+              </div>
+            </div>
+            <div class="col-1/4">
+              <div class="px-8 py-12 br-8 border thin _bc-brand__ flex y center">
+                <span class="fs-10 bold _c-brand">col-1/4 (25%)</span>
+              </div>
+            </div>
+            <div class="col-1/4">
+              <div class="px-8 py-12 br-8 border thin _bc-brand__ flex y center">
+                <span class="fs-10 bold _c-brand">col-1/4 (25%)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex y g-52 w-full">
+          <h4 class="fs-18 bold">Mixed Fraction Layouts</h4>
+          <p class="fs-12_">Combining different fraction widths in the same row</p>
+          
+          <!-- 2/3 + 1/3 equivalent mix -->
+          <div class="flex-grid gap-20">
+            <div class="col-1/2">
+              <div class="p-20 br-8 border thin _bc-brand__ h-full flex y">
+                <h5 class="fs-14 bold _c-brand">Main (col-1/2)</h5>
+                <p class="fs-12 _c-brand_">Half width content area</p>
+              </div>
+            </div>
+            <div class="col-1/4">
+              <div class="p-20 br-8 border thin _bc-brand__ h-full flex y">
+                <h5 class="fs-14 bold _c-brand">Side (col-1/4)</h5>
+                <p class="fs-12 _c-brand_">Quarter width</p>
+              </div>
+            </div>
+            <div class="col-1/4">
+              <div class="p-20 br-8 border thin _bc-brand__ h-full flex y">
+                <h5 class="fs-14 bold _c-brand">Side (col-1/4)</h5>
+                <p class="fs-12 _c-brand_">Quarter width</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Various fractions -->
+          <div class="flex-grid gap-20">
+            <div class="col-1/5">
+              <div class="px-8 py-12 br-8 border thin _bc-brand__ flex y center">
+                <span class="fs-10 bold _c-brand">col-1/5 (20%)</span>
+              </div>
+            </div>
+            <div class="col-1/5">
+              <div class="px-8 py-12 br-8 border thin _bc-brand__ flex y center">
+                <span class="fs-10 bold _c-brand">col-1/5 (20%)</span>
+              </div>
+            </div>
+            <div class="col-1/5">
+              <div class="px-8 py-12 br-8 border thin _bc-brand__ flex y center">
+                <span class="fs-10 bold _c-brand">col-1/5 (20%)</span>
+              </div>
+            </div>
+            <div class="col-1/5">
+              <div class="px-8 py-12 br-8 border thin _bc-brand__ flex y center">
+                <span class="fs-10 bold _c-brand">col-1/5 (20%)</span>
+              </div>
+            </div>
+            <div class="col-1/5">
+              <div class="px-8 py-12 br-8 border thin _bc-brand__ flex y center">
+                <span class="fs-10 bold _c-brand">col-1/5 (20%)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex y g-52 w-full">
+          <h4 class="fs-18 bold">Responsive Card Grid</h4>
+          <p class="fs-12_">Using fractions for responsive card layouts</p>
+          
+          <div class="flex-grid gap-20">
+            <div class="col-1/6">
+              <div class="p-16 br-8 border thin _bc-brand__ flex y g-8">
+                <h5 class="fs-12 bold _c-brand">Card 1</h5>
+                <p class="fs-10 _c-brand_">1/6 width (16.66%)</p>
+              </div>
+            </div>
+            <div class="col-1/6">
+              <div class="p-16 br-8 border thin _bc-brand__ flex y g-8">
+                <h5 class="fs-12 bold _c-brand">Card 2</h5>
+                <p class="fs-10 _c-brand_">1/6 width (16.66%)</p>
+              </div>
+            </div>
+            <div class="col-1/6">
+              <div class="p-16 br-8 border thin _bc-brand__ flex y g-8">
+                <h5 class="fs-12 bold _c-brand">Card 3</h5>
+                <p class="fs-10 _c-brand_">1/6 width (16.66%)</p>
+              </div>
+            </div>
+            <div class="col-1/6">
+              <div class="p-16 br-8 border thin _bc-brand__ flex y g-8">
+                <h5 class="fs-12 bold _c-brand">Card 4</h5>
+                <p class="fs-10 _c-brand_">1/6 width (16.66%)</p>
+              </div>
+            </div>
+            <div class="col-1/6">
+              <div class="p-16 br-8 border thin _bc-brand__ flex y g-8">
+                <h5 class="fs-12 bold _c-brand">Card 5</h5>
+                <p class="fs-10 _c-brand_">1/6 width (16.66%)</p>
+              </div>
+            </div>
+            <div class="col-1/6">
+              <div class="p-16 br-8 border thin _bc-brand__ flex y g-8">
+                <h5 class="fs-12 bold _c-brand">Card 6</h5>
+                <p class="fs-10 _c-brand_">1/6 width (16.66%)</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="flex y g-12 _bg-light br-8 p-16">
+            <p class="fs-10 bold _c-dark">Avantage des fractions :</p>
+            <p class="fs-10 _c-dark_">Chaque classe col-1/X est autonome et définit sa propre largeur, sans dépendre d'une configuration parent.</p>
+          </div>
+        </div>
+
+        <div class="flex y g-52 w-full">
+          <h4 class="fs-18 bold">Available Fraction Classes</h4>
+          <p class="fs-12_">Complete list of available fraction notation classes</p>
+          
+          <div class="flex y g-12 _bg-light br-8 p-16">
+            <p class="fs-10 bold _c-dark">Classes disponibles :</p>
+            <div class="flex wrap g-8">
+              <span class="fs-10 _c-dark_ px-8 py-4 _bg-white br-4">col-1/1 (100%)</span>
+              <span class="fs-10 _c-dark_ px-8 py-4 _bg-white br-4">col-1/2 (50%)</span>
+              <span class="fs-10 _c-dark_ px-8 py-4 _bg-white br-4">col-1/3 (33.33%)</span>
+              <span class="fs-10 _c-dark_ px-8 py-4 _bg-white br-4">col-1/4 (25%)</span>
+              <span class="fs-10 _c-dark_ px-8 py-4 _bg-white br-4">col-1/5 (20%)</span>
+              <span class="fs-10 _c-dark_ px-8 py-4 _bg-white br-4">col-1/6 (16.66%)</span>
+              <span class="fs-10 _c-dark_ px-8 py-4 _bg-white br-4">col-1/7 (14.28%)</span>
+              <span class="fs-10 _c-dark_ px-8 py-4 _bg-white br-4">col-1/8 (12.5%)</span>
+              <span class="fs-10 _c-dark_ px-8 py-4 _bg-white br-4">col-1/9 (11.11%)</span>
+              <span class="fs-10 _c-dark_ px-8 py-4 _bg-white br-4">col-1/10 (10%)</span>
+              <span class="fs-10 _c-dark_ px-8 py-4 _bg-white br-4">col-1/11 (9.09%)</span>
+              <span class="fs-10 _c-dark_ px-8 py-4 _bg-white br-4">col-1/12 (8.33%)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <div class="stage">
     <div class="flex stage-top">
       <div class="line-y h-4"></div>
@@ -510,4 +742,5 @@
   </svg>
   <script src="../app.js"></script>
   </body>
+</html>
 </html>

@@ -44,7 +44,7 @@ $base-colors: "brand", "accent", "extra", "dark", "light";
 
 // Variations fade (opacité)
 $fade-variations: "_", "__", "___";
-$fade-values: 65%, 35%, 5% !default;
+$fade-values: 65%, 35%, 15% !default;
 
 // Variations brightness (luminosité)
 $brightness-variations: "-d", "-b", "-d_", "-b_";

@@ -10,6 +10,7 @@
 
 .grid {
   display: grid;
+  width: 100%;
 }
 
 [class*=auto-fit] {
@@ -92,6 +93,17 @@ $breakpoints: (
   }
 }
 
+// Génération des classes avec notation fraction col-1/Y
+@for $denominator from 1 through $max-columns {
+  .col-1\/#{$denominator} {
+    --col-span: 1;
+    --grid-columns: #{$denominator};
+    flex: 0 0 auto;
+    width: min(calc(var(--col-span) / var(--grid-columns) * 100% - (var(--grid-columns) / var(--col-span) - 1) * var(--current-gap) / (var(--grid-columns) / var(--col-span))), 100%);
+  }
+  @debug "col-1\/#{$denominator}  --col-span: 1  --grid-columns: #{$denominator}";
+}
+
 // ==========================================
 // CLASSES POUR SETTER LOCALEMENT --grid-columns
 // ==========================================
@@ -110,7 +122,7 @@ $breakpoints: (
 
 // Génération des classes responsives pour max-col avec breakpoints
 @each $breakpoint-name, $breakpoint-value in $breakpoints {
-  @media (min-width: #{$breakpoint-value}) {
+  @media (max-width: #{$breakpoint-value}) {
     @for $i from 1 through $max-columns {
       .#{$breakpoint-name}\:max-col-#{$i} {
         --grid-columns: #{$i};
