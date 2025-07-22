@@ -416,6 +416,233 @@ function initBurgerMenu() {
   });
 }
 
+// Fonction pour initialiser la navigation dynamique "Back to [page]"
+function initDynamicBackNavigation() {
+  const goBackButton = document.getElementById('goBack');
+  const goNextButton = document.getElementById('goNext');
+
+  // Mapping des noms de fichiers vers les objets avec title et goNext
+  const pageMapping = {
+    'doc.html': {
+      title: 'Docs',
+      goNext: 'colors.html'
+    },
+    'framework.html': {
+      title: 'Framework',
+      goNext: 'doc.html'
+    },
+    'colors.html': {
+      title: 'Colors',
+      goNext: 'gradients.html'
+    },
+    'gradients.html': {
+      title: 'Gradients',
+      goNext: 'grids.html'
+    },
+    'grids.html': {
+      title: 'Grids',
+      goNext: 'flex.html'
+    },
+    'flex.html': {
+      title: 'Flex',
+      goNext: 'css-fluid.html'
+    },
+    'css-fluid.html': {
+      title: 'Fluid CSS',
+      goNext: 'fonts.html'
+    },
+    'fonts.html': {
+      title: 'Fonts',
+      goNext: 'sizes.html'
+    },
+    'sizes.html': {
+      title: 'Sizes',
+      goNext: 'auto-theme.html'
+    },
+    'auto-theme.html': {
+      title: 'Auto Theme',
+      goNext: 'js-calculator.html'
+    },
+    'js-calculator.html': {
+      title: 'JS Calculator',
+      goNext: 'figma-to-eva.html'
+    },
+    'figma-to-eva.html': {
+      title: 'Figma to EVA',
+      goNext: 'framework.html'
+    },
+    'index.html': {
+      title: 'Home',
+      goNext: 'framework.html'
+    }
+  };
+
+  // Gestion du bouton goBack
+  if (goBackButton) {
+    // Obtenir le nom de fichier de la page courante
+    const currentFileName = window.location.pathname.split('/').pop();
+    console.log("currentFileName", currentFileName);
+
+    // Obtenir l'URL de la page précédente
+    const referrer = document.referrer;
+  
+
+  
+  if (referrer) {
+    try {
+      // Extraire le nom de fichier de l'URL référente
+      const referrerUrl = new URL(referrer);
+      const fileName = referrerUrl.pathname.split('/').pop();
+   
+      
+      // Si la page précédente est la même que la page courante, on va vers home
+      if (fileName === currentFileName) {
+        
+        const spanElement = goBackButton.querySelector('span');
+        if (spanElement) {
+          spanElement.textContent = 'Back';
+        }
+        goBackButton.href = '../index.html';
+      }
+      
+      // Vérifier si la page précédente est dans notre mapping
+      else if (pageMapping[fileName]) {
+        const pageName = pageMapping[fileName].title;
+     
+        
+        // Mettre à jour le texte du bouton
+        const spanElement = goBackButton.querySelector('span');
+        
+        
+        if (spanElement) {
+         
+          spanElement.textContent = `Back to ${pageName}`;
+         
+        } 
+        
+        // Mettre à jour l'URL du lien (relatif à la page actuelle)
+        if (fileName === 'index.html') {
+          goBackButton.href = '../index.html';
+        } else if (fileName === 'framework.html') {
+          goBackButton.href = '../framework.html';
+        } else if (fileName === 'figma-to-eva.html') {
+          goBackButton.href = '../figma-to-eva.html';
+        } else {
+          // Pour les autres pages du framework
+          goBackButton.href = fileName;
+        }
+        
+        console.log(`Dynamic navigation: Back to ${pageName} (${fileName})`);
+      }
+      else {
+        // Si aucune correspondance trouvée, garder juste "Back"
+        const spanElement = goBackButton.querySelector('span');
+        console.log("Fallback - spanElement found:", spanElement);
+        
+        if (spanElement) {
+          console.log("Fallback - Setting text to: Back");
+          spanElement.textContent = 'Back';
+          console.log("Fallback - Updated span text:", spanElement.textContent);
+        } else {
+          console.warn("Fallback - Span element not found inside #goBack");
+        }
+      
+        // URL par défaut (retour vers doc.html)
+        goBackButton.href = 'doc.html';
+        
+        console.log('Dynamic navigation: Using default "Back"');
+      }
+    } catch (error) {
+      console.warn('Error parsing referrer URL:', error);
+      // En cas d'erreur, utiliser le fallback
+      const spanElement = goBackButton.querySelector('span');
+      if (spanElement) {
+        spanElement.textContent = 'Back';
+      }
+      goBackButton.href = 'doc.html';
+    }
+  }
+  else {
+    // Pas de referrer, utiliser le fallback
+    const spanElement = goBackButton.querySelector('span');
+    if (spanElement) {
+      spanElement.textContent = 'Back';
+    }
+    goBackButton.href = 'doc.html';
+  }
+  }
+
+  console.log("Reached goNext section");
+  // Gestion du bouton goNext
+  console.log("goNextButton found:", goNextButton);
+  if (goNextButton) {
+    const currentFileName = window.location.pathname.split('/').pop();
+    console.log("currentFileName for goNext:", currentFileName);
+    
+    if (pageMapping[currentFileName]) {
+      const nextPage = pageMapping[currentFileName].goNext;
+      const nextPageTitle = pageMapping[nextPage].title;
+      console.log("nextPage:", nextPage, "nextPageTitle:", nextPageTitle);
+      
+      // Mettre à jour le texte du bouton
+      const spanElement = goNextButton.querySelector('span');
+      console.log("goNext spanElement found:", spanElement);
+      if (spanElement) {
+        console.log("Updating goNext span text to:", `Go to ${nextPageTitle}`);
+        spanElement.textContent = `Go to ${nextPageTitle}`;
+        console.log("Updated goNext span text:", spanElement.textContent);
+      }
+      
+      // Mettre à jour l'URL du lien (relatif à la page actuelle)
+      if (nextPage === 'index.html') {
+        goNextButton.href = '../index.html';
+      } else if (nextPage === 'framework.html') {
+        goNextButton.href = '../framework.html';
+      } else if (nextPage === 'figma-to-eva.html') {
+        goNextButton.href = '../figma-to-eva.html';
+      } else {
+        // Pour les autres pages du framework
+        goNextButton.href = nextPage;
+      }
+      
+      console.log(`Dynamic navigation: Go to ${nextPageTitle} (${nextPage})`);
+    } else {
+      // Si la page actuelle n'est pas dans le mapping, aller vers framework par défaut
+      console.log("Page not found in mapping, using default");
+      const spanElement = goNextButton.querySelector('span');
+      console.log("goNext spanElement found (fallback):", spanElement);
+      if (spanElement) {
+        spanElement.textContent = 'Go to Framework';
+        console.log("Updated goNext span text (fallback):", spanElement.textContent);
+      }
+      goNextButton.href = '../framework.html';
+      console.log('Dynamic navigation: Using default "Go to Framework"');
+    }
+  } else {
+    console.warn("Element #goNext not found");
+  }
+}
+
+// Fonction pour initialiser la gestion du scroll pour le menu
+function initScrollMenuHandler() {
+  const innerMenu = document.querySelector('.inner-menu');
+  if (!innerMenu) return;
+
+  function handleScroll() {
+    if (window.scrollY > 0) {
+      innerMenu.classList.add('stack-menu');
+    } else {
+      innerMenu.classList.remove('stack-menu');
+    }
+  }
+
+  // Écouter l'événement scroll
+  window.addEventListener('scroll', handleScroll);
+  
+  // Vérifier la position initiale au chargement
+  handleScroll();
+}
+
 // Fonction principale d'initialisation
 function initApp() {
   // Générer le titre aléatoire
@@ -453,6 +680,12 @@ function initApp() {
 
   // Initialiser le burger menu
   initBurgerMenu();
+
+  // Initialiser la navigation dynamique "Back to [page]"
+  initDynamicBackNavigation();
+
+  // Initialiser la gestion du scroll pour le menu
+  initScrollMenuHandler();
 
   // Initialiser le draggable sur les éléments .ballzzz
   // Attendre un peu que tous les éléments soient bien rendus

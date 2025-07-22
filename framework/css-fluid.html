@@ -42,7 +42,7 @@
     <div id="menu" class="flex x center g-12">
       
       <div class="inner-menu">
-        <a href="../framework.html" class="h-52 px-12 flex y center _c-brand br-12">
+        <a href="../framework.html" class="h-52 px-12 flex y center _c-light _bg-brand br-12">
           <span class="fs-12">Framework</span>
         </a>
         <ul>
@@ -113,14 +113,22 @@
 
   <section class="px-220__ pt-220- pb-136 flex y g-32">
  
-    <div class="fs-36_ py-52- flex y g-12">
-      <a href="doc.html" class="flex x center g-8 py-12 _c-brand no-hover">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="m12 19-7-7 7-7"/>
-          <path d="M19 12H5"/>
-        </svg>
-        <span class="fs-16">Back to Docs</span>
-      </a>
+    <div class="fs-36_ py-52- flex y g-12 w-full relative w-full relative">
+      <div class="flex x space g-12 w-full relative">
+        <a href="#back" id="goBack" class="flex x center g-8 py-12 _c-brand no-hover">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m12 19-7-7 7-7"/>
+          </svg>
+          <span class="fs-16">Back</span>
+        </a>
+        <a href="#next" id="goNext" class="flex x center g-8 py-12 _c-brand no-hover">
+          <span class="fs-16">Next</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m9 18 6-6-6-6"/>
+          </svg>
+          
+        </a>
+      </div>
       <h1 class="fs-52__ lh-1 ttu">
         <span>EVA CSS <span class="title grad-linear-text grad-linear from-accent to-extra">Fluid CSS</span></span>
       </h1>
@@ -137,10 +145,10 @@
     </div>
 </section>
 
-  <section class="px-220__ py-52 flex y g-20">
+  <section id="about-fluid" class="px-220__ py-52 flex y g-20">
     <div class="flex y">
       <h2 class="fs-52__ _bg-brand pr-356__ lh-1 ttu fwd-4 f-scale offset"><span class="_c-light">About fluid responsive</span></h2>
-      <p class="fs-18 _c-dark _bg-light-b mb-20 p-34_">
+      <p class="fs-18 _c-dark _bg-brand___ mb-20 p-34_">
         EVA CSS eliminates <span class="_c-brand-d">traditional breakpoints</span> in favor of <span class="_c-brand-d">fluid scaling</span> that adapts seamlessly across all devices using <span class="_c-brand-d">clamp() functions</span>.
       </p>
     </div>
@@ -155,10 +163,10 @@
     </p>
   </section>
 
-  <section class="px-220__ py-52 flex y g-20">
+  <section id="proportion" class="px-220__ py-52 flex y g-20">
     <div class="flex y">
       <h2 class="fs-52__ _bg-brand pr-356__ lh-1 ttu fwd-4 f-scale offset"><span class="_c-light">Proportion over size</span></h2>
-      <p class="fs-18 _c-dark _bg-light-b mb-20 p-34_">
+      <p class="fs-18 _c-dark _bg-brand___ mb-20 p-34_">
         EVA CSS prioritizes <span class="_c-brand-d">proportional relationships</span> over absolute sizes, focusing on <span class="_c-brand-d">visual balance</span> and rhythm that maintains <span class="_c-brand-d">visual hierarchy</span> across all devices.
       </p>
     </div>
@@ -173,10 +181,10 @@
     </p>
   </section>
 
-  <section class="px-220__ py-52 flex y g-20">
+  <section id="clamp-revolution" class="px-220__ py-52 flex y g-20">
     <div class="flex y">
       <h2 class="fs-52__ _bg-brand pr-356__ lh-1 ttu fwd-4 f-scale offset"><span class="_c-light">The clamp revolution</span></h2>
-      <p class="fs-18 _c-dark _bg-light-b mb-20 p-34_">
+      <p class="fs-18 _c-dark _bg-brand___ mb-20 p-34_">
         Since 2024, CSS has undergone a <span class="_c-brand-d">paradigm shift</span> with <span class="_c-brand-d">clamp()</span> and container queries, revolutionizing <span class="_c-brand-d">accessibility</span> and eliminating fixed pixel values.
       </p>
     </div>
@@ -193,10 +201,10 @@
     </p>
   </section>
 
-  <section class="px-220__ py-52 flex y g-20">
+  <section id="other-tools" class="px-220__ py-52 flex y g-20">
     <div class="flex y">
       <h2 class="fs-52__ _bg-brand pr-356__ lh-1 ttu fwd-4 f-scale offset"><span class="_c-light">Other tools</span></h2>
-      <p class="fs-18 _c-dark _bg-light-b mb-20 p-34_">
+      <p class="fs-18 _c-dark _bg-brand___ mb-20 p-34_">
         Beyond EVA CSS, the <span class="_c-brand-d">fluid design ecosystem</span> includes <span class="_c-brand-d">Lumos</span> for Webflow and <span class="_c-brand-d">fluid.tw</span> for Tailwind, plus specialized calculators for complex projects.
       </p>
     </div>
@@ -213,10 +221,10 @@
     </p>
   </section>
 
-  <section class="px-220__ py-52 flex y g-20">
+  <section id="why-built" class="px-220__ py-52 flex y g-20">
     <div class="flex y">
       <h2 class="fs-52__ _bg-brand pr-356__ lh-1 ttu fwd-4 f-scale offset"><span class="_c-light">Why I built this tool ?</span></h2>
-      <p class="fs-18 _c-dark _bg-light-b mb-20 p-34_">
+      <p class="fs-18 _c-dark _bg-brand___ mb-20 p-34_">
         With 20 years of experience, I created EVA CSS to bridge <span class="_c-brand-d">design intent</span> and <span class="_c-brand-d">technical implementation</span>, transforming <span class="_c-brand-d">Figma values</span> into fluid elements with immediate feedback.
       </p>
     </div>
@@ -238,10 +246,10 @@
     </p>
   </section>
 
-  <section class="px-220__ py-52 flex y g-20">
+  <section id="universal-compatibility" class="px-220__ py-52 flex y g-20">
     <div class="flex y">
       <h2 class="fs-52__ _bg-brand pr-356__ lh-1 ttu fwd-4 f-scale offset"><span class="_c-light">Universal compatibility</span></h2>
-      <p class="fs-18 _c-dark _bg-light-b mb-20 p-34_">
+      <p class="fs-18 _c-dark _bg-brand___ mb-20 p-34_">
         EVA CSS works with <span class="_c-brand-d">any project type</span> and technology stack, from <span class="_c-brand-d">Progressive Web Apps</span> to <span class="_c-brand-d">Webflow</span> applications, offering flexible implementation from CSS variables to utility classes.
       </p>
     </div>

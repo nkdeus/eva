@@ -42,7 +42,7 @@
     <div id="menu" class="flex x center g-12">
       
       <div class="inner-menu">
-        <a href="../framework.html" class="h-52 px-12 flex y center _c-brand br-12">
+        <a href="../framework.html" class="h-52 px-12 flex y center _c-light _bg-brand br-12">
           <span class="fs-12">Framework</span>
         </a>
         <ul>
@@ -113,14 +113,22 @@
 
   <section class="px-220__ pt-220- pb-136 flex y g-32">
  
-    <div class="fs-36_ py-52- flex y g-12">
-      <a href="doc.html" class="flex x center g-8 py-12 _c-brand no-hover">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="m12 19-7-7 7-7"/>
-          <path d="M19 12H5"/>
-        </svg>
-        <span class="fs-16">Back to Docs</span>
-      </a>
+    <div class="fs-36_ py-52- flex y g-12 w-full relative">
+      <div class="flex x space g-12 w-full relative">
+        <a href="#back" id="goBack" class="flex x center g-8 py-12 _c-brand no-hover">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m12 19-7-7 7-7"/>
+          </svg>
+          <span class="fs-16">Back</span>
+        </a>
+        <a href="#next" id="goNext" class="flex x center g-8 py-12 _c-brand no-hover">
+          <span class="fs-16">Next</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m9 18 6-6-6-6"/>
+          </svg>
+          
+        </a>
+      </div>
       <h1 class="fs-52__ lh-1 ttu">
         <span>EVA CSS <span class="title grad-linear-text grad-linear from-accent to-extra">Gradients</span></span>
       </h1>

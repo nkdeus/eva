@@ -293,15 +293,17 @@ section {
 .inner-menu {
   position: relative;
   display: inline-block;
+
+
   
   ul {
     position: absolute;
     top: 100%;
-    left: 0;
-    background-color: var(--light);
-    min-width: 200px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--light-b_) !important;
     border-radius: var(--12-);
-    border: 1px solid var(--dark___);
+    border: 1px solid var(--brand___);
     padding: var(--8_);
     margin: 0;
     list-style: none;
@@ -318,6 +320,11 @@ section {
         width: 100%;
         margin: var(--4_) 0;
         border-radius: var(--8_);
+
+        span{
+          word-break: keep-all;
+          white-space: nowrap;
+        }
         
         &:hover {
           background-color: var(--brand__);
@@ -330,12 +337,69 @@ section {
     }
   }
   
-  &:hover {
+  &.hover-menu{
+    width: auto;
     ul {
-      display: block;
+      display: none;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+ 
+      width: auto;
+      background-color: var(--light);
+      border-radius: var(--12-);
+
+      li{
+        width: 100%;
+        a{
+          width: 100%;
+        }
+      }
+    }
+    &:hover{
+      ul {
+        display: flex;
+      }
     }
   }
+
+
+  @media (min-width: 768px) {
+
+    &:not(.hover-menu){   
+    position: unset;
+    display: flex;
+    opacity: 1;
+   
+   
+    ul {
+      width: 100%;
+      transition: transform 0.2s ease-in-out;
+      transform: translateY(0%);
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      gap: var(--20_);
+      display: flex;
+      left: 0;
+      transform: translateX(0%);
+      border-radius: 0;
+      border: none;
+      border-bottom: 1px solid var(--brand___);
+      border-top: 1px solid var(--brand___);
+      
+    }
+
+    &.stack-menu{
+      ul {
+        transform: translateY(-100%);
+      }
+    }
+  } 
 }
+}
+
+
 
 /* Responsive adjustments for inner-menu */
 @media (max-width: 768px) {
@@ -359,6 +423,11 @@ section {
             transform: none;
           }
         }
+      }
+    }
+    &:hover {
+      ul {
+        display: block;
       }
     }
   }
