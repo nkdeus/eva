@@ -96,12 +96,13 @@ $breakpoints: (
 // Génération des classes avec notation fraction col-1/Y
 @for $denominator from 1 through $max-columns {
   .col-1\/#{$denominator} {
-    --col-span: 1;
-    --grid-columns: #{$denominator};
+    --col-fraction: calc(var(--grid-columns) / #{$denominator});
     flex: 0 0 auto;
-    width: min(calc(var(--col-span) / var(--grid-columns) * 100% - (var(--grid-columns) / var(--col-span) - 1) * var(--current-gap) / (var(--grid-columns) / var(--col-span))), 100%);
+    // Utilise --grid-columns dans le calcul pour être adaptable
+    width: min(calc(var(--col-fraction) / var(--grid-columns) * 100% - (var(--grid-columns) / var(--col-fraction) - 1) * var(--current-gap) / (var(--grid-columns) / var(--col-fraction))), 100%);
+    @debug "col-1\/#{$denominator}  --col-fraction: calc(var(--grid-columns) / #{$denominator})";
   }
-  @debug "col-1\/#{$denominator}  --col-span: 1  --grid-columns: #{$denominator}";
+  @debug "col-1\/#{$denominator}  --col-fraction: calc(var(--grid-columns) / #{$denominator})";
 }
 
 // ==========================================
