@@ -416,6 +416,72 @@ function initBurgerMenu() {
   });
 }
 
+// Fonction pour détecter si on est en environnement local
+function isLocalEnvironment() {
+  return window.location.hostname === 'localhost' || 
+         window.location.hostname === '127.0.0.1' || 
+         window.location.protocol === 'file:' ||
+         window.location.hostname.includes('.local');
+}
+
+// Fonction pour normaliser les noms de fichiers (avec ou sans .html)
+function normalizeFileName(fileName) {
+  // Si le fichier a déjà .html, le retourner tel quel
+  if (fileName.endsWith('.html')) {
+    return fileName;
+  }
+  // Sinon, ajouter .html
+  return fileName + '.html';
+}
+
+// Fonction pour obtenir le nom de fichier actuel normalisé
+function getCurrentFileName() {
+  let fileName = window.location.pathname.split('/').pop();
+  
+  // Si pas d'extension et pas vide, ajouter .html
+  if (fileName && !fileName.includes('.')) {
+    fileName += '.html';
+  }
+  
+  // Si vide (racine), c'est index.html
+  if (!fileName || fileName === '/') {
+    fileName = 'index.html';
+  }
+  
+  return fileName;
+}
+
+// Fonction pour générer l'URL correcte selon l'environnement
+function generateUrl(targetFile) {
+  const isLocal = isLocalEnvironment();
+  
+  // Déterminer si on est dans un sous-dossier (framework)
+  const currentPath = window.location.pathname;
+  const isInFramework = currentPath.includes('/framework/');
+  
+  let url = '';
+  
+  // Gérer les cas spéciaux
+  if (targetFile === 'index.html') {
+    url = isInFramework ? '../' : './';
+  } else if (targetFile === 'framework.html') {
+    url = isInFramework ? '../framework' : './framework';
+  } else if (targetFile === 'figma-to-eva.html') {
+    url = isInFramework ? '../figma-to-eva' : './figma-to-eva';
+  } else {
+    // Pages du framework
+    const baseName = targetFile.replace('.html', '');
+    url = isInFramework ? baseName : `./framework/${baseName}`;
+  }
+  
+  // Ajouter .html seulement en local
+  if (isLocal && !url.endsWith('/') && !url.endsWith('.html')) {
+    url += '.html';
+  }
+  
+  return url;
+}
+
 // Fonction pour initialiser la navigation dynamique "Back to [page]"
 function initDynamicBackNavigation() {
   const goBackButton = document.getElementById('goBack');
@@ -479,104 +545,80 @@ function initDynamicBackNavigation() {
 
   // Gestion du bouton goBack
   if (goBackButton) {
-    // Obtenir le nom de fichier de la page courante
-    const currentFileName = window.location.pathname.split('/').pop();
+    // Obtenir le nom de fichier de la page courante normalisé
+    const currentFileName = getCurrentFileName();
     console.log("currentFileName", currentFileName);
 
     // Obtenir l'URL de la page précédente
     const referrer = document.referrer;
   
-
-  
-  if (referrer) {
-    try {
-      // Extraire le nom de fichier de l'URL référente
-      const referrerUrl = new URL(referrer);
-      const fileName = referrerUrl.pathname.split('/').pop();
-   
-      
-      // Si la page précédente est la même que la page courante, on va vers home
-      if (fileName === currentFileName) {
+    if (referrer) {
+      try {
+        // Extraire le nom de fichier de l'URL référente
+        const referrerUrl = new URL(referrer);
+        let fileName = referrerUrl.pathname.split('/').pop();
+        fileName = normalizeFileName(fileName);
         
+        // Si la page précédente est la même que la page courante, on va vers home
+        if (fileName === currentFileName) {
+          const spanElement = goBackButton.querySelector('span');
+          if (spanElement) {
+            spanElement.textContent = 'Back';
+          }
+          goBackButton.href = generateUrl('index.html');
+        }
+        // Vérifier si la page précédente est dans notre mapping
+        else if (pageMapping[fileName]) {
+          const pageName = pageMapping[fileName].title;
+          
+          // Mettre à jour le texte du bouton
+          const spanElement = goBackButton.querySelector('span');
+          if (spanElement) {
+            spanElement.textContent = `Back to ${pageName}`;
+          } 
+          
+          // Générer l'URL correcte
+          goBackButton.href = generateUrl(fileName);
+          
+          console.log(`Dynamic navigation: Back to ${pageName} (${fileName})`);
+        }
+        else {
+          // Si aucune correspondance trouvée, garder juste "Back"
+          const spanElement = goBackButton.querySelector('span');
+          if (spanElement) {
+            spanElement.textContent = 'Back';
+          }
+          
+          // URL par défaut (retour vers doc.html)
+          goBackButton.href = generateUrl('doc.html');
+          
+          console.log('Dynamic navigation: Using default "Back"');
+        }
+      } catch (error) {
+        console.warn('Error parsing referrer URL:', error);
+        // En cas d'erreur, utiliser le fallback
         const spanElement = goBackButton.querySelector('span');
         if (spanElement) {
           spanElement.textContent = 'Back';
         }
-        goBackButton.href = '../index.html';
+        goBackButton.href = generateUrl('doc.html');
       }
-      
-      // Vérifier si la page précédente est dans notre mapping
-      else if (pageMapping[fileName]) {
-        const pageName = pageMapping[fileName].title;
-     
-        
-        // Mettre à jour le texte du bouton
-        const spanElement = goBackButton.querySelector('span');
-        
-        
-        if (spanElement) {
-         
-          spanElement.textContent = `Back to ${pageName}`;
-         
-        } 
-        
-        // Mettre à jour l'URL du lien (relatif à la page actuelle)
-        if (fileName === 'index.html') {
-          goBackButton.href = '../index.html';
-        } else if (fileName === 'framework.html') {
-          goBackButton.href = '../framework.html';
-        } else if (fileName === 'figma-to-eva.html') {
-          goBackButton.href = '../figma-to-eva.html';
-        } else {
-          // Pour les autres pages du framework
-          goBackButton.href = fileName;
-        }
-        
-        console.log(`Dynamic navigation: Back to ${pageName} (${fileName})`);
-      }
-      else {
-        // Si aucune correspondance trouvée, garder juste "Back"
-        const spanElement = goBackButton.querySelector('span');
-        console.log("Fallback - spanElement found:", spanElement);
-        
-        if (spanElement) {
-          console.log("Fallback - Setting text to: Back");
-          spanElement.textContent = 'Back';
-          console.log("Fallback - Updated span text:", spanElement.textContent);
-        } else {
-          console.warn("Fallback - Span element not found inside #goBack");
-        }
-      
-        // URL par défaut (retour vers doc.html)
-        goBackButton.href = 'doc.html';
-        
-        console.log('Dynamic navigation: Using default "Back"');
-      }
-    } catch (error) {
-      console.warn('Error parsing referrer URL:', error);
-      // En cas d'erreur, utiliser le fallback
+    }
+    else {
+      // Pas de referrer, utiliser le fallback
       const spanElement = goBackButton.querySelector('span');
       if (spanElement) {
         spanElement.textContent = 'Back';
       }
-      goBackButton.href = 'doc.html';
+      goBackButton.href = generateUrl('doc.html');
     }
-  }
-  else {
-    // Pas de referrer, utiliser le fallback
-    const spanElement = goBackButton.querySelector('span');
-    if (spanElement) {
-      spanElement.textContent = 'Back';
-    }
-    goBackButton.href = 'doc.html';
-  }
   }
 
   console.log("Reached goNext section");
   // Gestion du bouton goNext
   console.log("goNextButton found:", goNextButton);
   if (goNextButton) {
-    const currentFileName = window.location.pathname.split('/').pop();
+    const currentFileName = getCurrentFileName();
     console.log("currentFileName for goNext:", currentFileName);
     
     if (pageMapping[currentFileName]) {
@@ -593,17 +635,8 @@ function initDynamicBackNavigation() {
         console.log("Updated goNext span text:", spanElement.textContent);
       }
       
-      // Mettre à jour l'URL du lien (relatif à la page actuelle)
-      if (nextPage === 'index.html') {
-        goNextButton.href = '../index.html';
-      } else if (nextPage === 'framework.html') {
-        goNextButton.href = '../framework.html';
-      } else if (nextPage === 'figma-to-eva.html') {
-        goNextButton.href = '../figma-to-eva.html';
-      } else {
-        // Pour les autres pages du framework
-        goNextButton.href = nextPage;
-      }
+      // Générer l'URL correcte
+      goNextButton.href = generateUrl(nextPage);
       
       console.log(`Dynamic navigation: Go to ${nextPageTitle} (${nextPage})`);
     } else {
@@ -615,7 +648,7 @@ function initDynamicBackNavigation() {
         spanElement.textContent = 'Go to Framework';
         console.log("Updated goNext span text (fallback):", spanElement.textContent);
       }
-      goNextButton.href = '../framework.html';
+      goNextButton.href = generateUrl('framework.html');
       console.log('Dynamic navigation: Using default "Go to Framework"');
     }
   } else {
