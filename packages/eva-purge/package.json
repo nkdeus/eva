@@ -1,0 +1,40 @@
+{
+  "name": "@eva/purge",
+  "version": "1.0.0",
+  "description": "Intelligent CSS purging tool for EVA CSS projects",
+  "type": "commonjs",
+  "main": "src/purge.js",
+  "bin": {
+    "eva-purge": "./cli.js"
+  },
+  "files": [
+    "src/",
+    "cli.js",
+    "README.md"
+  ],
+  "keywords": [
+    "css",
+    "purge",
+    "optimization",
+    "eva",
+    "css-optimizer",
+    "tree-shaking",
+    "unused-css"
+  ],
+  "scripts": {
+    "test": "node test/test.js"
+  },
+  "dependencies": {
+    "glob": "^10.3.10"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/YOUR_USERNAME/eva.git",
+    "directory": "packages/eva-purge"
+  },
+  "author": "EVA Team",
+  "license": "MIT"
+}

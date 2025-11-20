@@ -1,0 +1,99 @@
+.theme-eva {
+  // brand - oklch(81.16% 0.1924 75.18);
+
+  --brand-lightness: 80%;
+  --brand-chroma: 0.1924;
+  --brand-hue: 169;
+
+  --accent-lightness: 80%;
+  --accent-chroma: 0.1924;
+  --accent-hue: 10;
+
+  --extra-lightness: 80%;
+  --extra-chroma: 0.1924;
+  --extra-hue: 200;
+
+
+  --current-lightness: 96.4%; 
+  --current-darkness: 6.4%;  
+
+
+  --dark-lightness: var(--current-darkness);  
+  --dark-chroma: 0.05;      
+  --dark-hue: var(--brand-hue);           
+
+  --light-lightness: var(--current-lightness); 
+  --light-chroma: 0.01;      
+  --light-hue: var(--brand-hue);          
+
+}
+
+.theme-ghost {
+
+  --brand-lightness: 50%;
+  --brand-chroma: 0;
+  --brand-hue: 0.1;
+
+  --accent-lightness: 50%;
+  --accent-chroma: 0;
+  --accent-hue: 0;
+
+  --extra-lightness: 50%;
+  --extra-chroma: 0;
+  --extra-hue: 0;
+
+  --current-lightness: 80%; 
+  --current-darkness: 20%;  
+
+
+  --dark-lightness: var(--current-darkness);  
+  --dark-chroma: 0;      
+  --dark-hue: var(--brand-hue);           
+
+  --light-lightness: var(--current-lightness); 
+  --light-chroma: 0;      
+  --light-hue: var(--brand-hue);      
+
+
+}
+
+// proxy class for UI elements
+._bg-app {
+  --current-bg-color: var(--bg-color);
+  --current-f-color: var(--bg-color-2);
+}
+
+._shadow {
+  box-shadow: 4px 4px 0px 0px var(--current-sh-color);
+  &_ {
+    box-shadow: 8px 8px 0px 0px var(--current-sh-color);
+  }
+}
+
+// hovers
+
+.hover\:_c-brand:hover {
+  color: var(--brand);
+}
+
+.hover\:_bg-brand__:hover {
+  background: var(--brand__);
+}
+.hover\:_bg-dark___:hover {
+  background: var(--dark___);
+}
+
+[class*="hover\:_bg"] {
+  transition: background-color 0.2s;
+}
+
+// acticve
+
+.active.active\:_bg-brand__ {
+  background: var(--brand__);
+}
+
+
+.active.active\:_c-brand {
+  color: var(--brand);
+}

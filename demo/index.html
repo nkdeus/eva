@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EVA CSS - Fluid Design Framework Demo</title>
+    <link rel="stylesheet" href="styles/demo.css">
+    <style>
+        * { box-sizing: border-box; }
+        body { transition: background-color 0.3s ease, color 0.3s ease; }
+    </style>
+</head>
+<body class="current-theme theme-demo all-grads">
+
+    <!-- Theme Toggle Button -->
+    <button onclick="document.body.classList.toggle('toggle-theme')"
+            class="theme-toggle p-16 br-16 _bg-brand _c-light fs-24"
+            title="Toggle Dark/Light Mode">
+        🌓
+    </button>
+
+    <!-- Hero Section -->
+    <section class="demo-container p-32">
+        <div class="g-24" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+            <h1 class="fs-64 _c-brand" style="margin: 0; font-weight: 700;">
+                EVA CSS Framework
+            </h1>
+            <p class="fs-20 _c-dark_" style="margin: 0; max-width: 600px;">
+                Transform static designs into responsive fluid systems with OKLCH colors
+            </p>
+            <div class="g-16" style="display: flex; gap: var(--16); margin-top: var(--32);">
+                <a href="#features" class="p-16 px-32 br-8 _bg-brand _c-light fs-16"
+                   style="text-decoration: none; display: inline-block;">
+                    Get Started
+                </a>
+                <a href="https://github.com/your-username/eva"
+                   class="p-16 px-32 br-8 _bg-dark _c-light fs-16"
+                   style="text-decoration: none; display: inline-block;">
+                    GitHub
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="demo-container p-32">
+        <h2 class="fs-48 _c-dark" style="text-align: center; margin-bottom: var(--48);">
+            Key Features
+        </h2>
+
+        <div class="grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--32);">
+
+            <!-- Feature 1 -->
+            <div class="feature-card p-24 br-16 _bg-light" style="border: 2px solid var(--brand_);">
+                <div class="fs-32" style="margin-bottom: var(--16);">🎨</div>
+                <h3 class="fs-24 _c-brand" style="margin: 0 0 var(--8) 0;">Fluid Scaling</h3>
+                <p class="fs-14 _c-dark_" style="margin: 0; line-height: 1.6;">
+                    Automatic responsive sizing using CSS clamp(). No media queries needed.
+                </p>
+            </div>
+
+            <!-- Feature 2 -->
+            <div class="feature-card p-24 br-16 _bg-light" style="border: 2px solid var(--accent_);">
+                <div class="fs-32" style="margin-bottom: var(--16);">🌈</div>
+                <h3 class="fs-24 _c-accent" style="margin: 0 0 var(--8) 0;">OKLCH Colors</h3>
+                <p class="fs-14 _c-dark_" style="margin: 0; line-height: 1.6;">
+                    Perceptually uniform color system for better gradients and theming.
+                </p>
+            </div>
+
+            <!-- Feature 3 -->
+            <div class="feature-card p-24 br-16 _bg-light" style="border: 2px solid var(--extra_);">
+                <div class="fs-32" style="margin-bottom: var(--16);">📏</div>
+                <h3 class="fs-24 _c-extra" style="margin: 0 0 var(--8) 0;">Custom Sizes</h3>
+                <p class="fs-14 _c-dark_" style="margin: 0; line-height: 1.6;">
+                    Define YOUR design sizes from Figma. Just change the array!
+                </p>
+            </div>
+
+            <!-- Feature 4 -->
+            <div class="feature-card p-24 br-16 _bg-light" style="border: 2px solid var(--brand_);">
+                <div class="fs-32" style="margin-bottom: var(--16);">⚡</div>
+                <h3 class="fs-24 _c-brand" style="margin: 0 0 var(--8) 0;">Zero JavaScript</h3>
+                <p class="fs-14 _c-dark_" style="margin: 0; line-height: 1.6;">
+                    Pure CSS solution. Fast, lightweight, and works everywhere.
+                </p>
+            </div>
+
+            <!-- Feature 5 -->
+            <div class="feature-card p-24 br-16 _bg-light" style="border: 2px solid var(--accent_);">
+                <div class="fs-32" style="margin-bottom: var(--16);">🗜️</div>
+                <h3 class="fs-24 _c-accent" style="margin: 0 0 var(--8) 0;">Smart Purging</h3>
+                <p class="fs-14 _c-dark_" style="margin: 0; line-height: 1.6;">
+                    Intelligent CSS optimization. 40-70% size reduction typical.
+                </p>
+            </div>
+
+            <!-- Feature 6 -->
+            <div class="feature-card p-24 br-16 _bg-light" style="border: 2px solid var(--extra_);">
+                <div class="fs-32" style="margin-bottom: var(--16);">🎭</div>
+                <h3 class="fs-24 _c-extra" style="margin: 0 0 var(--8) 0;">Theme System</h3>
+                <p class="fs-14 _c-dark_" style="margin: 0; line-height: 1.6;">
+                    Built-in dark/light mode. Click the moon icon to try it!
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Code Example Section -->
+    <section class="demo-container p-32">
+        <h2 class="fs-48 _c-dark" style="text-align: center; margin-bottom: var(--48);">
+            Super Simple to Use
+        </h2>
+
+        <div class="g-32" style="display: flex; flex-direction: column; gap: var(--32); max-width: 800px; margin: 0 auto;">
+
+            <!-- Step 1 -->
+            <div>
+                <h3 class="fs-24 _c-brand" style="margin: 0 0 var(--16) 0;">
+                    1. Install
+                </h3>
+                <pre class="code-block p-16 br-8 fs-14"><code>npm install @eva/css</code></pre>
+            </div>
+
+            <!-- Step 2 -->
+            <div>
+                <h3 class="fs-24 _c-brand" style="margin: 0 0 var(--16) 0;">
+                    2. Configure with YOUR sizes
+                </h3>
+                <pre class="code-block p-16 br-8 fs-14" style="line-height: 1.6;"><code>@use '@eva/css' with (
+  $sizes: (4, 8, 16, 32, 64),    // YOUR sizes!
+  $font-sizes: (16, 24, 32),
+  $build-class: true
+);</code></pre>
+            </div>
+
+            <!-- Step 3 -->
+            <div>
+                <h3 class="fs-24 _c-brand" style="margin: 0 0 var(--16) 0;">
+                    3. Use generated utilities
+                </h3>
+                <pre class="code-block p-16 br-8 fs-14" style="line-height: 1.6;"><code>&lt;div class="w-64 p-16 _bg-brand"&gt;
+  &lt;h1 class="fs-32 _c-light"&gt;Hello EVA!&lt;/h1&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Live Example Section -->
+    <section class="demo-container p-32">
+        <h2 class="fs-48 _c-dark" style="text-align: center; margin-bottom: var(--48);">
+            Live Example
+        </h2>
+
+        <div class="p-32 br-16 _bg-brand" style="max-width: 600px; margin: 0 auto;">
+            <div class="g-16" style="display: flex; flex-direction: column; gap: var(--16);">
+                <h3 class="fs-32 _c-light" style="margin: 0;">
+                    This card is fluid!
+                </h3>
+                <p class="fs-16 _c-light_" style="margin: 0; line-height: 1.6;">
+                    Resize your browser window and watch everything scale smoothly.
+                    No breakpoints, no media queries. Just clamp() magic! ✨
+                </p>
+                <div class="g-8" style="display: flex; gap: var(--8); flex-wrap: wrap;">
+                    <span class="p-8 br-4 _bg-accent _c-light fs-12">Tag 1</span>
+                    <span class="p-8 br-4 _bg-accent _c-light fs-12">Tag 2</span>
+                    <span class="p-8 br-4 _bg-accent _c-light fs-12">Tag 3</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gradient Example Section -->
+    <section class="demo-container p-32">
+        <h2 class="fs-48 _c-dark" style="text-align: center; margin-bottom: var(--48);">
+            Beautiful Gradients
+        </h2>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--24);">
+
+            <div class="grad-linear from-brand to-accent d-r p-32 br-16" style="min-height: 150px; display: flex; align-items: center; justify-content: center;">
+                <span class="fs-20 _c-light" style="font-weight: 600;">Linear</span>
+            </div>
+
+            <div class="grad-radial from-accent to-extra p-32 br-16" style="min-height: 150px; display: flex; align-items: center; justify-content: center;">
+                <span class="fs-20 _c-light" style="font-weight: 600;">Radial</span>
+            </div>
+
+            <div class="grad-linear from-extra to-brand d-br animated p-32 br-16" style="min-height: 150px; display: flex; align-items: center; justify-content: center;">
+                <span class="fs-20 _c-light" style="font-weight: 600;">Animated</span>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Packages Section -->
+    <section class="demo-container p-32">
+        <h2 class="fs-48 _c-dark" style="text-align: center; margin-bottom: var(--48);">
+            Three Packages, One Ecosystem
+        </h2>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--32);">
+
+            <!-- Package 1 -->
+            <div class="p-24 br-16" style="background: linear-gradient(135deg, var(--brand_), var(--brand__));">
+                <h3 class="fs-24 _c-light" style="margin: 0 0 var(--8) 0; font-weight: 600;">@eva/css</h3>
+                <p class="fs-14 _c-light_" style="margin: 0 0 var(--16) 0; line-height: 1.6;">
+                    Core fluid design framework
+                </p>
+                <code class="fs-12 _c-light" style="font-family: monospace;">npm install @eva/css</code>
+            </div>
+
+            <!-- Package 2 -->
+            <div class="p-24 br-16" style="background: linear-gradient(135deg, var(--accent_), var(--accent__));">
+                <h3 class="fs-24 _c-light" style="margin: 0 0 var(--8) 0; font-weight: 600;">@eva/colors</h3>
+                <p class="fs-14 _c-light_" style="margin: 0 0 var(--16) 0; line-height: 1.6;">
+                    OKLCH color utilities
+                </p>
+                <code class="fs-12 _c-light" style="font-family: monospace;">npm install @eva/colors</code>
+            </div>
+
+            <!-- Package 3 -->
+            <div class="p-24 br-16" style="background: linear-gradient(135deg, var(--extra_), var(--extra__));">
+                <h3 class="fs-24 _c-light" style="margin: 0 0 var(--8) 0; font-weight: 600;">@eva/purge</h3>
+                <p class="fs-14 _c-light_" style="margin: 0 0 var(--16) 0; line-height: 1.6;">
+                    Intelligent CSS purging
+                </p>
+                <code class="fs-12 _c-light" style="font-family: monospace;">npm install @eva/purge</code>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="p-32 _bg-dark _c-light" style="text-align: center; margin-top: var(--64);">
+        <p class="fs-16" style="margin: 0 0 var(--8) 0;">
+            Made with ❤️ by the EVA Team
+        </p>
+        <p class="fs-14 _c-light_" style="margin: 0;">
+            MIT License | <a href="https://github.com/your-username/eva" class="_c-brand" style="text-decoration: none;">GitHub</a>
+        </p>
+    </footer>
+
+</body>
+</html>

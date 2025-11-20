@@ -1,0 +1,139 @@
+// Fonction strip-unit pour retirer les unités des valeurs Sass
+@use 'sass:math';
+
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return math.div($number, ($number * 0 + 1));
+  }
+  @return $number;
+}
+
+// Configuration
+$sizes: 4, 8, 12, 16, 24, 32, 48, 64, 96, 128 !default;
+$sizing-class: "__", "_", "", "-" !default;
+
+.grid {
+  display: grid;
+  width: 100%;
+}
+
+[class*=auto-fit] {
+  grid-template-columns: repeat(auto-fit, minmax(var(--current-minmax), 1fr));
+}
+
+// Variable de taille minimale pour les grilles
+$grid-min-size: 100 !default;
+
+// Génération automatique des classes auto-fit basée sur $sizes
+@each $size in $sizes {
+  @if $size >= $grid-min-size {
+    @each $class in $sizing-class {
+      .auto-fit-#{$size}#{$class} {
+        --current-minmax: var(--#{$size}#{$class});
+        @debug "auto-fit-#{$size}#{$class}  --#{$size}#{$class}";
+      }
+    }
+  }
+}
+
+// ==========================================
+// SYSTÈME DE GRID CLASSIQUE EN FLEXBOX
+// ==========================================
+
+:root {
+  --grid-columns: 12; // Variable CSS principale (fallback)
+  --col-min-width: 200px; // Largeur minimale d'une colonne
+  --col-min-width-unitless: #{strip-unit(200px)}; // Version sans unité pour les calculs CSS
+  --current-gap: 1rem; // Gap par défaut entre les colonnes
+}
+
+// Container queries pour calcul automatique du nombre de colonnes
+.container\:flex-grid {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: var(--current-gap);
+  container-type: inline-size; // Active les container queries
+  
+  // Calcul automatique basé sur la largeur du conteneur
+  // Plus le conteneur est large, plus on a de colonnes
+  @container (min-width: 200px) { --grid-columns: 1; }
+  @container (min-width: 400px) { --grid-columns: 2; }
+  @container (min-width: 600px) { --grid-columns: 3; }
+  @container (min-width: 800px) { --grid-columns: 4; }
+  @container (min-width: 1000px) { --grid-columns: 5; }
+  @container (min-width: 1200px) { --grid-columns: 6; }
+  @container (min-width: 1400px) { --grid-columns: 8; }
+  @container (min-width: 1600px) { --grid-columns: 10; }
+  @container (min-width: 1800px) { --grid-columns: 12; }
+  @container (min-width: 2000px) { --grid-columns: 16; }
+}
+
+.flex-grid {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: var(--current-gap);
+}
+
+
+// Système de colonnes avec calcul CSS dynamique
+$max-columns: 12; // Nombre maximum de colonnes à générer
+$breakpoints: (
+  "xs": 200px,
+  "sm": 500px,
+  "md": 700px,
+  "lg": 1000px,
+  "xl": 1200px,
+  "xxl": 1400px
+);
+
+// Génération des classes col-X avec calcul CSS dynamique
+@for $i from 1 through $max-columns {
+  .col-#{$i} {
+    --col-span: #{$i};
+    flex: 0 0 auto;
+    width: min(calc(var(--col-span) / var(--grid-columns) * 100% - (var(--grid-columns) / var(--col-span) - 1) * var(--current-gap) / (var(--grid-columns) / var(--col-span))), 100%);
+  }
+}
+
+// Génération des classes avec notation fraction col-1/Y
+@for $denominator from 1 through $max-columns {
+  .col-1\/#{$denominator} {
+    --col-fraction: calc(var(--grid-columns) / #{$denominator});
+    flex: 0 0 auto;
+    // Utilise --grid-columns dans le calcul pour être adaptable
+    width: min(calc(var(--col-fraction) / var(--grid-columns) * 100% - (var(--grid-columns) / var(--col-fraction) - 1) * var(--current-gap) / (var(--grid-columns) / var(--col-fraction))), 100%);
+    @debug "col-1\/#{$denominator}  --col-fraction: calc(var(--grid-columns) / #{$denominator})";
+  }
+  @debug "col-1\/#{$denominator}  --col-fraction: calc(var(--grid-columns) / #{$denominator})";
+}
+
+// ==========================================
+// CLASSES POUR SETTER LOCALEMENT --grid-columns
+// ==========================================
+
+// Génération des classes max-col-X pour définir le nombre de colonnes localement
+@for $i from 1 through $max-columns {
+  .max-col-#{$i} {
+    --grid-columns: #{$i};
+  }
+}
+
+
+// ==========================================
+// CLASSES RESPONSIVES POUR MAX-COLUMNS
+// ==========================================
+
+// Génération des classes responsives pour max-col avec breakpoints
+@each $breakpoint-name, $breakpoint-value in $breakpoints {
+  @media (max-width: #{$breakpoint-value}) {
+    @for $i from 1 through $max-columns {
+      .#{$breakpoint-name}\:max-col-#{$i} {
+        --grid-columns: #{$i};
+      }
+    }
+  }
+}
+
+

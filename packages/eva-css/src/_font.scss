@@ -1,0 +1,64 @@
+// Importez le module math si vous utilisez une version moderne de Sass
+@use "sass:math";
+
+$wght-min: 200;
+$wght-max: 900;
+$wght-step: 100;
+
+$wdth-min: 50;
+$wdth-max: 170;
+$wdth-step: 10;
+
+:root {
+  --title-font: "scale-variable";
+  --body-font: "Noto Sans Display";
+
+  --title-weight: 800;
+  --title-width: 100;
+  --sub-title-weight:700;
+  --sub-title-width: 100;
+  --sub-sub-title-weight: 600;
+  --sub-sub-title-width: 60;
+  --sub-sub-title-spacing: 0.1em;
+  --body-weight: 400;
+
+  $wght-steps: math.div(($wght-max - $wght-min), $wght-step) + 1;
+  @for $i from 0 through $wght-steps - 1 {
+    --f-wg-#{$i + 1}: #{$wght-min + ($wght-step * $i)};
+  }
+
+  $wdth-steps: math.div(($wdth-max - $wdth-min), $wdth-step) + 1;
+  @for $i from 0 through $wdth-steps - 1 {
+    --f-wd-#{$i + 1}: #{$wdth-min + ($wdth-step * $i)};
+  }
+}
+
+$wght-steps: math.div(($wght-max - $wght-min), $wght-step) + 1;
+@for $i from 0 through $wght-steps - 1 {
+ 
+
+  .fwg-#{$i + 1} {
+    --current-f-wg: var(--f-wg-#{$i + 1});
+    @debug var(--f-wg-#{$i + 1});
+  }
+}
+
+$wdth-steps: math.div(($wdth-max - $wdth-min), $wdth-step) + 1;
+@for $i from 0 through $wdth-steps - 1 {
+  .fwd-#{$i + 1} {
+    --current-f-wd: var(--f-wd-#{$i + 1});
+  }
+}
+
+.f-scale {
+  font-variation-settings: "wght" var(--current-f-wg, 400), "wdth" var(--current-f-wd, 100), "ital" 0;
+  &.offset {
+    position: relative;
+    padding-top: 0.25em;
+    &_{
+      position: relative;
+      display: inline-block;
+      padding-top: 0.25em;
+    }
+  }
+}

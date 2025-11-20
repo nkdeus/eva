@@ -1,0 +1,335 @@
+// START FRAMEWORK
+// EVA-CSS v1.0
+
+@use "sass:math";
+@use "sass:map";
+@use "sass:list";
+
+$max: 1rem;
+$Φ: 1.61803398875;
+$min: 0.5rem;
+$ez: 142.4;
+$unit: 1rem;
+$unit-fluid: 1vw;
+
+$screen: 1440;
+
+$eva: 0;
+
+// CONFIGURATION ENVIRONNEMENT
+// =============================================================================
+// Variables pour contrôler le mode de génération selon l'environnement
+
+// DÉVELOPPEMENT (serveur MCP Figma + IA)
+// $px-rem-suffix: true    → Ajoute valeurs statiques -px et -rem pour debug uniquement
+// $build-class: false     → Utilise uniquement les variables CSS (pas de classes générées)
+// $build-color-classes: false → Pas de génération des classes de couleurs
+
+// PRODUCTION (avec script de purge CSS)
+// $px-rem-suffix: false   → Supprime les valeurs debug -px et -rem
+// $build-class: true      → Génère toutes les classes CSS
+// $build-color-classes: true → Génère les classes de couleurs
+
+// Configuration arrays
+$sizes: 4, 8, 12, 16, 24, 32, 48, 64, 96, 128 !default;
+$font-sizes: 12, 14, 16, 18, 20, 24, 32, 48 !default;
+
+// Configuration flags
+$px-rem-suffix: true !default;   // Valeurs statiques de debug uniquement
+$build-class: false !default;      // DEV: false | PROD: true
+$custom-class: false !default;     // true pour filtrage personnalisé des classes
+$name-by-size: true !default;      // true = utilise les valeurs, false = utilise l'index
+
+
+
+$setters-type: "__", "_", "", "-", "-px", "-rem";
+
+$sizing-class: "__", "_", "", "-";
+@if $px-rem-suffix {
+  $sizing-class: list.append($sizing-class, "-px");
+  $sizing-class: list.append($sizing-class, "-rem");
+}
+
+$font-size-class: "__", "_", "";
+@if $px-rem-suffix {
+  $font-size-class: list.append($font-size-class, "-px");
+  $font-size-class: list.append($font-size-class, "-rem");
+}
+
+$properties: (
+  w: width,
+  mw: max-width,
+  h: height,
+  p: padding,
+  px: padding-inline,
+  pr: padding-right,
+  py: padding-block,
+  br: border-radius,
+  mb: margin-bottom,
+  mr: margin-right,
+  ml: margin-left,
+  mt: margin-top,
+  pt: padding-top,
+  pb: padding-bottom,
+  g: gap,
+  gap: gap,
+);
+
+
+$font-properties: (
+  fs: font-size,
+);
+
+
+
+@function round2($number) {
+  @return math.div(round($number * 100), 100);
+}
+
+@function getPercent($size, $ratio: 100) {
+  @return round2((math.div($size, $screen)) * $ratio);
+}
+
+@function toPx($size) {
+  @return $size * 1px;
+}
+
+@function toRem($size) {
+  @return math.div($size, 16) * 1rem;
+}
+
+@function getMinRem($percent) {
+  @return round2($percent * $min);
+}
+
+@function getMaxRem($percent) {
+  @return round2($percent * $max);
+}
+
+@function getVW($percent) {
+  @return round2($percent * $unit-fluid);
+}
+
+@function getFinalMinDiv($size, $ratio) {
+  @return round2(math.div($size, $ratio));
+}
+
+@function getFinalMinMulti($size, $ratio) {
+  @return round2($size * $ratio);
+}
+
+
+
+@mixin getAllSizingClass($prop, $key, $eva) {
+  @each $class in $sizing-class {
+    .#{$key}-#{$eva}#{$class} {
+      #{$prop}: var(--#{$eva}#{$class});
+      @if $key =='gap' {
+        --current-gap: var(--#{$eva}-px);
+      }
+    }
+  }
+}
+
+@mixin getAllFontSizeClass($prop, $key, $eva) {
+  @each $class in $font-size-class {
+    .#{$key}-#{$eva}#{$class} {
+      #{$prop}: var(--#{$key}-#{$eva}#{$class});
+    }
+  }
+}
+
+@function is-map($var) {
+  @return type-of($var) == "map";
+}
+
+// GÉNÉRATION DES VARIABLES CSS PERSONNALISÉES
+// =============================================================================
+// Génère toujours les variables CSS (mode dev et prod)
+:root {
+  // Variables pour les tailles de spacing/layout
+  @each $size in $sizes {
+    $eva: $eva + 1;
+    @if $name-by-size {
+      $eva: $size;
+    }
+    @debug "size : #{$size}";
+    $calc-percent: getPercent($size);
+    $calc-percent_: getPercent($size, $ez);
+
+    $size-px: toPx($size);
+    $size-rem: toRem($size);
+
+    $rem-min: getMinRem($calc-percent);
+    $rem-max: getMaxRem($calc-percent);
+
+    $vw-light: #{round2(math.div(getVW($calc-percent), 4))} "+" #{round2(math.div($size-rem, 1.33))};
+    $vw-medium: #{round2(math.div(getVW($calc-percent), 2))} "+" #{round2(math.div($size-rem, 2))};
+    $vw-strong: #{round2(math.div(getVW($calc-percent), 1.33))} "+" #{round2(math.div($size-rem, 4))};
+    $vw-extrem: #{getVW($calc-percent_)} "-" #{$rem-min};
+
+    $final-min__: $min;
+    $final-min_: getFinalMinDiv($rem-min, $Φ);
+    $final-min: getFinalMinMulti($rem-min, $Φ);
+
+    $css-vars: (
+      "__": (
+        min: $final-min__,
+        fluid: $vw-extrem,
+        max: $rem-max,
+      ),
+      "_": (
+        min: $final-min_,
+        fluid: $vw-strong,
+        max: $rem-max,
+      ),
+      "": (
+        min: $rem-min,
+        fluid: $vw-medium,
+        max: $rem-max,
+      ),
+      "-": (
+        min: $final-min,
+        fluid: $vw-light,
+        max: $rem-max,
+      ),
+    );
+
+    // Ajout des variables de debug en mode développement
+    @if $px-rem-suffix {
+      $css-vars-dev: (
+        "-px": $size-px,
+        "-rem": $size-rem,
+      );
+      $css-vars: map.merge($css-vars, $css-vars-dev);
+    }
+
+    @each $key, $prop in $css-vars {
+      @if (is-map($prop)) {
+        --#{$eva}#{$key}: clamp(#{map-get($prop, min)}, #{map-get($prop, fluid)}, #{map-get($prop, max)});
+      } @else {
+        --#{$eva}#{$key}: #{$prop};
+      }
+    }
+  }
+
+  // Variables pour les font-sizes
+  $eva: 0;
+  $min: 0.6rem;
+  $Φ: 1.3;
+  $fs: "fs";
+
+  @each $size in $font-sizes {
+    $eva: $eva + 1;
+    @if $name-by-size {
+      $eva: $size;
+    }
+    $calc-percent: getPercent($size);
+
+    $size-px: toPx($size);
+    $size-rem: toRem($size);
+
+    $rem-min: getMinRem($calc-percent);
+
+    $vw-light: #{round2(math.div(getVW($calc-percent), 4))} "+" #{round2(math.div($size-rem, 1.33))};
+    $vw-medium: #{round2(math.div(getVW($calc-percent), 2))} "+" #{round2(math.div($size-rem, 2))};
+    $vw-strong: #{round2(math.div(getVW($calc-percent), 1.33))} "+" #{round2(math.div($size-rem, 4))};
+
+    $rem-max: getMaxRem($calc-percent);
+
+    $final-min__: getFinalMinDiv($rem-min, $Φ);
+    $final-min: getFinalMinMulti($rem-min, $Φ);
+
+    $css-fs-vars: (
+      "__": (
+        min: $final-min__,
+        fluid: $vw-strong,
+        max: $rem-max
+      ),
+      "_": (
+        min: $rem-min,
+        fluid: $vw-medium,
+        max: $rem-max
+      ),
+      "": (
+        min: $final-min,
+        fluid: $vw-light,
+        max: $rem-max
+      ),
+    );
+
+    // Ajout des variables de debug pour les font-sizes en mode développement  
+    @if $px-rem-suffix {
+      $css-vars-dev: (
+        "-px": $size-px,
+        "-rem": $size-rem,
+      );
+      $css-fs-vars: map.merge($css-fs-vars, $css-vars-dev);
+    }
+
+    @each $key, $prop in $css-fs-vars {
+      @if (is-map($prop)) {
+       
+        --#{$fs}-#{$eva}#{$key}: clamp(#{map-get($prop, min)}, #{map-get($prop, fluid)}, #{map-get($prop, max)});
+       
+      } @else {
+        --#{$fs}-#{$eva}#{$key}: #{$prop};
+        @debug "fs-#{$eva}#{$key} : #{$prop}";
+      }
+    }
+  }
+}
+
+@if $build-class {
+  // GÉNÉRATION DES CLASSES CSS (MODE PRODUCTION)
+  // Génère les classes utilitaires pour toutes les propriétés
+  $eva: 0;
+  @each $size in $sizes {
+    $eva: $eva + 1;
+    @if $name-by-size {
+      $eva: $size;
+    }
+    @each $key, $prop in $properties {
+      // Vérifier si cette propriété doit être générée pour cette taille
+      $should-generate: false;
+      @if $custom-class {
+        // Si custom-class est true, utiliser le filtrage par $class-config
+        $allowed-sizes: map-get($class-config, $key);
+        @if $allowed-sizes {
+          @each $allowed-size in $allowed-sizes {
+            @if $allowed-size == $size {
+              $should-generate: true;
+            }
+          }
+        }
+      } @else {
+        // Si custom-class est false, générer toutes les classes
+        $should-generate: true;
+      }
+      @if $should-generate {
+        @include getAllSizingClass($prop, $key, $eva);
+      }
+    }
+  }
+}
+
+$eva: 0;
+$min: 0.6rem;
+//$ez : 110;
+
+$Φ: 1.3;
+$fs: "fs";
+
+// GÉNÉRATION DES CLASSES FONT-SIZE (MODE PRODUCTION)
+@if ($build-class) {
+  $eva: 0;
+  @each $size in $font-sizes {
+    $eva: $eva + 1;
+    @if $name-by-size {
+      $eva: $size;
+    }
+    @each $key, $prop in $font-properties {
+      @include getAllFontSizeClass($prop, $key, $eva);
+    }
+  }
+}

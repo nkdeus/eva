@@ -1,0 +1,60 @@
+// ===========================================
+// EVA CSS FRAMEWORK - Main Entry Point
+// ===========================================
+// Fluid design framework with OKLCH colors
+// Transform static designs into responsive fluid systems
+// ===========================================
+
+// Configuration variables with default values
+// These can be overridden using @use with custom values
+$sizes: 4, 8, 12, 16, 24, 32, 48, 64, 96, 128 !default;
+$font-sizes: 12, 14, 16, 18, 20, 24, 32, 48 !default;
+$build-class: true !default;
+$px-rem-suffix: false !default;
+$name-by-size: true !default;
+$custom-class: false !default;
+
+// ===========================================
+// CORE FRAMEWORK MODULES
+// ===========================================
+
+// Import and configure all modules
+
+// Core fluid scaling system and variable generation
+@use '_eva' with (
+  $sizes: $sizes,
+  $font-sizes: $font-sizes,
+  $build-class: $build-class,
+  $px-rem-suffix: $px-rem-suffix,
+  $name-by-size: $name-by-size,
+  $custom-class: $custom-class
+);
+
+// OKLCH color system with opacity/brightness modifiers
+@use '_colors';
+
+// Modern gradient system with Emmet-style syntax
+@use '_gradients';
+
+// Theme switching and dark/light mode
+@use '_theme';
+
+// CSS reset and base styles
+@use '_reset';
+
+// Typography and font utilities
+@use '_font';
+
+// Flexbox utilities
+@use '_flex';
+
+// Grid utilities with configuration
+@use '_grid' with (
+  $sizes: $sizes
+);
+
+// Component utilities
+@use '_components';
+
+// General utility classes
+@use '_utils';

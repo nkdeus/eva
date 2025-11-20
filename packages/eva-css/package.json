@@ -1,0 +1,53 @@
+{
+  "name": "@eva/css",
+  "version": "1.0.0",
+  "description": "Fluid design framework with OKLCH colors - Transform static designs into responsive fluid systems",
+  "type": "module",
+  "main": "src/index.scss",
+  "sass": "src/index.scss",
+  "style": "dist/eva.css",
+  "exports": {
+    ".": {
+      "sass": "./src/index.scss",
+      "style": "./dist/eva.css",
+      "default": "./dist/eva.css"
+    },
+    "./src/*": "./src/*.scss"
+  },
+  "files": [
+    "src/",
+    "dist/",
+    "README.md"
+  ],
+  "keywords": [
+    "css",
+    "scss",
+    "sass",
+    "framework",
+    "fluid-design",
+    "oklch",
+    "utility-css",
+    "design-system",
+    "responsive",
+    "eva"
+  ],
+  "scripts": {
+    "build": "sass src/index.scss dist/eva.css --style=expanded",
+    "build:min": "sass src/index.scss dist/eva.min.css --style=compressed",
+    "watch": "sass --watch src/index.scss dist/eva.css",
+    "dev": "npm run watch"
+  },
+  "devDependencies": {
+    "sass": "^1.94.1"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/YOUR_USERNAME/eva.git",
+    "directory": "packages/eva-css"
+  },
+  "author": "EVA Team",
+  "license": "MIT"
+}

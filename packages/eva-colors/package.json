@@ -1,0 +1,44 @@
+{
+  "name": "@eva/colors",
+  "version": "1.0.0",
+  "description": "OKLCH color utilities for EVA CSS framework",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "bin": {
+    "eva-color": "./cli.js"
+  },
+  "files": [
+    "src/",
+    "cli.js",
+    "README.md"
+  ],
+  "keywords": [
+    "color",
+    "oklch",
+    "css",
+    "eva",
+    "color-conversion",
+    "hex-to-oklch",
+    "palette-generator"
+  ],
+  "scripts": {
+    "test": "node --test",
+    "dev": "node --watch cli.js"
+  },
+  "dependencies": {
+    "culori": "^4.0.2"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/YOUR_USERNAME/eva.git",
+    "directory": "packages/eva-colors"
+  },
+  "author": "EVA Team",
+  "license": "MIT"
+}

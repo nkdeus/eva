@@ -1,0 +1,296 @@
+// ===========================================
+// EVA CSS FLEXBOX SYSTEM
+// ===========================================
+// Enhanced flexbox utility system with comprehensive layout controls
+// Unique selectors with hyphens to avoid CSS conflicts
+
+// ===========================================
+// CORE FLEX CONTAINER
+// ===========================================
+
+.flex {
+  display: flex;
+  flex-direction: row; // Default to row
+
+  // ===========================================
+  // FALLBACK MODIFIERS (when no .x or .y specified)
+  // ===========================================
+  
+  &.center {
+    align-items: center;
+    justify-content: center;
+  }
+  
+  &.start {
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  
+  &.end {
+    align-items: flex-end;
+    justify-content: flex-end;
+  }
+  
+  &.space {
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  &.around {
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  &.evenly {
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  // ===========================================
+  // FLEX Y DIRECTION - UNIQUE SELECTORS
+  // ===========================================
+  
+  &.y {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    
+    // SIMPLE combinations (justify-content only)
+    &.start { justify-content: flex-start; }
+    &.center { justify-content: center; align-items: center; }
+    &.end { justify-content: flex-end; }
+    &.space { justify-content: space-between; }
+    &.around { justify-content: space-around; }
+    &.evenly { justify-content: space-evenly; }
+    
+    // START combinations (justify-content: flex-start)
+    &.start-start { justify-content: flex-start; align-items: flex-start; }
+    &.start-center { justify-content: flex-start; align-items: center; }
+    &.start-end { justify-content: flex-start; align-items: flex-end; }
+    &.start-stretch { justify-content: flex-start; align-items: stretch; }
+    &.start-baseline { justify-content: flex-start; align-items: baseline; }
+    
+    // CENTER combinations (justify-content: center)
+    &.center-start { justify-content: center; align-items: flex-start; }
+    &.center-center { justify-content: center; align-items: center; }
+    &.center-end { justify-content: center; align-items: flex-end; }
+    &.center-stretch { justify-content: center; align-items: stretch; }
+    &.center-baseline { justify-content: center; align-items: baseline; }
+    
+    // END combinations (justify-content: flex-end)
+    &.end-start { justify-content: flex-end; align-items: flex-start; }
+    &.end-center { justify-content: flex-end; align-items: center; }
+    &.end-end { justify-content: flex-end; align-items: flex-end; }
+    &.end-stretch { justify-content: flex-end; align-items: stretch; }
+    &.end-baseline { justify-content: flex-end; align-items: baseline; }
+    
+    // SPACE combinations (justify-content: space-between)
+    &.space-start { justify-content: space-between; align-items: flex-start; }
+    &.space-center { justify-content: space-between; align-items: center; }
+    &.space-end { justify-content: space-between; align-items: flex-end; }
+    &.space-stretch { justify-content: space-between; align-items: stretch; }
+    &.space-baseline { justify-content: space-between; align-items: baseline; }
+    
+    // AROUND combinations (justify-content: space-around)
+    &.around-start { justify-content: space-around; align-items: flex-start; }
+    &.around-center { justify-content: space-around; align-items: center; }
+    &.around-end { justify-content: space-around; align-items: flex-end; }
+    &.around-stretch { justify-content: space-around; align-items: stretch; }
+    &.around-baseline { justify-content: space-around; align-items: baseline; }
+    
+    // EVENLY combinations (justify-content: space-evenly)
+    &.evenly-start { justify-content: space-evenly; align-items: flex-start; }
+    &.evenly-center { justify-content: space-evenly; align-items: center; }
+    &.evenly-end { justify-content: space-evenly; align-items: flex-end; }
+    &.evenly-stretch { justify-content: space-evenly; align-items: stretch; }
+    &.evenly-baseline { justify-content: space-evenly; align-items: baseline; }
+  }
+
+  // ===========================================
+  // FLEX X DIRECTION - UNIQUE SELECTORS
+  // ===========================================
+  
+  &.x {
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    
+    // SIMPLE combinations (justify-content only)
+    &.start { justify-content: flex-start; }
+    &.center { justify-content: center; align-items: center; }
+    &.end { justify-content: flex-end; }
+    &.space { justify-content: space-between; }
+    &.around { justify-content: space-around; }
+    &.evenly { justify-content: space-evenly; }
+    
+    // START combinations (justify-content: flex-start)
+    &.start-start { justify-content: flex-start; align-items: flex-start; }
+    &.start-center { justify-content: flex-start; align-items: center; }
+    &.start-end { justify-content: flex-start; align-items: flex-end; }
+    &.start-stretch { justify-content: flex-start; align-items: stretch; }
+    &.start-baseline { justify-content: flex-start; align-items: baseline; }
+    
+    // CENTER combinations (justify-content: center)
+    &.center-start { justify-content: center; align-items: flex-start; }
+    &.center-center { justify-content: center; align-items: center; }
+    &.center-end { justify-content: center; align-items: flex-end; }
+    &.center-stretch { justify-content: center; align-items: stretch; }
+    &.center-baseline { justify-content: center; align-items: baseline; }
+    
+    // END combinations (justify-content: flex-end)
+    &.end-start { justify-content: flex-end; align-items: flex-start; }
+    &.end-center { justify-content: flex-end; align-items: center; }
+    &.end-end { justify-content: flex-end; align-items: flex-end; }
+    &.end-stretch { justify-content: flex-end; align-items: stretch; }
+    &.end-baseline { justify-content: flex-end; align-items: baseline; }
+    
+    // SPACE combinations (justify-content: space-between)
+    &.space-start { justify-content: space-between; align-items: flex-start; }
+    &.space-center { justify-content: space-between; align-items: center; }
+    &.space-end { justify-content: space-between; align-items: flex-end; }
+    &.space-stretch { justify-content: space-between; align-items: stretch; }
+    &.space-baseline { justify-content: space-between; align-items: baseline; }
+    
+    // AROUND combinations (justify-content: space-around)
+    &.around-start { justify-content: space-around; align-items: flex-start; }
+    &.around-center { justify-content: space-around; align-items: center; }
+    &.around-end { justify-content: space-around; align-items: flex-end; }
+    &.around-stretch { justify-content: space-around; align-items: stretch; }
+    &.around-baseline { justify-content: space-around; align-items: baseline; }
+    
+    // EVENLY combinations (justify-content: space-evenly)
+    &.evenly-start { justify-content: space-evenly; align-items: flex-start; }
+    &.evenly-center { justify-content: space-evenly; align-items: center; }
+    &.evenly-end { justify-content: space-evenly; align-items: flex-end; }
+    &.evenly-stretch { justify-content: space-evenly; align-items: stretch; }
+    &.evenly-baseline { justify-content: space-evenly; align-items: baseline; }
+  }
+
+  // ===========================================
+  // EXPLICIT AXIS CONTROL (alternative syntax)
+  // ===========================================
+  
+  // Main axis (justify-content) explicit classes
+  &.justify-start { justify-content: flex-start; }
+  &.justify-center { justify-content: center; }
+  &.justify-end { justify-content: flex-end; }
+  &.justify-space { justify-content: space-between; }
+  &.justify-around { justify-content: space-around; }
+  &.justify-evenly { justify-content: space-evenly; }
+  
+  // Cross axis (align-items) explicit classes
+  &.items-start { align-items: flex-start; }
+  &.items-center { align-items: center; }
+  &.items-end { align-items: flex-end; }
+  &.items-stretch { align-items: stretch; }
+  &.items-baseline { align-items: baseline; }
+
+  // ===========================================
+  // ALIGN CONTENT (FOR MULTI-LINE)
+  // ===========================================
+  
+  &.content-start { align-content: flex-start; }
+  &.content-center { align-content: center; }
+  &.content-end { align-content: flex-end; }
+  &.content-space { align-content: space-between; }
+  &.content-around { align-content: space-around; }
+  &.content-evenly { align-content: space-evenly; }
+
+  // ===========================================
+  // FLEX WRAP MODIFIERS
+  // ===========================================
+  
+  &.wrap { flex-wrap: wrap; }
+  &.nowrap { flex-wrap: nowrap; }
+  &.wrap-reverse { flex-wrap: wrap-reverse; }
+
+  // ===========================================
+  // REVERSE MODIFIERS
+  // ===========================================
+  
+  &.reverse {
+    &.x { flex-direction: row-reverse; }
+    &.y { flex-direction: column-reverse; }
+  }
+}
+
+// ===========================================
+// FLEX ITEM MODIFIERS
+// ===========================================
+
+// Flex grow, shrink, basis utilities
+.flex-1 { flex: 1 1 0%; }
+.flex-auto { flex: 1 1 auto; }
+.flex-initial { flex: 0 1 auto; }
+.flex-none { flex: none; }
+
+// Legacy compatibility
+.stretch { flex: 1; }
+
+// Specific flex values
+.flex-2 { flex: 2 1 0%; }
+.flex-3 { flex: 3 1 0%; }
+
+// ===========================================
+// ALIGN SELF MODIFIERS
+// ===========================================
+
+.self-auto { align-self: auto; }
+.self-start { align-self: flex-start; }
+.self-center { align-self: center; }
+.self-end { align-self: flex-end; }
+.self-stretch { align-self: stretch; }
+.self-baseline { align-self: baseline; }
+
+// ===========================================
+// ORDER UTILITIES
+// ===========================================
+
+.order-first { order: -9999; }
+.order-last { order: 9999; }
+.order-none { order: 0; }
+
+// Numbered orders (1-12 common use cases)
+@for $i from 1 through 12 {
+  .order-#{$i} { order: #{$i}; }
+}
+
+// ===========================================
+// COMMON FLEX PATTERNS
+// ===========================================
+
+// Card layouts
+.flex-card {
+  display: flex;
+  flex-direction: column;
+  
+  .flex-card-header,
+  .flex-card-footer { flex-shrink: 0; }
+  
+  .flex-card-body { flex: 1; }
+}
+
+// Sidebar layouts
+.flex-sidebar {
+  display: flex;
+  
+  .flex-sidebar-nav { flex-shrink: 0; }
+  .flex-sidebar-main {
+    flex: 1;
+    min-width: 0; // Prevent flex item overflow
+  }
+}
+
+// Center content patterns
+.flex-center-page {
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-center-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,0 +1,114 @@
+
+.pointer{
+  cursor: pointer;
+}
+
+.poa {
+  position: absolute;
+  &.center {
+    left: 50%;
+    top: 50%;
+    translate: -50% -50%;
+  }
+}
+.por {
+  position: relative;
+}
+.pof {
+  position: fixed;
+}
+
+.pos {
+  position: sticky;
+  top: 101px;
+}
+
+.ar-1 {
+  aspect-ratio: 1/1;
+}
+
+.tac {
+  text-align: center;
+}
+
+.circle {
+  border-radius: 100%;
+}
+
+pre {
+  white-space: pre-line !important;
+}
+
+.mt-auto{
+  margin-top: auto;
+}
+
+.mb-auto{
+  margin-bottom: auto;
+}
+
+.mr-auto{
+  margin-right: auto;
+}
+
+.ml-auto{
+  margin-left: auto;
+}
+
+.border {
+  border-style: solid;
+  &.thin {
+    border-width: 1px;
+  }
+}
+
+.oh {
+  overflow: hidden;
+}
+
+.lt {
+  letter-spacing: 0.1em;
+}
+
+.lh-0 {
+  line-height: 0;
+}
+
+.lh-1 {
+  line-height: 1;
+}
+
+img {
+  object-fit: cover;
+}
+
+.ttu {
+  text-transform: uppercase;
+}
+
+.hide {
+  display: none !important;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.blur {
+  filter: blur(1rem);
+  &_ {
+    filter: blur(2rem);
+    &_ {
+      filter: blur(3rem);
+    }
+  }
+}
+
+.w-full{
+  width: 100%;
+}
+
+
+.h-full{
+  height: 100%;
+}

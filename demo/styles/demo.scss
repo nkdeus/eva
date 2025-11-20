@@ -1,0 +1,71 @@
+// ===========================================
+// EVA CSS Demo Styles
+// ===========================================
+
+// Import EVA CSS with demo sizes
+@use '../../packages/eva-css/src/index.scss' with (
+  $sizes: (4, 8, 16, 24, 32, 48, 64, 96, 128, 200),
+  $font-sizes: (12, 14, 16, 20, 24, 32, 48, 64),
+  $build-class: true,
+  $px-rem-suffix: false
+);
+
+// Demo theme colors
+.theme-demo {
+  --brand-lightness: 62.8%;
+  --brand-chroma: 0.258;
+  --brand-hue: 29.23;
+
+  --accent-lightness: 51.7%;
+  --accent-chroma: 0.293;
+  --accent-hue: 289.66;
+
+  --extra-lightness: 45.5%;
+  --extra-chroma: 0.185;
+  --extra-hue: 195.12;
+
+  --current-lightness: 98%;
+  --current-darkness: 15%;
+
+  --light-lightness: var(--current-lightness);
+  --light-chroma: 0.000;
+  --light-hue: 0;
+
+  --dark-lightness: var(--current-darkness);
+  --dark-chroma: 0.000;
+  --dark-hue: 0;
+}
+
+// Custom demo styles
+.demo-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.code-block {
+  background: var(--dark);
+  color: var(--light);
+  font-family: 'Courier New', monospace;
+  overflow-x: auto;
+}
+
+.feature-card {
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+  }
+}
+
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  z-index: 1000;
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}

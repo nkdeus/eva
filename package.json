@@ -1,11 +1,17 @@
 {
-  "name": "fluid-ui",
+  "name": "eva-monorepo",
   "version": "1.0.0",
+  "private": true,
+  "description": "EVA CSS Framework - Monorepo for fluid design framework with OKLCH colors",
   "scripts": {
+    "build": "pnpm -r build",
+    "test": "pnpm -r test",
+    "dev": "pnpm -r dev",
+    "publish": "pnpm -r publish",
     "watch": "npx sass --watch styles/main.scss:styles/main.css --style expanded",
     "watch-projects": "node scripts/watch-projects.js",
     "build-css": "npx sass styles/main.scss:styles/main.css --style expanded",
-    "build": "npm run build-css && npm run purge",
+    "build-legacy": "npm run build-css && npm run purge",
     "purge": "node scripts/purge-css.js"
   },
   "devDependencies": {

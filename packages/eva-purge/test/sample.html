@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EVA Purge Test</title>
+    <link rel="stylesheet" href="sample.css">
+</head>
+<body class="current-theme theme-test">
+    <div class="container">
+        <h1 class="fs-32 _c-brand">Test Heading</h1>
+        <p class="fs-16 _c-dark">Test paragraph with <span class="w-64">inline element</span></p>
+        <button class="p-16 _bg-accent _c-light">Click me</button>
+    </div>
+
+    <script>
+        // Dynamic class usage
+        document.querySelector('.container').classList.add('active');
+        const element = document.getElementById('dynamic');
+    </script>
+</body>
+</html>
