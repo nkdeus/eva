@@ -36,9 +36,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/YOUR_USERNAME/eva.git",
+    "url": "https://github.com/nkdeus/eva.git",
     "directory": "packages/eva-colors"
   },
-  "author": "EVA Team",
+  "author": {
+    "name": "Michaël Tati",
+    "url": "https://ulysse-2029.com/"
+  },
+  "homepage": "https://eva-css.xyz/",
   "license": "MIT"
 }

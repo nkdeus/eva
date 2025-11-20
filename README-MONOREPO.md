@@ -167,7 +167,7 @@ Typical results: **40-70% size reduction**
 
 Check out the `demo/` directory for a complete showcase with examples.
 
-[View Demo →](./demo/index.html)
+[View Live Demo →](https://eva-css.xyz/demo/)
 
 ## 🛠️ Development
 
@@ -188,11 +188,19 @@ pnpm run watch
 
 ## 🤝 Contributing
 
-Contributions welcome! Please read our [Contributing Guide](CONTRIBUTING.md) first.
+Contributions welcome! Open an issue or PR on [GitHub](https://github.com/nkdeus/eva/tree/feature/npm-packages).
 
 ## 📄 License
 
-MIT © EVA Team
+MIT © [Michaël Tati](https://ulysse-2029.com/)
+
+## 👨‍💻 Author
+
+**Michaël Tati** - Full Stack Developer & Designer
+- 🌐 Portfolio: [ulysse-2029.com](https://ulysse-2029.com/)
+- 💼 LinkedIn: [linkedin.com/in/mtati](https://www.linkedin.com/in/mtati/)
+- 🎨 EVA CSS: [eva-css.xyz](https://eva-css.xyz/)
+- 📦 GitHub: [github.com/nkdeus](https://github.com/nkdeus)
 
 ---
 
@@ -222,6 +230,8 @@ EVA CSS:          Generated automatically from 7 sizes
 npm install @eva/css @eva/colors @eva/purge
 ```
 
+Check out the [Live Demo](https://eva-css.xyz/demo/) or visit [eva-css.xyz](https://eva-css.xyz/).
+
 ---
 
-**Made with ❤️ by the EVA Team**
+**Made with ❤️ by [Michaël Tati](https://ulysse-2029.com/)**

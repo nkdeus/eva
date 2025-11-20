@@ -187,9 +187,9 @@ var(--brand-b_)  // More brighter
 
 ## 📚 Documentation
 
-- [Full Documentation](https://eva-css.netlify.app)
-- [API Reference](https://eva-css.netlify.app/api/)
-- [Examples](https://eva-css.netlify.app/examples/)
+- [Full Documentation](https://eva-css.xyz/)
+- [GitHub Repository](https://github.com/nkdeus/eva)
+- [Examples & Demo](https://eva-css.xyz/demo/)
 
 ## 🎯 Quick Workflow: Figma → EVA CSS
 
@@ -232,7 +232,14 @@ npm run watch        # Watch mode for development
 
 ## 📄 License
 
-MIT © EVA Team
+MIT © [Michaël Tati](https://ulysse-2029.com/)
+
+## 👨‍💻 Author
+
+**Michaël Tati**
+- Portfolio: [ulysse-2029.com](https://ulysse-2029.com/)
+- LinkedIn: [linkedin.com/in/mtati](https://www.linkedin.com/in/mtati/)
+- Website: [eva-css.xyz](https://eva-css.xyz/)
 
 ## 🔗 Related Packages
 

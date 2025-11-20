@@ -181,7 +181,14 @@ pnpm test
 
 ## 📄 License
 
-MIT © EVA Team
+MIT © [Michaël Tati](https://ulysse-2029.com/)
+
+## 👨‍💻 Author
+
+**Michaël Tati**
+- Portfolio: [ulysse-2029.com](https://ulysse-2029.com/)
+- LinkedIn: [linkedin.com/in/mtati](https://www.linkedin.com/in/mtati/)
+- Website: [eva-css.xyz](https://eva-css.xyz/)
 
 ## 🔗 Related Packages
 
