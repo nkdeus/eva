@@ -20,7 +20,24 @@
       "Bash(do sed -i 's/<span class=\"\"fs-12\"\">JS Calculator<\\/span>/<span class=\"\"fs-12\"\">JS Calculator<\\/span>\\n            <\\/a>/' \"$file\")",
       "Bash(do sed -i 's/<span class=\"\"fs-12\"\">Figma to EVA<\\/span>/<span class=\"\"fs-12\"\">Figma to EVA<\\/span>\\n      <\\/a>/' \"$file\")",
       "Bash(do sed -i 's|        \\n    </div>|      </a>\\n    </div>|' \"$file\")",
-      "Bash(do sed -i 's/^        $/      <\\/a>/' \"$file\")"
+      "Bash(do sed -i 's/^        $/      <\\/a>/' \"$file\")",
+      "Bash(cat:*)",
+      "Bash(npm --version:*)",
+      "Bash(node --version:*)",
+      "Bash(npm install:*)",
+      "Bash(pnpm --version:*)",
+      "Bash(pnpm init:*)",
+      "Bash(pnpm install:*)",
+      "Bash(pnpm run build:*)",
+      "Bash(pnpm:*)",
+      "Bash(echo:*)",
+      "Bash(chmod:*)",
+      "Bash(node cli.js:*)",
+      "Bash(npx sass:*)",
+      "Bash(npm test:*)",
+      "Bash(tree:*)",
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$(cat <<''EOF''\nfeat: Transform EVA into professional npm monorepo\n\nThis commit transforms EVA CSS into a complete npm monorepo with three\npublishable packages and a beautiful demo page.\n\n## 📦 New Packages\n\n### @eva/css (Core Framework)\n- Fluid design framework with OKLCH colors\n- Easy size configuration from Figma/designs\n- Two modes: utility classes or CSS variables\n- Build: eva.css (88KB) + eva.min.css (72KB)\n- Modern Sass with @use and @forward\n\n### @eva/colors (Color Utilities)\n- Hex ↔ OKLCH conversion\n- Palette generation\n- Theme generator\n- Accessibility checker\n- CLI: eva-color convert/palette/theme/contrast\n\n### @eva/purge (CSS Optimization)\n- Intelligent CSS purging\n- 40-70% typical size reduction\n- HTML/JS/Vue/React support\n- Config file support\n- CLI: eva-purge with flexible options\n\n## 🎨 Demo Page\n- Beautiful showcase at demo/index.html\n- Uses only EVA CSS (no other frameworks)\n- Interactive dark/light theme toggle\n- Live examples of all features\n- Animated gradients\n- Responsive and fluid\n\n## 🛠️ Monorepo Setup\n- pnpm workspace configuration\n- Unified build scripts\n- Independent package versioning\n- Complete documentation per package\n- Test suite for @eva/purge\n\n## 📚 Documentation\n- README-MONOREPO.md with complete guide\n- Individual READMEs for each package\n- Figma → EVA workflow documented\n- Quick start examples\n- API references\n\n## ✨ Key Innovation\nSuper easy size configuration - just change one array:\n\n```scss\n@use ''@eva/css'' with (\n  $sizes: (4, 8, 16, 32, 64)  // YOUR Figma sizes!\n);\n```\n\nAll sizes auto-scale fluidly with clamp(). No media queries needed! 🎉\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")"
     ],
     "deny": []
   }
