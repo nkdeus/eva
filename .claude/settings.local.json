@@ -2,7 +2,9 @@
   "permissions": {
     "allow": [
       "Bash(git mv:*)",
-      "Bash(test:*)"
+      "Bash(test:*)",
+      "Bash(cat:*)",
+      "Bash(git checkout:*)"
     ],
     "deny": [],
     "ask": []
