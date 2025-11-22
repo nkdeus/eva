@@ -20,7 +20,15 @@
       "Bash(do sed -i 's/<span class=\"\"fs-12\"\">JS Calculator<\\/span>/<span class=\"\"fs-12\"\">JS Calculator<\\/span>\\n            <\\/a>/' \"$file\")",
       "Bash(do sed -i 's/<span class=\"\"fs-12\"\">Figma to EVA<\\/span>/<span class=\"\"fs-12\"\">Figma to EVA<\\/span>\\n      <\\/a>/' \"$file\")",
       "Bash(do sed -i 's|        \\n    </div>|      </a>\\n    </div>|' \"$file\")",
-      "Bash(do sed -i 's/^        $/      <\\/a>/' \"$file\")"
+      "Bash(do sed -i 's/^        $/      <\\/a>/' \"$file\")",
+      "Bash(npm install:*)",
+      "WebFetch(domain:www.npmjs.com)",
+      "Bash(npm view:*)",
+      "Bash(npm search:*)",
+      "Bash(npx sass:*)",
+      "Bash(npm run purge:*)",
+      "Bash(npx eva-color:*)",
+      "Bash(npm run build:*)"
     ],
     "deny": []
   }

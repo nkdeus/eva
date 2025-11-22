@@ -1,27 +1,20 @@
-$px-rem-suffix: false; // false for prod usage
-$build-class: false; // false to use only CSS var
-$custom-class: false;
-$name-by-size: true; // false to use class name by 1, 2, 3, 4, 5, 6, 7, 8, 9, 10...
+// ===========================================
+// TRY PROJECT - EVA CSS Configuration
+// ===========================================
 
-$sizes: 16,35,64,128,141;
-$font-sizes: 128;
-
-$class-config: (
-  w: (), // width: seulement pour la taille 50
-  h: (), // height: pour les tailles 24 et 50
-  p: (), // padding: seulement pour la taille 50
-  px: (), // padding-inline: seulement pour la taille 24
-  pr: (), // padding-right: aucune classe générée
-  py: (), // padding-block: pour les tailles 24 et 50
-  br: (), // border-radius: seulement pour la taille 50
-  mb: (), // margin-bottom: pour les tailles 24 et 50
-  g: (), // gap: pour les tailles 24 et 50
+// Import EVA CSS Framework from npm package
+@use 'eva-css-fluid/src' as * with (
+  $sizes: (16, 35, 64, 128, 141),
+  $font-sizes: (128,),
+  $build-class: false,
+  $px-rem-suffix: false,
+  $name-by-size: true,
+  $custom-class: false
 );
 
-/* BUILD ONLY FLUID CSS VAR */
-@import "../../../styles/framework/eva";
-@import "../../../styles/framework/colors";
-@import "../../../styles/framework/theme";
+// ===========================================
+// PROJECT THEME
+// ===========================================
 
 .theme-try {
   --brand-lightness: 62.7%;

@@ -1,22 +1,20 @@
-$px-rem-suffix: false; // false for prod usage
-$build-class: true; // false to use only CSS var
-$custom-class: true;
-$name-by-size: true; // false to use class name by 1, 2, 3, 4, 5, 6, 7, 8, 9, 10...
+// ===========================================
+// LILI PROJECT - EVA CSS Configuration
+// ===========================================
 
-$sizes: 24, 50, 100;
-$font-sizes: 14, 16, 18, 24, 32, 48, 60, 80, 120;
-
-$class-config: (
-  w: (50), // width: seulement pour la taille 50
-  h: (), // height: pour les tailles 24 et 50
-  p: (), // padding: seulement pour la taille 50
-  px: (24), // padding-inline: seulement pour la taille 24
-  pr: (), // padding-right: aucune classe générée
-  py: (), // padding-block: pour les tailles 24 et 50
-  br: (), // border-radius: seulement pour la taille 50
-  mb: (), // margin-bottom: pour les tailles 24 et 50
-  g: (), // gap: pour les tailles 24 et 50
+// Import EVA CSS Framework from npm package
+@use 'eva-css-fluid/src' as * with (
+  $sizes: (24, 50, 100),
+  $font-sizes: (14, 16, 18, 24, 32, 48, 60, 80, 120),
+  $build-class: true,
+  $px-rem-suffix: false,
+  $name-by-size: true,
+  $custom-class: false
 );
 
-/* BUILD EVA CSS FRAMEWORK */
-@import "../../../styles/framework/eva";
+// NOTE: $custom-class is not yet supported with external package
+// All size classes will be generated for all properties
+
+// ===========================================
+// PROJECT CUSTOM STYLES
+// ===========================================

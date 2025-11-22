@@ -1,26 +1,23 @@
-$px-rem-suffix: true; // activate var PX & REM no fluid suffix
-$build-class: true; // false to use only CSS var
-$custom-class: false; // true to use custom class for each property
-$name-by-size: true; // true = use size values, false = use index
+// ===========================================
+// EVA CSS - Using External Package
+// ===========================================
 
-$sizes: 4, 8, 12, 16, 20, 32, 34, 52, 84, 136, 156, 220, 356, 576, 712;
-$font-sizes: 10, 12, 16, 18, 24, 36, 52, 72;
+// Import EVA CSS Framework from npm package with custom configuration
+@use 'eva-css-fluid/src' as * with (
+  $sizes: (4, 8, 12, 16, 20, 32, 34, 52, 84, 136, 156, 220, 356, 576, 712),
+  $font-sizes: (10, 12, 16, 18, 24, 36, 52, 72),
+  $build-class: true,
+  $px-rem-suffix: true,
+  $name-by-size: true,
+  $custom-class: false
+);
 
-$auto-theme-switch: false; // true = auto switch theme on prefers-color-scheme, false = manual switch with .toggle-theme
+// ===========================================
+// CUSTOM SITE STYLES
+// ===========================================
 
-/* BUILD EVA CSS FRAMEWORK */
-@import "./framework/reset";
-@import "./framework/eva";
-@import "./framework/colors";
-@import "./framework/gradients";
-@import "./framework/theme";
-@import "./framework/grid";
-@import "./framework/components";
-@import "./framework/utils";
-@import "./framework/ballzzz";
-@import "./framework/flex";
-@import "./framework/font";
-@import "./framework/index";
-
-/* BUILD ONLY FLUID CSS VAR 
-@import "./framework/eva"; */
+// Add any custom styles specific to this site below
+// Import custom modules if needed
+@import "./custom/components";
+@import "./custom/ballzzz";
+@import "./custom/index";

@@ -16,6 +16,7 @@ const processes = [];
 // Watch du fichier principal styles/main.scss si il existe
 if (mainScssExists) {
   const mainSassArgs = [
+    '--load-path=node_modules',
     '--watch',
     'styles/main.scss:styles/main.css',
     '--style',
@@ -40,6 +41,7 @@ projectScssFiles.forEach((scssFile) => {
   require('fs').mkdirSync(outDir, { recursive: true });
 
   const sassArgs = [
+    '--load-path=node_modules',
     '--watch',
     scssFile + ':' + outFile,
     '--style',

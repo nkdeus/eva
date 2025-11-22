@@ -2,11 +2,14 @@
   "name": "fluid-ui",
   "version": "1.0.0",
   "scripts": {
-    "watch": "npx sass --watch styles/main.scss:styles/main.css --style expanded",
+    "watch": "npx sass --load-path=node_modules --watch styles/main.scss:styles/main.css --style expanded",
     "watch-projects": "node scripts/watch-projects.js",
-    "build-css": "npx sass styles/main.scss:styles/main.css --style expanded",
+    "build-css": "npx sass --load-path=node_modules styles/main.scss:styles/main.css --style expanded",
     "build": "npm run build-css && npm run purge",
-    "purge": "node scripts/purge-css.js"
+    "purge": "npx eva-purge --css styles/main.css --content '**/*.html' --output styles/main-compressed.css --safelist 'current-theme,toggle-theme,all-grads'",
+    "color:convert": "npx eva-color convert",
+    "color:palette": "npx eva-color palette",
+    "color:theme": "npx eva-color theme"
   },
   "devDependencies": {
     "culori": "^4.0.2",
@@ -18,6 +21,9 @@
     "stylelint-order": "^5.0.0"
   },
   "dependencies": {
-    "claude-talk-to-figma-mcp": "^0.5.3"
+    "claude-talk-to-figma-mcp": "^0.5.3",
+    "eva-colors": "^1.0.4",
+    "eva-css-fluid": "^1.0.4",
+    "eva-css-purge": "^1.0.4"
   }
 }
