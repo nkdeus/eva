@@ -34,7 +34,9 @@
       "Bash(cat:*)",
       "Bash(npm update:*)",
       "Bash(echo:*)",
-      "WebSearch"
+      "WebSearch",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(npm show:*)"
     ],
     "deny": []
   }
