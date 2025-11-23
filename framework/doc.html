@@ -102,7 +102,7 @@
         <span class="fs-12">Figma to EVA</span>
       </a>
 
-      <a href="https://github.com/nkdeus/eva" target="_blank" class="h-52 px-8 flex x g-12 center _c-brand br-8">
+      <a href="https://github.com/nkdeus/eva-framework" target="_blank" class="h-52 px-8 flex x g-12 center _c-brand br-8">
        
         <svg xmlns="http://www.w3.org/2000/svg" class="lh-0" height="20" viewBox="0 0 16 16" width="20" aria-hidden="true" class="d-block"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
         
@@ -135,8 +135,10 @@
         </h1>
         <div class="flex x wrap g-12  fs-12">
           <a href="#core-system" class="h-52 px-12 flex y center _c-brand br-12">Core System</a>
+          <a href="#cli-tools" class="h-52 px-12 flex y center _c-brand br-12">CLI Tools</a>
+          <a href="#workflows" class="h-52 px-12 flex y center _c-brand br-12">Workflows</a>
           <a href="#scss-configuration" class="h-52 px-12 flex y center _c-brand br-12">SCSS Options</a>
-          <a href="#ready-to-try" class="h-52 px-12 flex y center _c-brand br-12">Ready to try ?</a> 
+          <a href="#ready-to-try" class="h-52 px-12 flex y center _c-brand br-12">Ready to try ?</a>
          </div>
       </div>
   </section>
@@ -147,17 +149,65 @@
       <span class="_c-light">Core System</span>
     </h2>
     <p class="fs-16">
-      EVA CSS is built around a <strong>1440px</strong> design system, perfect for Figma workflows.
-      <br>The scaling system adapts seamlessly to any viewport while maintaining design consistency.
+      EVA CSS is now available as an <strong>npm package</strong> for easy integration into any project.
+      <br>Built around fluid design principles, it transforms static Figma designs into truly responsive systems.
     </p>
-    
-    <div class="flex x wrap g-20">
-      <div class="p-32_ border thin _bc-brand__ flex y g-8">
-        <pre>
-          $screen: 1440;
-          $sizes: 4, 8, 12, 20, 32, 52, 84, 136, 220, 356, 576, 712;
-          $name-by-size: true; // Uses actual size values as variable names
-        </pre>
+
+    <div class="flex y g-20">
+      <h3 class="fs-24- _c-brand mt-32">Installation</h3>
+      <div class="flex x wrap g-20">
+        <div class="p-32_ border thin _bc-brand__ _bg-brand___ flex y g-12">
+          <span class="bold">NPM Package</span>
+          <pre class="fs-16">npm install eva-css-fluid</pre>
+          <p class="fs-16 _c-dark_">Install the core EVA CSS framework</p>
+          <p class="fs-12 _c-brand"><a href="https://www.npmjs.com/package/eva-css-fluid" target="_blank">View on NPM →</a></p>
+        </div>
+
+        <div class="p-32_ border thin _bc-brand__ flex y g-12">
+          <span class="bold">Additional Packages</span>
+          <pre class="fs-16">npm install eva-colors eva-css-purge</pre>
+          <p class="fs-16 _c-dark_">Optional: Color utilities and CSS optimization</p>
+          <p class="fs-12 _c-brand">
+            <a href="https://www.npmjs.com/package/eva-colors" target="_blank">eva-colors</a> |
+            <a href="https://www.npmjs.com/package/eva-css-purge" target="_blank">eva-css-purge</a>
+          </p>
+        </div>
+      </div>
+
+      <h3 class="fs-24- _c-brand mt-32">Current Version</h3>
+      <div class="p-32_ border thin _bc-brand__ _bg-accent___ flex y g-8">
+        <span class="bold">v2.0.5 (November 2025)</span>
+        <p class="fs-16 _c-dark_">New features: Interactive CLI, JSON configuration, validation tools, modular imports</p>
+      </div>
+    </div>
+
+    <div class="flex y g-20 mt-32">
+      <h3 class="fs-24- _c-brand">Design System Configuration</h3>
+      <p class="fs-16">
+        EVA CSS is built around a <strong>1440px</strong> design system, perfect for Figma workflows.
+        <br>The scaling system adapts seamlessly to any viewport while maintaining design consistency.
+      </p>
+      <div class="flex x wrap g-20">
+        <div class="p-32_ border thin _bc-brand__ _bg-extra___ flex y g-8">
+          <span class="bold">SCSS Configuration Example</span>
+          <pre class="fs-12">@use 'eva-css-fluid' with (
+  $sizes: (4, 8, 16, 32, 64, 128),
+  $font-sizes: (14, 16, 20, 24, 32),
+  $build-class: true
+);</pre>
+          <p class="fs-16 _c-dark_">Extract sizes from your Figma design</p>
+        </div>
+
+        <div class="p-32_ border thin _bc-brand__ _bg-brand___ flex y g-8">
+          <span class="bold">JSON Configuration Example</span>
+          <pre class="fs-12">// eva.config.cjs
+module.exports = {
+  sizes: [4, 8, 16, 32, 64, 128],
+  fontSizes: [14, 16, 20, 24, 32],
+  buildClass: true
+};</pre>
+          <p class="fs-16 _c-dark_">Centralized configuration file</p>
+        </div>
       </div>
     </div>
 
@@ -223,16 +273,287 @@
     </div>
   </section>
 
+  <section id="cli-tools" class="px-220__ py-136 flex y g-20">
+    <h2 class="fs-52__ _bg-brand pr-356__ lh-1 ttu fwd-4 f-scale offset">
+      <span class="_c-light">CLI Tools (New in v2.0.5)</span>
+    </h2>
+    <p class="fs-16">
+      EVA CSS v2.0.5 introduces interactive CLI commands to simplify project setup and configuration.
+    </p>
+
+    <div class="flex y g-20">
+      <h3 class="fs-24- _c-brand mt-32">Available Commands</h3>
+      <div class="flex x wrap g-20">
+        <div class="p-32_ border thin _bc-brand__ _bg-brand___ flex y g-12">
+          <span class="bold">npx eva-css init</span>
+          <p class="fs-16 _c-dark_">Initialize EVA CSS configuration</p>
+          <pre class="fs-12">npx eva-css init</pre>
+          <p class="fs-16 _c-dark_">Creates eva.config.cjs with interactive prompts</p>
+        </div>
+
+        <div class="p-32_ border thin _bc-brand__ _bg-accent___ flex y g-12">
+          <span class="bold">npx eva-css setup</span>
+          <p class="fs-16 _c-dark_">Complete project setup</p>
+          <pre class="fs-12">npx eva-css setup</pre>
+          <p class="fs-16 _c-dark_">Interactive setup with workflow choice (SCSS vs JSON)</p>
+        </div>
+
+        <div class="p-32_ border thin _bc-brand__ _bg-extra___ flex y g-12">
+          <span class="bold">npx eva-css validate</span>
+          <p class="fs-16 _c-dark_">Validate configuration</p>
+          <pre class="fs-12">npx eva-css validate</pre>
+          <p class="fs-16 _c-dark_">Check eva.config.cjs for errors and show summary</p>
+        </div>
+
+        <div class="p-32_ border thin _bc-brand__ flex y g-12">
+          <span class="bold">npx eva-css generate</span>
+          <p class="fs-16 _c-dark_">Generate SCSS from config</p>
+          <pre class="fs-12">npx eva-css generate output.scss</pre>
+          <p class="fs-16 _c-dark_">Convert JSON config to SCSS variables</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="workflows" class="px-220__ py-136 flex y g-20">
+    <h2 class="fs-52__ _bg-brand pr-356__ lh-1 ttu fwd-4 f-scale offset">
+      <span class="_c-light">Configuration Workflows</span>
+    </h2>
+    <p class="fs-16">
+      EVA CSS v2.0.5 supports two configuration methods. Choose based on your project needs.
+    </p>
+
+    <div class="flex y g-20">
+      <h3 class="fs-24- _c-brand mt-32">Workflow Comparison</h3>
+      <div class="p-32_ border thin _bc-brand__ flex y g-12">
+        <table class="fs-16 w-full" style="border-collapse: collapse;">
+          <thead>
+            <tr style="border-bottom: 1px solid oklch(var(--brand-lightness) var(--brand-chroma) var(--brand-hue) / 0.2);">
+              <th style="text-align: left; padding: 12px 8px;">Feature</th>
+              <th style="text-align: left; padding: 12px 8px;">SCSS Variables</th>
+              <th style="text-align: left; padding: 12px 8px;">JSON Config</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom: 1px solid oklch(var(--brand-lightness) var(--brand-chroma) var(--brand-hue) / 0.1);">
+              <td style="padding: 12px 8px;"><strong>Setup</strong></td>
+              <td style="padding: 12px 8px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: inline; vertical-align: middle; margin-right: 4px;"><polyline points="20 6 9 17 4 12"/></svg>
+                Simple
+              </td>
+              <td style="padding: 12px 8px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: inline; vertical-align: middle; margin-right: 4px;"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                Requires script
+              </td>
+            </tr>
+            <tr style="border-bottom: 1px solid oklch(var(--brand-lightness) var(--brand-chroma) var(--brand-hue) / 0.1);">
+              <td style="padding: 12px 8px;"><strong>Works with npx sass</strong></td>
+              <td style="padding: 12px 8px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: inline; vertical-align: middle; margin-right: 4px;"><polyline points="20 6 9 17 4 12"/></svg>
+                Immediately
+              </td>
+              <td style="padding: 12px 8px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: inline; vertical-align: middle; margin-right: 4px;"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                Needs custom script
+              </td>
+            </tr>
+            <tr style="border-bottom: 1px solid oklch(var(--brand-lightness) var(--brand-chroma) var(--brand-hue) / 0.1);">
+              <td style="padding: 12px 8px;"><strong>Config location</strong></td>
+              <td style="padding: 12px 8px;">Inside SCSS file</td>
+              <td style="padding: 12px 8px;">Separate eva.config.cjs</td>
+            </tr>
+            <tr style="border-bottom: 1px solid oklch(var(--brand-lightness) var(--brand-chroma) var(--brand-hue) / 0.1);">
+              <td style="padding: 12px 8px;"><strong>Multiple files</strong></td>
+              <td style="padding: 12px 8px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: inline; vertical-align: middle; margin-right: 4px;"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                Duplicated config
+              </td>
+              <td style="padding: 12px 8px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: inline; vertical-align: middle; margin-right: 4px;"><polyline points="20 6 9 17 4 12"/></svg>
+                Shared config
+              </td>
+            </tr>
+            <tr style="border-bottom: 1px solid oklch(var(--brand-lightness) var(--brand-chroma) var(--brand-hue) / 0.1);">
+              <td style="padding: 12px 8px;"><strong>Validation</strong></td>
+              <td style="padding: 12px 8px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: inline; vertical-align: middle; margin-right: 4px;"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                No
+              </td>
+              <td style="padding: 12px 8px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: inline; vertical-align: middle; margin-right: 4px;"><polyline points="20 6 9 17 4 12"/></svg>
+                npx eva-css validate
+              </td>
+            </tr>
+            <tr>
+              <td style="padding: 12px 8px;"><strong>Generated CSS</strong></td>
+              <td style="padding: 12px 8px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: inline; vertical-align: middle; margin-right: 4px;"><polyline points="20 6 9 17 4 12"/></svg>
+                Identical
+              </td>
+              <td style="padding: 12px 8px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: inline; vertical-align: middle; margin-right: 4px;"><polyline points="20 6 9 17 4 12"/></svg>
+                Identical
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="fs-16 _c-dark_ mt-12">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: inline; vertical-align: middle; margin-right: 6px;">
+            <circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/>
+          </svg>
+          Both workflows generate identical CSS output!
+        </p>
+      </div>
+
+      <h3 class="fs-24- _c-brand mt-32">Option 1: SCSS Variables (Recommended for Beginners)</h3>
+      <div class="flex x wrap g-20">
+        <div class="p-32_ border thin _bc-brand__ _bg-extra___ flex y g-12">
+          <span class="bold">Setup</span>
+          <pre class="fs-12">// styles/main.scss
+@use 'eva-css-fluid' with (
+  $sizes: (4, 8, 16, 32, 64, 128),
+  $font-sizes: (14, 16, 20, 24, 32),
+  $build-class: true
+);</pre>
+          <p class="fs-16 _c-dark_">Configuration directly in SCSS file</p>
+        </div>
+
+        <div class="p-32_ border thin _bc-brand__ flex y g-12">
+          <span class="bold">Compilation</span>
+          <pre class="fs-12">npx sass styles/main.scss:styles/main.css</pre>
+          <p class="fs-16 _c-dark_">Works immediately with standard Sass</p>
+        </div>
+      </div>
+      <div class="p-32_ border thin _bc-brand__ _bg-brand___ mt-20">
+        <p class="fs-16"><strong>Advantages:</strong></p>
+        <ul class="fs-16 _c-dark_ ml-20 mt-8" style="list-style: none; padding-left: 0;">
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: inline; vertical-align: middle; margin-right: 4px;">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+            Works immediately with npx sass
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: inline; vertical-align: middle; margin-right: 4px;">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+            No additional scripts needed
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: inline; vertical-align: middle; margin-right: 4px;">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+            Perfect for watch mode
+          </li>
+        </ul>
+        <p class="fs-16 mt-12"><strong>Disadvantages:</strong></p>
+        <ul class="fs-16 _c-dark_ ml-20 mt-8" style="list-style: none; padding-left: 0;">
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: inline; vertical-align: middle; margin-right: 4px;">
+              <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+            </svg>
+            Config duplicated if multiple SCSS files
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: inline; vertical-align: middle; margin-right: 4px;">
+              <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+            </svg>
+            No validation tooling
+          </li>
+        </ul>
+      </div>
+
+      <h3 class="fs-24- _c-brand mt-32">Option 2: JSON Config (Advanced)</h3>
+      <div class="flex x wrap g-20">
+        <div class="p-32_ border thin _bc-brand__ _bg-brand___ flex y g-12">
+          <span class="bold">1. Create eva.config.cjs</span>
+          <pre class="fs-12">// eva.config.cjs
+module.exports = {
+  sizes: [4, 8, 16, 32, 64, 128],
+  fontSizes: [14, 16, 20, 24, 32],
+  buildClass: true
+};</pre>
+          <p class="fs-16 _c-dark_">Centralized configuration file</p>
+        </div>
+
+        <div class="p-32_ border thin _bc-brand__ flex y g-12">
+          <span class="bold">2. Simplify SCSS</span>
+          <pre class="fs-12">// styles/main.scss
+@use 'eva-css-fluid';</pre>
+          <p class="fs-16 _c-dark_">Clean import, config loaded from file</p>
+        </div>
+
+        <div class="p-32_ border thin _bc-brand__ flex y g-12">
+          <span class="bold">3. Build with custom script</span>
+          <pre class="fs-12">node scripts/build-with-config.js \
+  styles/main.scss \
+  styles/main.css</pre>
+          <p class="fs-16 _c-dark_">Requires custom build script (see repo examples)</p>
+        </div>
+
+        <div class="p-32_ border thin _bc-brand__ _bg-accent___ flex y g-12">
+          <span class="bold">4. Validate configuration</span>
+          <pre class="fs-12">npx eva-css validate</pre>
+          <p class="fs-16 _c-dark_">Check config before compilation</p>
+        </div>
+      </div>
+      <div class="p-32_ border thin _bc-brand__ _bg-extra___ mt-20">
+        <p class="fs-16"><strong>Advantages:</strong></p>
+        <ul class="fs-16 _c-dark_ ml-20 mt-8" style="list-style: none; padding-left: 0;">
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: inline; vertical-align: middle; margin-right: 4px;">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+            Single config shared across multiple files
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: inline; vertical-align: middle; margin-right: 4px;">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+            Configuration validation with CLI
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: inline; vertical-align: middle; margin-right: 4px;">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+            Cleaner SCSS files
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: inline; vertical-align: middle; margin-right: 4px;">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+            Better for large projects
+          </li>
+        </ul>
+        <p class="fs-16 mt-12"><strong>Disadvantages:</strong></p>
+        <ul class="fs-16 _c-dark_ ml-20 mt-8" style="list-style: none; padding-left: 0;">
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: inline; vertical-align: middle; margin-right: 4px;">
+              <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+            </svg>
+            Requires custom build script setup
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: inline; vertical-align: middle; margin-right: 4px;">
+              <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+            </svg>
+            More complex workflow
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
   <section id="scss-configuration" class="px-220__ py-136 flex y g-20">
     <h2 class="fs-52__ _bg-brand pr-356__ lh-1 ttu fwd-4 f-scale offset">
       <span class="_c-light">SCSS Configuration Options</span>
     </h2>
-    
+
     <div class="flex y g-32">
       <div class="flex y g-20">
         <h3 class="fs-24- _c-brand mt-32">Core Configuration Variables</h3>
         <p class="fs-16">These variables control the fundamental behavior of EVA CSS framework.</p>
-        <p class="fs-16"><a href="https://github.com/nkdeus/eva/blob/main/styles/framework/_eva.scss" target="_blank" class="_c-brand">_eva.scss</a> - Main framework configuration</p>
+        <p class="fs-16"><a href="https://www.npmjs.com/package/eva-css-fluid?activeTab=code" target="_blank" class="_c-brand">View source on NPM</a> - Framework configuration options</p>
       </a>
         <div class="flex x wrap g-20">
           <div class="p-32_ border thin _bc-brand__ flex y g-8">
@@ -272,7 +593,7 @@ $name-by-size: false; // --1, --2, --3</pre>
       <div class="flex y g-20">
         <h3 class="fs-24- _c-brand mt-32">Design System Configuration</h3>
         <p class="fs-16">Customize the spacing and typography scale to match your design system.</p>
-        <p class="fs-16"><a href="https://github.com/nkdeus/eva/blob/main/styles/framework/_grid.scss" target="_blank" class="_c-brand">_grid.scss</a> - Grid and spacing system</p>
+        <p class="fs-16"><a href="https://www.npmjs.com/package/eva-css-fluid" target="_blank" class="_c-brand">View full documentation</a> - Grid and spacing system</p>
       </a>
         <div class="flex x wrap g-20">
           <div class="p-32_ border thin _bc-brand__ flex y g-8">
@@ -303,7 +624,7 @@ $name-by-size: false; // --1, --2, --3</pre>
       <div class="flex y g-20">
         <h3 class="fs-24- _c-brand mt-32">Advanced Configuration</h3>
         <p class="fs-16">Fine-tune the responsive behavior and class generation.</p>
-        <p class="fs-16"><a href="https://github.com/nkdeus/eva/blob/main/styles/framework/_components.scss" target="_blank" class="_c-brand">_components.scss</a> - Component generation</p>
+        <p class="fs-16"><a href="https://github.com/nkdeus/eva-framework/tree/main/packages/eva-css" target="_blank" class="_c-brand">View framework source</a> - Component generation</p>
       </a>
         <div class="flex x wrap g-20">
           <div class="p-32_ border thin _bc-brand__ flex y g-8">
@@ -346,7 +667,7 @@ $name-by-size: false; // --1, --2, --3</pre>
       <div class="flex y g-20">
         <h3 class="fs-24- _c-brand mt-32">Mathematical Constants</h3>
         <p class="fs-16">Advanced mathematical values that control the responsive scaling behavior.</p>
-        <p class="fs-16"><a href="https://github.com/nkdeus/eva/blob/main/styles/framework/_eva.scss" target="_blank" class="_c-brand">_eva.scss</a> - Mathematical functions</p>
+        <p class="fs-16"><a href="https://github.com/nkdeus/eva-framework/tree/main/packages/eva-css" target="_blank" class="_c-brand">View framework source</a> - Mathematical functions</p>
       </a>
         <div class="flex x wrap g-20">
           <div class="p-32_ border thin _bc-brand__ flex y g-8">
@@ -412,47 +733,70 @@ $ez: varies; // Typography</pre>
     <h2 class="fs-52__ _bg-brand pr-356__ lh-1 ttu fwd-4 f-scale offset">
       <span class="_c-light">Ready to try ?</span>
     </h2>
-    
+
     <div class="flex y g-32">
       <div class="flex y g-20">
-        <h3 class="fs-24- _c-brand mt-32">Quick Setup Guide</h3>
-        <p class="fs-16">Get EVA CSS up and running in minutes with this simple setup process.</p>
-      </a>
+        <h3 class="fs-24- _c-brand mt-32">Quick Setup Guide (NPM Package)</h3>
+        <p class="fs-16">Get EVA CSS up and running in minutes with the npm package.</p>
+        <div class="flex x wrap g-20">
+          <div class="p-32_ border thin _bc-brand__ _bg-brand___ flex y g-12">
+            <span class="bold">Step 1: Install EVA CSS</span>
+            <pre class="fs-16">npm install eva-css-fluid</pre>
+            <p class="fs-16 _c-dark_">Install the EVA CSS framework package</p>
+            <p class="fs-12 _c-brand"><a href="https://www.npmjs.com/package/eva-css-fluid" target="_blank">View on NPM →</a></p>
+          </div>
+
+          <div class="p-32_ border thin _bc-brand__ _bg-accent___ flex y g-12">
+            <span class="bold">Step 2: Interactive Setup</span>
+            <pre class="fs-16">npx eva-css setup</pre>
+            <p class="fs-16 _c-dark_">Interactive CLI guides you through configuration</p>
+            <p class="fs-16 _c-dark_">Choose workflow, set sizes, fonts, build mode</p>
+          </div>
+
+          <div class="p-32_ border thin _bc-brand__ _bg-extra___ flex y g-12">
+            <span class="bold">Step 3: Import in Your SCSS</span>
+            <pre class="fs-16">// styles/main.scss
+@use 'eva-css-fluid' with (
+  $sizes: (4, 8, 16, 32, 64),
+  $font-sizes: (14, 16, 24, 32)
+);</pre>
+            <p class="fs-16 _c-dark_">Use your extracted Figma sizes</p>
+          </div>
+
+          <div class="p-32_ border thin _bc-brand__ flex y g-12">
+            <span class="bold">Step 4: Compile Your CSS</span>
+            <pre class="fs-16">npx sass styles/main.scss:styles/main.css</pre>
+            <p class="fs-16 _c-dark_">Compile SCSS to CSS</p>
+          </div>
+
+          <div class="p-32_ border thin _bc-brand__ flex y g-12">
+            <span class="bold">Step 5: Use in HTML</span>
+            <pre class="fs-16">&lt;div class="w-64 p-16 _bg-brand"&gt;
+  &lt;h1 class="fs-32 _c-light"&gt;Hello EVA&lt;/h1&gt;
+&lt;/div&gt;</pre>
+            <p class="fs-16 _c-dark_">Use utility classes or CSS variables</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex y g-20">
+        <h3 class="fs-24- _c-brand mt-32">Alternative: Clone Demo Repository</h3>
+        <p class="fs-16">Want to explore the full documentation site and examples?</p>
         <div class="flex x wrap g-20">
           <div class="p-32_ border thin _bc-brand__ flex y g-12">
-            <span class="bold">Step 1: Clone the Repository</span>
-            <pre class="fs-16">git clone https://github.com/nkdeus/eva.git
-cd eva</pre>
-            <p class="fs-16 _c-dark_">Clone the EVA CSS repository to your local machine</p>
-            <p class="fs-16 _c-dark_"><a href="https://github.com/nkdeus/eva" target="_blank" class="_c-brand">View on GitHub</a></p>
+            <span class="bold">Clone Documentation Site</span>
+            <pre class="fs-16">git clone https://github.com/nkdeus/eva-framework.git
+cd eva-framework
+npm install</pre>
+            <p class="fs-16 _c-dark_">Explore full examples and documentation</p>
+            <p class="fs-12 _c-brand"><a href="https://github.com/nkdeus/eva-framework" target="_blank">View on GitHub →</a></p>
           </div>
-          
+
           <div class="p-32_ border thin _bc-brand__ flex y g-12">
-            <span class="bold">Step 2: Install Dependencies</span>
-            <pre class="fs-16">npm install</pre>
-            <p class="fs-16 _c-dark_">Install all required Node.js dependencies</p>
-          </div>
-          
-          <div class="p-32_ border thin _bc-brand__ flex y g-12">
-            <span class="bold">Step 3: Launch Local Server</span>
-            <pre class="fs-16"># Use your IDE's local server
-# VS Code: Live Server extension
-# Or any other local development server</pre>
-            <p class="fs-16 _c-dark_">Start your local development server to serve the HTML files</p>
-          </div>
-          
-          <div class="p-32_ border thin _bc-brand__ flex y g-12">
-            <span class="bold">Step 4: Watch SCSS Files</span>
+            <span class="bold">Launch Development Server</span>
             <pre class="fs-16">npm run watch</pre>
-            <p class="fs-16 _c-dark_">Compile and watch SCSS files for changes</p>
-          </div>
-          
-          <div class="p-32_ border thin _bc-brand__ flex y g-12">
-            <span class="bold">Step 5: Configure Your Project</span>
-            <pre class="fs-16"># Rename try.scss to your project name
-# Configure spacing and typography values
-# Customize colors and themes</pre>
-            <p class="fs-16 _c-dark_">Customize the framework to match your design system</p>
+            <p class="fs-16 _c-dark_">Watch and compile SCSS files</p>
+            <p class="fs-16 _c-dark_">Use Live Server extension for local preview</p>
           </div>
         </div>
       </div>
@@ -462,10 +806,10 @@ cd eva</pre>
         <p class="fs-16">Understanding the key files and directories in your EVA CSS project.</p>
       </a>
         <div class="flex y g-12">
-          <p class="fs-16"><a href="https://github.com/nkdeus/eva/tree/main/styles" target="_blank" class="_c-brand">styles/</a> - Main CSS and framework</p>
-          <p class="fs-16"><a href="https://github.com/nkdeus/eva/tree/main/projects" target="_blank" class="_c-brand">projects/</a> - Individual project files</p>
-          <p class="fs-16"><a href="https://github.com/nkdeus/eva/tree/main/scripts" target="_blank" class="_c-brand">scripts/</a> - Build and utility scripts</p>
-          <p class="fs-16"><a href="https://github.com/nkdeus/eva/tree/main/assets" target="_blank" class="_c-brand">assets/</a> - Images and resources</p>
+          <p class="fs-16"><a href="https://github.com/nkdeus/eva-framework/tree/main/demo/styles" target="_blank" class="_c-brand">styles/</a> - Main CSS and framework</p>
+          <p class="fs-16"><a href="https://github.com/nkdeus/eva-framework/tree/main/examples" target="_blank" class="_c-brand">examples/</a> - Example projects</p>
+          <p class="fs-16"><a href="https://github.com/nkdeus/eva-framework/tree/main/scripts" target="_blank" class="_c-brand">scripts/</a> - Build and utility scripts</p>
+          <p class="fs-16"><a href="https://github.com/nkdeus/eva-framework/tree/main/demo/assets" target="_blank" class="_c-brand">assets/</a> - Images and resources</p>
         </div>
       </a>
         <div class="flex x wrap g-20">
@@ -473,8 +817,8 @@ cd eva</pre>
             <span class="bold">styles/</span>
             <p class="fs-16 _c-dark_">Main CSS files and framework</p>
             <ul class="fs-12 _c-dark_ mt-8">
-              <li><a href="https://github.com/nkdeus/eva/blob/main/styles/main.scss" target="_blank" class="_c-brand">main.scss</a> - Main entry point</li>
-              <li><a href="https://github.com/nkdeus/eva/blob/main/styles/main.css" target="_blank" class="_c-brand">main.css</a> - Compiled CSS</li>
+              <li><a href="https://github.com/nkdeus/eva-framework/blob/main/demo/styles/main.scss" target="_blank" class="_c-brand">main.scss</a> - Main entry point</li>
+              <li><a href="https://github.com/nkdeus/eva-framework/blob/main/demo/styles/main.css" target="_blank" class="_c-brand">main.css</a> - Compiled CSS</li>
               <li><strong>framework/</strong> - SCSS framework files</li>
             </ul>
           </div>
@@ -483,16 +827,12 @@ cd eva</pre>
             <span class="bold">styles/framework/</span>
             <p class="fs-16 _c-dark_">Core SCSS files and configuration</p>
             <ul class="fs-12 _c-dark_ mt-8">
-              <li><a href="https://github.com/nkdeus/eva/blob/main/styles/framework/_eva.scss" target="_blank" class="_c-brand">_eva.scss</a> - Main framework file</li>
-              <li><a href="https://github.com/nkdeus/eva/blob/main/styles/framework/_colors.scss" target="_blank" class="_c-brand">_colors.scss</a> - Color system</li>
-              <li><a href="https://github.com/nkdeus/eva/blob/main/styles/framework/_gradients.scss" target="_blank" class="_c-brand">_gradients.scss</a> - Gradient system</li>
-              <li><a href="https://github.com/nkdeus/eva/blob/main/styles/framework/_grid.scss" target="_blank" class="_c-brand">_grid.scss</a> - Grid and spacing</li>
-              <li><a href="https://github.com/nkdeus/eva/blob/main/styles/framework/_font.scss" target="_blank" class="_c-brand">_font.scss</a> - Typography</li>
-              <li><a href="https://github.com/nkdeus/eva/blob/main/styles/framework/_theme.scss" target="_blank" class="_c-brand">_theme.scss</a> - Theme configuration</li>
-              <li><a href="https://github.com/nkdeus/eva/blob/main/styles/framework/_utils.scss" target="_blank" class="_c-brand">_utils.scss</a> - Utility classes</li>
-              <li><a href="https://github.com/nkdeus/eva/blob/main/styles/framework/_components.scss" target="_blank" class="_c-brand">_components.scss</a> - Components</li>
-              <li><a href="https://github.com/nkdeus/eva/blob/main/styles/framework/_reset.scss" target="_blank" class="_c-brand">_reset.scss</a> - CSS reset</li>
-              <li><a href="https://github.com/nkdeus/eva/blob/main/styles/framework/_ballzzz.scss" target="_blank" class="_c-brand">_ballzzz.scss</a> - Special animations</li>
+              <li><strong>Core modules</strong> - Available via npm</li>
+              <li>@use 'eva-css-fluid' - Full framework</li>
+              <li>@use 'eva-css-fluid/variables' - Variables only</li>
+              <li>@use 'eva-css-fluid/core' - Core without utilities</li>
+              <li>@use 'eva-css-fluid/colors' - Colors only</li>
+              <li><a href="https://www.npmjs.com/package/eva-css-fluid" target="_blank" class="_c-brand">View all modules →</a></li>
             </ul>
           </div>
           
@@ -500,9 +840,9 @@ cd eva</pre>
             <span class="bold">projects/</span>
             <p class="fs-16 _c-dark_">Your project-specific SCSS files</p>
             <ul class="fs-12 _c-dark_ mt-8">
-              <li><a href="https://github.com/nkdeus/eva/blob/main/projects/try/styles/try.scss" target="_blank" class="_c-brand">projects/try/styles/try.scss</a> - Example project file</li>
-              <li><a href="https://github.com/nkdeus/eva/blob/main/projects/lili/styles/lili.scss" target="_blank" class="_c-brand">projects/lili/styles/lili.scss</a> - Another example</li>
-              <li><a href="https://github.com/nkdeus/eva/blob/main/projects/ulysse/styles/ulysse.scss" target="_blank" class="_c-brand">projects/ulysse/styles/ulysse.scss</a> - Ulysse project</li>
+              <li><a href="https://github.com/nkdeus/eva-framework/tree/main/examples" target="_blank" class="_c-brand">View examples</a> - Multiple project examples</li>
+              <li>Each project has its own eva.config.cjs</li>
+              <li>Demonstrates different workflows and configurations</li>
             </ul>
           </div>
           

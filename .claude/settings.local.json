@@ -30,7 +30,11 @@
       "Bash(npx eva-color:*)",
       "Bash(npm run build:*)",
       "Bash(npx eva-css:*)",
-      "Bash(node scripts/build-with-config.js:*)"
+      "Bash(node scripts/build-with-config.js:*)",
+      "Bash(cat:*)",
+      "Bash(npm update:*)",
+      "Bash(echo:*)",
+      "WebSearch"
     ],
     "deny": []
   }
