@@ -3,7 +3,8 @@
 // ===========================================
 
 // Import EVA CSS Framework from npm package
-@use 'eva-css-fluid/src' as * with (
+// Note: JSON config loading not yet integrated in v2.0.0
+@use 'eva-css-fluid' with (
   $sizes: (4, 8, 16, 32, 54, 64, 120, 141),
   $font-sizes: (10, 16, 36, 120),
   $build-class: false,
@@ -16,7 +17,6 @@
 // PROJECT THEME
 // ===========================================
 
-// Thème spécifique au projet Ulysse (couleurs extraites du Figma 2025)
 .theme-ulysse {
   // Couleurs principales extraites du Figma
   --brand-lightness: 84.1%;   // #00d4ff → oklch(84.1% 0.155 200.4)

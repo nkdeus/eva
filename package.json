@@ -22,8 +22,8 @@
   },
   "dependencies": {
     "claude-talk-to-figma-mcp": "^0.5.3",
-    "eva-colors": "^1.0.4",
-    "eva-css-fluid": "^1.0.4",
-    "eva-css-purge": "^1.0.4"
+    "eva-colors": "^2.0.0",
+    "eva-css-fluid": "^2.0.0",
+    "eva-css-purge": "^2.0.0"
   }
 }

@@ -3,7 +3,8 @@
 // ===========================================
 
 // Import EVA CSS Framework from npm package
-@use 'eva-css-fluid/src' as * with (
+// Note: JSON config loading not yet integrated in v2.0.0
+@use 'eva-css-fluid' with (
   $sizes: (24, 50, 100),
   $font-sizes: (14, 16, 18, 24, 32, 48, 60, 80, 120),
   $build-class: true,
@@ -11,9 +12,6 @@
   $name-by-size: true,
   $custom-class: false
 );
-
-// NOTE: $custom-class is not yet supported with external package
-// All size classes will be generated for all properties
 
 // ===========================================
 // PROJECT CUSTOM STYLES
