@@ -5,7 +5,7 @@
 // Import EVA CSS Framework from npm package
 // Note: JSON config loading not yet integrated in v2.0.0
 @use 'eva-css-fluid' with (
-  $sizes: (24, 50, 100),
+  $sizes: (16, 24, 50, 100),
   $font-sizes: (14, 16, 18, 24, 32, 48, 60, 80, 120),
   $build-class: true,
   $px-rem-suffix: false,
