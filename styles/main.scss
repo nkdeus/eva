@@ -1,11 +1,16 @@
 // ===========================================
-// EVA CSS - Using External Package v2 with JSON Config
+// EVA CSS - Main Site Configuration
 // ===========================================
 
 // Import EVA CSS Framework from npm package
-// Configuration loaded from eva.config.cjs via build script
-// Use: npm run build-css-json
-@use 'eva-css-fluid';
+@use 'eva-css-fluid' with (
+  $sizes: (4, 8, 12, 16, 20, 32, 34, 52, 84, 136, 156, 220, 356, 576, 712),
+  $font-sizes: (10, 12, 16, 18, 24, 36, 52, 72),
+  $build-class: true,
+  $px-rem-suffix: true,
+  $name-by-size: true,
+  $custom-class: false
+);
 
 // ===========================================
 // CUSTOM SITE STYLES

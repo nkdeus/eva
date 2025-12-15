@@ -1,0 +1,283 @@
+// ===========================================
+// ULYSSE-2030 PROJECT - EVA CSS v2
+// Extracted from Figma: Ulysse-2030 (node 45-2)
+// ===========================================
+
+// Import EVA CSS Framework with SCSS Variables config
+@use 'eva-css-fluid' with (
+  $sizes: (4, 8, 16, 32, 54, 64, 120, 141),
+  $font-sizes: (10, 16, 36, 120),
+  $build-class: false,
+  $px-rem-suffix: false,
+  $name-by-size: true,
+  $custom-class: false
+);
+
+// ===========================================
+// PROJECT THEME
+// Colors converted via: npx eva-color convert "#HEX"
+// ===========================================
+
+.theme-ulysse-2030 {
+  // Brand: #FF00FB (magenta) → oklch(69.9% 0.320 329.22)
+  --brand-lightness: 69.9%;
+  --brand-chroma: 0.320;
+  --brand-hue: 329.22;
+
+  // Accent: #E5FF00 (yellow-green) → oklch(94.8% 0.219 117.00)
+  --accent-lightness: 94.8%;
+  --accent-chroma: 0.219;
+  --accent-hue: 117.00;
+
+  // Extra: #5F6769 (gray) → oklch(50.8% 0.010 214.39)
+  --extra-lightness: 50.8%;
+  --extra-chroma: 0.010;
+  --extra-hue: 214.39;
+
+  // Light/Dark mode configuration
+  --current-lightness: 96.7%; // #F4F5EB
+  --current-darkness: 26.3%;  // #232526
+
+  // Dark: #232526 → oklch(26.3% 0.003 228.93)
+  --dark-lightness: var(--current-darkness);
+  --dark-chroma: 0.003;
+  --dark-hue: 228.93;
+
+  // Light: #F4F5EB → oklch(96.7% 0.013 111.27)
+  --light-lightness: var(--current-lightness);
+  --light-chroma: 0.013;
+  --light-hue: 111.27;
+}
+
+// ===========================================
+// CUSTOM STYLES
+// ===========================================
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--light);
+  color: var(--dark);
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+// Section Hero (Figma: section-hero)
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  gap: var(--64_);
+  padding: var(--120_);
+}
+
+// Content group (Figma: content, gap: 16)
+.content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--16);
+}
+
+// H1 title (Figma: font-size 120)
+.title {
+  font-size: var(--fs-120__);
+  margin: 0;
+  line-height: 1.21;
+  color: var(--dark);
+  font-weight: 400;
+}
+
+// Subtitle (Figma: font-size 36, color #5F6769)
+.subtitle {
+  font-size: var(--fs-36_);
+  margin: 0;
+  color: var(--extra);
+  font-weight: 400;
+}
+
+// Colors group (Figma: colors, gap: 120)
+.colors {
+  display: flex;
+  gap: var(--120_);
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+// Color circles (Figma: 141x141)
+.color-circle {
+  width: var(--141_);
+  height: var(--141_);
+  border-radius: 50%;
+}
+
+.brand-circle { background-color: var(--brand); }
+.accent-circle { background-color: var(--accent); }
+.extra-circle { background-color: var(--extra); }
+
+// Toggle theme button (Figma: a:toggle-theme, 54x54)
+.btn-toggle-theme {
+  position: fixed;
+  right: var(--32_);
+  top: 50%;
+  transform: translateY(-50%);
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  z-index: 1000;
+
+  &:hover {
+    transform: translateY(-50%) scale(1.1);
+  }
+}
+
+.toggle-circle {
+  width: var(--54_);
+  height: var(--54_);
+  border-radius: 50%;
+  background-color: var(--dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--light);
+  font-size: var(--fs-16);
+  font-weight: 400;
+}
+
+// ===========================================
+// Section Theme (Figma: section-theme)
+// ===========================================
+
+.palette-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+// Theme loop (Figma: theme-loop, gap: 64, padding: 120)
+.palette-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--64_);
+  width: 100%;
+  padding-block: var(--120_);
+}
+
+// Theme hero (Figma: theme-hero, gap: 16)
+.palette-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--16);
+}
+
+// Color name label (Figma: font-size 36)
+.palette-label {
+  font-size: var(--fs-36_);
+  font-weight: 400;
+  color: var(--brand);
+}
+
+// Description (Figma: font-size 16)
+.palette-description {
+  font-size: var(--fs-16);
+  font-weight: 400;
+  color: var(--dark);
+}
+
+// Theme circles row (Figma: theme, gap: 32)
+.palette-circles {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--32_);
+}
+
+// Theme node (Figma: theme-node, gap: 16)
+.palette-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--16);
+}
+
+// Palette circle (Figma: 64x64 ellipse)
+.palette-circle {
+  width: var(--64_);
+  height: var(--64_);
+  border-radius: 50%;
+}
+
+// Variation label (Figma: font-size 10)
+.palette-variation-label {
+  font-size: var(--fs-10);
+  color: var(--brand);
+}
+
+// Brand color variations
+.palette-circle.brand { background: var(--brand); }
+.palette-circle.brand_ { background: var(--brand_); }
+.palette-circle.brand__ { background: var(--brand__); }
+.palette-circle.brand___ { background: var(--brand___); }
+.palette-circle.brand-d { background: var(--brand-d); }
+.palette-circle.brand-d_ { background: var(--brand-d_); }
+.palette-circle.brand-b { background: var(--brand-b); }
+.palette-circle.brand-b_ { background: var(--brand-b_); }
+
+// Accent color variations
+.palette-circle.accent { background: var(--accent); }
+.palette-circle.accent_ { background: var(--accent_); }
+.palette-circle.accent__ { background: var(--accent__); }
+.palette-circle.accent___ { background: var(--accent___); }
+.palette-circle.accent-d { background: var(--accent-d); }
+.palette-circle.accent-d_ { background: var(--accent-d_); }
+.palette-circle.accent-b { background: var(--accent-b); }
+.palette-circle.accent-b_ { background: var(--accent-b_); }
+
+// Extra color variations
+.palette-circle.extra { background: var(--extra); }
+.palette-circle.extra_ { background: var(--extra_); }
+.palette-circle.extra__ { background: var(--extra__); }
+.palette-circle.extra___ { background: var(--extra___); }
+.palette-circle.extra-d { background: var(--extra-d); }
+.palette-circle.extra-d_ { background: var(--extra-d_); }
+.palette-circle.extra-b { background: var(--extra-b); }
+.palette-circle.extra-b_ { background: var(--extra-b_); }
+
+// Dark color variations
+.palette-circle.dark { background: var(--dark); }
+.palette-circle.dark_ { background: var(--dark_); }
+.palette-circle.dark__ { background: var(--dark__); }
+.palette-circle.dark___ { background: var(--dark___); }
+.palette-circle.dark-d { background: var(--dark-d); }
+.palette-circle.dark-d_ { background: var(--dark-d_); }
+.palette-circle.dark-b { background: var(--dark-b); }
+.palette-circle.dark-b_ { background: var(--dark-b_); }
+
+// Light color variations
+.palette-circle.light { background: var(--light); }
+.palette-circle.light_ { background: var(--light_); }
+.palette-circle.light__ { background: var(--light__); }
+.palette-circle.light___ { background: var(--light___); }
+.palette-circle.light-d { background: var(--light-d); }
+.palette-circle.light-d_ { background: var(--light-d_); }
+.palette-circle.light-b { background: var(--light-b); }
+.palette-circle.light-b_ { background: var(--light-b_); }
+
+// Palette label colors per group
+.palette-brand .palette-label,
+.palette-brand .palette-variation-label { color: var(--brand); }
+.palette-accent .palette-label,
+.palette-accent .palette-variation-label { color: var(--accent-d); }
+.palette-extra .palette-label,
+.palette-extra .palette-variation-label { color: var(--extra); }
+.palette-dark .palette-label,
+.palette-dark .palette-variation-label { color: var(--dark); }
+.palette-light .palette-label,
+.palette-light .palette-variation-label { color: var(--light-d_); }

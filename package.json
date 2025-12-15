@@ -23,7 +23,6 @@
     "stylelint-order": "^5.0.0"
   },
   "dependencies": {
-    "claude-talk-to-figma-mcp": "^0.5.3",
     "eva-colors": "^2.0.0",
     "eva-css-fluid": "^2.0.0",
     "eva-css-purge": "^2.0.0"

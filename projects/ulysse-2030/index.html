@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ulysse 2030</title>
+  <link rel="stylesheet" href="render/ulysse-2030.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" rel="stylesheet">
+</head>
+<body class="current-theme theme-ulysse-2030">
+  <!-- Section Hero (Figma: section-hero) -->
+  <main class="hero" data-name="section-hero">
+    <!-- Content group (Figma: content, gap: 16) -->
+    <div class="content" data-name="content">
+      <h1 class="title">Ulysse2030</h1>
+      <p class="subtitle">FIGMA  - CLAUDE - EVACSS</p>
+    </div>
+
+    <!-- Colors group (Figma: colors, gap: 120) -->
+    <div class="colors" data-name="colors">
+      <div class="color-circle brand-circle"></div>
+      <div class="color-circle accent-circle"></div>
+      <div class="color-circle extra-circle"></div>
+    </div>
+
+    <!-- Toggle theme button (Figma: a:toggle-theme) -->
+    <a href="#" class="btn-toggle-theme" id="toggleTheme" data-name="a:toggle-theme">
+      <div class="toggle-circle">D</div>
+    </a>
+  </main>
+
+  <!-- Section Theme (Figma: section-theme) -->
+  <section class="palette-section" data-name="section-theme">
+    <!-- Theme loop: BRAND -->
+    <div class="palette-group palette-brand" data-name="theme-loop">
+      <div class="palette-header" data-name="theme-hero">
+        <span class="palette-label">--BRAND</span>
+        <p class="palette-description">Brand color + 3 shades + 4 varations</p>
+      </div>
+      <div class="palette-circles" data-name="theme">
+        <div class="palette-item"><div class="palette-circle brand"></div><span class="palette-variation-label">--brand</span></div>
+        <div class="palette-item"><div class="palette-circle brand_"></div><span class="palette-variation-label">--brand_</span></div>
+        <div class="palette-item"><div class="palette-circle brand__"></div><span class="palette-variation-label">--brand__</span></div>
+        <div class="palette-item"><div class="palette-circle brand___"></div><span class="palette-variation-label">--brand___</span></div>
+        <div class="palette-item"><div class="palette-circle brand-d"></div><span class="palette-variation-label">--brand-d</span></div>
+        <div class="palette-item"><div class="palette-circle brand-d_"></div><span class="palette-variation-label">--brand-d_</span></div>
+        <div class="palette-item"><div class="palette-circle brand-b"></div><span class="palette-variation-label">--brand-b</span></div>
+        <div class="palette-item"><div class="palette-circle brand-b_"></div><span class="palette-variation-label">--brand-b_</span></div>
+      </div>
+    </div>
+
+    <!-- Theme loop: ACCENT -->
+    <div class="palette-group palette-accent" data-name="theme-loop">
+      <div class="palette-header" data-name="theme-hero">
+        <span class="palette-label">--ACCENT</span>
+        <p class="palette-description">Accent color + 3 shades + 4 varations</p>
+      </div>
+      <div class="palette-circles" data-name="theme">
+        <div class="palette-item"><div class="palette-circle accent"></div><span class="palette-variation-label">--accent</span></div>
+        <div class="palette-item"><div class="palette-circle accent_"></div><span class="palette-variation-label">--accent_</span></div>
+        <div class="palette-item"><div class="palette-circle accent__"></div><span class="palette-variation-label">--accent__</span></div>
+        <div class="palette-item"><div class="palette-circle accent___"></div><span class="palette-variation-label">--accent___</span></div>
+        <div class="palette-item"><div class="palette-circle accent-d"></div><span class="palette-variation-label">--accent-d</span></div>
+        <div class="palette-item"><div class="palette-circle accent-d_"></div><span class="palette-variation-label">--accent-d_</span></div>
+        <div class="palette-item"><div class="palette-circle accent-b"></div><span class="palette-variation-label">--accent-b</span></div>
+        <div class="palette-item"><div class="palette-circle accent-b_"></div><span class="palette-variation-label">--accent-b_</span></div>
+      </div>
+    </div>
+
+    <!-- Theme loop: EXTRA -->
+    <div class="palette-group palette-extra" data-name="theme-loop">
+      <div class="palette-header" data-name="theme-hero">
+        <span class="palette-label">--EXTRA</span>
+        <p class="palette-description">Extra color + 3 shades + 4 varations</p>
+      </div>
+      <div class="palette-circles" data-name="theme">
+        <div class="palette-item"><div class="palette-circle extra"></div><span class="palette-variation-label">--extra</span></div>
+        <div class="palette-item"><div class="palette-circle extra_"></div><span class="palette-variation-label">--extra_</span></div>
+        <div class="palette-item"><div class="palette-circle extra__"></div><span class="palette-variation-label">--extra__</span></div>
+        <div class="palette-item"><div class="palette-circle extra___"></div><span class="palette-variation-label">--extra___</span></div>
+        <div class="palette-item"><div class="palette-circle extra-d"></div><span class="palette-variation-label">--extra-d</span></div>
+        <div class="palette-item"><div class="palette-circle extra-d_"></div><span class="palette-variation-label">--extra-d_</span></div>
+        <div class="palette-item"><div class="palette-circle extra-b"></div><span class="palette-variation-label">--extra-b</span></div>
+        <div class="palette-item"><div class="palette-circle extra-b_"></div><span class="palette-variation-label">--extra-b_</span></div>
+      </div>
+    </div>
+
+    <!-- Theme loop: DARK -->
+    <div class="palette-group palette-dark" data-name="theme-loop">
+      <div class="palette-header" data-name="theme-hero">
+        <span class="palette-label">--DARK</span>
+        <p class="palette-description">Dark color + 3 shades + 4 varations</p>
+      </div>
+      <div class="palette-circles" data-name="theme">
+        <div class="palette-item"><div class="palette-circle dark"></div><span class="palette-variation-label">--dark</span></div>
+        <div class="palette-item"><div class="palette-circle dark_"></div><span class="palette-variation-label">--dark_</span></div>
+        <div class="palette-item"><div class="palette-circle dark__"></div><span class="palette-variation-label">--dark__</span></div>
+        <div class="palette-item"><div class="palette-circle dark___"></div><span class="palette-variation-label">--dark___</span></div>
+        <div class="palette-item"><div class="palette-circle dark-d"></div><span class="palette-variation-label">--dark-d</span></div>
+        <div class="palette-item"><div class="palette-circle dark-d_"></div><span class="palette-variation-label">--dark-d_</span></div>
+        <div class="palette-item"><div class="palette-circle dark-b"></div><span class="palette-variation-label">--dark-b</span></div>
+        <div class="palette-item"><div class="palette-circle dark-b_"></div><span class="palette-variation-label">--dark-b_</span></div>
+      </div>
+    </div>
+
+    <!-- Theme loop: LIGHT -->
+    <div class="palette-group palette-light" data-name="theme-loop">
+      <div class="palette-header" data-name="theme-hero">
+        <span class="palette-label">--LIGHT</span>
+        <p class="palette-description">Light color + 3 shades + 4 varations</p>
+      </div>
+      <div class="palette-circles" data-name="theme">
+        <div class="palette-item"><div class="palette-circle light"></div><span class="palette-variation-label">--light</span></div>
+        <div class="palette-item"><div class="palette-circle light_"></div><span class="palette-variation-label">--light_</span></div>
+        <div class="palette-item"><div class="palette-circle light__"></div><span class="palette-variation-label">--light__</span></div>
+        <div class="palette-item"><div class="palette-circle light___"></div><span class="palette-variation-label">--light___</span></div>
+        <div class="palette-item"><div class="palette-circle light-d"></div><span class="palette-variation-label">--light-d</span></div>
+        <div class="palette-item"><div class="palette-circle light-d_"></div><span class="palette-variation-label">--light-d_</span></div>
+        <div class="palette-item"><div class="palette-circle light-b"></div><span class="palette-variation-label">--light-b</span></div>
+        <div class="palette-item"><div class="palette-circle light-b_"></div><span class="palette-variation-label">--light-b_</span></div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    document.getElementById('toggleTheme').addEventListener('click', function(e) {
+      e.preventDefault();
+      document.body.classList.toggle('toggle-theme');
+    });
+  </script>
+</body>
+</html>
