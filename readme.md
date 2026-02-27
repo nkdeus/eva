@@ -34,7 +34,7 @@ Built around a **1440px** design system with carefully crafted spacing scales:
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/nkdeus/eva.git
+   git clone https://github.com/nkdeus/eva-framework.git
    cd eva
    ```
 
@@ -324,7 +324,7 @@ For older browsers, consider using a polyfill or fallback approach.
 
 - [Live Demo](https://eva-css.xyz)
 - [Documentation](https://eva-css.xyz/doc.html)
-- [GitHub Repository](https://github.com/nkdeus/eva)
+- [GitHub Repository](https://github.com/nkdeus/eva-framework)
 
 ---
 

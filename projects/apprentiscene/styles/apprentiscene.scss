@@ -1,0 +1,159 @@
+// ===========================================
+// APPRENTISCENE PROJECT - EVA CSS v2
+// Extracted from Figma: ApprentisScene Style Guide
+// ===========================================
+
+// Import EVA CSS Framework with SCSS Variables config
+@use 'eva-css-fluid' with (
+  // Sizes: 440, 320, 160, 128, 80, 40, 30, 20, 16
+  $sizes: (16, 20, 30, 40, 80, 128, 160, 320, 440),
+  // Font sizes: 280, 128, 80, 64, 40, 36, 32, 28, 24, 20, 16, 12
+  $font-sizes: (12, 16, 20, 24, 28, 32, 36, 40, 64, 80, 128, 280),
+  $build-class: true,
+  $px-rem-suffix: false,
+  $name-by-size: true,
+  $custom-class: false
+);
+
+// ===========================================
+// PROJECT THEME
+// Colors converted via: npx eva-color convert "#HEX"
+// ===========================================
+
+.theme-apprentiscene {
+  // Brand: #F0A0CF (pink) → oklch(79.8% 0.111 343.82)
+  --brand-lightness: 79.8%;
+  --brand-chroma: 0.111;
+  --brand-hue: 343.82;
+
+  // Accent: #2196D3 (blue) → oklch(64.0% 0.133 238.21)
+  --accent-lightness: 64.0%;
+  --accent-chroma: 0.133;
+  --accent-hue: 238.21;
+
+  // Extra: #2A8D6D (teal) → oklch(57.8% 0.103 167.21)
+  --extra-lightness: 57.8%;
+  --extra-chroma: 0.103;
+  --extra-hue: 167.21;
+
+  // Light/Dark mode configuration
+  --current-lightness: 98%;
+  --current-darkness: 15%;
+
+  // Dark → oklch(15% 0.02 280)
+  --dark-lightness: var(--current-darkness);
+  --dark-chroma: 0.02;
+  --dark-hue: 280;
+
+  // Light → oklch(98% 0.01 280)
+  --light-lightness: var(--current-lightness);
+  --light-chroma: 0.01;
+  --light-hue: 280;
+}
+
+// ===========================================
+// PALETTE COMPLÈTE (8 couleurs du style guide)
+// À utiliser comme référence pour les styles custom
+// ===========================================
+// Rangée 1:
+//   pink:       #F0A0CF → oklch(79.8% 0.111 343.82)
+//   magenta:    #C73B6D → oklch(57.0% 0.180 3.11)
+//   cyan:       #5AAFCC → oklch(71.2% 0.092 222.78)
+//   blue:       #2196D3 → oklch(64.0% 0.133 238.21)
+// Rangée 2:
+//   purple:     #5C4A7D → oklch(45.0% 0.084 299.28)
+//   blueViolet: #4A6A9D → oklch(52.3% 0.089 259.41)
+//   indigo:     #3A5A8D → oklch(46.7% 0.092 259.37)
+//   teal:       #2A8D6D → oklch(57.8% 0.103 167.21)
+// ===========================================
+
+:root {
+  // Palette colors
+  --pink: oklch(79.8% 0.111 343.82);
+  --magenta: oklch(57.0% 0.180 3.11);
+  --cyan: oklch(71.2% 0.092 222.78);
+  --blue: oklch(64.0% 0.133 238.21);
+  --purple: oklch(45.0% 0.084 299.28);
+  --blueViolet: oklch(52.3% 0.089 259.41);
+  --indigo: oklch(46.7% 0.092 259.37);
+  --teal: oklch(57.8% 0.103 167.21);
+}
+
+// Background color classes for palette
+._bg-pink { background-color: var(--pink); }
+._bg-magenta { background-color: var(--magenta); }
+._bg-cyan { background-color: var(--cyan); }
+._bg-blue { background-color: var(--blue); }
+._bg-purple { background-color: var(--purple); }
+._bg-blueViolet { background-color: var(--blueViolet); }
+._bg-indigo { background-color: var(--indigo); }
+._bg-teal { background-color: var(--teal); }
+
+// ===========================================
+// UTILITY CLASSES
+// ===========================================
+
+// Display
+.d-f { display: flex; }
+.d-if { display: inline-flex; }
+.d-g { display: grid; }
+.d-b { display: block; }
+.d-ib { display: inline-block; }
+.d-n { display: none; }
+
+// Flex direction
+.fd-c { flex-direction: column; }
+.fd-r { flex-direction: row; }
+.fd-cr { flex-direction: column-reverse; }
+.fd-rr { flex-direction: row-reverse; }
+
+// Flex wrap
+.fw-w { flex-wrap: wrap; }
+.fw-nw { flex-wrap: nowrap; }
+
+// Justify content
+.jc-c { justify-content: center; }
+.jc-sb { justify-content: space-between; }
+.jc-sa { justify-content: space-around; }
+.jc-se { justify-content: space-evenly; }
+.jc-fs { justify-content: flex-start; }
+.jc-fe { justify-content: flex-end; }
+
+// Align items
+.ai-c { align-items: center; }
+.ai-fs { align-items: flex-start; }
+.ai-fe { align-items: flex-end; }
+.ai-s { align-items: stretch; }
+.ai-e { align-items: end; }
+
+// Align self
+.as-c { align-self: center; }
+.as-fs { align-self: flex-start; }
+.as-fe { align-self: flex-end; }
+
+// Text align
+.ta-c { text-align: center; }
+.ta-l { text-align: left; }
+.ta-r { text-align: right; }
+
+// Text transform
+.uppercase { text-transform: uppercase; }
+.lowercase { text-transform: lowercase; }
+.capitalize { text-transform: capitalize; }
+
+// Font weight
+.fw-400 { font-weight: 400; }
+.fw-500 { font-weight: 500; }
+.fw-600 { font-weight: 600; }
+.fw-700 { font-weight: 700; }
+
+// Border radius 50% (circles)
+.br-50 { border-radius: 50%; }
+
+// ===========================================
+// CUSTOM STYLES
+// ===========================================
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
