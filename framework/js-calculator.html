@@ -404,17 +404,6 @@
 
       // Initialisation après que app.js ait fini son initialisation
       document.addEventListener('DOMContentLoaded', function() {
-        console.log('🚀 DOM Content Loaded - EVA CSS Calculator Page');
-        checkScriptLoading();
-        
-        // Appeler initApp() de app.js
-        if (typeof initApp === 'function') {
-          console.log('🚀 Calling initApp()...');
-          initApp();
-        } else {
-          console.warn('❌ initApp function not available');
-        }
-        
         // Attendre que app.js ait fini son initialisation et que scss.js soit chargé
         setTimeout(initEvaCSS, 500);
       });

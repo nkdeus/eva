@@ -614,45 +614,27 @@ function initDynamicBackNavigation() {
     }
   }
 
-  console.log("Reached goNext section");
   // Gestion du bouton goNext
-  console.log("goNextButton found:", goNextButton);
   if (goNextButton) {
     const currentFileName = getCurrentFileName();
-    console.log("currentFileName for goNext:", currentFileName);
-    
+
     if (pageMapping[currentFileName]) {
       const nextPage = pageMapping[currentFileName].goNext;
       const nextPageTitle = pageMapping[nextPage].title;
-      console.log("nextPage:", nextPage, "nextPageTitle:", nextPageTitle);
-      
-      // Mettre à jour le texte du bouton
+
       const spanElement = goNextButton.querySelector('span');
-      console.log("goNext spanElement found:", spanElement);
       if (spanElement) {
-        console.log("Updating goNext span text to:", `Go to ${nextPageTitle}`);
         spanElement.textContent = `Go to ${nextPageTitle}`;
-        console.log("Updated goNext span text:", spanElement.textContent);
       }
-      
-      // Générer l'URL correcte
+
       goNextButton.href = generateUrl(nextPage);
-      
-      console.log(`Dynamic navigation: Go to ${nextPageTitle} (${nextPage})`);
     } else {
-      // Si la page actuelle n'est pas dans le mapping, aller vers framework par défaut
-      console.log("Page not found in mapping, using default");
       const spanElement = goNextButton.querySelector('span');
-      console.log("goNext spanElement found (fallback):", spanElement);
       if (spanElement) {
         spanElement.textContent = 'Go to Framework';
-        console.log("Updated goNext span text (fallback):", spanElement.textContent);
       }
       goNextButton.href = generateUrl('framework.html');
-      console.log('Dynamic navigation: Using default "Go to Framework"');
     }
-  } else {
-    console.warn("Element #goNext not found");
   }
 }
 
