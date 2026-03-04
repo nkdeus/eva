@@ -16,7 +16,45 @@
     # CSP plus permissive pour diagnostiquer les problèmes
     Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdnjs.cloudflare.com https://cloud.umami.is; style-src 'self' 'unsafe-inline' https://use.typekit.net https://p.typekit.net https://fonts.googleapis.com; font-src 'self' https://use.typekit.net https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://cloud.umami.is https://api-gateway.umami.dev; object-src 'none'; base-uri 'self';"
 
+# Serve static files directly (before SPA catch-all)
+[[redirects]]
+  from = "/robots.txt"
+  to = "/robots.txt"
+  status = 200
+
+[[redirects]]
+  from = "/sitemap.xml"
+  to = "/sitemap.xml"
+  status = 200
+
+[[redirects]]
+  from = "/llms.txt"
+  to = "/llms.txt"
+  status = 200
+
+[[redirects]]
+  from = "/llms-full.txt"
+  to = "/llms-full.txt"
+  status = 200
+
+# Serve HTML pages directly
+[[redirects]]
+  from = "/framework.html"
+  to = "/framework.html"
+  status = 200
+
+[[redirects]]
+  from = "/figma-to-eva.html"
+  to = "/figma-to-eva.html"
+  status = 200
+
+[[redirects]]
+  from = "/framework/*.html"
+  to = "/framework/:splat.html"
+  status = 200
+
+# SPA fallback (must be last)
 [[redirects]]
   from = "/*"
   to = "/index.html"
-  status = 200 
+  status = 200

@@ -1,0 +1,428 @@
+# EVA CSS - Full Documentation
+
+> A fluid SCSS framework that converts static UI designs into responsive systems using CSS clamp() and OKLCH colors.
+
+Version: 2.0.5
+Website: https://eva-css.xyz
+GitHub: https://github.com/nkdeus/eva
+npm packages: eva-css-fluid, eva-css-purge, eva-colors
+
+---
+
+## Installation
+
+```bash
+npm install eva-css-fluid eva-css-purge eva-colors
+```
+
+## Two Configuration Workflows
+
+### Option A: SCSS Variables (Simple, Direct)
+
+Best for quick start, single SCSS file, learning EVA CSS.
+
+```scss
+@use 'eva-css-fluid' with (
+  $sizes: (4, 8, 16, 32, 64, 128),
+  $font-sizes: (14, 16, 20, 24, 32),
+  $build-class: true,
+  $debug: false
+);
+```
+
+Build: `npx sass --load-path=node_modules styles/main.scss:styles/main.css`
+
+### Option B: JSON Config (Advanced, Centralized)
+
+Best for production projects, multiple SCSS files, team collaboration.
+
+Create `eva.config.cjs`:
+
+```javascript
+module.exports = {
+  sizes: [4, 8, 16, 32, 64, 128],
+  fontSizes: [14, 16, 20, 24, 32],
+  buildClass: true,
+  pxRemSuffix: false,
+  nameBySize: true,
+  customClass: false,
+  debug: false,
+  theme: {
+    name: 'myproject',
+    colors: {
+      brand: '#ff5733',
+      accent: '#7300ff',
+      extra: '#ffe500',
+      dark: { lightness: 20, chroma: 0.05, hue: 200 },
+      light: { lightness: 95, chroma: 0.01, hue: 200 }
+    },
+    lightMode: { lightness: 96.4, darkness: 6.4 },
+    darkMode: { lightness: 5, darkness: 95 },
+    autoSwitch: false
+  },
+  purge: {
+    enabled: false,
+    content: ['**/*.html'],
+    css: 'styles/main.css',
+    output: 'styles/main-compressed.css',
+    safelist: ['current-theme', 'toggle-theme', 'all-grads']
+  }
+};
+```
+
+SCSS file becomes simply:
+```scss
+@use 'eva-css-fluid';
+```
+
+Build: `node scripts/build-with-config.js styles/main.scss styles/main.css`
+
+### CLI Setup
+
+```bash
+npx eva-css setup     # Interactive setup with workflow choice
+npx eva-css init      # Create eva.config.cjs only
+npx eva-css validate  # Check configuration for errors
+npx eva-css generate  # Generate SCSS variables from JSON config
+```
+
+---
+
+## Fluid Scaling System
+
+EVA CSS replaces breakpoints with `clamp()` functions. Every size scales fluidly between a minimum (mobile) and maximum (desktop) viewport.
+
+### Size Variables
+
+Given `$sizes: (4, 8, 16, 32, 64, 128)`, EVA generates:
+
+| Variable | Meaning |
+|----------|---------|
+| `var(--16)` | Standard fluid scaling for 16px |
+| `var(--16_)` | Reduced scaling (less variation) |
+| `var(--16__)` | Extreme reduction (near-static) |
+| `var(--16-)` | Extended scaling (more variation) |
+
+### Font Size Variables
+
+Given `$font-sizes: (14, 16, 20, 24, 32)`, EVA generates:
+
+| Variable | Meaning |
+|----------|---------|
+| `var(--24)` | Standard fluid font size |
+| `var(--24_)` | Reduced fluid font size |
+| `var(--24__)` | Extreme reduction |
+
+### Two Build Modes
+
+**Utility Classes (`buildClass: true`):**
+Generates classes like `w-64`, `h-32`, `p-16`, `g-8`, `fs-24`, `_bg-brand`, `_c-dark`.
+Use directly in HTML.
+
+**Variables Only (`buildClass: false`):**
+Only generates CSS custom properties. Write semantic CSS:
+```scss
+.hero { padding: var(--64); font-size: var(--32); color: var(--brand); }
+```
+
+---
+
+## Color System (OKLCH)
+
+EVA CSS uses the OKLCH color space for perceptually uniform colors.
+
+### Base Colors
+
+Define 5 base colors: `brand`, `accent`, `extra`, `dark`, `light`.
+
+Colors can be specified as HEX (auto-converted) or OKLCH:
+```javascript
+colors: {
+  brand: '#ff5733',           // HEX format
+  dark: { lightness: 20, chroma: 0.05, hue: 200 }  // OKLCH format
+}
+```
+
+### Color Variables
+
+| Variable | Description |
+|----------|-------------|
+| `var(--brand)` | Base brand color |
+| `var(--brand_)` | 65% opacity |
+| `var(--brand__)` | 35% opacity |
+| `var(--brand___)` | 5% opacity |
+| `var(--brand-d)` | Darker variant |
+| `var(--brand-b)` | Brighter variant |
+| `var(--brand-d_)` | More darker |
+| `var(--brand-b_)` | More brighter |
+
+Same pattern for `accent`, `extra`, `dark`, `light`.
+
+### Theme Configuration
+
+Themes are CSS classes applied to the body:
+```html
+<body class="current-theme theme-myproject">
+```
+
+Theme class defines OKLCH values:
+```scss
+.theme-myproject {
+  --brand-lightness: 62.8%;
+  --brand-chroma: 0.258;
+  --brand-hue: 29.23;
+  --accent-lightness: 55%;
+  --accent-chroma: 0.3;
+  --accent-hue: 290;
+  // ... etc for extra, dark, light
+}
+```
+
+### Light/Dark Mode
+
+Configure in eva.config.cjs:
+```javascript
+lightMode: { lightness: 96.4, darkness: 6.4 },
+darkMode: { lightness: 5, darkness: 95 },
+autoSwitch: false  // Manual toggle with .toggle-theme class
+```
+
+### Color Utilities (eva-colors CLI)
+
+```bash
+npx eva-color convert "#ff0000"         # HEX to OKLCH
+npx eva-color palette "#ff0000" 7       # Generate 7-step palette
+npx eva-color theme config.json         # Generate theme from JSON
+npx eva-color contrast "#fff" "#000"    # WCAG contrast check
+```
+
+---
+
+## Gradient System
+
+EVA CSS includes Emmet-style gradient classes.
+
+### Core Classes
+
+| Class | Effect |
+|-------|--------|
+| `grad-linear` | Linear gradient background |
+| `grad-radial` | Radial gradient from center |
+| `grad-linear-text` | Gradient applied to text |
+| `grad-radial-text` | Radial gradient on text |
+| `grad-linear-border` | Gradient border |
+| `grad-radial-border` | Radial gradient border |
+
+### Color Control
+
+| Class | Sets |
+|-------|------|
+| `from-brand` | Start color = brand |
+| `to-accent` | End color = accent |
+| `from-brand_` | Start = brand at 65% opacity |
+| `to-extra-d` | End = extra darker variant |
+| `from-transparent` | Transparent start |
+
+### Direction
+
+| Class | Direction |
+|-------|-----------|
+| `d-t` | To top |
+| `d-b` | To bottom |
+| `d-l` | To left |
+| `d-r` | To right |
+| `d-tl` | To top left |
+| `d-tr` | To top right |
+| `d-bl` | To bottom left |
+| `d-br` | To bottom right |
+
+### Angle
+
+`a-0` through `a-360` in 5-degree increments: `a-45`, `a-90`, `a-135`, `a-180`, etc.
+
+### Animation
+
+| Class | Duration |
+|-------|----------|
+| `animated` | 3s |
+| `animated-slow` | 6s |
+| `animated-fast` | 1s |
+
+### Background Size
+
+| Class | Size |
+|-------|------|
+| `bg-size` | 150% |
+| `bg-size_` | 200% |
+| `bg-size__` | 300% |
+
+### Example
+
+```html
+<div class="grad-linear from-brand to-accent d-br animated bg-size_">
+  Animated diagonal gradient
+</div>
+
+<h1 class="grad-linear-text from-brand to-accent d-r">
+  Gradient Text
+</h1>
+```
+
+Container must have `.all-grads` class:
+```html
+<body class="current-theme theme-myproject all-grads">
+```
+
+---
+
+## Utility Classes Reference (buildClass: true)
+
+### Sizing
+
+| Pattern | Property | Example |
+|---------|----------|---------|
+| `w-{size}` | width | `w-64` |
+| `h-{size}` | height | `h-32` |
+| `p-{size}` | padding | `p-16` |
+| `px-{size}` | padding-left + right | `px-32` |
+| `py-{size}` | padding-top + bottom | `py-16` |
+| `pt-{size}` | padding-top | `pt-8` |
+| `m-{size}` | margin | `m-16` |
+| `mx-{size}` | margin-left + right | `mx-32` |
+| `g-{size}` | gap | `g-16` |
+| `br-{size}` | border-radius | `br-12` |
+
+Modifiers work with classes too: `w-64_`, `p-32__`, `h-128-`
+
+### Font Size
+
+`fs-{size}`: font-size. Example: `fs-24`, `fs-16_`, `fs-32__`
+
+### Colors
+
+| Pattern | Property |
+|---------|----------|
+| `_bg-{color}` | background-color |
+| `_c-{color}` | color |
+| `_bc-{color}` | border-color |
+
+Color values: `brand`, `accent`, `extra`, `dark`, `light`, plus modifiers: `brand_`, `brand__`, `brand-d`, `brand-b`, `brand-d_`, `brand-b_`
+
+### Flexbox
+
+| Class | Effect |
+|-------|--------|
+| `flex` | display: flex |
+| `x` | flex-direction: row |
+| `y` | flex-direction: column (default) |
+| `center` | align-items: center |
+| `space` | justify-content: space-between |
+| `wrap` | flex-wrap: wrap |
+| `start` | align-items: flex-start |
+| `end` | align-items: flex-end |
+
+### Grid
+
+| Class | Effect |
+|-------|--------|
+| `grid` | display: grid |
+| `auto-fit-{size}` | grid-template-columns: repeat(auto-fit, minmax(var(--{size}), 1fr)) |
+| `gap-{size}` | gap |
+| `col-{n}` | grid-column: span n |
+
+### Layout
+
+| Class | Effect |
+|-------|--------|
+| `pof` | position: fixed |
+| `poa` | position: absolute |
+| `por` | position: relative |
+| `oh` | overflow: hidden |
+| `ar-1` | aspect-ratio: 1 |
+| `circle` | border-radius: 50% |
+| `w-full` | width: 100% |
+
+### Text
+
+| Class | Effect |
+|-------|--------|
+| `ttu` | text-transform: uppercase |
+| `tac` | text-align: center |
+| `lh-1` | line-height: 1 |
+| `lh-1-5` | line-height: 1.5 |
+
+---
+
+## CSS Purge (eva-css-purge)
+
+Optimize CSS by removing unused classes:
+
+```bash
+npm run purge
+# or
+npx eva-purge --css styles/main.css --content '**/*.html' --output styles/main-compressed.css
+```
+
+Features:
+- Removes unused CSS classes (40-70% reduction)
+- Preserves all CSS variables in :root
+- Keeps element selectors (body, h1, p, etc.)
+- Maintains media queries
+- Protects theme classes via safelist
+
+---
+
+## Project Structure
+
+```
+project/
+├── index.html
+├── eva.config.cjs          # JSON config (Option B)
+├── styles/
+│   └── main.scss           # EVA CSS configuration
+├── scripts/
+│   └── build-with-config.js # Build script for JSON config
+└── node_modules/
+    ├── eva-css-fluid/      # Core framework
+    ├── eva-css-purge/      # CSS optimization
+    └── eva-colors/         # Color utilities
+```
+
+### Multi-project Structure
+
+```
+projects/
+├── project-a/
+│   ├── index.html
+│   ├── eva.config.cjs
+│   ├── styles/project-a.scss
+│   └── render/project-a.css
+└── project-b/
+    ├── index.html
+    ├── eva.config.cjs
+    ├── styles/project-b.scss
+    └── render/project-b.css
+```
+
+---
+
+## Important Rules
+
+1. **Never use fixed values**: Use `var(--64)` not `64px`, use `var(--brand)` not `#ff5733`
+2. **Only include used sizes**: The `sizes` array should only contain dimensions actually used in the design
+3. **Mode consistency**: Don't mix utility classes and variables-only modes in the same project
+4. **Theme setup**: Body must have `class="current-theme theme-NAME"` for theming to work
+5. **Gradients setup**: Add `all-grads` class to body for gradient variables
+
+---
+
+## Figma to EVA CSS Workflow
+
+1. Extract layout data from Figma (via MCP or manual inspection)
+2. Identify all sizes: gaps, paddings, widths, heights, border-radius
+3. Convert HEX colors to OKLCH: `npx eva-color convert "#hex"`
+4. Create project structure
+5. Configure SCSS with extracted sizes and font sizes
+6. Define theme with OKLCH color values
+7. Use EVA variables in CSS: `var(--64)`, `var(--brand)`
+8. Compile: `npx sass --load-path=node_modules`

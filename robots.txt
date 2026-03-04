@@ -1,0 +1,11 @@
+# EVA CSS - https://eva-css.xyz
+# Allow all crawlers including AI/LLM bots
+
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://eva-css.xyz/sitemap.xml
+
+# LLM documentation
+# See also: https://eva-css.xyz/llms.txt

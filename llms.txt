@@ -1,0 +1,52 @@
+# EVA CSS
+
+> A fluid SCSS framework that converts static UI designs into responsive systems using CSS clamp() and OKLCH colors.
+
+EVA CSS generates fluid, responsive CSS from a set of design sizes. Instead of breakpoints, it uses `clamp()` functions so every dimension scales smoothly across all viewport sizes. Colors use the modern OKLCH color space with automatic opacity, brightness, and darkness variants.
+
+## Quick Start
+
+```bash
+npm install eva-css-fluid eva-css-purge eva-colors
+```
+
+```scss
+@use 'eva-css-fluid' with (
+  $sizes: (4, 8, 16, 32, 64, 128),
+  $font-sizes: (14, 16, 20, 24, 32),
+  $build-class: true
+);
+```
+
+```bash
+npx sass --load-path=node_modules styles/main.scss:styles/main.css
+```
+
+## Key Concepts
+
+- **Fluid Sizes**: `var(--64)` scales fluidly. Modifiers: `var(--64_)` (reduced), `var(--64__)` (extreme), `var(--64-)` (extended)
+- **OKLCH Colors**: `var(--brand)`, `var(--accent)`, `var(--extra)`, `var(--dark)`, `var(--light)` with opacity (`var(--brand_)` 65%, `var(--brand__)` 35%) and brightness variants (`var(--brand-d)`, `var(--brand-b)`)
+- **Two Build Modes**: Utility classes (`$build-class: true`) or CSS variables only (`$build-class: false`)
+- **Gradient System**: Emmet-style classes like `grad-linear from-brand to-accent d-br animated`
+- **Auto Theme**: Light/dark mode with OKLCH-based theme switching
+
+## Documentation
+
+- [Framework Overview](https://eva-css.xyz/framework.html)
+- [Fluid CSS Guide](https://eva-css.xyz/framework/css-fluid.html)
+- [Documentation](https://eva-css.xyz/framework/doc.html)
+- [Sizing System](https://eva-css.xyz/framework/sizes.html)
+- [Color System](https://eva-css.xyz/framework/colors.html)
+- [Gradients](https://eva-css.xyz/framework/gradients.html)
+- [Flexbox](https://eva-css.xyz/framework/flex.html)
+- [Grids](https://eva-css.xyz/framework/grids.html)
+- [Typography](https://eva-css.xyz/framework/fonts.html)
+- [Auto Theme](https://eva-css.xyz/framework/auto-theme.html)
+- [Figma to EVA](https://eva-css.xyz/figma-to-eva.html)
+
+## Links
+
+- Website: https://eva-css.xyz
+- GitHub: https://github.com/nkdeus/eva
+- npm: eva-css-fluid
+- Full documentation for LLMs: https://eva-css.xyz/llms-full.txt
