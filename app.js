@@ -659,15 +659,7 @@ function initScrollMenuHandler() {
 }
 
 // Fonction principale d'initialisation
-let appInitialized = false;
 function initApp() {
-  if (appInitialized) {
-    console.warn('⚠️ initApp() called again — skipping duplicate execution');
-    console.trace('Duplicate call origin:');
-    return;
-  }
-  appInitialized = true;
-
   // Générer le titre aléatoire
   randomTitle();
   

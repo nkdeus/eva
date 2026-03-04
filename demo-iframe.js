@@ -123,12 +123,24 @@ document.addEventListener('DOMContentLoaded', centerArrowsOnFrame);
 // Appel aussi après chaque resize de frame (si resize dynamique ailleurs)
 setTimeout(centerArrowsOnFrame, 300);
 
-// Charger automatiquement le premier site après 1 seconde
+// Charger le premier site quand la section demo entre dans le viewport
 document.addEventListener('DOMContentLoaded', function() {
-  setTimeout(function() {
+  const demoSection = document.getElementById('demo');
+  if (demoSection && typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+    gsap.registerPlugin(ScrollTrigger);
+    ScrollTrigger.create({
+      trigger: demoSection,
+      start: 'top 80%',
+      once: true,
+      onEnter: function() {
+        loadSite(0);
+      }
+    });
+  } else {
+    // Fallback si pas de GSAP ou pas de section demo
     loadSite(0);
-  }, 1000);
-}); 
+  }
+});
 
 document.addEventListener('DOMContentLoaded', function() {    
 
