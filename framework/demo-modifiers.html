@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="../styles/main.css">
+  <style>
+    html, body { margin: 0; padding: 0; overflow: hidden; }
+    body {
+      padding: 16px 20px;
+      background: var(--light);
+      font-family: 'Noto Sans Display', system-ui, sans-serif;
+    }
+    .row { display: flex; align-items: center; gap: 16px; margin-bottom: 8px; }
+    .label { width: 9rem; flex-shrink: 0; line-height: 1.1; }
+    .label code {
+      font-family: 'JetBrains Mono', 'Fira Code', monospace;
+      font-size: 12px; color: var(--dark-d_); font-weight: 600;
+    }
+    .label small {
+      display: block; font-size: 10px; color: var(--dark__);
+      text-transform: uppercase; letter-spacing: 0.05em; margin-top: 2px;
+    }
+    .bar {
+      height: 32px; border-radius: 6px; flex-shrink: 0;
+      transition: width 0.05s linear;
+    }
+    .bar.standard { width: var(--220);   background: var(--brand);   }
+    .bar.reduced  { width: var(--220_);  background: var(--accent);  }
+    .bar.extreme  { width: var(--220__); background: var(--extra);   }
+    .bar.extended { width: var(--220-);  background: var(--brand-d); }
+  </style>
+</head>
+<body class="current-theme theme-eva">
+  <div class="row"><div class="label"><code>var(--220)</code><small>standard</small></div><div class="bar standard"></div></div>
+  <div class="row"><div class="label"><code>var(--220_)</code><small>reduced</small></div><div class="bar reduced"></div></div>
+  <div class="row"><div class="label"><code>var(--220__)</code><small>extreme</small></div><div class="bar extreme"></div></div>
+  <div class="row"><div class="label"><code>var(--220-)</code><small>extended</small></div><div class="bar extended"></div></div>
+</body>
+</html>

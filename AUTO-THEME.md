@@ -251,7 +251,7 @@ Ces variables sont utilisées par EVA CSS pour recalculer automatiquement :
 ### Utilisation du thème généré
 
 1. **Copier le CSS** généré via le bouton "Copy CSS"
-2. **Ajouter à votre fichier SCSS/CSS** ou dans eva.config.cjs
+2. **Ajouter à votre fichier SCSS/CSS**
 3. **Appliquer la classe** sur le body :
 
 ```html
@@ -326,26 +326,7 @@ Cliquer sur une couleur du thème ouvre une modal permettant de sélectionner un
 
 ## Intégration dans un projet EVA CSS
 
-### Option 1 : Via eva.config.cjs
-
-Après avoir copié les valeurs générées :
-
-```javascript
-// eva.config.cjs
-module.exports = {
-  theme: {
-    name: 'auto',
-    colors: {
-      brand: { lightness: 62.8, chroma: 0.258, hue: 29.23 },
-      accent: { lightness: 54.5, chroma: 0.181, hue: 10 },
-      extra: { lightness: 78, chroma: 0.108, hue: 200 },
-      // dark et light utilisent brand-hue automatiquement
-    }
-  }
-};
-```
-
-### Option 2 : CSS direct
+### Option 1 : Classe SCSS dédiée (recommandé)
 
 Ajouter le CSS généré dans votre fichier de styles :
 
@@ -359,7 +340,7 @@ Ajouter le CSS généré dans votre fichier de styles :
 }
 ```
 
-### Option 3 : Override inline
+### Option 2 : Override inline
 
 Pour un test rapide, appliquer directement sur le body :
 

@@ -1,0 +1,549 @@
+{
+  "meta": {
+    "title": "EVA CSS - Framework SCSS fluide pour design responsive",
+    "description": "EVA CSS - Un framework SCSS fluide qui convertit des designs statiques en systèmes responsives avec CSS clamp() et couleurs OKLCH.",
+    "ogTitle": "EVA CSS - Framework SCSS fluide",
+    "ogDescription": "Un framework SCSS fluide qui convertit des maquettes statiques en systèmes responsives avec CSS clamp() et couleurs OKLCH.",
+    "schemaDescription": "Un framework SCSS fluide qui convertit des maquettes statiques en systèmes responsives avec CSS clamp() et couleurs OKLCH"
+  },
+  "nav": {
+    "fluidCss": "CSS fluide",
+    "addons": "Addons",
+    "figma": "Figma vers EVA",
+    "doc": "Doc"
+  },
+  "tuto": {
+    "drag": "Faites glisser les balles, relâchez quand vous trouvez votre couleur"
+  },
+  "hero": {
+    "titlePre": "Un framework",
+    "titleHighlight": "SCSS",
+    "titlePost": "fluide",
+    "subtitle": "Convertit des maquettes statiques en systèmes adaptatifs et responsives. Une approche moderne du CSS fluide.",
+    "cta": "Démo en direct"
+  },
+  "goals": {
+    "title": "EVA CSS",
+    "highlight": "Objectifs",
+    "card1": {
+      "title": "Framework pour designs complexes",
+      "body": "EVA CSS est conçu pour traduire fidèlement les designs sophistiqués en code. Là où les frameworks traditionnels peinent face à la complexité, EVA CSS excelle grâce à sa nature fluide et adaptative."
+    },
+    "card2": {
+      "title": "Proportions et espacements",
+      "body": "Les proportions et les espacements forment le socle invisible d'une identité visuelle forte. EVA CSS traduit cette architecture invisible en CSS fluide, préservant l'harmonie visuelle sur toutes les tailles d'écran sans compromettre l'intention créative d'origine."
+    },
+    "card3": { "title": "CSS fluide" },
+    "card4": {
+      "title": "Personnalisation complète et rigueur dimensionnelle",
+      "body": "EVA CSS répond aux besoins avancés de personnalisation avec souplesse, tout en renforçant la cohérence dimensionnelle. Cette approche garantit une cohérence parfaite et une scalabilité fiable, même sur les projets les plus ambitieux."
+    }
+  },
+  "hub": {
+    "fluid": { "title": "Responsive fluide", "body": "Le scaling fluide s'adapte sans rupture à toutes les tailles d'écran grâce aux fonctions clamp() modernes.", "cta": "Découvrir le CSS fluide →" },
+    "colors": { "title": "Couleurs OKLCH", "body": "Système de couleurs moderne avec variations automatiques, contrôles d'opacité et fonctionnalités d'accessibilité.", "cta": "Explorer les couleurs →" },
+    "gradients": { "title": "Dégradés", "body": "Système de dégradés moderne avec animations fluides et contrôles responsives.", "cta": "Explorer les dégradés →" },
+    "grids": { "title": "Grilles modernes", "body": "Layouts auto-fit, container queries et systèmes de colonnes responsives.", "cta": "Explorer les grilles →" },
+    "flex": { "title": "Flex", "body": "Système de layout flexible avec contrôles responsives modernes.", "cta": "Explorer flex →" },
+    "figma": { "title": "Figma vers EVA", "body": "Transformez vos designs Figma en code fluide et responsive. Du statique au scalable.", "cta": "Essayer le convertisseur →" }
+  },
+  "footer": {
+    "copyright": "© 2024",
+    "author": "Tati Michaël",
+    "linkedin": "LinkedIn",
+    "llms": "🤖 /llms.txt"
+  },
+  "langToggle": { "label": "EN", "title": "View in English" },
+  "faq": {
+    "aboutFluid": {
+      "title": "À propos du responsive fluide",
+      "lead": "EVA CSS élimine les <span class=\"_c-brand-d\">breakpoints traditionnels</span> au profit d'un <span class=\"_c-brand-d\">scaling fluide</span> qui s'adapte sans rupture sur tous les appareils via les <span class=\"_c-brand-d\">fonctions clamp()</span>.",
+      "body1": "EVA CSS élimine les breakpoints traditionnels. Plutôt que de designer pour des tailles d'écran spécifiques, le framework utilise un scaling fluide qui s'adapte sans rupture sur tous les appareils. Le système calcule les tailles optimales avec les fonctions clamp(), garantissant que votre design est parfait sur mobile, tablette, laptop et desktop sans aucun breakpoint codé en dur.",
+      "body2": "Cette approche vous permet de vous concentrer sur l'intention de design plutôt que de vous soucier du rendu sur différentes tailles d'écran. Le framework gère le scaling automatiquement et crée une expérience véritablement fluide et responsive."
+    },
+    "proportion": {
+      "title": "La proportion plus que la taille",
+      "lead": "EVA CSS privilégie les <span class=\"_c-brand-d\">relations proportionnelles</span> aux tailles absolues, en se concentrant sur l'<span class=\"_c-brand-d\">équilibre visuel</span> et le rythme qui maintiennent la <span class=\"_c-brand-d\">hiérarchie visuelle</span> sur tous les appareils.",
+      "body1": "En design d'interface, les tailles absolues sont secondaires aux relations entre les éléments. EVA CSS se concentre sur l'harmonie proportionnelle, où l'équilibre visuel et le rythme de votre layout comptent plus que des valeurs en pixels précises. Le scaling fluide du framework maintient ces relations proportionnelles sur toutes les tailles d'écran, garantissant que la hiérarchie visuelle de votre design reste intacte.",
+      "body2": "Cette approche proportionnelle signifie que vos layouts se sentiront naturels et équilibrés peu importe l'appareil, créant une expérience utilisateur plus intuitive et visuellement plaisante qui s'adapte sans rupture à n'importe quelle dimension d'écran."
+    },
+    "clampRevolution": {
+      "title": "La révolution clamp",
+      "lead": "Depuis 2024, CSS a connu un <span class=\"_c-brand-d\">changement de paradigme</span> avec <span class=\"_c-brand-d\">clamp()</span> et les container queries, révolutionnant l'<span class=\"_c-brand-d\">accessibilité</span> et éliminant les valeurs en pixels fixes.",
+      "body1": "Depuis 2024, CSS a connu un changement de paradigme avec l'adoption massive de clamp() et des container queries. Ces fonctionnalités CSS modernes ont fondamentalement changé notre approche du design responsive et de l'accessibilité. Plus contraints par des breakpoints arbitraires, les développeurs peuvent désormais créer des interfaces véritablement fluides qui répondent à la fois à la taille du viewport et au contexte du contenu.",
+      "body2": "La fonction clamp(), en particulier, a révolutionné l'accessibilité en permettant aux textes et aux éléments de scaler en douceur entre des valeurs minimales et maximales selon la taille du viewport. Cela signifie que les utilisateurs avec des déficiences visuelles peuvent zoomer leur navigateur sans casser les layouts, tout en maintenant une lisibilité optimale sur tous les appareils. L'ère des valeurs en pixels fixes et des breakpoints rigides est révolue — bienvenue dans le design véritablement fluide et accessible."
+    },
+    "otherTools": {
+      "title": "Autres outils",
+      "lead": "Au-delà d'EVA CSS, l'<span class=\"_c-brand-d\">écosystème du design fluide</span> inclut <span class=\"_c-brand-d\">Lumos</span> pour Webflow et <span class=\"_c-brand-d\">fluid.tw</span> pour Tailwind, plus des calculateurs spécialisés pour les projets complexes.",
+      "body1": "Bien qu'EVA CSS fournisse un framework SCSS complet, il existe d'autres excellents outils dans l'écosystème du design fluide. <strong>Lumos</strong> apporte le design responsive fluide à Webflow, permettant aux designers de créer des layouts véritablement scalables sans quitter leur plateforme no-code favorite. Pour les utilisateurs de Tailwind CSS, <strong>fluid.tw</strong> offre une extension puissante qui intègre le scaling fluide directement dans votre workflow utility-first.",
+      "body2": "Pour les développeurs qui ont besoin d'un contrôle précis, plusieurs calculateurs poids lourds sont disponibles pour calculer les valeurs clamp() optimales pour des design systems complexes. Ces outils sont essentiels pour créer une typographie et un espacement fluides cohérents sur des projets à grande échelle où les calculs manuels seraient impraticables."
+    },
+    "whyBuilt": {
+      "title": "Pourquoi j'ai créé cet outil ?",
+      "lead": "Avec 20 ans d'expérience, j'ai créé EVA CSS pour faire le pont entre l'<span class=\"_c-brand-d\">intention de design</span> et l'<span class=\"_c-brand-d\">implémentation technique</span>, transformant les <span class=\"_c-brand-d\">valeurs Figma</span> en éléments fluides avec un retour immédiat.",
+      "body1": "En tant que front-end designer — quelqu'un qui fait le pont entre design et développement — je travaille dans ce domaine depuis plus de 20 ans. Cette position unique me permet de voir les écarts qui existent entre les outils de design et les frameworks de développement. La plupart des frameworks sont construits par des développeurs purs qui ne comprennent pas le workflow du designer, tandis que les outils de design sont créés par des designers qui ne saisissent pas les contraintes techniques. EVA CSS comble ce fossé.",
+      "body2": "Mon idée est simple : transformer chaque valeur fixe d'un design Figma en éléments fluides et responsives. La puissance du design responsive et la transition fluide des redimensionnements peuvent être testées en quelques secondes. Cette boucle de feedback immédiate fait le pont entre l'intention de design et l'implémentation technique.",
+      "body3": "Créer du CSS fluide sans framework garantit l'incohérence en fin de projet, parce que les calculs sont complexes et sources d'erreurs. EVA CSS élimine ce problème en fournissant une approche systématique qui maintient la cohérence du design sur toutes les tailles d'écran tout en respectant la vision originale du designer."
+    },
+    "universal": {
+      "title": "Compatibilité universelle",
+      "lead": "EVA CSS fonctionne avec <span class=\"_c-brand-d\">tout type de projet</span> et toute stack technologique, des <span class=\"_c-brand-d\">Progressive Web Apps</span> aux applications <span class=\"_c-brand-d\">Webflow</span>, offrant une implémentation flexible des variables CSS aux classes utilitaires.",
+      "body1": "EVA CSS est conçu pour fonctionner avec tout type de projet, peu importe la taille ou la stack technologique. Des Progressive Web Apps aux sites traditionnels, des projets Webflow aux applications Ycode, le framework s'adapte à vos besoins spécifiques. Que vous construisiez une simple landing page ou une application enterprise complexe, EVA CSS fournit la fondation responsive fluide dont vous avez besoin.",
+      "body2": "Le framework est suffisamment flexible pour gérer à la fois des implémentations simples en variables CSS et des systèmes complets de classes utilitaires. Vous pouvez commencer avec une typographie et un espacement fluides basiques, puis adopter progressivement des fonctionnalités plus avancées à mesure que votre projet grandit. Cette approche modulaire garantit qu'EVA CSS scale avec votre projet, du concept initial au déploiement final."
+    }
+  },
+  "addonsNav": {
+    "back": "← Tous les addons",
+    "colors": "Couleurs",
+    "gradients": "Dégradés",
+    "grids": "Grilles",
+    "flex": "Flex",
+    "fonts": "Typographie",
+    "sizes": "Tailles"
+  },
+  "aiPointer": {
+    "eyebrow": "Pour ton assistant IA",
+    "fullRef": "Référence complète",
+    "cta": "Ouvrir /llms.txt →"
+  },
+  "addons": {
+    "meta": {
+      "title": "EVA CSS — Addons",
+      "description": "Les addons EVA CSS — six modules autour du noyau fluide : couleurs, dégradés, grilles, flex, typo, tailles.",
+      "ogTitle": "EVA CSS — Addons",
+      "ogDescription": "Six modules autour du noyau fluide. Choisissez ce dont vous avez besoin."
+    },
+    "hero": {
+      "eyebrow": "Six modules autour du noyau fluide",
+      "title": "Addons",
+      "body": "Le fluide est le framework. Ces six addons sont optionnels. Utilisez ceux qu'il vous faut, ignorez le reste."
+    },
+    "cards": {
+      "colors": { "title": "Couleurs", "body": "Système de couleurs OKLCH. Trois teintes, seize variantes par couleur, modificateurs d'opacité et de luminosité automatiques." },
+      "gradients": { "title": "Dégradés", "body": "Syntaxe Emmet. Linéaire, radial, animé. <code>from-brand to-accent d-r</code> — voilà l'API." },
+      "grids": { "title": "Grilles", "body": "Trois paradigmes : auto-fit pour les cartes, 12 colonnes classiques pour les layouts, notation fractionnaire pour le contrôle précis." },
+      "flex": { "title": "Flex", "body": "Deux axes, trois mots-clés. <code>flex y</code>, <code>flex x</code>, <code>center</code>, <code>space</code>. C'est tout." },
+      "fonts": { "title": "Typographie", "body": "Typographie fluide avec trois modificateurs d'intensité. Du texte qui coule du mobile au desktop sans media query." },
+      "sizes": { "title": "Tailles", "body": "Un nombre, quatre saveurs. Padding, marge, gap, largeur, hauteur — tous sur la même échelle fluide." }
+    },
+    "cta": "Explorer →",
+    "tools": {
+      "title": "Outils",
+      "body": "Deux outils interactifs pour générer des thèmes et explorer les variables.",
+      "autoTheme": { "title": "Auto Theme", "body": "Déposez une image, obtenez un thème OKLCH. Brand, accent, extra extraits automatiquement." },
+      "jsCalculator": { "title": "JS Calculator", "body": "Configurez votre échelle, voyez chaque variable et classe générée. Aperçu live, sans installation." },
+      "openInPlayground": "Ouvrir dans le Playground →"
+    },
+    "ai": {
+      "eyebrow": "Pour ton assistant IA",
+      "title": "Tous les addons. Un seul fichier markdown.",
+      "body": "Chaque variable, chaque modificateur, chaque formule des six addons. <code>/llms.txt</code> condense tout pour une consommation IA directe.",
+      "cta": "Ouvrir /llms.txt →"
+    }
+  },
+  "figmaToEva": {
+    "meta": {
+      "title": "EVA CSS - Figma vers EVA",
+      "description": "Convertir des designs Figma en EVA CSS — extraire tailles, couleurs et typographie via MCP.",
+      "ogTitle": "Figma vers EVA CSS",
+      "ogDescription": "Convertir des designs Figma en EVA CSS — extraire tailles, couleurs et typographie via MCP."
+    },
+    "hero": {
+      "titlePre": "De",
+      "titleHighlight": "Figma",
+      "titlePost": "à EVA CSS",
+      "body": "Guide pour créer un projet EVA CSS à partir d'un design Figma via MCP (Model Context Protocol)."
+    },
+    "prereq": {
+      "title": "Prérequis",
+      "desktop": { "title": "MCP Desktop", "tag": "Option recommandée", "step1": "Ouvrir Figma Desktop", "step2": "Activer Dev Mode (Shift+D)", "step3": "Activer le serveur MCP desktop" },
+      "remote": { "title": "MCP Remote", "tag": "Alternative cloud" },
+      "tools": { "title": "Outils MCP", "t1": "Layout, styles", "t2": "Variables", "t3": "SVG/PNG", "t4": "Capture" }
+    },
+    "workflow": {
+      "title": "Workflow",
+      "stepLabel": "Étape",
+      "s1": { "title": "Extraction Figma", "body": "Extraire via MCP : layout, couleurs HEX, dimensions (largeur, hauteur, gap, padding), tailles de police." },
+      "s2": { "title": "Analyse des tailles", "body": "Identifier : gaps, paddings, dimensions, border radius." },
+      "s3": { "title": "Conversion couleurs", "body": "HEX → OKLCH" },
+      "s4": { "title": "Création projet" },
+      "s5": { "title": "Config SCSS" },
+      "s6": { "title": "Thème OKLCH" },
+      "s7": { "title": "Variables EVA" },
+      "s8": { "title": "Compilation" },
+      "s9": { "title": "HTML" }
+    },
+    "rules": {
+      "title": "Règles importantes",
+      "label": "Règle",
+      "r1": { "title": "Pas de valeurs fixes", "body": "Toujours <code>var(--XX)</code>, jamais <code>XXpx</code>" },
+      "r2": { "title": "Respecter Figma", "body": "Si Figma utilise <code>--120__</code>, utiliser <code>var(--120__)</code>" },
+      "r3": { "title": "buildClass: false", "body": "CSS sémantique avec les variables EVA" },
+      "r4": { "title": "Loop sur répétitions", "body": "Si un élément Figma contient « loop », itérer" }
+    },
+    "demo": {
+      "title": "Démo en direct : projet Ulysse",
+      "ulysse": { "title": "Ouvrir Ulysse", "body": "Voir l'intégration Figma vers EVA CSS complète", "cta": "Ouvrir le projet →" },
+      "figma": { "title": "Design Figma", "body": "Comparer avec le design original", "cta": "Voir sur Figma →" },
+      "config": { "title": "Config utilisée" }
+    }
+  },
+  "cssFluid": {
+    "meta": {
+      "title": "EVA CSS — CSS fluide, le héros",
+      "description": "Le système responsive fluide au cœur d'EVA CSS. Démo clamp() en direct, comparaison breakpoints vs fluide, et l'exemple SCSS canonique.",
+      "ogTitle": "EVA CSS — CSS fluide, le héros",
+      "ogDescription": "clamp() en action. Comparez breakpoints et scaling fluide."
+    },
+    "hero": {
+      "eyebrow": "Le cœur d'EVA CSS",
+      "titlePre": "Le fluide",
+      "titleHighlight": "scale",
+      "titlePost": "là où les breakpoints sautent.",
+      "bodyPre": "Un seul",
+      "bodyPost": "remplace trois media queries. Les designs coulent. Les layouts respirent. Faites glisser les sliders ci-dessous."
+    },
+    "reveal": {
+      "title": "La révélation clamp()",
+      "bodyPre": "Faites glisser le slider. Le simulateur de viewport se rétrécit. Le contenu intérieur se redimensionne ",
+      "bodyHighlight": "en douceur",
+      "bodyPost": " — pas de breakpoints, pas de sauts.",
+      "previewEyebrow": "Aperçu en direct",
+      "previewHeading": "Titre responsive",
+      "previewBody": "Padding, gap, typo et bouton — tous pilotés par une seule formule clamp(). Lisse sur tous les viewports.",
+      "previewCta": "Action →"
+    },
+    "versus": {
+      "title": "Breakpoint vs fluide",
+      "bodyPre": "Même composant, deux stratégies. Un seul slider pilote les deux. ",
+      "bodyHighlight": "Regardez la gauche sauter. Regardez la droite glisser.",
+      "bpTag": "@media breakpoints",
+      "flTag": "clamp() fluide",
+      "bpCard": { "title": "Carte breakpoint", "body": "Saute à 768 / 1024 / 1440" },
+      "flCard": { "title": "Carte fluide", "body": "Continu entre 320 et 1920" }
+    },
+    "modifiers": {
+      "title": "Quatre modifiers de taille",
+      "bodyPre": "Un token, ",
+      "bodyHighlight": "quatre comportements de scaling",
+      "bodyPost": ". <code>--220</code> standard. <code>--220_</code> reduced. <code>--220__</code> extreme. <code>--220-</code> extended."
+    },
+    "canonical": {
+      "title": "La configuration canonique",
+      "body": "Un seul <code>@use</code>. Les tailles que vous utilisez vraiment. EVA génère le reste.",
+      "scssLabel": "Entrée SCSS",
+      "varsLabel": "Variables générées",
+      "useLabel": "Utiliser n'importe où",
+      "commentReduced": "réduit",
+      "commentExtreme": "extrême",
+      "commentExtended": "étendu"
+    },
+    "why": {
+      "title": "Pourquoi ça existe",
+      "body1": "Vingt ans de design front-end. Je suis assis entre les designers et les développeurs — et je vois la même rupture à chaque fois. Les designers livrent des valeurs Figma que les développeurs traduisent en breakpoints rigides, et l'intention de design se perd entre les deux paradigmes.",
+      "body2": "EVA CSS transforme chaque valeur Figma fixe en variable fluide et responsive. Les maths se font une fois, le résultat tient sur tous les viewports, et la hiérarchie visuelle d'origine survit au passage du canvas au code."
+    },
+    "ai": {
+      "title": "La référence complète tient dans un seul fichier.",
+      "body": "Chaque variable, modificateur et formule vit dans <code>/llms.txt</code>. Copiez-le dans Claude, ChatGPT ou Cursor — votre assistant connaît EVA CSS par cœur."
+    }
+  },
+  "colors": {
+    "meta": {
+      "title": "EVA CSS — Couleurs",
+      "description": "Système de couleurs OKLCH d'EVA CSS — couleurs modernes avec modificateurs automatiques d'opacité, de luminosité et d'obscurité."
+    },
+    "hero": {
+      "eyebrow": "Addon · Couleurs",
+      "titlePre": "Une teinte.",
+      "titleHighlight": "Seize nuances.",
+      "body": "Couleurs propulsées OKLCH avec variantes automatiques d'opacité, de luminosité et d'obscurité. Faites glisser les balles du logo pour remixer la teinte brand."
+    },
+    "live": {
+      "title": "Teinte en direct",
+      "body": "Trois nombres — trois teintes — génèrent tout le système ci-dessous.",
+      "brand": "Teinte Brand",
+      "accent": "Teinte Accent",
+      "extra": "Teinte Extra"
+    },
+    "swatches": {
+      "title": "Toutes les nuances",
+      "body": "5 couleurs de base × 8 variantes. Même schéma de nommage, à chaque fois.",
+      "brand": "Brand",
+      "accent": "Accent",
+      "extra": "Extra",
+      "darkLight": "Sombre / Clair"
+    },
+    "naming": { "title": "Convention de nommage", "color": "couleur", "background": "fond", "borderColor": "bordure" },
+    "opacity": { "title": "Modificateurs d'opacité", "full": "plein" },
+    "brightness": { "title": "Modificateurs de luminosité", "darker": "plus sombre", "brighter": "plus clair", "deeperDark": "sombre profond", "lighterBright": "clair vif" },
+    "ai": {
+      "eyebrow": "Référence complète",
+      "title": "Toutes les variantes, toutes les formules — dans /llms.txt.",
+      "body": "Bases OKLCH, switching de thème, formules de contraste. Plus l'outil auto-theme pour extraire des palettes depuis des images.",
+      "autoCta": "Auto theme →"
+    }
+  },
+  "fonts": {
+    "meta": {
+      "title": "EVA CSS — Typographie",
+      "description": "Typographie EVA CSS — tailles de police fluides qui scalent en douceur sur tous les viewports."
+    },
+    "hero": {
+      "eyebrow": "Addon · Typographie",
+      "titlePre": "Du texte qui",
+      "titleHighlight": "coule",
+      "body": "Tailles de police fluides avec trois modificateurs d'intensité : standard, réduit, extrême."
+    },
+    "modifiers": {
+      "title": "Trois modificateurs",
+      "body": "Redimensionnez la fenêtre pour voir chaque modificateur scaler à un rythme différent.",
+      "staticLabel": "statique",
+      "standardLabel": "fluide standard",
+      "reducedLabel": "réduit",
+      "extremeLabel": "extrême"
+    },
+    "usage": {
+      "varTitle": "Utiliser comme variable",
+      "classTitle": "Utiliser comme classe utilitaire",
+      "scaleTitle": "Configurer l'échelle"
+    },
+    "ai": {
+      "title": "Toutes les variables, toutes les formules — dans un seul fichier.",
+      "body": "Maths des modificateurs, constantes de calcul ($Φ, $ez), chaque variable <code>--fs-*</code>. <code>/llms.txt</code> a tout."
+    }
+  },
+  "sizes": {
+    "meta": {
+      "title": "EVA CSS — Système de tailles",
+      "description": "Tailles EVA CSS — échelle d'espacement fluide avec modificateurs d'intensité pour paddings, marges, gaps, dimensions."
+    },
+    "hero": {
+      "eyebrow": "Addon · Tailles",
+      "titlePre": "Des espacements qui",
+      "titleHighlight": "restent en harmonie",
+      "body": "Un nombre, quatre saveurs. Padding, marge, gap, largeur, hauteur — tous sur la même échelle fluide."
+    },
+    "scale": {
+      "title": "L'échelle",
+      "body": "Un carré fluide à chaque palier. Redimensionnez la fenêtre pour les voir s'adapter d'un coup."
+    },
+    "modifiers": {
+      "title": "Quatre modificateurs",
+      "body": "Même nombre, quatre courbes de scaling. Choisissez celle qui colle à votre intention de design.",
+      "standardLabel": "standard",
+      "standardBody": "Scaling fluide par défaut.",
+      "reducedLabel": "réduit",
+      "reducedBody": "Courbe plus subtile. Delta plus petit entre min et max.",
+      "extremeLabel": "extrême",
+      "extremeBody": "Courbe agressive. Grosse réduction sur mobile.",
+      "extendedLabel": "étendu",
+      "extendedBody": "Pousse plus loin sur les grands viewports."
+    },
+    "usage": {
+      "scaleTitle": "Configurer votre échelle",
+      "utilTitle": "Utiliser comme utilitaire",
+      "varTitle": "Utiliser comme variable"
+    },
+    "ai": {
+      "title": "Maths de calcul et formules de modificateurs — dans /llms.txt.",
+      "body": "Calcul pas à pas, conventions de nommage, ratio $Φ, liste des préfixes. Tout ce dont une IA a besoin."
+    }
+  },
+  "grids": {
+    "meta": {
+      "title": "EVA CSS — Grilles",
+      "description": "Grilles EVA CSS — auto-fit, 12 colonnes classiques, notation fractionnaire. Layouts responsives modernes."
+    },
+    "hero": {
+      "eyebrow": "Addon · Grilles",
+      "titlePre": "Trois paradigmes",
+      "titleHighlight": "de grille",
+      "body": "Auto-fit pour les cartes. 12 colonnes classiques pour les layouts. Fractions pour le contrôle précis. Choisissez-en un. Ou mixez."
+    },
+    "autoFit": {
+      "title": "Auto-fit",
+      "bodyPre": "Les éléments wrappent automatiquement selon une largeur min.",
+      "bodyMid": " = chaque élément au moins",
+      "bodyPost": " de large."
+    },
+    "classic": {
+      "title": "12 colonnes classiques",
+      "bodyPre": "Utilisez",
+      "bodyPost": ". Somme à 12."
+    },
+    "fraction": {
+      "title": "Notation fractionnaire",
+      "bodyPre": "Définissez les colonnes comme fractions de l'espace disponible. Du CSS Grid pur",
+      "bodyPost": " en classes utilitaires."
+    },
+    "ai": {
+      "title": "Tous les utilitaires de grille — dans /llms.txt.",
+      "body": "Seuils auto-fit, container queries, modificateurs de gap, notation span. La liste complète des utilitaires."
+    }
+  },
+  "flex": {
+    "meta": {
+      "title": "EVA CSS — Flex",
+      "description": "Utilitaires flex EVA CSS — flex vertical et horizontal avec raccourcis d'alignement."
+    },
+    "hero": {
+      "eyebrow": "Addon · Flex",
+      "titlePre": "Deux axes.",
+      "titleHighlight": "Trois mots-clés.",
+      "b1": " empile verticalement.",
+      "b2": " aligne horizontalement. Ajoutez",
+      "b3": " — voilà l'API."
+    },
+    "vertical": {
+      "title": "Vertical · flex y",
+      "bodyPre": "Empile les enfants haut-vers-bas. Ajoutez",
+      "bodyMid": " pour le gap,",
+      "bodyPost": " pour l'alignement."
+    },
+    "horizontal": {
+      "title": "Horizontal · flex x",
+      "body": "Aligne les enfants gauche-vers-droite. Mêmes modificateurs, axe différent."
+    },
+    "cheatsheet": {
+      "direction": "Direction",
+      "alignment": "Alignement",
+      "column": "colonne",
+      "row": "ligne",
+      "wrap": "autorise le wrap",
+      "mainAxis": "axe principal",
+      "crossAxis": "axe transversal"
+    },
+    "ai": {
+      "title": "Matrice de modificateurs et cas limites — dans /llms.txt.",
+      "body": "Comportements de wrap, raccourcis d'alignement, utilitaires breakpoint. Tout ce dont une IA a besoin pour layouter en flex."
+    }
+  },
+  "gradients": {
+    "meta": {
+      "title": "EVA CSS — Dégradés",
+      "description": "Dégradés EVA CSS — syntaxe Emmet pour dégradés linéaires et radiaux avec directions, angles et animations."
+    },
+    "hero": {
+      "eyebrow": "Addon · Dégradés",
+      "titlePre": "Dégradés en",
+      "titleHighlight": "syntaxe Emmet",
+      "body": "Voilà toute l'API."
+    },
+    "linear": {
+      "title": "Linéaire",
+      "bodyPre": "Composez avec",
+      "bodyAnd": "et",
+      "bodyDir": ". Direction avec",
+      "bodyOr": ". Ou n'importe quel pas de 5° avec"
+    },
+    "radial": {
+      "title": "Radial",
+      "bodyPre": "Même syntaxe, remplacez",
+      "bodyMid": "par",
+      "bodyEnd": "Position avec"
+    },
+    "extras": {
+      "title": "Animé · Texte · Bordure",
+      "bodyPre": "Ajoutez",
+      "bodyOr": ". Ou appliquez au texte avec",
+      "bodyMid": ", aux bordures avec",
+      "textLabel": "Texte en dégradé",
+      "borderLabel": "bordure en dégradé"
+    },
+    "cheats": {
+      "colors": "Setters de couleur",
+      "directions": "Direction",
+      "container": "Configuration container",
+      "containerComment": "active les variables",
+      "fade": "fondu"
+    },
+    "ai": {
+      "title": "Toutes les combinaisons — dans /llms.txt.",
+      "body": "Modificateurs de taille de fond, helpers de position, timings d'animation, table d'angles complète — tout dans la doc IA."
+    }
+  },
+  "doc": {
+    "meta": {
+      "title": "EVA CSS — Doc",
+      "description": "Quickstart EVA CSS — installer, configurer, builder. La référence complète vit dans /llms.txt pour la consommation IA."
+    },
+    "hero": {
+      "eyebrow": "Quickstart",
+      "titlePre": "Démarrer en",
+      "titleHighlight": "trois étapes",
+      "bodyPre": "Installer. Configurer. Builder. La référence complète vit dans un seul fichier markdown :"
+    },
+    "steps": {
+      "label": "Étape",
+      "s1": { "title": "Installer", "body": "Trois packages : le framework, le purger CSS et les utilitaires de couleurs OKLCH." },
+      "s2": { "title": "Configurer", "bodyPre": "Juste les tailles que vous utilisez vraiment. Les modificateurs (", "bodyPost": ") sont générés automatiquement." },
+      "s3": { "title": "Builder", "bodyPre": "Sass natif fonctionne directement. Ou utilisez le script watch :" }
+    },
+    "cli": {
+      "title": "Commandes CLI",
+      "body": "Deux CLI livrés avec le framework : conversion couleurs et purge CSS.",
+      "colorBody": "Conversion HEX-OKLCH et génération de thème.",
+      "purgeBody": "Réduction CSS de 40-70 % sur les builds prod."
+    },
+    "adopt": {
+      "eyebrow": "Adopter EVA dans votre projet",
+      "title": "Du greenfield au retrofit — un seul guide.",
+      "bodyPre": "Branchez EVA dans un projet neuf, à mi-chemin ou déjà livré. Le guide couvre les points d'entrée, le workflow audit px + fusion, l'aliasing de design tokens, les multi-thèmes et le mode sombre via",
+      "bodyPost": ". La version LLM est dense et copiable dans Claude, ChatGPT ou Cursor.",
+      "cta1": "Lire use-eva.md →",
+      "cta2": "Ouvrir use-eva-llm.md →"
+    },
+    "fullRef": {
+      "eyebrow": "La référence complète",
+      "title": "Toutes les variables, toutes les formules, tous les exemples — dans /llms.txt.",
+      "bodyPre": "Ne lisez pas la documentation.",
+      "bodyEm": "Collez-la",
+      "bodyMid": "Copiez",
+      "bodyPost": "dans Claude, ChatGPT ou Cursor — votre IA connaît maintenant EVA CSS par cœur et peut l'écrire pour vous.",
+      "fullCta": "Ouvrir /llms-full.txt →"
+    }
+  },
+  "jsCalc": {
+    "meta": {
+      "title": "EVA CSS - JS Calculator",
+      "description": "Calculateur EVA CSS — calcule des valeurs responsives fluides, ratios de scaling et conversions d'unités.",
+      "ogTitle": "EVA CSS - JS Calculator",
+      "ogDescription": "Calcule des valeurs responsives fluides, ratios de scaling et conversions d'unités pour EVA CSS."
+    },
+    "backToPlayground": "← Playground",
+    "back": "Retour",
+    "next": "Suivant",
+    "titleHighlight": "JS Calculator",
+    "subtitle": "Configurez et générez les variables EVA CSS en JavaScript plutôt qu'en SCSS.",
+    "configCta": "Configuration",
+    "resetCta": "Réinitialiser la configuration",
+    "configHeader": "Config EVA CSS :",
+    "varsHeader": "Variables générées :",
+    "classesHeader": "Classes générées :",
+    "demoWidth": "Démo - largeur --84 :",
+    "demoFs": "Démo - taille de police --fs-36 :"
+  },
+  "autoTheme": {
+    "meta": {
+      "title": "EVA CSS - Générateur Auto Theme",
+      "description": "Auto-theme EVA CSS — bascule auto clair/sombre avec génération de thème basée sur OKLCH.",
+      "ogTitle": "EVA CSS - Auto Theme",
+      "ogDescription": "Bascule auto clair/sombre avec génération de thème basée sur OKLCH."
+    },
+    "titleHighlight": "Auto Theme",
+    "subtitle": "Uploadez une image et générez automatiquement un thème EVA CSS depuis ses couleurs dominantes.",
+    "cta": { "upload": "Uploader une image", "assign": "Assigner les couleurs", "theme": "Thème généré" },
+    "upload": {
+      "title": "Uploader une image",
+      "dropHint": "Déposez l'image ici ou cliquez pour sélectionner",
+      "formats": "Supporte JPG, PNG, GIF, WebP"
+    },
+    "preview": { "title": "Aperçu de l'image" },
+    "palette": { "title": "Couleurs extraites" },
+    "assign": { "title": "Assignation du thème", "body": "Cliquez sur une variable de thème pour choisir sa couleur" },
+    "picker": { "titleDefault": "Choisir la couleur pour brand", "titlePrefix": "Choisir la couleur pour" },
+    "generated": { "title": "Thème généré", "copy": "Copier le CSS", "copied": "Copié !", "reset": "Réinitialiser le thème", "resetDone": "Réinitialisé !" }
+  }
+}

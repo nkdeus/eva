@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/Draggable.min.js"></script>
+    <link rel="stylesheet" href="https://use.typekit.net/vjo0ssd.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Display:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/main.css" />
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="3c9b4552-d24d-48aa-a6b4-877d0ceffe04"></script>
+    <title>EVA CSS — Addons</title>
+    <meta name="description" content="Les addons EVA CSS — six modules autour du noyau fluide : couleurs, dégradés, grilles, flex, typo, tailles.">
+    <meta property="og:title" content="EVA CSS — Addons">
+    <meta property="og:description" content="Six modules autour du noyau fluide. Choisissez ce dont vous avez besoin.">
+    <meta property="og:locale" content="fr_FR">
+    <link rel="canonical" href="https://eva-css.xyz/fr/framework.html">
+    <link rel="alternate" hreflang="en" href="https://eva-css.xyz/framework.html">
+    <link rel="alternate" hreflang="fr" href="https://eva-css.xyz/fr/framework.html">
+    <link rel="alternate" hreflang="x-default" href="https://eva-css.xyz/framework.html">
+  </head>
+  <body class="current-theme theme-eva all-grads toggle-theme">
+  <a href="" class="dark-light-toggle no-hover">
+    <svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 100 100" x="0px" y="0px"><path d="M50,77.62A27.62,27.62,0,1,0,22.38,50,27.61,27.61,0,0,0,50,77.62ZM50,26A24,24,0,1,1,26,50,24,24,0,0,1,50,26ZM69.62,50.52A19.36,19.36,0,0,0,50.26,31.15V69.88A19.36,19.36,0,0,0,69.62,50.52Zm-19.88,31a1.81,1.81,0,0,0-1.81,1.81V95.69a1.81,1.81,0,0,0,3.62,0V83.3A1.81,1.81,0,0,0,49.74,81.49Zm24.9-9A1.81,1.81,0,0,0,72.09,75l8.76,8.76a1.81,1.81,0,0,0,2.55-2.56Zm6.85-22.19a1.81,1.81,0,0,0,1.81,1.81H95.69a1.81,1.81,0,1,0,0-3.62H83.3A1.81,1.81,0,0,0,81.49,50.26ZM75,27.91l8.76-8.76a1.81,1.81,0,0,0-2.56-2.55l-8.76,8.76A1.81,1.81,0,0,0,75,27.91Zm-24.75-9.4a1.81,1.81,0,0,0,1.81-1.81V4.31a1.81,1.81,0,0,0-3.62,0V16.7A1.81,1.81,0,0,0,50.26,18.51Zm-24.9,9A1.81,1.81,0,0,0,27.91,25l-8.76-8.76a1.81,1.81,0,1,0-2.55,2.56Zm-21,24H16.7a1.81,1.81,0,0,0,0-3.62H4.31a1.81,1.81,0,1,0,0,3.62Zm22,20a1.78,1.78,0,0,0-1.28.53l-8.76,8.76a1.8,1.8,0,0,0,0,2.56,1.82,1.82,0,0,0,2.56,0l8.76-8.77a1.81,1.81,0,0,0-1.28-3.08Z"/></svg>
+  </a>
+
+  <nav id="nav" class="px-220__ flex space py-12- pof">
+    <div id="logo" class="flex x center px-20">
+      <div class="ballzzz por" style="--max:6">
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:0"></div>
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:1"></div>
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:2"></div>
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:3"></div>
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:4"></div>
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:5"></div>
+      </div>
+      <a href="../index.html" class="logo no-hover title fs-36__ lh-1">EVA CSS</a>
+    </div>
+    <button id="burger-menu" class="burger-menu">
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+    </button>
+    <div id="menu" class="flex x center g-12">
+      <a href="../framework/css-fluid.html" class="h-52 px-12 flex y center _c-brand br-12"><span class="fs-12">CSS fluide</span></a>
+      <a href="../framework.html" class="h-52 px-12 flex y center _c-light _bg-brand br-12"><span class="fs-12">Addons</span></a>
+      <a href="../figma-to-eva.html" class="h-52 px-12 flex y center _c-brand br-12"><span class="fs-12">Figma vers EVA</span></a>
+      <a href="../framework/doc.html" class="h-52 px-12 flex y center _c-brand br-12"><span class="fs-12">Doc</span></a>
+      <a href="https://github.com/nkdeus/eva-framework" target="_blank" class="h-52 px-8 flex x g-12 center _c-brand br-8">
+        <svg xmlns="http://www.w3.org/2000/svg" class="lh-0" height="20" viewBox="0 0 16 16" width="20" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+      </a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="px-220__ pt-220- flex y g-32">
+    <div class="flex y g-20 py-52-">
+      <p class="fs-16 _c-brand_">Six modules autour du noyau fluide</p>
+      <h1 class="fs-52__ lh-1 ttu">
+        <span><span class="title grad-linear-text grad-linear from-accent to-extra">Addons</span></span>
+      </h1>
+      <p class="fs-24__ _c-dark_ maw-768">
+        Le fluide est le framework. Ces six addons sont optionnels. Utilisez ceux qu'il vous faut, ignorez le reste.
+      </p>
+    </div>
+  </section>
+
+  <!-- 6 Addons -->
+  <section class="px-220__ pb-84 flex y g-32">
+    <div class="grid auto-fit-356_ gap-32 w-full">
+
+      <a href="../framework/colors.html" class="framework-card flex y g-20 p-32 _bg-light br-12 no-hover">
+        <div class="card-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="8" cy="9" r="6" fill="var(--brand)"/>
+            <circle cx="16" cy="9" r="6" fill="var(--accent)" opacity="0.85"/>
+            <circle cx="12" cy="16" r="6" fill="var(--extra)" opacity="0.85"/>
+          </svg>
+        </div>
+        <div class="flex y g-8">
+          <h3 class="fs-24__ _c-dark-d_">Couleurs</h3>
+          <p class="fs-16 _c-dark_">Système de couleurs OKLCH. Trois teintes, seize variantes par couleur, modificateurs d'opacité et de luminosité automatiques.</p>
+        </div>
+        <span class="fs-12 _c-brand">Explorer →</span>
+      </a>
+
+      <a href="../framework/gradients.html" class="framework-card flex y g-20 p-32 _bg-light br-12 no-hover">
+        <div class="card-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="grad-card" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="var(--brand)"/>
+                <stop offset="50%" stop-color="var(--accent)"/>
+                <stop offset="100%" stop-color="var(--extra)"/>
+              </linearGradient>
+            </defs>
+            <rect x="2" y="2" width="20" height="20" rx="4" fill="url(#grad-card)"/>
+          </svg>
+        </div>
+        <div class="flex y g-8">
+          <h3 class="fs-24__ _c-dark-d_">Dégradés</h3>
+          <p class="fs-16 _c-dark_">Syntaxe Emmet. Linéaire, radial, animé. <code>from-brand to-accent d-r</code> — voilà l'API.</p>
+        </div>
+        <span class="fs-12 _c-brand">Explorer →</span>
+      </a>
+
+      <a href="../framework/grids.html" class="framework-card flex y g-20 p-32 _bg-light br-12 no-hover">
+        <div class="card-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="2" width="8" height="8" rx="1.5" fill="var(--brand)"/>
+            <rect x="14" y="2" width="8" height="8" rx="1.5" fill="var(--accent)"/>
+            <rect x="2" y="14" width="8" height="8" rx="1.5" fill="var(--extra)"/>
+            <rect x="14" y="14" width="8" height="8" rx="1.5" fill="var(--brand)" opacity="0.45"/>
+          </svg>
+        </div>
+        <div class="flex y g-8">
+          <h3 class="fs-24__ _c-dark-d_">Grilles</h3>
+          <p class="fs-16 _c-dark_">Trois paradigmes : auto-fit pour les cartes, 12 colonnes classiques pour les layouts, notation fractionnaire pour le contrôle précis.</p>
+        </div>
+        <span class="fs-12 _c-brand">Explorer →</span>
+      </a>
+
+      <a href="../framework/flex.html" class="framework-card flex y g-20 p-32 _bg-light br-12 no-hover">
+        <div class="card-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="6" width="6" height="12" rx="1" fill="var(--brand)"/>
+            <rect x="9" y="6" width="6" height="12" rx="1" fill="var(--accent)"/>
+            <rect x="16" y="6" width="6" height="12" rx="1" fill="var(--extra)"/>
+          </svg>
+        </div>
+        <div class="flex y g-8">
+          <h3 class="fs-24__ _c-dark-d_">Flex</h3>
+          <p class="fs-16 _c-dark_">Deux axes, trois mots-clés. <code>flex y</code>, <code>flex x</code>, <code>center</code>, <code>space</code>. C'est tout.</p>
+        </div>
+        <span class="fs-12 _c-brand">Explorer →</span>
+      </a>
+
+      <a href="../framework/fonts.html" class="framework-card flex y g-20 p-32 _bg-light br-12 no-hover">
+        <div class="card-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <text x="1" y="20" font-size="22" font-weight="900" fill="var(--brand)">A</text>
+            <text x="13" y="20" font-size="14" font-weight="900" fill="var(--accent)">a</text>
+            <circle cx="20" cy="6" r="2" fill="var(--extra)"/>
+          </svg>
+        </div>
+        <div class="flex y g-8">
+          <h3 class="fs-24__ _c-dark-d_">Typographie</h3>
+          <p class="fs-16 _c-dark_">Typographie fluide avec trois modificateurs d'intensité. Du texte qui coule du mobile au desktop sans media query.</p>
+        </div>
+        <span class="fs-12 _c-brand">Explorer →</span>
+      </a>
+
+      <a href="../framework/sizes.html" class="framework-card flex y g-20 p-32 _bg-light br-12 no-hover">
+        <div class="card-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="14" width="4" height="4" rx="1" fill="var(--extra)"/>
+            <rect x="8" y="11" width="6" height="7" rx="1" fill="var(--accent)"/>
+            <rect x="16" y="6" width="6" height="12" rx="1" fill="var(--brand)"/>
+          </svg>
+        </div>
+        <div class="flex y g-8">
+          <h3 class="fs-24__ _c-dark-d_">Tailles</h3>
+          <p class="fs-16 _c-dark_">Un nombre, quatre saveurs. Padding, marge, gap, largeur, hauteur — tous sur la même échelle fluide.</p>
+        </div>
+        <span class="fs-12 _c-brand">Explorer →</span>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- Tools -->
+  <section class="px-220__ py-84 flex y g-32">
+    <div class="flex y g-20">
+      <h2 class="fs-52__ _bg-brand pr-356__ lh-1 ttu fwd-4 f-scale offset"><span class="_c-light">Outils</span></h2>
+      <p class="fs-16 _c-dark_ maw-768">Deux outils interactifs pour générer des thèmes et explorer les variables.</p>
+    </div>
+
+    <div class="grid auto-fit-356_ gap-32 w-full">
+      <a href="../playground.html" class="framework-card flex y g-20 p-32 _bg-light br-12 no-hover">
+        <div class="card-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="5" stroke="var(--brand)" stroke-width="2"/>
+            <line x1="12" y1="1" x2="12" y2="3" stroke="var(--accent)" stroke-width="2"/>
+            <line x1="12" y1="21" x2="12" y2="23" stroke="var(--accent)" stroke-width="2"/>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke="var(--extra)" stroke-width="2"/>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke="var(--extra)" stroke-width="2"/>
+          </svg>
+        </div>
+        <div class="flex y g-8">
+          <h3 class="fs-24__ _c-dark-d_">Auto Theme</h3>
+          <p class="fs-16 _c-dark_">Déposez une image, obtenez un thème OKLCH. Brand, accent, extra extraits automatiquement.</p>
+        </div>
+        <span class="fs-12 _c-brand">Ouvrir dans le Playground →</span>
+      </a>
+
+      <a href="../playground.html" class="framework-card flex y g-20 p-32 _bg-light br-12 no-hover">
+        <div class="card-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="4" y="2" width="16" height="20" rx="2" stroke="var(--brand)" stroke-width="2"/>
+            <rect x="6" y="6" width="12" height="4" fill="var(--accent)" rx="1"/>
+            <circle cx="9" cy="14" r="1" fill="var(--brand)"/>
+            <circle cx="13" cy="14" r="1" fill="var(--brand)"/>
+            <circle cx="9" cy="18" r="1" fill="var(--brand)"/>
+            <circle cx="13" cy="18" r="1" fill="var(--extra)"/>
+          </svg>
+        </div>
+        <div class="flex y g-8">
+          <h3 class="fs-24__ _c-dark-d_">JS Calculator</h3>
+          <p class="fs-16 _c-dark_">Configurez votre échelle, voyez chaque variable et classe générée. Aperçu live, sans installation.</p>
+        </div>
+        <span class="fs-12 _c-brand">Ouvrir dans le Playground →</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- AI doc pointer -->
+  <section class="px-220__ py-84 flex y g-32">
+    <div class="framework-card flex y g-20 p-52- grad-linear from-accent_ to-extra_ d-br br-12">
+      <span class="fs-12 _c-dark">Pour ton assistant IA</span>
+      <h3 class="fs-36_ _c-dark-d_ lh-1">Tous les addons. Un seul fichier markdown.</h3>
+      <p class="fs-16 _c-dark lh-1-5 maw-768">
+        Chaque variable, chaque modificateur, chaque formule des six addons. <code>/llms.txt</code> condense tout pour une consommation IA directe.
+      </p>
+      <a href="../llms.txt" target="_blank" class="h-52 px-32 flex y center _bg-dark _c-light br-12 fs-14 no-hover" style="width: fit-content;">Ouvrir /llms.txt →</a>
+    </div>
+  </section>
+
+  <div class="stage">
+    <div class="flex stage-top">
+      <div class="line-y h-4"></div><div class="line-y h-8"></div><div class="line-y h-12"></div><div class="line-y h-20"></div><div class="line-y h-32"></div><div class="line-y h-34"></div><div class="line-y h-52"></div><div class="line-y h-84"></div><div class="line-y h-136"></div><div class="line-y h-220"></div><div class="line-y h-356"></div><div class="line-y h-220"></div><div class="line-y h-136"></div><div class="line-y h-84"></div><div class="line-y h-52"></div><div class="line-y h-34"></div><div class="line-y h-32"></div><div class="line-y h-20"></div><div class="line-y h-12"></div><div class="line-y h-8"></div><div class="line-y h-4"></div>
+    </div>
+  </div>
+
+  <footer class="px-220__ py-136 flex x g-20 w-full">
+    <div class="flex w-full y space center g-32">
+      <p class="fs-16 _c-brand_">© 2024</p>
+      <p class="fs-16 _c-brand_">Tati Michaël</p>
+    </div>
+    <div class="flex w-full y space g-32">
+      <a href="https://www.linkedin.com/in/mtati/" target="_blank">LinkedIn</a>
+      <a href="../llms.txt" target="_blank">🤖 /llms.txt</a>
+      <a href="../framework.html" hreflang="en" title="View in English">EN</a>
+    </div>
+  </footer>
+
+  <script src="../app.js"></script>
+  </body>
+</html>

@@ -1,5 +1,6 @@
 [build]
   publish = "."
+  command = "npm run build-i18n"
 
 [[headers]]
   for = "/*"
@@ -51,6 +52,12 @@
 [[redirects]]
   from = "/framework/*.html"
   to = "/framework/:splat.html"
+  status = 200
+
+# French locale fallback (must be before the global SPA fallback)
+[[redirects]]
+  from = "/fr/*"
+  to = "/fr/index.html"
   status = 200
 
 # SPA fallback (must be last)

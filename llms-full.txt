@@ -15,76 +15,33 @@ npm packages: eva-css-fluid, eva-css-purge, eva-colors
 npm install eva-css-fluid eva-css-purge eva-colors
 ```
 
-## Two Configuration Workflows
+## Configuration
 
-### Option A: SCSS Variables (Simple, Direct)
-
-Best for quick start, single SCSS file, learning EVA CSS.
+Single workflow: SCSS-only. Configure inline via `@use ... with (...)`.
 
 ```scss
 @use 'eva-css-fluid' with (
   $sizes: (4, 8, 16, 32, 64, 128),
   $font-sizes: (14, 16, 20, 24, 32),
   $build-class: true,
-  $debug: false
+  $px-rem-suffix: false,
+  $name-by-size: true,
+  $custom-class: false
 );
 ```
 
 Build: `npx sass --load-path=node_modules styles/main.scss:styles/main.css`
 
-### Option B: JSON Config (Advanced, Centralized)
+### Configuration variables
 
-Best for production projects, multiple SCSS files, team collaboration.
-
-Create `eva.config.cjs`:
-
-```javascript
-module.exports = {
-  sizes: [4, 8, 16, 32, 64, 128],
-  fontSizes: [14, 16, 20, 24, 32],
-  buildClass: true,
-  pxRemSuffix: false,
-  nameBySize: true,
-  customClass: false,
-  debug: false,
-  theme: {
-    name: 'myproject',
-    colors: {
-      brand: '#ff5733',
-      accent: '#7300ff',
-      extra: '#ffe500',
-      dark: { lightness: 20, chroma: 0.05, hue: 200 },
-      light: { lightness: 95, chroma: 0.01, hue: 200 }
-    },
-    lightMode: { lightness: 96.4, darkness: 6.4 },
-    darkMode: { lightness: 5, darkness: 95 },
-    autoSwitch: false
-  },
-  purge: {
-    enabled: false,
-    content: ['**/*.html'],
-    css: 'styles/main.css',
-    output: 'styles/main-compressed.css',
-    safelist: ['current-theme', 'toggle-theme', 'all-grads']
-  }
-};
-```
-
-SCSS file becomes simply:
-```scss
-@use 'eva-css-fluid';
-```
-
-Build: `node scripts/build-with-config.js styles/main.scss styles/main.css`
-
-### CLI Setup
-
-```bash
-npx eva-css setup     # Interactive setup with workflow choice
-npx eva-css init      # Create eva.config.cjs only
-npx eva-css validate  # Check configuration for errors
-npx eva-css generate  # Generate SCSS variables from JSON config
-```
+| Variable | Effect |
+|----------|--------|
+| `$sizes` | List of px sizes → fluid `var(--SIZE)` |
+| `$font-sizes` | List of font sizes → fluid `var(--FONT-SIZE)` |
+| `$build-class` | `true`: utility classes, `false`: variables only |
+| `$px-rem-suffix` | Add px/rem static utilities (debug-friendly) |
+| `$name-by-size` | `true`: `--32`, `false`: sequential `--3` |
+| `$custom-class` | Filter generated classes |
 
 ---
 
@@ -180,12 +137,7 @@ Theme class defines OKLCH values:
 
 ### Light/Dark Mode
 
-Configure in eva.config.cjs:
-```javascript
-lightMode: { lightness: 96.4, darkness: 6.4 },
-darkMode: { lightness: 5, darkness: 95 },
-autoSwitch: false  // Manual toggle with .toggle-theme class
-```
+Toggle is controlled via the `.toggle-theme` class on `body`. Use `.current-theme` + `.theme-NAME` together. Auto-switch can be wired via JS or CSS `@media (prefers-color-scheme)`.
 
 ### Color Utilities (eva-colors CLI)
 
@@ -377,11 +329,8 @@ Features:
 ```
 project/
 ├── index.html
-├── eva.config.cjs          # JSON config (Option B)
 ├── styles/
-│   └── main.scss           # EVA CSS configuration
-├── scripts/
-│   └── build-with-config.js # Build script for JSON config
+│   └── main.scss           # EVA CSS configuration (inline)
 └── node_modules/
     ├── eva-css-fluid/      # Core framework
     ├── eva-css-purge/      # CSS optimization
@@ -394,12 +343,10 @@ project/
 projects/
 ├── project-a/
 │   ├── index.html
-│   ├── eva.config.cjs
-│   ├── styles/project-a.scss
+│   ├── styles/project-a.scss   # @use 'eva-css-fluid' with (...)
 │   └── render/project-a.css
 └── project-b/
     ├── index.html
-    ├── eva.config.cjs
     ├── styles/project-b.scss
     └── render/project-b.css
 ```
@@ -409,7 +356,7 @@ projects/
 ## Important Rules
 
 1. **Never use fixed values**: Use `var(--64)` not `64px`, use `var(--brand)` not `#ff5733`
-2. **Only include used sizes**: The `sizes` array should only contain dimensions actually used in the design
+2. **Only include used sizes**: The `$sizes` list should only contain dimensions actually used in the design
 3. **Mode consistency**: Don't mix utility classes and variables-only modes in the same project
 4. **Theme setup**: Body must have `class="current-theme theme-NAME"` for theming to work
 5. **Gradients setup**: Add `all-grads` class to body for gradient variables

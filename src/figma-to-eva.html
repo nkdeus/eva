@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="{{lang}}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/Draggable.min.js"></script>
+    <link rel="stylesheet" href="https://use.typekit.net/vjo0ssd.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Display:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{assetPrefix}}styles/main.css" />
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="3c9b4552-d24d-48aa-a6b4-877d0ceffe04"></script>
+    <title>{{t.figmaToEva.meta.title}}</title>
+    <meta name="description" content="{{t.figmaToEva.meta.description}}">
+    <meta property="og:title" content="{{t.figmaToEva.meta.ogTitle}}">
+    <meta property="og:description" content="{{t.figmaToEva.meta.ogDescription}}">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="{{ogLocale}}">
+    <link rel="canonical" href="{{canonical}}figma-to-eva.html">
+    <link rel="alternate" hreflang="en" href="https://eva-css.xyz/figma-to-eva.html">
+    <link rel="alternate" hreflang="fr" href="https://eva-css.xyz/fr/figma-to-eva.html">
+    <link rel="alternate" hreflang="x-default" href="https://eva-css.xyz/figma-to-eva.html">
+  </head>
+  <body class="current-theme theme-eva all-grads toggle-theme">
+  <a href="" class="dark-light-toggle no-hover">
+    <svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 100 100" x="0px" y="0px"><path d="M50,77.62A27.62,27.62,0,1,0,22.38,50,27.61,27.61,0,0,0,50,77.62ZM50,26A24,24,0,1,1,26,50,24,24,0,0,1,50,26ZM69.62,50.52A19.36,19.36,0,0,0,50.26,31.15V69.88A19.36,19.36,0,0,0,69.62,50.52Zm-19.88,31a1.81,1.81,0,0,0-1.81,1.81V95.69a1.81,1.81,0,0,0,3.62,0V83.3A1.81,1.81,0,0,0,49.74,81.49Zm24.9-9A1.81,1.81,0,0,0,72.09,75l8.76,8.76a1.81,1.81,0,0,0,2.55-2.56Zm6.85-22.19a1.81,1.81,0,0,0,1.81,1.81H95.69a1.81,1.81,0,1,0,0-3.62H83.3A1.81,1.81,0,0,0,81.49,50.26ZM75,27.91l8.76-8.76a1.81,1.81,0,0,0-2.56-2.55l-8.76,8.76A1.81,1.81,0,0,0,75,27.91Zm-24.75-9.4a1.81,1.81,0,0,0,1.81-1.81V4.31a1.81,1.81,0,0,0-3.62,0V16.7A1.81,1.81,0,0,0,50.26,18.51Zm-24.9,9A1.81,1.81,0,0,0,27.91,25l-8.76-8.76a1.81,1.81,0,1,0-2.55,2.56Zm-21,24H16.7a1.81,1.81,0,0,0,0-3.62H4.31a1.81,1.81,0,1,0,0,3.62Zm22,20a1.78,1.78,0,0,0-1.28.53l-8.76,8.76a1.8,1.8,0,0,0,0,2.56,1.82,1.82,0,0,0,2.56,0l8.76-8.77a1.81,1.81,0,0,0-1.28-3.08Z"/></svg>
+  </a>
+  <nav id="nav" class="px-220__ flex space py-12- pof">
+    <div id="logo" class="flex x center px-20">
+      <div class="ballzzz por" style="--max:6">
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:0"></div>
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:1"></div>
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:2"></div>
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:3"></div>
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:4"></div>
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:5"></div>
+      </div>
+      <a href="{{assetPrefix}}index.html" class="logo no-hover title fs-36__ lh-1">EVA CSS</a>
+    </div>
+
+    <button id="burger-menu" class="burger-menu">
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+    </button>
+
+    <div id="menu" class="flex x center g-12">
+      <a href="{{assetPrefix}}framework/css-fluid.html" class="h-52 px-12 flex y center _c-brand br-12"><span class="fs-12">{{t.nav.fluidCss}}</span></a>
+      <a href="{{assetPrefix}}framework.html" class="h-52 px-12 flex y center _c-brand br-12"><span class="fs-12">{{t.nav.addons}}</span></a>
+      <a href="{{assetPrefix}}figma-to-eva.html" class="h-52 px-12 flex y center _c-light _bg-brand br-12"><span class="fs-12">{{t.nav.figma}}</span></a>
+      <a href="{{assetPrefix}}framework/doc.html" class="h-52 px-12 flex y center _c-brand br-12"><span class="fs-12">{{t.nav.doc}}</span></a>
+      <a href="https://github.com/nkdeus/eva-framework" target="_blank" class="h-52 px-8 flex x g-12 center _c-brand br-8">
+        <svg xmlns="http://www.w3.org/2000/svg" class="lh-0" height="20" viewBox="0 0 16 16" width="20" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+      </a>
+    </div>
+
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="px-220__ pt-220- flex y g-32">
+    <div class="flex y g-20 pt-52-">
+      <h1 class="fs-52__ lh-1 ttu">
+        <span>{{t.figmaToEva.hero.titlePre}} <span class="title grad-linear-text grad-linear from-accent to-extra">{{t.figmaToEva.hero.titleHighlight}}</span> {{t.figmaToEva.hero.titlePost}}</span>
+      </h1>
+      <p class="fs-16 maw-576">
+        {{t.figmaToEva.hero.body}}
+      </p>
+    </div>
+  </section>
+
+  <!-- Prerequisites Section -->
+  <section id="prerequisites" class="px-220__ py-84 flex y g-32">
+    <h2 class="fs-36__ _c-brand">{{t.figmaToEva.prereq.title}}</h2>
+
+    <div class="grid auto-fit-356_ gap-32 w-full">
+      <div class="framework-card flex y g-20 p-32 _bg-light br-12">
+        <h3 class="fs-24__ _c-dark-d_">{{t.figmaToEva.prereq.desktop.title}}</h3>
+        <p class="fs-14 _c-dark__">{{t.figmaToEva.prereq.desktop.tag}}</p>
+        <ol class="fs-14 _c-dark_ flex y g-4">
+          <li>{{t.figmaToEva.prereq.desktop.step1}}</li>
+          <li>{{t.figmaToEva.prereq.desktop.step2}}</li>
+          <li>{{t.figmaToEva.prereq.desktop.step3}}</li>
+        </ol>
+        <pre class="fs-11 _bg-dark__ p-12 br-8 ovx-auto"><code>claude mcp add figma-desktop http://127.0.0.1:3845/mcp</code></pre>
+      </div>
+
+      <div class="framework-card flex y g-20 p-32 _bg-light br-12">
+        <h3 class="fs-24__ _c-dark-d_">{{t.figmaToEva.prereq.remote.title}}</h3>
+        <p class="fs-14 _c-dark__">{{t.figmaToEva.prereq.remote.tag}}</p>
+        <pre class="fs-11 _bg-dark__ p-12 br-8 ovx-auto"><code>claude mcp add figma https://mcp.figma.com/mcp</code></pre>
+      </div>
+
+      <div class="framework-card flex y g-20 p-32 _bg-light br-12">
+        <h3 class="fs-24__ _c-dark-d_">{{t.figmaToEva.prereq.tools.title}}</h3>
+        <ul class="fs-14 _c-dark_ flex y g-4">
+          <li><code>get_figma_data</code> - {{t.figmaToEva.prereq.tools.t1}}</li>
+          <li><code>get_variable_defs</code> - {{t.figmaToEva.prereq.tools.t2}}</li>
+          <li><code>download_figma_images</code> - {{t.figmaToEva.prereq.tools.t3}}</li>
+          <li><code>get_screenshot</code> - {{t.figmaToEva.prereq.tools.t4}}</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Workflow Section -->
+  <section id="workflow" class="px-220__ py-84 flex y g-32">
+    <h2 class="fs-36__ _c-brand">{{t.figmaToEva.workflow.title}}</h2>
+
+    <div class="grid auto-fit-356_ gap-32 w-full">
+      <div class="framework-card flex y g-20 p-32 _bg-light br-12">
+        <span class="fs-12 _c-accent">{{t.figmaToEva.workflow.stepLabel}} 1</span>
+        <h3 class="fs-24__ _c-dark-d_">{{t.figmaToEva.workflow.s1.title}}</h3>
+        <p class="fs-14 _c-dark__">{{t.figmaToEva.workflow.s1.body}}</p>
+      </div>
+
+      <div class="framework-card flex y g-20 p-32 _bg-light br-12">
+        <span class="fs-12 _c-accent">{{t.figmaToEva.workflow.stepLabel}} 2</span>
+        <h3 class="fs-24__ _c-dark-d_">{{t.figmaToEva.workflow.s2.title}}</h3>
+        <p class="fs-14 _c-dark__">{{t.figmaToEva.workflow.s2.body}}</p>
+      </div>
+
+      <div class="framework-card flex y g-20 p-32 _bg-light br-12">
+        <span class="fs-12 _c-accent">{{t.figmaToEva.workflow.stepLabel}} 3</span>
+        <h3 class="fs-24__ _c-dark-d_">{{t.figmaToEva.workflow.s3.title}}</h3>
+        <p class="fs-14 _c-dark__">{{t.figmaToEva.workflow.s3.body}}</p>
+        <pre class="fs-11 _bg-dark__ p-12 br-8 ovx-auto"><code>npx eva-color convert "#FF00FB"</code></pre>
+        <p class="fs-12 _c-dark__">brand, accent, extra, dark, light</p>
+      </div>
+
+      <div class="framework-card flex y g-20 p-32 _bg-light br-12">
+        <span class="fs-12 _c-accent">{{t.figmaToEva.workflow.stepLabel}} 4</span>
+        <h3 class="fs-24__ _c-dark-d_">{{t.figmaToEva.workflow.s4.title}}</h3>
+        <pre class="fs-11 _bg-dark__ p-12 br-8 ovx-auto"><code>projects/NAME/
+├── index.html
+├── styles/NAME.scss
+└── render/NAME.css</code></pre>
+      </div>
+
+      <div class="framework-card flex y g-20 p-32 _bg-light br-12">
+        <span class="fs-12 _c-accent">{{t.figmaToEva.workflow.stepLabel}} 5</span>
+        <h3 class="fs-24__ _c-dark-d_">{{t.figmaToEva.workflow.s5.title}}</h3>
+        <pre class="fs-11 _bg-dark__ p-12 br-8 ovx-auto"><code>@use 'eva-css-fluid' with (
+  $sizes: (...),
+  $font-sizes: (...),
+  $build-class: false
+);</code></pre>
+      </div>
+
+      <div class="framework-card flex y g-20 p-32 _bg-light br-12">
+        <span class="fs-12 _c-accent">{{t.figmaToEva.workflow.stepLabel}} 6</span>
+        <h3 class="fs-24__ _c-dark-d_">{{t.figmaToEva.workflow.s6.title}}</h3>
+        <pre class="fs-11 _bg-dark__ p-12 br-8 ovx-auto"><code>.theme-NAME {
+  --brand-lightness: XX%;
+  --brand-chroma: X.XXX;
+  --brand-hue: XXX.XX;
+}</code></pre>
+      </div>
+
+      <div class="framework-card flex y g-20 p-32 _bg-light br-12">
+        <span class="fs-12 _c-accent">{{t.figmaToEva.workflow.stepLabel}} 7</span>
+        <h3 class="fs-24__ _c-dark-d_">{{t.figmaToEva.workflow.s7.title}}</h3>
+        <ul class="fs-12 _c-dark_ flex y g-4">
+          <li><code>var(--64)</code> / <code>var(--64_)</code> / <code>var(--64__)</code></li>
+          <li><code>var(--fs-120)</code> / <code>var(--fs-120_)</code></li>
+          <li><code>var(--brand)</code> / <code>var(--brand-d)</code> / <code>var(--brand-b)</code></li>
+        </ul>
+      </div>
+
+      <div class="framework-card flex y g-20 p-32 _bg-light br-12">
+        <span class="fs-12 _c-accent">{{t.figmaToEva.workflow.stepLabel}} 8</span>
+        <h3 class="fs-24__ _c-dark-d_">{{t.figmaToEva.workflow.s8.title}}</h3>
+        <pre class="fs-11 _bg-dark__ p-12 br-8 ovx-auto"><code>npx sass --load-path=node_modules styles/NAME.scss:render/NAME.css</code></pre>
+      </div>
+
+      <div class="framework-card flex y g-20 p-32 _bg-light br-12">
+        <span class="fs-12 _c-accent">{{t.figmaToEva.workflow.stepLabel}} 9</span>
+        <h3 class="fs-24__ _c-dark-d_">{{t.figmaToEva.workflow.s9.title}}</h3>
+        <pre class="fs-11 _bg-dark__ p-12 br-8 ovx-auto"><code>&lt;body class="current-theme theme-NAME"&gt;</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rules Section -->
+  <section id="rules" class="px-220__ py-84 flex y g-32">
+    <h2 class="fs-36__ _c-brand">{{t.figmaToEva.rules.title}}</h2>
+
+    <div class="grid auto-fit-356_ gap-32 w-full">
+      <div class="framework-card flex y g-12 p-32 _bg-light br-12">
+        <span class="fs-12 _c-extra">{{t.figmaToEva.rules.label}} 1</span>
+        <h3 class="fs-20 _c-dark-d_">{{t.figmaToEva.rules.r1.title}}</h3>
+        <p class="fs-14 _c-dark__">{{t.figmaToEva.rules.r1.body}}</p>
+      </div>
+      <div class="framework-card flex y g-12 p-32 _bg-light br-12">
+        <span class="fs-12 _c-extra">{{t.figmaToEva.rules.label}} 2</span>
+        <h3 class="fs-20 _c-dark-d_">{{t.figmaToEva.rules.r2.title}}</h3>
+        <p class="fs-14 _c-dark__">{{t.figmaToEva.rules.r2.body}}</p>
+      </div>
+      <div class="framework-card flex y g-12 p-32 _bg-light br-12">
+        <span class="fs-12 _c-extra">{{t.figmaToEva.rules.label}} 3</span>
+        <h3 class="fs-20 _c-dark-d_">{{t.figmaToEva.rules.r3.title}}</h3>
+        <p class="fs-14 _c-dark__">{{t.figmaToEva.rules.r3.body}}</p>
+      </div>
+      <div class="framework-card flex y g-12 p-32 _bg-light br-12">
+        <span class="fs-12 _c-extra">{{t.figmaToEva.rules.label}} 4</span>
+        <h3 class="fs-20 _c-dark-d_">{{t.figmaToEva.rules.r4.title}}</h3>
+        <p class="fs-14 _c-dark__">{{t.figmaToEva.rules.r4.body}}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Live Demo Section -->
+  <section id="live-demo" class="px-220__ py-84 flex y g-32">
+    <h2 class="fs-36__ _c-brand">{{t.figmaToEva.demo.title}}</h2>
+
+    <div class="projects-demo-container flex x wrap g-32 center">
+      <div class="device-preview desktop-preview flex y g-8 center">
+        <div class="project-preview-iframe-container desktop-frame">
+          <iframe src="{{assetPrefix}}projects/ulysse/index.html" title="Ulysse Project - Desktop View"></iframe>
+        </div>
+      </div>
+
+      <div class="device-preview tablet-preview flex y g-8 center">
+        <div class="project-preview-iframe-container tablet-frame">
+          <iframe src="{{assetPrefix}}projects/ulysse/index.html" title="Ulysse Project - Tablet View"></iframe>
+        </div>
+      </div>
+
+      <div class="device-preview mobile-preview flex y g-8 center">
+        <div class="project-preview-iframe-container mobile-frame">
+          <iframe src="{{assetPrefix}}projects/ulysse/index.html" title="Ulysse Project - Mobile View"></iframe>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid auto-fit-356_ gap-32 w-full">
+      <a href="{{assetPrefix}}projects/ulysse/index.html" target="_blank" class="framework-card flex y g-20 p-32 _bg-light br-12 no-hover">
+        <h3 class="fs-24__ _c-dark-d_">{{t.figmaToEva.demo.ulysse.title}}</h3>
+        <p class="fs-14 _c-dark__">{{t.figmaToEva.demo.ulysse.body}}</p>
+        <span class="fs-12 _c-brand">{{t.figmaToEva.demo.ulysse.cta}}</span>
+      </a>
+
+      <a href="https://www.figma.com/design/91DhBPs6br8UVhxEdiuJFd/Ulysse?node-id=0-1" target="_blank" class="framework-card flex y g-20 p-32 _bg-light br-12 no-hover">
+        <h3 class="fs-24__ _c-dark-d_">{{t.figmaToEva.demo.figma.title}}</h3>
+        <p class="fs-14 _c-dark__">{{t.figmaToEva.demo.figma.body}}</p>
+        <span class="fs-12 _c-brand">{{t.figmaToEva.demo.figma.cta}}</span>
+      </a>
+
+      <div class="framework-card flex y g-20 p-32 _bg-light br-12">
+        <h3 class="fs-24__ _c-dark-d_">{{t.figmaToEva.demo.config.title}}</h3>
+        <pre class="fs-11 _bg-dark__ p-12 br-8 ovx-auto"><code>$sizes: 4, 8, 16, 32, 54, 64, 120, 141;
+$font-sizes: 10, 16, 36, 120;
+#00d4ff → oklch(84.1% 0.155 200.4)</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .projects-demo-container {
+      height: 100vh;
+      width: 100%;
+      position: relative;
+    }
+
+    @media (max-width: 1024px) {
+      .projects-demo-container {
+        height: 60vh;
+        scale: 0.5;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .projects-demo-container {
+        height: 50vh;
+        scale: 0.4;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .projects-demo-container {
+        height: 30vh;
+        scale: 0.2;
+      }
+    }
+
+    .device-preview {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .device-preview iframe {
+      width: 100%;
+      height: 100%;
+      transform-origin: 0 0;
+      border: 2px solid var(--brand_);
+      border-radius: 8px;
+    }
+
+    .project-preview-iframe-container {
+      overflow: hidden;
+      background: var(--light);
+      border-radius: 8px;
+    }
+
+    .desktop-frame {
+      width: 1440px;
+      height: 800px;
+      scale: 0.5;
+      transform: translate(0%, 0%);
+    }
+
+    .tablet-frame {
+      height: 460px;
+      width: 614px;
+      scale: 0.5;
+      transform: translate(150%, 0%);
+    }
+
+    .mobile-frame {
+      width: 400px;
+      height: 667px;
+      scale: 0.5;
+      transform: translate(-200%, 0%);
+    }
+  </style>
+
+  <footer class="px-220__ py-136 flex x g-20 w-full">
+    <div class="flex w-full y space center g-32">
+      <p class="fs-16 _c-brand_">{{t.footer.copyright}}</p>
+      <p class="fs-16 _c-brand_">{{t.footer.author}}</p>
+    </div>
+    <div class="flex w-full y space g-32">
+      <a href="https://www.linkedin.com/in/mtati/" target="_blank">{{t.footer.linkedin}}</a>
+      <a href="{{assetPrefix}}llms.txt" target="_blank">{{t.footer.llms}}</a>
+      <a href="{{altHref}}" hreflang="{{altLang}}" title="{{t.langToggle.title}}">{{t.langToggle.label}}</a>
+    </div>
+  </footer>
+
+  <script src="{{assetPrefix}}app.js"></script>
+  </body>
+</html>

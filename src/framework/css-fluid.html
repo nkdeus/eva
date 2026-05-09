@@ -1,0 +1,932 @@
+<!doctype html>
+<html lang="{{lang}}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/Draggable.min.js"></script>
+    <link rel="stylesheet" href="https://use.typekit.net/vjo0ssd.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Display:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{assetPrefix}}styles/main.css" />
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="3c9b4552-d24d-48aa-a6b4-877d0ceffe04"></script>
+    <title>{{t.cssFluid.meta.title}}</title>
+    <meta name="description" content="{{t.cssFluid.meta.description}}">
+    <meta property="og:title" content="{{t.cssFluid.meta.ogTitle}}">
+    <meta property="og:description" content="{{t.cssFluid.meta.ogDescription}}">
+    <meta property="og:locale" content="{{ogLocale}}">
+    <link rel="canonical" href="{{canonical}}framework/css-fluid.html">
+    <link rel="alternate" hreflang="en" href="https://eva-css.xyz/framework/css-fluid.html">
+    <link rel="alternate" hreflang="fr" href="https://eva-css.xyz/fr/framework/css-fluid.html">
+  </head>
+  <body class="current-theme theme-eva all-grads toggle-theme">
+  <a href="" class="dark-light-toggle no-hover">
+    <svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 100 100" x="0px" y="0px"><path d="M50,77.62A27.62,27.62,0,1,0,22.38,50,27.61,27.61,0,0,0,50,77.62ZM50,26A24,24,0,1,1,26,50,24,24,0,0,1,50,26ZM69.62,50.52A19.36,19.36,0,0,0,50.26,31.15V69.88A19.36,19.36,0,0,0,69.62,50.52Zm-19.88,31a1.81,1.81,0,0,0-1.81,1.81V95.69a1.81,1.81,0,0,0,3.62,0V83.3A1.81,1.81,0,0,0,49.74,81.49Zm24.9-9A1.81,1.81,0,0,0,72.09,75l8.76,8.76a1.81,1.81,0,0,0,2.55-2.56Zm6.85-22.19a1.81,1.81,0,0,0,1.81,1.81H95.69a1.81,1.81,0,1,0,0-3.62H83.3A1.81,1.81,0,0,0,81.49,50.26ZM75,27.91l8.76-8.76a1.81,1.81,0,0,0-2.56-2.55l-8.76,8.76A1.81,1.81,0,0,0,75,27.91Zm-24.75-9.4a1.81,1.81,0,0,0,1.81-1.81V4.31a1.81,1.81,0,0,0-3.62,0V16.7A1.81,1.81,0,0,0,50.26,18.51Zm-24.9,9A1.81,1.81,0,0,0,27.91,25l-8.76-8.76a1.81,1.81,0,1,0-2.55,2.56Zm-21,24H16.7a1.81,1.81,0,0,0,0-3.62H4.31a1.81,1.81,0,1,0,0,3.62Zm22,20a1.78,1.78,0,0,0-1.28.53l-8.76,8.76a1.8,1.8,0,0,0,0,2.56,1.82,1.82,0,0,0,2.56,0l8.76-8.77a1.81,1.81,0,0,0-1.28-3.08Z"/></svg>
+  </a>
+
+  <nav id="nav" class="px-220__ flex space py-12- pof">
+    <div id="logo" class="flex x center px-20">
+      <div class="ballzzz por" style="--max:6">
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:0"></div>
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:1"></div>
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:2"></div>
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:3"></div>
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:4"></div>
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:5"></div>
+      </div>
+      <a href="{{assetPrefix}}index.html" class="logo no-hover title fs-36__ lh-1">EVA CSS</a>
+    </div>
+
+    <button id="burger-menu" class="burger-menu">
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+    </button>
+
+    <div id="menu" class="flex x center g-12">
+      <a href="css-fluid.html" class="h-52 px-12 flex y center _c-light _bg-brand br-12"><span class="fs-12">{{t.nav.fluidCss}}</span></a>
+      <a href="{{assetPrefix}}framework.html" class="h-52 px-12 flex y center _c-brand br-12"><span class="fs-12">{{t.nav.addons}}</span></a>
+      <a href="{{assetPrefix}}figma-to-eva.html" class="h-52 px-12 flex y center _c-brand br-12"><span class="fs-12">{{t.nav.figma}}</span></a>
+      <a href="doc.html" class="h-52 px-12 flex y center _c-brand br-12"><span class="fs-12">{{t.nav.doc}}</span></a>
+      <a href="https://github.com/nkdeus/eva-framework" target="_blank" class="h-52 px-8 flex x g-12 center _c-brand br-8">
+        <svg xmlns="http://www.w3.org/2000/svg" class="lh-0" height="20" viewBox="0 0 16 16" width="20" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+      </a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="px-220__ pt-220- flex y g-32">
+    <div class="flex y g-20 py-52-">
+      <p class="fs-16 _c-brand_">{{t.cssFluid.hero.eyebrow}}</p>
+      <h1 class="fs-52__ lh-1 ttu">
+        <span>{{t.cssFluid.hero.titlePre}} <span class="title grad-linear-text grad-linear from-accent to-extra">{{t.cssFluid.hero.titleHighlight}}</span><br/>{{t.cssFluid.hero.titlePost}}</span>
+      </h1>
+      <p class="fs-24__ _c-dark_ maw-768">
+        {{t.cssFluid.hero.bodyPre}} <code class="_c-brand-d">clamp()</code> {{t.cssFluid.hero.bodyPost}}
+      </p>
+    </div>
+  </section>
+
+  <!-- Demo 1: Live clamp() reveal -->
+  <section id="reveal" class="px-220__ py-84 flex y g-32 por">
+    <div class="flex y g-20">
+      <h2 class="fs-52__ _bg-brand pr-356__ lh-1 ttu fwd-4 f-scale offset"><span class="_c-light">{{t.cssFluid.reveal.title}}</span></h2>
+      <p class="fs-18 _c-dark _bg-brand___ p-34_ maw-768">
+        {{t.cssFluid.reveal.bodyPre}} <span class="_c-brand-d">{{t.cssFluid.reveal.bodyHighlight}}</span>{{t.cssFluid.reveal.bodyPost}}
+      </p>
+    </div>
+
+    <div class="device-icons flex x around g-12">
+      <div class="fluid-device" data-min="320" data-max="479">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="7" y="3" width="10" height="18" rx="2" stroke="currentColor" stroke-width="2"/>
+          <circle cx="12" cy="17" r="1" fill="currentColor"/>
+        </svg>
+        <div class="size-indicator _bg-brand_"></div>
+      </div>
+      <div class="fluid-device" data-min="480" data-max="767">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2" y="4" width="8" height="16" rx="1" stroke="currentColor" stroke-width="2"/>
+          <rect x="10" y="4" width="8" height="16" rx="1" stroke="currentColor" stroke-width="2"/>
+        </svg>
+        <div class="size-indicator _bg-brand_"></div>
+      </div>
+      <div class="fluid-device" data-min="768" data-max="1023">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" stroke-width="2"/>
+          <circle cx="18" cy="12" r="1" fill="currentColor"/>
+        </svg>
+        <div class="size-indicator _bg-brand_"></div>
+      </div>
+      <div class="fluid-device" data-min="1024" data-max="1439">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2" y="3" width="20" height="14" rx="2" stroke="currentColor" stroke-width="2"/>
+          <rect x="2" y="17" width="20" height="2" rx="1" stroke="currentColor" stroke-width="2"/>
+        </svg>
+        <div class="size-indicator _bg-brand_"></div>
+      </div>
+      <div class="fluid-device" data-min="1440" data-max="1920">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="1" y="3" width="22" height="15" rx="1" stroke="currentColor" stroke-width="2"/>
+          <rect x="10" y="19" width="4" height="2" rx="1" stroke="currentColor" stroke-width="2"/>
+          <rect x="9" y="21" width="6" height="1" rx="0.5" stroke="currentColor" stroke-width="2"/>
+        </svg>
+        <div class="size-indicator _bg-brand_"></div>
+      </div>
+    </div>
+
+    <input type="range" class="progress" id="fluidRange" min="320" max="1920" value="1200">
+
+    <svg class="fluid-connection" width="100%" height="100%" preserveAspectRatio="none">
+      <defs>
+        <filter id="fluidGlow1">
+          <feGaussianBlur stdDeviation="3" result="b"/>
+          <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+      </defs>
+      <path id="fluidConnectionPath" d="" stroke="var(--brand)" stroke-width="1" fill="none" filter="url(#fluidGlow1)" opacity="0.5"/>
+    </svg>
+
+    <div class="fluid-stage" id="fluidStage">
+      <div class="fluid-frame" id="fluidFrame">
+        <div class="fluid-frame-bar">
+          <span></span><span></span><span></span>
+          <span class="fluid-frame-size" id="fluidFrameSize">1200px</span>
+        </div>
+        <div class="fluid-frame-body">
+          <div class="fluid-content" id="fluidContent">
+            <p class="fluid-content-eyebrow">{{t.cssFluid.reveal.previewEyebrow}}</p>
+            <h3 class="fluid-content-heading" id="fluidHeading">{{t.cssFluid.reveal.previewHeading}}</h3>
+            <p class="fluid-content-body">{{t.cssFluid.reveal.previewBody}}</p>
+            <button class="fluid-content-btn">{{t.cssFluid.reveal.previewCta}}</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="fluid-stats">
+      <div class="fluid-stat">
+        <span class="fluid-stat-label">h3 font-size</span>
+        <span class="fluid-stat-value" id="fluidFs">42<span class="fs-12 _c-dark__">px</span></span>
+      </div>
+      <div class="fluid-stat">
+        <span class="fluid-stat-label">p font-size</span>
+        <span class="fluid-stat-value" id="fluidBodyFs">16<span class="fs-12 _c-dark__">px</span></span>
+      </div>
+      <div class="fluid-stat">
+        <span class="fluid-stat-label">gap</span>
+        <span class="fluid-stat-value" id="fluidGap">12<span class="fs-12 _c-dark__">px</span></span>
+      </div>
+      <div class="fluid-stat">
+        <span class="fluid-stat-label">padding</span>
+        <span class="fluid-stat-value" id="fluidPad">28<span class="fs-12 _c-dark__">px</span></span>
+      </div>
+      <div class="fluid-stat">
+        <span class="fluid-stat-label">button font-size</span>
+        <span class="fluid-stat-value" id="fluidBtnFs">14<span class="fs-12 _c-dark__">px</span></span>
+      </div>
+      <div class="fluid-stat">
+        <span class="fluid-stat-label">button padding</span>
+        <span class="fluid-stat-value" id="fluidBtnPad">12<span class="fs-12 _c-dark__">px</span></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Demo 2: Breakpoint vs Fluid -->
+  <section id="versus" class="px-220__ py-84 flex y g-32 por">
+    <div class="flex y g-20">
+      <h2 class="fs-52__ _bg-brand pr-356__ lh-1 ttu fwd-4 f-scale offset"><span class="_c-light">{{t.cssFluid.versus.title}}</span></h2>
+      <p class="fs-18 _c-dark _bg-brand___ p-34_ maw-768">
+        {{t.cssFluid.versus.bodyPre}} <span class="_c-brand-d">{{t.cssFluid.versus.bodyHighlight}}</span>
+      </p>
+    </div>
+
+    <div class="device-icons flex x around g-12">
+      <div class="fluid-device" data-min="320" data-max="479" data-target="versus">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="7" y="3" width="10" height="18" rx="2" stroke="currentColor" stroke-width="2"/>
+          <circle cx="12" cy="17" r="1" fill="currentColor"/>
+        </svg>
+        <div class="size-indicator _bg-brand_"></div>
+      </div>
+      <div class="fluid-device" data-min="480" data-max="767" data-target="versus">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2" y="4" width="8" height="16" rx="1" stroke="currentColor" stroke-width="2"/>
+          <rect x="10" y="4" width="8" height="16" rx="1" stroke="currentColor" stroke-width="2"/>
+        </svg>
+        <div class="size-indicator _bg-brand_"></div>
+      </div>
+      <div class="fluid-device" data-min="768" data-max="1023" data-target="versus">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" stroke-width="2"/>
+          <circle cx="18" cy="12" r="1" fill="currentColor"/>
+        </svg>
+        <div class="size-indicator _bg-brand_"></div>
+      </div>
+      <div class="fluid-device" data-min="1024" data-max="1439" data-target="versus">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2" y="3" width="20" height="14" rx="2" stroke="currentColor" stroke-width="2"/>
+          <rect x="2" y="17" width="20" height="2" rx="1" stroke="currentColor" stroke-width="2"/>
+        </svg>
+        <div class="size-indicator _bg-brand_"></div>
+      </div>
+      <div class="fluid-device" data-min="1440" data-max="1920" data-target="versus">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="1" y="3" width="22" height="15" rx="1" stroke="currentColor" stroke-width="2"/>
+          <rect x="10" y="19" width="4" height="2" rx="1" stroke="currentColor" stroke-width="2"/>
+          <rect x="9" y="21" width="6" height="1" rx="0.5" stroke="currentColor" stroke-width="2"/>
+        </svg>
+        <div class="size-indicator _bg-brand_"></div>
+      </div>
+    </div>
+
+    <input type="range" class="progress" id="versusRange" min="320" max="1920" value="900">
+
+    <svg class="fluid-connection" width="100%" height="100%" preserveAspectRatio="none">
+      <defs>
+        <filter id="fluidGlow2">
+          <feGaussianBlur stdDeviation="3" result="b"/>
+          <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+      </defs>
+      <path id="versusConnectionPath" d="" stroke="var(--brand)" stroke-width="1" fill="none" filter="url(#fluidGlow2)" opacity="0.5"/>
+    </svg>
+
+    <div class="versus-grid">
+      <div class="versus-panel">
+        <div class="versus-tag versus-tag--bp">{{t.cssFluid.versus.bpTag}}</div>
+        <div class="fluid-stage">
+          <div class="fluid-frame" id="versusBpFrame">
+            <div class="fluid-frame-bar">
+              <span></span><span></span><span></span>
+              <span class="fluid-frame-size" id="versusBpFrameSize">900px</span>
+            </div>
+            <div class="fluid-frame-body">
+              <div class="versus-card versus-card--bp" id="versusBpCard">
+                <h4>{{t.cssFluid.versus.bpCard.title}}</h4>
+                <p>{{t.cssFluid.versus.bpCard.body}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="fluid-stat">
+          <span class="fluid-stat-label">font-size</span>
+          <span class="fluid-stat-value" id="versusBpFs">16<span class="fs-12 _c-dark__">px</span></span>
+        </div>
+      </div>
+
+      <div class="versus-panel">
+        <div class="versus-tag versus-tag--fl">{{t.cssFluid.versus.flTag}}</div>
+        <div class="fluid-stage">
+          <div class="fluid-frame" id="versusFlFrame">
+            <div class="fluid-frame-bar">
+              <span></span><span></span><span></span>
+              <span class="fluid-frame-size" id="versusFlFrameSize">900px</span>
+            </div>
+            <div class="fluid-frame-body">
+              <div class="versus-card versus-card--fl" id="versusFlCard">
+                <h4>{{t.cssFluid.versus.flCard.title}}</h4>
+                <p>{{t.cssFluid.versus.flCard.body}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="fluid-stat">
+          <span class="fluid-stat-label">font-size</span>
+          <span class="fluid-stat-value" id="versusFlFs">16<span class="fs-12 _c-dark__">px</span></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Four size modifiers — bars use real EVA tokens via iframe;
+       slider drives the iframe's vw, no clamp redefinition. -->
+  <section id="modifiers" class="px-220__ py-84 flex y g-32 por">
+    <div class="flex y g-20">
+      <h2 class="fs-52__ _bg-brand pr-356__ lh-1 ttu fwd-4 f-scale offset"><span class="_c-light">{{t.cssFluid.modifiers.title}}</span></h2>
+      <p class="fs-18 _c-dark _bg-brand___ p-34_ maw-768">
+        {{t.cssFluid.modifiers.bodyPre}}<span class="_c-brand-d">{{t.cssFluid.modifiers.bodyHighlight}}</span>{{t.cssFluid.modifiers.bodyPost}}
+      </p>
+    </div>
+
+    <div class="device-icons flex x around g-12">
+      <div class="fluid-device" data-min="320" data-max="479">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="7" y="3" width="10" height="18" rx="2" stroke="currentColor" stroke-width="2"/>
+          <circle cx="12" cy="17" r="1" fill="currentColor"/>
+        </svg>
+        <div class="size-indicator _bg-brand_"></div>
+      </div>
+      <div class="fluid-device" data-min="480" data-max="767">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2" y="4" width="8" height="16" rx="1" stroke="currentColor" stroke-width="2"/>
+          <rect x="10" y="4" width="8" height="16" rx="1" stroke="currentColor" stroke-width="2"/>
+        </svg>
+        <div class="size-indicator _bg-brand_"></div>
+      </div>
+      <div class="fluid-device" data-min="768" data-max="1023">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" stroke-width="2"/>
+          <circle cx="18" cy="12" r="1" fill="currentColor"/>
+        </svg>
+        <div class="size-indicator _bg-brand_"></div>
+      </div>
+      <div class="fluid-device" data-min="1024" data-max="1439">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2" y="3" width="20" height="14" rx="2" stroke="currentColor" stroke-width="2"/>
+          <rect x="2" y="17" width="20" height="2" rx="1" stroke="currentColor" stroke-width="2"/>
+        </svg>
+        <div class="size-indicator _bg-brand_"></div>
+      </div>
+      <div class="fluid-device" data-min="1440" data-max="1920">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="1" y="3" width="22" height="15" rx="1" stroke="currentColor" stroke-width="2"/>
+          <rect x="10" y="19" width="4" height="2" rx="1" stroke="currentColor" stroke-width="2"/>
+          <rect x="9" y="21" width="6" height="1" rx="0.5" stroke="currentColor" stroke-width="2"/>
+        </svg>
+        <div class="size-indicator _bg-brand_"></div>
+      </div>
+    </div>
+
+    <input type="range" class="progress" id="modifiersRange" min="320" max="1920" value="1200">
+
+    <svg class="fluid-connection" width="100%" height="100%" preserveAspectRatio="none">
+      <defs>
+        <filter id="fluidGlow3">
+          <feGaussianBlur stdDeviation="3" result="b"/>
+          <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+      </defs>
+      <path id="modifiersConnectionPath" d="" stroke="var(--brand)" stroke-width="1" fill="none" filter="url(#fluidGlow3)" opacity="0.5"/>
+    </svg>
+
+    <div class="fluid-stage">
+      <div class="fluid-frame" id="modifiersFrame">
+        <div class="fluid-frame-bar">
+          <span></span><span></span><span></span>
+          <span class="fluid-frame-size" id="modifiersFrameSize">1200px</span>
+        </div>
+        <iframe id="modifiersIframe" class="modifiers-iframe" src="{{assetPrefix}}framework/demo-modifiers.html" title="Live EVA tokens" scrolling="no"></iframe>
+      </div>
+    </div>
+
+    <div class="fluid-stats">
+      <div class="fluid-stat">
+        <span class="fluid-stat-label">var(--220)</span>
+        <span class="fluid-stat-value" id="modStandardValue">220<span class="fs-12 _c-dark__">px</span></span>
+      </div>
+      <div class="fluid-stat">
+        <span class="fluid-stat-label">var(--220_)</span>
+        <span class="fluid-stat-value" id="modReducedValue">220<span class="fs-12 _c-dark__">px</span></span>
+      </div>
+      <div class="fluid-stat">
+        <span class="fluid-stat-label">var(--220__)</span>
+        <span class="fluid-stat-value" id="modExtremeValue">220<span class="fs-12 _c-dark__">px</span></span>
+      </div>
+      <div class="fluid-stat">
+        <span class="fluid-stat-label">var(--220-)</span>
+        <span class="fluid-stat-value" id="modExtendedValue">220<span class="fs-12 _c-dark__">px</span></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Demo 3: Canonical example -->
+  <section id="canonical" class="px-220__ py-84 flex y g-32">
+    <div class="flex y g-20">
+      <h2 class="fs-52__ _bg-brand pr-356__ lh-1 ttu fwd-4 f-scale offset"><span class="_c-light">{{t.cssFluid.canonical.title}}</span></h2>
+      <p class="fs-18 _c-dark _bg-brand___ p-34_ maw-768">
+        {{t.cssFluid.canonical.body}}
+      </p>
+    </div>
+
+    <div class="grid auto-fit-356_ gap-32 w-full">
+      <div class="framework-card flex y g-12 p-32 _bg-light br-12">
+        <span class="fs-12 _c-accent">{{t.cssFluid.canonical.scssLabel}}</span>
+        <pre class="code-block"><code>@use 'eva-css-fluid' with (
+  $sizes: (4, 8, 16, 32, 64, 128),
+  $font-sizes: (14, 16, 24, 36, 52),
+  $build-class: true
+);</code></pre>
+      </div>
+
+      <div class="framework-card flex y g-12 p-32 _bg-light br-12">
+        <span class="fs-12 _c-accent">{{t.cssFluid.canonical.varsLabel}}</span>
+        <pre class="code-block"><code>--16:  clamp(...);
+--16_: clamp(...); /* {{t.cssFluid.canonical.commentReduced}} */
+--16__: clamp(...); /* {{t.cssFluid.canonical.commentExtreme}} */
+--16-: clamp(...); /* {{t.cssFluid.canonical.commentExtended}} */
+--fs-24, --fs-24_, --fs-24__</code></pre>
+      </div>
+
+      <div class="framework-card flex y g-12 p-32 _bg-light br-12">
+        <span class="fs-12 _c-accent">{{t.cssFluid.canonical.useLabel}}</span>
+        <pre class="code-block"><code>.card {
+  padding: var(--32);
+  gap: var(--16);
+  font-size: var(--fs-16);
+}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why I built this -->
+  <section id="why" class="px-220__ py-84 flex y g-32">
+    <div class="flex y g-20">
+      <h2 class="fs-52__ _bg-brand pr-356__ lh-1 ttu fwd-4 f-scale offset"><span class="_c-light">{{t.cssFluid.why.title}}</span></h2>
+    </div>
+    <p class="fs-18 _c-dark_ lh-1-5 maw-768">
+      {{t.cssFluid.why.body1}}
+    </p>
+    <p class="fs-18 _c-dark_ lh-1-5 maw-768">
+      {{t.cssFluid.why.body2}}
+    </p>
+  </section>
+
+  <!-- AI doc pointer -->
+  <section class="px-220__ py-84 flex y g-32">
+    <div class="framework-card flex y g-20 p-52- grad-linear from-accent_ to-extra_ d-br br-12">
+      <span class="fs-12 _c-dark">{{t.aiPointer.eyebrow}}</span>
+      <h3 class="fs-36_ _c-dark-d_ lh-1">{{t.cssFluid.ai.title}}</h3>
+      <p class="fs-16 _c-dark lh-1-5 maw-768">
+        {{t.cssFluid.ai.body}}
+      </p>
+      <a href="{{assetPrefix}}llms.txt" target="_blank" class="h-52 px-32 flex y center _bg-dark _c-light br-12 fs-14 no-hover" style="width: fit-content;">{{t.aiPointer.cta}}</a>
+    </div>
+  </section>
+
+  <div class="stage">
+    <div class="flex stage-top">
+      <div class="line-y h-4"></div><div class="line-y h-8"></div><div class="line-y h-12"></div><div class="line-y h-20"></div><div class="line-y h-32"></div><div class="line-y h-34"></div><div class="line-y h-52"></div><div class="line-y h-84"></div><div class="line-y h-136"></div><div class="line-y h-220"></div><div class="line-y h-356"></div><div class="line-y h-220"></div><div class="line-y h-136"></div><div class="line-y h-84"></div><div class="line-y h-52"></div><div class="line-y h-34"></div><div class="line-y h-32"></div><div class="line-y h-20"></div><div class="line-y h-12"></div><div class="line-y h-8"></div><div class="line-y h-4"></div>
+    </div>
+  </div>
+
+  <footer class="px-220__ py-136 flex x g-20 w-full">
+    <div class="flex w-full y space center g-32">
+      <p class="fs-16 _c-brand_">{{t.footer.copyright}}</p>
+      <p class="fs-16 _c-brand_">{{t.footer.author}}</p>
+    </div>
+    <div class="flex w-full y space g-32">
+      <a href="https://www.linkedin.com/in/mtati/" target="_blank">{{t.footer.linkedin}}</a>
+      <a href="{{assetPrefix}}llms.txt" target="_blank">{{t.footer.llms}}</a>
+      <a href="{{altHref}}" hreflang="{{altLang}}" title="{{t.langToggle.title}}">{{t.langToggle.label}}</a>
+    </div>
+  </footer>
+
+  <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="hide">
+    <defs>
+      <filter id="fancy-goo">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="2.5" result="blur" />
+        <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 14 -3" result="goo" />
+        <feComposite in="SourceGraphic" in2="goo" operator="atop"/>
+      </filter>
+    </defs>
+  </svg>
+
+  <style>
+    #reveal .device-icons,
+    #versus .device-icons {
+      width: 100%;
+    }
+    .fluid-device {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0.5rem;
+      border-radius: 0.5rem;
+      transition: all 0.3s ease;
+      color: var(--dark__);
+      opacity: 0.45;
+      position: relative;
+      cursor: pointer;
+    }
+    .fluid-device:hover {
+      opacity: 0.8;
+      transform: translateY(-2px);
+    }
+    .fluid-device.active {
+      opacity: 1;
+      color: var(--brand);
+    }
+    .fluid-device.active .size-indicator {
+      background: var(--dark);
+      transform: scale(1.4);
+    }
+    .fluid-device svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .fluid-connection {
+      position: absolute;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .fluid-stage {
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      min-height: 220px;
+      transition: height 0.12s linear;
+    }
+    .fluid-frame {
+      --w: 1200;
+      --scale: 1;
+      width: calc(var(--w) * 1px);
+      background: var(--light);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      border: 1px solid var(--brand___);
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      left: 50%;
+      top: 0;
+      transform-origin: top center;
+      transform: translateX(-50%) scale(var(--scale));
+      container-type: inline-size;
+      container-name: viewport;
+    }
+    .fluid-frame-bar {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 14px;
+      background: var(--dark___);
+      border-bottom: 1px solid var(--brand___);
+    }
+    .fluid-frame-bar > span:not(.fluid-frame-size) {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--brand___);
+      border: 1px solid var(--brand__);
+      flex-shrink: 0;
+    }
+    .fluid-frame-bar > span:nth-child(1) { background: #ff5f57; border-color: #e0443e; }
+    .fluid-frame-bar > span:nth-child(2) { background: #ffbd2e; border-color: #dea123; }
+    .fluid-frame-bar > span:nth-child(3) { background: #28c840; border-color: #1aab29; }
+    .fluid-frame-size {
+      margin-left: auto;
+      font-family: 'JetBrains Mono', 'Fira Code', monospace;
+      font-size: 11px;
+      color: var(--dark_);
+      letter-spacing: -0.02em;
+      font-weight: 500;
+    }
+    .fluid-frame-body {
+      flex: 1;
+      padding: clamp(1rem, 4cqi, 4rem);
+    }
+
+    .fluid-content {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(0.5rem, 2cqi, 1.5rem);
+    }
+    .fluid-content-eyebrow {
+      font-size: clamp(0.7rem, 1cqi, 0.85rem);
+      color: var(--brand-d);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin: 0;
+    }
+    .fluid-content-heading {
+      font-size: clamp(1.5rem, 5cqi, 4rem);
+      line-height: 1;
+      color: var(--dark-d_);
+      font-weight: 700;
+      margin: 0;
+    }
+    .fluid-content-body {
+      font-size: clamp(0.85rem, 1.6cqi, 1.1rem);
+      color: var(--dark__);
+      line-height: 1.5;
+      margin: 0;
+    }
+    .fluid-content-btn {
+      align-self: flex-start;
+      font-size: clamp(0.8rem, 1.4cqi, 1rem);
+      padding: clamp(0.5rem, 1.5cqi, 1rem) clamp(1rem, 3cqi, 2rem);
+      background: var(--brand);
+      color: var(--light);
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .fluid-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--12);
+      width: 100%;
+    }
+    .fluid-stat {
+      flex: 1 1 140px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      padding: var(--16);
+      background: var(--light);
+      border-radius: var(--8);
+      text-align: center;
+    }
+    .fluid-stat-label {
+      font-size: 0.7rem;
+      color: var(--dark__);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .fluid-stat-value {
+      font-family: 'JetBrains Mono', 'Fira Code', monospace;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: -0.02em;
+    }
+
+    .versus-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--32);
+      width: 100%;
+    }
+    @media (max-width: 768px) {
+      .versus-grid { grid-template-columns: 1fr; }
+    }
+    .versus-panel {
+      display: flex;
+      flex-direction: column;
+      gap: var(--12);
+    }
+    .versus-tag {
+      align-self: center;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 4px 12px;
+      border-radius: 6px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .versus-tag--bp { background: var(--accent___); color: var(--accent-d); }
+    .versus-tag--fl { background: var(--brand___); color: var(--brand-d); }
+
+    .versus-card {
+      background: var(--brand___);
+      border-radius: 8px;
+      border: 1px solid var(--brand__);
+    }
+    .versus-card h4 {
+      margin: 0 0 0.5rem;
+      color: var(--dark-d_);
+      line-height: 1.1;
+    }
+    .versus-card p {
+      margin: 0;
+      color: var(--dark__);
+    }
+
+    .versus-card--bp { padding: 1rem; }
+    .versus-card--bp h4 { font-size: 18px; }
+    .versus-card--bp p { font-size: 13px; }
+    .versus-card--bp.bp-1 { padding: 1.5rem; }
+    .versus-card--bp.bp-1 h4 { font-size: 28px; }
+    .versus-card--bp.bp-1 p { font-size: 15px; }
+    .versus-card--bp.bp-2 { padding: 2.25rem; }
+    .versus-card--bp.bp-2 h4 { font-size: 44px; }
+    .versus-card--bp.bp-2 p { font-size: 18px; }
+    .versus-card--bp.bp-3 { padding: 3rem; }
+    .versus-card--bp.bp-3 h4 { font-size: 64px; }
+    .versus-card--bp.bp-3 p { font-size: 22px; }
+
+    .versus-card--fl {
+      padding: clamp(1rem, 4cqi, 3rem);
+    }
+    .versus-card--fl h4 {
+      font-size: clamp(1.125rem, 5cqi, 4rem);
+    }
+    .versus-card--fl p {
+      font-size: clamp(0.8rem, 1.6cqi, 1.4rem);
+    }
+
+    .code-block {
+      margin: 0;
+      padding: var(--16);
+      background: var(--dark);
+      color: var(--light_);
+      border-radius: var(--8);
+      font-family: 'JetBrains Mono', 'Fira Code', monospace;
+      font-size: 0.75rem;
+      line-height: 1.5;
+      overflow-x: auto;
+    }
+    .code-block code { color: inherit; }
+
+    /* Modifiers iframe — fills the simulated frame, no chrome.
+       Inside the iframe, vw resolves to the iframe's clientWidth which equals
+       the frame's layout width, so EVA tokens scale with the slider. */
+    .modifiers-iframe {
+      display: block;
+      width: 100%;
+      height: 240px;
+      border: 0;
+      background: var(--light);
+    }
+  </style>
+
+  <script src="{{assetPrefix}}app.js"></script>
+  <script>
+    function fitFrameInStage(frame, requestedWidth, marginFactor) {
+      const stage = frame.parentElement;
+      if (!stage) return 1;
+      const available = stage.clientWidth - 16;
+      const factor = marginFactor != null ? marginFactor : 0.95;
+      const scale = Math.min(1, (available / requestedWidth) * factor);
+      frame.style.setProperty('--w', requestedWidth);
+      frame.style.setProperty('--scale', scale);
+      requestAnimationFrame(() => {
+        const naturalH = frame.offsetHeight;
+        stage.style.height = (naturalH * scale + 8) + 'px';
+      });
+      return scale;
+    }
+
+    function drawConnectionLine(section, range, pathEl) {
+      if (!section || !range || !pathEl) return;
+      const activeDevice = section.querySelector('.fluid-device.active');
+      if (!activeDevice) { pathEl.setAttribute('d', ''); return; }
+      const indicator = activeDevice.querySelector('.size-indicator');
+      if (!indicator) return;
+      const sectionRect = section.getBoundingClientRect();
+      const indRect = indicator.getBoundingClientRect();
+      const rangeRect = range.getBoundingClientRect();
+
+      const startX = indRect.left + indRect.width / 2 - sectionRect.left;
+      const startY = indRect.top + indRect.height / 2 - sectionRect.top;
+
+      const min = parseInt(range.min, 10);
+      const max = parseInt(range.max, 10);
+      const progress = (parseInt(range.value, 10) - min) / (max - min);
+      const thumbW = 32;
+      const trackW = rangeRect.width - thumbW;
+      const thumbX = rangeRect.left + (progress * trackW) + (thumbW / 2) - sectionRect.left;
+      const thumbY = rangeRect.top + rangeRect.height / 2 - sectionRect.top;
+
+      const c1x = startX + (thumbX - startX) * 0.2;
+      const c1y = startY + 32;
+      const c2x = startX + (thumbX - startX) * 0.8;
+      const c2y = thumbY - 32;
+      pathEl.setAttribute('d', `M ${startX} ${startY} C ${c1x} ${c1y}, ${c2x} ${c2y}, ${thumbX} ${thumbY}`);
+    }
+
+    function setProgressFill(range) {
+      const min = parseInt(range.min, 10);
+      const max = parseInt(range.max, 10);
+      const v = parseInt(range.value, 10);
+      const rect = range.getBoundingClientRect();
+      const thumbW = 32;
+      const trackW = rect.width - thumbW;
+      const px = ((v - min) / (max - min)) * trackW + thumbW / 2;
+      range.style.setProperty('--progress-width', px + 'px');
+    }
+
+    function makeWidget({ sectionId, rangeId, frameIds, widthOutId, frameSizeIds, statHandlers, deviceSelector, pathId, marginFactor }) {
+      const section = document.getElementById(sectionId);
+      const range = document.getElementById(rangeId);
+      const widthOut = document.getElementById(widthOutId);
+      const frames = frameIds.map(id => document.getElementById(id)).filter(Boolean);
+      const frameSizeEls = (frameSizeIds || []).map(id => document.getElementById(id)).filter(Boolean);
+      const devices = deviceSelector ? document.querySelectorAll(deviceSelector) : null;
+      const pathEl = pathId ? document.getElementById(pathId) : null;
+
+      function update(v) {
+        const w = parseInt(v, 10);
+        if (widthOut) widthOut.firstChild.textContent = w;
+        frameSizeEls.forEach(el => { el.textContent = w + 'px'; });
+        frames.forEach(f => fitFrameInStage(f, w, marginFactor));
+        if (devices) {
+          devices.forEach(d => {
+            const min = parseInt(d.dataset.min, 10);
+            const max = parseInt(d.dataset.max, 10);
+            d.classList.toggle('active', w >= min && w <= max);
+          });
+        }
+        setProgressFill(range);
+        requestAnimationFrame(() => {
+          if (statHandlers) statHandlers(w);
+          drawConnectionLine(section, range, pathEl);
+        });
+      }
+
+      if (devices) {
+        devices.forEach(d => {
+          d.addEventListener('click', () => {
+            const min = parseInt(d.dataset.min, 10);
+            const max = parseInt(d.dataset.max, 10);
+            const target = Math.round((min + max) / 2);
+            range.value = target;
+            update(target);
+          });
+        });
+      }
+
+      range.addEventListener('input', e => update(e.target.value));
+      window.addEventListener('resize', () => update(range.value));
+      window.addEventListener('scroll', () => drawConnectionLine(section, range, pathEl), { passive: true });
+      requestAnimationFrame(() => update(range.value));
+    }
+
+    makeWidget({
+      sectionId: 'reveal',
+      rangeId: 'fluidRange',
+      frameIds: ['fluidFrame'],
+      frameSizeIds: ['fluidFrameSize'],
+      widthOutId: 'fluidWidth',
+      deviceSelector: '#reveal .fluid-device',
+      pathId: 'fluidConnectionPath',
+      statHandlers: () => {
+        const heading = document.getElementById('fluidHeading');
+        const bodyText = document.querySelector('#fluidContent .fluid-content-body');
+        const content = document.getElementById('fluidContent');
+        const frameBody = document.querySelector('#fluidFrame .fluid-frame-body');
+        const btn = document.querySelector('#fluidContent .fluid-content-btn');
+
+        const set = (id, value) => {
+          const el = document.getElementById(id);
+          if (el) el.firstChild.textContent = Math.round(value);
+        };
+
+        if (heading) set('fluidFs', parseFloat(getComputedStyle(heading).fontSize));
+        if (bodyText) set('fluidBodyFs', parseFloat(getComputedStyle(bodyText).fontSize));
+        if (content) set('fluidGap', parseFloat(getComputedStyle(content).rowGap));
+        if (frameBody) set('fluidPad', parseFloat(getComputedStyle(frameBody).paddingLeft));
+        if (btn) {
+          set('fluidBtnFs', parseFloat(getComputedStyle(btn).fontSize));
+          set('fluidBtnPad', parseFloat(getComputedStyle(btn).paddingLeft));
+        }
+      }
+    });
+
+    makeWidget({
+      sectionId: 'versus',
+      rangeId: 'versusRange',
+      frameIds: ['versusBpFrame', 'versusFlFrame'],
+      frameSizeIds: ['versusBpFrameSize', 'versusFlFrameSize'],
+      widthOutId: 'versusWidth',
+      deviceSelector: '#versus .fluid-device',
+      pathId: 'versusConnectionPath',
+      marginFactor: 0.95,
+      statHandlers: (w) => {
+        const bpCard = document.getElementById('versusBpCard');
+        const flCard = document.getElementById('versusFlCard');
+        const bpFs = document.getElementById('versusBpFs');
+        const flFs = document.getElementById('versusFlFs');
+
+        bpCard.classList.remove('bp-1', 'bp-2', 'bp-3');
+        let bpSize = 18;
+        if (w >= 1440) { bpCard.classList.add('bp-3'); bpSize = 64; }
+        else if (w >= 1024) { bpCard.classList.add('bp-2'); bpSize = 44; }
+        else if (w >= 768) { bpCard.classList.add('bp-1'); bpSize = 28; }
+        bpFs.firstChild.textContent = bpSize;
+
+        const flH4 = flCard.querySelector('h4');
+        if (flH4) {
+          const fs = Math.round(parseFloat(getComputedStyle(flH4).fontSize));
+          flFs.firstChild.textContent = fs;
+        }
+      }
+    });
+
+    /* Modifiers demo — bars are rendered in framework/demo-modifiers.html
+       inside an iframe. The slider drives the iframe's layout width, so vw
+       inside the iframe resolves at the simulated viewport — EVA tokens
+       (var(--220), --220_, --220__, --220-) scale naturally. */
+    makeWidget({
+      sectionId: 'modifiers',
+      rangeId: 'modifiersRange',
+      frameIds: ['modifiersFrame'],
+      frameSizeIds: ['modifiersFrameSize'],
+      widthOutId: 'modifiersWidth',
+      deviceSelector: '#modifiers .fluid-device',
+      pathId: 'modifiersConnectionPath',
+      statHandlers: () => {
+        try {
+          const iframe = document.getElementById('modifiersIframe');
+          const doc = iframe && iframe.contentDocument;
+          if (!doc) return;
+          const set = (selector, outId) => {
+            const bar = doc.querySelector(selector);
+            const out = document.getElementById(outId);
+            if (bar && out) out.firstChild.textContent = Math.round(parseFloat(getComputedStyle(bar).width));
+          };
+          set('.bar.standard', 'modStandardValue');
+          set('.bar.reduced',  'modReducedValue');
+          set('.bar.extreme',  'modExtremeValue');
+          set('.bar.extended', 'modExtendedValue');
+        } catch (e) { /* iframe not yet ready or cross-origin — skip */ }
+      }
+    });
+
+    // Refresh stats once the iframe has finished loading EVA's stylesheet.
+    (function refreshOnIframeLoad(){
+      const iframe = document.getElementById('modifiersIframe');
+      const range = document.getElementById('modifiersRange');
+      if (!iframe || !range) return;
+      iframe.addEventListener('load', () => range.dispatchEvent(new Event('input')));
+    })();
+  </script>
+  </body>
+</html>

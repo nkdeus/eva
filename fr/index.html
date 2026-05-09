@@ -1,0 +1,497 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/Draggable.min.js"></script>
+    <link rel="stylesheet" href="https://use.typekit.net/vjo0ssd.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Display:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/main.css" />
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="3c9b4552-d24d-48aa-a6b4-877d0ceffe04"></script>
+    <title>EVA CSS - Framework SCSS fluide pour design responsive</title>
+    <meta name="description" content="EVA CSS - Un framework SCSS fluide qui convertit des designs statiques en systèmes responsives avec CSS clamp() et couleurs OKLCH.">
+    <meta property="og:title" content="EVA CSS - Framework SCSS fluide">
+    <meta property="og:description" content="Un framework SCSS fluide qui convertit des maquettes statiques en systèmes responsives avec CSS clamp() et couleurs OKLCH.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:url" content="https://eva-css.xyz/fr/">
+    <link rel="canonical" href="https://eva-css.xyz/fr/">
+    <link rel="alternate" hreflang="en" href="https://eva-css.xyz/">
+    <link rel="alternate" hreflang="fr" href="https://eva-css.xyz/fr/">
+    <link rel="alternate" hreflang="x-default" href="https://eva-css.xyz/">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "EVA CSS",
+      "description": "Un framework SCSS fluide qui convertit des maquettes statiques en systèmes responsives avec CSS clamp() et couleurs OKLCH",
+      "url": "https://eva-css.xyz",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Web",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "softwareVersion": "2.0.5",
+      "codeRepository": "https://github.com/nkdeus/eva",
+      "programmingLanguage": ["SCSS", "CSS", "JavaScript"]
+    }
+    </script>
+  </head>
+  <body class="current-theme theme-eva all-grads toggle-theme">
+  <a href="" class="dark-light-toggle no-hover">
+    <svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 100 100" x="0px" y="0px"><path d="M50,77.62A27.62,27.62,0,1,0,22.38,50,27.61,27.61,0,0,0,50,77.62ZM50,26A24,24,0,1,1,26,50,24,24,0,0,1,50,26ZM69.62,50.52A19.36,19.36,0,0,0,50.26,31.15V69.88A19.36,19.36,0,0,0,69.62,50.52Zm-19.88,31a1.81,1.81,0,0,0-1.81,1.81V95.69a1.81,1.81,0,0,0,3.62,0V83.3A1.81,1.81,0,0,0,49.74,81.49Zm24.9-9A1.81,1.81,0,0,0,72.09,75l8.76,8.76a1.81,1.81,0,0,0,2.55-2.56Zm6.85-22.19a1.81,1.81,0,0,0,1.81,1.81H95.69a1.81,1.81,0,1,0,0-3.62H83.3A1.81,1.81,0,0,0,81.49,50.26ZM75,27.91l8.76-8.76a1.81,1.81,0,0,0-2.56-2.55l-8.76,8.76A1.81,1.81,0,0,0,75,27.91Zm-24.75-9.4a1.81,1.81,0,0,0,1.81-1.81V4.31a1.81,1.81,0,0,0-3.62,0V16.7A1.81,1.81,0,0,0,50.26,18.51Zm-24.9,9A1.81,1.81,0,0,0,27.91,25l-8.76-8.76a1.81,1.81,0,1,0-2.55,2.56Zm-21,24H16.7a1.81,1.81,0,0,0,0-3.62H4.31a1.81,1.81,0,1,0,0,3.62Zm22,20a1.78,1.78,0,0,0-1.28.53l-8.76,8.76a1.8,1.8,0,0,0,0,2.56,1.82,1.82,0,0,0,2.56,0l8.76-8.77a1.81,1.81,0,0,0-1.28-3.08Z"/></svg>
+  </a>
+  <nav id="nav" class="px-220__ flex space py-12- pof">
+    <div id="logo" class="flex x center px-20">
+      <div class="ballzzz por" style="--max:6">
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:0"></div>
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:1"></div>
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:2"></div>
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:3"></div>
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:4"></div>
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:5"></div>
+      </div>
+      <a href="index.html" class="logo no-hover title fs-36__ lh-1">EVA CSS</a>
+    </div>
+
+    <!-- Burger menu button -->
+    <button id="burger-menu" class="burger-menu">
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+    </button>
+
+    <div id="menu" class="flex x center g-12">
+      <a href="../framework/css-fluid.html" class="h-52 px-12 flex y center _c-brand br-12"><span class="fs-12">CSS fluide</span></a>
+      <a href="../framework.html" class="h-52 px-12 flex y center _c-brand br-12"><span class="fs-12">Addons</span></a>
+      <a href="../figma-to-eva.html" class="h-52 px-12 flex y center _c-brand br-12"><span class="fs-12">Figma vers EVA</span></a>
+      <a href="../framework/doc.html" class="h-52 px-12 flex y center _c-brand br-12"><span class="fs-12">Doc</span></a>
+      <a href="https://github.com/nkdeus/eva-framework" target="_blank" class="h-52 px-8 flex x g-12 center _c-brand br-8">
+        <svg xmlns="http://www.w3.org/2000/svg" class="lh-0" height="20" viewBox="0 0 16 16" width="20" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+      </a>
+    </div>
+
+  </nav>
+
+  <!-- Rounded arrow pointing to the logo balls -->
+  <div id="tuto" class="poa" style="top: 6rem; left: calc(var(--220__) + 0.5rem); z-index: 10;">
+    <div class="flex x center ">
+      <svg width="80" height="50" viewBox="0 0 80 60" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform: translateY(-0.7rem) rotate(-110deg);">
+        <!-- Arrow curve -->
+        <path d="M20 40 Q50 10 60 20" stroke="var(--brand)" stroke-width="1" fill="none" stroke-linecap="round"/>
+        <!-- Arrow tip -->
+        <path d="M60 20L55 15M60 20L55 25" stroke="var(--brand)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+             <p class="fs-12 _c-brand">
+         Faites glisser les balles, relâchez quand vous trouvez votre couleur
+       </p>
+    </div>
+  </div>
+
+  <section class="px-220__ pt-220- flex y g-32">
+    <div class="flex y g-20 py-52-">
+      <h1 class="fs-52__ lh-1 ttu">
+        <span>Un framework <span class="title grad-linear-text grad-linear from-accent to-extra">SCSS</span> fluide</span>
+      </h1>
+      <p class="fs-36_">
+        <span>Convertit des maquettes statiques en systèmes adaptatifs et responsives. Une approche moderne du CSS fluide.</span>
+      </p>
+    </div>
+      <div class="flex x wrap g-12">
+         <a href="#demo" class="h-52 px-32 flex y center grad-linear from-accent to-extra animated-fast _c-light br-12">Démo en direct</a>
+      </div>
+
+
+  </section>
+
+  <!-- Section Objectifs d'EVA CSS -->
+  <section class="px-220__ py-136 flex y g-52">
+    <div class="flex y g-20">
+      <h2 class="fs-52__ _c-dark-d_ lh-1 ttu">
+        <span>EVA CSS<br/><span class="title grad-linear-text fs-72__ from-accent to-extra">Objectifs</span></span>
+      </h2>
+
+    </div>
+
+    <div class="sm:max-col-6 flex x start-stretch wrap gap-32">
+      <!-- Framework dédié aux maquettes complexes -->
+      <div class="framework-card flex y g-20 p-32_ _bg-light br-12  col-6  mr-32__">
+        <div class="flex x g-16 y center">
+
+          <h3 class="fs-20_ _c-dark-b">Framework pour designs complexes</h3>
+        </div>
+        <p class="fs-16 _c-dark_ lh-1-5">
+          EVA CSS est conçu pour traduire fidèlement les designs sophistiqués en code. Là où les frameworks traditionnels peinent face à la complexité, EVA CSS excelle grâce à sa nature fluide et adaptative.
+        </p>
+      </div>
+
+      <!-- Proportions et espaces -->
+      <div class="framework-card flex y g-20 p-32_ _bg-light br-12 stretch mt-32__ mr-32__">
+        <div class="flex x g-16 y center">
+
+          <h3 class="fs-20_ _c-dark-d_">Proportions et espacements</h3>
+        </div>
+        <p class="fs-16 _c-dark_ lh-1-5">
+          Les proportions et les espacements forment le socle invisible d'une identité visuelle forte. EVA CSS traduit cette architecture invisible en CSS fluide, préservant l'harmonie visuelle sur toutes les tailles d'écran sans compromettre l'intention créative d'origine.
+        </p>
+      </div>
+
+      <!-- figma to eva css -->
+      <a href="../framework/css-fluid.html" class="framework-card no-border flex y center g-20 p-32_ grad-linear from-extra to-accent bg-size d-br br-12 w-356_ h-356_">
+
+          <div class="card-icon w-52 h-52 mb-32">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 3v18M3 12h18" stroke="var(--dark-d_)" stroke-width="2" stroke-linecap="round"/>
+                <path d="M13 12h-2" stroke="var(--dark-d_)" stroke-width="2" stroke-linecap="round"/>
+                <path d="M12 17v-4" stroke="var(--dark-d_)" stroke-width="2" stroke-linecap="round"/>
+                <path d="M12 7v4" stroke="var(--dark-d_)" stroke-width="2" stroke-linecap="round"/>
+                <path d="M12 12h.01" stroke="var(--dark-d_)" stroke-width="2" stroke-linecap="round"/>
+                <path d="M12 12h.01" stroke="var(--dark-d_)" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3 class="fs-20_ _c-dark-d_ tac">CSS fluide</h3>
+
+
+      </a>
+
+      <!-- Customisation et rigueur -->
+      <div class="framework-card flex y g-20 p-32_ _bg-light br-12 stretch mt-32__ mb-32__">
+        <div class="flex x g-16 y center">
+
+          <h3 class="fs-20_ _c-dark-d_">Personnalisation complète et rigueur dimensionnelle</h3>
+        </div>
+        <p class="fs-16 _c-dark_ lh-1-5">
+          EVA CSS répond aux besoins avancés de personnalisation avec souplesse, tout en renforçant la cohérence dimensionnelle. Cette approche garantit une cohérence parfaite et une scalabilité fiable, même sur les projets les plus ambitieux.
+        </p>
+      </div>
+
+
+    </div>
+  </section>
+
+  <section id="demo" class="demo-frame-container pt-136 pb-52 oh">
+    <div class="px-220__ flex y g-32">
+      <p class="fs-16" style="display: none;"> <span id="sizeValue" class="">100%</span></p>
+      <div class="device-icons flex x around g-12">
+        <div class="device-icon" data-device="mobile" data-range="0-20">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="7" y="3" width="10" height="18" rx="2" stroke="currentColor" stroke-width="2"/>
+            <circle cx="12" cy="17" r="1" fill="currentColor"/>
+          </svg>
+          <div class="size-indicator _bg-brand_"></div>
+        </div>
+        <div class="device-icon" data-device="foldable" data-range="21-40">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="4" width="8" height="16" rx="1" stroke="currentColor" stroke-width="2"/>
+            <rect x="10" y="4" width="8" height="16" rx="1" stroke="currentColor" stroke-width="2"/>
+            <line x1="10" y1="4" x2="10" y2="4" stroke="currentColor" stroke-width="0.5"/>
+            <line x1="10" y1="20" x2="10" y2="20" stroke="currentColor" stroke-width="0.5"/>
+          </svg>
+          <div class="size-indicator _bg-brand_"></div>
+        </div>
+        <div class="device-icon" data-device="tablet" data-range="41-60">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" stroke-width="2"/>
+            <circle cx="18" cy="12" r="1" fill="currentColor"/>
+            <rect x="21" y="8" width="1" height="2" rx="0.5" fill="currentColor"/>
+          </svg>
+          <div class="size-indicator _bg-brand_"></div>
+        </div>
+        <div class="device-icon" data-device="laptop" data-range="61-80">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="3" width="20" height="14" rx="2" stroke="currentColor" stroke-width="2"/>
+            <rect x="2" y="17" width="20" height="2" rx="1" stroke="currentColor" stroke-width="2"/>
+          </svg>
+          <div class="size-indicator _bg-brand_"></div>
+        </div>
+        <div class="device-icon" data-device="desktop" data-range="81-100">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="1" y="3" width="22" height="15" rx="1" stroke="currentColor" stroke-width="2"/>
+            <line x1="12" y1="18" x2="12" y2="19" stroke="currentColor" stroke-width="1"/>
+            <rect x="10" y="19" width="4" height="2" rx="1" stroke="currentColor" stroke-width="2"/>
+            <rect x="9" y="21" width="6" height="1" rx="0.5" stroke="currentColor" stroke-width="2"/>
+          </svg>
+          <div class="size-indicator _bg-brand_"></div>
+        </div>
+      </div>
+      <input type="range" class="progress" id="sizeRange" min="0" max="100" value="100">
+    </div>
+    <div class="container-frame por">
+      <!-- Left arrow button -->
+      <button id="prevSite" class="_c-dark arrow-btn-left flex x center _bg-brand__ br-1 px-12 py-8" style="cursor: pointer; position: absolute; left: 1rem; z-index: 20; width: var(--52_); height: var(--52_); border-radius: 50%; background: var(--brand__); border: 1px solid var(--brand___)">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+
+      <div id="demoFrame" class="iframe-container" style="z-index: 1;">
+        <div class="iframe-border"></div>
+        <iframe
+          id="iframe"
+          title="Inline Frame Example"
+          width="100%"
+          height="100%"
+          src="">
+        </iframe>
+      </div>
+
+      <!-- Right arrow button -->
+      <button id="nextSite" class="_c-dark arrow-btn-right flex x center _bg-brand__ br-1 px-12 py-8" style="cursor: pointer; position: absolute; right: 1rem; z-index: 20; width: var(--52_); height: var(--52_); border-radius: 50%; background: var(--brand__); border: 1px solid var(--brand___); ">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- SVG for connection line -->
+    <svg class="connection-line" width="100%" height="100%" style="position: absolute; top: 0; left: 0; pointer-events: none; z-index: 0;">
+      <defs>
+        <filter id="glow">
+          <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+          <feMerge>
+            <feMergeNode in="coloredBlur"/>
+            <feMergeNode in="SourceGraphic"/>
+          </feMerge>
+        </filter>
+      </defs>
+      <path id="connectionPath" d="" stroke="var(--dark)" stroke-width="1" fill="none" filter="url(#glow)" opacity="0.4"/>
+    </svg>
+  </section>
+
+  <!-- Framework Features Hub -->
+  <section class="px-220__ py-136 flex y g-52">
+
+
+    <div class="grid auto-fit-356 g-32 w-full">
+      <!-- Fluid Responsive -->
+      <a href="../framework/css-fluid.html" class="framework-card framework-card flex y g-20 p-32 _bg-light br-12 no-hover">
+        <div class="card-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 12h18" stroke="var(--brand)" stroke-width="2" stroke-linecap="round"/>
+            <path d="M5 8c2 0 2 8 4 8s2-8 4-8 2 8 4 8 2-8 4-8" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <circle cx="4" cy="12" r="2" fill="var(--extra)"/>
+            <circle cx="20" cy="12" r="2" fill="var(--extra)"/>
+          </svg>
+        </div>
+        <div class="flex y g-8">
+          <h3 class="fs-24__ _c-dark-d_">Responsive fluide</h3>
+          <p class="fs-16 _c-dark_">Le scaling fluide s'adapte sans rupture à toutes les tailles d'écran grâce aux fonctions clamp() modernes.</p>
+        </div>
+        <div class="flex x center">
+          <span class="fs-12 _c-brand">Découvrir le CSS fluide →</span>
+        </div>
+      </a>
+
+      <!-- OKLCH Colors -->
+      <a href="../framework/colors.html" class="framework-card framework-card flex y g-20 p-32 _bg-light br-12 no-hover">
+        <div class="card-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="8" cy="9" r="6" fill="var(--brand)"/>
+            <circle cx="16" cy="9" r="6" fill="var(--accent)" opacity="0.85"/>
+            <circle cx="12" cy="16" r="6" fill="var(--extra)" opacity="0.85"/>
+          </svg>
+        </div>
+        <div class="flex y g-8">
+          <h3 class="fs-24__ _c-dark-d_">Couleurs OKLCH</h3>
+          <p class="fs-16 _c-dark_">Système de couleurs moderne avec variations automatiques, contrôles d'opacité et fonctionnalités d'accessibilité.</p>
+        </div>
+        <div class="flex x center">
+          <span class="fs-12 _c-brand">Explorer les couleurs →</span>
+        </div>
+      </a>
+
+      <!-- Gradients -->
+      <a href="../framework/gradients.html" class="framework-card framework-card flex y g-20 p-32 _bg-light br-12 no-hover">
+        <div class="card-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="hub-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="var(--brand)"/>
+                <stop offset="50%" stop-color="var(--accent)"/>
+                <stop offset="100%" stop-color="var(--extra)"/>
+              </linearGradient>
+            </defs>
+            <rect x="2" y="2" width="20" height="20" rx="4" fill="url(#hub-grad)"/>
+          </svg>
+        </div>
+        <div class="flex y g-8">
+          <h3 class="fs-24__ _c-dark-d_">Dégradés</h3>
+          <p class="fs-16 _c-dark_">Système de dégradés moderne avec animations fluides et contrôles responsives.</p>
+        </div>
+        <div class="flex x center">
+          <span class="fs-12 _c-brand">Explorer les dégradés →</span>
+        </div>
+      </a>
+      <!-- Modern Grids -->
+      <a href="../framework/grids.html" class="framework-card framework-card flex y g-20 p-32 _bg-light br-12 no-hover">
+        <div class="card-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="2" width="8" height="8" rx="1.5" fill="var(--brand)"/>
+            <rect x="14" y="2" width="8" height="8" rx="1.5" fill="var(--accent)"/>
+            <rect x="2" y="14" width="8" height="8" rx="1.5" fill="var(--extra)"/>
+            <rect x="14" y="14" width="8" height="8" rx="1.5" fill="var(--brand)" opacity="0.45"/>
+          </svg>
+        </div>
+        <div class="flex y g-8">
+          <h3 class="fs-24__ _c-dark-d_">Grilles modernes</h3>
+          <p class="fs-16 _c-dark_">Layouts auto-fit, container queries et systèmes de colonnes responsives.</p>
+        </div>
+        <div class="flex x center">
+          <span class="fs-12 _c-brand">Explorer les grilles →</span>
+        </div>
+      </a>
+
+      <!-- Flex -->
+      <a href="../framework/flex.html" class="framework-card framework-card flex y g-20 p-32 _bg-light br-12 no-hover">
+        <div class="card-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="6" width="6" height="12" rx="1.5" fill="var(--brand)"/>
+            <rect x="9" y="6" width="6" height="12" rx="1.5" fill="var(--accent)"/>
+            <rect x="16" y="6" width="6" height="12" rx="1.5" fill="var(--extra)"/>
+          </svg>
+        </div>
+        <div class="flex y g-8">
+          <h3 class="fs-24__ _c-dark-d_">Flex</h3>
+          <p class="fs-16 _c-dark_">Système de layout flexible avec contrôles responsives modernes.</p>
+        </div>
+        <div class="flex x center">
+          <span class="fs-12 _c-brand">Explorer flex →</span>
+        </div>
+      </a>
+
+      <!-- Figma Integration -->
+      <a href="../figma-to-eva.html" class="framework-card framework-card flex y g-20 p-32 _bg-light br-12 no-hover">
+        <div class="card-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="8" cy="5" r="3" fill="var(--brand)"/>
+            <circle cx="16" cy="5" r="3" fill="var(--accent)"/>
+            <circle cx="8" cy="12" r="3" fill="var(--extra)"/>
+            <circle cx="16" cy="12" r="3" stroke="var(--brand)" stroke-width="2"/>
+            <circle cx="8" cy="19" r="3" fill="var(--brand)" opacity="0.45"/>
+          </svg>
+        </div>
+        <div class="flex y g-8">
+          <h3 class="fs-24__ _c-dark-d_">Figma vers EVA</h3>
+          <p class="fs-16 _c-dark_">Transformez vos designs Figma en code fluide et responsive. Du statique au scalable.</p>
+        </div>
+        <div class="flex x center">
+          <span class="fs-12 _c-brand">Essayer le convertisseur →</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="about-fluid" class="px-220__ py-52 flex y g-20">
+    <div class="flex y">
+      <h2 class="fs-52__ _bg-brand pr-356__ lh-1 ttu fwd-4 f-scale offset"><span class="_c-light">À propos du responsive fluide</span></h2>
+      <p class="fs-18 _c-dark _bg-brand___ mb-20 p-34_">EVA CSS élimine les <span class="_c-brand-d">breakpoints traditionnels</span> au profit d'un <span class="_c-brand-d">scaling fluide</span> qui s'adapte sans rupture sur tous les appareils via les <span class="_c-brand-d">fonctions clamp()</span>.</p>
+    </div>
+    <p class="fs-16 _c-dark_">EVA CSS élimine les breakpoints traditionnels. Plutôt que de designer pour des tailles d'écran spécifiques, le framework utilise un scaling fluide qui s'adapte sans rupture sur tous les appareils. Le système calcule les tailles optimales avec les fonctions clamp(), garantissant que votre design est parfait sur mobile, tablette, laptop et desktop sans aucun breakpoint codé en dur.</p>
+    <p class="fs-16 _c-dark_">Cette approche vous permet de vous concentrer sur l'intention de design plutôt que de vous soucier du rendu sur différentes tailles d'écran. Le framework gère le scaling automatiquement et crée une expérience véritablement fluide et responsive.</p>
+  </section>
+
+  <section id="proportion" class="px-220__ py-52 flex y g-20">
+    <div class="flex y">
+      <h2 class="fs-52__ _bg-brand pr-356__ lh-1 ttu fwd-4 f-scale offset"><span class="_c-light">La proportion plus que la taille</span></h2>
+      <p class="fs-18 _c-dark _bg-brand___ mb-20 p-34_">EVA CSS privilégie les <span class="_c-brand-d">relations proportionnelles</span> aux tailles absolues, en se concentrant sur l'<span class="_c-brand-d">équilibre visuel</span> et le rythme qui maintiennent la <span class="_c-brand-d">hiérarchie visuelle</span> sur tous les appareils.</p>
+    </div>
+    <p class="fs-16 _c-dark_">En design d'interface, les tailles absolues sont secondaires aux relations entre les éléments. EVA CSS se concentre sur l'harmonie proportionnelle, où l'équilibre visuel et le rythme de votre layout comptent plus que des valeurs en pixels précises. Le scaling fluide du framework maintient ces relations proportionnelles sur toutes les tailles d'écran, garantissant que la hiérarchie visuelle de votre design reste intacte.</p>
+    <p class="fs-16 _c-dark_">Cette approche proportionnelle signifie que vos layouts se sentiront naturels et équilibrés peu importe l'appareil, créant une expérience utilisateur plus intuitive et visuellement plaisante qui s'adapte sans rupture à n'importe quelle dimension d'écran.</p>
+  </section>
+
+  <section id="clamp-revolution" class="px-220__ py-52 flex y g-20">
+    <div class="flex y">
+      <h2 class="fs-52__ _bg-brand pr-356__ lh-1 ttu fwd-4 f-scale offset"><span class="_c-light">La révolution clamp</span></h2>
+      <p class="fs-18 _c-dark _bg-brand___ mb-20 p-34_">Depuis 2024, CSS a connu un <span class="_c-brand-d">changement de paradigme</span> avec <span class="_c-brand-d">clamp()</span> et les container queries, révolutionnant l'<span class="_c-brand-d">accessibilité</span> et éliminant les valeurs en pixels fixes.</p>
+    </div>
+    <p class="fs-16 _c-dark_">Depuis 2024, CSS a connu un changement de paradigme avec l'adoption massive de clamp() et des container queries. Ces fonctionnalités CSS modernes ont fondamentalement changé notre approche du design responsive et de l'accessibilité. Plus contraints par des breakpoints arbitraires, les développeurs peuvent désormais créer des interfaces véritablement fluides qui répondent à la fois à la taille du viewport et au contexte du contenu.</p>
+    <p class="fs-16 _c-dark_">La fonction clamp(), en particulier, a révolutionné l'accessibilité en permettant aux textes et aux éléments de scaler en douceur entre des valeurs minimales et maximales selon la taille du viewport. Cela signifie que les utilisateurs avec des déficiences visuelles peuvent zoomer leur navigateur sans casser les layouts, tout en maintenant une lisibilité optimale sur tous les appareils. L'ère des valeurs en pixels fixes et des breakpoints rigides est révolue — bienvenue dans le design véritablement fluide et accessible.</p>
+  </section>
+
+  <section id="other-tools" class="px-220__ py-52 flex y g-20">
+    <div class="flex y">
+      <h2 class="fs-52__ _bg-brand pr-356__ lh-1 ttu fwd-4 f-scale offset"><span class="_c-light">Autres outils</span></h2>
+      <p class="fs-18 _c-dark _bg-brand___ mb-20 p-34_">Au-delà d'EVA CSS, l'<span class="_c-brand-d">écosystème du design fluide</span> inclut <span class="_c-brand-d">Lumos</span> pour Webflow et <span class="_c-brand-d">fluid.tw</span> pour Tailwind, plus des calculateurs spécialisés pour les projets complexes.</p>
+    </div>
+    <p class="fs-16 _c-dark_">Bien qu'EVA CSS fournisse un framework SCSS complet, il existe d'autres excellents outils dans l'écosystème du design fluide. <strong>Lumos</strong> apporte le design responsive fluide à Webflow, permettant aux designers de créer des layouts véritablement scalables sans quitter leur plateforme no-code favorite. Pour les utilisateurs de Tailwind CSS, <strong>fluid.tw</strong> offre une extension puissante qui intègre le scaling fluide directement dans votre workflow utility-first.</p>
+    <p class="fs-16 _c-dark_">Pour les développeurs qui ont besoin d'un contrôle précis, plusieurs calculateurs poids lourds sont disponibles pour calculer les valeurs clamp() optimales pour des design systems complexes. Ces outils sont essentiels pour créer une typographie et un espacement fluides cohérents sur des projets à grande échelle où les calculs manuels seraient impraticables.</p>
+  </section>
+
+  <section id="why-built" class="px-220__ py-52 flex y g-20">
+    <div class="flex y">
+      <h2 class="fs-52__ _bg-brand pr-356__ lh-1 ttu fwd-4 f-scale offset"><span class="_c-light">Pourquoi j'ai créé cet outil ?</span></h2>
+      <p class="fs-18 _c-dark _bg-brand___ mb-20 p-34_">Avec 20 ans d'expérience, j'ai créé EVA CSS pour faire le pont entre l'<span class="_c-brand-d">intention de design</span> et l'<span class="_c-brand-d">implémentation technique</span>, transformant les <span class="_c-brand-d">valeurs Figma</span> en éléments fluides avec un retour immédiat.</p>
+    </div>
+    <p class="fs-16 _c-dark_">En tant que front-end designer — quelqu'un qui fait le pont entre design et développement — je travaille dans ce domaine depuis plus de 20 ans. Cette position unique me permet de voir les écarts qui existent entre les outils de design et les frameworks de développement. La plupart des frameworks sont construits par des développeurs purs qui ne comprennent pas le workflow du designer, tandis que les outils de design sont créés par des designers qui ne saisissent pas les contraintes techniques. EVA CSS comble ce fossé.</p>
+    <p class="fs-16 _c-dark_">Mon idée est simple : transformer chaque valeur fixe d'un design Figma en éléments fluides et responsives. La puissance du design responsive et la transition fluide des redimensionnements peuvent être testées en quelques secondes. Cette boucle de feedback immédiate fait le pont entre l'intention de design et l'implémentation technique.</p>
+    <p class="fs-16 _c-dark_">Créer du CSS fluide sans framework garantit l'incohérence en fin de projet, parce que les calculs sont complexes et sources d'erreurs. EVA CSS élimine ce problème en fournissant une approche systématique qui maintient la cohérence du design sur toutes les tailles d'écran tout en respectant la vision originale du designer.</p>
+  </section>
+
+  <section id="universal-compatibility" class="px-220__ py-52 flex y g-20">
+    <div class="flex y">
+      <h2 class="fs-52__ _bg-brand pr-356__ lh-1 ttu fwd-4 f-scale offset"><span class="_c-light">Compatibilité universelle</span></h2>
+      <p class="fs-18 _c-dark _bg-brand___ mb-20 p-34_">EVA CSS fonctionne avec <span class="_c-brand-d">tout type de projet</span> et toute stack technologique, des <span class="_c-brand-d">Progressive Web Apps</span> aux applications <span class="_c-brand-d">Webflow</span>, offrant une implémentation flexible des variables CSS aux classes utilitaires.</p>
+    </div>
+    <p class="fs-16 _c-dark_">EVA CSS est conçu pour fonctionner avec tout type de projet, peu importe la taille ou la stack technologique. Des Progressive Web Apps aux sites traditionnels, des projets Webflow aux applications Ycode, le framework s'adapte à vos besoins spécifiques. Que vous construisiez une simple landing page ou une application enterprise complexe, EVA CSS fournit la fondation responsive fluide dont vous avez besoin.</p>
+    <p class="fs-16 _c-dark_">Le framework est suffisamment flexible pour gérer à la fois des implémentations simples en variables CSS et des systèmes complets de classes utilitaires. Vous pouvez commencer avec une typographie et un espacement fluides basiques, puis adopter progressivement des fonctionnalités plus avancées à mesure que votre projet grandit. Cette approche modulaire garantit qu'EVA CSS scale avec votre projet, du concept initial au déploiement final.</p>
+  </section>
+
+  <div class="stage">
+    <div class="flex stage-top">
+      <div class="line-y h-4"></div>
+      <div class="line-y h-8"></div>
+      <div class="line-y h-12"></div>
+      <div class="line-y h-20"></div>
+      <div class="line-y h-32"></div>
+      <div class="line-y h-34"></div>
+      <div class="line-y h-52"></div>
+      <div class="line-y h-84"></div>
+      <div class="line-y h-136"></div>
+      <div class="line-y h-220"></div>
+      <div class="line-y h-356"></div>
+      <div class="line-y h-220"></div>
+      <div class="line-y h-136"></div>
+      <div class="line-y h-84"></div>
+      <div class="line-y h-52"></div>
+      <div class="line-y h-34"></div>
+      <div class="line-y h-32"></div>
+      <div class="line-y h-20"></div>
+      <div class="line-y h-12"></div>
+      <div class="line-y h-8"></div>
+      <div class="line-y h-4"></div>
+    </div>
+  </div>
+
+  <footer class="px-220__ py-136 flex x g-20 w-full">
+    <div class="flex w-full y space center g-32">
+      <p class="fs-16 _c-brand_">© 2024</p>
+      <p class="fs-16 _c-brand_">Tati Michaël</p>
+    </div>
+    <div class="flex w-full y space g-32">
+      <a href="https://www.linkedin.com/in/mtati/" target="_blank">LinkedIn</a>
+      <a href="../llms.txt" target="_blank">🤖 /llms.txt</a>
+      <a href="../index.html" hreflang="en" title="View in English">EN</a>
+    </div>
+  </footer>
+
+  <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="hide">
+    <defs>
+      <filter id="fancy-goo">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="2.5" result="blur" />
+        <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 14 -3" result="goo" />
+        <feComposite in="SourceGraphic" in2="goo" operator="atop"/>
+      </filter>
+    </defs>
+  </svg>
+  <script src="../app.js"></script>
+  <script src="../demo-iframe.js"></script>
+  </body>
+</html>

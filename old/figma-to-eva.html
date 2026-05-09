@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/Draggable.min.js"></script>
+    <link rel="stylesheet" href="https://use.typekit.net/vjo0ssd.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Display:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css" />
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="3c9b4552-d24d-48aa-a6b4-877d0ceffe04"></script>
+    <title>EVA CSS - Figma to EVA</title>
+    <meta name="description" content="Convert Figma designs to EVA CSS - extract sizes, colors, and typography from your designs using MCP.">
+    <meta property="og:title" content="Figma to EVA CSS">
+    <meta property="og:description" content="Convert Figma designs to EVA CSS - extract sizes, colors, and typography from your designs using MCP.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://eva-css.xyz/figma-to-eva.html">
+    <link rel="canonical" href="https://eva-css.xyz/figma-to-eva.html">
+  </head>
+  <body class="current-theme theme-eva all-grads toggle-theme">
+  <a href="" class="dark-light-toggle no-hover">
+    <svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 100 100" x="0px" y="0px"><path d="M50,77.62A27.62,27.62,0,1,0,22.38,50,27.61,27.61,0,0,0,50,77.62ZM50,26A24,24,0,1,1,26,50,24,24,0,0,1,50,26ZM69.62,50.52A19.36,19.36,0,0,0,50.26,31.15V69.88A19.36,19.36,0,0,0,69.62,50.52Zm-19.88,31a1.81,1.81,0,0,0-1.81,1.81V95.69a1.81,1.81,0,0,0,3.62,0V83.3A1.81,1.81,0,0,0,49.74,81.49Zm24.9-9A1.81,1.81,0,0,0,72.09,75l8.76,8.76a1.81,1.81,0,0,0,2.55-2.56Zm6.85-22.19a1.81,1.81,0,0,0,1.81,1.81H95.69a1.81,1.81,0,1,0,0-3.62H83.3A1.81,1.81,0,0,0,81.49,50.26ZM75,27.91l8.76-8.76a1.81,1.81,0,0,0-2.56-2.55l-8.76,8.76A1.81,1.81,0,0,0,75,27.91Zm-24.75-9.4a1.81,1.81,0,0,0,1.81-1.81V4.31a1.81,1.81,0,0,0-3.62,0V16.7A1.81,1.81,0,0,0,50.26,18.51Zm-24.9,9A1.81,1.81,0,0,0,27.91,25l-8.76-8.76a1.81,1.81,0,1,0-2.55,2.56Zm-21,24H16.7a1.81,1.81,0,0,0,0-3.62H4.31a1.81,1.81,0,1,0,0,3.62Zm22,20a1.78,1.78,0,0,0-1.28.53l-8.76,8.76a1.8,1.8,0,0,0,0,2.56,1.82,1.82,0,0,0,2.56,0l8.76-8.77a1.81,1.81,0,0,0-1.28-3.08Z"/></svg>
+  </a>
+  <nav id="nav" class="px-220__ flex space py-12- pof">
+    <div id="logo" class="flex x center px-20">
+      <div class="ballzzz por" style="--max:6">
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:0"></div>
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:1"></div>
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:2"></div>
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:3"></div>
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:4"></div>
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:5"></div>
+      </div>
+      <a href="index.html" class="logo no-hover title fs-36__ lh-1">EVA CSS</a>
+    </div>
+
+    <button id="burger-menu" class="burger-menu">
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+    </button>
+
+    <div id="menu" class="flex x center g-12">
+
+      <a href="framework.html" class="h-52 px-12 flex y center _c-brand br-12">
+        <span class="fs-12">Framework</span>
+      </a>
+
+      <div class="inner-menu">
+        <a href="figma-to-eva.html" class="h-52 px-12 flex y center _c-light _bg-brand br-12">
+          <span class="fs-12">Figma to EVA</span>
+        </a>
+        <ul>
+          <li>
+            <a href="#prerequisites" class="h-52 px-12 flex y center _c-light _bg-brand br-12">
+              <span class="fs-12">Prérequis</span>
+            </a>
+          </li>
+          <li>
+            <a href="#workflow" class="h-52 px-12 flex y center _c-brand br-12">
+              <span class="fs-12">Workflow</span>
+            </a>
+          </li>
+          <li>
+            <a href="#rules" class="h-52 px-12 flex y center _c-brand br-12">
+              <span class="fs-12">Règles</span>
+            </a>
+          </li>
+          <li>
+            <a href="#live-demo" class="h-52 px-12 flex y center _c-brand br-12">
+              <span class="fs-12">Live Demo</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <a href="https://github.com/nkdeus/eva-framework" target="_blank" class="h-52 px-8 flex x g-12 center _c-brand br-8">
+        <svg xmlns="http://www.w3.org/2000/svg" class="lh-0" height="20" viewBox="0 0 16 16" width="20" aria-hidden="true" class="d-block"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+      </a>
+    </div>
+
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="px-220__ pt-220- flex y g-32">
+    <div class="flex y g-20 pt-52-">
+      <h1 class="fs-52__ lh-1 ttu">
+        <span>From <span class="title grad-linear-text grad-linear from-accent to-extra">Figma</span> to EVA CSS</span>
+      </h1>
+      <p class="fs-16 maw-576">
+        Guide pour créer un projet EVA CSS à partir d'un design Figma via MCP (Model Context Protocol).
+      </p>
+    </div>
+  </section>
+
+  <!-- Prérequis Section -->
+  <section id="prerequisites" class="px-220__ py-84 flex y g-32">
+    <h2 class="fs-36__ _c-brand">Prérequis</h2>
+
+    <div class="grid auto-fit-356_ gap-32 w-full">
+      <!-- MCP Desktop -->
+      <div class="framework-card flex y g-20 p-32 _bg-light br-12">
+        <h3 class="fs-24__ _c-dark-d_">MCP Desktop</h3>
+        <p class="fs-14 _c-dark__">Option recommandée</p>
+        <ol class="fs-14 _c-dark_ flex y g-4">
+          <li>Ouvrir Figma Desktop</li>
+          <li>Activer Dev Mode (Shift+D)</li>
+          <li>Enable desktop MCP server</li>
+        </ol>
+        <pre class="fs-11 _bg-dark__ p-12 br-8 ovx-auto"><code>claude mcp add figma-desktop http://127.0.0.1:3845/mcp</code></pre>
+      </div>
+
+      <!-- MCP Remote -->
+      <div class="framework-card flex y g-20 p-32 _bg-light br-12">
+        <h3 class="fs-24__ _c-dark-d_">MCP Remote</h3>
+        <p class="fs-14 _c-dark__">Alternative cloud</p>
+        <pre class="fs-11 _bg-dark__ p-12 br-8 ovx-auto"><code>claude mcp add figma https://mcp.figma.com/mcp</code></pre>
+      </div>
+
+      <!-- Outils MCP -->
+      <div class="framework-card flex y g-20 p-32 _bg-light br-12">
+        <h3 class="fs-24__ _c-dark-d_">Outils MCP</h3>
+        <ul class="fs-14 _c-dark_ flex y g-4">
+          <li><code>get_figma_data</code> - Layout, styles</li>
+          <li><code>get_variable_defs</code> - Variables</li>
+          <li><code>download_figma_images</code> - SVG/PNG</li>
+          <li><code>get_screenshot</code> - Capture</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Workflow Section -->
+  <section id="workflow" class="px-220__ py-84 flex y g-32">
+    <h2 class="fs-36__ _c-brand">Workflow</h2>
+
+    <div class="grid auto-fit-356_ gap-32 w-full">
+      <!-- Step 1 -->
+      <div class="framework-card flex y g-20 p-32 _bg-light br-12">
+        <span class="fs-12 _c-accent">Étape 1</span>
+        <h3 class="fs-24__ _c-dark-d_">Extraction Figma</h3>
+        <p class="fs-14 _c-dark__">Extraire via MCP: layout, couleurs HEX, dimensions (width, height, gap, padding), font sizes.</p>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="framework-card flex y g-20 p-32 _bg-light br-12">
+        <span class="fs-12 _c-accent">Étape 2</span>
+        <h3 class="fs-24__ _c-dark-d_">Analyse des sizes</h3>
+        <p class="fs-14 _c-dark__">Identifier: gaps, paddings, dimensions, border radius.</p>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="framework-card flex y g-20 p-32 _bg-light br-12">
+        <span class="fs-12 _c-accent">Étape 3</span>
+        <h3 class="fs-24__ _c-dark-d_">Conversion couleurs</h3>
+        <p class="fs-14 _c-dark__">HEX → OKLCH</p>
+        <pre class="fs-11 _bg-dark__ p-12 br-8 ovx-auto"><code>npx eva-color convert "#FF00FB"</code></pre>
+        <p class="fs-12 _c-dark__">brand, accent, extra, dark, light</p>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="framework-card flex y g-20 p-32 _bg-light br-12">
+        <span class="fs-12 _c-accent">Étape 4</span>
+        <h3 class="fs-24__ _c-dark-d_">Création projet</h3>
+        <pre class="fs-11 _bg-dark__ p-12 br-8 ovx-auto"><code>projects/NAME/
+├── index.html
+├── styles/NAME.scss
+└── render/NAME.css</code></pre>
+      </div>
+
+      <!-- Step 5 -->
+      <div class="framework-card flex y g-20 p-32 _bg-light br-12">
+        <span class="fs-12 _c-accent">Étape 5</span>
+        <h3 class="fs-24__ _c-dark-d_">Config SCSS</h3>
+        <pre class="fs-11 _bg-dark__ p-12 br-8 ovx-auto"><code>@use 'eva-css-fluid' with (
+  $sizes: (...),
+  $font-sizes: (...),
+  $build-class: false
+);</code></pre>
+      </div>
+
+      <!-- Step 6 -->
+      <div class="framework-card flex y g-20 p-32 _bg-light br-12">
+        <span class="fs-12 _c-accent">Étape 6</span>
+        <h3 class="fs-24__ _c-dark-d_">Thème OKLCH</h3>
+        <pre class="fs-11 _bg-dark__ p-12 br-8 ovx-auto"><code>.theme-NAME {
+  --brand-lightness: XX%;
+  --brand-chroma: X.XXX;
+  --brand-hue: XXX.XX;
+}</code></pre>
+      </div>
+
+      <!-- Step 7 -->
+      <div class="framework-card flex y g-20 p-32 _bg-light br-12">
+        <span class="fs-12 _c-accent">Étape 7</span>
+        <h3 class="fs-24__ _c-dark-d_">Variables EVA</h3>
+        <ul class="fs-12 _c-dark_ flex y g-4">
+          <li><code>var(--64)</code> / <code>var(--64_)</code> / <code>var(--64__)</code></li>
+          <li><code>var(--fs-120)</code> / <code>var(--fs-120_)</code></li>
+          <li><code>var(--brand)</code> / <code>var(--brand-d)</code> / <code>var(--brand-b)</code></li>
+        </ul>
+      </div>
+
+      <!-- Step 8 -->
+      <div class="framework-card flex y g-20 p-32 _bg-light br-12">
+        <span class="fs-12 _c-accent">Étape 8</span>
+        <h3 class="fs-24__ _c-dark-d_">Compilation</h3>
+        <pre class="fs-11 _bg-dark__ p-12 br-8 ovx-auto"><code>npx sass --load-path=node_modules styles/NAME.scss:render/NAME.css</code></pre>
+      </div>
+
+      <!-- Step 9 -->
+      <div class="framework-card flex y g-20 p-32 _bg-light br-12">
+        <span class="fs-12 _c-accent">Étape 9</span>
+        <h3 class="fs-24__ _c-dark-d_">HTML</h3>
+        <pre class="fs-11 _bg-dark__ p-12 br-8 ovx-auto"><code>&lt;body class="current-theme theme-NAME"&gt;</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- Règles Section -->
+  <section id="rules" class="px-220__ py-84 flex y g-32">
+    <h2 class="fs-36__ _c-brand">Règles importantes</h2>
+
+    <div class="grid auto-fit-356_ gap-32 w-full">
+      <div class="framework-card flex y g-12 p-32 _bg-light br-12">
+        <span class="fs-12 _c-extra">Règle 1</span>
+        <h3 class="fs-20 _c-dark-d_">Pas de valeurs fixes</h3>
+        <p class="fs-14 _c-dark__">Toujours <code>var(--XX)</code> jamais <code>XXpx</code></p>
+      </div>
+      <div class="framework-card flex y g-12 p-32 _bg-light br-12">
+        <span class="fs-12 _c-extra">Règle 2</span>
+        <h3 class="fs-20 _c-dark-d_">Respecter Figma</h3>
+        <p class="fs-14 _c-dark__">Si Figma utilise <code>--120__</code>, utiliser <code>var(--120__)</code></p>
+      </div>
+      <div class="framework-card flex y g-12 p-32 _bg-light br-12">
+        <span class="fs-12 _c-extra">Règle 3</span>
+        <h3 class="fs-20 _c-dark-d_">buildClass: false</h3>
+        <p class="fs-14 _c-dark__">CSS sémantique avec les variables EVA</p>
+      </div>
+      <div class="framework-card flex y g-12 p-32 _bg-light br-12">
+        <span class="fs-12 _c-extra">Règle 4</span>
+        <h3 class="fs-20 _c-dark-d_">Loop sur répétitions</h3>
+        <p class="fs-14 _c-dark__">Si élément Figma contient "loop", itérer</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Live Demo Section -->
+  <section id="live-demo" class="px-220__ py-84 flex y g-32">
+    <h2 class="fs-36__ _c-brand">Live Demo: Ulysse Project</h2>
+
+    <!-- Responsive Preview -->
+    <div class="projects-demo-container flex x wrap g-32 center">
+      <!-- Desktop Preview -->
+      <div class="device-preview desktop-preview flex y g-8 center">
+        <div class="project-preview-iframe-container desktop-frame">
+          <iframe src="projects/ulysse/index.html" title="Ulysse Project - Desktop View"></iframe>
+        </div>
+      </div>
+
+      <!-- Tablet Preview -->
+      <div class="device-preview tablet-preview flex y g-8 center">
+        <div class="project-preview-iframe-container tablet-frame">
+          <iframe src="projects/ulysse/index.html" title="Ulysse Project - Tablet View"></iframe>
+        </div>
+      </div>
+
+      <!-- Mobile Preview -->
+      <div class="device-preview mobile-preview flex y g-8 center">
+        <div class="project-preview-iframe-container mobile-frame">
+          <iframe src="projects/ulysse/index.html" title="Ulysse Project - Mobile View"></iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- Links -->
+    <div class="grid auto-fit-356_ gap-32 w-full">
+      <a href="projects/ulysse/index.html" target="_blank" class="framework-card flex y g-20 p-32 _bg-light br-12 no-hover">
+        <h3 class="fs-24__ _c-dark-d_">Open Ulysse</h3>
+        <p class="fs-14 _c-dark__">Voir l'intégration Figma to EVA CSS complète</p>
+        <span class="fs-12 _c-brand">Ouvrir le projet →</span>
+      </a>
+
+      <a href="https://www.figma.com/design/91DhBPs6br8UVhxEdiuJFd/Ulysse?node-id=0-1" target="_blank" class="framework-card flex y g-20 p-32 _bg-light br-12 no-hover">
+        <h3 class="fs-24__ _c-dark-d_">Figma Design</h3>
+        <p class="fs-14 _c-dark__">Comparer avec le design original</p>
+        <span class="fs-12 _c-brand">Voir sur Figma →</span>
+      </a>
+
+      <div class="framework-card flex y g-20 p-32 _bg-light br-12">
+        <h3 class="fs-24__ _c-dark-d_">Config utilisée</h3>
+        <pre class="fs-11 _bg-dark__ p-12 br-8 ovx-auto"><code>$sizes: 4, 8, 16, 32, 54, 64, 120, 141;
+$font-sizes: 10, 16, 36, 120;
+#00d4ff → oklch(84.1% 0.155 200.4)</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .projects-demo-container {
+      height: 100vh;
+      width: 100%;
+      position: relative;
+    }
+
+    @media (max-width: 1024px) {
+      .projects-demo-container {
+        height: 60vh;
+        scale: 0.5;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .projects-demo-container {
+        height: 50vh;
+        scale: 0.4;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .projects-demo-container {
+        height: 30vh;
+        scale: 0.2;
+      }
+    }
+
+    .device-preview {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .device-preview iframe {
+      width: 100%;
+      height: 100%;
+      transform-origin: 0 0;
+      border: 2px solid var(--brand_);
+      border-radius: 8px;
+    }
+
+    .project-preview-iframe-container {
+      overflow: hidden;
+      background: var(--light);
+      border-radius: 8px;
+    }
+
+    .desktop-frame {
+      width: 1440px;
+      height: 800px;
+      scale: 0.5;
+      transform: translate(0%, 0%);
+    }
+
+    .tablet-frame {
+      height: 460px;
+      width: 614px;
+      scale: 0.5;
+      transform: translate(150%, 0%);
+    }
+
+    .mobile-frame {
+      width: 400px;
+      height: 667px;
+      scale: 0.5;
+      transform: translate(-200%, 0%);
+    }
+  </style>
+
+  <footer class="px-220__ py-136 flex x g-20 w-full">
+    <div class="flex w-full y space center g-32">
+      <p class="fs-16 _c-brand_">© 2024</p>
+      <p class="fs-16 _c-brand_">Tati Michaël</p>
+    </div>
+    <div class="flex w-full y space g-32">
+      <a href="https://www.linkedin.com/in/mtati/" target="_blank">LinkedIn</a>
+      <a href="https://ulysse-2029.com/" target="_blank">ulysse-2029.com</a>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+  </body>
+</html>

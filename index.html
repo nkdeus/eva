@@ -18,8 +18,12 @@
     <meta property="og:title" content="EVA CSS - Fluid SCSS Framework">
     <meta property="og:description" content="A fluid SCSS framework that converts static UI designs into responsive systems using CSS clamp() and OKLCH colors.">
     <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_US">
     <meta property="og:url" content="https://eva-css.xyz/">
     <link rel="canonical" href="https://eva-css.xyz/">
+    <link rel="alternate" hreflang="en" href="https://eva-css.xyz/">
+    <link rel="alternate" hreflang="fr" href="https://eva-css.xyz/fr/">
+    <link rel="alternate" hreflang="x-default" href="https://eva-css.xyz/">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -56,71 +60,21 @@
       </div>
       <a href="index.html" class="logo no-hover title fs-36__ lh-1">EVA CSS</a>
     </div>
-    
+
     <!-- Burger menu button -->
     <button id="burger-menu" class="burger-menu">
       <span class="burger-line"></span>
       <span class="burger-line"></span>
       <span class="burger-line"></span>
     </button>
-    
-    <div id="menu" class="flex x center g-12">
-      
-      <div class="inner-menu hover-menu">
-        <a href="framework.html" class="h-52 px-12 flex y center _c-brand br-12">
-          <span class="fs-12">Framework</span>
-        </a>
-        <ul>
-          <li>
-            <a href="framework/colors.html" class="h-52 px-12 flex y center _c-brand br-12">
-              <span class="fs-12">Colors</span>
-            </a>
-          </li>
-          <li>
-            <a href="framework/gradients.html" class="h-52 px-12 flex y center _c-brand br-12">
-              <span class="fs-12">Gradients</span>
-            </a>
-          </li>
-          <li>
-            <a href="framework/grids.html" class="h-52 px-12 flex y center _c-brand br-12">
-              <span class="fs-12">Grids</span>
-            </a>
-          </li>
-          <li>
-            <a href="framework/flex.html" class="h-52 px-12 flex y center _c-brand br-12">
-              <span class="fs-12">Flex</span>
-            </a>
-          </li>
-          <li>
-            <a href="framework/css-fluid.html" class="h-52 px-12 flex y center _c-brand br-12">
-              <span class="fs-12">Fluid CSS</span>
-            </a>
-          </li>
-          <li>
-            <a href="framework/doc.html" class="h-52 px-12 flex y center _c-brand br-12">
-              <span class="fs-12">Docs</span>
-            </a>
-          </li>  
-          <li>
-            <a href="framework/auto-theme.html" class="h-52 px-12 flex y center _c-brand br-12">
-              <span class="fs-12">Auto theme</span>
-            </a>
-          </li>  
-          <li>
-            <a href="framework/js-calculator.html" class="h-52 px-12 flex y center _c-brand br-12">
-              <span class="fs-12">JS Calculator</span>
-            </a>
-          </li>     
-        </ul>
-      </div>
-      <a href="figma-to-eva.html" class="h-52 px-12 flex y center _c-brand br-12">
-        <span class="fs-12">Figma to EVA</span>
-      </a>
 
+    <div id="menu" class="flex x center g-12">
+      <a href="framework/css-fluid.html" class="h-52 px-12 flex y center _c-brand br-12"><span class="fs-12">Fluid CSS</span></a>
+      <a href="framework.html" class="h-52 px-12 flex y center _c-brand br-12"><span class="fs-12">Addons</span></a>
+      <a href="figma-to-eva.html" class="h-52 px-12 flex y center _c-brand br-12"><span class="fs-12">Figma to EVA</span></a>
+      <a href="framework/doc.html" class="h-52 px-12 flex y center _c-brand br-12"><span class="fs-12">Doc</span></a>
       <a href="https://github.com/nkdeus/eva-framework" target="_blank" class="h-52 px-8 flex x g-12 center _c-brand br-8">
-       
-        <svg xmlns="http://www.w3.org/2000/svg" class="lh-0" height="20" viewBox="0 0 16 16" width="20" aria-hidden="true" class="d-block"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
-        
+        <svg xmlns="http://www.w3.org/2000/svg" class="lh-0" height="20" viewBox="0 0 16 16" width="20" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
       </a>
     </div>
 
@@ -153,8 +107,8 @@
       <div class="flex x wrap g-12">
          <a href="#demo" class="h-52 px-32 flex y center grad-linear from-accent to-extra animated-fast _c-light br-12">Live demo</a>
       </div>
-  
-  
+
+
   </section>
 
   <!-- Section Objectifs d'EVA CSS -->
@@ -163,63 +117,58 @@
       <h2 class="fs-52__ _c-dark-d_ lh-1 ttu">
         <span>EVA CSS<br/><span class="title grad-linear-text fs-72__ from-accent to-extra">Goals</span></span>
       </h2>
- 
+
     </div>
 
     <div class="sm:max-col-6 flex x start-stretch wrap gap-32">
       <!-- Framework dédié aux maquettes complexes -->
       <div class="framework-card flex y g-20 p-32_ _bg-light br-12  col-6  mr-32__">
         <div class="flex x g-16 y center">
-    
+
           <h3 class="fs-20_ _c-dark-b">Framework for complex designs</h3>
         </div>
         <p class="fs-16 _c-dark_ lh-1-5">
-          EVA CSS is designed to translate sophisticated designs into code faithfully. 
-          Where traditional frameworks struggle with complexity, EVA CSS excels through its fluid and adaptive nature.
+          EVA CSS is designed to translate sophisticated designs into code faithfully. Where traditional frameworks struggle with complexity, EVA CSS excels through its fluid and adaptive nature.
         </p>
       </div>
 
       <!-- Proportions et espaces -->
       <div class="framework-card flex y g-20 p-32_ _bg-light br-12 stretch mt-32__ mr-32__">
         <div class="flex x g-16 y center">
-         
+
           <h3 class="fs-20_ _c-dark-d_">Proportions and spacing</h3>
         </div>
         <p class="fs-16 _c-dark_ lh-1-5">
-          Proportions and spacing form the invisible foundation of strong visual identity. 
-          EVA CSS translates this invisible architecture into fluid CSS, preserving visual harmony 
-          across all screen sizes without compromising the original creative intent.
+          Proportions and spacing form the invisible foundation of strong visual identity. EVA CSS translates this invisible architecture into fluid CSS, preserving visual harmony across all screen sizes without compromising the original creative intent.
         </p>
       </div>
 
       <!-- figma to eva css -->
       <a href="framework/css-fluid.html" class="framework-card no-border flex y center g-20 p-32_ grad-linear from-extra to-accent bg-size d-br br-12 w-356_ h-356_">
-       
+
           <div class="card-icon w-52 h-52 mb-32">
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M12 3v18M3 12h18" stroke="var(--dark-d_)" stroke-width="2" stroke-linecap="round"/>
-                <path d="M13 12h-2" stroke="var(--dark-d_)" stroke-width="2" stroke-linecap="round"/>  
-                <path d="M12 17v-4" stroke="var(--dark-d_)" stroke-width="2" stroke-linecap="round"/>  
-                <path d="M12 7v4" stroke="var(--dark-d_)" stroke-width="2" stroke-linecap="round"/>  
-                <path d="M12 12h.01" stroke="var(--dark-d_)" stroke-width="2" stroke-linecap="round"/>  
-                <path d="M12 12h.01" stroke="var(--dark-d_)" stroke-width="2" stroke-linecap="round"/>  
+                <path d="M13 12h-2" stroke="var(--dark-d_)" stroke-width="2" stroke-linecap="round"/>
+                <path d="M12 17v-4" stroke="var(--dark-d_)" stroke-width="2" stroke-linecap="round"/>
+                <path d="M12 7v4" stroke="var(--dark-d_)" stroke-width="2" stroke-linecap="round"/>
+                <path d="M12 12h.01" stroke="var(--dark-d_)" stroke-width="2" stroke-linecap="round"/>
+                <path d="M12 12h.01" stroke="var(--dark-d_)" stroke-width="2" stroke-linecap="round"/>
             </svg>
           </div>
           <h3 class="fs-20_ _c-dark-d_ tac">Fluid CSS</h3>
-        
-       
+
+
       </a>
 
       <!-- Customisation et rigueur -->
       <div class="framework-card flex y g-20 p-32_ _bg-light br-12 stretch mt-32__ mb-32__">
         <div class="flex x g-16 y center">
-         
+
           <h3 class="fs-20_ _c-dark-d_">Complete customization and dimensional rigor</h3>
         </div>
         <p class="fs-16 _c-dark_ lh-1-5">
-          EVA CSS meets advanced customization needs with flexibility, 
-          while reinforcing dimensional consistency. This approach ensures 
-          perfect coherence and reliable scalability, even in ambitious projects.
+          EVA CSS meets advanced customization needs with flexibility, while reinforcing dimensional consistency. This approach ensures perfect coherence and reliable scalability, even in ambitious projects.
         </p>
       </div>
 
@@ -281,7 +230,7 @@
           <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </button>
-      
+
       <div id="demoFrame" class="iframe-container" style="z-index: 1;">
         <div class="iframe-border"></div>
         <iframe
@@ -292,7 +241,7 @@
           src="">
         </iframe>
       </div>
-      
+
       <!-- Right arrow button -->
       <button id="nextSite" class="_c-dark arrow-btn-right flex x center _bg-brand__ br-1 px-12 py-8" style="cursor: pointer; position: absolute; right: 1rem; z-index: 20; width: var(--52_); height: var(--52_); border-radius: 50%; background: var(--brand__); border: 1px solid var(--brand___); ">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -300,13 +249,13 @@
         </svg>
       </button>
     </div>
-   
+
     <!-- SVG for connection line -->
     <svg class="connection-line" width="100%" height="100%" style="position: absolute; top: 0; left: 0; pointer-events: none; z-index: 0;">
       <defs>
         <filter id="glow">
           <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-          <feMerge> 
+          <feMerge>
             <feMergeNode in="coloredBlur"/>
             <feMergeNode in="SourceGraphic"/>
           </feMerge>
@@ -318,18 +267,17 @@
 
   <!-- Framework Features Hub -->
   <section class="px-220__ py-136 flex y g-52">
-    
+
 
     <div class="grid auto-fit-356 g-32 w-full">
       <!-- Fluid Responsive -->
       <a href="framework/css-fluid.html" class="framework-card framework-card flex y g-20 p-32 _bg-light br-12 no-hover">
         <div class="card-icon">
           <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M3 12h18M12 3v18" stroke="var(--brand)" stroke-width="2" stroke-linecap="round"/>
-            <circle cx="7" cy="7" r="2" fill="var(--brand)" opacity="0.6"/>
-            <circle cx="17" cy="7" r="1.5" fill="var(--brand)" opacity="0.8"/>
-            <circle cx="7" cy="17" r="1.5" fill="var(--brand)" opacity="0.8"/>
-            <circle cx="17" cy="17" r="2" fill="var(--brand)" opacity="0.6"/>
+            <path d="M3 12h18" stroke="var(--brand)" stroke-width="2" stroke-linecap="round"/>
+            <path d="M5 8c2 0 2 8 4 8s2-8 4-8 2 8 4 8 2-8 4-8" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <circle cx="4" cy="12" r="2" fill="var(--extra)"/>
+            <circle cx="20" cy="12" r="2" fill="var(--extra)"/>
           </svg>
         </div>
         <div class="flex y g-8">
@@ -345,9 +293,9 @@
       <a href="framework/colors.html" class="framework-card framework-card flex y g-20 p-32 _bg-light br-12 no-hover">
         <div class="card-icon">
           <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="12" cy="12" r="10" stroke="var(--brand)" stroke-width="2"/>
-            <path d="M12 2a10 10 0 0 1 0 20" fill="var(--brand)" opacity="0.8"/>
-            <path d="M12 2a10 10 0 0 0 0 20" fill="var(--brand)" opacity="0.4"/>
+            <circle cx="8" cy="9" r="6" fill="var(--brand)"/>
+            <circle cx="16" cy="9" r="6" fill="var(--accent)" opacity="0.85"/>
+            <circle cx="12" cy="16" r="6" fill="var(--extra)" opacity="0.85"/>
           </svg>
         </div>
         <div class="flex y g-8">
@@ -363,9 +311,14 @@
       <a href="framework/gradients.html" class="framework-card framework-card flex y g-20 p-32 _bg-light br-12 no-hover">
         <div class="card-icon">
           <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 3v18M3 12h18" stroke="var(--brand)" stroke-width="2" stroke-linecap="round"/>
-            <path d="M12 3v18M3 12h18" stroke="var(--brand)" stroke-width="2" stroke-linecap="round"/>
-            <path d="M12 3v18M3 12h18" stroke="var(--brand)" stroke-width="2" stroke-linecap="round"/>
+            <defs>
+              <linearGradient id="hub-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="var(--brand)"/>
+                <stop offset="50%" stop-color="var(--accent)"/>
+                <stop offset="100%" stop-color="var(--extra)"/>
+              </linearGradient>
+            </defs>
+            <rect x="2" y="2" width="20" height="20" rx="4" fill="url(#hub-grad)"/>
           </svg>
         </div>
         <div class="flex y g-8">
@@ -380,10 +333,10 @@
       <a href="framework/grids.html" class="framework-card framework-card flex y g-20 p-32 _bg-light br-12 no-hover">
         <div class="card-icon">
           <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="2" y="2" width="8" height="8" rx="1" fill="var(--brand)" opacity="0.8"/>
-            <rect x="14" y="2" width="8" height="8" rx="1" fill="var(--brand)" opacity="0.6"/>
-            <rect x="2" y="14" width="8" height="8" rx="1" fill="var(--brand)" opacity="0.4"/>
-            <rect x="14" y="14" width="8" height="8" rx="1" fill="var(--brand)" opacity="0.2"/>
+            <rect x="2" y="2" width="8" height="8" rx="1.5" fill="var(--brand)"/>
+            <rect x="14" y="2" width="8" height="8" rx="1.5" fill="var(--accent)"/>
+            <rect x="2" y="14" width="8" height="8" rx="1.5" fill="var(--extra)"/>
+            <rect x="14" y="14" width="8" height="8" rx="1.5" fill="var(--brand)" opacity="0.45"/>
           </svg>
         </div>
         <div class="flex y g-8">
@@ -399,11 +352,9 @@
       <a href="framework/flex.html" class="framework-card framework-card flex y g-20 p-32 _bg-light br-12 no-hover">
         <div class="card-icon">
           <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 3v18M3 12h18" stroke="var(--brand)" stroke-width="2" stroke-linecap="round"/>
-            <path d="M12 3v18M3 12h18" stroke="var(--brand)" stroke-width="2" stroke-linecap="round"/>
-            <path d="M12 3v18M3 12h18" stroke="var(--brand)" stroke-width="2" stroke-linecap="round"/>
-            <path d="M12 3v18M3 12h18" stroke="var(--brand)" stroke-width="2" stroke-linecap="round"/>
-            <path d="M12 3v18M3 12h18" stroke="var(--brand)" stroke-width="2" stroke-linecap="round"/>
+            <rect x="2" y="6" width="6" height="12" rx="1.5" fill="var(--brand)"/>
+            <rect x="9" y="6" width="6" height="12" rx="1.5" fill="var(--accent)"/>
+            <rect x="16" y="6" width="6" height="12" rx="1.5" fill="var(--extra)"/>
           </svg>
         </div>
         <div class="flex y g-8">
@@ -419,10 +370,11 @@
       <a href="figma-to-eva.html" class="framework-card framework-card flex y g-20 p-32 _bg-light br-12 no-hover">
         <div class="card-icon">
           <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="3" y="3" width="7" height="7" rx="1" fill="var(--brand)"/>
-            <rect x="14" y="3" width="7" height="7" rx="1" fill="var(--brand)" opacity="0.6"/>
-            <rect x="3" y="14" width="7" height="7" rx="1" fill="var(--brand)" opacity="0.4"/>
-            <path d="M10 7h4M10 17h11" stroke="var(--brand)" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="8" cy="5" r="3" fill="var(--brand)"/>
+            <circle cx="16" cy="5" r="3" fill="var(--accent)"/>
+            <circle cx="8" cy="12" r="3" fill="var(--extra)"/>
+            <circle cx="16" cy="12" r="3" stroke="var(--brand)" stroke-width="2"/>
+            <circle cx="8" cy="19" r="3" fill="var(--brand)" opacity="0.45"/>
           </svg>
         </div>
         <div class="flex y g-8">
@@ -434,6 +386,62 @@
         </div>
       </a>
     </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="about-fluid" class="px-220__ py-52 flex y g-20">
+    <div class="flex y">
+      <h2 class="fs-52__ _bg-brand pr-356__ lh-1 ttu fwd-4 f-scale offset"><span class="_c-light">About fluid responsive</span></h2>
+      <p class="fs-18 _c-dark _bg-brand___ mb-20 p-34_">EVA CSS eliminates <span class="_c-brand-d">traditional breakpoints</span> in favor of <span class="_c-brand-d">fluid scaling</span> that adapts seamlessly across all devices using <span class="_c-brand-d">clamp() functions</span>.</p>
+    </div>
+    <p class="fs-16 _c-dark_">EVA CSS eliminates traditional breakpoints. Instead of designing for specific screen sizes, the framework uses fluid scaling that adapts seamlessly across all devices. The system calculates optimal sizes using clamp() functions, ensuring your design looks perfect on mobile, tablet, laptop, and desktop without any hard-coded breakpoints.</p>
+    <p class="fs-16 _c-dark_">This approach means you can focus on your design intent rather than worrying about how it will look on different screen sizes. The framework handles the scaling automatically, creating a truly fluid and responsive experience.</p>
+  </section>
+
+  <section id="proportion" class="px-220__ py-52 flex y g-20">
+    <div class="flex y">
+      <h2 class="fs-52__ _bg-brand pr-356__ lh-1 ttu fwd-4 f-scale offset"><span class="_c-light">Proportion over size</span></h2>
+      <p class="fs-18 _c-dark _bg-brand___ mb-20 p-34_">EVA CSS prioritizes <span class="_c-brand-d">proportional relationships</span> over absolute sizes, focusing on <span class="_c-brand-d">visual balance</span> and rhythm that maintains <span class="_c-brand-d">visual hierarchy</span> across all devices.</p>
+    </div>
+    <p class="fs-16 _c-dark_">In UI design, absolute sizes are secondary to the relationships between elements. EVA CSS focuses on proportional harmony, where the visual balance and rhythm of your layout matter more than specific pixel values. The framework's fluid scaling maintains these proportional relationships across all screen sizes, ensuring your design's visual hierarchy remains intact.</p>
+    <p class="fs-16 _c-dark_">This proportional approach means your layouts will feel natural and balanced regardless of the device, creating a more intuitive and visually pleasing user experience that adapts seamlessly to any screen dimension.</p>
+  </section>
+
+  <section id="clamp-revolution" class="px-220__ py-52 flex y g-20">
+    <div class="flex y">
+      <h2 class="fs-52__ _bg-brand pr-356__ lh-1 ttu fwd-4 f-scale offset"><span class="_c-light">The clamp revolution</span></h2>
+      <p class="fs-18 _c-dark _bg-brand___ mb-20 p-34_">Since 2024, CSS has undergone a <span class="_c-brand-d">paradigm shift</span> with <span class="_c-brand-d">clamp()</span> and container queries, revolutionizing <span class="_c-brand-d">accessibility</span> and eliminating fixed pixel values.</p>
+    </div>
+    <p class="fs-16 _c-dark_">Since 2024, CSS has undergone a paradigm shift with the widespread adoption of clamp() and container queries. These modern CSS features have fundamentally changed how we approach responsive design and accessibility. No longer constrained by arbitrary breakpoints, developers can now create truly fluid interfaces that respond to both viewport size and content context.</p>
+    <p class="fs-16 _c-dark_">The clamp() function, in particular, has revolutionized accessibility by allowing text and elements to scale smoothly between minimum and maximum values based on viewport size. This means users with visual impairments can zoom their browser without breaking layouts, while maintaining optimal readability across all devices. The era of fixed pixel values and rigid breakpoints is over – welcome to truly fluid, accessible design.</p>
+  </section>
+
+  <section id="other-tools" class="px-220__ py-52 flex y g-20">
+    <div class="flex y">
+      <h2 class="fs-52__ _bg-brand pr-356__ lh-1 ttu fwd-4 f-scale offset"><span class="_c-light">Other tools</span></h2>
+      <p class="fs-18 _c-dark _bg-brand___ mb-20 p-34_">Beyond EVA CSS, the <span class="_c-brand-d">fluid design ecosystem</span> includes <span class="_c-brand-d">Lumos</span> for Webflow and <span class="_c-brand-d">fluid.tw</span> for Tailwind, plus specialized calculators for complex projects.</p>
+    </div>
+    <p class="fs-16 _c-dark_">While EVA CSS provides a comprehensive SCSS framework, there are other excellent tools in the fluid design ecosystem. <strong>Lumos</strong> brings fluid responsive design to Webflow, enabling designers to create truly scalable layouts without leaving their favorite no-code platform. For Tailwind CSS users, <strong>fluid.tw</strong> offers a powerful extension that integrates fluid scaling directly into your utility-first workflow.</p>
+    <p class="fs-16 _c-dark_">For developers who need precise control, there are several heavy-duty calculators available that can help you compute optimal clamp() values for complex design systems. These tools are essential for creating consistent fluid typography and spacing across large-scale projects where manual calculations would be impractical.</p>
+  </section>
+
+  <section id="why-built" class="px-220__ py-52 flex y g-20">
+    <div class="flex y">
+      <h2 class="fs-52__ _bg-brand pr-356__ lh-1 ttu fwd-4 f-scale offset"><span class="_c-light">Why I built this tool ?</span></h2>
+      <p class="fs-18 _c-dark _bg-brand___ mb-20 p-34_">With 20 years of experience, I created EVA CSS to bridge <span class="_c-brand-d">design intent</span> and <span class="_c-brand-d">technical implementation</span>, transforming <span class="_c-brand-d">Figma values</span> into fluid elements with immediate feedback.</p>
+    </div>
+    <p class="fs-16 _c-dark_">As a front-end designer – someone who bridges both design and development – I've been working in this field for over 20 years. This unique position allows me to see the gaps that exist between design tools and development frameworks. Most frameworks are built by pure developers who don't understand the designer's workflow, while design tools are created by designers who don't grasp the technical constraints. EVA CSS bridges this divide.</p>
+    <p class="fs-16 _c-dark_">My idea is simple: transform every fixed value from a Figma design into fluid, responsive elements. The power of responsive design and the smooth easing of resize transitions can be tested in just a few seconds. This immediate feedback loop bridges the gap between design intent and technical implementation.</p>
+    <p class="fs-16 _c-dark_">Creating fluid CSS without a framework guarantees inconsistency by the end of a project, because the calculations are complex and error-prone. EVA CSS eliminates this problem by providing a systematic approach that maintains design coherence across all screen sizes while respecting the designer's original vision.</p>
+  </section>
+
+  <section id="universal-compatibility" class="px-220__ py-52 flex y g-20">
+    <div class="flex y">
+      <h2 class="fs-52__ _bg-brand pr-356__ lh-1 ttu fwd-4 f-scale offset"><span class="_c-light">Universal compatibility</span></h2>
+      <p class="fs-18 _c-dark _bg-brand___ mb-20 p-34_">EVA CSS works with <span class="_c-brand-d">any project type</span> and technology stack, from <span class="_c-brand-d">Progressive Web Apps</span> to <span class="_c-brand-d">Webflow</span> applications, offering flexible implementation from CSS variables to utility classes.</p>
+    </div>
+    <p class="fs-16 _c-dark_">EVA CSS is designed to work with any type of project, regardless of scale or technology stack. From Progressive Web Apps to traditional websites, from Webflow projects to Ycode applications, the framework adapts to your specific needs. Whether you're building a simple landing page or a complex enterprise application, EVA CSS provides the fluid responsive foundation you need.</p>
+    <p class="fs-16 _c-dark_">The framework is flexible enough to handle both simple CSS variable implementations and complete utility class systems. You can start with basic fluid typography and spacing, then gradually adopt more advanced features as your project grows. This modular approach ensures that EVA CSS scales with your project, from initial concept to final deployment.</p>
   </section>
 
   <div class="stage">
@@ -463,18 +471,15 @@
   </div>
 
   <footer class="px-220__ py-136 flex x g-20 w-full">
-
     <div class="flex w-full y space center g-32">
       <p class="fs-16 _c-brand_">© 2024</p>
       <p class="fs-16 _c-brand_">Tati Michaël</p>
-
     </div>
-
-         <div class="flex  w-full y space g-32">
-       <a href="https://www.linkedin.com/in/mtati/" target="_blank">LinkedIn</a>
-       <a href="https://ulysse-2029.com/" target="_blank">ulysse-2029.com</a>
-     </div>
-  
+    <div class="flex w-full y space g-32">
+      <a href="https://www.linkedin.com/in/mtati/" target="_blank">LinkedIn</a>
+      <a href="llms.txt" target="_blank">🤖 /llms.txt</a>
+      <a href="fr/index.html" hreflang="fr" title="Voir en français">FR</a>
+    </div>
   </footer>
 
   <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="hide">

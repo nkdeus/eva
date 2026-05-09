@@ -336,3 +336,28 @@
     transform: translate(-50%, -50%) scale(4) translateY(-5px);
   }
 }
+
+/* FAQ */
+.faq-item {
+  transition: background-color 0.2s ease;
+
+  & > summary {
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+
+    &::-webkit-details-marker {
+      display: none;
+    }
+  }
+
+  .faq-icon {
+    flex-shrink: 0;
+    color: var(--brand);
+    transition: transform 0.3s ease;
+  }
+
+  &[open] .faq-icon {
+    transform: rotate(180deg);
+  }
+}

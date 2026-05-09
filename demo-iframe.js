@@ -3,11 +3,11 @@
 // Navigation entre les sites
 const sites = [
   { name: "EvaCSS", url: "./index.html?theme=theme-ghost" },
-  { name: "SkipCall", url: "https://www.skipcall.io" },
   { name: "Side", url: "https://www.side.xyz" },
   { name: "Florian Ronzi", url: "https://qtradingtheory.com" },
   { name: "YesOrNo", url: "https://www.yesorno-jeu.fr" },
-  { name: "Mia", url: "https://www.mia-app.co" }
+  { name: "Mia", url: "https://www.mia-app.co" },
+  { name: "Reach", url: "https://reach.cat" }
 ];
 
 let currentSiteIndex = 0;
