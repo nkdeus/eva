@@ -27,16 +27,16 @@
     "highlight": "Objectifs",
     "card1": {
       "title": "Framework pour designs complexes",
-      "body": "EVA CSS est conçu pour traduire fidèlement les designs sophistiqués en code. Là où les frameworks traditionnels peinent face à la complexité, EVA CSS excelle grâce à sa nature fluide et adaptative."
+      "body": "Traduit fidèlement les designs sophistiqués. Là où les frameworks classiques peinent, EVA excelle."
     },
     "card2": {
       "title": "Proportions et espacements",
-      "body": "Les proportions et les espacements forment le socle invisible d'une identité visuelle forte. EVA CSS traduit cette architecture invisible en CSS fluide, préservant l'harmonie visuelle sur toutes les tailles d'écran sans compromettre l'intention créative d'origine."
+      "body": "L'harmonie visuelle préservée sur chaque écran, sans compromis sur l'intention créative."
     },
-    "card3": { "title": "CSS fluide" },
+    "card3": { "title": "CSS fluide", "cta": "Découvrir →" },
     "card4": {
-      "title": "Personnalisation complète et rigueur dimensionnelle",
-      "body": "EVA CSS répond aux besoins avancés de personnalisation avec souplesse, tout en renforçant la cohérence dimensionnelle. Cette approche garantit une cohérence parfaite et une scalabilité fiable, même sur les projets les plus ambitieux."
+      "title": "Personnalisation et rigueur",
+      "body": "Souplesse totale, rigueur dimensionnelle. Une scalabilité fiable, même sur les projets les plus ambitieux."
     }
   },
   "hub": {
@@ -55,6 +55,8 @@
   },
   "langToggle": { "label": "EN", "title": "View in English" },
   "faq": {
+    "heading": "Questions",
+    "headingHighlight": "fréquentes",
     "aboutFluid": {
       "title": "À propos du responsive fluide",
       "lead": "EVA CSS élimine les <span class=\"_c-brand-d\">breakpoints traditionnels</span> au profit d'un <span class=\"_c-brand-d\">scaling fluide</span> qui s'adapte sans rupture sur tous les appareils via les <span class=\"_c-brand-d\">fonctions clamp()</span>.",
@@ -278,6 +280,28 @@
     "naming": { "title": "Convention de nommage", "color": "couleur", "background": "fond", "borderColor": "bordure" },
     "opacity": { "title": "Modificateurs d'opacité", "full": "plein" },
     "brightness": { "title": "Modificateurs de luminosité", "darker": "plus sombre", "brighter": "plus clair", "deeperDark": "sombre profond", "lighterBright": "clair vif" },
+    "darkLight": {
+      "title": "Sombre / Clair",
+      "body": "Un pivot, deux variables. Les mêmes tokens --dark et --light permutent leur luminosité automatiquement — les composants restent agnostiques au mode. OKLCH garde le chroma et la teinte intacts ; seul le canal L bascule.",
+      "pivotTitle": "Le pivot",
+      "pivotIntro": "Deux variables CSS pilotent l'inversion complète du mode. Tout le reste lit depuis elles.",
+      "pivotCode": "/* Mode clair (défaut) */\n--current-lightness: 96.4%;\n--current-darkness:   6.4%;\n\n/* Mode sombre — quand .toggle-theme est actif */\n--current-lightness:   5%;\n--current-darkness:  95%;",
+      "wiringTitle": "Comment --dark et --light se branchent",
+      "wiringIntro": "--dark et --light référencent le pivot. Inversez le pivot, tous les consommateurs basculent d'un coup — même chroma et même teinte OKLCH, luminosité inversée.",
+      "wiringCode": "--dark-lightness:  var(--current-darkness);\n--dark-chroma:     0.05;\n--dark-hue:        var(--brand-hue);\n\n--light-lightness: var(--current-lightness);\n--light-chroma:    0.01;\n--light-hue:       var(--brand-hue);",
+      "previewLight": "Mode clair (forcé)",
+      "previewDark": "Mode sombre (forcé)",
+      "previewCaption": "Même markup, mêmes tokens. Seuls --current-lightness et --current-darkness changent entre les deux cartes.",
+      "manualTitle": "Bascule manuelle",
+      "manualBody": "Ajoutez la classe toggle-theme sur le body. EVA inverse aussi les offsets de luminosité, donc le modificateur -d reste assombrissant et -b reste éclaircissant à l'œil.",
+      "manualCode": "&lt;body class=\"current-theme theme-eva toggle-theme\"&gt;",
+      "autoTitle": "Auto (prefers-color-scheme)",
+      "autoBody": "Passez $auto-theme-switch: true à la config SCSS. EVA génère une media query prefers-color-scheme: dark qui inverse le pivot pour vous — pas de JS, pas de classe.",
+      "autoCode": "@use 'eva-css-fluid' with (\n  $auto-theme-switch: true\n);",
+      "ruleTitle": "La règle",
+      "ruleBody": "Écrivez _c-dark _bg-light et oubliez les modes. Le pivot s'occupe du reste — votre code de composant reste identique dans les deux états.",
+      "tryIt": "Essayez — cliquez l'icône soleil en haut à droite de cette page. Toutes les nuances ci-dessus basculent d'un coup."
+    },
     "ai": {
       "eyebrow": "Référence complète",
       "title": "Toutes les variantes, toutes les formules — dans /llms.txt.",

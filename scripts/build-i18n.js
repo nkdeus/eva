@@ -10,7 +10,13 @@
  *   {{t.path.to.key}} - looked up in the current locale dict (falls back to the
  *                       default locale if missing)
  *   {{lang}}, {{altLang}}, {{altHref}}, {{canonical}}, {{ogLocale}},
- *   {{assetPrefix}}, {{home}} - built-in context variables
+ *   {{assetPrefix}}, {{localeRoot}}, {{home}} - built-in context variables
+ *
+ * {{assetPrefix}}  - relative path from current file to the project root
+ *                    (use for shared assets: CSS, JS, images, llms.txt, etc.)
+ * {{localeRoot}}   - relative path from current file to the locale root
+ *                    (use for internal page links so the locale is preserved
+ *                    when navigating)
  */
 
 const fs = require('fs');
@@ -53,7 +59,7 @@ function lookup(obj, dotted) {
   return dotted.split('.').reduce((o, k) => (o == null ? undefined : o[k]), obj);
 }
 
-const BUILTINS = new Set(['lang', 'altLang', 'altHref', 'canonical', 'ogLocale', 'assetPrefix', 'home']);
+const BUILTINS = new Set(['lang', 'altLang', 'altHref', 'canonical', 'ogLocale', 'assetPrefix', 'localeRoot', 'home']);
 
 function render(template, ctx, fallbackDict, page, locale) {
   const missing = [];
@@ -93,10 +99,13 @@ function buildPage(page, dicts) {
     const outPath = path.join(outPageDir, pageBasename);
 
     // depth from output file back to project root, in URL terms
-    const depthFromRoot =
-      (config.outDir ? config.outDir.split('/').filter(Boolean).length : 0) +
-      (pageDir ? pageDir.split('/').filter(Boolean).length : 0);
+    const localeDepth = config.outDir ? config.outDir.split('/').filter(Boolean).length : 0;
+    const pageDepth = pageDir ? pageDir.split('/').filter(Boolean).length : 0;
+    const depthFromRoot = localeDepth + pageDepth;
     const assetPrefix = '../'.repeat(depthFromRoot);
+    // relative path from the current output file to the locale's root.
+    // Use this for internal page links so the locale is preserved.
+    const localeRoot = '../'.repeat(pageDepth);
 
     const altLocale = locale === DEFAULT_LOCALE
       ? Object.keys(LOCALES).find(l => l !== DEFAULT_LOCALE)
@@ -119,6 +128,7 @@ function buildPage(page, dicts) {
       canonical,
       ogLocale: config.ogLocale,
       assetPrefix,
+      localeRoot,
       home: pageBasename,
       t: dicts[locale],
     };

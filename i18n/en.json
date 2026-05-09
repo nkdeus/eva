@@ -27,16 +27,16 @@
     "highlight": "Goals",
     "card1": {
       "title": "Framework for complex designs",
-      "body": "EVA CSS is designed to translate sophisticated designs into code faithfully. Where traditional frameworks struggle with complexity, EVA CSS excels through its fluid and adaptive nature."
+      "body": "Translates sophisticated designs faithfully. Where traditional frameworks struggle, EVA excels."
     },
     "card2": {
       "title": "Proportions and spacing",
-      "body": "Proportions and spacing form the invisible foundation of strong visual identity. EVA CSS translates this invisible architecture into fluid CSS, preserving visual harmony across all screen sizes without compromising the original creative intent."
+      "body": "Visual harmony preserved across every screen, without compromise on creative intent."
     },
-    "card3": { "title": "Fluid CSS" },
+    "card3": { "title": "Fluid CSS", "cta": "Discover →" },
     "card4": {
-      "title": "Complete customization and dimensional rigor",
-      "body": "EVA CSS meets advanced customization needs with flexibility, while reinforcing dimensional consistency. This approach ensures perfect coherence and reliable scalability, even in ambitious projects."
+      "title": "Customization and rigor",
+      "body": "Total flexibility, dimensional rigor. Reliable scalability, even on the most ambitious projects."
     }
   },
   "hub": {
@@ -55,6 +55,8 @@
   },
   "langToggle": { "label": "FR", "title": "Voir en français" },
   "faq": {
+    "heading": "Frequently asked",
+    "headingHighlight": "Questions",
     "aboutFluid": {
       "title": "About fluid responsive",
       "lead": "EVA CSS eliminates <span class=\"_c-brand-d\">traditional breakpoints</span> in favor of <span class=\"_c-brand-d\">fluid scaling</span> that adapts seamlessly across all devices using <span class=\"_c-brand-d\">clamp() functions</span>.",
@@ -278,6 +280,28 @@
     "naming": { "title": "Naming convention", "color": "color", "background": "background", "borderColor": "border-color" },
     "opacity": { "title": "Opacity modifiers", "full": "full" },
     "brightness": { "title": "Brightness modifiers", "darker": "darker", "brighter": "brighter", "deeperDark": "deeper dark", "lighterBright": "lighter bright" },
+    "darkLight": {
+      "title": "Dark / Light",
+      "body": "One pivot, two variables. The same --dark and --light tokens flip their lightness automatically — components stay mode-agnostic. OKLCH keeps chroma and hue intact; only the L channel swaps.",
+      "pivotTitle": "The pivot",
+      "pivotIntro": "Two CSS variables drive the entire mode swap. Everything else reads from them.",
+      "pivotCode": "/* Light mode (default) */\n--current-lightness: 96.4%;\n--current-darkness:   6.4%;\n\n/* Dark mode — when .toggle-theme is on */\n--current-lightness:   5%;\n--current-darkness:  95%;",
+      "wiringTitle": "How --dark and --light wire in",
+      "wiringIntro": "--dark and --light reference the pivot. Swap the pivot, every consumer flips at once — same OKLCH chroma and hue, swapped lightness.",
+      "wiringCode": "--dark-lightness:  var(--current-darkness);\n--dark-chroma:     0.05;\n--dark-hue:        var(--brand-hue);\n\n--light-lightness: var(--current-lightness);\n--light-chroma:    0.01;\n--light-hue:       var(--brand-hue);",
+      "previewLight": "Light mode (forced)",
+      "previewDark": "Dark mode (forced)",
+      "previewCaption": "Same markup, same tokens. Only --current-lightness and --current-darkness change between cards.",
+      "manualTitle": "Manual toggle",
+      "manualBody": "Add the toggle-theme class on the body. EVA also flips the brightness offsets so the -d modifier still darkens and -b still brightens visually.",
+      "manualCode": "&lt;body class=\"current-theme theme-eva toggle-theme\"&gt;",
+      "autoTitle": "Auto (prefers-color-scheme)",
+      "autoBody": "Pass $auto-theme-switch: true to the SCSS config. EVA generates a prefers-color-scheme: dark media query that swaps the pivot for you — no JS, no class.",
+      "autoCode": "@use 'eva-css-fluid' with (\n  $auto-theme-switch: true\n);",
+      "ruleTitle": "The rule",
+      "ruleBody": "Write _c-dark _bg-light and forget about modes. The pivot does the work — your component code stays identical in both states.",
+      "tryIt": "Try it — hit the sun icon at the top-right of this page. Every swatch above flips at once."
+    },
     "ai": {
       "eyebrow": "Full reference",
       "title": "All variants, all formulas — in /llms.txt.",

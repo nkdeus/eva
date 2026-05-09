@@ -35,7 +35,7 @@
         <div class="ball poa ar-1 circle _bg-brand" style="--offset:4"></div>
         <div class="ball poa ar-1 circle _bg-brand" style="--offset:5"></div>
       </div>
-      <a href="../../index.html" class="logo no-hover title fs-36__ lh-1">EVA CSS</a>
+      <a href="../index.html" class="logo no-hover title fs-36__ lh-1">EVA CSS</a>
     </div>
     <button id="burger-menu" class="burger-menu">
       <span class="burger-line"></span>
@@ -44,8 +44,8 @@
     </button>
     <div id="menu" class="flex x center g-12">
       <a href="css-fluid.html" class="h-52 px-12 flex y center _c-brand br-12"><span class="fs-12">CSS fluide</span></a>
-      <a href="../../framework.html" class="h-52 px-12 flex y center _c-light _bg-brand br-12"><span class="fs-12">Addons</span></a>
-      <a href="../../figma-to-eva.html" class="h-52 px-12 flex y center _c-brand br-12"><span class="fs-12">Figma vers EVA</span></a>
+      <a href="../framework.html" class="h-52 px-12 flex y center _c-light _bg-brand br-12"><span class="fs-12">Addons</span></a>
+      <a href="../figma-to-eva.html" class="h-52 px-12 flex y center _c-brand br-12"><span class="fs-12">Figma vers EVA</span></a>
       <a href="doc.html" class="h-52 px-12 flex y center _c-brand br-12"><span class="fs-12">Doc</span></a>
       <a href="https://github.com/nkdeus/eva-framework" target="_blank" class="h-52 px-8 flex x g-12 center _c-brand br-8">
         <svg xmlns="http://www.w3.org/2000/svg" class="lh-0" height="20" viewBox="0 0 16 16" width="20" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
@@ -64,7 +64,7 @@
       </p>
     </div>
     <nav id="addons-nav" class="flex x g-8 wrap">
-      <a href="../../framework.html" class="h-32 px-12 flex y center br-8 _c-brand_ fs-12 no-hover">← Tous les addons</a>
+      <a href="../framework.html" class="h-32 px-12 flex y center br-8 _c-brand_ fs-12 no-hover">← Tous les addons</a>
       <a href="colors.html" class="h-32 px-12 flex y center br-8 _c-light _bg-brand fs-12 no-hover">Couleurs</a>
       <a href="gradients.html" class="h-32 px-12 flex y center br-8 _c-brand fs-12 no-hover">Dégradés</a>
       <a href="grids.html" class="h-32 px-12 flex y center br-8 _c-brand fs-12 no-hover">Grilles</a>
@@ -80,7 +80,7 @@
       <p class="fs-16 _c-dark_ maw-768">Trois nombres — trois teintes — génèrent tout le système ci-dessous.</p>
     </div>
 
-    <div class="grid auto-fit-356_ gap-32 w-full">
+    <div class="grid auto-fit-356- gap-32 w-full">
       <div class="px-32 py-32 _bg-brand__ br-12 flex y g-8">
         <span class="fs-16 bold _c-brand">Teinte Brand</span>
         <span id="brand-hue-value" class="fs-52 bold _c-brand lh-1">169°</span>
@@ -162,7 +162,7 @@
   </section>
 
   <section class="px-220__ py-84 flex y g-32">
-    <div class="grid auto-fit-356_ gap-32 w-full">
+    <div class="grid auto-fit-356- gap-32 w-full">
       <div class="framework-card flex y g-12 p-32 _bg-light br-12">
         <span class="fs-12 _c-accent">Convention de nommage</span>
         <pre class="fs-12 _bg-dark__ p-16 br-8" style="color: var(--light); margin: 0;">_c-brand     /* couleur */
@@ -183,6 +183,97 @@ brand-b   /* plus clair */
 brand-d_  /* sombre profond */
 brand-b_  /* clair vif */</pre>
       </div>
+    </div>
+  </section>
+
+  <section id="dark-light" class="px-220__ py-84 flex y g-32">
+    <div class="flex y g-20">
+      <h2 class="fs-52__ _bg-brand pr-356__ lh-1 ttu fwd-4 f-scale offset"><span class="_c-light">Sombre / Clair</span></h2>
+      <p class="fs-16 _c-dark_ maw-768">Un pivot, deux variables. Les mêmes tokens --dark et --light permutent leur luminosité automatiquement — les composants restent agnostiques au mode. OKLCH garde le chroma et la teinte intacts ; seul le canal L bascule.</p>
+    </div>
+
+    <div class="grid auto-fit-356- gap-32 w-full">
+      <div class="framework-card flex y g-12 p-32 _bg-light br-12">
+        <span class="fs-12 _c-accent">Le pivot</span>
+        <p class="fs-14 _c-dark_">Deux variables CSS pilotent l'inversion complète du mode. Tout le reste lit depuis elles.</p>
+        <pre class="fs-12 _bg-dark__ p-16 br-8" style="color: var(--light); margin: 0;">/* Mode clair (défaut) */
+--current-lightness: 96.4%;
+--current-darkness:   6.4%;
+
+/* Mode sombre — quand .toggle-theme est actif */
+--current-lightness:   5%;
+--current-darkness:  95%;</pre>
+      </div>
+      <div class="framework-card flex y g-12 p-32 _bg-light br-12">
+        <span class="fs-12 _c-accent">Comment --dark et --light se branchent</span>
+        <p class="fs-14 _c-dark_">--dark et --light référencent le pivot. Inversez le pivot, tous les consommateurs basculent d'un coup — même chroma et même teinte OKLCH, luminosité inversée.</p>
+        <pre class="fs-12 _bg-dark__ p-16 br-8" style="color: var(--light); margin: 0;">--dark-lightness:  var(--current-darkness);
+--dark-chroma:     0.05;
+--dark-hue:        var(--brand-hue);
+
+--light-lightness: var(--current-lightness);
+--light-chroma:    0.01;
+--light-hue:       var(--brand-hue);</pre>
+      </div>
+    </div>
+
+    <div class="flex y g-12">
+      <p class="fs-12 _c-dark__ maw-768">Même markup, mêmes tokens. Seuls --current-lightness et --current-darkness changent entre les deux cartes.</p>
+      <div class="grid auto-fit-356- gap-32 w-full">
+        <div class="flex y g-20 p-32 br-12 _bg-light"
+             style="--current-lightness: 96.4%;
+                    --current-darkness: 6.4%;
+                    --dark: oklch(6.4% 0.05 var(--brand-hue));
+                    --light: oklch(96.4% 0.01 var(--brand-hue));
+                    --dark_: oklch(6.4% 0.05 var(--brand-hue) / 65%);
+                    --dark__: oklch(6.4% 0.05 var(--brand-hue) / 35%);
+                    --dark___: oklch(6.4% 0.05 var(--brand-hue) / 5%);
+                    --light_: oklch(96.4% 0.01 var(--brand-hue) / 65%);">
+          <span class="fs-14 bold _c-dark">Mode clair (forcé)</span>
+          <div class="flex x g-12 wrap">
+            <div class="w-84 h-84 _bg-light br-8 flex y center" style="border: 1px solid var(--brand);"><span class="fs-12 _c-dark bold">light</span></div>
+            <div class="w-84 h-84 _bg-dark br-8 flex y center" style="border: 1px solid var(--brand);"><span class="fs-12 _c-light bold">dark</span></div>
+            <div class="w-84 h-84 _bg-brand br-8 flex y center" style="border: 1px solid var(--brand);"><span class="fs-12 _c-dark bold">brand</span></div>
+          </div>
+        </div>
+        <div class="flex y g-20 p-32 br-12 _bg-light"
+             style="--current-lightness: 5%;
+                    --current-darkness: 95%;
+                    --dark: oklch(95% 0.05 var(--brand-hue));
+                    --light: oklch(5% 0.01 var(--brand-hue));
+                    --dark_: oklch(95% 0.05 var(--brand-hue) / 65%);
+                    --dark__: oklch(95% 0.05 var(--brand-hue) / 35%);
+                    --dark___: oklch(95% 0.05 var(--brand-hue) / 5%);
+                    --light_: oklch(5% 0.01 var(--brand-hue) / 65%);">
+          <span class="fs-14 bold _c-dark">Mode sombre (forcé)</span>
+          <div class="flex x g-12 wrap">
+            <div class="w-84 h-84 _bg-light br-8 flex y center" style="border: 1px solid var(--brand);"><span class="fs-12 _c-dark bold">light</span></div>
+            <div class="w-84 h-84 _bg-dark br-8 flex y center" style="border: 1px solid var(--brand);"><span class="fs-12 _c-light bold">dark</span></div>
+            <div class="w-84 h-84 _bg-brand br-8 flex y center" style="border: 1px solid var(--brand);"><span class="fs-12 _c-dark bold">brand</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid auto-fit-356- gap-32 w-full">
+      <div class="framework-card flex y g-12 p-32 _bg-light br-12">
+        <span class="fs-12 _c-accent">Bascule manuelle</span>
+        <p class="fs-14 _c-dark_">Ajoutez la classe toggle-theme sur le body. EVA inverse aussi les offsets de luminosité, donc le modificateur -d reste assombrissant et -b reste éclaircissant à l'œil.</p>
+        <pre class="fs-12 _bg-dark__ p-16 br-8" style="color: var(--light); margin: 0;">&lt;body class="current-theme theme-eva toggle-theme"&gt;</pre>
+      </div>
+      <div class="framework-card flex y g-12 p-32 _bg-light br-12">
+        <span class="fs-12 _c-accent">Auto (prefers-color-scheme)</span>
+        <p class="fs-14 _c-dark_">Passez $auto-theme-switch: true à la config SCSS. EVA génère une media query prefers-color-scheme: dark qui inverse le pivot pour vous — pas de JS, pas de classe.</p>
+        <pre class="fs-12 _bg-dark__ p-16 br-8" style="color: var(--light); margin: 0;">@use 'eva-css-fluid' with (
+  $auto-theme-switch: true
+);</pre>
+      </div>
+    </div>
+
+    <div class="framework-card flex y g-12 p-32 _bg-brand___ br-12">
+      <span class="fs-12 _c-accent">La règle</span>
+      <p class="fs-16 _c-dark maw-768">Écrivez _c-dark _bg-light et oubliez les modes. Le pivot s'occupe du reste — votre code de composant reste identique dans les deux états.</p>
+      <p class="fs-14 _c-brand maw-768">Essayez — cliquez l'icône soleil en haut à droite de cette page. Toutes les nuances ci-dessus basculent d'un coup.</p>
     </div>
   </section>
 

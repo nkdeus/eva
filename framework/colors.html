@@ -80,7 +80,7 @@
       <p class="fs-16 _c-dark_ maw-768">Three numbers — three hues — generate the full system below.</p>
     </div>
 
-    <div class="grid auto-fit-356_ gap-32 w-full">
+    <div class="grid auto-fit-356- gap-32 w-full">
       <div class="px-32 py-32 _bg-brand__ br-12 flex y g-8">
         <span class="fs-16 bold _c-brand">Brand HUE</span>
         <span id="brand-hue-value" class="fs-52 bold _c-brand lh-1">169°</span>
@@ -162,7 +162,7 @@
   </section>
 
   <section class="px-220__ py-84 flex y g-32">
-    <div class="grid auto-fit-356_ gap-32 w-full">
+    <div class="grid auto-fit-356- gap-32 w-full">
       <div class="framework-card flex y g-12 p-32 _bg-light br-12">
         <span class="fs-12 _c-accent">Naming convention</span>
         <pre class="fs-12 _bg-dark__ p-16 br-8" style="color: var(--light); margin: 0;">_c-brand     /* color */
@@ -183,6 +183,97 @@ brand-b   /* brighter */
 brand-d_  /* deeper dark */
 brand-b_  /* lighter bright */</pre>
       </div>
+    </div>
+  </section>
+
+  <section id="dark-light" class="px-220__ py-84 flex y g-32">
+    <div class="flex y g-20">
+      <h2 class="fs-52__ _bg-brand pr-356__ lh-1 ttu fwd-4 f-scale offset"><span class="_c-light">Dark / Light</span></h2>
+      <p class="fs-16 _c-dark_ maw-768">One pivot, two variables. The same --dark and --light tokens flip their lightness automatically — components stay mode-agnostic. OKLCH keeps chroma and hue intact; only the L channel swaps.</p>
+    </div>
+
+    <div class="grid auto-fit-356- gap-32 w-full">
+      <div class="framework-card flex y g-12 p-32 _bg-light br-12">
+        <span class="fs-12 _c-accent">The pivot</span>
+        <p class="fs-14 _c-dark_">Two CSS variables drive the entire mode swap. Everything else reads from them.</p>
+        <pre class="fs-12 _bg-dark__ p-16 br-8" style="color: var(--light); margin: 0;">/* Light mode (default) */
+--current-lightness: 96.4%;
+--current-darkness:   6.4%;
+
+/* Dark mode — when .toggle-theme is on */
+--current-lightness:   5%;
+--current-darkness:  95%;</pre>
+      </div>
+      <div class="framework-card flex y g-12 p-32 _bg-light br-12">
+        <span class="fs-12 _c-accent">How --dark and --light wire in</span>
+        <p class="fs-14 _c-dark_">--dark and --light reference the pivot. Swap the pivot, every consumer flips at once — same OKLCH chroma and hue, swapped lightness.</p>
+        <pre class="fs-12 _bg-dark__ p-16 br-8" style="color: var(--light); margin: 0;">--dark-lightness:  var(--current-darkness);
+--dark-chroma:     0.05;
+--dark-hue:        var(--brand-hue);
+
+--light-lightness: var(--current-lightness);
+--light-chroma:    0.01;
+--light-hue:       var(--brand-hue);</pre>
+      </div>
+    </div>
+
+    <div class="flex y g-12">
+      <p class="fs-12 _c-dark__ maw-768">Same markup, same tokens. Only --current-lightness and --current-darkness change between cards.</p>
+      <div class="grid auto-fit-356- gap-32 w-full">
+        <div class="flex y g-20 p-32 br-12 _bg-light"
+             style="--current-lightness: 96.4%;
+                    --current-darkness: 6.4%;
+                    --dark: oklch(6.4% 0.05 var(--brand-hue));
+                    --light: oklch(96.4% 0.01 var(--brand-hue));
+                    --dark_: oklch(6.4% 0.05 var(--brand-hue) / 65%);
+                    --dark__: oklch(6.4% 0.05 var(--brand-hue) / 35%);
+                    --dark___: oklch(6.4% 0.05 var(--brand-hue) / 5%);
+                    --light_: oklch(96.4% 0.01 var(--brand-hue) / 65%);">
+          <span class="fs-14 bold _c-dark">Light mode (forced)</span>
+          <div class="flex x g-12 wrap">
+            <div class="w-84 h-84 _bg-light br-8 flex y center" style="border: 1px solid var(--brand);"><span class="fs-12 _c-dark bold">light</span></div>
+            <div class="w-84 h-84 _bg-dark br-8 flex y center" style="border: 1px solid var(--brand);"><span class="fs-12 _c-light bold">dark</span></div>
+            <div class="w-84 h-84 _bg-brand br-8 flex y center" style="border: 1px solid var(--brand);"><span class="fs-12 _c-dark bold">brand</span></div>
+          </div>
+        </div>
+        <div class="flex y g-20 p-32 br-12 _bg-light"
+             style="--current-lightness: 5%;
+                    --current-darkness: 95%;
+                    --dark: oklch(95% 0.05 var(--brand-hue));
+                    --light: oklch(5% 0.01 var(--brand-hue));
+                    --dark_: oklch(95% 0.05 var(--brand-hue) / 65%);
+                    --dark__: oklch(95% 0.05 var(--brand-hue) / 35%);
+                    --dark___: oklch(95% 0.05 var(--brand-hue) / 5%);
+                    --light_: oklch(5% 0.01 var(--brand-hue) / 65%);">
+          <span class="fs-14 bold _c-dark">Dark mode (forced)</span>
+          <div class="flex x g-12 wrap">
+            <div class="w-84 h-84 _bg-light br-8 flex y center" style="border: 1px solid var(--brand);"><span class="fs-12 _c-dark bold">light</span></div>
+            <div class="w-84 h-84 _bg-dark br-8 flex y center" style="border: 1px solid var(--brand);"><span class="fs-12 _c-light bold">dark</span></div>
+            <div class="w-84 h-84 _bg-brand br-8 flex y center" style="border: 1px solid var(--brand);"><span class="fs-12 _c-dark bold">brand</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid auto-fit-356- gap-32 w-full">
+      <div class="framework-card flex y g-12 p-32 _bg-light br-12">
+        <span class="fs-12 _c-accent">Manual toggle</span>
+        <p class="fs-14 _c-dark_">Add the toggle-theme class on the body. EVA also flips the brightness offsets so the -d modifier still darkens and -b still brightens visually.</p>
+        <pre class="fs-12 _bg-dark__ p-16 br-8" style="color: var(--light); margin: 0;">&lt;body class="current-theme theme-eva toggle-theme"&gt;</pre>
+      </div>
+      <div class="framework-card flex y g-12 p-32 _bg-light br-12">
+        <span class="fs-12 _c-accent">Auto (prefers-color-scheme)</span>
+        <p class="fs-14 _c-dark_">Pass $auto-theme-switch: true to the SCSS config. EVA generates a prefers-color-scheme: dark media query that swaps the pivot for you — no JS, no class.</p>
+        <pre class="fs-12 _bg-dark__ p-16 br-8" style="color: var(--light); margin: 0;">@use 'eva-css-fluid' with (
+  $auto-theme-switch: true
+);</pre>
+      </div>
+    </div>
+
+    <div class="framework-card flex y g-12 p-32 _bg-brand___ br-12">
+      <span class="fs-12 _c-accent">The rule</span>
+      <p class="fs-16 _c-dark maw-768">Write _c-dark _bg-light and forget about modes. The pivot does the work — your component code stays identical in both states.</p>
+      <p class="fs-14 _c-brand maw-768">Try it — hit the sun icon at the top-right of this page. Every swatch above flips at once.</p>
     </div>
   </section>
 

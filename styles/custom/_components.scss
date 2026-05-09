@@ -155,7 +155,7 @@ p {
 }
 
 .framework-card {
-  
+
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   border: 2px solid var(--brand___);
   position: relative;
@@ -163,10 +163,54 @@ p {
     border: none;
   }
 
+  > pre {
+    margin: 0 calc(var(--32) * -1) !important;
+    border-radius: 0;
+    overflow-x: auto;
+  }
+
+}
+
+.goals-bento {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-auto-rows: auto;
+  grid-template-areas:
+    "c4 c4 c4"
+    "c2 fl fl"
+    "c1 c1 c1";
+  gap: var(--32);
+  width: 100%;
+
+  > .bento-c1 { grid-area: c1; }
+  > .bento-c2 { grid-area: c2; }
+  > .bento-fl { grid-area: fl; }
+  > .bento-c4 { grid-area: c4; }
+}
+
+@media (max-width: 900px) {
+  .goals-bento {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "c4 c4"
+      "c2 fl"
+      "c1 c1";
+  }
+}
+
+@media (max-width: 600px) {
+  .goals-bento {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "c4"
+      "fl"
+      "c2"
+      "c1";
+  }
 }
 
 .framework-card:hover {
-  
+
   border-color: var(--brand__);
 }
 
@@ -430,5 +474,91 @@ section {
         display: block;
       }
     }
+  }
+}
+
+/* FAQ Accordion */
+.faq-list {
+  width: 100%;
+}
+
+.faq-item {
+  width: 100%;
+  background-color: var(--light);
+  border: 2px solid var(--brand___);
+  overflow: hidden;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+
+  &:hover {
+    border-color: var(--brand__);
+  }
+
+  &[open] {
+    border-color: var(--brand__);
+  }
+}
+
+.faq-summary {
+  list-style: none;
+  cursor: pointer;
+  user-select: none;
+
+  &::-webkit-details-marker {
+    display: none;
+  }
+
+  h3 {
+    transition: color 0.2s ease;
+    flex: 1;
+  }
+
+  .faq-icon {
+    flex: none;
+    width: var(--32);
+    height: var(--32);
+    border-radius: 50%;
+    background-color: var(--brand__);
+    color: var(--brand-d);
+    transition: transform 0.3s ease, background-color 0.2s ease, color 0.2s ease;
+  }
+
+  &:hover {
+    h3 {
+      color: var(--brand-d);
+    }
+    .faq-icon {
+      background-color: var(--brand_);
+      color: var(--light);
+    }
+  }
+}
+
+.faq-item[open] {
+  > .faq-summary {
+    h3 {
+      color: var(--brand-d);
+    }
+    .faq-icon {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+.faq-body {
+  animation: faq-fade-in 0.3s ease;
+
+  > p {
+    max-width: var(--712);
+  }
+}
+
+@keyframes faq-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

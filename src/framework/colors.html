@@ -35,7 +35,7 @@
         <div class="ball poa ar-1 circle _bg-brand" style="--offset:4"></div>
         <div class="ball poa ar-1 circle _bg-brand" style="--offset:5"></div>
       </div>
-      <a href="{{assetPrefix}}index.html" class="logo no-hover title fs-36__ lh-1">EVA CSS</a>
+      <a href="{{localeRoot}}index.html" class="logo no-hover title fs-36__ lh-1">EVA CSS</a>
     </div>
     <button id="burger-menu" class="burger-menu">
       <span class="burger-line"></span>
@@ -44,8 +44,8 @@
     </button>
     <div id="menu" class="flex x center g-12">
       <a href="css-fluid.html" class="h-52 px-12 flex y center _c-brand br-12"><span class="fs-12">{{t.nav.fluidCss}}</span></a>
-      <a href="{{assetPrefix}}framework.html" class="h-52 px-12 flex y center _c-light _bg-brand br-12"><span class="fs-12">{{t.nav.addons}}</span></a>
-      <a href="{{assetPrefix}}figma-to-eva.html" class="h-52 px-12 flex y center _c-brand br-12"><span class="fs-12">{{t.nav.figma}}</span></a>
+      <a href="{{localeRoot}}framework.html" class="h-52 px-12 flex y center _c-light _bg-brand br-12"><span class="fs-12">{{t.nav.addons}}</span></a>
+      <a href="{{localeRoot}}figma-to-eva.html" class="h-52 px-12 flex y center _c-brand br-12"><span class="fs-12">{{t.nav.figma}}</span></a>
       <a href="doc.html" class="h-52 px-12 flex y center _c-brand br-12"><span class="fs-12">{{t.nav.doc}}</span></a>
       <a href="https://github.com/nkdeus/eva-framework" target="_blank" class="h-52 px-8 flex x g-12 center _c-brand br-8">
         <svg xmlns="http://www.w3.org/2000/svg" class="lh-0" height="20" viewBox="0 0 16 16" width="20" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
@@ -64,7 +64,7 @@
       </p>
     </div>
     <nav id="addons-nav" class="flex x g-8 wrap">
-      <a href="{{assetPrefix}}framework.html" class="h-32 px-12 flex y center br-8 _c-brand_ fs-12 no-hover">{{t.addonsNav.back}}</a>
+      <a href="{{localeRoot}}framework.html" class="h-32 px-12 flex y center br-8 _c-brand_ fs-12 no-hover">{{t.addonsNav.back}}</a>
       <a href="colors.html" class="h-32 px-12 flex y center br-8 _c-light _bg-brand fs-12 no-hover">{{t.addonsNav.colors}}</a>
       <a href="gradients.html" class="h-32 px-12 flex y center br-8 _c-brand fs-12 no-hover">{{t.addonsNav.gradients}}</a>
       <a href="grids.html" class="h-32 px-12 flex y center br-8 _c-brand fs-12 no-hover">{{t.addonsNav.grids}}</a>
@@ -80,7 +80,7 @@
       <p class="fs-16 _c-dark_ maw-768">{{t.colors.live.body}}</p>
     </div>
 
-    <div class="grid auto-fit-356_ gap-32 w-full">
+    <div class="grid auto-fit-356- gap-32 w-full">
       <div class="px-32 py-32 _bg-brand__ br-12 flex y g-8">
         <span class="fs-16 bold _c-brand">{{t.colors.live.brand}}</span>
         <span id="brand-hue-value" class="fs-52 bold _c-brand lh-1">169°</span>
@@ -162,7 +162,7 @@
   </section>
 
   <section class="px-220__ py-84 flex y g-32">
-    <div class="grid auto-fit-356_ gap-32 w-full">
+    <div class="grid auto-fit-356- gap-32 w-full">
       <div class="framework-card flex y g-12 p-32 _bg-light br-12">
         <span class="fs-12 _c-accent">{{t.colors.naming.title}}</span>
         <pre class="fs-12 _bg-dark__ p-16 br-8" style="color: var(--light); margin: 0;">_c-brand     /* {{t.colors.naming.color}} */
@@ -183,6 +183,83 @@ brand-b   /* {{t.colors.brightness.brighter}} */
 brand-d_  /* {{t.colors.brightness.deeperDark}} */
 brand-b_  /* {{t.colors.brightness.lighterBright}} */</pre>
       </div>
+    </div>
+  </section>
+
+  <section id="dark-light" class="px-220__ py-84 flex y g-32">
+    <div class="flex y g-20">
+      <h2 class="fs-52__ _bg-brand pr-356__ lh-1 ttu fwd-4 f-scale offset"><span class="_c-light">{{t.colors.darkLight.title}}</span></h2>
+      <p class="fs-16 _c-dark_ maw-768">{{t.colors.darkLight.body}}</p>
+    </div>
+
+    <div class="grid auto-fit-356- gap-32 w-full">
+      <div class="framework-card flex y g-12 p-32 _bg-light br-12">
+        <span class="fs-12 _c-accent">{{t.colors.darkLight.pivotTitle}}</span>
+        <p class="fs-14 _c-dark_">{{t.colors.darkLight.pivotIntro}}</p>
+        <pre class="fs-12 _bg-dark__ p-16 br-8" style="color: var(--light); margin: 0;">{{t.colors.darkLight.pivotCode}}</pre>
+      </div>
+      <div class="framework-card flex y g-12 p-32 _bg-light br-12">
+        <span class="fs-12 _c-accent">{{t.colors.darkLight.wiringTitle}}</span>
+        <p class="fs-14 _c-dark_">{{t.colors.darkLight.wiringIntro}}</p>
+        <pre class="fs-12 _bg-dark__ p-16 br-8" style="color: var(--light); margin: 0;">{{t.colors.darkLight.wiringCode}}</pre>
+      </div>
+    </div>
+
+    <div class="flex y g-12">
+      <p class="fs-12 _c-dark__ maw-768">{{t.colors.darkLight.previewCaption}}</p>
+      <div class="grid auto-fit-356- gap-32 w-full">
+        <div class="flex y g-20 p-32 br-12 _bg-light"
+             style="--current-lightness: 96.4%;
+                    --current-darkness: 6.4%;
+                    --dark: oklch(6.4% 0.05 var(--brand-hue));
+                    --light: oklch(96.4% 0.01 var(--brand-hue));
+                    --dark_: oklch(6.4% 0.05 var(--brand-hue) / 65%);
+                    --dark__: oklch(6.4% 0.05 var(--brand-hue) / 35%);
+                    --dark___: oklch(6.4% 0.05 var(--brand-hue) / 5%);
+                    --light_: oklch(96.4% 0.01 var(--brand-hue) / 65%);">
+          <span class="fs-14 bold _c-dark">{{t.colors.darkLight.previewLight}}</span>
+          <div class="flex x g-12 wrap">
+            <div class="w-84 h-84 _bg-light br-8 flex y center" style="border: 1px solid var(--brand);"><span class="fs-12 _c-dark bold">light</span></div>
+            <div class="w-84 h-84 _bg-dark br-8 flex y center" style="border: 1px solid var(--brand);"><span class="fs-12 _c-light bold">dark</span></div>
+            <div class="w-84 h-84 _bg-brand br-8 flex y center" style="border: 1px solid var(--brand);"><span class="fs-12 _c-dark bold">brand</span></div>
+          </div>
+        </div>
+        <div class="flex y g-20 p-32 br-12 _bg-light"
+             style="--current-lightness: 5%;
+                    --current-darkness: 95%;
+                    --dark: oklch(95% 0.05 var(--brand-hue));
+                    --light: oklch(5% 0.01 var(--brand-hue));
+                    --dark_: oklch(95% 0.05 var(--brand-hue) / 65%);
+                    --dark__: oklch(95% 0.05 var(--brand-hue) / 35%);
+                    --dark___: oklch(95% 0.05 var(--brand-hue) / 5%);
+                    --light_: oklch(5% 0.01 var(--brand-hue) / 65%);">
+          <span class="fs-14 bold _c-dark">{{t.colors.darkLight.previewDark}}</span>
+          <div class="flex x g-12 wrap">
+            <div class="w-84 h-84 _bg-light br-8 flex y center" style="border: 1px solid var(--brand);"><span class="fs-12 _c-dark bold">light</span></div>
+            <div class="w-84 h-84 _bg-dark br-8 flex y center" style="border: 1px solid var(--brand);"><span class="fs-12 _c-light bold">dark</span></div>
+            <div class="w-84 h-84 _bg-brand br-8 flex y center" style="border: 1px solid var(--brand);"><span class="fs-12 _c-dark bold">brand</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid auto-fit-356- gap-32 w-full">
+      <div class="framework-card flex y g-12 p-32 _bg-light br-12">
+        <span class="fs-12 _c-accent">{{t.colors.darkLight.manualTitle}}</span>
+        <p class="fs-14 _c-dark_">{{t.colors.darkLight.manualBody}}</p>
+        <pre class="fs-12 _bg-dark__ p-16 br-8" style="color: var(--light); margin: 0;">{{t.colors.darkLight.manualCode}}</pre>
+      </div>
+      <div class="framework-card flex y g-12 p-32 _bg-light br-12">
+        <span class="fs-12 _c-accent">{{t.colors.darkLight.autoTitle}}</span>
+        <p class="fs-14 _c-dark_">{{t.colors.darkLight.autoBody}}</p>
+        <pre class="fs-12 _bg-dark__ p-16 br-8" style="color: var(--light); margin: 0;">{{t.colors.darkLight.autoCode}}</pre>
+      </div>
+    </div>
+
+    <div class="framework-card flex y g-12 p-32 _bg-brand___ br-12">
+      <span class="fs-12 _c-accent">{{t.colors.darkLight.ruleTitle}}</span>
+      <p class="fs-16 _c-dark maw-768">{{t.colors.darkLight.ruleBody}}</p>
+      <p class="fs-14 _c-brand maw-768">{{t.colors.darkLight.tryIt}}</p>
     </div>
   </section>
 
