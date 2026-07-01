@@ -6,10 +6,18 @@
     "ogDescription": "A fluid SCSS framework that converts static UI designs into responsive systems using CSS clamp() and OKLCH colors.",
     "schemaDescription": "A fluid SCSS framework that converts static UI designs into responsive systems using CSS clamp() and OKLCH colors"
   },
+  "a11y": {
+    "burgerMenu": "Toggle navigation menu",
+    "toggleTheme": "Toggle dark mode",
+    "github": "GitHub repository",
+    "prevSite": "Previous demo site",
+    "nextSite": "Next demo site",
+    "viewportSize": "Viewport size simulator"
+  },
   "nav": {
     "fluidCss": "Fluid CSS",
     "addons": "Addons",
-    "figma": "Figma to EVA",
+    "useCases": "Use Cases",
     "doc": "Doc"
   },
   "tuto": {
@@ -45,7 +53,7 @@
     "gradients": { "title": "Gradients", "body": "Modern gradient system with fluid animations and responsive controls.", "cta": "Explore gradients →" },
     "grids": { "title": "Modern Grids", "body": "Auto-fit layouts, container queries, and responsive column systems.", "cta": "Explore grids →" },
     "flex": { "title": "Flex", "body": "Flexible layout system with modern responsive controls.", "cta": "Explore flex →" },
-    "figma": { "title": "Figma to EVA", "body": "Transform Figma designs into fluid, responsive code. From static to scalable.", "cta": "Try the converter →" }
+    "useCases": { "title": "Use Cases", "body": "See EVA CSS in real workflows — Figma, Tailwind, Webflow, Ycode, and legacy CSS migrations.", "cta": "Explore use cases →" }
   },
   "footer": {
     "copyright": "© 2024",
@@ -191,6 +199,147 @@
       "config": { "title": "Config used" }
     }
   },
+  "useCasesNav": {
+    "back": "← All use cases",
+    "figma": "Figma to EVA",
+    "tailwind": "Tailwind",
+    "webflow": "Webflow",
+    "ycode": "Ycode"
+  },
+  "useCases": {
+    "meta": {
+      "title": "EVA CSS — Use Cases",
+      "description": "Real-world EVA CSS workflows: Figma to code, Tailwind CSS override, Webflow, Ycode, and legacy CSS migration.",
+      "ogTitle": "EVA CSS — Use Cases",
+      "ogDescription": "Five ways to bring fluid CSS into your stack, whatever tools you use."
+    },
+    "hero": {
+      "eyebrow": "Five workflows, one fluid core",
+      "title": "Use Cases",
+      "body": "EVA CSS isn't tied to one workflow. Pick the one that matches your stack — code-first, no-code, or somewhere in between."
+    },
+    "cards": {
+      "figma": { "title": "Figma to EVA", "body": "Extract sizes, colors and typography from a Figma file via MCP and turn them into an EVA CSS project.", "cta": "Read the guide →" },
+      "tailwind": { "title": "Tailwind override", "body": "Replace Tailwind's static spacing, font and color scale with EVA CSS fluid variables — same utility classes, no breakpoints.", "cta": "Read the guide →" },
+      "webflow": { "title": "Webflow fluid", "body": "Inject compiled EVA CSS variables into Webflow via Custom Code, then reference them straight from the Designer's style fields.", "cta": "Read the guide →" },
+      "ycode": { "title": "Ycode fluid", "body": "Same idea for Ycode: compile once, paste into Custom Code, reference var(--XX) in the per-class custom CSS panel.", "cta": "Read the guide →" },
+      "vibecode": { "title": "Vibecode CSS upgrade", "body": "Turn a messy, breakpoint-heavy stylesheet full of hardcoded px/rem values into a clean EVA fluid sizing system.", "badge": "Coming soon" }
+    }
+  },
+  "tailwindOverride": {
+    "meta": {
+      "title": "EVA CSS — Tailwind CSS Override",
+      "description": "Replace Tailwind's static spacing, font-size and color scale with EVA CSS fluid variables. Same utility classes, no more breakpoint variants.",
+      "ogTitle": "Tailwind CSS Override with EVA CSS",
+      "ogDescription": "Keep Tailwind's utility workflow, drop the breakpoints — drive the scale with EVA's fluid var()."
+    },
+    "hero": {
+      "titlePre": "Override",
+      "titleHighlight": "Tailwind",
+      "titlePost": "with fluid CSS",
+      "body": "Tailwind's spacing and font-size scale is static — one value per breakpoint. Point that scale at EVA CSS variables instead, and every utility class becomes fluid for free."
+    },
+    "prereq": {
+      "title": "What you need",
+      "eva": { "title": "EVA in variables-only mode", "tag": "$build-class: false", "body": "Compile EVA CSS with utility classes disabled — you only want the generated var(--XX) custom properties, Tailwind keeps generating the classes." },
+      "config": { "title": "tailwind.config.js access", "tag": "theme.extend", "body": "You'll map spacing, fontSize and colors to var(--XX) instead of static rem values." },
+      "build": { "title": "A build step before Tailwind", "tag": "PostCSS / Vite / CLI", "body": "The compiled EVA stylesheet must load before Tailwind's own output so the custom properties already exist when utilities reference them." }
+    },
+    "workflow": {
+      "title": "Workflow",
+      "stepLabel": "Step",
+      "s1": { "title": "Compile EVA variables", "body": "Same sizes/font-sizes list as any EVA project, but $build-class: false — output is a lean :root block of var(--XX) and OKLCH color variables." },
+      "s2": { "title": "Load it before Tailwind", "body": "Import the compiled file ahead of @tailwind base in your CSS entry so the variables are already defined." },
+      "s3": { "title": "Extend the theme", "body": "In tailwind.config.js, point spacing, fontSize and colors at the matching var(--XX) instead of static values." },
+      "s4": { "title": "Use Tailwind as usual", "body": "p-16, text-base, bg-brand now resolve to EVA's clamp() values — no md:/lg: variants needed for that property." },
+      "s5": { "title": "One-offs via arbitrary values", "body": "For a value outside your config, Tailwind's bracket syntax reaches EVA vars directly — no config edit required." },
+      "s6": { "title": "Recompile on change", "body": "Add a size to $sizes, recompile EVA, then reference it — from tailwind.config or straight from an arbitrary value." }
+    },
+    "rules": {
+      "title": "Important rules",
+      "label": "Rule",
+      "r1": { "title": "EVA owns the scale", "body": "Tailwind config values are always <code>var(--XX)</code>, never a static <code>rem</code> or <code>px</code>." },
+      "r2": { "title": "Load order matters", "body": "The EVA stylesheet must be imported before Tailwind's utilities are generated, or the variables resolve to nothing." },
+      "r3": { "title": "Drop redundant breakpoints", "body": "Once a utility is driven by a fluid var, delete the <code>sm:</code>/<code>md:</code>/<code>lg:</code> variants for that property." },
+      "r4": { "title": "Keep $sizes lean", "body": "Only list the sizes actually referenced in tailwind.config.js or in arbitrary values." }
+    }
+  },
+  "webflowFluid": {
+    "meta": {
+      "title": "EVA CSS — Webflow Fluid",
+      "description": "Bring EVA CSS fluid variables into Webflow via Custom Code, then use them directly in the Designer's style panel.",
+      "ogTitle": "Webflow Fluid with EVA CSS",
+      "ogDescription": "Compile once, paste into Custom Code, reference var(--XX) straight from the Designer."
+    },
+    "hero": {
+      "titlePre": "Fluid",
+      "titleHighlight": "Webflow",
+      "titlePost": "without leaving the Designer",
+      "body": "Webflow has no build step of its own. Compile EVA CSS ahead of time, load it as Custom Code, then type var(--XX) directly into any size, spacing or color field."
+    },
+    "prereq": {
+      "title": "What you need",
+      "eva": { "title": "A compiled stylesheet", "tag": "$build-class: false", "body": "Variables only — Webflow already has its own class system, you just need the fluid var(--XX) and OKLCH color custom properties." },
+      "hosting": { "title": "Somewhere to host it", "tag": "CDN / repo", "body": "Custom Code can link to an external stylesheet, or you can inline it directly if it stays small." },
+      "access": { "title": "Project Settings access", "tag": "Custom Code", "body": "You need permission to edit the site-wide head code — Designer or Site plan owner." }
+    },
+    "workflow": {
+      "title": "Workflow",
+      "stepLabel": "Step",
+      "s1": { "title": "Compile EVA variables", "body": "$build-class: false — a lean :root block of fluid var(--XX) and OKLCH color variables, nothing else." },
+      "s2": { "title": "Host or inline it", "body": "Push the compiled CSS to a CDN/repo URL, or paste it inline inside a <style> tag if it's small." },
+      "s3": { "title": "Paste into Custom Code", "body": "Project Settings → Custom Code → Head Code. Link the stylesheet or paste the inline <style> block." },
+      "s4": { "title": "Reference it in the Designer", "body": "Type var(--XX) directly into a width, padding, gap or font-size field instead of a fixed number." },
+      "s5": { "title": "Same for colors", "body": "Reference the OKLCH color variables anywhere Webflow accepts a custom value." },
+      "s6": { "title": "Drop redundant breakpoints", "body": "A field driven by a fluid var already scales — leave the other breakpoints in the Designer untouched for that property." }
+    },
+    "rules": {
+      "title": "Important rules",
+      "label": "Rule",
+      "r1": { "title": "Publish to see it", "body": "Custom Code only runs on the published or staged site, not always live inside the Designer canvas." },
+      "r2": { "title": "One source of truth", "body": "Keep $sizes in sync with what's actually typed into Webflow's fields." },
+      "r3": { "title": "Don't fight the breakpoints", "body": "For a property on a fluid var, leave other breakpoints alone instead of adding overrides on top." },
+      "r4": { "title": "Never hardcode", "body": "Always <code>var(--XX)</code>, never <code>XXpx</code> — same rule as everywhere else in EVA." }
+    }
+  },
+  "ycodeFluid": {
+    "meta": {
+      "title": "EVA CSS — Ycode Fluid",
+      "description": "Bring EVA CSS fluid variables into Ycode via Custom Code, then reference them in the per-class custom CSS panel.",
+      "ogTitle": "Ycode Fluid with EVA CSS",
+      "ogDescription": "Compile once, paste into Custom Code, reference var(--XX) in any class's custom CSS."
+    },
+    "hero": {
+      "titlePre": "Fluid",
+      "titleHighlight": "Ycode",
+      "titlePost": "with custom CSS",
+      "body": "Ycode's per-class custom CSS field accepts raw CSS. Load EVA's compiled variables once, then reference var(--XX) wherever you'd normally type a pixel value."
+    },
+    "prereq": {
+      "title": "What you need",
+      "eva": { "title": "A compiled stylesheet", "tag": "$build-class: false", "body": "Fluid var(--XX) and OKLCH color variables only — Ycode's own class system stays untouched." },
+      "hosting": { "title": "Somewhere to host it", "tag": "CDN / repo", "body": "Custom Code accepts a stylesheet link or an inline <style> block." },
+      "access": { "title": "Project or page settings", "tag": "Custom Code", "body": "You need access to the Custom Code panel — project-wide (head) or per page." }
+    },
+    "workflow": {
+      "title": "Workflow",
+      "stepLabel": "Step",
+      "s1": { "title": "Compile EVA variables", "body": "$build-class: false — a lean :root block of fluid var(--XX) and OKLCH color variables." },
+      "s2": { "title": "Host or inline it", "body": "Push the compiled CSS to a CDN/repo URL, or paste it inline inside a <style> tag if it's small." },
+      "s3": { "title": "Paste into Custom Code", "body": "Project Settings → Custom Code (or Page Settings). Link the stylesheet or paste the inline block." },
+      "s4": { "title": "Reference it per class", "body": "In the element's Custom CSS field, write padding, gap or font-size against var(--XX) instead of a fixed value." },
+      "s5": { "title": "Same for colors", "body": "Reference the OKLCH color variables in the same Custom CSS field, e.g. background: var(--brand)." },
+      "s6": { "title": "Drop redundant breakpoints", "body": "A property already driven by a fluid var scales on its own — remove the tablet/mobile overrides for it." }
+    },
+    "rules": {
+      "title": "Important rules",
+      "label": "Rule",
+      "r1": { "title": "Custom CSS wins, carefully", "body": "Per-class custom CSS overrides Ycode's visual controls for that property — keep it scoped to what EVA drives." },
+      "r2": { "title": "One source of truth", "body": "Keep $sizes in sync with what's actually referenced in your classes' custom CSS." },
+      "r3": { "title": "Don't fight the breakpoints", "body": "For a property on a fluid var, leave the other breakpoints alone instead of adding overrides on top." },
+      "r4": { "title": "Never hardcode", "body": "Always <code>var(--XX)</code>, never <code>XXpx</code> — same rule as everywhere else in EVA." }
+    }
+  },
   "cssFluid": {
     "meta": {
       "title": "EVA CSS — Fluid CSS, the Hero",
@@ -241,6 +390,34 @@
       "commentExtreme": "extreme",
       "commentExtended": "extended"
     },
+    "whatsNew": {
+      "eyebrow": "New in v2.2.0",
+      "title": "One stylesheet, two fluid modes",
+      "body": "EVA tokens can now track the <strong>viewport</strong> (<code>vw</code>, default) or <strong>any container</strong> (<code>cqi</code>) — switch a subtree on the fly, no rebuild, no second file. The fluid curve itself is unchanged: same output as before by default.",
+      "unitLabel": "Runtime fluid unit",
+      "unitBody": "Every token now runs through a switchable custom property instead of a unit baked in at build time.",
+      "unitComment": "this card's tokens now track its own width, not the viewport",
+      "utilsLabel": "Opt-in container utilities",
+      "utilsBody": "<code>.eva-cqi</code> and <code>.eva-root</code> set container-type plus the cqi override in one class, so you never forget one half.",
+      "a11yLabel": "Readability floor",
+      "a11yBody": "<code>$min-font-size</code> (default 0 = off) stops fluid text from shrinking below a readable size in a small container or on mobile. This floor is the mobile size, not the desktop one — 13-14px is a sane default.",
+      "configLabel": "Config, either way — SCSS or JSON",
+      "configUnitComment": "fluid unit + fallback: 1vw | 1cqi",
+      "configRefComment": "width where tokens hit their max (default 1440)",
+      "configMinComment": "a11y floor in px (default 0 = off)",
+      "backCompat": "100% backward compatible. No <code>--eva-fluid-unit</code> set falls back to <code>1vw</code> — same computed value as before. <code>fluidRuntime: false</code> reproduces the previous output byte for byte."
+    },
+    "vwCqi": {
+      "title": "vw vs cqi — who tracks what?",
+      "bodyPre": "Same slider, same frame width. Watch which card moves: the ",
+      "bodyHighlight": "cqi card tracks its own box",
+      "bodyPost": ", the vw card stays locked to your real browser window.",
+      "vwTag": "vw — tracks the viewport",
+      "cqiTag": "cqi — tracks the container",
+      "vwCard": { "title": "vw", "body": "clamp(1.125rem, 5vw, 4rem) — reads the real viewport, not this frame." },
+      "cqiCard": { "title": "cqi", "body": "clamp(1.125rem, 5cqi, 4rem) — reads this frame's own width." },
+      "hint": "Drag the slider — only the cqi card scales, because it's the frame that resizes, not your browser. Now resize your actual browser window: the vw card reacts instead. Real viewport right now:"
+    },
     "why": {
       "title": "Why this exists",
       "body1": "Twenty years of front-end design. I sit between designers and developers — and I see the same gap every time. Designers ship Figma values that developers translate into rigid breakpoints, and the design intent gets lost between two paradigms.",
@@ -253,8 +430,10 @@
   },
   "colors": {
     "meta": {
-      "title": "EVA CSS — Colors",
-      "description": "EVA CSS OKLCH color system — modern colors with automatic opacity, brightness, and darkness modifiers."
+      "title": "EVA CSS — OKLCH Colors with Opacity & Brightness Modifiers",
+      "description": "EVA CSS OKLCH color system — modern colors with automatic opacity, brightness, and darkness modifiers.",
+      "ogTitle": "EVA CSS — OKLCH Colors",
+      "ogDescription": "Three hues, sixteen variants per color. Automatic opacity, brightness and dark/light modes — powered by OKLCH."
     },
     "hero": {
       "eyebrow": "Addon · Colors",
@@ -311,8 +490,10 @@
   },
   "fonts": {
     "meta": {
-      "title": "EVA CSS — Typography",
-      "description": "EVA CSS typography — fluid font sizes that scale smoothly across all viewports."
+      "title": "EVA CSS — Fluid Typography that Scales Without Breakpoints",
+      "description": "EVA CSS typography — fluid font sizes that scale smoothly across all viewports.",
+      "ogTitle": "EVA CSS — Fluid Typography",
+      "ogDescription": "Fluid font sizes with three intensity modifiers. Type that flows from mobile to desktop without media queries."
     },
     "hero": {
       "eyebrow": "Addon · Typography",
@@ -340,8 +521,10 @@
   },
   "sizes": {
     "meta": {
-      "title": "EVA CSS — Sizing system",
-      "description": "EVA CSS sizing — fluid spacing scale with intensity modifiers for paddings, margins, gaps, dimensions."
+      "title": "EVA CSS — Fluid Sizing Scale for Padding, Gap & Width",
+      "description": "EVA CSS sizing — fluid spacing scale with intensity modifiers for paddings, margins, gaps, dimensions.",
+      "ogTitle": "EVA CSS — Fluid Sizing Scale",
+      "ogDescription": "One number, four flavors. Padding, margin, gap, width, height — all on the same fluid scale."
     },
     "hero": {
       "eyebrow": "Addon · Sizing",
@@ -377,8 +560,10 @@
   },
   "grids": {
     "meta": {
-      "title": "EVA CSS — Grids",
-      "description": "EVA CSS grids — auto-fit, classic 12-col, fraction notation. Modern responsive layouts."
+      "title": "EVA CSS — Auto-Fit, 12-Col & Fraction Grid Utilities",
+      "description": "EVA CSS grids — auto-fit, classic 12-col, fraction notation. Modern responsive layouts.",
+      "ogTitle": "EVA CSS — Modern Grid Utilities",
+      "ogDescription": "Three paradigms: auto-fit for cards, classic 12-col for layouts, fraction notation for precise control."
     },
     "hero": {
       "eyebrow": "Addon · Grids",
@@ -409,8 +594,10 @@
   },
   "flex": {
     "meta": {
-      "title": "EVA CSS — Flex",
-      "description": "EVA CSS flex utilities — vertical and horizontal flex with alignment shortcuts."
+      "title": "EVA CSS — Flex Utilities for Two-Axis Fluid Layouts",
+      "description": "EVA CSS flex utilities — vertical and horizontal flex with alignment shortcuts.",
+      "ogTitle": "EVA CSS — Flex Utilities",
+      "ogDescription": "Two axes, three keywords. flex y, flex x, center, space — that's the API for fluid layouts."
     },
     "hero": {
       "eyebrow": "Addon · Flex",
@@ -446,8 +633,10 @@
   },
   "gradients": {
     "meta": {
-      "title": "EVA CSS — Gradients",
-      "description": "EVA CSS gradients — Emmet-style syntax for linear and radial gradients with directions, angles, and animations."
+      "title": "EVA CSS — Emmet-Style Linear & Radial Gradients",
+      "description": "EVA CSS gradients — Emmet-style syntax for linear and radial gradients with directions, angles, and animations.",
+      "ogTitle": "EVA CSS — Emmet-Style Gradients",
+      "ogDescription": "Linear, radial, animated gradients with Emmet-style syntax. from-brand to-accent d-r — that's the API."
     },
     "hero": {
       "eyebrow": "Addon · Gradients",
@@ -490,8 +679,10 @@
   },
   "doc": {
     "meta": {
-      "title": "EVA CSS — Docs",
-      "description": "EVA CSS quickstart — install, configure, build. The complete reference lives in /llms.txt for AI consumption."
+      "title": "EVA CSS — Docs: Install, Configure & Build in 3 Steps",
+      "description": "EVA CSS quickstart — install, configure, build. The complete reference lives in /llms.txt for AI consumption.",
+      "ogTitle": "EVA CSS — Documentation",
+      "ogDescription": "Quickstart in three steps. Install, configure, build — full reference in /llms.txt for AI consumption."
     },
     "hero": {
       "eyebrow": "Quickstart",

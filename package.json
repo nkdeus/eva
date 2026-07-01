@@ -22,8 +22,8 @@
     "stylelint-order": "^5.0.0"
   },
   "dependencies": {
-    "eva-colors": "^2.1.0",
-    "eva-css-fluid": "^2.1.0",
-    "eva-css-purge": "^2.1.0"
+    "eva-colors": "^2.2.0",
+    "eva-css-fluid": "^2.3.0",
+    "eva-css-purge": "^2.2.0"
   }
 }

@@ -42,7 +42,11 @@ npx sass --load-path=node_modules styles/main.scss:styles/main.css
 - [Grids](https://eva-css.xyz/framework/grids.html)
 - [Typography](https://eva-css.xyz/framework/fonts.html)
 - [Auto Theme](https://eva-css.xyz/framework/auto-theme.html)
+- [Use Cases](https://eva-css.xyz/use-cases.html)
 - [Figma to EVA](https://eva-css.xyz/figma-to-eva.html)
+- [Tailwind CSS Override](https://eva-css.xyz/use-cases/tailwind.html)
+- [Webflow Fluid](https://eva-css.xyz/use-cases/webflow.html)
+- [Ycode Fluid](https://eva-css.xyz/use-cases/ycode.html)
 
 ## Links
 

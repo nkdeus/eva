@@ -82,18 +82,21 @@ p {
   bottom: calc(50% - calc(var(--52_) / 2));
   right: 1rem;
   z-index: 1000;
-  cursor: pointer;  
+  cursor: pointer;
   background-color: var(--brand__);
+  border: 0;
+  padding: 0;
   border-radius: 50%;
   width: var(--52_);
   height: var(--52_);
   display: flex;
   align-items: center;
   justify-content: center;
+  color: inherit;
   svg{
     width: 50%;
     height: auto;
-    fill: var(--dark);  
+    fill: var(--dark);
   }
 }
 nav {

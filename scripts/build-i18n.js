@@ -34,20 +34,25 @@ const LOCALES = {
 const DEFAULT_LOCALE = 'en';
 
 // Pages to build. Each entry is a path relative to src/.
+// Sitemap priority defaults to 0.7 unless specified here.
 const PAGES = [
-  'index.html',
-  'framework.html',
-  'figma-to-eva.html',
-  'framework/css-fluid.html',
-  'framework/colors.html',
-  'framework/fonts.html',
-  'framework/sizes.html',
-  'framework/grids.html',
-  'framework/flex.html',
-  'framework/gradients.html',
-  'framework/doc.html',
-  'framework/js-calculator.html',
-  'framework/auto-theme.html',
+  { path: 'index.html', sitemapPath: '', priority: 1.0 },
+  { path: 'framework.html', priority: 0.9 },
+  { path: 'figma-to-eva.html', priority: 0.8 },
+  { path: 'use-cases.html', priority: 0.8 },
+  { path: 'use-cases/tailwind.html', priority: 0.7 },
+  { path: 'use-cases/webflow.html', priority: 0.7 },
+  { path: 'use-cases/ycode.html', priority: 0.7 },
+  { path: 'framework/css-fluid.html', priority: 0.8 },
+  { path: 'framework/colors.html', priority: 0.8 },
+  { path: 'framework/fonts.html', priority: 0.7 },
+  { path: 'framework/sizes.html', priority: 0.8 },
+  { path: 'framework/grids.html', priority: 0.7 },
+  { path: 'framework/flex.html', priority: 0.7 },
+  { path: 'framework/gradients.html', priority: 0.7 },
+  { path: 'framework/doc.html', priority: 0.9 },
+  { path: 'framework/js-calculator.html', priority: 0.6 },
+  { path: 'framework/auto-theme.html', priority: 0.7 },
 ];
 
 function loadDict(locale) {
@@ -87,7 +92,8 @@ function render(template, ctx, fallbackDict, page, locale) {
   return out;
 }
 
-function buildPage(page, dicts) {
+function buildPage(pageEntry, dicts) {
+  const page = pageEntry.path;
   const tplPath = path.join(SRC_DIR, page);
   const template = fs.readFileSync(tplPath, 'utf8');
   const pageDir = path.dirname(page) === '.' ? '' : path.dirname(page);
@@ -140,15 +146,56 @@ function buildPage(page, dicts) {
   }
 }
 
+function buildSitemap() {
+  const today = new Date().toISOString().slice(0, 10);
+  const lines = [
+    '<?xml version="1.0" encoding="UTF-8"?>',
+    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"',
+    '        xmlns:xhtml="http://www.w3.org/1999/xhtml">',
+  ];
+
+  for (const entry of PAGES) {
+    const sitemapPath = entry.sitemapPath !== undefined ? entry.sitemapPath : entry.path;
+    const priority = entry.priority != null ? entry.priority : 0.7;
+
+    for (const [locale, config] of Object.entries(LOCALES)) {
+      const localePrefix = config.outDir ? config.outDir + '/' : '';
+      const loc = `${BASE_URL}/${localePrefix}${sitemapPath}`;
+      lines.push('  <url>');
+      lines.push(`    <loc>${loc}</loc>`);
+      lines.push(`    <lastmod>${today}</lastmod>`);
+      lines.push(`    <priority>${priority.toFixed(1)}</priority>`);
+      // xhtml:link rel="alternate" for each locale (Google recommends declaring every variant
+      // including the current one, plus x-default).
+      for (const [otherLocale, otherCfg] of Object.entries(LOCALES)) {
+        const otherPrefix = otherCfg.outDir ? otherCfg.outDir + '/' : '';
+        const href = `${BASE_URL}/${otherPrefix}${sitemapPath}`;
+        lines.push(`    <xhtml:link rel="alternate" hreflang="${otherLocale}" href="${href}"/>`);
+      }
+      const defaultPrefix = LOCALES[DEFAULT_LOCALE].outDir
+        ? LOCALES[DEFAULT_LOCALE].outDir + '/'
+        : '';
+      const defaultHref = `${BASE_URL}/${defaultPrefix}${sitemapPath}`;
+      lines.push(`    <xhtml:link rel="alternate" hreflang="x-default" href="${defaultHref}"/>`);
+      lines.push('  </url>');
+    }
+  }
+  lines.push('</urlset>', '');
+  fs.writeFileSync(path.join(ROOT, 'sitemap.xml'), lines.join('\n'), 'utf8');
+  console.log(`  ✓ sitemap.xml (${PAGES.length} pages × ${Object.keys(LOCALES).length} locales)`);
+}
+
 function main() {
   const dicts = {};
   for (const locale of Object.keys(LOCALES)) dicts[locale] = loadDict(locale);
 
   console.log(`[i18n] Building ${PAGES.length} page(s) × ${Object.keys(LOCALES).length} locale(s)`);
-  for (const page of PAGES) {
-    console.log(`\n[i18n] ${page}`);
-    buildPage(page, dicts);
+  for (const entry of PAGES) {
+    console.log(`\n[i18n] ${entry.path}`);
+    buildPage(entry, dicts);
   }
+  console.log('\n[i18n] Generating sitemap.xml');
+  buildSitemap();
   console.log('\n[i18n] Done.');
 }
 

@@ -1,0 +1,21 @@
+{
+  "name": "EVA CSS",
+  "short_name": "EVA CSS",
+  "description": "Fluid SCSS framework that converts static UI designs into responsive systems using clamp() and OKLCH colors.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#ff8a3d",
+  "icons": [
+    {
+      "src": "/assets/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/assets/imgs/eva.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ]
+}

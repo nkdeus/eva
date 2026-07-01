@@ -50,8 +50,18 @@
   status = 200
 
 [[redirects]]
+  from = "/use-cases.html"
+  to = "/use-cases.html"
+  status = 200
+
+[[redirects]]
   from = "/framework/*.html"
   to = "/framework/:splat.html"
+  status = 200
+
+[[redirects]]
+  from = "/use-cases/*.html"
+  to = "/use-cases/:splat.html"
   status = 200
 
 # French locale fallback (must be before the global SPA fallback)

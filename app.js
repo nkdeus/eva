@@ -381,38 +381,29 @@ function initBurgerMenu() {
   
   if (!burgerButton || !menu) return;
 
+  const setExpanded = (open) => burgerButton.setAttribute('aria-expanded', open ? 'true' : 'false');
+
   burgerButton.addEventListener('click', function() {
-    // Toggle la classe active sur le bouton burger
     burgerButton.classList.toggle('active');
-    
-    // Toggle la classe menu-open sur le menu
     menu.classList.toggle('menu-open');
-    
-    // Optionnel : empêcher le scroll du body quand le menu est ouvert
-    if (menu.classList.contains('menu-open')) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'auto';
-    }
+
+    const isOpen = menu.classList.contains('menu-open');
+    setExpanded(isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : 'auto';
   });
-  
-  // Fermer le menu quand on clique sur un lien
+
+  const closeMenu = () => {
+    burgerButton.classList.remove('active');
+    menu.classList.remove('menu-open');
+    setExpanded(false);
+    document.body.style.overflow = 'auto';
+  };
+
   const menuLinks = menu.querySelectorAll('a');
-  menuLinks.forEach(link => {
-    link.addEventListener('click', function() {
-      burgerButton.classList.remove('active');
-      menu.classList.remove('menu-open');
-      document.body.style.overflow = 'auto';
-    });
-  });
-  
-  // Fermer le menu quand on redimensionne la fenêtre (responsive)
+  menuLinks.forEach(link => link.addEventListener('click', closeMenu));
+
   window.addEventListener('resize', function() {
-    if (window.innerWidth > 768) {
-      burgerButton.classList.remove('active');
-      menu.classList.remove('menu-open');
-      document.body.style.overflow = 'auto';
-    }
+    if (window.innerWidth > 768) closeMenu();
   });
 }
 

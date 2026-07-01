@@ -1,0 +1,1114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EVA CSS — Asset Generator (dev tool)</title>
+    <meta name="robots" content="noindex,nofollow">
+
+    <link rel="stylesheet" href="https://use.typekit.net/vjo0ssd.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Display:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css" />
+    <!-- html-to-image serializes DOM via SVG foreignObject so the browser's own
+         renderer handles modern CSS (oklch, color functions, SVG filters, variable
+         fonts). html2canvas 1.4.1 fails on oklch() — see eva-css theme tokens. -->
+    <script src="https://cdn.jsdelivr.net/npm/html-to-image@1.11.13/dist/html-to-image.min.js"></script>
+
+    <style>
+      /* ---- Generator-only UI (does NOT live in main.scss) ---- */
+      :root {
+        --tb-w: 252px;
+        --grid-pad: 1.25rem;
+        --card-bg: rgba(255,255,255,0.6);
+        --card-border: rgba(0, 0, 0, 0.08);
+        --card-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.06);
+        --tb-bg: rgba(255,255,255,0.92);
+        --tb-text: #1a1a1a;
+        --tb-muted: rgba(26,26,26,0.55);
+        --tb-input-bg: #fff;
+        --tb-input-border: rgba(0,0,0,0.10);
+        --tb-input-bg-active: rgba(0,0,0,0.04);
+      }
+      body.gen-body {
+        margin: 0;
+        font-family: 'Noto Sans Display', system-ui, sans-serif;
+        background: var(--light, #f6f6f6);
+        color: var(--dark, #111);
+      }
+
+      /* Toolbar (sticky left rail, compact card list) */
+      .gen-toolbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: var(--tb-w);
+        padding: 0.75rem;
+        background: var(--tb-bg);
+        backdrop-filter: blur(12px);
+        border-right: 1px solid var(--tb-input-border);
+        overflow-y: auto;
+        z-index: 100;
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        font: 12px/1.4 'Noto Sans Display', system-ui, sans-serif;
+        color: var(--tb-text);
+      }
+      .gen-toolbar::-webkit-scrollbar { width: 6px; }
+      .gen-toolbar::-webkit-scrollbar-thumb { background: var(--tb-input-border); border-radius: 3px; }
+
+      .gen-brand {
+        display: flex; align-items: center; gap: 0.5rem;
+        padding: 0.25rem 0.25rem 0.75rem;
+        border-bottom: 1px solid var(--tb-input-border);
+        margin-bottom: 0.5rem;
+      }
+      .gen-brand-mark {
+        width: 22px; height: 22px;
+        background: var(--brand);
+        border-radius: 6px;
+        flex-shrink: 0;
+      }
+      .gen-brand h1 {
+        margin: 0;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+      }
+
+      .gen-section {
+        padding: 0.65rem 0.25rem;
+        border-bottom: 1px solid var(--tb-input-border);
+        display: flex; flex-direction: column; gap: 0.45rem;
+      }
+      .gen-section:last-child { border-bottom: none; }
+      .gen-section h2 {
+        margin: 0;
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--tb-muted);
+      }
+
+      /* Field row: inline label + value display */
+      .gen-row {
+        display: flex; align-items: center; justify-content: space-between;
+        gap: 0.5rem;
+        font-size: 11px;
+      }
+      .gen-row > label, .gen-row > span:first-child {
+        color: var(--tb-muted);
+      }
+      .gen-row > .gen-row-value {
+        font-variant-numeric: tabular-nums;
+        font-weight: 600;
+        color: var(--tb-text);
+      }
+
+      .gen-toolbar input[type="text"] {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0.4rem 0.55rem;
+        font: inherit;
+        font-size: 12px;
+        line-height: 1.2;
+        border-radius: 6px;
+        border: 1px solid var(--tb-input-border);
+        background: var(--tb-input-bg);
+        color: inherit;
+      }
+      .gen-toolbar input[type="text"]:focus {
+        outline: 2px solid var(--brand_, var(--brand));
+        outline-offset: 0;
+        border-color: transparent;
+      }
+
+      /* Input + adjacent action button (shuffle, etc.) */
+      .gen-input-row { display: flex; gap: 4px; }
+      .gen-input-row > input { flex: 1; min-width: 0; }
+      .gen-btn-icon {
+        flex-shrink: 0;
+        width: 28px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid var(--tb-input-border);
+        border-radius: 6px;
+        background: var(--tb-input-bg);
+        color: var(--tb-text);
+        font-size: 13px;
+        line-height: 1;
+        cursor: pointer;
+        padding: 0;
+        transition: background-color 120ms, color 120ms;
+      }
+      .gen-btn-icon:hover {
+        background: var(--tb-input-bg-active);
+        color: var(--brand);
+      }
+      .gen-btn-icon:active { transform: scale(0.95); }
+
+      /* Range slider (custom, brand-tinted) */
+      .gen-toolbar input[type="range"] {
+        width: 100%;
+        margin: 0;
+        -webkit-appearance: none;
+        appearance: none;
+        background: transparent;
+        height: 18px;
+      }
+      .gen-toolbar input[type="range"]::-webkit-slider-runnable-track {
+        height: 4px;
+        background: var(--tb-input-border);
+        border-radius: 2px;
+      }
+      .gen-toolbar input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 14px; height: 14px; margin-top: -5px;
+        border-radius: 50%;
+        background: var(--brand);
+        border: 2px solid var(--tb-bg);
+        box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        cursor: grab;
+      }
+      .gen-toolbar input[type="range"]:active::-webkit-slider-thumb { cursor: grabbing; }
+      .gen-toolbar input[type="range"]::-moz-range-track {
+        height: 4px; background: var(--tb-input-border); border-radius: 2px;
+      }
+      .gen-toolbar input[type="range"]::-moz-range-thumb {
+        width: 14px; height: 14px;
+        border-radius: 50%;
+        background: var(--brand);
+        border: 2px solid var(--tb-bg);
+        cursor: grab;
+      }
+
+      /* Custom checkbox */
+      .gen-check {
+        display: flex; align-items: center; gap: 0.5rem;
+        font-size: 11px;
+        color: var(--tb-muted);
+        cursor: pointer;
+        user-select: none;
+      }
+      .gen-check input { display: none; }
+      .gen-check::before {
+        content: '';
+        width: 14px; height: 14px;
+        border: 1.5px solid var(--tb-input-border);
+        border-radius: 4px;
+        background: var(--tb-input-bg);
+        flex-shrink: 0;
+        transition: background-color 120ms;
+      }
+      .gen-check.is-checked::before {
+        background: var(--brand);
+        border-color: var(--brand);
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2.5 6.2 5 8.7l4.5-5' fill='none' stroke='white' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+        background-size: 10px;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+      .gen-check.is-checked { color: var(--tb-text); }
+
+      /* Theme list: vertical stack of preset themes, each with a swatch preview */
+      .gen-theme-list {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+      .gen-theme {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        width: 100%;
+        padding: 6px 8px;
+        border: 1px solid var(--tb-input-border);
+        border-radius: 6px;
+        background: var(--tb-input-bg);
+        color: var(--tb-muted);
+        cursor: pointer;
+        text-align: left;
+        font: inherit;
+        font-size: 11px;
+        font-weight: 500;
+        line-height: 1.2;
+        transition: border-color 120ms, background-color 120ms, color 120ms;
+      }
+      .gen-theme:hover {
+        color: var(--tb-text);
+        background: var(--tb-input-bg-active);
+      }
+      .gen-theme[aria-pressed="true"] {
+        border-color: var(--brand);
+        color: var(--tb-text);
+        background: var(--tb-input-bg-active);
+        font-weight: 600;
+      }
+      .gen-theme-swatch {
+        width: 28px;
+        height: 18px;
+        border-radius: 4px;
+        flex-shrink: 0;
+        box-shadow: inset 0 0 0 1px rgba(0,0,0,0.1);
+      }
+
+      .gen-btn {
+        padding: 0.5rem 0.7rem;
+        font: inherit;
+        font-size: 11.5px;
+        font-weight: 600;
+        border-radius: 7px;
+        border: 0;
+        background: var(--brand);
+        color: oklch(15% 0.04 var(--brand-hue, 169));
+        cursor: pointer;
+        line-height: 1;
+        transition: filter 120ms, transform 80ms;
+      }
+      .gen-btn:hover { filter: brightness(1.05); }
+      .gen-btn:active { transform: scale(0.98); }
+      .gen-btn--ghost {
+        background: var(--tb-input-bg);
+        color: var(--tb-text);
+        border: 1px solid var(--tb-input-border);
+      }
+      .gen-btn:disabled { opacity: 0.5; cursor: wait; }
+      .gen-btn-row { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+
+      .gen-help {
+        margin: 0;
+        font-size: 10px;
+        color: var(--tb-muted);
+        line-height: 1.35;
+      }
+
+      /* Main grid */
+      .gen-main {
+        margin-left: var(--tb-w);
+        padding: var(--grid-pad);
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+        gap: 1.5rem;
+      }
+
+      .frame-card {
+        background: var(--card-bg);
+        border: 1px solid var(--card-border);
+        border-radius: 12px;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        box-shadow: var(--card-shadow);
+      }
+      .frame-card header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 0.5rem;
+      }
+      .frame-card h3 { margin: 0; font-size: 13px; font-weight: 700; }
+      .frame-card .frame-meta { font-size: 11px; opacity: 0.6; }
+
+      /* The preview window: a fixed-size viewport that scales the source down. */
+      .frame-preview {
+        position: relative;
+        width: 100%;
+        background: repeating-conic-gradient(rgba(0,0,0,0.04) 0% 25%, rgba(0,0,0,0.02) 0% 50%) 50% / 16px 16px;
+        border-radius: 8px;
+        overflow: hidden;
+        aspect-ratio: var(--ar, 1.91);
+      }
+      .frame-source {
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform-origin: top left;
+        overflow: hidden;
+        /* JS sets transform: scale(N) and width/height to native pixel size */
+      }
+
+      .frame-card footer {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+      }
+      .frame-card .frame-status {
+        font-size: 11px;
+        opacity: 0.6;
+        margin-left: auto;
+        align-self: center;
+      }
+
+      /* ---- Asset visual primitives ---- */
+      /* The .frame-source defines its own theme-eva context so brand/accent/extra resolve. */
+      .frame-source {
+        font-family: var(--title-font), sans-serif;
+        font-feature-settings: "ss01" on;
+      }
+
+      /* One canonical layout: the "logo lockup" centered in the frame.
+         The lockup itself has fixed internal proportions in em units, so the
+         brand mark is identical across every banner frame — only the surrounding
+         frame aspect ratio differs. Icon frames use the same primitive sized
+         to fill the frame. JS sets --pad-px and the lockup font-size inline. */
+      .asset-layout {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: var(--pad-px, 64px);
+        box-sizing: border-box;
+      }
+      .asset-layout--icon {
+        padding: var(--pad-icon-px, 8px);
+      }
+      .logo-lockup {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.12em;
+        line-height: 1;
+        white-space: nowrap;
+      }
+      /* Stacked: square / portrait frames put the wordmark below the blob. */
+      .logo-lockup--stacked {
+        flex-direction: column;
+        gap: 0.10em;
+        text-align: center;
+      }
+      /* Blob is 1.3em (taller than the 1em cap height of the title) so the brand mark
+         reads dominantly next to the wordmark — same proportion on every banner. */
+      .logo-lockup .asset-blob {
+        width: 1.3em;
+        height: 1.3em;
+        font-size: 1em;
+        flex-shrink: 0;
+        --blob-size-px: 1.3em;
+      }
+      .logo-lockup .asset-title {
+        font-size: 1em;
+        margin: 0;
+        line-height: 0.9;
+      }
+
+      /* Backgrounds */
+      .bg-solid    { background: var(--brand); }
+      .bg-gradient { background: linear-gradient(135deg, var(--brand), var(--accent), var(--extra)); }
+      .bg-dark     { background: oklch(8% 0.02 var(--brand-hue, 169)); }
+      .bg-light    { background: oklch(96% 0.01 var(--brand-hue, 169)); }
+      .bg-transparent { background: transparent; }
+
+      /* The static (non-draggable) blob. Sizes are em-relative so the same markup
+         scales with the lockup or the icon frame. Color: balls follow either --brand
+         (default) or the wordmark text tone (themes where --brand clashes with bg). */
+      .frame-source { --asset-blob-color: var(--brand); }
+      .frame-source[data-blob-color="title-light"] { --asset-blob-color: oklch(98% 0.02 var(--brand-hue, 169)); }
+      .frame-source[data-blob-color="title-dark"]  { --asset-blob-color: oklch(15% 0.04 var(--brand-hue, 169)); }
+      .asset-blob {
+        position: relative;
+        flex-shrink: 0;
+        /* The visible-balls centroid drifts with the rotation angle (only 3 of 6
+           balls are scaled large enough to be visible at a time). JS computes the
+           offset so the visible mass stays at the blob's geometric center. */
+        transform: translate(var(--blob-shift-x, 0), var(--blob-shift-y, 0));
+      }
+      .asset-blob .ballzzz {
+        width: 100%;
+        height: 100%;
+        /* Live header geometry, lightly tuned for goo: rayon 35% (was 40%) so
+           visible lobes overlap enough for the goo filter to fuse them into a
+           single fluid blob. The cos-based scale modulation from _ballzzz.scss
+           is preserved — three "in front" lobes + three at scale 0.1 — so the
+           drag-to-rotate dynamics feel exactly like the nav. */
+        --rayonX: calc(var(--blob-size-px, 1em) * 0.35);
+        --rayonY: calc(var(--blob-size-px, 1em) * 0.35);
+        cursor: grab;
+        filter: url(#asset-goo);
+      }
+      .asset-blob .ballzzz.dragging { cursor: grabbing; }
+      .asset-blob .ballzzz .ball {
+        /* Slightly bigger ball (30% vs 25% in live header) for better goo merging
+           at static rest pose; anchor stays asymmetric (cluster center at
+           (47.5%, 54.5%) → live header offset preserved). DO NOT override the
+           cos-based scale rule — three visible balls + three at scale 0.1. */
+        width: 30%;
+        height: 30%;
+        left: 32.5% !important;
+        top: 39.5% !important;
+        background-color: var(--asset-blob-color);
+      }
+      /* When SVG mode is active, hide the HTML balls and show the inline SVG. */
+      .asset-blob .blob-svg { display: none; width: 100%; height: 100%; }
+      .asset-blob .blob-svg circle { fill: var(--asset-blob-color); }
+      .frame-source[data-blob-mode="svg"] .ballzzz { display: none; }
+      .frame-source[data-blob-mode="svg"] .blob-svg { display: block; }
+
+      /* Title — font-size set inline by JS in absolute pixels, computed from frame.w */
+      .asset-title {
+        margin: 0;
+        font-family: var(--title-font), sans-serif;
+        font-weight: 800;
+        font-stretch: 100%;
+        line-height: 0.9;
+        letter-spacing: -0.02em;
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+      .asset-layout--hero .asset-title { white-space: normal; }
+      .asset-tagline {
+        font-family: 'Noto Sans Display', sans-serif;
+        font-weight: 400;
+        margin: 0.35em 0 0;
+        opacity: 0.85;
+        max-width: 90%;
+        line-height: 1.25;
+      }
+
+      /* Title color when bg is light */
+      .frame-source[data-text="dark"] .asset-title,
+      .frame-source[data-text="dark"] .asset-tagline { color: oklch(15% 0.04 var(--brand-hue, 169)); }
+      .frame-source[data-text="light"] .asset-title,
+      .frame-source[data-text="light"] .asset-tagline { color: oklch(98% 0.02 var(--brand-hue, 169)); }
+
+      /* Make the gradient text readable when active. line-height bumped to 1.05
+         because background-clip:text masks the background by the line-box bounds,
+         and tight (0.9) line-height crops the top of tall glyphs (E, V, A, C, S). */
+      .asset-title.grad-linear-text {
+        background: linear-gradient(var(--current-angle, 90deg),
+                                    var(--current-from-color, var(--accent)) 0%,
+                                    var(--current-to-color, var(--extra)) 100%);
+        -webkit-background-clip: text;
+                background-clip: text;
+        -webkit-text-fill-color: transparent;
+                color: transparent;
+        line-height: 1.05;
+      }
+
+      /* Visual states */
+      .gen-toast {
+        position: fixed;
+        right: 1rem;
+        bottom: 1rem;
+        z-index: 200;
+        background: oklch(15% 0.05 var(--brand-hue, 169));
+        color: white;
+        padding: 0.75rem 1rem;
+        border-radius: 8px;
+        font-size: 12px;
+        opacity: 0;
+        transform: translateY(8px);
+        transition: opacity 200ms, transform 200ms;
+        pointer-events: none;
+      }
+      .gen-toast.show { opacity: 1; transform: translateY(0); }
+    </style>
+  </head>
+  <body class="gen-body current-theme theme-eva">
+
+    <!-- Goo filters. stdDeviation values are mutated in JS by the strength slider.
+         #asset-goo applies to the live HTML .ballzzz; #goo-internal applies to the
+         self-contained SVG fallback (html2canvas-safe). -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+      <defs>
+        <filter id="asset-goo" x="-20%" y="-20%" width="140%" height="140%">
+          <feGaussianBlur id="asset-goo-blur" in="SourceGraphic" stdDeviation="4" result="blur" />
+          <feColorMatrix id="asset-goo-matrix" in="blur" mode="matrix"
+            values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" />
+          <feComposite in="SourceGraphic" in2="goo" operator="atop"/>
+        </filter>
+        <filter id="goo-internal" x="-30%" y="-30%" width="160%" height="160%">
+          <feGaussianBlur id="goo-internal-blur" in="SourceGraphic" stdDeviation="8" result="blur" />
+          <feColorMatrix id="goo-internal-matrix" in="blur" mode="matrix"
+            values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" />
+          <feComposite in="SourceGraphic" in2="goo" operator="atop"/>
+        </filter>
+      </defs>
+    </svg>
+
+    <!-- Toolbar -->
+    <aside class="gen-toolbar" aria-label="Generator controls">
+      <header class="gen-brand">
+        <div class="gen-brand-mark"></div>
+        <h1>Asset generator</h1>
+      </header>
+
+      <section class="gen-section">
+        <h2>Brand</h2>
+        <div class="gen-row">
+          <label for="brandHue">Hue</label>
+          <span class="gen-row-value" id="hueValue">169°</span>
+        </div>
+        <input type="range" id="brandHue" min="0" max="359" value="169" aria-label="Brand hue">
+        <p class="gen-help">Accent +120° · extra +240° (triadic)</p>
+      </section>
+
+      <section class="gen-section">
+        <h2>Theme</h2>
+        <div class="gen-theme-list" id="themeList" role="radiogroup" aria-label="Theme preset"></div>
+      </section>
+
+      <section class="gen-section">
+        <h2>Wordmark</h2>
+        <div class="gen-input-row">
+          <input type="text" id="titleText" value="EVA CSS" aria-label="Title text">
+          <button class="gen-btn-icon" id="shuffleTitle" title="Shuffle per-letter weights &amp; widths" aria-label="Shuffle weights">↺</button>
+        </div>
+        <div class="gen-row">
+          <label for="gradAngle">Gradient angle</label>
+          <span class="gen-row-value" id="angleValue">90°</span>
+        </div>
+        <input type="range" id="gradAngle" min="0" max="360" value="90" aria-label="Title gradient angle">
+      </section>
+
+      <section class="gen-section">
+        <h2>Blob</h2>
+        <div class="gen-row">
+          <label for="blobAngle">Pose</label>
+          <span class="gen-row-value" id="blobAngleValue">0°</span>
+        </div>
+        <input type="range" id="blobAngle" min="0" max="360" value="0" aria-label="Blob pose angle">
+        <p class="gen-help">Drag any blob in the preview to rotate.</p>
+        <div class="gen-row">
+          <label for="gooStrength">Goo strength</label>
+          <span class="gen-row-value" id="gooStrengthValue">8</span>
+        </div>
+        <input type="range" id="gooStrength" min="0" max="25" step="0.5" value="8" aria-label="Goo filter strength">
+        <label class="gen-check" id="blobSvgModeLabel">
+          <input type="checkbox" id="blobSvgMode" checked>
+          SVG blob (export-safe)
+        </label>
+      </section>
+
+      <section class="gen-section">
+        <h2>Export</h2>
+        <div class="gen-btn-row">
+          <button class="gen-btn" id="exportAll">All 1×</button>
+          <button class="gen-btn gen-btn--ghost" id="exportAll2x">All 2×</button>
+        </div>
+        <p class="gen-help">Or click any frame's button below.</p>
+      </section>
+    </aside>
+
+    <main class="gen-main" id="framesGrid"><!-- frames are injected by JS --></main>
+
+    <div class="gen-toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script>
+      // ---- Frame catalog ----
+      // type='banner' shows the full lockup (blob + EVA CSS) at a uniform proportion.
+      // type='icon' shows the blob alone, sized to fill (favicons / PWA / iOS).
+      const FRAMES = [
+        { id: 'og-image',          w: 1200, h: 630,  type: 'banner', usage: 'Twitter / FB / LinkedIn (og:image)' },
+        { id: 'og-image-square',   w: 1200, h: 1200, type: 'banner', usage: 'Square fallback / Instagram' },
+        { id: 'twitter-large',     w: 1200, h: 675,  type: 'banner', usage: 'Twitter summary_large_image' },
+        { id: 'linkedin-banner',   w: 1200, h: 627,  type: 'banner', usage: 'LinkedIn 1.91:1' },
+        { id: 'github-social',     w: 1280, h: 640,  type: 'banner', usage: 'GitHub repo Open Graph' },
+        { id: 'apple-touch-icon',  w: 180,  h: 180,  type: 'icon',   blob: 0.78, usage: 'iOS home screen' },
+        { id: 'favicon-32',        w: 32,   h: 32,   type: 'icon',   blob: 0.92, usage: 'Browser tab bitmap' },
+        { id: 'favicon-512',       w: 512,  h: 512,  type: 'icon',   blob: 0.78, usage: 'Hi-res favicon' },
+        { id: 'android-chrome-192',w: 192,  h: 192,  type: 'icon',   blob: 0.78, usage: 'Android (PWA)' },
+        { id: 'android-chrome-512',w: 512,  h: 512,  type: 'icon',   blob: 0.78, usage: 'Android PWA hi-res' },
+      ];
+
+      // Lockup natural width in em (blob 1.3em + gap 0.30em + title width).
+      // Measured empirically for "EVA CSS" in Typekit "scale-variable" weight 800.
+      const TITLE_EM_WIDTH = 4.4;
+      const LOCKUP_INLINE_EM_W = 1.3 + 0.30 + TITLE_EM_WIDTH; // 6.0
+      const LOCKUP_INLINE_EM_H = 1.3;
+      // Stacked: blob on top, title centered below (square / portrait frames)
+      const LOCKUP_STACKED_EM_W = Math.max(1.3, TITLE_EM_WIDTH);  // 4.4
+      const LOCKUP_STACKED_EM_H = 1.3 + 0.30 + 0.9;               // ~2.5
+      const LOCKUP_PAD_RATIO = 0.08;          // 8% padding each side
+      const LOCKUP_MAX_HEIGHT_RATIO = 0.78;   // lockup height ≤ 78% of frame height
+      // Aspect ratio threshold: ≥ 1.30 → inline, < 1.30 → stacked.
+      const STACKED_AR_THRESHOLD = 1.30;
+
+      // ---- Theme presets ----
+      // Each theme bundles a coherent set of choices (bg + gradient on/off + text tone).
+      // Picking a preset is one click instead of three; presets that wouldn't make sense
+      // together (e.g. gradient bg + gradient title) are simply absent.
+      // blobColor: 'brand' (default brand-colored balls) | 'title' (balls match the
+      // wordmark text color — used when brand would clash with the bg: gradient-bg
+      // shares its first stop with --brand, brand-solid IS --brand).
+      const THEMES = [
+        { id: 'dark-gradient', label: 'Dark + Gradient title', bg: 'dark',        gradOn: true,  textTone: 'light', blobColor: 'brand' },
+        { id: 'gradient-bg',   label: 'Gradient background',   bg: 'gradient',    gradOn: false, textTone: 'light', blobColor: 'title' },
+        { id: 'brand-solid',   label: 'Brand solid',           bg: 'solid',       gradOn: false, textTone: 'dark',  blobColor: 'title' },
+        { id: 'light-gradient',label: 'Light + Gradient title',bg: 'light',       gradOn: true,  textTone: 'dark',  blobColor: 'brand' },
+        { id: 'mono-dark',     label: 'Dark + Mono title',     bg: 'dark',        gradOn: false, textTone: 'light', blobColor: 'brand' },
+        { id: 'transparent',   label: 'Transparent',           bg: 'transparent', gradOn: true,  textTone: 'dark',  blobColor: 'brand' },
+      ];
+      function getTheme() { return THEMES.find(t => t.id === state.themeId) || THEMES[0]; }
+      // Live-tinted swatch (follows brand-hue slider).
+      function swatchCss(theme) {
+        switch (theme.id) {
+          case 'dark-gradient':  return 'linear-gradient(110deg, oklch(8% 0.02 var(--brand-hue,169)) 0%, oklch(8% 0.02 var(--brand-hue,169)) 50%, var(--accent) 100%)';
+          case 'gradient-bg':    return 'linear-gradient(135deg, var(--brand), var(--accent), var(--extra))';
+          case 'brand-solid':    return 'var(--brand)';
+          case 'light-gradient': return 'linear-gradient(110deg, oklch(96% 0.01 var(--brand-hue,169)) 0%, oklch(96% 0.01 var(--brand-hue,169)) 50%, var(--accent) 100%)';
+          case 'mono-dark':      return 'oklch(8% 0.02 var(--brand-hue,169))';
+          case 'transparent':    return 'repeating-conic-gradient(rgba(0,0,0,0.18) 0% 25%, #fff 0% 50%) 50% / 8px 8px';
+          default:               return 'var(--brand)';
+        }
+      }
+
+      // ---- State ----
+      const state = {
+        brandHue: 169,
+        themeId: 'dark-gradient',
+        title: 'EVA CSS',
+        gradAngle: 90,
+        blobAngle: 0,
+        gooStrength: 8,        // % of blob diameter (matches the live header's 2.5px / 32px ratio)
+        blobSvgMode: true,     // SVG default: filter scales with rendering, html-to-image-safe
+      };
+
+      // ---- DOM helpers ----
+      const $ = sel => document.querySelector(sel);
+      const grid = $('#framesGrid');
+      const toast = $('#toast');
+
+      function notify(msg) {
+        toast.textContent = msg;
+        toast.classList.add('show');
+        clearTimeout(notify._t);
+        notify._t = setTimeout(() => toast.classList.remove('show'), 2000);
+      }
+
+      // ---- Build the source HTML for one frame ----
+      // Layout decision: 'icon' frames show the blob alone; banner frames split into
+      //   - inline  (landscape, AR ≥ 1.30): blob + wordmark side by side
+      //   - stacked (square / portrait,  AR < 1.30): blob on top, wordmark centered below
+      function frameHTML(frame) {
+        const theme = getTheme();
+        const isIcon = frame.type === 'icon';
+        const bgClass = 'bg-' + theme.bg;
+
+        const minDim = Math.min(frame.w, frame.h);
+        const padPx = Math.round(minDim * 0.10);            // banner padding
+        const padIconPx = Math.max(2, Math.round(minDim * 0.06));
+
+        const svgBlob = buildSvgBlob();
+        const layoutStyle = `--pad-px:${padPx}px;--pad-icon-px:${padIconPx}px`;
+
+        if (isIcon) {
+          const blobPx = Math.round(minDim * (frame.blob || 0.78));
+          const blobStyle = `width:${blobPx}px;height:${blobPx}px;--blob-size-px:${blobPx}px;font-size:${blobPx}px`;
+          return `
+            <div class="asset-layout asset-layout--icon ${bgClass}" style="${layoutStyle}">
+              ${blobMarkup(blobStyle, svgBlob)}
+            </div>`;
+        }
+
+        // Banner: pick inline (landscape) or stacked (square/portrait) per aspect ratio.
+        const aspect = frame.w / frame.h;
+        const stacked = aspect < STACKED_AR_THRESHOLD;
+        const naturalW = stacked ? LOCKUP_STACKED_EM_W : LOCKUP_INLINE_EM_W;
+        const naturalH = stacked ? LOCKUP_STACKED_EM_H : LOCKUP_INLINE_EM_H;
+        const maxByWidth  = (frame.w * (1 - 2 * LOCKUP_PAD_RATIO)) / naturalW;
+        const maxByHeight = (frame.h * LOCKUP_MAX_HEIGHT_RATIO) / naturalH;
+        const lockupFs = Math.floor(Math.min(maxByWidth, maxByHeight));
+
+        const gradCls = theme.gradOn ? ' grad-linear-text' : '';
+        const titleStyle = theme.gradOn ? `--current-angle:${state.gradAngle}deg` : '';
+        const titleInner = getRandomizedTitleHTML(state.title);
+        const titleHTML = `<h2 class="asset-title${gradCls} from-accent to-extra" style="${titleStyle}">${titleInner}</h2>`;
+
+        const lockupCls = 'logo-lockup' + (stacked ? ' logo-lockup--stacked' : '');
+        const blobInLockupStyle = '--blob-size-px:1em';
+        return `
+          <div class="asset-layout ${bgClass}" style="${layoutStyle}">
+            <div class="${lockupCls}" style="font-size:${lockupFs}px">
+              ${blobMarkup(blobInLockupStyle, svgBlob)}
+              ${titleHTML}
+            </div>
+          </div>`;
+      }
+
+      // Visible-balls centroid for the current rotation. With the cos-modulated scale
+      // formula, only ~3 of the 6 balls are at scale > 0.1 at any angle — and they
+      // cluster on one side of the bounds. We offset the blob by (50% - centroid)
+      // so the visible mass sits at the geometric center, no matter the angle.
+      // Result: icons look centered; banners' visible mass aligns with the title.
+      function getBlobOpticalOffset(angleDeg) {
+        const a = angleDeg * Math.PI / 180;
+        const cx = 47.5, cy = 54.5, rayon = 35;
+        let sumX = 0, sumY = 0, sumW = 0;
+        for (let i = 0; i < 6; i++) {
+          const indexRad = (2 * Math.PI / 6) * i;
+          const scale = Math.max(Math.cos(a + (175 * Math.PI / 180) + indexRad) + 0.35, 0.1);
+          if (scale <= 0.15) continue;             // invisible ball, skip
+          const x = cx + Math.cos(a + indexRad) * rayon;
+          const y = cy + Math.sin(a + indexRad) * rayon;
+          const w = scale * scale;                  // weight ∝ visible area
+          sumX += x * w; sumY += y * w; sumW += w;
+        }
+        if (sumW === 0) return { dx: 0, dy: 0 };
+        return { dx: 50 - sumX / sumW, dy: 50 - sumY / sumW };  // % offset
+      }
+      function applyBlobOpticalOffset() {
+        const { dx, dy } = getBlobOpticalOffset(state.blobAngle);
+        document.body.style.setProperty('--blob-shift-x', `${dx.toFixed(2)}%`);
+        document.body.style.setProperty('--blob-shift-y', `${dy.toFixed(2)}%`);
+      }
+
+      // Bake the live SCSS formula into an SVG so the export looks exactly like the
+      // header logo. Six balls, indices 0..5 (60° apart). Each ball has:
+      //   translate = (cos(angle + index) × rayon, sin(angle + index) × rayon)
+      //   scale     = max(cos(angle + 175° + index) + 0.35, 0.1)
+      // The asymmetric anchor (left:35%, top:42% in CSS) maps to a cluster center
+      // at (47.5%, 54.5%) of the viewBox, which we replicate here.
+      function buildSvgBlob() {
+        const max = 6;
+        const cx = 47.5, cy = 54.5;            // cluster center (asymmetric, like live)
+        const rayon = 35;                       // 35% of viewBox = matches CSS --rayonX
+        const baseR = 15;                       // ball radius at scale=1 (30% diameter / 2)
+        const a = state.blobAngle * Math.PI / 180;
+        const balls = [];
+        for (let i = 0; i < max; i++) {
+          const indexRad = (2 * Math.PI / max) * i;
+          const x = cx + Math.cos(a + indexRad) * rayon;
+          const y = cy + Math.sin(a + indexRad) * rayon;
+          const scale = Math.max(Math.cos(a + (175 * Math.PI / 180) + indexRad) + 0.35, 0.1);
+          const r = baseR * scale;
+          balls.push(`<circle cx="${x.toFixed(2)}" cy="${y.toFixed(2)}" r="${r.toFixed(2)}"/>`);
+        }
+        return `
+          <svg class="blob-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="overflow:visible">
+            <g filter="url(#goo-internal)">${balls.join('')}</g>
+          </svg>`;
+      }
+
+      function blobMarkup(extraStyle, svgBlob) {
+        const max = 6;
+        return `
+          <div class="asset-blob" style="${extraStyle}">
+            <div class="ballzzz por" style="--max:${max};--angle:${state.blobAngle}">
+              ${[...Array(max)].map((_, i) =>
+                `<div class="ball poa ar-1 circle _bg-brand" style="--offset:${i}"></div>`
+              ).join('')}
+            </div>
+            ${svgBlob}
+          </div>`;
+      }
+
+      function escapeHtml(s) {
+        return String(s).replace(/[&<>"']/g, c => ({
+          '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+        }[c]));
+      }
+
+      // Per-letter randomized font-weight (fwg-1..8) and font-width (fwd-1..13),
+      // wrapped in <span class="f-scale"> so the variable axes from main.css kick in.
+      // Same idea as randomTitle() in app.js but cached by text so the wordmark stays
+      // stable across re-renders (drag / hue / theme changes). Re-roll via shuffleTitle.
+      let titleRandomCache = { text: null, html: '' };
+      function getRandomizedTitleHTML(text) {
+        if (titleRandomCache.text === text) return titleRandomCache.html;
+        let html = '';
+        for (const char of text) {
+          if (char.trim() !== '') {
+            const fwg = Math.floor(Math.random() * 8) + 1;
+            const fwd = Math.floor(Math.random() * 13) + 1;
+            html += `<span class="fwg-${fwg} fwd-${fwd} f-scale">${escapeHtml(char)}</span>`;
+          } else {
+            html += '<span class="f-scale">&nbsp;</span>';
+          }
+        }
+        titleRandomCache = { text, html };
+        return html;
+      }
+      function shuffleTitle() {
+        titleRandomCache = { text: null, html: '' };  // bust cache → next render re-rolls
+        renderAll();
+      }
+
+      // ---- Build / update DOM ----
+      function buildGrid() {
+        grid.innerHTML = '';
+        for (const f of FRAMES) {
+          const ar = (f.w / f.h).toFixed(4);
+          const card = document.createElement('article');
+          card.className = 'frame-card';
+          card.dataset.format = f.id;
+          card.innerHTML = `
+            <header>
+              <div>
+                <h3>${f.id}.png</h3>
+                <div class="frame-meta">${f.w}×${f.h} · ${f.usage}</div>
+              </div>
+            </header>
+            <div class="frame-preview" style="--ar:${ar}">
+              <div class="frame-source"
+                   data-w="${f.w}" data-h="${f.h}"
+                   data-blob-mode="${state.blobSvgMode ? 'svg' : 'css'}"
+                   data-text="light"
+                   style="width:${f.w}px;height:${f.h}px;"></div>
+            </div>
+            <footer>
+              <button class="gen-btn" data-action="export" data-id="${f.id}" data-scale="1">Export PNG</button>
+              <button class="gen-btn gen-btn--ghost" data-action="export" data-id="${f.id}" data-scale="2">@2×</button>
+              <span class="frame-status"></span>
+            </footer>
+          `;
+          grid.appendChild(card);
+        }
+        renderAll();
+        scheduleResize();
+        applyGooStrength();
+        initBlobDrag();
+      }
+
+      // Pointer-based rotation, delegated on the grid so re-renders don't break it.
+      // Drag any blob to rotate the global angle (matches the header's feel: 0.5°/px).
+      let dragInited = false;
+      function initBlobDrag() {
+        if (dragInited) return;
+        dragInited = true;
+        grid.addEventListener('pointerdown', e => {
+          const blob = e.target.closest('.asset-blob');
+          if (!blob) return;
+          e.preventDefault();
+          const startX = e.clientX;
+          const startY = e.clientY;
+          const startAngle = state.blobAngle;
+          const ballzzz = blob.querySelector('.ballzzz');
+          ballzzz && ballzzz.classList.add('dragging');
+          try { blob.setPointerCapture(e.pointerId); } catch (_) {}
+
+          const move = ev => {
+            const dx = ev.clientX - startX;
+            const dy = ev.clientY - startY;
+            const distance = Math.hypot(dx, dy) * (dx < 0 ? -1 : 1);
+            setBlobAngle(startAngle + distance * 0.5);
+          };
+          const up = ev => {
+            ballzzz && ballzzz.classList.remove('dragging');
+            try { blob.releasePointerCapture(e.pointerId); } catch (_) {}
+            window.removeEventListener('pointermove', move);
+            window.removeEventListener('pointerup', up);
+            window.removeEventListener('pointercancel', up);
+          };
+          window.addEventListener('pointermove', move);
+          window.addEventListener('pointerup', up);
+          window.addEventListener('pointercancel', up);
+        });
+      }
+
+      function renderAll() {
+        const theme = getTheme();
+        const blobColorMode = theme.blobColor === 'title' ? `title-${theme.textTone}` : 'brand';
+        for (const f of FRAMES) {
+          const card = grid.querySelector(`.frame-card[data-format="${f.id}"]`);
+          if (!card) continue;
+          const src = card.querySelector('.frame-source');
+          src.innerHTML = frameHTML(f);
+          src.dataset.blobMode = state.blobSvgMode ? 'svg' : 'css';
+          src.dataset.text = theme.textTone;
+          src.dataset.blobColor = blobColorMode;
+        }
+      }
+
+      function applyHues() {
+        const accent = (state.brandHue + 120) % 360;
+        const extra  = (state.brandHue + 240) % 360;
+        document.body.style.setProperty('--brand-hue', state.brandHue);
+        document.body.style.setProperty('--accent-hue', accent);
+        document.body.style.setProperty('--extra-hue', extra);
+      }
+
+      // Scale the live preview down to fit the card width.
+      function scalePreviews() {
+        for (const card of grid.querySelectorAll('.frame-card')) {
+          const preview = card.querySelector('.frame-preview');
+          const source = card.querySelector('.frame-source');
+          if (!preview || !source) continue;
+          const cardW = preview.clientWidth;
+          if (!cardW) continue;
+          const nativeW = parseInt(source.dataset.w, 10);
+          const scale = cardW / nativeW;
+          source.style.transform = `scale(${scale})`;
+        }
+      }
+      let resizeRaf = 0;
+      function scheduleResize() {
+        cancelAnimationFrame(resizeRaf);
+        resizeRaf = requestAnimationFrame(scalePreviews);
+      }
+      window.addEventListener('resize', scheduleResize);
+
+      // ---- Toolbar wiring ----
+      $('#brandHue').addEventListener('input', e => {
+        state.brandHue = parseInt(e.target.value, 10);
+        $('#hueValue').textContent = state.brandHue + '°';
+        applyHues();
+      });
+      $('#gradAngle').addEventListener('input', e => {
+        state.gradAngle = parseInt(e.target.value, 10);
+        $('#angleValue').textContent = state.gradAngle + '°';
+        renderAll();
+      });
+      $('#blobAngle').addEventListener('input', e => {
+        setBlobAngle(parseInt(e.target.value, 10));
+      });
+      $('#gooStrength').addEventListener('input', e => {
+        state.gooStrength = parseFloat(e.target.value);
+        $('#gooStrengthValue').textContent = state.gooStrength;
+        applyGooStrength();
+      });
+
+      function setBlobAngle(deg) {
+        // Normalize to [0, 360)
+        const a = ((deg % 360) + 360) % 360;
+        state.blobAngle = a;
+        $('#blobAngleValue').textContent = Math.round(a) + '°';
+        $('#blobAngle').value = a;
+        // Cheap update: poke --angle on every live ballzzz without re-rendering DOM
+        for (const ballzzz of grid.querySelectorAll('.asset-blob .ballzzz')) {
+          ballzzz.style.setProperty('--angle', a);
+        }
+        // Re-center the visible cluster (offset cascades via body CSS variables)
+        applyBlobOpticalOffset();
+        // Re-render only when SVG mode is on (positions are baked into the SVG markup)
+        if (state.blobSvgMode) renderAll();
+      }
+
+      function applyGooStrength() {
+        const v = state.gooStrength;
+        // SVG-mode filter: stdDeviation lives in viewBox (0-100), so the slider value
+        // represents "% of blob diameter" — same look at any frame size.
+        const blurInternal = document.getElementById('goo-internal-blur');
+        if (blurInternal) blurInternal.setAttribute('stdDeviation', v.toFixed(2));
+        // HTML-mode filter: stdDeviation is in CSS pixels — only correct for one
+        // particular blob size. Kept for users who toggle off SVG mode; bias toward
+        // the banner blob size so it doesn't blow out small favicons too hard.
+        const blur = document.getElementById('asset-goo-blur');
+        if (blur) blur.setAttribute('stdDeviation', (v * 1.5).toFixed(2));
+      }
+      $('#titleText').addEventListener('input', e => {
+        state.title = e.target.value;
+        // text changed → cache miss in getRandomizedTitleHTML → new per-letter classes
+        renderAll();
+      });
+      $('#shuffleTitle').addEventListener('click', shuffleTitle);
+
+      // Custom checkbox: keep the .is-checked class on the parent label in sync
+      // with the input's checked state so the CSS-rendered checkmark updates.
+      function bindCheck(id, key, after) {
+        const input = document.getElementById(id);
+        if (!input) return;
+        const label = input.closest('.gen-check');
+        const sync = () => label && label.classList.toggle('is-checked', input.checked);
+        input.addEventListener('change', () => {
+          state[key] = input.checked;
+          sync();
+          after && after();
+        });
+        sync();
+      }
+      bindCheck('blobSvgMode', 'blobSvgMode', renderAll);
+
+      // Theme list: build buttons + click handler
+      function buildThemeList() {
+        const list = $('#themeList');
+        list.innerHTML = THEMES.map(t => `
+          <button class="gen-theme" data-theme-id="${t.id}"
+                  aria-pressed="${state.themeId === t.id ? 'true' : 'false'}">
+            <span class="gen-theme-swatch" style="background:${swatchCss(t)}"></span>
+            <span>${t.label}</span>
+          </button>`).join('');
+        list.addEventListener('click', e => {
+          const btn = e.target.closest('.gen-theme');
+          if (!btn) return;
+          state.themeId = btn.dataset.themeId;
+          list.querySelectorAll('.gen-theme').forEach(b => {
+            b.setAttribute('aria-pressed', b.dataset.themeId === state.themeId ? 'true' : 'false');
+          });
+          renderAll();
+        });
+      }
+
+      // ---- Export ----
+      async function ensureFontsReady() {
+        if (document.fonts && document.fonts.ready) {
+          try { await document.fonts.ready; } catch (_) {}
+        }
+      }
+
+      async function exportFrame(id, scale) {
+        const card = grid.querySelector(`.frame-card[data-format="${id}"]`);
+        const source = card.querySelector('.frame-source');
+        const status = card.querySelector('.frame-status');
+        const meta = FRAMES.find(f => f.id === id);
+        const px = parseInt(scale, 10) || 1;
+
+        const originalTransform = source.style.transform;
+        source.style.transform = 'scale(1)';
+
+        status.textContent = 'capturing…';
+        await ensureFontsReady();
+
+        let dataUrl;
+        try {
+          dataUrl = await htmlToImage.toPng(source, {
+            width: meta.w,
+            height: meta.h,
+            pixelRatio: px,
+            backgroundColor: getTheme().bg === 'transparent' ? undefined : null,
+            cacheBust: true,
+            // Speed up: only inline styles we know the source needs (eva-css)
+          });
+        } catch (err) {
+          status.textContent = 'error';
+          source.style.transform = originalTransform;
+          notify('Export failed: ' + err.message);
+          return;
+        } finally {
+          source.style.transform = originalTransform;
+        }
+
+        const a = Object.assign(document.createElement('a'), {
+          href: dataUrl,
+          download: `${id}${px > 1 ? '@' + px + 'x' : ''}.png`,
+        });
+        a.click();
+        status.textContent = `✓ ${meta.w * px}×${meta.h * px}`;
+      }
+
+      grid.addEventListener('click', e => {
+        const btn = e.target.closest('button[data-action="export"]');
+        if (!btn) return;
+        exportFrame(btn.dataset.id, btn.dataset.scale);
+      });
+
+      $('#exportAll').addEventListener('click', async () => {
+        for (const f of FRAMES) {
+          await exportFrame(f.id, 1);
+        }
+        notify('Exported all PNGs at 1×');
+      });
+      $('#exportAll2x').addEventListener('click', async () => {
+        for (const f of FRAMES) {
+          await exportFrame(f.id, 2);
+        }
+        notify('Exported all PNGs at 2×');
+      });
+
+      // ---- Init ----
+      applyHues();
+      applyBlobOpticalOffset();
+      buildThemeList();
+      buildGrid();
+      // Re-scale once after fonts/styles settle
+      window.addEventListener('load', () => requestAnimationFrame(scalePreviews));
+    </script>
+  </body>
+</html>
