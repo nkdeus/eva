@@ -2,7 +2,7 @@
 
 > A fluid SCSS framework that converts static UI designs into responsive systems using CSS clamp() and OKLCH colors.
 
-Version: 2.0.5
+Version: 2.3.0
 Website: https://eva-css.xyz
 GitHub: https://github.com/nkdeus/eva
 npm packages: eva-css-fluid, eva-css-purge, eva-colors
@@ -42,6 +42,10 @@ Build: `npx sass --load-path=node_modules styles/main.scss:styles/main.css`
 | `$px-rem-suffix` | Add px/rem static utilities (debug-friendly) |
 | `$name-by-size` | `true`: `--32`, `false`: sequential `--3` |
 | `$custom-class` | Filter generated classes |
+| `$unit-fluid` (v2.2.0+) | Fluid unit + fallback: `1vw` (default) \| `1cqi` |
+| `$reference-width` (v2.2.0+) | Width where tokens hit their max (default `1440`) |
+| `$fluid-runtime` (v2.2.0+) | `true` (default): runtime `--eva-fluid-unit` form. `false`: old literal output, byte-for-byte |
+| `$min-font-size` (v2.2.0+) | Accessibility readability floor in px (default `0` = off) |
 
 ---
 
@@ -81,6 +85,25 @@ Only generates CSS custom properties. Write semantic CSS:
 ```scss
 .hero { padding: var(--64); font-size: var(--32); color: var(--brand); }
 ```
+
+### Runtime Fluid Unit — vw ↔ cqi (v2.2.0+)
+
+One stylesheet, two fluid modes. Every EVA token resolves through a switchable custom property, `--eva-fluid-unit`, instead of a unit baked in at build time. Default is `1vw` (tracks the real browser viewport) — identical output to pre-2.2.0 versions. Override it per-subtree to `1cqi` and that subtree tracks its own container width instead:
+
+```css
+.card {
+  container-type: inline-size;   /* make .card a size container */
+  --eva-fluid-unit: 1cqi;        /* EVA tokens inside now read .card's width */
+}
+```
+
+Opt-in utility classes do both steps in one class:
+- `.eva-cqi` — sets `container-type: inline-size` + `--eva-fluid-unit: 1cqi` on the element itself.
+- `.eva-root` — same, meant for a top-level wrapper.
+
+**Accessibility floor** — `$min-font-size` (px, default `0` = off) stops fluid text from shrinking below a readable size in a small container or on mobile. This is the *mobile* floor, not the desktop size — 13–14px is a sane default.
+
+**Backward compatibility** — 100%. No `--eva-fluid-unit` set → falls back to `1vw` → same computed value as pre-2.2.0. `$fluid-runtime: false` reproduces the old literal output byte-for-byte.
 
 ---
 

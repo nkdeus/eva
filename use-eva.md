@@ -528,12 +528,44 @@ If you remove `15` from `$sizes` (because you fused it into `16`), every existin
 **Fusion regex catches more than spacing**
 `\b60px\b` matches `60px` anywhere — including blur radii (`box-shadow: 0 20px 60px ...`), gradient stops, and JS string literals (`return '27px'`). Most catches are harmless (1–4px diff in a shadow blur is invisible), but always dry-run the script and read every occurrence in context before `--apply`.
 
-## 13. Reference
+## 13. Fluid unit: vw vs cqi, and the accessibility floor (v2.2.0+)
+
+By default every EVA token tracks the real browser **viewport** (`vw`). Since `eva-css-fluid@2.2.0`, that's switchable at runtime — no rebuild, no second stylesheet — via a custom property:
+
+```scss
+@use 'eva-css-fluid' with (
+  $sizes: (4, 8, 16, 24, 48),
+  $font-sizes: (16, 24, 48),
+  $unit-fluid: 1vw,        // default. Use 1cqi to track containers instead
+  $reference-width: 1440,  // width where tokens hit their max — was hardcoded pre-2.2.0
+  $min-font-size: 14        // a11y floor in px (mobile size, not desktop) — 0 = off
+);
+```
+
+Per-subtree, override the same thing at the CSS level — no SCSS recompile needed:
+
+```css
+.card {
+  container-type: inline-size;   /* .card becomes a size container */
+  --eva-fluid-unit: 1cqi;        /* tokens inside .card now read its own width */
+}
+```
+
+Two opt-in utility classes wire both declarations at once, so you don't forget one half: `.eva-cqi` (on the element that should become the container) and `.eva-root` (same, for a top-level wrapper).
+
+**When to reach for `cqi` instead of `vw`:** any component whose size should depend on *the box it's placed in*, not the page — a card that renders identically whether it sits in a full-width hero or a narrow sidebar, a design-system preview panel, or a widget embedded at an unknown width. `vw` (the default) is right for page-level type and spacing that should genuinely respond to the whole viewport.
+
+**Accessibility floor** — `$min-font-size` (px, default `0` = off) prevents fluid text from shrinking below a readable size in a small container or on a small phone. This floor is the *mobile* size, not the desktop one: 13–14px is a reasonable default, not 16.
+
+**Backward compatibility** — 100%. No `--eva-fluid-unit` set anywhere falls back to `1vw`, producing the exact same computed value as before 2.2.0. Set `$fluid-runtime: false` to get the pre-2.2.0 literal `clamp()` output byte-for-byte, if you need to diff against an old build.
+
+## 14. Reference
 
 - Sizes: every value in `$sizes` → `var(--N)`, `var(--N-)`, `var(--N_)`, `var(--N__)`
 - Font sizes: every value in `$font-sizes` → `var(--fs-N)`, `var(--fs-N_)`, `var(--fs-N__)` — note the `fs-` prefix, font-size tokens are namespaced separately from sizing tokens
-- Reference viewport: `1440px` (sizes hit their max value at this width)
+- Reference viewport: `1440px` by default, configurable via `$reference-width` since v2.2.0 (sizes hit their max value at this width)
 - Default min/max scaling: `0.5rem` → `1rem` (configurable)
+- Fluid unit: `vw` (viewport, default) or `cqi` (container) via `$unit-fluid` / `--eva-fluid-unit` — see §13
 - Colors: `var(--brand)`, `var(--accent)`, `var(--extra)`, `var(--light)`, `var(--dark)`
 - Color modifiers — opacity: `_` 65%, `__` 35%, `___` 15%; brightness: `-d` darker, `-b` brighter, `-d_` more darker, `-b_` more brighter
 - Theme classes on the active root element: `.current-theme` (always), `.theme-{name}` (active palette), `.toggle-theme` (dark mode)

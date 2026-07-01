@@ -25,6 +25,7 @@ npx sass --load-path=node_modules styles/main.scss:styles/main.css
 ## Key Concepts
 
 - **Fluid Sizes**: `var(--64)` scales fluidly. Modifiers: `var(--64_)` (reduced), `var(--64__)` (extreme), `var(--64-)` (extended)
+- **Runtime Fluid Unit** (v2.2.0+): tokens track `vw` (viewport, default) or `cqi` (container) via `--eva-fluid-unit` — switch a subtree with `.eva-cqi`/`.eva-root`, no rebuild. `$min-font-size` sets an accessibility readability floor.
 - **OKLCH Colors**: `var(--brand)`, `var(--accent)`, `var(--extra)`, `var(--dark)`, `var(--light)` with opacity (`var(--brand_)` 65%, `var(--brand__)` 35%) and brightness variants (`var(--brand-d)`, `var(--brand-b)`)
 - **Two Build Modes**: Utility classes (`$build-class: true`) or CSS variables only (`$build-class: false`)
 - **Gradient System**: Emmet-style classes like `grad-linear from-brand to-accent d-br animated`

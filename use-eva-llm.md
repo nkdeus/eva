@@ -41,7 +41,29 @@ For each `N` in `$sizes`:
 
 For each `N` in `$font-sizes`: `var(--fs-N)`, `var(--fs-N_)`, `var(--fs-N__)` — namespaced separately. **`var(--N)` ≠ `var(--fs-N)`**.
 
-Reference viewport: `1440px` (sizes hit max here). Default scaling: `0.5rem` → `1rem`.
+Reference viewport: `1440px` by default (sizes hit max here), configurable via `$reference-width` since v2.2.0. Default scaling: `0.5rem` → `1rem`.
+
+## Fluid unit: vw vs cqi, a11y floor (v2.2.0+)
+
+Default unit is `vw` (real viewport) — identical output to pre-2.2.0. Switch to `cqi` (container) globally or per-subtree, no rebuild:
+
+```scss
+@use 'eva-css-fluid' with (
+  $unit-fluid: 1vw,        // default; 1cqi to track containers
+  $reference-width: 1440,  // width where tokens hit max
+  $min-font-size: 14        // a11y floor in px, mobile size — 0 = off
+);
+```
+
+```css
+.card { container-type: inline-size; --eva-fluid-unit: 1cqi; } /* tokens in .card now read its own width */
+```
+
+Utility classes: `.eva-cqi` / `.eva-root` set `container-type` + the `cqi` override in one class. Use `cqi` for components whose size should depend on the box they're in (design-system previews, embeddable widgets, sidebar-vs-hero cards), `vw` (default) for page-level type/spacing.
+
+`$min-font-size` (px, default `0` = off) is a readability floor for fluid text — the *mobile* size, not desktop (13–14px is sane).
+
+100% backward compatible: no `--eva-fluid-unit` set → falls back to `1vw`, same computed value as before. `$fluid-runtime: false` reproduces the pre-2.2.0 literal output byte-for-byte.
 
 ## When to adopt
 
@@ -180,7 +202,8 @@ Use `var(--N)` for paddings, gaps, font-sizes — layout breathes by itself. Med
 
 - Sizes: every value in `$sizes` → `var(--N)`, `var(--N-)`, `var(--N_)`, `var(--N__)`
 - Font sizes: every value in `$font-sizes` → `var(--fs-N)`, `var(--fs-N_)`, `var(--fs-N__)` — `fs-` prefix, separate namespace
-- Reference viewport: `1440px` (sizes hit max). Default min/max: `0.5rem` → `1rem`
+- Reference viewport: `1440px` by default, configurable via `$reference-width` since v2.2.0 (sizes hit max there). Default min/max: `0.5rem` → `1rem`
+- Fluid unit: `vw` (viewport, default) or `cqi` (container) via `$unit-fluid` / `--eva-fluid-unit`; `$min-font-size` a11y floor — see "Fluid unit: vw vs cqi" above
 - Colors: `var(--brand)`, `var(--accent)`, `var(--extra)`, `var(--light)`, `var(--dark)`
 - Color modifiers — opacity: `_` 65%, `__` 35%, `___` 15%; brightness: `-d` darker, `-b` brighter, `-d_` / `-b_` more
 - Theme classes (on `<html>`): `.current-theme` (always), `.theme-NAME` (active palette), `.toggle-theme` (dark mode)
