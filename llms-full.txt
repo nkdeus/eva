@@ -130,13 +130,74 @@ colors: {
 | `var(--brand)` | Base brand color |
 | `var(--brand_)` | 65% opacity |
 | `var(--brand__)` | 35% opacity |
-| `var(--brand___)` | 5% opacity |
+| `var(--brand___)` | 15% opacity |
 | `var(--brand-d)` | Darker variant |
 | `var(--brand-b)` | Brighter variant |
 | `var(--brand-d_)` | More darker |
 | `var(--brand-b_)` | More brighter |
 
 Same pattern for `accent`, `extra`, `dark`, `light`.
+
+The two axes do not cross: there is no opacity variant of a brightness step (no `--brand-d__`).
+
+### Brightness Steps (per-role, since 2.4)
+
+Every brightness variant is computed from the base lightness:
+
+```
+lightness = base + absolute offset + (bound - base) * ratio
+```
+
+Four global offsets drive the four steps. They flip with the theme mode, because `-d` means
+"more contrast against the background", not "darker in absolute terms":
+
+| Step | Token | Light mode | Dark mode | Bound (light) | Bound (dark) |
+|------|-------|-----------|-----------|---------------|--------------|
+| `-d` | `--darker` | `-5%` | `10%` | `0%` | `100%` |
+| `-b` | `--brighter` | `10%` | `-5%` | `100%` | `0%` |
+| `-d_` | `--darker_` | `-15%` | `30%` | `0%` | `100%` |
+| `-b_` | `--brighter_` | `30%` | `-15%` | `100%` | `0%` |
+
+Each step reads a per-role token first and falls back to the global one:
+
+| Form | Scope | Default | Role |
+|------|-------|---------|------|
+| `--<base>-<token>` | per role | *(unset)* | replaces the global absolute offset |
+| `--<base>-<token>-ratio` | per role | `0` | share of the remaining headroom |
+| `--<token>-ratio` | global | `0` | same, for all 5 bases |
+| `--<base>-<token>-bound` | per role | *(unset)* | target a different bound |
+| `--<token>-bound` | global | see table | bound of the step, follows the mode |
+
+`<base>` is `brand`, `accent`, `extra`, `dark`, `light`. `<token>` is `darker`, `brighter`, `darker_`, `brighter_`.
+
+Why the ratio exists: OKLCH lightness is clamped to `0%–100%`. With `--light-lightness: 96.4%`,
+both `--light-b` (106.4%) and `--light-b_` (126.4%) clamp to pure white — two steps, one color.
+It is symmetric: in dark mode `--dark-d` and `--dark-d_` collapse together on black.
+
+```css
+/* Tight neutrals, wide accent — only the named step moves */
+.current-theme {
+  --dark-darker:  -2%;
+  --dark-brighter: 4%;
+  --accent-brighter_: 12%;
+}
+
+/* Steps that never saturate — absolute part at 0 = purely proportional */
+.current-theme {
+  --light-brighter:  0%;  --light-brighter-ratio:  .35;
+  --light-brighter_: 0%;  --light-brighter_-ratio: .7;
+}
+
+/* Both terms add up: a guaranteed minimum plus a share of the headroom */
+.current-theme {
+  --dark-darker: -2%;
+  --dark-darker-ratio: .3;
+}
+```
+
+Gotcha: `--dark-hue` and `--light-hue` default to `var(--brand-hue)`, with chroma `0.05` and `0.1`.
+Ink and background are therefore tinted by the brand. Set those chromas to `0`, or pin the hues
+explicitly, for truly neutral ink. A generated theme writes the hues in full already.
 
 ### Theme Configuration
 

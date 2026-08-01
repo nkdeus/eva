@@ -6177,6 +6177,14 @@
   --brighter: 10%;
   --darker_: -15%;
   --brighter_: 30%;
+  --darker-bound: 0%;
+  --brighter-bound: 100%;
+  --darker_-bound: 0%;
+  --brighter_-bound: 100%;
+  --darker-ratio: 0;
+  --brighter-ratio: 0;
+  --darker_-ratio: 0;
+  --brighter_-ratio: 0;
 }
 
 .current-theme {
@@ -6185,46 +6193,46 @@
   --brand_: oklch(var(--root-brand) / 65%);
   --brand__: oklch(var(--root-brand) / 35%);
   --brand___: oklch(var(--root-brand) / 15%);
-  --brand-d: oklch(calc(var(--brand-lightness) + var(--darker)) var(--brand-chroma) var(--brand-hue));
-  --brand-b: oklch(calc(var(--brand-lightness) + var(--brighter)) var(--brand-chroma) var(--brand-hue));
-  --brand-d_: oklch(calc(var(--brand-lightness) + var(--darker_)) var(--brand-chroma) var(--brand-hue));
-  --brand-b_: oklch(calc(var(--brand-lightness) + var(--brighter_)) var(--brand-chroma) var(--brand-hue));
+  --brand-d: oklch(calc(var(--brand-lightness) + var(--brand-darker, var(--darker)) + (var(--brand-darker-bound, var(--darker-bound)) - var(--brand-lightness)) * var(--brand-darker-ratio, var(--darker-ratio, 0))) var(--brand-chroma) var(--brand-hue));
+  --brand-b: oklch(calc(var(--brand-lightness) + var(--brand-brighter, var(--brighter)) + (var(--brand-brighter-bound, var(--brighter-bound)) - var(--brand-lightness)) * var(--brand-brighter-ratio, var(--brighter-ratio, 0))) var(--brand-chroma) var(--brand-hue));
+  --brand-d_: oklch(calc(var(--brand-lightness) + var(--brand-darker_, var(--darker_)) + (var(--brand-darker_-bound, var(--darker_-bound)) - var(--brand-lightness)) * var(--brand-darker_-ratio, var(--darker_-ratio, 0))) var(--brand-chroma) var(--brand-hue));
+  --brand-b_: oklch(calc(var(--brand-lightness) + var(--brand-brighter_, var(--brighter_)) + (var(--brand-brighter_-bound, var(--brighter_-bound)) - var(--brand-lightness)) * var(--brand-brighter_-ratio, var(--brighter_-ratio, 0))) var(--brand-chroma) var(--brand-hue));
   --root-accent: var(--accent-lightness) var(--accent-chroma) var(--accent-hue);
   --accent: oklch(var(--root-accent));
   --accent_: oklch(var(--root-accent) / 65%);
   --accent__: oklch(var(--root-accent) / 35%);
   --accent___: oklch(var(--root-accent) / 15%);
-  --accent-d: oklch(calc(var(--accent-lightness) + var(--darker)) var(--accent-chroma) var(--accent-hue));
-  --accent-b: oklch(calc(var(--accent-lightness) + var(--brighter)) var(--accent-chroma) var(--accent-hue));
-  --accent-d_: oklch(calc(var(--accent-lightness) + var(--darker_)) var(--accent-chroma) var(--accent-hue));
-  --accent-b_: oklch(calc(var(--accent-lightness) + var(--brighter_)) var(--accent-chroma) var(--accent-hue));
+  --accent-d: oklch(calc(var(--accent-lightness) + var(--accent-darker, var(--darker)) + (var(--accent-darker-bound, var(--darker-bound)) - var(--accent-lightness)) * var(--accent-darker-ratio, var(--darker-ratio, 0))) var(--accent-chroma) var(--accent-hue));
+  --accent-b: oklch(calc(var(--accent-lightness) + var(--accent-brighter, var(--brighter)) + (var(--accent-brighter-bound, var(--brighter-bound)) - var(--accent-lightness)) * var(--accent-brighter-ratio, var(--brighter-ratio, 0))) var(--accent-chroma) var(--accent-hue));
+  --accent-d_: oklch(calc(var(--accent-lightness) + var(--accent-darker_, var(--darker_)) + (var(--accent-darker_-bound, var(--darker_-bound)) - var(--accent-lightness)) * var(--accent-darker_-ratio, var(--darker_-ratio, 0))) var(--accent-chroma) var(--accent-hue));
+  --accent-b_: oklch(calc(var(--accent-lightness) + var(--accent-brighter_, var(--brighter_)) + (var(--accent-brighter_-bound, var(--brighter_-bound)) - var(--accent-lightness)) * var(--accent-brighter_-ratio, var(--brighter_-ratio, 0))) var(--accent-chroma) var(--accent-hue));
   --root-extra: var(--extra-lightness) var(--extra-chroma) var(--extra-hue);
   --extra: oklch(var(--root-extra));
   --extra_: oklch(var(--root-extra) / 65%);
   --extra__: oklch(var(--root-extra) / 35%);
   --extra___: oklch(var(--root-extra) / 15%);
-  --extra-d: oklch(calc(var(--extra-lightness) + var(--darker)) var(--extra-chroma) var(--extra-hue));
-  --extra-b: oklch(calc(var(--extra-lightness) + var(--brighter)) var(--extra-chroma) var(--extra-hue));
-  --extra-d_: oklch(calc(var(--extra-lightness) + var(--darker_)) var(--extra-chroma) var(--extra-hue));
-  --extra-b_: oklch(calc(var(--extra-lightness) + var(--brighter_)) var(--extra-chroma) var(--extra-hue));
+  --extra-d: oklch(calc(var(--extra-lightness) + var(--extra-darker, var(--darker)) + (var(--extra-darker-bound, var(--darker-bound)) - var(--extra-lightness)) * var(--extra-darker-ratio, var(--darker-ratio, 0))) var(--extra-chroma) var(--extra-hue));
+  --extra-b: oklch(calc(var(--extra-lightness) + var(--extra-brighter, var(--brighter)) + (var(--extra-brighter-bound, var(--brighter-bound)) - var(--extra-lightness)) * var(--extra-brighter-ratio, var(--brighter-ratio, 0))) var(--extra-chroma) var(--extra-hue));
+  --extra-d_: oklch(calc(var(--extra-lightness) + var(--extra-darker_, var(--darker_)) + (var(--extra-darker_-bound, var(--darker_-bound)) - var(--extra-lightness)) * var(--extra-darker_-ratio, var(--darker_-ratio, 0))) var(--extra-chroma) var(--extra-hue));
+  --extra-b_: oklch(calc(var(--extra-lightness) + var(--extra-brighter_, var(--brighter_)) + (var(--extra-brighter_-bound, var(--brighter_-bound)) - var(--extra-lightness)) * var(--extra-brighter_-ratio, var(--brighter_-ratio, 0))) var(--extra-chroma) var(--extra-hue));
   --root-dark: var(--dark-lightness) var(--dark-chroma) var(--dark-hue);
   --dark: oklch(var(--root-dark));
   --dark_: oklch(var(--root-dark) / 65%);
   --dark__: oklch(var(--root-dark) / 35%);
   --dark___: oklch(var(--root-dark) / 15%);
-  --dark-d: oklch(calc(var(--dark-lightness) + var(--darker)) var(--dark-chroma) var(--dark-hue));
-  --dark-b: oklch(calc(var(--dark-lightness) + var(--brighter)) var(--dark-chroma) var(--dark-hue));
-  --dark-d_: oklch(calc(var(--dark-lightness) + var(--darker_)) var(--dark-chroma) var(--dark-hue));
-  --dark-b_: oklch(calc(var(--dark-lightness) + var(--brighter_)) var(--dark-chroma) var(--dark-hue));
+  --dark-d: oklch(calc(var(--dark-lightness) + var(--dark-darker, var(--darker)) + (var(--dark-darker-bound, var(--darker-bound)) - var(--dark-lightness)) * var(--dark-darker-ratio, var(--darker-ratio, 0))) var(--dark-chroma) var(--dark-hue));
+  --dark-b: oklch(calc(var(--dark-lightness) + var(--dark-brighter, var(--brighter)) + (var(--dark-brighter-bound, var(--brighter-bound)) - var(--dark-lightness)) * var(--dark-brighter-ratio, var(--brighter-ratio, 0))) var(--dark-chroma) var(--dark-hue));
+  --dark-d_: oklch(calc(var(--dark-lightness) + var(--dark-darker_, var(--darker_)) + (var(--dark-darker_-bound, var(--darker_-bound)) - var(--dark-lightness)) * var(--dark-darker_-ratio, var(--darker_-ratio, 0))) var(--dark-chroma) var(--dark-hue));
+  --dark-b_: oklch(calc(var(--dark-lightness) + var(--dark-brighter_, var(--brighter_)) + (var(--dark-brighter_-bound, var(--brighter_-bound)) - var(--dark-lightness)) * var(--dark-brighter_-ratio, var(--brighter_-ratio, 0))) var(--dark-chroma) var(--dark-hue));
   --root-light: var(--light-lightness) var(--light-chroma) var(--light-hue);
   --light: oklch(var(--root-light));
   --light_: oklch(var(--root-light) / 65%);
   --light__: oklch(var(--root-light) / 35%);
   --light___: oklch(var(--root-light) / 15%);
-  --light-d: oklch(calc(var(--light-lightness) + var(--darker)) var(--light-chroma) var(--light-hue));
-  --light-b: oklch(calc(var(--light-lightness) + var(--brighter)) var(--light-chroma) var(--light-hue));
-  --light-d_: oklch(calc(var(--light-lightness) + var(--darker_)) var(--light-chroma) var(--light-hue));
-  --light-b_: oklch(calc(var(--light-lightness) + var(--brighter_)) var(--light-chroma) var(--light-hue));
+  --light-d: oklch(calc(var(--light-lightness) + var(--light-darker, var(--darker)) + (var(--light-darker-bound, var(--darker-bound)) - var(--light-lightness)) * var(--light-darker-ratio, var(--darker-ratio, 0))) var(--light-chroma) var(--light-hue));
+  --light-b: oklch(calc(var(--light-lightness) + var(--light-brighter, var(--brighter)) + (var(--light-brighter-bound, var(--brighter-bound)) - var(--light-lightness)) * var(--light-brighter-ratio, var(--brighter-ratio, 0))) var(--light-chroma) var(--light-hue));
+  --light-d_: oklch(calc(var(--light-lightness) + var(--light-darker_, var(--darker_)) + (var(--light-darker_-bound, var(--darker_-bound)) - var(--light-lightness)) * var(--light-darker_-ratio, var(--darker_-ratio, 0))) var(--light-chroma) var(--light-hue));
+  --light-b_: oklch(calc(var(--light-lightness) + var(--light-brighter_, var(--brighter_)) + (var(--light-brighter_-bound, var(--brighter_-bound)) - var(--light-lightness)) * var(--light-brighter_-ratio, var(--brighter_-ratio, 0))) var(--light-chroma) var(--light-hue));
 }
 
 ._c-brand {
@@ -6878,6 +6886,10 @@
   --brighter: -5%;
   --darker_: 30%;
   --brighter_: -15%;
+  --darker-bound: 100%;
+  --brighter-bound: 0%;
+  --darker_-bound: 100%;
+  --brighter_-bound: 0%;
   --current-lightness: 5%;
   --current-darkness: 95%;
   --dark-lightness: var(--current-darkness) !important;

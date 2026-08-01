@@ -559,7 +559,55 @@ Two opt-in utility classes wire both declarations at once, so you don't forget o
 
 **Backward compatibility** — 100%. No `--eva-fluid-unit` set anywhere falls back to `1vw`, producing the exact same computed value as before 2.2.0. Set `$fluid-runtime: false` to get the pre-2.2.0 literal `clamp()` output byte-for-byte, if you need to diff against an old build.
 
-## 14. Reference
+## 14. Per-role brightness steps (v2.4.0+)
+
+The four brightness variants (`-d`, `-b`, `-d_`, `-b_`) used to read four **global** offsets shared by all five bases. Since `eva-css-fluid@2.4.0` each base can override its own, and each step can take a **proportional** share of the headroom instead of a fixed offset:
+
+```
+lightness = base + absolute offset + (bound − base) × ratio
+```
+
+| Form | Scope | Default | Role |
+|------|-------|---------|------|
+| `--<base>-<token>` | per role | *(unset)* | replaces the global absolute offset |
+| `--<base>-<token>-ratio` | per role | `0` | share of the remaining headroom |
+| `--<token>-ratio` | global | `0` | same, for all 5 bases |
+| `--<base>-<token>-bound` | per role | *(unset)* | target a different bound |
+| `--<token>-bound` | global | `0%` / `100%`, flips with the mode | the limit the step pushes toward |
+
+`<base>` ∈ `brand`, `accent`, `extra`, `dark`, `light` — `<token>` ∈ `darker`, `brighter`, `darker_`, `brighter_`.
+
+**Why the ratio exists.** OKLCH lightness is clamped to `0%–100%`. With `--light-lightness: 96.4%`, `--light-b` computes to `106.4%` and `--light-b_` to `126.4%` — both clamp to pure white. Two steps, one color. It's symmetric: in dark mode `--dark-d` and `--dark-d_` collapse together on black. On every neutral, in every mode, 2 of the 4 steps were unusable — precisely on `dark` and `light`, the two most used bases.
+
+```css
+/* Tight neutrals, wide accent — only the named step moves, --dark-b_ keeps the global value */
+.current-theme {
+  --dark-darker:  -2%;
+  --dark-brighter: 4%;
+  --accent-brighter_: 12%;
+}
+
+/* Steps that never saturate — absolute part at 0 = purely proportional, holds in both modes */
+.current-theme {
+  --light-brighter:  0%;  --light-brighter-ratio:  .35;
+  --light-brighter_: 0%;  --light-brighter_-ratio: .7;
+}
+
+/* Both terms add up — a guaranteed minimum plus a share of what's left */
+.current-theme {
+  --dark-darker: -2%;
+  --dark-darker-ratio: .3;
+}
+```
+
+**Notes:**
+
+- **`--darker` is positive in dark mode.** Not a bug: dark ink is *light* (95%) there, and `-d` means "more contrast against the background", not "darker in absolute terms". The steps describe a relation — which is also why the bounds flip with the mode.
+- **Backward compatible.** Nothing to change: as long as a per-role token is unset the native `var()` fallback lands on the original global value, and the ratio defaults to `0` so its term cancels out. Same computed values in both modes.
+- **Scope it like a theme.** These are plain custom properties — set them on `.current-theme`, or on any nested element that also carries `.current-theme` to preview a variation in place (same trick as §8's preview swatches).
+- **The two axes don't cross.** Opacity (`_`, `__`, `___`) and brightness (`-d`, `-b`, …) are independent; there's no `--dark-d` at 35%. Fades are inlined at build time from `$fade-values`, with no runtime control.
+
+## 15. Reference
 
 - Sizes: every value in `$sizes` → `var(--N)`, `var(--N-)`, `var(--N_)`, `var(--N__)`
 - Font sizes: every value in `$font-sizes` → `var(--fs-N)`, `var(--fs-N_)`, `var(--fs-N__)` — note the `fs-` prefix, font-size tokens are namespaced separately from sizing tokens
@@ -568,6 +616,7 @@ Two opt-in utility classes wire both declarations at once, so you don't forget o
 - Fluid unit: `vw` (viewport, default) or `cqi` (container) via `$unit-fluid` / `--eva-fluid-unit` — see §13
 - Colors: `var(--brand)`, `var(--accent)`, `var(--extra)`, `var(--light)`, `var(--dark)`
 - Color modifiers — opacity: `_` 65%, `__` 35%, `___` 15%; brightness: `-d` darker, `-b` brighter, `-d_` more darker, `-b_` more brighter
+- Brightness steps: tunable per role since v2.4.0 via `--<base>-<token>` / `-ratio` / `-bound` — see §14
 - Theme classes on the active root element: `.current-theme` (always), `.theme-{name}` (active palette), `.toggle-theme` (dark mode)
 
 Full docs: <https://eva-css.xyz/>

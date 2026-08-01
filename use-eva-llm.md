@@ -170,6 +170,30 @@ Toggle: `root.classList.toggle('toggle-theme', dark)` on `<html>`. Re-apply on `
 
 For first-paint flash before JS attaches the class: keep a static `:root { --color-bg: #...; ... }` HEX fallback.
 
+## Brightness steps per role (v2.4.0+)
+
+`lightness = base + absolute offset + (bound − base) × ratio`. Each of the four steps (`-d`, `-b`, `-d_`, `-b_`) reads a per-role token first, falling back to the global one. `<base>` ∈ `brand|accent|extra|dark|light`, `<token>` ∈ `darker|brighter|darker_|brighter_`.
+
+| Form | Scope | Default |
+|------|-------|---------|
+| `--<base>-<token>` | per role | *(unset)* → global `--<token>` |
+| `--<base>-<token>-ratio` / `--<token>-ratio` | per role / global | `0` (term cancels out) |
+| `--<base>-<token>-bound` / `--<token>-bound` | per role / global | `0%` / `100%`, flips with the mode |
+
+```css
+.current-theme {
+  --dark-darker: -2%; --dark-brighter: 4%;   /* tight neutrals */
+  --accent-brighter_: 12%;                   /* wide accent, only this step moves */
+
+  --light-brighter:  0%; --light-brighter-ratio:  .35;   /* proportional: never clips */
+  --light-brighter_: 0%; --light-brighter_-ratio: .7;
+}
+```
+
+Why: OKLCH lightness is clamped to `0–100%`. At `--light-lightness: 96.4%`, `--light-b` (106.4%) and `--light-b_` (126.4%) both clamp to white — two steps, one color. Symmetric in dark mode on `--dark-d` / `--dark-d_`. A ratio makes the step take a share of the remaining headroom instead, so it stays in gamut.
+
+Gotchas: `--darker` is **positive** in dark mode (`-d` = more contrast with the background, not darker in absolute terms). `--dark-hue` / `--light-hue` default to `var(--brand-hue)` with chroma `0.05` / `0.1`, so ink and background are brand-tinted — zero the chromas or pin the hues for neutral. Opacity and brightness don't cross: no `--dark-d` at 35%.
+
 ## Layout (responsive without breakpoints)
 
 Use `var(--N)` for paddings, gaps, font-sizes — layout breathes by itself. Media queries only for **structural** topology changes (1col → 2col → 3col), never for spacing or typography:
@@ -206,6 +230,7 @@ Use `var(--N)` for paddings, gaps, font-sizes — layout breathes by itself. Med
 - Fluid unit: `vw` (viewport, default) or `cqi` (container) via `$unit-fluid` / `--eva-fluid-unit`; `$min-font-size` a11y floor — see "Fluid unit: vw vs cqi" above
 - Colors: `var(--brand)`, `var(--accent)`, `var(--extra)`, `var(--light)`, `var(--dark)`
 - Color modifiers — opacity: `_` 65%, `__` 35%, `___` 15%; brightness: `-d` darker, `-b` brighter, `-d_` / `-b_` more
+- Brightness steps tunable per role since v2.4.0 — `--<base>-<token>`, `-ratio`, `-bound` — see "Brightness steps per role"
 - Theme classes (on `<html>`): `.current-theme` (always), `.theme-NAME` (active palette), `.toggle-theme` (dark mode)
 
 ## Verify visually

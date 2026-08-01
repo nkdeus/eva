@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "eva-colors": "^2.2.0",
-    "eva-css-fluid": "^2.3.0",
+    "eva-css-fluid": "^2.4.0",
     "eva-css-purge": "^2.2.0"
   }
 }

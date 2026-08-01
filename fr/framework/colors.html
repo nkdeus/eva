@@ -221,7 +221,7 @@ _bc-brand    /* bordure */</pre>
         <pre class="fs-12 _bg-dark__ p-16 br-8" style="color: var(--light); margin: 0;">brand     /* plein */
 brand_    /* 65% */
 brand__   /* 35% */
-brand___  /* 5% */</pre>
+brand___  /* 15% */</pre>
       </div>
       <div class="framework-card flex y g-12 p-32 _bg-light br-12">
         <span class="fs-12 _c-accent">Modificateurs de luminosité</span>
@@ -253,13 +253,13 @@ brand-b_  /* clair vif */</pre>
       </div>
       <div class="framework-card flex y g-12 p-32 _bg-light br-12">
         <span class="fs-12 _c-accent">Comment --dark et --light se branchent</span>
-        <p class="fs-14 _c-dark_">--dark et --light référencent le pivot. Inversez le pivot, tous les consommateurs basculent d'un coup — même chroma et même teinte OKLCH, luminosité inversée.</p>
+        <p class="fs-14 _c-dark_">--dark et --light référencent le pivot. Inversez le pivot, tous les consommateurs basculent d'un coup — même chroma et même teinte OKLCH, luminosité inversée. Ce sont les défauts de :root ; un thème surcharge le chroma et la teinte.</p>
         <pre class="fs-12 _bg-dark__ p-16 br-8" style="color: var(--light); margin: 0;">--dark-lightness:  var(--current-darkness);
 --dark-chroma:     0.05;
 --dark-hue:        var(--brand-hue);
 
 --light-lightness: var(--current-lightness);
---light-chroma:    0.01;
+--light-chroma:    0.1;
 --light-hue:       var(--brand-hue);</pre>
       </div>
     </div>
@@ -274,7 +274,7 @@ brand-b_  /* clair vif */</pre>
                     --light: oklch(96.4% 0.01 var(--brand-hue));
                     --dark_: oklch(6.4% 0.05 var(--brand-hue) / 65%);
                     --dark__: oklch(6.4% 0.05 var(--brand-hue) / 35%);
-                    --dark___: oklch(6.4% 0.05 var(--brand-hue) / 5%);
+                    --dark___: oklch(6.4% 0.05 var(--brand-hue) / 15%);
                     --light_: oklch(96.4% 0.01 var(--brand-hue) / 65%);">
           <span class="fs-14 bold _c-dark">Mode clair (forcé)</span>
           <div class="flex x g-12 wrap">
@@ -290,7 +290,7 @@ brand-b_  /* clair vif */</pre>
                     --light: oklch(5% 0.01 var(--brand-hue));
                     --dark_: oklch(95% 0.05 var(--brand-hue) / 65%);
                     --dark__: oklch(95% 0.05 var(--brand-hue) / 35%);
-                    --dark___: oklch(95% 0.05 var(--brand-hue) / 5%);
+                    --dark___: oklch(95% 0.05 var(--brand-hue) / 15%);
                     --light_: oklch(5% 0.01 var(--brand-hue) / 65%);">
           <span class="fs-14 bold _c-dark">Mode sombre (forcé)</span>
           <div class="flex x g-12 wrap">
@@ -321,6 +321,154 @@ brand-b_  /* clair vif */</pre>
       <span class="fs-12 _c-accent">La règle</span>
       <p class="fs-16 _c-dark maw-768">Écrivez _c-dark _bg-light et oubliez les modes. Le pivot s'occupe du reste — votre code de composant reste identique dans les deux états.</p>
       <p class="fs-14 _c-brand maw-768">Essayez — cliquez l'icône soleil en haut à droite de cette page. Toutes les nuances ci-dessus basculent d'un coup.</p>
+    </div>
+  </section>
+
+  <section id="brightness-roles" class="px-220__ py-84 flex y g-32">
+    <div class="flex y g-20">
+      <p class="fs-12 _c-accent">Nouveau en 2.4</p>
+      <h2 class="fs-52__ _bg-brand pr-356__ lh-1 ttu fwd-4 f-scale offset"><span class="_c-light">Luminosité par rôle</span></h2>
+      <p class="fs-16 _c-dark_ maw-768">Les quatre crans de luminosité étaient quatre décalages globaux partagés par les cinq bases. Chaque base peut désormais surcharger les siens — et passer en cran proportionnel, qui ne sature jamais.</p>
+    </div>
+
+    <div class="grid auto-fit-356- gap-32 w-full">
+      <div class="framework-card flex y g-12 p-32 _bg-light br-12">
+        <span class="fs-12 _c-accent">Deux crans, une seule couleur</span>
+        <p class="fs-12 _c-dark_">La lightness OKLCH est écrêtée à 0–100 %. Avec --light-lightness à 96,4 %, les deux crans clairs tombent exactement sur le même blanc.</p>
+        <pre class="fs-12 _bg-dark__ p-16 br-8" style="color: var(--light); margin: 0;">--light-b   = 96.4% + 10%  = 106.4%  →  100%
+--light-b_  = 96.4% + 30%  = 126.4%  →  100%</pre>
+        <p class="fs-12 _c-dark__">Et c'est symétrique : en mode sombre, --dark-d et --dark-d_ s'effondrent ensemble sur le noir. Sur chaque neutre, dans chaque mode, 2 des 4 crans étaient inutilisables — précisément sur dark et light, les deux bases les plus sollicitées.</p>
+      </div>
+      <div class="framework-card flex y g-12 p-32 _bg-light br-12">
+        <span class="fs-12 _c-accent">La formule</span>
+        <p class="fs-12 _c-dark_">Chaque cran lit d'abord son token de rôle, puis retombe sur le token global. Le terme proportionnel est opt-in : le ratio vaut 0 par défaut, donc son terme s'annule et le comportement absolu ne bouge pas.</p>
+        <pre class="fs-12 _bg-dark__ p-16 br-8" style="color: var(--light); margin: 0;">lightness = base
+          + décalage absolu
+          + (butée − base) × ratio</pre>
+        <p class="fs-12 _c-dark__">La butée est la limite vers laquelle le cran pousse — 100 % pour un cran éclaircissant, 0 % pour un cran assombrissant. Elle s'inverse avec le mode, comme les décalages.</p>
+      </div>
+    </div>
+
+    <div class="flex y g-20 w-full">
+      <div class="flex y g-8">
+        <span class="fs-16 bold _c-dark">Absolu contre proportionnel</span>
+        <p class="fs-12 _c-dark__ maw-768">Même base, mêmes deux crans. À gauche les décalages absolus par défaut, à droite les mêmes crans passés en proportionnel. Basculez le thème — ça tient dans les deux modes.</p>
+      </div>
+
+      <div class="grid auto-fit-356- gap-32 w-full">
+        <div class="current-theme framework-card flex y g-20 p-32 _bg-light br-12">
+          <span class="fs-12 _c-accent">Absolu — le défaut</span>
+          <div class="flex x g-12 wrap">
+            <div class="flex y g-8">
+              <div class="w-84 h-84 br-8 _bg-light" data-l-swatch style="border: 1px solid var(--dark__);"></div>
+              <span class="fs-12 bold _c-dark">light</span>
+              <span class="fs-10 _c-dark__"><span data-l-out>—</span></span>
+            </div>
+            <div class="flex y g-8">
+              <div class="w-84 h-84 br-8 _bg-light-b" data-l-swatch style="border: 1px solid var(--dark__);"></div>
+              <span class="fs-12 bold _c-dark">light-b</span>
+              <span class="fs-10 _c-dark__"><span data-l-out>—</span></span>
+            </div>
+            <div class="flex y g-8">
+              <div class="w-84 h-84 br-8 _bg-light-b_" data-l-swatch style="border: 1px solid var(--dark__);"></div>
+              <span class="fs-12 bold _c-dark">light-b_</span>
+              <span class="fs-10 _c-dark__"><span data-l-out>—</span></span>
+            </div>
+          </div>
+          <p class="fs-12 _c-dark__">Les deux crans clairs saturent. Une seule couleur, affichée deux fois.</p>
+        </div>
+
+        <div class="current-theme framework-card flex y g-20 p-32 _bg-light br-12"
+             style="--light-brighter: 0%;
+                    --light-brighter-ratio: .35;
+                    --light-brighter_: 0%;
+                    --light-brighter_-ratio: .7;">
+          <span class="fs-12 _c-accent">Proportionnel — opt-in</span>
+          <div class="flex x g-12 wrap">
+            <div class="flex y g-8">
+              <div class="w-84 h-84 br-8 _bg-light" data-l-swatch style="border: 1px solid var(--dark__);"></div>
+              <span class="fs-12 bold _c-dark">light</span>
+              <span class="fs-10 _c-dark__"><span data-l-out>—</span></span>
+            </div>
+            <div class="flex y g-8">
+              <div class="w-84 h-84 br-8 _bg-light-b" data-l-swatch style="border: 1px solid var(--dark__);"></div>
+              <span class="fs-12 bold _c-dark">light-b</span>
+              <span class="fs-10 _c-dark__"><span data-l-out>—</span></span>
+            </div>
+            <div class="flex y g-8">
+              <div class="w-84 h-84 br-8 _bg-light-b_" data-l-swatch style="border: 1px solid var(--dark__);"></div>
+              <span class="fs-12 bold _c-dark">light-b_</span>
+              <span class="fs-10 _c-dark__"><span data-l-out>—</span></span>
+            </div>
+          </div>
+          <p class="fs-12 _c-dark__">Chaque cran prend une part de la marge restante. Toujours distincts, toujours dans le gamut.</p>
+        </div>
+      </div>
+
+      <p class="fs-10 _c-dark__ maw-768">Chaque nuance affiche la lightness OKLCH réellement peinte, relue depuis le navigateur. La carte de droite porte quatre custom properties en inline — rien d'autre ne change, même markup, mêmes classes.</p>
+      <pre class="fs-12 _bg-dark__ p-16 br-8" style="color: var(--light); margin: 0;">--light-brighter:  0%;  --light-brighter-ratio:  .35;
+--light-brighter_: 0%;  --light-brighter_-ratio: .7;</pre>
+    </div>
+
+    <div class="framework-card flex y g-12 p-32 _bg-light br-12">
+      <span class="fs-12 _c-accent">Les tokens</span>
+      <p class="fs-12 _c-dark_">&lt;base&gt; vaut brand, accent, extra, dark ou light. &lt;token&gt; vaut darker, brighter, darker_ ou brighter_.</p>
+      <pre class="fs-12 _bg-dark__ p-16 br-8" style="color: var(--light); margin: 0;">--&lt;base&gt;-&lt;token&gt;         /* décalage absolu par rôle */
+--&lt;base&gt;-&lt;token&gt;-ratio   /* part proportionnelle par rôle */
+--&lt;base&gt;-&lt;token&gt;-bound   /* butée visée par rôle */
+
+--&lt;token&gt;-ratio           /* global, vaut 0 par défaut */
+--&lt;token&gt;-bound           /* global, suit le mode */</pre>
+    </div>
+
+    <div class="flex y g-20 w-full">
+      <span class="fs-16 bold _c-dark">Recettes</span>
+      <div class="grid auto-fit-356- gap-32 w-full">
+        <div class="framework-card flex y g-12 p-32 _bg-light br-12">
+          <span class="fs-12 _c-accent">Neutres resserrés, accent large</span>
+          <p class="fs-12 _c-dark_">Le cas le plus courant : les neutres veulent des pas de 2 à 4 points pour rester lisibles, l'accent en veut 12 à 30 pour marquer ses états.</p>
+          <pre class="fs-12 _bg-dark__ p-16 br-8" style="color: var(--light); margin: 0;">.current-theme {
+  --dark-darker:  -2%;
+  --dark-brighter: 4%;
+
+  --accent-brighter_: 12%;
+}</pre>
+          <p class="fs-12 _c-dark__">Seul le cran nommé bouge. --dark-b_ continue d'utiliser le --brighter_ global.</p>
+        </div>
+        <div class="framework-card flex y g-12 p-32 _bg-light br-12">
+          <span class="fs-12 _c-accent">Des crans qui ne saturent jamais</span>
+          <p class="fs-12 _c-dark_">On met la part absolue à 0 pour passer en proportionnel pur. Les deux crans restent distincts et dans le gamut, dans les deux modes.</p>
+          <pre class="fs-12 _bg-dark__ p-16 br-8" style="color: var(--light); margin: 0;">.current-theme {
+  --light-brighter:  0%;
+  --light-brighter-ratio:  .35;
+
+  --light-brighter_: 0%;
+  --light-brighter_-ratio: .7;
+}</pre>
+          <p class="fs-12 _c-dark__">C'est exactement ce que fait la carte de démo ci-dessus.</p>
+        </div>
+        <div class="framework-card flex y g-12 p-32 _bg-light br-12">
+          <span class="fs-12 _c-accent">Un plancher fixe plus une part</span>
+          <p class="fs-12 _c-dark_">Les deux termes s'additionnent. Utile pour garantir un écart minimum tout en suivant la marge réellement disponible.</p>
+          <pre class="fs-12 _bg-dark__ p-16 br-8" style="color: var(--light); margin: 0;">.current-theme {
+  --dark-darker: -2%;
+  --dark-darker-ratio: .3;
+}</pre>
+          <p class="fs-12 _c-dark__">-2 % garantis, plus 30 % de la distance à la butée.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="framework-card flex y g-12 p-32 _bg-brand___ br-12">
+      <span class="fs-12 _c-accent">Trois choses à savoir</span>
+      <p class="fs-12 _c-dark maw-768">--darker est positif en mode sombre. Ce n'est pas un bug : en mode sombre l'encre dark est claire (95 %), et -d veut dire plus de contraste avec le fond, pas plus sombre dans l'absolu. Les crans décrivent une relation — c'est aussi pour ça que les butées s'inversent avec le mode.</p>
+      <p class="fs-12 _c-dark maw-768">--dark-hue et --light-hue valent var(--brand-hue) par défaut, avec un chroma de 0.05 et 0.1. L'encre et le fond sont donc teintés par la marque — c'est un choix assumé, mais ça surprend : on change --brand-hue et tous les textes virent avec. Passez les chroma à 0, ou posez les hues explicitement. Un thème généré le fait déjà pour vous.</p>
+      <p class="fs-12 _c-dark maw-768">Les fondus sont figés au build. _, __ et ___ sortent du compilateur avec 65 %, 35 % et 15 % inlinés. $fade-values est surchargeable en SCSS, pas à l'exécution, et les deux axes ne se croisent pas : il n'existe pas de --dark-d à 35 %.</p>
+    </div>
+
+    <div class="framework-card flex y g-12 p-32 _bg-light br-12">
+      <span class="fs-12 _c-accent">Rien n'a bougé</span>
+      <p class="fs-12 _c-dark_ maw-768">20 lignes changées dans le CSS émis — les 5 bases × 4 crans, rien d'autre. Les 20 variantes ont été comparées en getComputedStyle avant et après, en mode clair et en mode sombre : zéro dérive. Tout tient sur le repli natif de var() — tant qu'un token par rôle n'est pas défini, la chaîne retombe sur la valeur globale d'origine.</p>
     </div>
   </section>
 
@@ -380,6 +528,38 @@ brand-b_  /* clair vif */</pre>
         if (bEl) bEl.textContent = (b || '?') + '°';
         if (aEl) aEl.textContent = (a || '?') + '°';
         if (eEl) eEl.textContent = (e || '?') + '°';
+      }
+      document.addEventListener('DOMContentLoaded', update);
+      setInterval(update, 200);
+    })();
+  </script>
+  <script>
+    // Reads back the OKLCH lightness actually painted on each demo swatch,
+    // so the absolute / proportional comparison stays honest in both modes.
+    (function () {
+      function srgbToOklchL(r, g, b) {
+        const lin = (c) => (c <= 0.04045 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4));
+        r = lin(r / 255); g = lin(g / 255); b = lin(b / 255);
+        const l = Math.cbrt(0.4122214708 * r + 0.5363325363 * g + 0.0514459929 * b);
+        const m = Math.cbrt(0.2119034982 * r + 0.6806995451 * g + 0.1073969566 * b);
+        const s = Math.cbrt(0.0883024619 * r + 0.2817188376 * g + 0.6299787005 * b);
+        return 0.2104542553 * l + 0.7936177850 * m - 0.0040720468 * s;
+      }
+      function lightnessOf(el) {
+        const bg = getComputedStyle(el).backgroundColor.trim();
+        let m = bg.match(/^oklch\(\s*([\d.]+)(%?)/i);
+        if (m) return parseFloat(m[1]) / (m[2] ? 100 : 1);
+        m = bg.match(/(\d+(?:\.\d+)?)[,\s]+(\d+(?:\.\d+)?)[,\s]+(\d+(?:\.\d+)?)/);
+        if (m) return srgbToOklchL(+m[1], +m[2], +m[3]);
+        return null;
+      }
+      function update() {
+        document.querySelectorAll('[data-l-swatch]').forEach(function (el) {
+          const out = el.parentElement.querySelector('[data-l-out]');
+          if (!out) return;
+          const L = lightnessOf(el);
+          out.textContent = L === null ? '—' : 'L ' + (L * 100).toFixed(1) + '%';
+        });
       }
       document.addEventListener('DOMContentLoaded', update);
       setInterval(update, 200);
