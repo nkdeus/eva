@@ -23,7 +23,6 @@ const PAGES = {
   'framework/grids.html':             { og: 't.grids.meta',     urlSuffix: 'framework/grids.html' },
   'framework/flex.html':              { og: 't.flex.meta',      urlSuffix: 'framework/flex.html' },
   'framework/gradients.html':         { og: 't.gradients.meta', urlSuffix: 'framework/gradients.html' },
-  'framework/doc.html':               { og: 't.doc.meta',       urlSuffix: 'framework/doc.html' },
   'framework/js-calculator.html':     { og: 't.jsCalc.meta',    urlSuffix: 'framework/js-calculator.html' },
   'framework/auto-theme.html':        { og: 't.autoTheme.meta', urlSuffix: 'framework/auto-theme.html' },
 };

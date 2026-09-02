@@ -1,244 +1,193 @@
-# EVA CSS — Adoption guide (LLM-condensed)
+# EVA CSS — condensed reference
 
-> Wire `eva-css-fluid` + `eva-colors` into a project. Works at any stage: greenfield, mid-project, retrofit. Companion of `./use-eva.md` for humans.
+> Generated from content/doc/en. The canonical, human-readable version lives at https://eva-css.xyz/doc/index.html
 
-## Install
+## Chapters
 
-```bash
-npm i eva-css-fluid eva-colors
-```
-
-Peer requirement: a SCSS toolchain (Vite has one via `sass-embedded`/`sass`).
-
-## Entry points (`eva-css-fluid`)
-
-- `eva-css-fluid` — variables + utility classes (`w-`, `p-`, `fs-`, …) — **greenfield**
-- `eva-css-fluid/variables` — variables only (`var(--N)`, `var(--brand)`) — **retrofit / existing app** (preferred — no class-name pollution)
-- `eva-css-fluid/core` — variables + reset + typography
-- `eva-css-fluid/colors` — OKLCH colors only
-
-## Configure
-
-```scss
-@use 'eva-css-fluid/variables' with (
-  $sizes: (4, 8, 16, 32, 64, 128),
-  $font-sizes: (14, 16, 24, 32)
-);
-```
-
-Constraints:
-- `16` MUST be in `$sizes` (rem reference; throws otherwise).
-- SCSS `with ()` requires parens: `$sizes: (4, 8, 16)`. Bare list is a parser error.
-- List only sizes actually used in the design. Output is generated per value.
-
-## Variants per size
-
-For each `N` in `$sizes`:
-- `var(--N__)` — most aggressive shrink on small viewports (decorative)
-- `var(--N_)` — strong shrink (secondary spacing)
-- `var(--N)` — standard fluid (default; layout dimensions)
-- `var(--N-)` — conservative; mobile floor close to `N` (**spacing tokens, padding** — keeps mobile breathable)
-
-For each `N` in `$font-sizes`: `var(--fs-N)`, `var(--fs-N_)`, `var(--fs-N__)` — namespaced separately. **`var(--N)` ≠ `var(--fs-N)`**.
-
-Reference viewport: `1440px` by default (sizes hit max here), configurable via `$reference-width` since v2.2.0. Default scaling: `0.5rem` → `1rem`.
-
-## Fluid unit: vw vs cqi, a11y floor (v2.2.0+)
-
-Default unit is `vw` (real viewport) — identical output to pre-2.2.0. Switch to `cqi` (container) globally or per-subtree, no rebuild:
-
-```scss
-@use 'eva-css-fluid' with (
-  $unit-fluid: 1vw,        // default; 1cqi to track containers
-  $reference-width: 1440,  // width where tokens hit max
-  $min-font-size: 14        // a11y floor in px, mobile size — 0 = off
-);
-```
-
-```css
-.card { container-type: inline-size; --eva-fluid-unit: 1cqi; } /* tokens in .card now read its own width */
-```
-
-Utility classes: `.eva-cqi` / `.eva-root` set `container-type` + the `cqi` override in one class. Use `cqi` for components whose size should depend on the box they're in (design-system previews, embeddable widgets, sidebar-vs-hero cards), `vw` (default) for page-level type/spacing.
-
-`$min-font-size` (px, default `0` = off) is a readability floor for fluid text — the *mobile* size, not desktop (13–14px is sane).
-
-100% backward compatible: no `--eva-fluid-unit` set → falls back to `1vw`, same computed value as before. `$fluid-runtime: false` reproduces the pre-2.2.0 literal output byte-for-byte.
-
-## When to adopt
-
-| Timing | Approach |
-|---|---|
-| **Greenfield** | Full entry; pick `$sizes` from design tokens. |
-| **Mid-project** | Variables-only entry; alias existing tokens onto `var(--N)`. |
-| **End-of-project / retrofit** | **Audit first** (next section). Don't skip — freezes drift into named tokens otherwise. |
-
-## Retrofit workflow (mandatory before configuring `$sizes` on existing codebases)
-
-1. **Count every px** — walk `src/**/*.{vue,scss,css,ts,tsx}`, regex `\b([0-9]+(?:\.[0-9]+)?)px\b`. Real codebases land at 50–80 distinct values. Sort by frequency.
-2. **Strip what stays out of EVA**:
-   - `0–5px` → keep literal (borders, hairlines, outline-offsets)
-   - `999px` → keep literal (pill shape, not a size)
-   - Breakpoints (`768`, `1024`, `1280`) → SCSS `$bp-*` variables
-   - `>600px` → case-by-case; often layout-level
-   - EVA band: `6–600px`. Stripping the rest cuts ~30% of audit noise.
-3. **Fuse close neighbors**:
-   - 1–2px gap: almost always fuse
-   - 3–4px gap: fuse if one side has ≥5× frequency
-   - Singletons (1×): fuse to nearest neighbor (or drop)
-   - Ties at low count: pick the rounder number
-   - Apply via one-shot script with dry-run (`--apply` flag), never by hand. Watch for blur radii / gradient stops being caught by `\b{N}px\b`.
-4. **Re-audit** post-fusion → final list = `$sizes`. Run a font-size-scoped variant (`/font-size\s*:\s*([^;]+)/`) for `$font-sizes`.
-5. **Alias your tokens** onto `var(--N)` / `var(--N-)` (see "Wire into design tokens" below).
-
-Realistic outcome: 61 → 49 distinct values (-20%) with ~27 line-edits across ~9 files. Visual diff: imperceptible.
-
-## Wire into design tokens
-
-```scss
-$space-xs: var(--4-);   $space-sm: var(--8-);   $space-md: var(--12-);
-$space-lg: var(--16-);  $space-xl: var(--24-);  $space-2xl: var(--32-);
-
-$font-size-base: var(--17);   // body — clamps at ~14.7px floor on small phones
-$font-size-sm: var(--14);     $font-size-lg: var(--20);
-$font-size-xl: var(--24);     $font-size-2xl: var(--32);
-
-$radius-sm: var(--6-);   $radius-md: var(--10-);   $radius-lg: var(--16-);
-$radius-pill: 999px;     // not fluid — pill is shape, not size
-
-$touch-min: 48px;        // accessibility floor — never make fluid
-```
-
-## Don't make fluid
-
-- **Touch targets** (44–48px floor — WCAG/TAP target rule)
-- **Body font** (16–17px floor for readability)
-- **Border widths** (1px is 1px)
-- **Pill radii** (`999px` is a shape)
-
-## Theme (eva-colors, optional)
-
-CLI:
-```bash
-npx eva-color convert "#hex"       # → oklch(L% C H)
-npx eva-color palette "#hex" 7     # 7-step harmonious palette
-```
-
-Programmatic:
-```js
-import { hexToOklch, generateTheme } from 'eva-colors'
-const theme = generateTheme({ name: 'jdf', brand: '#2f6d3b', accent: '#c48a2f', extra: '#b3261e', light: '#fafaf7', dark: '#10130f' })
-// → .theme-jdf { --brand-lightness: …; --brand-chroma: …; --brand-hue: …; }
-```
-
-Apply on root: `<html class="current-theme theme-jdf">`. Use `var(--brand)`, `var(--brand_)` (65% opacity), `var(--brand__)` (35%), `var(--brand-d)` (darker), `var(--brand-b)` (brighter).
-
-## Multi-themes
-
-N seasonal/brand variants = N `.theme-NAME` blocks. Each sets only OKLCH triplets — EVA derives the rest:
-
-```scss
-.theme-mai     { --brand-lightness: 70%; --brand-chroma: 0.09; --brand-hue: 125; ... }
-.theme-juin    { /* warmer hues */ }
-.theme-decembre{ /* cold blues */ }
-```
-
-Switch by toggling class on `<html>`. Single source of truth: only the OKLCH triplets, never duplicate `--brand`. For tinted surfaces, override `--light-hue`/`--dark-hue` per theme; keep `--light-chroma` low (~0.005–0.015).
-
-## Dark mode (use EVA's `.toggle-theme`, don't roll your own)
-
-EVA's mechanism: inside `_colors`, `.current-theme.toggle-theme` flips `--current-lightness` (96.4% → 5%) and `--current-darkness` (6.4% → 95%) with `!important`. `var(--light)` and `var(--dark)` literally **swap roles**.
-
-Bridge semantic tokens:
-```scss
-.current-theme {
-  --color-bg: var(--light);
-  --color-text: var(--dark);
-  --color-text-muted: var(--dark_);   // 65% opacity
-  --color-border: var(--dark___);     // 15%
-  --color-primary: var(--brand);
-}
-.current-theme.toggle-theme {
-  // Optional: re-pin surfaces that use literal lightness values
-  --color-surface: oklch(8% var(--light-chroma) var(--light-hue));
-}
-```
-
-Toggle: `root.classList.toggle('toggle-theme', dark)` on `<html>`. Re-apply on `prefers-color-scheme` change only if mode === 'auto'.
-
-**Put `.current-theme` on `<html>`, not `<body>`** — `<html>` background covers over-scroll areas.
-
-For first-paint flash before JS attaches the class: keep a static `:root { --color-bg: #...; ... }` HEX fallback.
-
-## Brightness steps per role (v2.4.0+)
-
-`lightness = base + absolute offset + (bound − base) × ratio`. Each of the four steps (`-d`, `-b`, `-d_`, `-b_`) reads a per-role token first, falling back to the global one. `<base>` ∈ `brand|accent|extra|dark|light`, `<token>` ∈ `darker|brighter|darker_|brighter_`.
-
-| Form | Scope | Default |
-|------|-------|---------|
-| `--<base>-<token>` | per role | *(unset)* → global `--<token>` |
-| `--<base>-<token>-ratio` / `--<token>-ratio` | per role / global | `0` (term cancels out) |
-| `--<base>-<token>-bound` / `--<token>-bound` | per role / global | `0%` / `100%`, flips with the mode |
-
-```css
-.current-theme {
-  --dark-darker: -2%; --dark-brighter: 4%;   /* tight neutrals */
-  --accent-brighter_: 12%;                   /* wide accent, only this step moves */
-
-  --light-brighter:  0%; --light-brighter-ratio:  .35;   /* proportional: never clips */
-  --light-brighter_: 0%; --light-brighter_-ratio: .7;
-}
-```
-
-Why: OKLCH lightness is clamped to `0–100%`. At `--light-lightness: 96.4%`, `--light-b` (106.4%) and `--light-b_` (126.4%) both clamp to white — two steps, one color. Symmetric in dark mode on `--dark-d` / `--dark-d_`. A ratio makes the step take a share of the remaining headroom instead, so it stays in gamut.
-
-Gotchas: `--darker` is **positive** in dark mode (`-d` = more contrast with the background, not darker in absolute terms). `--dark-hue` / `--light-hue` default to `var(--brand-hue)` with chroma `0.05` / `0.1`, so ink and background are brand-tinted — zero the chromas or pin the hues for neutral. Opacity and brightness don't cross: no `--dark-d` at 35%.
-
-## Layout (responsive without breakpoints)
-
-Use `var(--N)` for paddings, gaps, font-sizes — layout breathes by itself. Media queries only for **structural** topology changes (1col → 2col → 3col), never for spacing or typography:
-
-```scss
-.shell {
-  display: grid;
-  grid-template-columns: 1fr;
-  @media (min-width: 1024px) { grid-template-columns: var(--280) minmax(0, 1fr); }
-  @media (min-width: 1280px) { grid-template-columns: var(--280) minmax(0, 1fr) var(--320); }
-}
-.shell__nav { padding: var(--24) var(--20); gap: var(--20); }
-.shell__nav-item { height: var(--44); padding: 0 var(--12); border-radius: var(--10-); font-size: var(--15); }
-```
-
-## Pitfalls
-
-| Symptom | Cause | Fix |
-|---|---|---|
-| `expected "$"` in `@use ... with ()` | Bare list | Wrap in parens: `$sizes: (4, 8, 16)` |
-| `Size 16 is required as a base size` | `16` missing from `$sizes` | Add `16` |
-| Source-order conflict overrides EVA media query | Same-specificity rule comes later in file | Move default `display: none` before the media query |
-| Mobile spacing feels cramped | Using `var(--N)` for spacing | Switch to `var(--N-)` (conservative variant) |
-| Font sizes shrink too aggressively | Using `var(--fs-N_)` / `var(--fs-N__)` for body | Use `var(--fs-16)` / `var(--fs-17)` (no suffix) |
-| `var(--44)` is empty (yet `44 ∈ $font-sizes`) | Font tokens are `var(--fs-N)`, not `var(--N)` | Use `var(--fs-44)`. Namespaces are independent. |
-| `var(--15)` empty after consolidation | Removed `15` from `$sizes`, leftover refs in code | Grep `var\(--15\b` post-fusion; rewrite to merged token |
-| Fusion regex hits blur radii / gradient stops | `\b60px\b` matches anywhere | Always dry-run; 1–4px diff in shadow blur invisible — inspect once |
-
-## Reference
-
-- Sizes: every value in `$sizes` → `var(--N)`, `var(--N-)`, `var(--N_)`, `var(--N__)`
-- Font sizes: every value in `$font-sizes` → `var(--fs-N)`, `var(--fs-N_)`, `var(--fs-N__)` — `fs-` prefix, separate namespace
-- Reference viewport: `1440px` by default, configurable via `$reference-width` since v2.2.0 (sizes hit max there). Default min/max: `0.5rem` → `1rem`
-- Fluid unit: `vw` (viewport, default) or `cqi` (container) via `$unit-fluid` / `--eva-fluid-unit`; `$min-font-size` a11y floor — see "Fluid unit: vw vs cqi" above
-- Colors: `var(--brand)`, `var(--accent)`, `var(--extra)`, `var(--light)`, `var(--dark)`
-- Color modifiers — opacity: `_` 65%, `__` 35%, `___` 15%; brightness: `-d` darker, `-b` brighter, `-d_` / `-b_` more
-- Brightness steps tunable per role since v2.4.0 — `--<base>-<token>`, `-ratio`, `-bound` — see "Brightness steps per role"
-- Theme classes (on `<html>`): `.current-theme` (always), `.theme-NAME` (active palette), `.toggle-theme` (dark mode)
-
-## Verify visually
-
-EVA emits `clamp(...)` formulas — you can't intuit shrink intensity from the math. Build a `/dev` route with one card per token, each showing every variant rendered as a real square (sizing) or text sample (font). A `Détails` toggle reveals the live computed value. Hidden by default; visible side-by-side comparison is the primary test.
-
-Three benefits: (1) smoke test (empty live values = misconfigured `@use`), (2) variant choice (visual at 320px reveals which fits), (3) designer onboarding without touching component code.
+- [Getting started](https://eva-css.xyz/doc/index.html) — What EVA CSS is, the two ideas it is built on, and a working setup in three commands.
+- [Installation](https://eva-css.xyz/doc/install.html) — The three packages, the four SCSS entry points, and how to compile and watch.
+- [Configuration](https://eva-css.xyz/doc/config.html) — Every option accepted by the SCSS entry points, what it changes in the output, and the two build modes.
+- [Fluid sizing](https://eva-css.xyz/doc/sizes.html) — The four scaling variants, the separate font-size namespace, and switching a subtree from viewport to container.
+- [Colors](https://eva-css.xyz/doc/colors.html) — Five roles, three numbers each, and everything else recomposed in OKLCH — opacity fades, brightness steps, per-role tuning and dark mode.
+- [Gradients](https://eva-css.xyz/doc/gradients.html) — Composable gradient classes — one applier, then setters for colors, direction, zoom and animation.
+- [Utility classes](https://eva-css.xyz/doc/utilities.html) — Every class emitted when $build-class is true — sizing, color, flex, grid, typography and layout.
+- [Adopting EVA](https://eva-css.xyz/doc/adopt.html) — Wiring EVA into a project that already ships — the px audit, fusing near-duplicates, aliasing design tokens, and the traps.
+- [CLI tools](https://eva-css.xyz/doc/cli.html) — eva-color for OKLCH conversion, palettes, themes and contrast; eva-purge for stripping the classes you never used.
+- [Reference](https://eva-css.xyz/doc/reference.html) — Every option, token and class in one flat list.
 
 ---
 
-Full human guide: `./use-eva.md` · Framework docs: <https://eva-css.xyz/>
+# Reference
+
+Source: https://eva-css.xyz/doc/reference.html
+
+Everything EVA emits, in one place. Version 2.4.0.
+
+## Configuration
+
+```scss
+@use 'eva-css-fluid' with (
+  $sizes: (4, 8, 12, 16, 24, 32, 48, 64, 96, 128),
+  $font-sizes: (12, 14, 16, 18, 20, 24, 32),
+  $build-class: true,
+  $px-rem-suffix: false,
+  $name-by-size: true,
+  $custom-class: false,
+  $class-config: (),
+  $debug: false,
+  $unit-fluid: 1vw,
+  $reference-width: 1440,
+  $fluid-runtime: true,
+  $min-font-size: 0
+);
+```
+
+| Option | Default |
+|---|---|
+| `$sizes` | `4, 8, 12, 16, 24, 32, 48, 64, 96, 128` |
+| `$font-sizes` | `12, 14, 16, 18, 20, 24, 32, 48` |
+| `$build-class` | `true` |
+| `$px-rem-suffix` | `false` |
+| `$name-by-size` | `true` |
+| `$custom-class` | `false` |
+| `$class-config` | `()` |
+| `$debug` | `false` |
+| `$unit-fluid` | `1vw` |
+| `$reference-width` | `1440` |
+| `$fluid-runtime` | `true` |
+| `$min-font-size` | `0` |
+
+## Entry points
+
+| Entry | Variables | Colors | Gradients | Reset + type | Utility classes |
+|---|---|---|---|---|---|
+| `eva-css-fluid` | yes | yes | yes | yes | yes |
+| `eva-css-fluid/core` | yes | yes | yes | yes | no |
+| `eva-css-fluid/variables` | yes | yes | no | no | no |
+| `eva-css-fluid/colors` | no | yes | no | no | no |
+
+## Size tokens
+
+For each `N` in `$sizes`:
+
+| Token | Behaviour |
+|---|---|
+| `var(--N__)` | Most aggressive collapse on small screens |
+| `var(--N_)` | Strong collapse |
+| `var(--N)` | Standard scaling |
+| `var(--N-)` | Conservative — high mobile floor |
+| `var(--N-px)` | Static px, only with `$px-rem-suffix: true` |
+| `var(--N-rem)` | Static rem, only with `$px-rem-suffix: true` |
+
+For each `N` in `$font-sizes`:
+
+| Token | Behaviour |
+|---|---|
+| `var(--fs-N__)` | Most aggressive |
+| `var(--fs-N_)` | Strong |
+| `var(--fs-N)` | Standard — use for body copy |
+| `var(--fs-N-px)` / `var(--fs-N-rem)` | Static, with `$px-rem-suffix: true` |
+
+Runtime unit: `--eva-fluid-unit`, default `1vw`, override to `1cqi` per subtree. Classes `.eva-cqi` and `.eva-root`.
+
+## Color tokens
+
+Roles: `brand`, `accent`, `extra`, `dark`, `light`.
+
+| Token | Meaning |
+|---|---|
+| `var(--<role>)` | The role |
+| `var(--<role>_)` | 65% opacity |
+| `var(--<role>__)` | 35% opacity |
+| `var(--<role>___)` | 15% opacity |
+| `var(--<role>-d)` | One step more contrast |
+| `var(--<role>-b)` | One step less contrast |
+| `var(--<role>-d_)` | Two steps more contrast |
+| `var(--<role>-b_)` | Two steps less contrast |
+| `var(--root-<role>)` | The raw `L C H` triplet |
+
+Theme inputs, per role: `--<role>-lightness`, `--<role>-chroma`, `--<role>-hue`.
+
+Mode pivots: `--current-lightness` (`96.4%` light / `5%` dark), `--current-darkness` (`6.4%` / `95%`).
+
+Brightness formula:
+
+```text
+lightness = base + absolute offset + (bound − base) × ratio
+```
+
+| Step | Token | Light | Dark | Bound (light) | Bound (dark) |
+|---|---|---|---|---|---|
+| `-d` | `--darker` | `-5%` | `10%` | `0%` | `100%` |
+| `-b` | `--brighter` | `10%` | `-5%` | `100%` | `0%` |
+| `-d_` | `--darker_` | `-15%` | `30%` | `0%` | `100%` |
+| `-b_` | `--brighter_` | `30%` | `-15%` | `100%` | `0%` |
+
+Per-role overrides, with `<token>` in `darker`, `brighter`, `darker_`, `brighter_`:
+
+| Form | Scope | Default |
+|---|---|---|
+| `--<role>-<token>` | one role | unset |
+| `--<role>-<token>-ratio` | one role | `0` |
+| `--<token>-ratio` | global | `0` |
+| `--<role>-<token>-bound` | one role | unset |
+| `--<token>-bound` | global | see table |
+
+Body classes: `current-theme` (required), `theme-<name>`, `toggle-theme` (dark), `all-grads` (gradients).
+
+## Utility classes
+
+**Sizing** — `w mw h p px py pt pb pr mt mb ml mr g gap br`, each × every size × `__ _ (none) -`.
+
+**Font size** — `fs-N`, `fs-N_`, `fs-N__`.
+
+**Color** — `_c- _bg- _bc- _f- _s-` × 5 roles × 8 variants. Plus `_shadow`, `_shadow_`.
+
+**Flex** — `flex`, `x`, `y`, `reverse`, `wrap`, `nowrap`, `wrap-reverse`; `start center end space around evenly`; compound `justify-align` forms; `justify-*`, `items-*`, `content-*`; `flex-1 flex-2 flex-3 flex-auto flex-initial flex-none stretch`; `self-*`; `order-1`…`order-12`, `order-first`, `order-last`, `order-none`; `flex-card`, `flex-sidebar`.
+
+**Grid** — `grid`, `auto-fit-<size><variant>` (sizes ≥ 100 only), `flex-grid`, `container:flex-grid`, `col-1`…`col-12`, `col-1/1`…`col-1/12`, `max-col-1`…`max-col-12`, `xs:max-col-N`…`xxl:max-col-N`.
+
+**Gradients** — `grad-linear`, `grad-radial`, `grad-linear-text`, `grad-radial-text`, `grad-linear-border`, `grad-radial-border`; `from-*`, `to-*`, `from-transparent`, `to-transparent`; `d-t d-b d-l d-r d-tl d-tr d-bl d-br`; `a-0`…`a-360` in 5° steps; `bg-size`, `bg-size_`, `bg-size__`; `bg-center bg-top bg-bottom bg-left bg-right`; `animated`, `animated-slow`, `animated-fast`.
+
+**Typography** — `fwg-1`…`fwg-8`, `fwd-1`…`fwd-13`, `f-scale`, `f-scale offset`, `bold`, `ttu`, `tac`, `lh-0`, `lh-1`.
+
+**Layout** — `por poa pof pos`, `poa center`, `w-full`, `h-full`, `oh`, `ar-1`, `circle`, `border`, `border thin`, `blur blur_ blur__`, `pointer`, `hide`, `lt`, `mt-auto mb-auto ml-auto mr-auto`.
+
+## CLI
+
+```bash
+npx eva-color convert "#ff0000"
+npx eva-color to-hex 62.8 0.258 29.23
+npx eva-color palette "#ff0000" 7
+npx eva-color theme theme.json
+npx eva-color contrast "#ffffff" "#000000"
+
+npx eva-purge --css styles/main.css --content "**/*.html" \
+  --output styles/main-compressed.css --safelist "current-theme,toggle-theme,all-grads"
+```
+
+## Rules
+
+1. No fixed values. `var(--64)`, not `64px`. `var(--brand)`, not `#ff5733`.
+2. Only list the sizes the design actually uses.
+3. `16` is mandatory in `$sizes`.
+4. Font tokens are `--fs-N`. `$sizes` and `$font-sizes` are independent namespaces.
+5. Pick one build mode per project and hold it.
+6. `current-theme` on the root element, always.
+7. `all-grads` on the container if you use gradients.
+8. Media queries for layout topology only — never for spacing or type.
+
+## Known limits
+
+- **The two color axes do not cross.** No opacity variant of a brightness step; no `--brand-d__`.
+- **Fades are inlined at build time.** `$fade-values` (65 / 35 / 15%) is a SCSS variable, not a runtime one — no per-theme control.
+- **`dark` and `light` inherit `--brand-hue`** with a non-zero chroma, so neutrals are brand-tinted unless you pin them.
+- **Dark mode overrides configured lightness.** `.toggle-theme` sets `--dark-lightness` and `--light-lightness` with `!important`; only hue and chroma survive the switch.
+- **`auto-fit-*` exists only for sizes ≥ 100.**
+
+## Links
+
+- [GitHub](https://github.com/nkdeus/eva)
+- [eva-css-fluid on npm](https://www.npmjs.com/package/eva-css-fluid)
+- [eva-colors on npm](https://www.npmjs.com/package/eva-colors)
+- [eva-css-purge on npm](https://www.npmjs.com/package/eva-css-purge)

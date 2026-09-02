@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/Draggable.min.js"></script>
+    <link rel="stylesheet" href="https://use.typekit.net/vjo0ssd.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Display:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../styles/main.css" />
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="3c9b4552-d24d-48aa-a6b4-877d0ceffe04"></script>
+    <title>Adopter EVA — Doc EVA CSS</title>
+    <meta name="description" content="Brancher EVA sur un projet déjà en production — l'audit des px, la fusion des quasi-doublons, l'aliasing des tokens de design, et les pièges.">
+    <meta property="og:title" content="Adopter EVA — Doc EVA CSS">
+    <meta property="og:description" content="Brancher EVA sur un projet déjà en production — l'audit des px, la fusion des quasi-doublons, l'aliasing des tokens de design, et les pièges.">
+    <meta property="og:locale" content="fr_FR">
+    <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+    <link rel="apple-touch-icon" href="../../assets/imgs/eva.jpg">
+    <link rel="manifest" href="../../site.webmanifest">
+    <meta name="theme-color" content="#ff8a3d">
+    <meta property="og:site_name" content="EVA CSS">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://eva-css.xyz/fr/doc/adopt.html">
+    <meta property="og:image" content="https://eva-css.xyz/assets/imgs/eva.jpg">
+    <meta property="og:image:width" content="512">
+    <meta property="og:image:height" content="512">
+    <meta property="og:image:alt" content="EVA CSS — fluid SCSS framework">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Adopter EVA — Doc EVA CSS">
+    <meta name="twitter:description" content="Brancher EVA sur un projet déjà en production — l'audit des px, la fusion des quasi-doublons, l'aliasing des tokens de design, et les pièges.">
+    <meta name="twitter:image" content="https://eva-css.xyz/assets/imgs/eva.jpg">
+    <link rel="canonical" href="https://eva-css.xyz/fr/doc/adopt.html">
+    <link rel="alternate" hreflang="en" href="https://eva-css.xyz/doc/adopt.html">
+    <link rel="alternate" hreflang="fr" href="https://eva-css.xyz/fr/doc/adopt.html">
+    <link rel="alternate" hreflang="x-default" href="https://eva-css.xyz/doc/adopt.html">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "Adopter EVA",
+      "description": "Brancher EVA sur un projet déjà en production — l'audit des px, la fusion des quasi-doublons, l'aliasing des tokens de design, et les pièges.",
+      "inLanguage": "fr",
+      "url": "https://eva-css.xyz/fr/doc/adopt.html",
+      "isPartOf": {
+        "@type": "TechArticle",
+        "name": "Doc EVA CSS",
+        "url": "https://eva-css.xyz/fr/doc/index.html"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "EVA CSS",
+        "url": "https://eva-css.xyz"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "EVA CSS", "item": "https://eva-css.xyz/fr/" },
+        { "@type": "ListItem", "position": 2, "name": "Documentation", "item": "https://eva-css.xyz/fr/doc/index.html" },
+        { "@type": "ListItem", "position": 3, "name": "Adopter EVA", "item": "https://eva-css.xyz/fr/doc/adopt.html" }
+      ]
+    }
+    </script>
+  </head>
+  <body class="current-theme theme-eva all-grads toggle-theme doc-page" data-doc-search="search-index.json">
+  <button type="button" class="dark-light-toggle no-hover" aria-label="Basculer le mode sombre">
+    <svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 100 100" x="0px" y="0px" aria-hidden="true"><path d="M50,77.62A27.62,27.62,0,1,0,22.38,50,27.61,27.61,0,0,0,50,77.62ZM50,26A24,24,0,1,1,26,50,24,24,0,0,1,50,26ZM69.62,50.52A19.36,19.36,0,0,0,50.26,31.15V69.88A19.36,19.36,0,0,0,69.62,50.52Zm-19.88,31a1.81,1.81,0,0,0-1.81,1.81V95.69a1.81,1.81,0,0,0,3.62,0V83.3A1.81,1.81,0,0,0,49.74,81.49Zm24.9-9A1.81,1.81,0,0,0,72.09,75l8.76,8.76a1.81,1.81,0,0,0,2.55-2.56Zm6.85-22.19a1.81,1.81,0,0,0,1.81,1.81H95.69a1.81,1.81,0,1,0,0-3.62H83.3A1.81,1.81,0,0,0,81.49,50.26ZM75,27.91l8.76-8.76a1.81,1.81,0,0,0-2.56-2.55l-8.76,8.76A1.81,1.81,0,0,0,75,27.91Zm-24.75-9.4a1.81,1.81,0,0,0,1.81-1.81V4.31a1.81,1.81,0,0,0-3.62,0V16.7A1.81,1.81,0,0,0,50.26,18.51Zm-24.9,9A1.81,1.81,0,0,0,27.91,25l-8.76-8.76a1.81,1.81,0,1,0-2.55,2.56Zm-21,24H16.7a1.81,1.81,0,0,0,0-3.62H4.31a1.81,1.81,0,1,0,0,3.62Zm22,20a1.78,1.78,0,0,0-1.28.53l-8.76,8.76a1.8,1.8,0,0,0,0,2.56,1.82,1.82,0,0,0,2.56,0l8.76-8.77a1.81,1.81,0,0,0-1.28-3.08Z"/></svg>
+  </button>
+
+  <nav id="nav" class="px-220__ flex space py-12- pof">
+    <div id="logo" class="flex x center px-20">
+      <div class="ballzzz por" style="--max:6">
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:0"></div>
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:1"></div>
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:2"></div>
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:3"></div>
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:4"></div>
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:5"></div>
+      </div>
+      <a href="../index.html" class="logo no-hover title fs-36__ lh-1">EVA CSS</a>
+    </div>
+    <button id="burger-menu" class="burger-menu" type="button" aria-label="Ouvrir/fermer le menu" aria-expanded="false" aria-controls="menu">
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+    </button>
+    <div id="menu" class="flex x center g-12">
+      <a href="../framework/css-fluid.html" class="h-52 px-12 flex y center _c-brand br-12"><span class="fs-12">CSS fluide</span></a>
+      <a href="../framework.html" class="h-52 px-12 flex y center _c-brand br-12"><span class="fs-12">Addons</span></a>
+      <a href="../use-cases.html" class="h-52 px-12 flex y center _c-brand br-12"><span class="fs-12">Cas d'usage</span></a>
+      <a href="index.html" class="h-52 px-12 flex y center _c-light _bg-brand br-12"><span class="fs-12">Doc</span></a>
+      <a href="https://github.com/nkdeus/eva-framework" target="_blank" rel="noopener" aria-label="Dépôt GitHub" class="h-52 px-8 flex x g-12 center _c-brand br-8">
+        <svg xmlns="http://www.w3.org/2000/svg" class="lh-0" height="20" viewBox="0 0 16 16" width="20" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+      </a>
+    </div>
+  </nav>
+
+  <div class="doc-shell">
+
+    <aside class="doc-sidebar" id="doc-sidebar">
+      <div class="doc-sidebar-inner flex y g-20">
+        <button type="button" class="doc-search-trigger flex x space center g-12" data-search-open>
+          <span class="flex x center g-8">
+            <svg viewBox="0 0 16 16" width="13" height="13" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg>
+            <span>Rechercher</span>
+          </span>
+          <kbd class="doc-kbd">/</kbd>
+        </button>
+        <button type="button" class="doc-nav-toggle flex x space center" data-nav-toggle aria-expanded="false" aria-controls="doc-nav">
+          <span>Chapitres</span>
+          <span class="doc-nav-chevron" aria-hidden="true"></span>
+        </button>
+        <nav id="doc-nav" class="doc-nav" aria-label="Documentation">
+          <div class="doc-nav-section"><p class="doc-nav-heading">Démarrer</p><ul class="doc-nav-list"><li><a class="doc-nav-link no-hover" href="index.html">Démarrer</a></li><li><a class="doc-nav-link no-hover" href="install.html">Installation</a></li><li><a class="doc-nav-link no-hover" href="config.html">Configuration</a></li></ul></div><div class="doc-nav-section"><p class="doc-nav-heading">Le système</p><ul class="doc-nav-list"><li><a class="doc-nav-link no-hover" href="sizes.html">Tailles fluides</a></li><li><a class="doc-nav-link no-hover" href="colors.html">Couleurs</a></li><li><a class="doc-nav-link no-hover" href="gradients.html">Dégradés</a></li><li><a class="doc-nav-link no-hover" href="utilities.html">Classes utilitaires</a></li></ul></div><div class="doc-nav-section"><p class="doc-nav-heading">Guides</p><ul class="doc-nav-list"><li><a class="doc-nav-link no-hover is-current" href="adopt.html" aria-current="page">Adopter EVA</a></li><li><a class="doc-nav-link no-hover" href="cli.html">Outils CLI</a></li></ul></div><div class="doc-nav-section"><p class="doc-nav-heading">Référence</p><ul class="doc-nav-list"><li><a class="doc-nav-link no-hover" href="reference.html">Référence</a></li></ul></div>
+        </nav>
+      </div>
+    </aside>
+
+    <main class="doc-main">
+      <article class="doc-article">
+        <p class="doc-eyebrow fs-12 _c-brand_">Documentation</p>
+        <h1 class="doc-title fs-52__ lh-1 ttu">Adopter EVA</h1>
+        <p class="doc-lede fs-18 _c-dark_">Brancher EVA sur un projet déjà en production — l'audit des px, la fusion des quasi-doublons, l'aliasing des tokens de design, et les pièges.</p>
+        <div class="doc-content">
+          <p class="doc-p">EVA s'insère dans une base de code existante sans renommer une seule classe. Vous gardez votre CSS ; vous remplacez les <code class="doc-inline-code">px</code> figés par <code class="doc-inline-code">var(--N)</code>. Ce qui change, c'est l'origine des nombres.</p>
+<p class="doc-p">L'ordre des opérations dépend du moment où vous arrivez.</p>
+<div class="doc-table-wrap"><table class="doc-table"><thead><tr><th>Étape du projet</th><th>Approche</th><th>Friction</th></tr></thead><tbody><tr><td><strong>Nouveau projet</strong></td><td>Entrée complète : <code class="doc-inline-code">@use 'eva-css-fluid'</code>. <code class="doc-inline-code">$sizes</code> se déduit de vos tokens de design.</td><td>Minimale</td></tr><tr><td><strong>Projet en cours</strong>, design system en place</td><td>Entrée variables seules : <code class="doc-inline-code">@use 'eva-css-fluid/variables'</code>. Aliasez vos tokens existants sur <code class="doc-inline-code">var(--N)</code>.</td><td>Faible</td></tr><tr><td><strong>Reprise</strong>, gros CSS déjà livré</td><td><strong>Auditez d'abord.</strong> Comptez chaque <code class="doc-inline-code">px</code>, fusionnez les quasi-doublons, <em>puis</em> configurez <code class="doc-inline-code">$sizes</code>.</td><td>Moyenne, une seule fois</td></tr></tbody></table></div>
+<p class="doc-p">La reprise est le cas courant, et l'audit est ce qui sépare une migration propre du fait de figer des années de dérive accidentelle dans des tokens nommés. Ne le sautez pas.</p>
+<h2 id="audit" class="doc-h doc-h2">Auditer et consolider<a class="doc-anchor no-hover" href="#audit" aria-label="Lien vers cette section">#</a></h2>
+<h3 id="compter-chaque-px" class="doc-h doc-h3">Compter chaque px<a class="doc-anchor no-hover" href="#compter-chaque-px" aria-label="Lien vers cette section">#</a></h3>
+<p class="doc-p">N'écrivez pas la liste <code class="doc-inline-code">$sizes</code> à la main. Lisez-la dans la base de code.</p>
+<figure class="doc-block"><figcaption class="doc-block-bar flex x space center"><span class="doc-block-lang">ts</span><button type="button" class="doc-copy" data-copy data-copied="Copié">Copier</button></figcaption><pre class="doc-pre"><code><span class="tok-comment">// scripts/audit-px.ts</span>
+import fs from <span class="tok-string">'node:fs'</span>
+import path from <span class="tok-string">'node:path'</span>
+
+function walk(dir: string, files: string[] = []): string[] {
+  for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
+    const p = path.join(dir, e.name)
+    if (e.isDirectory()) walk(p, files)
+    else if (/\.(vue|scss|css|ts|tsx)$/.test(e.name)) files.push(p)
+  }
+  return files
+}
+
+const counts = new Map&lt;string, number&gt;()
+for (const f of walk(<span class="tok-string">'src'</span>)) {
+  for (const m of fs.readFileSync(f, <span class="tok-string">'utf8'</span>).matchAll(/\b([<span class="tok-num">0</span>-<span class="tok-num">9</span>]+(?:\.[<span class="tok-num">0</span>-<span class="tok-num">9</span>]+)?)px\b/g)) {
+    counts.set(m[<span class="tok-num">1</span>], (counts.get(m[<span class="tok-num">1</span>]) ?? <span class="tok-num">0</span>) + <span class="tok-num">1</span>)
+  }
+}
+for (const [v, c] of [...counts].sort((a, b) =&gt; b[<span class="tok-num">1</span>] - a[<span class="tok-num">1</span>])) console.log(v + <span class="tok-string">'px\t'</span> + c)</code></pre></figure>
+<p class="doc-p">Une base de code de taille moyenne tombe généralement sur <strong>50 à 80 valeurs px distinctes</strong>. Triées par fréquence, la vingtaine de tête sont de vrais tokens, la longue traîne est du bruit.</p>
+<h3 id="decider-de-ce-qui-reste-dehors" class="doc-h doc-h3">Décider de ce qui reste dehors<a class="doc-anchor no-hover" href="#decider-de-ce-qui-reste-dehors" aria-label="Lien vers cette section">#</a></h3>
+<p class="doc-p">Certaines tailles ne doivent jamais devenir fluides. Sortez-les avant de commencer.</p>
+<div class="doc-table-wrap"><table class="doc-table"><thead><tr><th>Plage</th><th>Raison</th><th>À garder en</th></tr></thead><tbody><tr><td><code class="doc-inline-code">0–5px</code></td><td>Bordures, filets, décalages d'outline</td><td><code class="doc-inline-code">1px</code>, <code class="doc-inline-code">2px</code> littéraux</td></tr><tr><td><code class="doc-inline-code">999px</code></td><td>Une pilule est une forme, pas une taille</td><td><code class="doc-inline-code">999px</code> littéral</td></tr><tr><td>Breakpoints (<code class="doc-inline-code">768</code>, <code class="doc-inline-code">1024</code>, <code class="doc-inline-code">1280</code>)</td><td>Topologie, pas espacement</td><td>Variables SCSS</td></tr><tr><td>Cibles tactiles (<code class="doc-inline-code">44</code>, <code class="doc-inline-code">48</code>)</td><td>Plancher d'accessibilité, ne doit pas rétrécir</td><td><code class="doc-inline-code">48px</code> littéral</td></tr><tr><td><code class="doc-inline-code">&gt; 600px</code></td><td>Niveau mise en page — veut souvent une échelle pleine plutôt qu'un clamp</td><td>Au cas par cas</td></tr></tbody></table></div>
+<p class="doc-p">Tracer la bande EVA autour de <code class="doc-inline-code">6–600px</code> élimine d'emblée environ 30 % du bruit de l'audit.</p>
+<h3 id="fusionner-les-quasi-doublons" class="doc-h doc-h3">Fusionner les quasi-doublons<a class="doc-anchor no-hover" href="#fusionner-les-quasi-doublons" aria-label="Lien vers cette section">#</a></h3>
+<p class="doc-p">Dans la bande, cherchez les valeurs adjacentes dont l'une domine clairement :</p>
+<figure class="doc-block"><figcaption class="doc-block-bar flex x space center"><span class="doc-block-lang">text</span><button type="button" class="doc-copy" data-copy data-copied="Copié">Copier</button></figcaption><pre class="doc-pre"><code><span class="tok-num">15px</span> (6x)  &lt;-&gt; <span class="tok-num">16px</span> (25x)  -&gt; fusionner <span class="tok-num">15</span> -&gt; <span class="tok-num">16</span>
+<span class="tok-num">17px</span> (3x)  &lt;-&gt; <span class="tok-num">18px</span> (6x)   -&gt; fusionner <span class="tok-num">17</span> -&gt; <span class="tok-num">18</span>
+<span class="tok-num">22px</span> (3x)  &lt;-&gt; <span class="tok-num">24px</span> (25x)  -&gt; fusionner <span class="tok-num">22</span> -&gt; <span class="tok-num">24</span>
+<span class="tok-num">26px</span> (1x)  &lt;-&gt; <span class="tok-num">24px</span> (25x)  -&gt; fusionner <span class="tok-num">26</span> -&gt; <span class="tok-num">24</span>
+<span class="tok-num">36px</span> (3x)  &lt;-&gt; <span class="tok-num">32px</span> (8x)   -&gt; fusionner <span class="tok-num">36</span> -&gt; <span class="tok-num">32</span>
+<span class="tok-num">96px</span> (1x)  &lt;-&gt; <span class="tok-num">100px</span> (3x)  -&gt; fusionner <span class="tok-num">96</span> -&gt; <span class="tok-num">100</span></code></pre></figure>
+<p class="doc-p">Des heuristiques qui tiennent en pratique :</p>
+<ul class="doc-list"><li><strong>Écart de 1 à 2px</strong> — fusionnez presque toujours.</li><li><strong>Écart de 3 à 4px</strong> — fusionnez si un côté est utilisé au moins 5× plus que l'autre.</li><li><strong>Occurrences uniques</strong> — fusionnez vers le plus proche voisin, ou supprimez.</li><li><strong>Égalités</strong> — prenez le nombre le plus rond. L'un vaut l'autre.</li></ul>
+<p class="doc-p">Une reprise réelle est passée de 61 à 49 valeurs distinctes, 27 lignes modifiées dans 9 fichiers. Le diff visuel était imperceptible.</p>
+<h3 id="appliquer-par-script-jamais-a-la-main" class="doc-h doc-h3">Appliquer par script, jamais à la main<a class="doc-anchor no-hover" href="#appliquer-par-script-jamais-a-la-main" aria-label="Lien vers cette section">#</a></h3>
+<figure class="doc-block"><figcaption class="doc-block-bar flex x space center"><span class="doc-block-lang">ts</span><button type="button" class="doc-copy" data-copy data-copied="Copié">Copier</button></figcaption><pre class="doc-pre"><code><span class="tok-comment">// scripts/fuse-sizes.ts — simulation par défaut, --apply pour écrire</span>
+const FUSIONS: Record&lt;number, number&gt; = {
+  <span class="tok-num">15</span>: <span class="tok-num">16</span>, <span class="tok-num">17</span>: <span class="tok-num">18</span>, <span class="tok-num">19</span>: <span class="tok-num">20</span>,
+  <span class="tok-num">22</span>: <span class="tok-num">24</span>, <span class="tok-num">26</span>: <span class="tok-num">24</span>, <span class="tok-num">27</span>: <span class="tok-num">28</span>,
+  <span class="tok-num">36</span>: <span class="tok-num">32</span>, <span class="tok-num">48</span>: <span class="tok-num">50</span>, <span class="tok-num">60</span>: <span class="tok-num">56</span>,
+  <span class="tok-num">80</span>: <span class="tok-num">72</span>, <span class="tok-num">96</span>: <span class="tok-num">100</span>, <span class="tok-num">130</span>: <span class="tok-num">120</span>,
+}
+const APPLY = process.argv.includes(<span class="tok-string">'--apply'</span>)
+
+for (const f of walk(<span class="tok-string">'src'</span>)) {
+  let text = fs.readFileSync(f, <span class="tok-string">'utf8'</span>); let dirty = false
+  for (const [from, to] of Object.entries(FUSIONS)) {
+    const re = new RegExp(<span class="tok-string">'\\b'</span> + from + <span class="tok-string">'px\\b'</span>, <span class="tok-string">'g'</span>)
+    if (re.test(text)) { text = text.replace(re, to + <span class="tok-string">'px'</span>); dirty = true }
+  }
+  if (dirty &amp;&amp; APPLY) fs.writeFileSync(f, text)
+}</code></pre></figure>
+<p class="doc-p">Lisez la simulation avant d'appliquer. La regex attrape toutes les occurrences, y compris celles qui ne sont pas des tokens de taille :</p>
+<figure class="doc-block"><figcaption class="doc-block-bar flex x space center"><span class="doc-block-lang">css</span><button type="button" class="doc-copy" data-copy data-copied="Copié">Copier</button></figcaption><pre class="doc-pre"><code>box-shadow: <span class="tok-num">0</span> <span class="tok-num">20px</span> <span class="tok-num">60px</span> rgba(<span class="tok-num">0</span>,<span class="tok-num">0</span>,<span class="tok-num">0</span>,.<span class="tok-num">2</span>);   <span class="tok-comment">/* 60px est un rayon de flou */</span></code></pre></figure>
+<p class="doc-p">Une différence de 4px sur un flou d'ombre est invisible, donc la plupart des prises sont sans conséquence — mais regardez une fois.</p>
+<h3 id="re-auditer-puis-lister" class="doc-h doc-h3">Ré-auditer, puis lister<a class="doc-anchor no-hover" href="#re-auditer-puis-lister" aria-label="Lien vers cette section">#</a></h3>
+<p class="doc-p">Relancez l'audit. Ce qui survit dans la bande devient <code class="doc-inline-code">$sizes</code>. Une variante du même script ciblant les font-size (<code class="doc-inline-code">/font-size\s*:\s*([^;]+)/</code>) vous donne <code class="doc-inline-code">$font-sizes</code>.</p>
+<h2 id="aliaser-vos-tokens-de-design" class="doc-h doc-h2">Aliaser vos tokens de design<a class="doc-anchor no-hover" href="#aliaser-vos-tokens-de-design" aria-label="Lien vers cette section">#</a></h2>
+<p class="doc-p">Si le projet a déjà des tokens SCSS, pointez-les sur EVA. Chaque composant qui lit <code class="doc-inline-code">$space-lg</code> devient fluide sans qu'aucun composant ne soit modifié — c'est la migration la moins coûteuse qui soit.</p>
+<figure class="doc-block"><figcaption class="doc-block-bar flex x space center"><span class="doc-block-lang">scss</span><button type="button" class="doc-copy" data-copy data-copied="Copié">Copier</button></figcaption><pre class="doc-pre"><code><span class="tok-comment">// styles/tokens.scss</span>
+
+<span class="tok-comment">// Espacements — la variante conservatrice garde un plancher mobile respirable</span>
+<span class="tok-var">$space-xs</span>:  var(<span class="tok-var">--4-</span>);
+<span class="tok-var">$space-sm</span>:  var(<span class="tok-var">--8-</span>);
+<span class="tok-var">$space-md</span>:  var(<span class="tok-var">--12-</span>);
+<span class="tok-var">$space-lg</span>:  var(<span class="tok-var">--16-</span>);
+<span class="tok-var">$space-xl</span>:  var(<span class="tok-var">--24-</span>);
+<span class="tok-var">$space-2xl</span>: var(<span class="tok-var">--32-</span>);
+
+<span class="tok-comment">// Typographie — l'espace de noms fs-, variante sans suffixe pour le texte courant</span>
+<span class="tok-var">$font-size-sm</span>:   var(<span class="tok-var">--fs-14</span>);
+<span class="tok-var">$font-size-base</span>: var(<span class="tok-var">--fs-16</span>);
+<span class="tok-var">$font-size-lg</span>:   var(<span class="tok-var">--fs-20</span>);
+<span class="tok-var">$font-size-xl</span>:   var(<span class="tok-var">--fs-24</span>);
+
+<span class="tok-comment">// Rayons</span>
+<span class="tok-var">$radius-sm</span>: var(<span class="tok-var">--6-</span>);
+<span class="tok-var">$radius-md</span>: var(<span class="tok-var">--10-</span>);
+<span class="tok-var">$radius-lg</span>: var(<span class="tok-var">--16-</span>);
+
+<span class="tok-comment">// Pas fluides, volontairement</span>
+<span class="tok-var">$radius-pill</span>: <span class="tok-num">999px</span>;   <span class="tok-comment">// une forme</span>
+<span class="tok-var">$touch-min</span>:   <span class="tok-num">48px</span>;    <span class="tok-comment">// plancher d'accessibilité</span>
+<span class="tok-var">$border</span>:      <span class="tok-num">1px</span>;     <span class="tok-comment">// 1px reste 1px</span></code></pre></figure>
+<p class="doc-p">Quatre catégories ne doivent jamais devenir fluides : les cibles tactiles (44 à 48px minimum quel que soit le viewport), la taille du texte courant sous son plancher de lisibilité, les épaisseurs de bordure et les rayons en pilule.</p>
+<h2 id="mise-en-page" class="doc-h doc-h2">Mise en page<a class="doc-anchor no-hover" href="#mise-en-page" aria-label="Lien vers cette section">#</a></h2>
+<p class="doc-p">L'idée est que les composants cessent de porter des breakpoints. Paddings, gaps et typographie respirent tout seuls.</p>
+<p class="doc-p">Vous avez toujours besoin de media queries pour les changements <strong>structurels</strong> — une colonne qui devient une mise en page à sidebar. EVA ne les remplace pas, et ne devrait pas.</p>
+<figure class="doc-block"><figcaption class="doc-block-bar flex x space center"><span class="doc-block-lang">scss</span><button type="button" class="doc-copy" data-copy data-copied="Copié">Copier</button></figcaption><pre class="doc-pre"><code>.shell {
+  display: grid;
+  grid-template-columns: <span class="tok-num">1fr</span>;                        <span class="tok-comment">// mobile</span>
+
+  <span class="tok-at">@media</span> (min-width: <span class="tok-num">1024px</span>) {                       <span class="tok-comment">// + nav</span>
+    grid-template-columns: var(<span class="tok-var">--280</span>) minmax(<span class="tok-num">0</span>, <span class="tok-num">1fr</span>);
+  }
+
+  <span class="tok-at">@media</span> (min-width: <span class="tok-num">1280px</span>) {                       <span class="tok-comment">// + aside</span>
+    grid-template-columns: var(<span class="tok-var">--280</span>) minmax(<span class="tok-num">0</span>, <span class="tok-num">1fr</span>) var(<span class="tok-var">--320</span>);
+  }
+}
+
+.shell__nav {
+  padding: var(<span class="tok-var">--24</span>) var(<span class="tok-var">--20</span>);
+  gap: var(<span class="tok-var">--20</span>);
+}
+
+.shell__nav-item {
+  height: var(<span class="tok-var">--44</span>);
+  padding: <span class="tok-num">0</span> var(<span class="tok-var">--12</span>);
+  border-radius: var(<span class="tok-var">--10-</span>);
+  font-size: var(<span class="tok-var">--fs-15</span>);
+  gap: var(<span class="tok-var">--12</span>);
+}</code></pre></figure>
+<p class="doc-p">Des media queries pour la topologie. Jamais pour l'espacement ni la typographie.</p>
+<h2 id="verifier-visuellement" class="doc-h doc-h2">Vérifier visuellement<a class="doc-anchor no-hover" href="#verifier-visuellement" aria-label="Lien vers cette section">#</a></h2>
+<p class="doc-p">EVA émet des formules <code class="doc-inline-code">clamp()</code>, et on ne peut pas deviner l'agressivité d'une variante à partir des maths. Fabriquez une route <code class="doc-inline-code">/dev</code> jetable avec une carte par token, chacune montrant les quatre variantes sous forme de carrés réels, et redimensionnez le navigateur.</p>
+<figure class="doc-block"><figcaption class="doc-block-bar flex x space center"><span class="doc-block-lang">js</span><button type="button" class="doc-copy" data-copy data-copied="Copié">Copier</button></figcaption><pre class="doc-pre"><code>const probe = document.querySelector(<span class="tok-string">'.probe'</span>);
+const live = getComputedStyle(probe).getPropertyValue(<span class="tok-string">'--16'</span>).trim();</code></pre></figure>
+<p class="doc-p">Ça se rentabilise trois fois :</p>
+<ol class="doc-list"><li><strong>Test de fumée.</strong> Une valeur vide signifie que le bloc <code class="doc-inline-code">@use ... with (...)</code> manque ou est mal porté.</li><li><strong>Choix de variante.</strong> Comparer <code class="doc-inline-code">var(--16__)</code> et <code class="doc-inline-code">var(--16-)</code> côte à côte à 320px est le seul moyen honnête de décider laquelle convient à un composant.</li><li><strong>Onboarding.</strong> Les designers peuvent vérifier l'échelle sans ouvrir le code des composants.</li></ol>
+<h2 id="pieges" class="doc-h doc-h2">Pièges<a class="doc-anchor no-hover" href="#pieges" aria-label="Lien vers cette section">#</a></h2>
+<p class="doc-p"><strong><code class="doc-inline-code">Error: expected "$"</code> dans le bloc <code class="doc-inline-code">@use ... with ()</code>.</strong> Mettez la liste entre parenthèses : <code class="doc-inline-code">$sizes: (4, 8, 16)</code>, pas <code class="doc-inline-code">$sizes: 4, 8, 16</code>.</p>
+<p class="doc-p"><strong><code class="doc-inline-code">Size 16 is required as a base size</code>.</strong> Ajoutez <code class="doc-inline-code">16</code> à <code class="doc-inline-code">$sizes</code>. C'est la référence rem.</p>
+<p class="doc-p"><strong>Les espacements mobiles sont à l'étroit.</strong> Vous avez utilisé <code class="doc-inline-code">var(--16)</code> là où il fallait <code class="doc-inline-code">var(--16-)</code>. La variante conservatrice garde un plancher bien plus haut sur petit écran.</p>
+<p class="doc-p"><strong>Le texte courant rétrécit trop.</strong> Utilisez <code class="doc-inline-code">var(--fs-16)</code> sans suffixe. Les variantes <code class="doc-inline-code">_</code> et <code class="doc-inline-code">__</code> sont pour l'affichage, pas pour le corps de texte.</p>
+<p class="doc-p"><strong><code class="doc-inline-code">var(--44)</code> ne résout à rien alors que <code class="doc-inline-code">44</code> est dans <code class="doc-inline-code">$font-sizes</code>.</strong> Les tokens de texte sont des <code class="doc-inline-code">--fs-44</code>. Les deux espaces de noms sont indépendants — le même nombre n'est pas le même token.</p>
+<p class="doc-p"><strong><code class="doc-inline-code">var(--15)</code> ne résout plus à rien après consolidation.</strong> Retirer <code class="doc-inline-code">15</code> de <code class="doc-inline-code">$sizes</code> ne retire pas <code class="doc-inline-code">var(--15)</code> de votre code. Une custom property indéfinie fait abandonner la déclaration au navigateur, qui retombe sur sa valeur par défaut : la page s'affiche encore et le bug reste invisible. Après une fusion, greppez les tokens que vous avez supprimés.</p>
+<p class="doc-p"><strong>Le CSS d'un composant bat une media query EVA.</strong> À spécificité égale, c'est l'ordre du source qui tranche. Un défaut écrit après la media query gagne à tous les viewports :</p>
+<figure class="doc-block"><figcaption class="doc-block-bar flex x space center"><span class="doc-block-lang">scss</span><button type="button" class="doc-copy" data-copy data-copied="Copié">Copier</button></figcaption><pre class="doc-pre"><code>.shell {
+  <span class="tok-at">@media</span> (min-width: <span class="tok-num">1024px</span>) { &amp;__aside { display: flex; } }
+}
+.shell__aside { display: none; }   <span class="tok-comment">// plus bas, même spécificité -&gt; gagne toujours</span></code></pre></figure>
+<p class="doc-p">Déplacez le défaut au-dessus de la requête, ou montez sa spécificité.</p>
+<h2 id="les-couleurs-ou-pas" class="doc-h doc-h2">Les couleurs, ou pas<a class="doc-anchor no-hover" href="#les-couleurs-ou-pas" aria-label="Lien vers cette section">#</a></h2>
+<p class="doc-p">Vous n'êtes pas obligé de prendre le système de couleurs. La valeur d'EVA est dans les tailles fluides ; les couleurs sont une offre distincte. Si vous avez déjà une palette et un thème qui fonctionnent, gardez-les et adoptez OKLCH plus tard — <code class="doc-inline-code">eva-css-fluid/variables</code> vous donne les tailles et les couleurs, et vous pouvez simplement ignorer la moitié couleur.</p>
+<p class="doc-p">Si vous les prenez, convertissez votre palette en une commande et lisez <a href="colors.html" class="doc-link no-hover">Couleurs</a> :</p>
+<figure class="doc-block"><figcaption class="doc-block-bar flex x space center"><span class="doc-block-lang">bash</span><button type="button" class="doc-copy" data-copy data-copied="Copié">Copier</button></figcaption><pre class="doc-pre"><code>npx eva-color convert <span class="tok-string">"#2f6d3b"</span>
+npx eva-color palette <span class="tok-string">"#2f6d3b"</span> <span class="tok-num">7</span></code></pre></figure>
+<p class="doc-p">Suite : <a href="cli.html" class="doc-link no-hover">Outils CLI</a>.</p>
+        </div>
+      </article>
+      <nav class="doc-pager flex x space g-20"><a class="doc-pager-link no-hover doc-pager-prev" href="utilities.html"><span class="doc-pager-dir">Précédent</span><span class="doc-pager-title">Classes utilitaires</span></a><a class="doc-pager-link no-hover doc-pager-next" href="cli.html"><span class="doc-pager-dir">Suivant</span><span class="doc-pager-title">Outils CLI</span></a></nav>
+    </main>
+
+    <aside class="doc-toc" aria-label="Sur cette page">
+      <div class="doc-toc-inner">
+        <p class="doc-toc-title fs-12">Sur cette page</p>
+        <ul class="doc-toc-list"><li><a class="doc-toc-link no-hover" data-level="2" href="#audit">Auditer et consolider</a></li><li><a class="doc-toc-link no-hover" data-level="3" href="#compter-chaque-px">Compter chaque px</a></li><li><a class="doc-toc-link no-hover" data-level="3" href="#decider-de-ce-qui-reste-dehors">Décider de ce qui reste dehors</a></li><li><a class="doc-toc-link no-hover" data-level="3" href="#fusionner-les-quasi-doublons">Fusionner les quasi-doublons</a></li><li><a class="doc-toc-link no-hover" data-level="3" href="#appliquer-par-script-jamais-a-la-main">Appliquer par script, jamais à la main</a></li><li><a class="doc-toc-link no-hover" data-level="3" href="#re-auditer-puis-lister">Ré-auditer, puis lister</a></li><li><a class="doc-toc-link no-hover" data-level="2" href="#aliaser-vos-tokens-de-design">Aliaser vos tokens de design</a></li><li><a class="doc-toc-link no-hover" data-level="2" href="#mise-en-page">Mise en page</a></li><li><a class="doc-toc-link no-hover" data-level="2" href="#verifier-visuellement">Vérifier visuellement</a></li><li><a class="doc-toc-link no-hover" data-level="2" href="#pieges">Pièges</a></li><li><a class="doc-toc-link no-hover" data-level="2" href="#les-couleurs-ou-pas">Les couleurs, ou pas</a></li></ul>
+      </div>
+    </aside>
+
+  </div>
+
+  <div class="doc-search" id="doc-search" hidden>
+    <div class="doc-search-backdrop" data-search-close></div>
+    <div class="doc-search-panel flex y" role="dialog" aria-modal="true" aria-label="Rechercher">
+      <div class="doc-search-field flex x center g-12">
+        <svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg>
+        <input type="search" id="doc-search-input" class="doc-search-input" placeholder="Rechercher dans la documentation" autocomplete="off" spellcheck="false">
+        <button type="button" class="doc-search-esc" data-search-close>esc</button>
+      </div>
+      <div class="doc-search-results" id="doc-search-results" data-empty="Aucun résultat pour"></div>
+    </div>
+  </div>
+
+  <footer class="px-220__ py-136 flex x g-20 w-full">
+    <div class="flex w-full y space center g-32">
+      <p class="fs-16 _c-brand_">© 2024</p>
+      <p class="fs-16 _c-brand_">Tati Michaël</p>
+    </div>
+    <div class="flex w-full y space g-32">
+      <a href="https://www.linkedin.com/in/mtati/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="index.html">Documentation</a>
+      <a href="../../doc/adopt.html" hreflang="en" title="View in English">EN</a>
+    </div>
+  </footer>
+
+  <script src="../../app.js"></script>
+  <script src="../../doc.js"></script>
+  </body>
+</html>

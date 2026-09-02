@@ -41,27 +41,57 @@
       "title": "Proportions and spacing",
       "body": "Visual harmony preserved across every screen, without compromise on creative intent."
     },
-    "card3": { "title": "Fluid CSS", "cta": "Discover →" },
+    "card3": {
+      "title": "Fluid CSS",
+      "cta": "Discover →"
+    },
     "card4": {
       "title": "Customization and rigor",
       "body": "Total flexibility, dimensional rigor. Reliable scalability, even on the most ambitious projects."
     }
   },
   "hub": {
-    "fluid": { "title": "Fluid Responsive", "body": "Fluid scaling adapts to every screen size seamlessly using modern clamp() functions.", "cta": "Learn about fluid CSS →" },
-    "colors": { "title": "OKLCH Colors", "body": "Modern color system with automatic variations, opacity controls, and accessibility features.", "cta": "Explore colors →" },
-    "gradients": { "title": "Gradients", "body": "Modern gradient system with fluid animations and responsive controls.", "cta": "Explore gradients →" },
-    "grids": { "title": "Modern Grids", "body": "Auto-fit layouts, container queries, and responsive column systems.", "cta": "Explore grids →" },
-    "flex": { "title": "Flex", "body": "Flexible layout system with modern responsive controls.", "cta": "Explore flex →" },
-    "useCases": { "title": "Use Cases", "body": "See EVA CSS in real workflows — Figma, Tailwind, Webflow, Ycode, and legacy CSS migrations.", "cta": "Explore use cases →" }
+    "fluid": {
+      "title": "Fluid Responsive",
+      "body": "Fluid scaling adapts to every screen size seamlessly using modern clamp() functions.",
+      "cta": "Learn about fluid CSS →"
+    },
+    "colors": {
+      "title": "OKLCH Colors",
+      "body": "Modern color system with automatic variations, opacity controls, and accessibility features.",
+      "cta": "Explore colors →"
+    },
+    "gradients": {
+      "title": "Gradients",
+      "body": "Modern gradient system with fluid animations and responsive controls.",
+      "cta": "Explore gradients →"
+    },
+    "grids": {
+      "title": "Modern Grids",
+      "body": "Auto-fit layouts, container queries, and responsive column systems.",
+      "cta": "Explore grids →"
+    },
+    "flex": {
+      "title": "Flex",
+      "body": "Flexible layout system with modern responsive controls.",
+      "cta": "Explore flex →"
+    },
+    "useCases": {
+      "title": "Use Cases",
+      "body": "See EVA CSS in real workflows — Figma, Tailwind, Webflow, Ycode, and legacy CSS migrations.",
+      "cta": "Explore use cases →"
+    }
   },
   "footer": {
     "copyright": "© 2024",
     "author": "Tati Michaël",
     "linkedin": "LinkedIn",
-    "llms": "🤖 /llms.txt"
+    "doc": "Documentation"
   },
-  "langToggle": { "label": "FR", "title": "Voir en français" },
+  "langToggle": {
+    "label": "FR",
+    "title": "Voir en français"
+  },
   "faq": {
     "heading": "Frequently asked",
     "headingHighlight": "Questions",
@@ -113,9 +143,9 @@
     "sizes": "Sizes"
   },
   "aiPointer": {
-    "eyebrow": "For your AI assistant",
+    "eyebrow": "The full reference",
     "fullRef": "Full reference",
-    "cta": "Open /llms.txt →"
+    "cta": "Read the documentation →"
   },
   "addons": {
     "meta": {
@@ -130,26 +160,50 @@
       "body": "Fluid is the framework. These six addons are optional. Use the ones you need, ignore the rest."
     },
     "cards": {
-      "colors": { "title": "Colors", "body": "OKLCH-based color system. Three hues, sixteen variants per color, automatic opacity and brightness modifiers." },
-      "gradients": { "title": "Gradients", "body": "Emmet-style syntax. Linear, radial, animated. <code>from-brand to-accent d-r</code> — that's the API." },
-      "grids": { "title": "Grids", "body": "Three paradigms: auto-fit for cards, classic 12-col for layouts, fraction notation for precise control." },
-      "flex": { "title": "Flex", "body": "Two axes, three keywords. <code>flex y</code>, <code>flex x</code>, <code>center</code>, <code>space</code>. Done." },
-      "fonts": { "title": "Fonts", "body": "Fluid typography with three intensity modifiers. Type that flows from mobile to desktop without media queries." },
-      "sizes": { "title": "Sizes", "body": "One number, four flavors. Padding, margin, gap, width, height — all on the same fluid scale." }
+      "colors": {
+        "title": "Colors",
+        "body": "OKLCH-based color system. Three hues, sixteen variants per color, automatic opacity and brightness modifiers."
+      },
+      "gradients": {
+        "title": "Gradients",
+        "body": "Emmet-style syntax. Linear, radial, animated. <code>from-brand to-accent d-r</code> — that's the API."
+      },
+      "grids": {
+        "title": "Grids",
+        "body": "Three paradigms: auto-fit for cards, classic 12-col for layouts, fraction notation for precise control."
+      },
+      "flex": {
+        "title": "Flex",
+        "body": "Two axes, three keywords. <code>flex y</code>, <code>flex x</code>, <code>center</code>, <code>space</code>. Done."
+      },
+      "fonts": {
+        "title": "Fonts",
+        "body": "Fluid typography with three intensity modifiers. Type that flows from mobile to desktop without media queries."
+      },
+      "sizes": {
+        "title": "Sizes",
+        "body": "One number, four flavors. Padding, margin, gap, width, height — all on the same fluid scale."
+      }
     },
     "cta": "Explore →",
     "tools": {
       "title": "Tools",
       "body": "Two interactive helpers to generate themes and explore variables.",
-      "autoTheme": { "title": "Auto Theme", "body": "Drop an image, get an OKLCH theme. Brand, accent, extra extracted automatically." },
-      "jsCalculator": { "title": "JS Calculator", "body": "Configure your scale, see every generated variable and class. Live preview, no install." },
+      "autoTheme": {
+        "title": "Auto Theme",
+        "body": "Drop an image, get an OKLCH theme. Brand, accent, extra extracted automatically."
+      },
+      "jsCalculator": {
+        "title": "JS Calculator",
+        "body": "Configure your scale, see every generated variable and class. Live preview, no install."
+      },
       "openInPlayground": "Open in Playground →"
     },
     "ai": {
-      "eyebrow": "For your AI assistant",
-      "title": "All addons. One markdown file.",
-      "body": "Every variable, every modifier, every formula across all six addons. <code>/llms.txt</code> condenses it for direct AI consumption.",
-      "cta": "Open /llms.txt →"
+      "eyebrow": "The full reference",
+      "title": "Every addon, documented.",
+      "body": "Every variable, every modifier, every formula across the six addons — with the tables, the defaults and the traps, chapter by chapter.",
+      "cta": "Open the documentation →"
     }
   },
   "figmaToEva": {
@@ -167,36 +221,94 @@
     },
     "prereq": {
       "title": "Prerequisites",
-      "desktop": { "title": "MCP Desktop", "tag": "Recommended option", "step1": "Open Figma Desktop", "step2": "Enable Dev Mode (Shift+D)", "step3": "Enable desktop MCP server" },
-      "remote": { "title": "MCP Remote", "tag": "Cloud alternative" },
-      "tools": { "title": "MCP Tools", "t1": "Layout, styles", "t2": "Variables", "t3": "SVG/PNG", "t4": "Capture" }
+      "desktop": {
+        "title": "MCP Desktop",
+        "tag": "Recommended option",
+        "step1": "Open Figma Desktop",
+        "step2": "Enable Dev Mode (Shift+D)",
+        "step3": "Enable desktop MCP server"
+      },
+      "remote": {
+        "title": "MCP Remote",
+        "tag": "Cloud alternative"
+      },
+      "tools": {
+        "title": "MCP Tools",
+        "t1": "Layout, styles",
+        "t2": "Variables",
+        "t3": "SVG/PNG",
+        "t4": "Capture"
+      }
     },
     "workflow": {
       "title": "Workflow",
       "stepLabel": "Step",
-      "s1": { "title": "Figma Extraction", "body": "Extract via MCP: layout, HEX colors, dimensions (width, height, gap, padding), font sizes." },
-      "s2": { "title": "Size Analysis", "body": "Identify: gaps, paddings, dimensions, border radius." },
-      "s3": { "title": "Color Conversion", "body": "HEX → OKLCH" },
-      "s4": { "title": "Project Setup" },
-      "s5": { "title": "SCSS Config" },
-      "s6": { "title": "OKLCH Theme" },
-      "s7": { "title": "EVA Variables" },
-      "s8": { "title": "Compilation" },
-      "s9": { "title": "HTML" }
+      "s1": {
+        "title": "Figma Extraction",
+        "body": "Extract via MCP: layout, HEX colors, dimensions (width, height, gap, padding), font sizes."
+      },
+      "s2": {
+        "title": "Size Analysis",
+        "body": "Identify: gaps, paddings, dimensions, border radius."
+      },
+      "s3": {
+        "title": "Color Conversion",
+        "body": "HEX → OKLCH"
+      },
+      "s4": {
+        "title": "Project Setup"
+      },
+      "s5": {
+        "title": "SCSS Config"
+      },
+      "s6": {
+        "title": "OKLCH Theme"
+      },
+      "s7": {
+        "title": "EVA Variables"
+      },
+      "s8": {
+        "title": "Compilation"
+      },
+      "s9": {
+        "title": "HTML"
+      }
     },
     "rules": {
       "title": "Important rules",
       "label": "Rule",
-      "r1": { "title": "No fixed values", "body": "Always <code>var(--XX)</code>, never <code>XXpx</code>" },
-      "r2": { "title": "Respect Figma", "body": "If Figma uses <code>--120__</code>, use <code>var(--120__)</code>" },
-      "r3": { "title": "buildClass: false", "body": "Semantic CSS using EVA variables" },
-      "r4": { "title": "Loop on repetitions", "body": "If a Figma element contains \"loop\", iterate" }
+      "r1": {
+        "title": "No fixed values",
+        "body": "Always <code>var(--XX)</code>, never <code>XXpx</code>"
+      },
+      "r2": {
+        "title": "Respect Figma",
+        "body": "If Figma uses <code>--120__</code>, use <code>var(--120__)</code>"
+      },
+      "r3": {
+        "title": "buildClass: false",
+        "body": "Semantic CSS using EVA variables"
+      },
+      "r4": {
+        "title": "Loop on repetitions",
+        "body": "If a Figma element contains \"loop\", iterate"
+      }
     },
     "demo": {
       "title": "Live Demo: Ulysse Project",
-      "ulysse": { "title": "Open Ulysse", "body": "View the complete Figma to EVA CSS integration", "cta": "Open project →" },
-      "figma": { "title": "Figma Design", "body": "Compare with the original design", "cta": "View on Figma →" },
-      "config": { "title": "Config used" }
+      "ulysse": {
+        "title": "Open Ulysse",
+        "body": "View the complete Figma to EVA CSS integration",
+        "cta": "Open project →"
+      },
+      "figma": {
+        "title": "Figma Design",
+        "body": "Compare with the original design",
+        "cta": "View on Figma →"
+      },
+      "config": {
+        "title": "Config used"
+      }
     }
   },
   "useCasesNav": {
@@ -219,11 +331,31 @@
       "body": "EVA CSS isn't tied to one workflow. Pick the one that matches your stack — code-first, no-code, or somewhere in between."
     },
     "cards": {
-      "figma": { "title": "Figma to EVA", "body": "Extract sizes, colors and typography from a Figma file via MCP and turn them into an EVA CSS project.", "cta": "Read the guide →" },
-      "tailwind": { "title": "Tailwind override", "body": "Replace Tailwind's static spacing, font and color scale with EVA CSS fluid variables — same utility classes, no breakpoints.", "cta": "Read the guide →" },
-      "webflow": { "title": "Webflow fluid", "body": "Inject compiled EVA CSS variables into Webflow via Custom Code, then reference them straight from the Designer's style fields.", "cta": "Read the guide →" },
-      "ycode": { "title": "Ycode fluid", "body": "Same idea for Ycode: compile once, paste into Custom Code, reference var(--XX) in the per-class custom CSS panel.", "cta": "Read the guide →" },
-      "vibecode": { "title": "Vibecode CSS upgrade", "body": "Turn a messy, breakpoint-heavy stylesheet full of hardcoded px/rem values into a clean EVA fluid sizing system.", "badge": "Coming soon" }
+      "figma": {
+        "title": "Figma to EVA",
+        "body": "Extract sizes, colors and typography from a Figma file via MCP and turn them into an EVA CSS project.",
+        "cta": "Read the guide →"
+      },
+      "tailwind": {
+        "title": "Tailwind override",
+        "body": "Replace Tailwind's static spacing, font and color scale with EVA CSS fluid variables — same utility classes, no breakpoints.",
+        "cta": "Read the guide →"
+      },
+      "webflow": {
+        "title": "Webflow fluid",
+        "body": "Inject compiled EVA CSS variables into Webflow via Custom Code, then reference them straight from the Designer's style fields.",
+        "cta": "Read the guide →"
+      },
+      "ycode": {
+        "title": "Ycode fluid",
+        "body": "Same idea for Ycode: compile once, paste into Custom Code, reference var(--XX) in the per-class custom CSS panel.",
+        "cta": "Read the guide →"
+      },
+      "vibecode": {
+        "title": "Vibecode CSS upgrade",
+        "body": "Turn a messy, breakpoint-heavy stylesheet full of hardcoded px/rem values into a clean EVA fluid sizing system.",
+        "badge": "Coming soon"
+      }
     }
   },
   "tailwindOverride": {
@@ -241,27 +373,69 @@
     },
     "prereq": {
       "title": "What you need",
-      "eva": { "title": "EVA in variables-only mode", "tag": "$build-class: false", "body": "Compile EVA CSS with utility classes disabled — you only want the generated var(--XX) custom properties, Tailwind keeps generating the classes." },
-      "config": { "title": "tailwind.config.js access", "tag": "theme.extend", "body": "You'll map spacing, fontSize and colors to var(--XX) instead of static rem values." },
-      "build": { "title": "A build step before Tailwind", "tag": "PostCSS / Vite / CLI", "body": "The compiled EVA stylesheet must load before Tailwind's own output so the custom properties already exist when utilities reference them." }
+      "eva": {
+        "title": "EVA in variables-only mode",
+        "tag": "$build-class: false",
+        "body": "Compile EVA CSS with utility classes disabled — you only want the generated var(--XX) custom properties, Tailwind keeps generating the classes."
+      },
+      "config": {
+        "title": "tailwind.config.js access",
+        "tag": "theme.extend",
+        "body": "You'll map spacing, fontSize and colors to var(--XX) instead of static rem values."
+      },
+      "build": {
+        "title": "A build step before Tailwind",
+        "tag": "PostCSS / Vite / CLI",
+        "body": "The compiled EVA stylesheet must load before Tailwind's own output so the custom properties already exist when utilities reference them."
+      }
     },
     "workflow": {
       "title": "Workflow",
       "stepLabel": "Step",
-      "s1": { "title": "Compile EVA variables", "body": "Same sizes/font-sizes list as any EVA project, but $build-class: false — output is a lean :root block of var(--XX) and OKLCH color variables." },
-      "s2": { "title": "Load it before Tailwind", "body": "Import the compiled file ahead of @tailwind base in your CSS entry so the variables are already defined." },
-      "s3": { "title": "Extend the theme", "body": "In tailwind.config.js, point spacing, fontSize and colors at the matching var(--XX) instead of static values." },
-      "s4": { "title": "Use Tailwind as usual", "body": "p-16, text-base, bg-brand now resolve to EVA's clamp() values — no md:/lg: variants needed for that property." },
-      "s5": { "title": "One-offs via arbitrary values", "body": "For a value outside your config, Tailwind's bracket syntax reaches EVA vars directly — no config edit required." },
-      "s6": { "title": "Recompile on change", "body": "Add a size to $sizes, recompile EVA, then reference it — from tailwind.config or straight from an arbitrary value." }
+      "s1": {
+        "title": "Compile EVA variables",
+        "body": "Same sizes/font-sizes list as any EVA project, but $build-class: false — output is a lean :root block of var(--XX) and OKLCH color variables."
+      },
+      "s2": {
+        "title": "Load it before Tailwind",
+        "body": "Import the compiled file ahead of @tailwind base in your CSS entry so the variables are already defined."
+      },
+      "s3": {
+        "title": "Extend the theme",
+        "body": "In tailwind.config.js, point spacing, fontSize and colors at the matching var(--XX) instead of static values."
+      },
+      "s4": {
+        "title": "Use Tailwind as usual",
+        "body": "p-16, text-base, bg-brand now resolve to EVA's clamp() values — no md:/lg: variants needed for that property."
+      },
+      "s5": {
+        "title": "One-offs via arbitrary values",
+        "body": "For a value outside your config, Tailwind's bracket syntax reaches EVA vars directly — no config edit required."
+      },
+      "s6": {
+        "title": "Recompile on change",
+        "body": "Add a size to $sizes, recompile EVA, then reference it — from tailwind.config or straight from an arbitrary value."
+      }
     },
     "rules": {
       "title": "Important rules",
       "label": "Rule",
-      "r1": { "title": "EVA owns the scale", "body": "Tailwind config values are always <code>var(--XX)</code>, never a static <code>rem</code> or <code>px</code>." },
-      "r2": { "title": "Load order matters", "body": "The EVA stylesheet must be imported before Tailwind's utilities are generated, or the variables resolve to nothing." },
-      "r3": { "title": "Drop redundant breakpoints", "body": "Once a utility is driven by a fluid var, delete the <code>sm:</code>/<code>md:</code>/<code>lg:</code> variants for that property." },
-      "r4": { "title": "Keep $sizes lean", "body": "Only list the sizes actually referenced in tailwind.config.js or in arbitrary values." }
+      "r1": {
+        "title": "EVA owns the scale",
+        "body": "Tailwind config values are always <code>var(--XX)</code>, never a static <code>rem</code> or <code>px</code>."
+      },
+      "r2": {
+        "title": "Load order matters",
+        "body": "The EVA stylesheet must be imported before Tailwind's utilities are generated, or the variables resolve to nothing."
+      },
+      "r3": {
+        "title": "Drop redundant breakpoints",
+        "body": "Once a utility is driven by a fluid var, delete the <code>sm:</code>/<code>md:</code>/<code>lg:</code> variants for that property."
+      },
+      "r4": {
+        "title": "Keep $sizes lean",
+        "body": "Only list the sizes actually referenced in tailwind.config.js or in arbitrary values."
+      }
     }
   },
   "webflowFluid": {
@@ -279,27 +453,69 @@
     },
     "prereq": {
       "title": "What you need",
-      "eva": { "title": "A compiled stylesheet", "tag": "$build-class: false", "body": "Variables only — Webflow already has its own class system, you just need the fluid var(--XX) and OKLCH color custom properties." },
-      "hosting": { "title": "Somewhere to host it", "tag": "CDN / repo", "body": "Custom Code can link to an external stylesheet, or you can inline it directly if it stays small." },
-      "access": { "title": "Project Settings access", "tag": "Custom Code", "body": "You need permission to edit the site-wide head code — Designer or Site plan owner." }
+      "eva": {
+        "title": "A compiled stylesheet",
+        "tag": "$build-class: false",
+        "body": "Variables only — Webflow already has its own class system, you just need the fluid var(--XX) and OKLCH color custom properties."
+      },
+      "hosting": {
+        "title": "Somewhere to host it",
+        "tag": "CDN / repo",
+        "body": "Custom Code can link to an external stylesheet, or you can inline it directly if it stays small."
+      },
+      "access": {
+        "title": "Project Settings access",
+        "tag": "Custom Code",
+        "body": "You need permission to edit the site-wide head code — Designer or Site plan owner."
+      }
     },
     "workflow": {
       "title": "Workflow",
       "stepLabel": "Step",
-      "s1": { "title": "Compile EVA variables", "body": "$build-class: false — a lean :root block of fluid var(--XX) and OKLCH color variables, nothing else." },
-      "s2": { "title": "Host or inline it", "body": "Push the compiled CSS to a CDN/repo URL, or paste it inline inside a <style> tag if it's small." },
-      "s3": { "title": "Paste into Custom Code", "body": "Project Settings → Custom Code → Head Code. Link the stylesheet or paste the inline <style> block." },
-      "s4": { "title": "Reference it in the Designer", "body": "Type var(--XX) directly into a width, padding, gap or font-size field instead of a fixed number." },
-      "s5": { "title": "Same for colors", "body": "Reference the OKLCH color variables anywhere Webflow accepts a custom value." },
-      "s6": { "title": "Drop redundant breakpoints", "body": "A field driven by a fluid var already scales — leave the other breakpoints in the Designer untouched for that property." }
+      "s1": {
+        "title": "Compile EVA variables",
+        "body": "$build-class: false — a lean :root block of fluid var(--XX) and OKLCH color variables, nothing else."
+      },
+      "s2": {
+        "title": "Host or inline it",
+        "body": "Push the compiled CSS to a CDN/repo URL, or paste it inline inside a <style> tag if it's small."
+      },
+      "s3": {
+        "title": "Paste into Custom Code",
+        "body": "Project Settings → Custom Code → Head Code. Link the stylesheet or paste the inline <style> block."
+      },
+      "s4": {
+        "title": "Reference it in the Designer",
+        "body": "Type var(--XX) directly into a width, padding, gap or font-size field instead of a fixed number."
+      },
+      "s5": {
+        "title": "Same for colors",
+        "body": "Reference the OKLCH color variables anywhere Webflow accepts a custom value."
+      },
+      "s6": {
+        "title": "Drop redundant breakpoints",
+        "body": "A field driven by a fluid var already scales — leave the other breakpoints in the Designer untouched for that property."
+      }
     },
     "rules": {
       "title": "Important rules",
       "label": "Rule",
-      "r1": { "title": "Publish to see it", "body": "Custom Code only runs on the published or staged site, not always live inside the Designer canvas." },
-      "r2": { "title": "One source of truth", "body": "Keep $sizes in sync with what's actually typed into Webflow's fields." },
-      "r3": { "title": "Don't fight the breakpoints", "body": "For a property on a fluid var, leave other breakpoints alone instead of adding overrides on top." },
-      "r4": { "title": "Never hardcode", "body": "Always <code>var(--XX)</code>, never <code>XXpx</code> — same rule as everywhere else in EVA." }
+      "r1": {
+        "title": "Publish to see it",
+        "body": "Custom Code only runs on the published or staged site, not always live inside the Designer canvas."
+      },
+      "r2": {
+        "title": "One source of truth",
+        "body": "Keep $sizes in sync with what's actually typed into Webflow's fields."
+      },
+      "r3": {
+        "title": "Don't fight the breakpoints",
+        "body": "For a property on a fluid var, leave other breakpoints alone instead of adding overrides on top."
+      },
+      "r4": {
+        "title": "Never hardcode",
+        "body": "Always <code>var(--XX)</code>, never <code>XXpx</code> — same rule as everywhere else in EVA."
+      }
     }
   },
   "ycodeFluid": {
@@ -317,27 +533,69 @@
     },
     "prereq": {
       "title": "What you need",
-      "eva": { "title": "A compiled stylesheet", "tag": "$build-class: false", "body": "Fluid var(--XX) and OKLCH color variables only — Ycode's own class system stays untouched." },
-      "hosting": { "title": "Somewhere to host it", "tag": "CDN / repo", "body": "Custom Code accepts a stylesheet link or an inline <style> block." },
-      "access": { "title": "Project or page settings", "tag": "Custom Code", "body": "You need access to the Custom Code panel — project-wide (head) or per page." }
+      "eva": {
+        "title": "A compiled stylesheet",
+        "tag": "$build-class: false",
+        "body": "Fluid var(--XX) and OKLCH color variables only — Ycode's own class system stays untouched."
+      },
+      "hosting": {
+        "title": "Somewhere to host it",
+        "tag": "CDN / repo",
+        "body": "Custom Code accepts a stylesheet link or an inline <style> block."
+      },
+      "access": {
+        "title": "Project or page settings",
+        "tag": "Custom Code",
+        "body": "You need access to the Custom Code panel — project-wide (head) or per page."
+      }
     },
     "workflow": {
       "title": "Workflow",
       "stepLabel": "Step",
-      "s1": { "title": "Compile EVA variables", "body": "$build-class: false — a lean :root block of fluid var(--XX) and OKLCH color variables." },
-      "s2": { "title": "Host or inline it", "body": "Push the compiled CSS to a CDN/repo URL, or paste it inline inside a <style> tag if it's small." },
-      "s3": { "title": "Paste into Custom Code", "body": "Project Settings → Custom Code (or Page Settings). Link the stylesheet or paste the inline block." },
-      "s4": { "title": "Reference it per class", "body": "In the element's Custom CSS field, write padding, gap or font-size against var(--XX) instead of a fixed value." },
-      "s5": { "title": "Same for colors", "body": "Reference the OKLCH color variables in the same Custom CSS field, e.g. background: var(--brand)." },
-      "s6": { "title": "Drop redundant breakpoints", "body": "A property already driven by a fluid var scales on its own — remove the tablet/mobile overrides for it." }
+      "s1": {
+        "title": "Compile EVA variables",
+        "body": "$build-class: false — a lean :root block of fluid var(--XX) and OKLCH color variables."
+      },
+      "s2": {
+        "title": "Host or inline it",
+        "body": "Push the compiled CSS to a CDN/repo URL, or paste it inline inside a <style> tag if it's small."
+      },
+      "s3": {
+        "title": "Paste into Custom Code",
+        "body": "Project Settings → Custom Code (or Page Settings). Link the stylesheet or paste the inline block."
+      },
+      "s4": {
+        "title": "Reference it per class",
+        "body": "In the element's Custom CSS field, write padding, gap or font-size against var(--XX) instead of a fixed value."
+      },
+      "s5": {
+        "title": "Same for colors",
+        "body": "Reference the OKLCH color variables in the same Custom CSS field, e.g. background: var(--brand)."
+      },
+      "s6": {
+        "title": "Drop redundant breakpoints",
+        "body": "A property already driven by a fluid var scales on its own — remove the tablet/mobile overrides for it."
+      }
     },
     "rules": {
       "title": "Important rules",
       "label": "Rule",
-      "r1": { "title": "Custom CSS wins, carefully", "body": "Per-class custom CSS overrides Ycode's visual controls for that property — keep it scoped to what EVA drives." },
-      "r2": { "title": "One source of truth", "body": "Keep $sizes in sync with what's actually referenced in your classes' custom CSS." },
-      "r3": { "title": "Don't fight the breakpoints", "body": "For a property on a fluid var, leave the other breakpoints alone instead of adding overrides on top." },
-      "r4": { "title": "Never hardcode", "body": "Always <code>var(--XX)</code>, never <code>XXpx</code> — same rule as everywhere else in EVA." }
+      "r1": {
+        "title": "Custom CSS wins, carefully",
+        "body": "Per-class custom CSS overrides Ycode's visual controls for that property — keep it scoped to what EVA drives."
+      },
+      "r2": {
+        "title": "One source of truth",
+        "body": "Keep $sizes in sync with what's actually referenced in your classes' custom CSS."
+      },
+      "r3": {
+        "title": "Don't fight the breakpoints",
+        "body": "For a property on a fluid var, leave the other breakpoints alone instead of adding overrides on top."
+      },
+      "r4": {
+        "title": "Never hardcode",
+        "body": "Always <code>var(--XX)</code>, never <code>XXpx</code> — same rule as everywhere else in EVA."
+      }
     }
   },
   "cssFluid": {
@@ -371,8 +629,14 @@
       "bodyHighlight": "Watch the left jump. Watch the right glide.",
       "bpTag": "@media breakpoints",
       "flTag": "clamp() fluid",
-      "bpCard": { "title": "Breakpoint card", "body": "Jumps at 768 / 1024 / 1440" },
-      "flCard": { "title": "Fluid card", "body": "Continuous between 320 and 1920" }
+      "bpCard": {
+        "title": "Breakpoint card",
+        "body": "Jumps at 768 / 1024 / 1440"
+      },
+      "flCard": {
+        "title": "Fluid card",
+        "body": "Continuous between 320 and 1920"
+      }
     },
     "modifiers": {
       "title": "Four size modifiers",
@@ -414,8 +678,14 @@
       "bodyPost": ", the vw card stays locked to your real browser window.",
       "vwTag": "vw — tracks the viewport",
       "cqiTag": "cqi — tracks the container",
-      "vwCard": { "title": "vw", "body": "clamp(1.125rem, 5vw, 4rem) — reads the real viewport, not this frame." },
-      "cqiCard": { "title": "cqi", "body": "clamp(1.125rem, 5cqi, 4rem) — reads this frame's own width." },
+      "vwCard": {
+        "title": "vw",
+        "body": "clamp(1.125rem, 5vw, 4rem) — reads the real viewport, not this frame."
+      },
+      "cqiCard": {
+        "title": "cqi",
+        "body": "clamp(1.125rem, 5cqi, 4rem) — reads this frame's own width."
+      },
       "hint": "Drag the slider — only the cqi card scales, because it's the frame that resizes, not your browser. Now resize your actual browser window: the vw card reacts instead. Real viewport right now:"
     },
     "why": {
@@ -424,8 +694,8 @@
       "body2": "EVA CSS turns every fixed Figma value into a fluid, responsive variable. The maths happens once, the result holds across every viewport, and the original visual hierarchy survives the trip from canvas to code."
     },
     "ai": {
-      "title": "The full reference fits in one file.",
-      "body": "Every variable, modifier, and formula lives in <code>/llms.txt</code>. Copy it into Claude, ChatGPT, or Cursor — your assistant now knows EVA CSS by heart."
+      "title": "The whole sizing system, chapter by chapter.",
+      "body": "The four variants and what each one costs you on a phone, the separate <code>--fs-</code> namespace, the runtime fluid unit and the accessibility floor."
     }
   },
   "colors": {
@@ -456,9 +726,23 @@
       "extra": "Extra",
       "darkLight": "Dark / Light"
     },
-    "naming": { "title": "Naming convention", "color": "color", "background": "background", "borderColor": "border-color" },
-    "opacity": { "title": "Opacity modifiers", "full": "full" },
-    "brightness": { "title": "Brightness modifiers", "darker": "darker", "brighter": "brighter", "deeperDark": "deeper dark", "lighterBright": "lighter bright" },
+    "naming": {
+      "title": "Naming convention",
+      "color": "color",
+      "background": "background",
+      "borderColor": "border-color"
+    },
+    "opacity": {
+      "title": "Opacity modifiers",
+      "full": "full"
+    },
+    "brightness": {
+      "title": "Brightness modifiers",
+      "darker": "darker",
+      "brighter": "brighter",
+      "deeperDark": "deeper dark",
+      "lighterBright": "lighter bright"
+    },
     "darkLight": {
       "title": "Dark / Light",
       "body": "One pivot, two variables. The same --dark and --light tokens flip their lightness automatically — components stay mode-agnostic. OKLCH keeps chroma and hue intact; only the L channel swaps.",
@@ -526,8 +810,8 @@
     },
     "ai": {
       "eyebrow": "Full reference",
-      "title": "All variants, all formulas — in /llms.txt.",
-      "body": "OKLCH foundations, theme switching, contrast formulas. Plus the auto-theme tool to extract palettes from images.",
+      "title": "All variants, all formulas — documented.",
+      "body": "OKLCH foundations, theme switching, per-role brightness steps. Plus the auto-theme tool to extract palettes from images.",
       "autoCta": "Auto theme →"
     }
   },
@@ -558,8 +842,8 @@
       "scaleTitle": "Configure scale"
     },
     "ai": {
-      "title": "All variables, all formulas — in one file.",
-      "body": "Modifier maths, calculation constants ($Φ, $ez), every <code>--fs-*</code> variable. <code>/llms.txt</code> has it all."
+      "title": "All variables, all formulas — documented.",
+      "body": "Modifier maths, calculation constants ($Φ, $ez), and every <code>--fs-*</code> variable in one reference."
     }
   },
   "sizes": {
@@ -597,8 +881,8 @@
       "varTitle": "Use as variable"
     },
     "ai": {
-      "title": "Calculation maths and modifier formulas — in /llms.txt.",
-      "body": "Step-by-step calculation, naming conventions, the $Φ ratio, prefix list. Everything an AI needs."
+      "title": "Calculation maths and modifier formulas.",
+      "body": "Step-by-step calculation, naming conventions, the $Φ ratio and the full prefix list."
     }
   },
   "grids": {
@@ -631,7 +915,7 @@
       "bodyPost": " as utility classes."
     },
     "ai": {
-      "title": "All grid utilities — in /llms.txt.",
+      "title": "All grid utilities, documented.",
       "body": "Auto-fit thresholds, container queries, gap modifiers, span notation. The complete utilities list."
     }
   },
@@ -670,8 +954,8 @@
       "crossAxis": "cross axis"
     },
     "ai": {
-      "title": "Modifier matrix and edge cases — in /llms.txt.",
-      "body": "Wrap behaviors, alignment shorthand, breakpoint utilities. Everything an AI needs to lay out flex correctly."
+      "title": "Modifier matrix and edge cases.",
+      "body": "Wrap behaviours, alignment shorthands, the compound justify-align forms and the item-level utilities."
     }
   },
   "gradients": {
@@ -716,51 +1000,8 @@
       "fade": "fade"
     },
     "ai": {
-      "title": "Every combination — in /llms.txt.",
-      "body": "Background size modifiers, position helpers, animation timings, the full angle table — all in the AI doc."
-    }
-  },
-  "doc": {
-    "meta": {
-      "title": "EVA CSS — Docs: Install, Configure & Build in 3 Steps",
-      "description": "EVA CSS quickstart — install, configure, build. The complete reference lives in /llms.txt for AI consumption.",
-      "ogTitle": "EVA CSS — Documentation",
-      "ogDescription": "Quickstart in three steps. Install, configure, build — full reference in /llms.txt for AI consumption."
-    },
-    "hero": {
-      "eyebrow": "Quickstart",
-      "titlePre": "Get running in",
-      "titleHighlight": "three steps",
-      "bodyPre": "Install. Configure. Build. The full reference lives in one markdown file at"
-    },
-    "steps": {
-      "label": "Step",
-      "s1": { "title": "Install", "body": "Three packages: the framework, the CSS purger, and the OKLCH color utilities." },
-      "s2": { "title": "Configure", "bodyPre": "Just the sizes you actually use. Modifiers (", "bodyPost": ") are generated automatically." },
-      "s3": { "title": "Build", "bodyPre": "Native Sass works directly. Or use the watch script:" }
-    },
-    "cli": {
-      "title": "CLI commands",
-      "body": "Two CLIs ship alongside the framework: color conversion and CSS purging.",
-      "colorBody": "HEX-OKLCH conversion and theme generation.",
-      "purgeBody": "40-70 % CSS reduction on production builds."
-    },
-    "adopt": {
-      "eyebrow": "Adopting EVA in your project",
-      "title": "From greenfield to retrofit — one guide.",
-      "bodyPre": "Wire EVA into a fresh, mid-stage, or fully-shipped project. The guide walks through entry points, the px audit + fusion workflow, design-token aliasing, multi-themes, and dark mode via",
-      "bodyPost": ". The LLM version is dense and pasteable into Claude, ChatGPT, or Cursor.",
-      "cta1": "Read use-eva.md →",
-      "cta2": "Open use-eva-llm.md →"
-    },
-    "fullRef": {
-      "eyebrow": "The full reference",
-      "title": "All variables, all formulas, all examples — in /llms.txt.",
-      "bodyPre": "Don't read documentation.",
-      "bodyEm": "Paste it",
-      "bodyMid": "Copy",
-      "bodyPost": "into Claude, ChatGPT, or Cursor — your AI now knows EVA CSS by heart and can write it for you.",
-      "fullCta": "Open /llms-full.txt →"
+      "title": "Every combination, documented.",
+      "body": "Background size modifiers, position helpers, animation timings and the full angle table."
     }
   },
   "jsCalc": {
@@ -792,16 +1033,56 @@
     },
     "titleHighlight": "Auto Theme",
     "subtitle": "Upload an image and automatically generate an EVA CSS theme from its dominant colors.",
-    "cta": { "upload": "Upload Image", "assign": "Assign Colors", "theme": "Generated Theme" },
+    "cta": {
+      "upload": "Upload Image",
+      "assign": "Assign Colors",
+      "theme": "Generated Theme"
+    },
     "upload": {
       "title": "Upload Image",
       "dropHint": "Drop image here or click to select",
       "formats": "Supports JPG, PNG, GIF, WebP"
     },
-    "preview": { "title": "Image Preview" },
-    "palette": { "title": "Extracted Colors" },
-    "assign": { "title": "Theme Assignment", "body": "Click on a theme variable to select its color" },
-    "picker": { "titleDefault": "Select color for brand", "titlePrefix": "Select color for" },
-    "generated": { "title": "Generated Theme", "copy": "Copy CSS", "copied": "Copied!", "reset": "Reset Theme", "resetDone": "Reset!" }
+    "preview": {
+      "title": "Image Preview"
+    },
+    "palette": {
+      "title": "Extracted Colors"
+    },
+    "assign": {
+      "title": "Theme Assignment",
+      "body": "Click on a theme variable to select its color"
+    },
+    "picker": {
+      "titleDefault": "Select color for brand",
+      "titlePrefix": "Select color for"
+    },
+    "generated": {
+      "title": "Generated Theme",
+      "copy": "Copy CSS",
+      "copied": "Copied!",
+      "reset": "Reset Theme",
+      "resetDone": "Reset!"
+    }
+  },
+  "docs": {
+    "label": "Documentation",
+    "suffix": "EVA CSS Docs",
+    "menu": "Chapters",
+    "searchOpen": "Search",
+    "searchPlaceholder": "Search the documentation",
+    "searchEmpty": "No result for",
+    "onThisPage": "On this page",
+    "prev": "Previous",
+    "next": "Next",
+    "copy": "Copy",
+    "copied": "Copied",
+    "anchor": "Link to this section",
+    "groups": {
+      "start": "Getting started",
+      "system": "The system",
+      "guides": "Guides",
+      "reference": "Reference"
+    }
   }
 }

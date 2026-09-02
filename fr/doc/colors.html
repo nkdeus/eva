@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/Draggable.min.js"></script>
+    <link rel="stylesheet" href="https://use.typekit.net/vjo0ssd.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Display:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../styles/main.css" />
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="3c9b4552-d24d-48aa-a6b4-877d0ceffe04"></script>
+    <title>Couleurs — Doc EVA CSS</title>
+    <meta name="description" content="Cinq rôles, trois nombres chacun, et tout le reste recomposé en OKLCH — fondus d'opacité, crans de luminosité, réglage par rôle et mode sombre.">
+    <meta property="og:title" content="Couleurs — Doc EVA CSS">
+    <meta property="og:description" content="Cinq rôles, trois nombres chacun, et tout le reste recomposé en OKLCH — fondus d'opacité, crans de luminosité, réglage par rôle et mode sombre.">
+    <meta property="og:locale" content="fr_FR">
+    <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+    <link rel="apple-touch-icon" href="../../assets/imgs/eva.jpg">
+    <link rel="manifest" href="../../site.webmanifest">
+    <meta name="theme-color" content="#ff8a3d">
+    <meta property="og:site_name" content="EVA CSS">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://eva-css.xyz/fr/doc/colors.html">
+    <meta property="og:image" content="https://eva-css.xyz/assets/imgs/eva.jpg">
+    <meta property="og:image:width" content="512">
+    <meta property="og:image:height" content="512">
+    <meta property="og:image:alt" content="EVA CSS — fluid SCSS framework">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Couleurs — Doc EVA CSS">
+    <meta name="twitter:description" content="Cinq rôles, trois nombres chacun, et tout le reste recomposé en OKLCH — fondus d'opacité, crans de luminosité, réglage par rôle et mode sombre.">
+    <meta name="twitter:image" content="https://eva-css.xyz/assets/imgs/eva.jpg">
+    <link rel="canonical" href="https://eva-css.xyz/fr/doc/colors.html">
+    <link rel="alternate" hreflang="en" href="https://eva-css.xyz/doc/colors.html">
+    <link rel="alternate" hreflang="fr" href="https://eva-css.xyz/fr/doc/colors.html">
+    <link rel="alternate" hreflang="x-default" href="https://eva-css.xyz/doc/colors.html">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "Couleurs",
+      "description": "Cinq rôles, trois nombres chacun, et tout le reste recomposé en OKLCH — fondus d'opacité, crans de luminosité, réglage par rôle et mode sombre.",
+      "inLanguage": "fr",
+      "url": "https://eva-css.xyz/fr/doc/colors.html",
+      "isPartOf": {
+        "@type": "TechArticle",
+        "name": "Doc EVA CSS",
+        "url": "https://eva-css.xyz/fr/doc/index.html"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "EVA CSS",
+        "url": "https://eva-css.xyz"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "EVA CSS", "item": "https://eva-css.xyz/fr/" },
+        { "@type": "ListItem", "position": 2, "name": "Documentation", "item": "https://eva-css.xyz/fr/doc/index.html" },
+        { "@type": "ListItem", "position": 3, "name": "Couleurs", "item": "https://eva-css.xyz/fr/doc/colors.html" }
+      ]
+    }
+    </script>
+  </head>
+  <body class="current-theme theme-eva all-grads toggle-theme doc-page" data-doc-search="search-index.json">
+  <button type="button" class="dark-light-toggle no-hover" aria-label="Basculer le mode sombre">
+    <svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 100 100" x="0px" y="0px" aria-hidden="true"><path d="M50,77.62A27.62,27.62,0,1,0,22.38,50,27.61,27.61,0,0,0,50,77.62ZM50,26A24,24,0,1,1,26,50,24,24,0,0,1,50,26ZM69.62,50.52A19.36,19.36,0,0,0,50.26,31.15V69.88A19.36,19.36,0,0,0,69.62,50.52Zm-19.88,31a1.81,1.81,0,0,0-1.81,1.81V95.69a1.81,1.81,0,0,0,3.62,0V83.3A1.81,1.81,0,0,0,49.74,81.49Zm24.9-9A1.81,1.81,0,0,0,72.09,75l8.76,8.76a1.81,1.81,0,0,0,2.55-2.56Zm6.85-22.19a1.81,1.81,0,0,0,1.81,1.81H95.69a1.81,1.81,0,1,0,0-3.62H83.3A1.81,1.81,0,0,0,81.49,50.26ZM75,27.91l8.76-8.76a1.81,1.81,0,0,0-2.56-2.55l-8.76,8.76A1.81,1.81,0,0,0,75,27.91Zm-24.75-9.4a1.81,1.81,0,0,0,1.81-1.81V4.31a1.81,1.81,0,0,0-3.62,0V16.7A1.81,1.81,0,0,0,50.26,18.51Zm-24.9,9A1.81,1.81,0,0,0,27.91,25l-8.76-8.76a1.81,1.81,0,1,0-2.55,2.56Zm-21,24H16.7a1.81,1.81,0,0,0,0-3.62H4.31a1.81,1.81,0,1,0,0,3.62Zm22,20a1.78,1.78,0,0,0-1.28.53l-8.76,8.76a1.8,1.8,0,0,0,0,2.56,1.82,1.82,0,0,0,2.56,0l8.76-8.77a1.81,1.81,0,0,0-1.28-3.08Z"/></svg>
+  </button>
+
+  <nav id="nav" class="px-220__ flex space py-12- pof">
+    <div id="logo" class="flex x center px-20">
+      <div class="ballzzz por" style="--max:6">
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:0"></div>
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:1"></div>
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:2"></div>
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:3"></div>
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:4"></div>
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:5"></div>
+      </div>
+      <a href="../index.html" class="logo no-hover title fs-36__ lh-1">EVA CSS</a>
+    </div>
+    <button id="burger-menu" class="burger-menu" type="button" aria-label="Ouvrir/fermer le menu" aria-expanded="false" aria-controls="menu">
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+    </button>
+    <div id="menu" class="flex x center g-12">
+      <a href="../framework/css-fluid.html" class="h-52 px-12 flex y center _c-brand br-12"><span class="fs-12">CSS fluide</span></a>
+      <a href="../framework.html" class="h-52 px-12 flex y center _c-brand br-12"><span class="fs-12">Addons</span></a>
+      <a href="../use-cases.html" class="h-52 px-12 flex y center _c-brand br-12"><span class="fs-12">Cas d'usage</span></a>
+      <a href="index.html" class="h-52 px-12 flex y center _c-light _bg-brand br-12"><span class="fs-12">Doc</span></a>
+      <a href="https://github.com/nkdeus/eva-framework" target="_blank" rel="noopener" aria-label="Dépôt GitHub" class="h-52 px-8 flex x g-12 center _c-brand br-8">
+        <svg xmlns="http://www.w3.org/2000/svg" class="lh-0" height="20" viewBox="0 0 16 16" width="20" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+      </a>
+    </div>
+  </nav>
+
+  <div class="doc-shell">
+
+    <aside class="doc-sidebar" id="doc-sidebar">
+      <div class="doc-sidebar-inner flex y g-20">
+        <button type="button" class="doc-search-trigger flex x space center g-12" data-search-open>
+          <span class="flex x center g-8">
+            <svg viewBox="0 0 16 16" width="13" height="13" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg>
+            <span>Rechercher</span>
+          </span>
+          <kbd class="doc-kbd">/</kbd>
+        </button>
+        <button type="button" class="doc-nav-toggle flex x space center" data-nav-toggle aria-expanded="false" aria-controls="doc-nav">
+          <span>Chapitres</span>
+          <span class="doc-nav-chevron" aria-hidden="true"></span>
+        </button>
+        <nav id="doc-nav" class="doc-nav" aria-label="Documentation">
+          <div class="doc-nav-section"><p class="doc-nav-heading">Démarrer</p><ul class="doc-nav-list"><li><a class="doc-nav-link no-hover" href="index.html">Démarrer</a></li><li><a class="doc-nav-link no-hover" href="install.html">Installation</a></li><li><a class="doc-nav-link no-hover" href="config.html">Configuration</a></li></ul></div><div class="doc-nav-section"><p class="doc-nav-heading">Le système</p><ul class="doc-nav-list"><li><a class="doc-nav-link no-hover" href="sizes.html">Tailles fluides</a></li><li><a class="doc-nav-link no-hover is-current" href="colors.html" aria-current="page">Couleurs</a></li><li><a class="doc-nav-link no-hover" href="gradients.html">Dégradés</a></li><li><a class="doc-nav-link no-hover" href="utilities.html">Classes utilitaires</a></li></ul></div><div class="doc-nav-section"><p class="doc-nav-heading">Guides</p><ul class="doc-nav-list"><li><a class="doc-nav-link no-hover" href="adopt.html">Adopter EVA</a></li><li><a class="doc-nav-link no-hover" href="cli.html">Outils CLI</a></li></ul></div><div class="doc-nav-section"><p class="doc-nav-heading">Référence</p><ul class="doc-nav-list"><li><a class="doc-nav-link no-hover" href="reference.html">Référence</a></li></ul></div>
+        </nav>
+      </div>
+    </aside>
+
+    <main class="doc-main">
+      <article class="doc-article">
+        <p class="doc-eyebrow fs-12 _c-brand_">Documentation</p>
+        <h1 class="doc-title fs-52__ lh-1 ttu">Couleurs</h1>
+        <p class="doc-lede fs-18 _c-dark_">Cinq rôles, trois nombres chacun, et tout le reste recomposé en OKLCH — fondus d'opacité, crans de luminosité, réglage par rôle et mode sombre.</p>
+        <div class="doc-content">
+          <p class="doc-p">EVA ne stocke pas des couleurs. Il stocke <strong>trois nombres par rôle</strong> et recompose tout en OKLCH à l'exécution.</p>
+<figure class="doc-block"><figcaption class="doc-block-bar flex x space center"><span class="doc-block-lang">text</span><button type="button" class="doc-copy" data-copy data-copied="Copié">Copier</button></figcaption><pre class="doc-pre"><code><span class="tok-num">5</span> rôles × { lightness, chroma, hue }
+        ↓
+<span class="tok-var">--root-</span>&lt;rôle&gt;              = <span class="tok-string">"L C H"</span>
+--&lt;rôle&gt;                   = oklch(L C H)
+--&lt;rôle&gt;_ __ ___           = mêmes L C H, à <span class="tok-num">65</span>% / <span class="tok-num">35</span>% / <span class="tok-num">15</span>% d'opacité
+--&lt;rôle&gt;-d -b -d_ -b_      = mêmes C H, lightness décalée</code></pre></figure>
+<p class="doc-p">C'est OKLCH qui rend cela possible : l'espace est perceptuellement uniforme, donc décaler la lightness n'entraîne pas la teinte avec elle. Un orange assombri reste orange. Ce n'est pas vrai en HSL.</p>
+<h2 id="the-five-roles" class="doc-h doc-h2">Les cinq rôles<a class="doc-anchor no-hover" href="#the-five-roles" aria-label="Lien vers cette section">#</a></h2>
+<div class="doc-table-wrap"><table class="doc-table"><thead><tr><th>Rôle</th><th>Fonction</th><th>Lightness par défaut</th><th>Chroma par défaut</th><th>Hue par défaut</th></tr></thead><tbody><tr><td><code class="doc-inline-code">brand</code></td><td>Couleur principale</td><td><code class="doc-inline-code">80%</code></td><td><code class="doc-inline-code">0</code></td><td><code class="doc-inline-code">0</code></td></tr><tr><td><code class="doc-inline-code">accent</code></td><td>Couleur secondaire</td><td><code class="doc-inline-code">70%</code></td><td><code class="doc-inline-code">0</code></td><td><code class="doc-inline-code">0</code></td></tr><tr><td><code class="doc-inline-code">extra</code></td><td>Couleur tertiaire</td><td><code class="doc-inline-code">60%</code></td><td><code class="doc-inline-code">0</code></td><td><code class="doc-inline-code">0</code></td></tr><tr><td><code class="doc-inline-code">dark</code></td><td>L'encre</td><td><code class="doc-inline-code">var(--current-darkness)</code></td><td><code class="doc-inline-code">0.05</code></td><td><code class="doc-inline-code">var(--brand-hue)</code></td></tr><tr><td><code class="doc-inline-code">light</code></td><td>Le fond</td><td><code class="doc-inline-code">var(--current-lightness)</code></td><td><code class="doc-inline-code">0.1</code></td><td><code class="doc-inline-code">var(--brand-hue)</code></td></tr></tbody></table></div>
+<p class="doc-p">Les valeurs par défaut sont délibérément incolores — c'est le thème qui leur donne une valeur.</p>
+<aside class="doc-callout"><p class="doc-p"><code class="doc-inline-code">dark</code> et <code class="doc-inline-code">light</code> héritent de <code class="doc-inline-code">--brand-hue</code> et portent un petit chroma. L'encre et le fond sont donc <strong>teintés par la marque</strong>. C'est un choix de design, pas un oubli, et ça surprend : on change <code class="doc-inline-code">--brand-hue</code> pour tester un bleu et tous les paragraphes virent avec. Pour s'en affranchir, mettez <code class="doc-inline-code">--dark-chroma</code> et <code class="doc-inline-code">--light-chroma</code> à <code class="doc-inline-code">0</code>, ou posez <code class="doc-inline-code">--dark-hue</code> et <code class="doc-inline-code">--light-hue</code> explicitement.</p></aside>
+<h2 id="variants" class="doc-h doc-h2">Variantes<a class="doc-anchor no-hover" href="#variants" aria-label="Lien vers cette section">#</a></h2>
+<p class="doc-p">Chaque rôle produit huit variables. Deux axes indépendants : l'opacité et la luminosité.</p>
+<div class="doc-table-wrap"><table class="doc-table"><thead><tr><th>Variable</th><th>Signification</th></tr></thead><tbody><tr><td><code class="doc-inline-code">var(--brand)</code></td><td>Le rôle lui-même</td></tr><tr><td><code class="doc-inline-code">var(--brand_)</code></td><td>65 % d'opacité</td></tr><tr><td><code class="doc-inline-code">var(--brand__)</code></td><td>35 % d'opacité</td></tr><tr><td><code class="doc-inline-code">var(--brand___)</code></td><td>15 % d'opacité</td></tr><tr><td><code class="doc-inline-code">var(--brand-d)</code></td><td>Un cran de contraste en plus</td></tr><tr><td><code class="doc-inline-code">var(--brand-b)</code></td><td>Un cran de contraste en moins</td></tr><tr><td><code class="doc-inline-code">var(--brand-d_)</code></td><td>Deux crans de contraste en plus</td></tr><tr><td><code class="doc-inline-code">var(--brand-b_)</code></td><td>Deux crans de contraste en moins</td></tr></tbody></table></div>
+<p class="doc-p">Le même schéma vaut pour <code class="doc-inline-code">accent</code>, <code class="doc-inline-code">extra</code>, <code class="doc-inline-code">dark</code> et <code class="doc-inline-code">light</code>.</p>
+<aside class="doc-callout"><p class="doc-p"><strong>Les deux axes ne se croisent pas.</strong> Il n'existe pas de <code class="doc-inline-code">--brand-d__</code> — pas de version à 35 % d'un cran de luminosité. Les fondus sont inlinés au build depuis <code class="doc-inline-code">$fade-values</code> ; les crans sont recalculés à l'exécution depuis <code class="doc-inline-code">--&lt;rôle&gt;-lightness</code>. C'est une limite connue du système, pas un trou de nommage.</p></aside>
+<h2 id="brightness-steps" class="doc-h doc-h2">Crans de luminosité<a class="doc-anchor no-hover" href="#brightness-steps" aria-label="Lien vers cette section">#</a></h2>
+<p class="doc-p">Chaque cran se calcule depuis la lightness du rôle, avec une seule formule :</p>
+<figure class="doc-block"><figcaption class="doc-block-bar flex x space center"><span class="doc-block-lang">text</span><button type="button" class="doc-copy" data-copy data-copied="Copié">Copier</button></figcaption><pre class="doc-pre"><code>lightness = base + décalage absolu + (butée − base) × ratio</code></pre></figure>
+<p class="doc-p">Quatre décalages globaux pilotent les quatre crans, et ils <strong>s'inversent avec le mode</strong> :</p>
+<div class="doc-table-wrap"><table class="doc-table"><thead><tr><th>Cran</th><th>Token</th><th>Mode clair</th><th>Mode sombre</th><th>Butée (clair)</th><th>Butée (sombre)</th></tr></thead><tbody><tr><td><code class="doc-inline-code">-d</code></td><td><code class="doc-inline-code">--darker</code></td><td><code class="doc-inline-code">-5%</code></td><td><code class="doc-inline-code">10%</code></td><td><code class="doc-inline-code">0%</code></td><td><code class="doc-inline-code">100%</code></td></tr><tr><td><code class="doc-inline-code">-b</code></td><td><code class="doc-inline-code">--brighter</code></td><td><code class="doc-inline-code">10%</code></td><td><code class="doc-inline-code">-5%</code></td><td><code class="doc-inline-code">100%</code></td><td><code class="doc-inline-code">0%</code></td></tr><tr><td><code class="doc-inline-code">-d_</code></td><td><code class="doc-inline-code">--darker_</code></td><td><code class="doc-inline-code">-15%</code></td><td><code class="doc-inline-code">30%</code></td><td><code class="doc-inline-code">0%</code></td><td><code class="doc-inline-code">100%</code></td></tr><tr><td><code class="doc-inline-code">-b_</code></td><td><code class="doc-inline-code">--brighter_</code></td><td><code class="doc-inline-code">30%</code></td><td><code class="doc-inline-code">-15%</code></td><td><code class="doc-inline-code">100%</code></td><td><code class="doc-inline-code">0%</code></td></tr></tbody></table></div>
+<p class="doc-p">Que <code class="doc-inline-code">--darker</code> soit <em>positif</em> en mode sombre n'est pas un bug. En mode sombre, le rôle encre est clair (95 %), et <code class="doc-inline-code">-d</code> veut dire « plus de contraste avec le fond », pas « plus sombre dans l'absolu ». Les crans décrivent une relation. C'est aussi pour cela que les butées s'échangent avec le mode.</p>
+<h3 id="reglage-par-role-2-4-0" class="doc-h doc-h3">Réglage par rôle (2.4.0+)<a class="doc-anchor no-hover" href="#reglage-par-role-2-4-0" aria-label="Lien vers cette section">#</a></h3>
+<p class="doc-p">Avant 2.4.0, ces quatre décalages étaient globaux : tous les rôles recevaient le même cran. Depuis 2.4.0, chaque rôle peut surcharger le sien, et chaque cran peut prendre une <strong>part proportionnelle de la marge restante</strong> au lieu d'un décalage fixe.</p>
+<div class="doc-table-wrap"><table class="doc-table"><thead><tr><th>Forme</th><th>Portée</th><th>Défaut</th><th>Rôle</th></tr></thead><tbody><tr><td><code class="doc-inline-code">--&lt;rôle&gt;-&lt;token&gt;</code></td><td>un rôle</td><td><em>non défini</em></td><td>remplace le décalage absolu global</td></tr><tr><td><code class="doc-inline-code">--&lt;rôle&gt;-&lt;token&gt;-ratio</code></td><td>un rôle</td><td><code class="doc-inline-code">0</code></td><td>part de la marge restante</td></tr><tr><td><code class="doc-inline-code">--&lt;token&gt;-ratio</code></td><td>global</td><td><code class="doc-inline-code">0</code></td><td>idem, pour les cinq rôles</td></tr><tr><td><code class="doc-inline-code">--&lt;rôle&gt;-&lt;token&gt;-bound</code></td><td>un rôle</td><td><em>non défini</em></td><td>vise une autre butée</td></tr><tr><td><code class="doc-inline-code">--&lt;token&gt;-bound</code></td><td>global</td><td>cf. tableau</td><td>la limite vers laquelle le cran pousse</td></tr></tbody></table></div>
+<p class="doc-p"><code class="doc-inline-code">&lt;rôle&gt;</code> vaut <code class="doc-inline-code">brand</code>, <code class="doc-inline-code">accent</code>, <code class="doc-inline-code">extra</code>, <code class="doc-inline-code">dark</code> ou <code class="doc-inline-code">light</code>. <code class="doc-inline-code">&lt;token&gt;</code> vaut <code class="doc-inline-code">darker</code>, <code class="doc-inline-code">brighter</code>, <code class="doc-inline-code">darker_</code> ou <code class="doc-inline-code">brighter_</code>.</p>
+<p class="doc-p"><strong>Pourquoi le ratio existe.</strong> La lightness OKLCH est écrêtée à <code class="doc-inline-code">0%–100%</code>. Avec <code class="doc-inline-code">--light-lightness: 96.4%</code> :</p>
+<figure class="doc-block"><figcaption class="doc-block-bar flex x space center"><span class="doc-block-lang">text</span><button type="button" class="doc-copy" data-copy data-copied="Copié">Copier</button></figcaption><pre class="doc-pre"><code><span class="tok-var">--light-b</span>  = <span class="tok-num">96.4</span>% + <span class="tok-num">10</span>% = <span class="tok-num">106.4</span>%  -&gt;  <span class="tok-num">100</span>%
+<span class="tok-var">--light-b_</span> = <span class="tok-num">96.4</span>% + <span class="tok-num">30</span>% = <span class="tok-num">126.4</span>%  -&gt;  <span class="tok-num">100</span>%</code></pre></figure>
+<p class="doc-p">Deux crans, une seule couleur. Et c'est symétrique : en mode sombre, <code class="doc-inline-code">--dark-d</code> et <code class="doc-inline-code">--dark-d_</code> s'effondrent ensemble sur le noir. Sur chaque neutre, dans chaque mode, deux des quatre crans étaient inutilisables — précisément sur <code class="doc-inline-code">dark</code> et <code class="doc-inline-code">light</code>, les deux rôles les plus sollicités.</p>
+<p class="doc-p">Mesuré au navigateur, en lightness OKLCH, avant et après passage en proportionnel :</p>
+<div class="doc-table-wrap"><table class="doc-table"><thead><tr><th></th><th>avant</th><th>après</th></tr></thead><tbody><tr><td><code class="doc-inline-code">--light-b</code> (mode clair)</td><td><code class="doc-inline-code">1.0</code></td><td><code class="doc-inline-code">0.9766</code></td></tr><tr><td><code class="doc-inline-code">--light-b_</code> (mode clair)</td><td><code class="doc-inline-code">1.0</code></td><td><code class="doc-inline-code">0.9892</code></td></tr><tr><td><code class="doc-inline-code">--dark-d</code> (mode sombre)</td><td><code class="doc-inline-code">1.0</code></td><td><code class="doc-inline-code">0.9675</code></td></tr><tr><td><code class="doc-inline-code">--dark-d_</code> (mode sombre)</td><td><code class="doc-inline-code">1.0</code></td><td><code class="doc-inline-code">0.985</code></td></tr></tbody></table></div>
+<h3 id="recettes" class="doc-h doc-h3">Recettes<a class="doc-anchor no-hover" href="#recettes" aria-label="Lien vers cette section">#</a></h3>
+<p class="doc-p">Neutres resserrés, accent large — seul le cran nommé bouge, <code class="doc-inline-code">--dark-b_</code> garde la valeur globale :</p>
+<figure class="doc-block"><figcaption class="doc-block-bar flex x space center"><span class="doc-block-lang">css</span><button type="button" class="doc-copy" data-copy data-copied="Copié">Copier</button></figcaption><pre class="doc-pre"><code>.current-theme {
+  <span class="tok-var">--dark-darker</span>:  -<span class="tok-num">2</span>%;
+  <span class="tok-var">--dark-brighter</span>: <span class="tok-num">4</span>%;
+  <span class="tok-var">--accent-brighter_</span>: <span class="tok-num">12</span>%;
+}</code></pre></figure>
+<p class="doc-p">Des crans qui ne saturent jamais — une part absolue à <code class="doc-inline-code">0</code> rend le cran purement proportionnel, et il tient dans les deux modes :</p>
+<figure class="doc-block"><figcaption class="doc-block-bar flex x space center"><span class="doc-block-lang">css</span><button type="button" class="doc-copy" data-copy data-copied="Copié">Copier</button></figcaption><pre class="doc-pre"><code>.current-theme {
+  <span class="tok-var">--light-brighter</span>:  <span class="tok-num">0</span>%;  <span class="tok-var">--light-brighter-ratio</span>:  .<span class="tok-num">35</span>;
+  <span class="tok-var">--light-brighter_</span>: <span class="tok-num">0</span>%;  <span class="tok-var">--light-brighter_-ratio</span>: .<span class="tok-num">7</span>;
+}</code></pre></figure>
+<p class="doc-p">Les deux termes s'additionnent — un minimum garanti plus une part de ce qui reste :</p>
+<figure class="doc-block"><figcaption class="doc-block-bar flex x space center"><span class="doc-block-lang">css</span><button type="button" class="doc-copy" data-copy data-copied="Copié">Copier</button></figcaption><pre class="doc-pre"><code>.current-theme {
+  <span class="tok-var">--dark-darker</span>: -<span class="tok-num">2</span>%;
+  <span class="tok-var">--dark-darker-ratio</span>: .<span class="tok-num">3</span>;
+}</code></pre></figure>
+<p class="doc-p">Ce sont de simples custom properties. Posez-les sur <code class="doc-inline-code">.current-theme</code>, ou sur n'importe quel élément imbriqué portant aussi <code class="doc-inline-code">.current-theme</code>, pour prévisualiser une variation sur place.</p>
+<aside class="doc-callout"><p class="doc-p">Totalement rétrocompatible. Tant qu'un token par rôle n'est pas défini, le repli natif de <code class="doc-inline-code">var()</code> retombe sur la valeur globale d'origine, et un ratio non posé vaut <code class="doc-inline-code">0</code>, donc son terme s'annule. La montée de version ne change aucune valeur calculée.</p></aside>
+<h2 id="themes" class="doc-h doc-h2">Thèmes<a class="doc-anchor no-hover" href="#themes" aria-label="Lien vers cette section">#</a></h2>
+<p class="doc-p">Un thème est une classe CSS qui pose les triplets OKLCH. Rien d'autre.</p>
+<figure class="doc-block"><figcaption class="doc-block-bar flex x space center"><span class="doc-block-lang">scss</span><button type="button" class="doc-copy" data-copy data-copied="Copié">Copier</button></figcaption><pre class="doc-pre"><code>.theme-monprojet {
+  <span class="tok-var">--brand-lightness</span>: <span class="tok-num">62.8</span>%;
+  <span class="tok-var">--brand-chroma</span>: <span class="tok-num">0.258</span>;
+  <span class="tok-var">--brand-hue</span>: <span class="tok-num">29.23</span>;
+
+  <span class="tok-var">--accent-lightness</span>: <span class="tok-num">55</span>%;
+  <span class="tok-var">--accent-chroma</span>: <span class="tok-num">0.3</span>;
+  <span class="tok-var">--accent-hue</span>: <span class="tok-num">290</span>;
+
+  <span class="tok-var">--extra-lightness</span>: <span class="tok-num">62</span>%;
+  <span class="tok-var">--extra-chroma</span>: <span class="tok-num">0.12</span>;
+  <span class="tok-var">--extra-hue</span>: <span class="tok-num">25</span>;
+
+  <span class="tok-var">--light-chroma</span>: <span class="tok-num">0.005</span>;
+  <span class="tok-var">--light-hue</span>: <span class="tok-num">120</span>;
+  <span class="tok-var">--dark-chroma</span>: <span class="tok-num">0.012</span>;
+  <span class="tok-var">--dark-hue</span>: <span class="tok-num">125</span>;
+}</code></pre></figure>
+<figure class="doc-block"><figcaption class="doc-block-bar flex x space center"><span class="doc-block-lang">html</span><button type="button" class="doc-copy" data-copy data-copied="Copié">Copier</button></figcaption><pre class="doc-pre"><code>&lt;body class=<span class="tok-string">"current-theme theme-monprojet"</span>&gt;</code></pre></figure>
+<p class="doc-p">Convertissez votre palette HEX existante avec la <a href="cli.html#convert" class="doc-link no-hover">CLI eva-color</a> :</p>
+<figure class="doc-block"><figcaption class="doc-block-bar flex x space center"><span class="doc-block-lang">bash</span><button type="button" class="doc-copy" data-copy data-copied="Copié">Copier</button></figcaption><pre class="doc-pre"><code>npx eva-color convert <span class="tok-string">"#2f6d3b"</span>
+<span class="tok-comment"># -&gt; oklch(43.3% 0.103 142.5)</span></code></pre></figure>
+<h3 id="plusieurs-themes-a-la-fois" class="doc-h doc-h3">Plusieurs thèmes à la fois<a class="doc-anchor no-hover" href="#plusieurs-themes-a-la-fois" aria-label="Lien vers cette section">#</a></h3>
+<p class="doc-p">Déclarez autant de blocs <code class="doc-inline-code">.theme-&lt;nom&gt;</code> que nécessaire et échangez la classe. Palettes saisonnières, variantes de marque, thèmes par client — c'est le même mécanisme.</p>
+<figure class="doc-block"><figcaption class="doc-block-bar flex x space center"><span class="doc-block-lang">scss</span><button type="button" class="doc-copy" data-copy data-copied="Copié">Copier</button></figcaption><pre class="doc-pre"><code>.theme-mai {
+  <span class="tok-var">--brand-lightness</span>: <span class="tok-num">70</span>%;  <span class="tok-var">--brand-chroma</span>: <span class="tok-num">0.09</span>;  <span class="tok-var">--brand-hue</span>: <span class="tok-num">125</span>;
+  <span class="tok-var">--accent-lightness</span>: <span class="tok-num">78</span>%; <span class="tok-var">--accent-chroma</span>: <span class="tok-num">0.08</span>; <span class="tok-var">--accent-hue</span>: <span class="tok-num">80</span>;
+  <span class="tok-var">--extra-lightness</span>: <span class="tok-num">62</span>%;  <span class="tok-var">--extra-chroma</span>: <span class="tok-num">0.12</span>;  <span class="tok-var">--extra-hue</span>: <span class="tok-num">25</span>;
+  <span class="tok-var">--light-chroma</span>: <span class="tok-num">0.005</span>;   <span class="tok-var">--light-hue</span>: <span class="tok-num">120</span>;
+  <span class="tok-var">--dark-chroma</span>: <span class="tok-num">0.012</span>;    <span class="tok-var">--dark-hue</span>: <span class="tok-num">125</span>;
+}
+
+.theme-decembre { <span class="tok-comment">/* bleus froids */</span> }</code></pre></figure>
+<figure class="doc-block"><figcaption class="doc-block-bar flex x space center"><span class="doc-block-lang">js</span><button type="button" class="doc-copy" data-copy data-copied="Copié">Copier</button></figcaption><pre class="doc-pre"><code>function applyTheme(name) {
+  const root = document.documentElement;
+  root.classList.add(<span class="tok-string">'current-theme'</span>);
+  for (const t of ALL_THEMES) root.classList.remove(<span class="tok-string">'theme-'</span> + t);
+  root.classList.add(<span class="tok-string">'theme-'</span> + name);
+}</code></pre></figure>
+<p class="doc-p">Deux choses à savoir :</p>
+<ul class="doc-list"><li><strong>Une seule source de vérité par thème.</strong> Ne posez que les triplets. Ne redéclarez jamais <code class="doc-inline-code">--brand</code> lui-même ; laissez EVA le dériver.</li><li><strong>Les échantillons de prévisualisation s'isolent proprement.</strong> Pour montrer la couleur d'un thème non actif, enveloppez l'échantillon dans <code class="doc-inline-code">&lt;div class="current-theme theme-decembre"&gt;</code> et <code class="doc-inline-code">background: var(--brand)</code> résout la couleur de ce thème à l'intérieur de la carte, quel que soit le thème de la page.</li></ul>
+<p class="doc-p">Gardez <code class="doc-inline-code">--light-chroma</code> bas — autour de <code class="doc-inline-code">0.005</code> à <code class="doc-inline-code">0.015</code>. Au-delà, ça se lit comme saturé et ça casse l'effet de surface neutre.</p>
+<h2 id="dark-mode" class="doc-h doc-h2">Mode sombre<a class="doc-anchor no-hover" href="#dark-mode" aria-label="Lien vers cette section">#</a></h2>
+<p class="doc-p">EVA livre le mode sombre. N'en construisez pas un vôtre à coups de classes <code class="doc-inline-code">.dark</code> et de surcharges HEX.</p>
+<p class="doc-p">Deux variables décident du mode, et c'est le seul endroit où il est décidé :</p>
+<div class="doc-table-wrap"><table class="doc-table"><thead><tr><th>Variable</th><th>Clair</th><th>Sombre</th></tr></thead><tbody><tr><td><code class="doc-inline-code">--current-lightness</code></td><td><code class="doc-inline-code">96.4%</code></td><td><code class="doc-inline-code">5%</code></td></tr><tr><td><code class="doc-inline-code">--current-darkness</code></td><td><code class="doc-inline-code">6.4%</code></td><td><code class="doc-inline-code">95%</code></td></tr></tbody></table></div>
+<p class="doc-p"><code class="doc-inline-code">light</code> lit la première, <code class="doc-inline-code">dark</code> lit la seconde. Ajouter <code class="doc-inline-code">.toggle-theme</code> les échange :</p>
+<figure class="doc-block"><figcaption class="doc-block-bar flex x space center"><span class="doc-block-lang">css</span><button type="button" class="doc-copy" data-copy data-copied="Copié">Copier</button></figcaption><pre class="doc-pre"><code>.current-theme.toggle-theme {
+  <span class="tok-var">--current-lightness</span>: <span class="tok-num">5</span>%;
+  <span class="tok-var">--current-darkness</span>: <span class="tok-num">95</span>%;
+  <span class="tok-var">--dark-lightness</span>:  var(<span class="tok-var">--current-darkness</span>)  !important;
+  <span class="tok-var">--light-lightness</span>: var(<span class="tok-var">--current-lightness</span>) !important;
+  <span class="tok-var">--darker</span>: <span class="tok-num">10</span>%;  <span class="tok-var">--brighter</span>: -<span class="tok-num">5</span>%;
+  <span class="tok-var">--darker_</span>: <span class="tok-num">30</span>%; <span class="tok-var">--brighter_</span>: -<span class="tok-num">15</span>%;
+  <span class="tok-var">--darker-bound</span>: <span class="tok-num">100</span>%;  <span class="tok-var">--brighter-bound</span>: <span class="tok-num">0</span>%;
+  <span class="tok-var">--darker_-bound</span>: <span class="tok-num">100</span>%; <span class="tok-var">--brighter_-bound</span>: <span class="tok-num">0</span>%;
+}</code></pre></figure>
+<p class="doc-p"><code class="doc-inline-code">var(--light)</code> est clair en mode clair et sombre en mode sombre. <code class="doc-inline-code">var(--dark)</code> fait l'inverse. Les deux rôles s'échangent littéralement — c'est toute l'astuce, et c'est pour cela qu'aucune couleur n'a besoin d'être redéfinie.</p>
+<figure class="doc-block"><figcaption class="doc-block-bar flex x space center"><span class="doc-block-lang">html</span><button type="button" class="doc-copy" data-copy data-copied="Copié">Copier</button></figcaption><pre class="doc-pre"><code>&lt;body class=<span class="tok-string">"current-theme theme-monprojet toggle-theme"</span>&gt;</code></pre></figure>
+<figure class="doc-block"><figcaption class="doc-block-bar flex x space center"><span class="doc-block-lang">js</span><button type="button" class="doc-copy" data-copy data-copied="Copié">Copier</button></figcaption><pre class="doc-pre"><code>function applyMode(mode) {
+  const root = document.documentElement;
+  const dark = mode === <span class="tok-string">'dark'</span>
+    || (mode === <span class="tok-string">'auto'</span> &amp;&amp; matchMedia(<span class="tok-string">'(prefers-color-scheme: dark)'</span>).matches);
+  root.classList.toggle(<span class="tok-string">'toggle-theme'</span>, dark);
+}
+
+matchMedia(<span class="tok-string">'(prefers-color-scheme: dark)'</span>).addEventListener(<span class="tok-string">'change'</span>, () =&gt; {
+  if (currentMode === <span class="tok-string">'auto'</span>) applyMode(<span class="tok-string">'auto'</span>);
+});</code></pre></figure>
+<aside class="doc-callout"><p class="doc-p">Le <code class="doc-inline-code">!important</code> sur les deux lignes de lightness signifie que les <code class="doc-inline-code">--dark-lightness</code> et <code class="doc-inline-code">--light-lightness</code> configurés dans un thème sont <strong>écrasés en mode sombre</strong>. Seuls la hue et le chroma de <code class="doc-inline-code">dark</code> et <code class="doc-inline-code">light</code> survivent à la bascule. C'est voulu — c'est ce qui garantit le contraste — mais ça surprend ceux qui ont réglé ces valeurs par thème.</p></aside>
+<h3 id="faire-le-pont-avec-vos-tokens-semantiques" class="doc-h doc-h3">Faire le pont avec vos tokens sémantiques<a class="doc-anchor no-hover" href="#faire-le-pont-avec-vos-tokens-semantiques" aria-label="Lien vers cette section">#</a></h3>
+<p class="doc-p">Si votre base de code a déjà <code class="doc-inline-code">--color-bg</code>, <code class="doc-inline-code">--color-text</code> et compagnie, aliasez-les sur EVA plutôt que de les remplacer. Ils basculent alors avec <code class="doc-inline-code">.toggle-theme</code> et restent teintés par le thème actif, gratuitement.</p>
+<figure class="doc-block"><figcaption class="doc-block-bar flex x space center"><span class="doc-block-lang">scss</span><button type="button" class="doc-copy" data-copy data-copied="Copié">Copier</button></figcaption><pre class="doc-pre"><code>.current-theme {
+  <span class="tok-var">--color-bg</span>: var(<span class="tok-var">--light</span>);
+  <span class="tok-var">--color-surface</span>: oklch(<span class="tok-num">100</span>% var(<span class="tok-var">--light-chroma</span>) var(<span class="tok-var">--light-hue</span>));
+  <span class="tok-var">--color-surface-alt</span>: oklch(<span class="tok-num">96</span>% var(<span class="tok-var">--light-chroma</span>) var(<span class="tok-var">--light-hue</span>));
+
+  <span class="tok-var">--color-text</span>: var(<span class="tok-var">--dark</span>);
+  <span class="tok-var">--color-text-muted</span>: var(<span class="tok-var">--dark_</span>);
+  <span class="tok-var">--color-text-subtle</span>: var(<span class="tok-var">--dark__</span>);
+  <span class="tok-var">--color-border</span>: var(<span class="tok-var">--dark___</span>);
+
+  <span class="tok-var">--color-primary</span>: var(<span class="tok-var">--brand</span>);
+  <span class="tok-var">--color-primary-ink</span>: var(<span class="tok-var">--brand-d</span>);
+  <span class="tok-var">--color-primary-tint</span>: var(<span class="tok-var">--brand___</span>);
+}
+
+<span class="tok-comment">// Les surfaces figées sur des lightness littérales ne suivent pas</span>
+<span class="tok-comment">// --current-lightness : il faut les reposer pour le mode sombre.</span>
+.current-theme.toggle-theme {
+  <span class="tok-var">--color-surface</span>: oklch(<span class="tok-num">8</span>% var(<span class="tok-var">--light-chroma</span>) var(<span class="tok-var">--light-hue</span>));
+  <span class="tok-var">--color-surface-alt</span>: oklch(<span class="tok-num">12</span>% var(<span class="tok-var">--light-chroma</span>) var(<span class="tok-var">--light-hue</span>));
+}</code></pre></figure>
+<p class="doc-p">Si l'application démarre côté client et applique les classes de thème après le montage, gardez un repli statique <code class="doc-inline-code">:root { --color-bg: #fafaf7; }</code> pour éviter un flash de contenu non thémé au premier rendu.</p>
+<h2 id="classes-utilitaires-de-couleur" class="doc-h doc-h2">Classes utilitaires de couleur<a class="doc-anchor no-hover" href="#classes-utilitaires-de-couleur" aria-label="Lien vers cette section">#</a></h2>
+<p class="doc-p">Avec <code class="doc-inline-code">$build-class: true</code>, EVA émet 200 classes de couleur — cinq propriétés × cinq rôles × huit variantes.</p>
+<div class="doc-table-wrap"><table class="doc-table"><thead><tr><th>Préfixe</th><th>Propriété</th></tr></thead><tbody><tr><td><code class="doc-inline-code">._c-</code></td><td><code class="doc-inline-code">color</code></td></tr><tr><td><code class="doc-inline-code">._bg-</code></td><td><code class="doc-inline-code">background</code></td></tr><tr><td><code class="doc-inline-code">._bc-</code></td><td><code class="doc-inline-code">border-color</code></td></tr><tr><td><code class="doc-inline-code">._f-</code></td><td><code class="doc-inline-code">fill</code> (s'applique aussi aux <code class="doc-inline-code">path</code> descendants)</td></tr><tr><td><code class="doc-inline-code">._s-</code></td><td><code class="doc-inline-code">stroke</code></td></tr></tbody></table></div>
+<figure class="doc-block"><figcaption class="doc-block-bar flex x space center"><span class="doc-block-lang">html</span><button type="button" class="doc-copy" data-copy data-copied="Copié">Copier</button></figcaption><pre class="doc-pre"><code>&lt;body class=<span class="tok-string">"current-theme theme-monprojet _bg-light _c-dark_"</span>&gt;
+  &lt;span class=<span class="tok-string">"_c-brand-d"</span>&gt;Texte de marque très contrasté&lt;/span&gt;
+  &lt;svg class=<span class="tok-string">"_f-accent"</span>&gt;…&lt;/svg&gt;
+&lt;/body&gt;</code></pre></figure>
+<p class="doc-p">Les pages <a href="../framework/colors.html" class="doc-link no-hover">Colors</a> et <a href="../framework/auto-theme.html" class="doc-link no-hover">Auto theme</a> permettent de faire glisser la teinte et de voir les 200 se mettre à jour en direct.</p>
+<p class="doc-p">Suite : <a href="gradients.html" class="doc-link no-hover">Dégradés</a>.</p>
+        </div>
+      </article>
+      <nav class="doc-pager flex x space g-20"><a class="doc-pager-link no-hover doc-pager-prev" href="sizes.html"><span class="doc-pager-dir">Précédent</span><span class="doc-pager-title">Tailles fluides</span></a><a class="doc-pager-link no-hover doc-pager-next" href="gradients.html"><span class="doc-pager-dir">Suivant</span><span class="doc-pager-title">Dégradés</span></a></nav>
+    </main>
+
+    <aside class="doc-toc" aria-label="Sur cette page">
+      <div class="doc-toc-inner">
+        <p class="doc-toc-title fs-12">Sur cette page</p>
+        <ul class="doc-toc-list"><li><a class="doc-toc-link no-hover" data-level="2" href="#the-five-roles">Les cinq rôles</a></li><li><a class="doc-toc-link no-hover" data-level="2" href="#variants">Variantes</a></li><li><a class="doc-toc-link no-hover" data-level="2" href="#brightness-steps">Crans de luminosité</a></li><li><a class="doc-toc-link no-hover" data-level="3" href="#reglage-par-role-2-4-0">Réglage par rôle (2.4.0+)</a></li><li><a class="doc-toc-link no-hover" data-level="3" href="#recettes">Recettes</a></li><li><a class="doc-toc-link no-hover" data-level="2" href="#themes">Thèmes</a></li><li><a class="doc-toc-link no-hover" data-level="3" href="#plusieurs-themes-a-la-fois">Plusieurs thèmes à la fois</a></li><li><a class="doc-toc-link no-hover" data-level="2" href="#dark-mode">Mode sombre</a></li><li><a class="doc-toc-link no-hover" data-level="3" href="#faire-le-pont-avec-vos-tokens-semantiques">Faire le pont avec vos tokens sémantiques</a></li><li><a class="doc-toc-link no-hover" data-level="2" href="#classes-utilitaires-de-couleur">Classes utilitaires de couleur</a></li></ul>
+      </div>
+    </aside>
+
+  </div>
+
+  <div class="doc-search" id="doc-search" hidden>
+    <div class="doc-search-backdrop" data-search-close></div>
+    <div class="doc-search-panel flex y" role="dialog" aria-modal="true" aria-label="Rechercher">
+      <div class="doc-search-field flex x center g-12">
+        <svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg>
+        <input type="search" id="doc-search-input" class="doc-search-input" placeholder="Rechercher dans la documentation" autocomplete="off" spellcheck="false">
+        <button type="button" class="doc-search-esc" data-search-close>esc</button>
+      </div>
+      <div class="doc-search-results" id="doc-search-results" data-empty="Aucun résultat pour"></div>
+    </div>
+  </div>
+
+  <footer class="px-220__ py-136 flex x g-20 w-full">
+    <div class="flex w-full y space center g-32">
+      <p class="fs-16 _c-brand_">© 2024</p>
+      <p class="fs-16 _c-brand_">Tati Michaël</p>
+    </div>
+    <div class="flex w-full y space g-32">
+      <a href="https://www.linkedin.com/in/mtati/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="index.html">Documentation</a>
+      <a href="../../doc/colors.html" hreflang="en" title="View in English">EN</a>
+    </div>
+  </footer>
+
+  <script src="../../app.js"></script>
+  <script src="../../doc.js"></script>
+  </body>
+</html>

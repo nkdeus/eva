@@ -1,58 +1,25 @@
 # EVA CSS
 
-> A fluid SCSS framework that converts static UI designs into responsive systems using CSS clamp() and OKLCH colors.
+> A fluid SCSS framework that turns a static design into a responsive system using CSS clamp() and OKLCH colors.
 
-EVA CSS generates fluid, responsive CSS from a set of design sizes. Instead of breakpoints, it uses `clamp()` functions so every dimension scales smoothly across all viewport sizes. Colors use the modern OKLCH color space with automatic opacity, brightness, and darkness variants.
-
-## Quick Start
-
-```bash
-npm install eva-css-fluid eva-css-purge eva-colors
-```
-
-```scss
-@use 'eva-css-fluid' with (
-  $sizes: (4, 8, 16, 32, 64, 128),
-  $font-sizes: (14, 16, 20, 24, 32),
-  $build-class: true
-);
-```
-
-```bash
-npx sass --load-path=node_modules styles/main.scss:styles/main.css
-```
-
-## Key Concepts
-
-- **Fluid Sizes**: `var(--64)` scales fluidly. Modifiers: `var(--64_)` (reduced), `var(--64__)` (extreme), `var(--64-)` (extended)
-- **Runtime Fluid Unit** (v2.2.0+): tokens track `vw` (viewport, default) or `cqi` (container) via `--eva-fluid-unit` — switch a subtree with `.eva-cqi`/`.eva-root`, no rebuild. `$min-font-size` sets an accessibility readability floor.
-- **OKLCH Colors**: `var(--brand)`, `var(--accent)`, `var(--extra)`, `var(--dark)`, `var(--light)` with opacity (`var(--brand_)` 65%, `var(--brand__)` 35%, `var(--brand___)` 15%) and brightness variants (`var(--brand-d)`, `var(--brand-b)`)
-- **Per-role Brightness** (v2.4.0+): each brightness step is tunable per base — `--<base>-<token>` for the absolute offset, `--<base>-<token>-ratio` for a proportional share of the remaining headroom that never clips at the 0%/100% bounds
-- **Two Build Modes**: Utility classes (`$build-class: true`) or CSS variables only (`$build-class: false`)
-- **Gradient System**: Emmet-style classes like `grad-linear from-brand to-accent d-br animated`
-- **Auto Theme**: Light/dark mode with OKLCH-based theme switching
+Generated from the documentation source. Human-readable version: https://eva-css.xyz/doc/index.html
 
 ## Documentation
 
-- [Framework Overview](https://eva-css.xyz/framework.html)
-- [Fluid CSS Guide](https://eva-css.xyz/framework/css-fluid.html)
-- [Documentation](https://eva-css.xyz/framework/doc.html)
-- [Sizing System](https://eva-css.xyz/framework/sizes.html)
-- [Color System](https://eva-css.xyz/framework/colors.html)
-- [Gradients](https://eva-css.xyz/framework/gradients.html)
-- [Flexbox](https://eva-css.xyz/framework/flex.html)
-- [Grids](https://eva-css.xyz/framework/grids.html)
-- [Typography](https://eva-css.xyz/framework/fonts.html)
-- [Auto Theme](https://eva-css.xyz/framework/auto-theme.html)
-- [Use Cases](https://eva-css.xyz/use-cases.html)
-- [Figma to EVA](https://eva-css.xyz/figma-to-eva.html)
-- [Tailwind CSS Override](https://eva-css.xyz/use-cases/tailwind.html)
-- [Webflow Fluid](https://eva-css.xyz/use-cases/webflow.html)
-- [Ycode Fluid](https://eva-css.xyz/use-cases/ycode.html)
+- [Getting started](https://eva-css.xyz/doc/index.html) — What EVA CSS is, the two ideas it is built on, and a working setup in three commands.
+- [Installation](https://eva-css.xyz/doc/install.html) — The three packages, the four SCSS entry points, and how to compile and watch.
+- [Configuration](https://eva-css.xyz/doc/config.html) — Every option accepted by the SCSS entry points, what it changes in the output, and the two build modes.
+- [Fluid sizing](https://eva-css.xyz/doc/sizes.html) — The four scaling variants, the separate font-size namespace, and switching a subtree from viewport to container.
+- [Colors](https://eva-css.xyz/doc/colors.html) — Five roles, three numbers each, and everything else recomposed in OKLCH — opacity fades, brightness steps, per-role tuning and dark mode.
+- [Gradients](https://eva-css.xyz/doc/gradients.html) — Composable gradient classes — one applier, then setters for colors, direction, zoom and animation.
+- [Utility classes](https://eva-css.xyz/doc/utilities.html) — Every class emitted when $build-class is true — sizing, color, flex, grid, typography and layout.
+- [Adopting EVA](https://eva-css.xyz/doc/adopt.html) — Wiring EVA into a project that already ships — the px audit, fusing near-duplicates, aliasing design tokens, and the traps.
+- [CLI tools](https://eva-css.xyz/doc/cli.html) — eva-color for OKLCH conversion, palettes, themes and contrast; eva-purge for stripping the classes you never used.
+- [Reference](https://eva-css.xyz/doc/reference.html) — Every option, token and class in one flat list.
 
 ## Links
 
 - Website: https://eva-css.xyz
 - GitHub: https://github.com/nkdeus/eva
-- npm: eva-css-fluid
-- Full documentation for LLMs: https://eva-css.xyz/llms-full.txt
+- npm: eva-css-fluid, eva-colors, eva-css-purge
+- Full text: https://eva-css.xyz/llms-full.txt

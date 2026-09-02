@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/Draggable.min.js"></script>
+    <link rel="stylesheet" href="https://use.typekit.net/vjo0ssd.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Display:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../styles/main.css" />
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="3c9b4552-d24d-48aa-a6b4-877d0ceffe04"></script>
+    <title>Dégradés — Doc EVA CSS</title>
+    <meta name="description" content="Des classes de dégradé composables — un applicateur qui dessine, des setters qui l'alimentent en couleurs, direction, zoom et animation.">
+    <meta property="og:title" content="Dégradés — Doc EVA CSS">
+    <meta property="og:description" content="Des classes de dégradé composables — un applicateur qui dessine, des setters qui l'alimentent en couleurs, direction, zoom et animation.">
+    <meta property="og:locale" content="fr_FR">
+    <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+    <link rel="apple-touch-icon" href="../../assets/imgs/eva.jpg">
+    <link rel="manifest" href="../../site.webmanifest">
+    <meta name="theme-color" content="#ff8a3d">
+    <meta property="og:site_name" content="EVA CSS">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://eva-css.xyz/fr/doc/gradients.html">
+    <meta property="og:image" content="https://eva-css.xyz/assets/imgs/eva.jpg">
+    <meta property="og:image:width" content="512">
+    <meta property="og:image:height" content="512">
+    <meta property="og:image:alt" content="EVA CSS — fluid SCSS framework">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Dégradés — Doc EVA CSS">
+    <meta name="twitter:description" content="Des classes de dégradé composables — un applicateur qui dessine, des setters qui l'alimentent en couleurs, direction, zoom et animation.">
+    <meta name="twitter:image" content="https://eva-css.xyz/assets/imgs/eva.jpg">
+    <link rel="canonical" href="https://eva-css.xyz/fr/doc/gradients.html">
+    <link rel="alternate" hreflang="en" href="https://eva-css.xyz/doc/gradients.html">
+    <link rel="alternate" hreflang="fr" href="https://eva-css.xyz/fr/doc/gradients.html">
+    <link rel="alternate" hreflang="x-default" href="https://eva-css.xyz/doc/gradients.html">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "Dégradés",
+      "description": "Des classes de dégradé composables — un applicateur qui dessine, des setters qui l'alimentent en couleurs, direction, zoom et animation.",
+      "inLanguage": "fr",
+      "url": "https://eva-css.xyz/fr/doc/gradients.html",
+      "isPartOf": {
+        "@type": "TechArticle",
+        "name": "Doc EVA CSS",
+        "url": "https://eva-css.xyz/fr/doc/index.html"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "EVA CSS",
+        "url": "https://eva-css.xyz"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "EVA CSS", "item": "https://eva-css.xyz/fr/" },
+        { "@type": "ListItem", "position": 2, "name": "Documentation", "item": "https://eva-css.xyz/fr/doc/index.html" },
+        { "@type": "ListItem", "position": 3, "name": "Dégradés", "item": "https://eva-css.xyz/fr/doc/gradients.html" }
+      ]
+    }
+    </script>
+  </head>
+  <body class="current-theme theme-eva all-grads toggle-theme doc-page" data-doc-search="search-index.json">
+  <button type="button" class="dark-light-toggle no-hover" aria-label="Basculer le mode sombre">
+    <svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 100 100" x="0px" y="0px" aria-hidden="true"><path d="M50,77.62A27.62,27.62,0,1,0,22.38,50,27.61,27.61,0,0,0,50,77.62ZM50,26A24,24,0,1,1,26,50,24,24,0,0,1,50,26ZM69.62,50.52A19.36,19.36,0,0,0,50.26,31.15V69.88A19.36,19.36,0,0,0,69.62,50.52Zm-19.88,31a1.81,1.81,0,0,0-1.81,1.81V95.69a1.81,1.81,0,0,0,3.62,0V83.3A1.81,1.81,0,0,0,49.74,81.49Zm24.9-9A1.81,1.81,0,0,0,72.09,75l8.76,8.76a1.81,1.81,0,0,0,2.55-2.56Zm6.85-22.19a1.81,1.81,0,0,0,1.81,1.81H95.69a1.81,1.81,0,1,0,0-3.62H83.3A1.81,1.81,0,0,0,81.49,50.26ZM75,27.91l8.76-8.76a1.81,1.81,0,0,0-2.56-2.55l-8.76,8.76A1.81,1.81,0,0,0,75,27.91Zm-24.75-9.4a1.81,1.81,0,0,0,1.81-1.81V4.31a1.81,1.81,0,0,0-3.62,0V16.7A1.81,1.81,0,0,0,50.26,18.51Zm-24.9,9A1.81,1.81,0,0,0,27.91,25l-8.76-8.76a1.81,1.81,0,1,0-2.55,2.56Zm-21,24H16.7a1.81,1.81,0,0,0,0-3.62H4.31a1.81,1.81,0,1,0,0,3.62Zm22,20a1.78,1.78,0,0,0-1.28.53l-8.76,8.76a1.8,1.8,0,0,0,0,2.56,1.82,1.82,0,0,0,2.56,0l8.76-8.77a1.81,1.81,0,0,0-1.28-3.08Z"/></svg>
+  </button>
+
+  <nav id="nav" class="px-220__ flex space py-12- pof">
+    <div id="logo" class="flex x center px-20">
+      <div class="ballzzz por" style="--max:6">
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:0"></div>
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:1"></div>
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:2"></div>
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:3"></div>
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:4"></div>
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:5"></div>
+      </div>
+      <a href="../index.html" class="logo no-hover title fs-36__ lh-1">EVA CSS</a>
+    </div>
+    <button id="burger-menu" class="burger-menu" type="button" aria-label="Ouvrir/fermer le menu" aria-expanded="false" aria-controls="menu">
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+    </button>
+    <div id="menu" class="flex x center g-12">
+      <a href="../framework/css-fluid.html" class="h-52 px-12 flex y center _c-brand br-12"><span class="fs-12">CSS fluide</span></a>
+      <a href="../framework.html" class="h-52 px-12 flex y center _c-brand br-12"><span class="fs-12">Addons</span></a>
+      <a href="../use-cases.html" class="h-52 px-12 flex y center _c-brand br-12"><span class="fs-12">Cas d'usage</span></a>
+      <a href="index.html" class="h-52 px-12 flex y center _c-light _bg-brand br-12"><span class="fs-12">Doc</span></a>
+      <a href="https://github.com/nkdeus/eva-framework" target="_blank" rel="noopener" aria-label="Dépôt GitHub" class="h-52 px-8 flex x g-12 center _c-brand br-8">
+        <svg xmlns="http://www.w3.org/2000/svg" class="lh-0" height="20" viewBox="0 0 16 16" width="20" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+      </a>
+    </div>
+  </nav>
+
+  <div class="doc-shell">
+
+    <aside class="doc-sidebar" id="doc-sidebar">
+      <div class="doc-sidebar-inner flex y g-20">
+        <button type="button" class="doc-search-trigger flex x space center g-12" data-search-open>
+          <span class="flex x center g-8">
+            <svg viewBox="0 0 16 16" width="13" height="13" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg>
+            <span>Rechercher</span>
+          </span>
+          <kbd class="doc-kbd">/</kbd>
+        </button>
+        <button type="button" class="doc-nav-toggle flex x space center" data-nav-toggle aria-expanded="false" aria-controls="doc-nav">
+          <span>Chapitres</span>
+          <span class="doc-nav-chevron" aria-hidden="true"></span>
+        </button>
+        <nav id="doc-nav" class="doc-nav" aria-label="Documentation">
+          <div class="doc-nav-section"><p class="doc-nav-heading">Démarrer</p><ul class="doc-nav-list"><li><a class="doc-nav-link no-hover" href="index.html">Démarrer</a></li><li><a class="doc-nav-link no-hover" href="install.html">Installation</a></li><li><a class="doc-nav-link no-hover" href="config.html">Configuration</a></li></ul></div><div class="doc-nav-section"><p class="doc-nav-heading">Le système</p><ul class="doc-nav-list"><li><a class="doc-nav-link no-hover" href="sizes.html">Tailles fluides</a></li><li><a class="doc-nav-link no-hover" href="colors.html">Couleurs</a></li><li><a class="doc-nav-link no-hover is-current" href="gradients.html" aria-current="page">Dégradés</a></li><li><a class="doc-nav-link no-hover" href="utilities.html">Classes utilitaires</a></li></ul></div><div class="doc-nav-section"><p class="doc-nav-heading">Guides</p><ul class="doc-nav-list"><li><a class="doc-nav-link no-hover" href="adopt.html">Adopter EVA</a></li><li><a class="doc-nav-link no-hover" href="cli.html">Outils CLI</a></li></ul></div><div class="doc-nav-section"><p class="doc-nav-heading">Référence</p><ul class="doc-nav-list"><li><a class="doc-nav-link no-hover" href="reference.html">Référence</a></li></ul></div>
+        </nav>
+      </div>
+    </aside>
+
+    <main class="doc-main">
+      <article class="doc-article">
+        <p class="doc-eyebrow fs-12 _c-brand_">Documentation</p>
+        <h1 class="doc-title fs-52__ lh-1 ttu">Dégradés</h1>
+        <p class="doc-lede fs-18 _c-dark_">Des classes de dégradé composables — un applicateur qui dessine, des setters qui l'alimentent en couleurs, direction, zoom et animation.</p>
+        <div class="doc-content">
+          <p class="doc-p">Un dégradé, dans EVA, ce n'est pas une classe mais une petite pile : un <strong>applicateur</strong> qui le dessine, et des <strong>setters</strong> qui l'alimentent. Tout transite par trois custom properties, donc chaque partie peut être surchargée n'importe où.</p>
+<figure class="doc-block"><figcaption class="doc-block-bar flex x space center"><span class="doc-block-lang">html</span><button type="button" class="doc-copy" data-copy data-copied="Copié">Copier</button></figcaption><pre class="doc-pre"><code>&lt;body class=<span class="tok-string">"current-theme theme-eva all-grads"</span>&gt;
+  &lt;div class=<span class="tok-string">"grad-linear from-brand to-accent d-br"</span>&gt;…&lt;/div&gt;
+&lt;/body&gt;</code></pre></figure>
+<aside class="doc-callout"><p class="doc-p">Le conteneur doit porter <code class="doc-inline-code">all-grads</code>. C'est cette classe qui déclare les trois variables ; sans elle, les applicateurs n'ont rien à lire.</p></aside>
+<h2 id="les-trois-variables" class="doc-h doc-h2">Les trois variables<a class="doc-anchor no-hover" href="#les-trois-variables" aria-label="Lien vers cette section">#</a></h2>
+<div class="doc-table-wrap"><table class="doc-table"><thead><tr><th>Variable</th><th>Défaut</th><th>Posée par</th></tr></thead><tbody><tr><td><code class="doc-inline-code">--current-from-color</code></td><td><code class="doc-inline-code">var(--brand)</code></td><td><code class="doc-inline-code">from-*</code></td></tr><tr><td><code class="doc-inline-code">--current-to-color</code></td><td><code class="doc-inline-code">var(--accent)</code></td><td><code class="doc-inline-code">to-*</code></td></tr><tr><td><code class="doc-inline-code">--current-angle</code></td><td><code class="doc-inline-code">90deg</code></td><td><code class="doc-inline-code">d-*</code> et <code class="doc-inline-code">a-*</code></td></tr></tbody></table></div>
+<p class="doc-p">Posez-les à la main quand le vocabulaire de classes ne suffit pas :</p>
+<figure class="doc-block"><figcaption class="doc-block-bar flex x space center"><span class="doc-block-lang">css</span><button type="button" class="doc-copy" data-copy data-copied="Copié">Copier</button></figcaption><pre class="doc-pre"><code>.hero {
+  <span class="tok-var">--current-from-color</span>: oklch(<span class="tok-num">70</span>% <span class="tok-num">0.2</span> <span class="tok-num">300</span>);
+  <span class="tok-var">--current-to-color</span>: var(<span class="tok-var">--extra___</span>);
+  <span class="tok-var">--current-angle</span>: <span class="tok-num">17deg</span>;
+}</code></pre></figure>
+<h2 id="applicateurs" class="doc-h doc-h2">Applicateurs<a class="doc-anchor no-hover" href="#applicateurs" aria-label="Lien vers cette section">#</a></h2>
+<div class="doc-table-wrap"><table class="doc-table"><thead><tr><th>Classe</th><th>Dessine</th></tr></thead><tbody><tr><td><code class="doc-inline-code">grad-linear</code></td><td>Dégradé linéaire en fond</td></tr><tr><td><code class="doc-inline-code">grad-radial</code></td><td>Dégradé radial depuis le centre</td></tr><tr><td><code class="doc-inline-code">grad-linear-text</code></td><td>Dégradé linéaire découpé sur le texte</td></tr><tr><td><code class="doc-inline-code">grad-radial-text</code></td><td>Dégradé radial découpé sur le texte</td></tr><tr><td><code class="doc-inline-code">grad-linear-border</code></td><td>Dégradé linéaire en <code class="doc-inline-code">border-image</code></td></tr><tr><td><code class="doc-inline-code">grad-radial-border</code></td><td>Dégradé radial en <code class="doc-inline-code">border-image</code></td></tr></tbody></table></div>
+<p class="doc-p">Les variantes <code class="doc-inline-code">-text</code> posent <code class="doc-inline-code">background-clip: text</code> et un remplissage transparent. Les variantes <code class="doc-inline-code">-border</code> passent par <code class="doc-inline-code">border-image</code> : l'élément a donc besoin d'un <code class="doc-inline-code">border-style</code> et d'un <code class="doc-inline-code">border-width</code> pour que quoi que ce soit apparaisse.</p>
+<h2 id="setters-de-couleur" class="doc-h doc-h2">Setters de couleur<a class="doc-anchor no-hover" href="#setters-de-couleur" aria-label="Lien vers cette section">#</a></h2>
+<p class="doc-p"><code class="doc-inline-code">from-*</code> et <code class="doc-inline-code">to-*</code> acceptent tous les rôles de couleur et toutes leurs variantes — le même vocabulaire que le <a href="colors.html#variants" class="doc-link no-hover">système de couleurs</a>.</p>
+<figure class="doc-block"><figcaption class="doc-block-bar flex x space center"><span class="doc-block-lang">html</span><button type="button" class="doc-copy" data-copy data-copied="Copié">Copier</button></figcaption><pre class="doc-pre"><code>&lt;div class=<span class="tok-string">"grad-linear from-brand to-accent"</span>&gt;…&lt;/div&gt;
+&lt;div class=<span class="tok-string">"grad-linear from-brand_ to-extra-d"</span>&gt;…&lt;/div&gt;
+&lt;div class=<span class="tok-string">"grad-radial from-accent to-transparent"</span>&gt;…&lt;/div&gt;</code></pre></figure>
+<div class="doc-table-wrap"><table class="doc-table"><thead><tr><th>Motif</th><th>Exemple</th><th>Résultat</th></tr></thead><tbody><tr><td><code class="doc-inline-code">from-&lt;rôle&gt;</code></td><td><code class="doc-inline-code">from-brand</code></td><td>Départ sur le rôle</td></tr><tr><td><code class="doc-inline-code">from-&lt;rôle&gt;_</code></td><td><code class="doc-inline-code">from-brand_</code></td><td>Départ à 65 % d'opacité</td></tr><tr><td><code class="doc-inline-code">from-&lt;rôle&gt;-d</code></td><td><code class="doc-inline-code">from-extra-d</code></td><td>Départ sur le cran assombri</td></tr><tr><td><code class="doc-inline-code">to-transparent</code></td><td><code class="doc-inline-code">to-transparent</code></td><td>Fondu sortant</td></tr><tr><td><code class="doc-inline-code">from-transparent</code></td><td><code class="doc-inline-code">from-transparent</code></td><td>Fondu entrant</td></tr></tbody></table></div>
+<p class="doc-p">Comme les extrémités sont des variables de thème, un dégradé se recompose tout seul au changement de thème et en mode sombre. Rien à redéclarer.</p>
+<h2 id="direction" class="doc-h doc-h2">Direction<a class="doc-anchor no-hover" href="#direction" aria-label="Lien vers cette section">#</a></h2>
+<p class="doc-p">Huit raccourcis, et le contrôle d'angle complet au besoin.</p>
+<div class="doc-table-wrap"><table class="doc-table"><thead><tr><th>Classe</th><th>Direction</th></tr></thead><tbody><tr><td><code class="doc-inline-code">d-t</code></td><td>vers le haut</td></tr><tr><td><code class="doc-inline-code">d-b</code></td><td>vers le bas</td></tr><tr><td><code class="doc-inline-code">d-l</code></td><td>vers la gauche</td></tr><tr><td><code class="doc-inline-code">d-r</code></td><td>vers la droite</td></tr><tr><td><code class="doc-inline-code">d-tl</code></td><td>vers le haut-gauche</td></tr><tr><td><code class="doc-inline-code">d-tr</code></td><td>vers le haut-droite</td></tr><tr><td><code class="doc-inline-code">d-bl</code></td><td>vers le bas-gauche</td></tr><tr><td><code class="doc-inline-code">d-br</code></td><td>vers le bas-droite</td></tr></tbody></table></div>
+<p class="doc-p"><code class="doc-inline-code">a-0</code> à <code class="doc-inline-code">a-360</code> par pas de 5° — 73 classes : <code class="doc-inline-code">a-45</code>, <code class="doc-inline-code">a-90</code>, <code class="doc-inline-code">a-135</code>, <code class="doc-inline-code">a-215</code>, <code class="doc-inline-code">a-360</code>.</p>
+<figure class="doc-block"><figcaption class="doc-block-bar flex x space center"><span class="doc-block-lang">html</span><button type="button" class="doc-copy" data-copy data-copied="Copié">Copier</button></figcaption><pre class="doc-pre"><code>&lt;h1 class=<span class="tok-string">"grad-linear-text from-brand to-accent a-135"</span>&gt;En biais&lt;/h1&gt;</code></pre></figure>
+<aside class="doc-callout"><p class="doc-p"><code class="doc-inline-code">d-*</code> et <code class="doc-inline-code">a-*</code> déclarent tous les deux <code class="doc-inline-code">--current-angle</code> en <code class="doc-inline-code">!important</code>. N'en mettez pas deux sur le même élément — le gagnant est celui qui vient le plus tard dans la feuille de style, pas dans votre attribut <code class="doc-inline-code">class</code>.</p></aside>
+<h2 id="zoom-et-position" class="doc-h doc-h2">Zoom et position<a class="doc-anchor no-hover" href="#zoom-et-position" aria-label="Lien vers cette section">#</a></h2>
+<p class="doc-p">Agrandir la boîte du dégradé, c'est ce qui rend l'animation lisible — un dégradé à 100 % n'a nulle part où aller.</p>
+<div class="doc-table-wrap"><table class="doc-table"><thead><tr><th>Classe</th><th><code class="doc-inline-code">background-size</code></th></tr></thead><tbody><tr><td><code class="doc-inline-code">bg-size</code></td><td>150 %</td></tr><tr><td><code class="doc-inline-code">bg-size_</code></td><td>200 %</td></tr><tr><td><code class="doc-inline-code">bg-size__</code></td><td>300 %</td></tr></tbody></table></div>
+<div class="doc-table-wrap"><table class="doc-table"><thead><tr><th>Classe</th><th><code class="doc-inline-code">background-position</code></th></tr></thead><tbody><tr><td><code class="doc-inline-code">bg-center</code></td><td>centre</td></tr><tr><td><code class="doc-inline-code">bg-top</code> / <code class="doc-inline-code">bg-bottom</code></td><td>haut / bas</td></tr><tr><td><code class="doc-inline-code">bg-left</code> / <code class="doc-inline-code">bg-right</code></td><td>gauche / droite</td></tr></tbody></table></div>
+<h2 id="animation" class="doc-h doc-h2">Animation<a class="doc-anchor no-hover" href="#animation" aria-label="Lien vers cette section">#</a></h2>
+<div class="doc-table-wrap"><table class="doc-table"><thead><tr><th>Classe</th><th>Durée</th></tr></thead><tbody><tr><td><code class="doc-inline-code">animated</code></td><td>3 s</td></tr><tr><td><code class="doc-inline-code">animated-slow</code></td><td>6 s</td></tr><tr><td><code class="doc-inline-code">animated-fast</code></td><td>1 s</td></tr></tbody></table></div>
+<p class="doc-p">Les trois jouent les mêmes keyframes <code class="doc-inline-code">gradient-shift</code>, qui déplacent la position du fond. Associez-les à une classe <code class="doc-inline-code">bg-size*</code>, sinon rien ne semblera bouger.</p>
+<figure class="doc-block"><figcaption class="doc-block-bar flex x space center"><span class="doc-block-lang">html</span><button type="button" class="doc-copy" data-copy data-copied="Copié">Copier</button></figcaption><pre class="doc-pre"><code>&lt;div class=<span class="tok-string">"grad-radial from-extra to-transparent bg-size_ animated"</span>&gt;…&lt;/div&gt;</code></pre></figure>
+<h2 id="tout-assembler" class="doc-h doc-h2">Tout assembler<a class="doc-anchor no-hover" href="#tout-assembler" aria-label="Lien vers cette section">#</a></h2>
+<figure class="doc-block"><figcaption class="doc-block-bar flex x space center"><span class="doc-block-lang">html</span><button type="button" class="doc-copy" data-copy data-copied="Copié">Copier</button></figcaption><pre class="doc-pre"><code>&lt;!-- diagonale, marque fondue vers un accent assombri --&gt;
+&lt;div class=<span class="tok-string">"grad-linear from-brand_ to-accent-d d-br br-12 p-32"</span>&gt;Carte&lt;/div&gt;
+
+&lt;!-- titre en dégradé --&gt;
+&lt;h1 class=<span class="tok-string">"grad-linear-text from-brand to-accent d-r fs-52"</span>&gt;Texte en dégradé&lt;/h1&gt;
+
+&lt;!-- halo radial animé lentement --&gt;
+&lt;div class=<span class="tok-string">"grad-radial from-extra to-transparent bg-size__ animated-slow"</span>&gt;Halo&lt;/div&gt;
+
+&lt;!-- bordure en dégradé, noter le border-style --&gt;
+&lt;div class=<span class="tok-string">"grad-linear-border from-brand to-extra"</span> style=<span class="tok-string">"border: 2px solid"</span>&gt;Encadré&lt;/div&gt;</code></pre></figure>
+<p class="doc-p">La page <a href="../framework/gradients.html" class="doc-link no-hover">Gradients</a> propose tout le vocabulaire sous forme de terrain de jeu.</p>
+<p class="doc-p">Suite : <a href="utilities.html" class="doc-link no-hover">Classes utilitaires</a>.</p>
+        </div>
+      </article>
+      <nav class="doc-pager flex x space g-20"><a class="doc-pager-link no-hover doc-pager-prev" href="colors.html"><span class="doc-pager-dir">Précédent</span><span class="doc-pager-title">Couleurs</span></a><a class="doc-pager-link no-hover doc-pager-next" href="utilities.html"><span class="doc-pager-dir">Suivant</span><span class="doc-pager-title">Classes utilitaires</span></a></nav>
+    </main>
+
+    <aside class="doc-toc" aria-label="Sur cette page">
+      <div class="doc-toc-inner">
+        <p class="doc-toc-title fs-12">Sur cette page</p>
+        <ul class="doc-toc-list"><li><a class="doc-toc-link no-hover" data-level="2" href="#les-trois-variables">Les trois variables</a></li><li><a class="doc-toc-link no-hover" data-level="2" href="#applicateurs">Applicateurs</a></li><li><a class="doc-toc-link no-hover" data-level="2" href="#setters-de-couleur">Setters de couleur</a></li><li><a class="doc-toc-link no-hover" data-level="2" href="#direction">Direction</a></li><li><a class="doc-toc-link no-hover" data-level="2" href="#zoom-et-position">Zoom et position</a></li><li><a class="doc-toc-link no-hover" data-level="2" href="#animation">Animation</a></li><li><a class="doc-toc-link no-hover" data-level="2" href="#tout-assembler">Tout assembler</a></li></ul>
+      </div>
+    </aside>
+
+  </div>
+
+  <div class="doc-search" id="doc-search" hidden>
+    <div class="doc-search-backdrop" data-search-close></div>
+    <div class="doc-search-panel flex y" role="dialog" aria-modal="true" aria-label="Rechercher">
+      <div class="doc-search-field flex x center g-12">
+        <svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg>
+        <input type="search" id="doc-search-input" class="doc-search-input" placeholder="Rechercher dans la documentation" autocomplete="off" spellcheck="false">
+        <button type="button" class="doc-search-esc" data-search-close>esc</button>
+      </div>
+      <div class="doc-search-results" id="doc-search-results" data-empty="Aucun résultat pour"></div>
+    </div>
+  </div>
+
+  <footer class="px-220__ py-136 flex x g-20 w-full">
+    <div class="flex w-full y space center g-32">
+      <p class="fs-16 _c-brand_">© 2024</p>
+      <p class="fs-16 _c-brand_">Tati Michaël</p>
+    </div>
+    <div class="flex w-full y space g-32">
+      <a href="https://www.linkedin.com/in/mtati/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="index.html">Documentation</a>
+      <a href="../../doc/gradients.html" hreflang="en" title="View in English">EN</a>
+    </div>
+  </footer>
+
+  <script src="../../app.js"></script>
+  <script src="../../doc.js"></script>
+  </body>
+</html>

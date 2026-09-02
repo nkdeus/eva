@@ -3,7 +3,7 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://eva-css.xyz/</loc>
-    <lastmod>2026-08-01</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://eva-css.xyz/"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://eva-css.xyz/fr/"/>
@@ -11,7 +11,7 @@
   </url>
   <url>
     <loc>https://eva-css.xyz/fr/</loc>
-    <lastmod>2026-08-01</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://eva-css.xyz/"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://eva-css.xyz/fr/"/>
@@ -19,7 +19,7 @@
   </url>
   <url>
     <loc>https://eva-css.xyz/framework.html</loc>
-    <lastmod>2026-08-01</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://eva-css.xyz/framework.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://eva-css.xyz/fr/framework.html"/>
@@ -27,7 +27,7 @@
   </url>
   <url>
     <loc>https://eva-css.xyz/fr/framework.html</loc>
-    <lastmod>2026-08-01</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://eva-css.xyz/framework.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://eva-css.xyz/fr/framework.html"/>
@@ -35,7 +35,7 @@
   </url>
   <url>
     <loc>https://eva-css.xyz/figma-to-eva.html</loc>
-    <lastmod>2026-08-01</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://eva-css.xyz/figma-to-eva.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://eva-css.xyz/fr/figma-to-eva.html"/>
@@ -43,7 +43,7 @@
   </url>
   <url>
     <loc>https://eva-css.xyz/fr/figma-to-eva.html</loc>
-    <lastmod>2026-08-01</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://eva-css.xyz/figma-to-eva.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://eva-css.xyz/fr/figma-to-eva.html"/>
@@ -51,7 +51,7 @@
   </url>
   <url>
     <loc>https://eva-css.xyz/use-cases.html</loc>
-    <lastmod>2026-08-01</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://eva-css.xyz/use-cases.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://eva-css.xyz/fr/use-cases.html"/>
@@ -59,7 +59,7 @@
   </url>
   <url>
     <loc>https://eva-css.xyz/fr/use-cases.html</loc>
-    <lastmod>2026-08-01</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://eva-css.xyz/use-cases.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://eva-css.xyz/fr/use-cases.html"/>
@@ -67,7 +67,7 @@
   </url>
   <url>
     <loc>https://eva-css.xyz/use-cases/tailwind.html</loc>
-    <lastmod>2026-08-01</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://eva-css.xyz/use-cases/tailwind.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://eva-css.xyz/fr/use-cases/tailwind.html"/>
@@ -75,7 +75,7 @@
   </url>
   <url>
     <loc>https://eva-css.xyz/fr/use-cases/tailwind.html</loc>
-    <lastmod>2026-08-01</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://eva-css.xyz/use-cases/tailwind.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://eva-css.xyz/fr/use-cases/tailwind.html"/>
@@ -83,7 +83,7 @@
   </url>
   <url>
     <loc>https://eva-css.xyz/use-cases/webflow.html</loc>
-    <lastmod>2026-08-01</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://eva-css.xyz/use-cases/webflow.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://eva-css.xyz/fr/use-cases/webflow.html"/>
@@ -91,7 +91,7 @@
   </url>
   <url>
     <loc>https://eva-css.xyz/fr/use-cases/webflow.html</loc>
-    <lastmod>2026-08-01</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://eva-css.xyz/use-cases/webflow.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://eva-css.xyz/fr/use-cases/webflow.html"/>
@@ -99,7 +99,7 @@
   </url>
   <url>
     <loc>https://eva-css.xyz/use-cases/ycode.html</loc>
-    <lastmod>2026-08-01</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://eva-css.xyz/use-cases/ycode.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://eva-css.xyz/fr/use-cases/ycode.html"/>
@@ -107,7 +107,7 @@
   </url>
   <url>
     <loc>https://eva-css.xyz/fr/use-cases/ycode.html</loc>
-    <lastmod>2026-08-01</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://eva-css.xyz/use-cases/ycode.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://eva-css.xyz/fr/use-cases/ycode.html"/>
@@ -115,7 +115,7 @@
   </url>
   <url>
     <loc>https://eva-css.xyz/framework/css-fluid.html</loc>
-    <lastmod>2026-08-01</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://eva-css.xyz/framework/css-fluid.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://eva-css.xyz/fr/framework/css-fluid.html"/>
@@ -123,7 +123,7 @@
   </url>
   <url>
     <loc>https://eva-css.xyz/fr/framework/css-fluid.html</loc>
-    <lastmod>2026-08-01</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://eva-css.xyz/framework/css-fluid.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://eva-css.xyz/fr/framework/css-fluid.html"/>
@@ -131,7 +131,7 @@
   </url>
   <url>
     <loc>https://eva-css.xyz/framework/colors.html</loc>
-    <lastmod>2026-08-01</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://eva-css.xyz/framework/colors.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://eva-css.xyz/fr/framework/colors.html"/>
@@ -139,7 +139,7 @@
   </url>
   <url>
     <loc>https://eva-css.xyz/fr/framework/colors.html</loc>
-    <lastmod>2026-08-01</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://eva-css.xyz/framework/colors.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://eva-css.xyz/fr/framework/colors.html"/>
@@ -147,7 +147,7 @@
   </url>
   <url>
     <loc>https://eva-css.xyz/framework/fonts.html</loc>
-    <lastmod>2026-08-01</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://eva-css.xyz/framework/fonts.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://eva-css.xyz/fr/framework/fonts.html"/>
@@ -155,7 +155,7 @@
   </url>
   <url>
     <loc>https://eva-css.xyz/fr/framework/fonts.html</loc>
-    <lastmod>2026-08-01</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://eva-css.xyz/framework/fonts.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://eva-css.xyz/fr/framework/fonts.html"/>
@@ -163,7 +163,7 @@
   </url>
   <url>
     <loc>https://eva-css.xyz/framework/sizes.html</loc>
-    <lastmod>2026-08-01</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://eva-css.xyz/framework/sizes.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://eva-css.xyz/fr/framework/sizes.html"/>
@@ -171,7 +171,7 @@
   </url>
   <url>
     <loc>https://eva-css.xyz/fr/framework/sizes.html</loc>
-    <lastmod>2026-08-01</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://eva-css.xyz/framework/sizes.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://eva-css.xyz/fr/framework/sizes.html"/>
@@ -179,7 +179,7 @@
   </url>
   <url>
     <loc>https://eva-css.xyz/framework/grids.html</loc>
-    <lastmod>2026-08-01</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://eva-css.xyz/framework/grids.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://eva-css.xyz/fr/framework/grids.html"/>
@@ -187,7 +187,7 @@
   </url>
   <url>
     <loc>https://eva-css.xyz/fr/framework/grids.html</loc>
-    <lastmod>2026-08-01</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://eva-css.xyz/framework/grids.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://eva-css.xyz/fr/framework/grids.html"/>
@@ -195,7 +195,7 @@
   </url>
   <url>
     <loc>https://eva-css.xyz/framework/flex.html</loc>
-    <lastmod>2026-08-01</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://eva-css.xyz/framework/flex.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://eva-css.xyz/fr/framework/flex.html"/>
@@ -203,7 +203,7 @@
   </url>
   <url>
     <loc>https://eva-css.xyz/fr/framework/flex.html</loc>
-    <lastmod>2026-08-01</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://eva-css.xyz/framework/flex.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://eva-css.xyz/fr/framework/flex.html"/>
@@ -211,7 +211,7 @@
   </url>
   <url>
     <loc>https://eva-css.xyz/framework/gradients.html</loc>
-    <lastmod>2026-08-01</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://eva-css.xyz/framework/gradients.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://eva-css.xyz/fr/framework/gradients.html"/>
@@ -219,31 +219,15 @@
   </url>
   <url>
     <loc>https://eva-css.xyz/fr/framework/gradients.html</loc>
-    <lastmod>2026-08-01</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://eva-css.xyz/framework/gradients.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://eva-css.xyz/fr/framework/gradients.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://eva-css.xyz/framework/gradients.html"/>
   </url>
   <url>
-    <loc>https://eva-css.xyz/framework/doc.html</loc>
-    <lastmod>2026-08-01</lastmod>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://eva-css.xyz/framework/doc.html"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://eva-css.xyz/fr/framework/doc.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://eva-css.xyz/framework/doc.html"/>
-  </url>
-  <url>
-    <loc>https://eva-css.xyz/fr/framework/doc.html</loc>
-    <lastmod>2026-08-01</lastmod>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://eva-css.xyz/framework/doc.html"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://eva-css.xyz/fr/framework/doc.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://eva-css.xyz/framework/doc.html"/>
-  </url>
-  <url>
     <loc>https://eva-css.xyz/framework/js-calculator.html</loc>
-    <lastmod>2026-08-01</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://eva-css.xyz/framework/js-calculator.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://eva-css.xyz/fr/framework/js-calculator.html"/>
@@ -251,7 +235,7 @@
   </url>
   <url>
     <loc>https://eva-css.xyz/fr/framework/js-calculator.html</loc>
-    <lastmod>2026-08-01</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://eva-css.xyz/framework/js-calculator.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://eva-css.xyz/fr/framework/js-calculator.html"/>
@@ -259,7 +243,7 @@
   </url>
   <url>
     <loc>https://eva-css.xyz/framework/auto-theme.html</loc>
-    <lastmod>2026-08-01</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://eva-css.xyz/framework/auto-theme.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://eva-css.xyz/fr/framework/auto-theme.html"/>
@@ -267,10 +251,170 @@
   </url>
   <url>
     <loc>https://eva-css.xyz/fr/framework/auto-theme.html</loc>
-    <lastmod>2026-08-01</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://eva-css.xyz/framework/auto-theme.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://eva-css.xyz/fr/framework/auto-theme.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://eva-css.xyz/framework/auto-theme.html"/>
+  </url>
+  <url>
+    <loc>https://eva-css.xyz/doc/index.html</loc>
+    <lastmod>2026-09-02</lastmod>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://eva-css.xyz/doc/index.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://eva-css.xyz/fr/doc/index.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://eva-css.xyz/doc/index.html"/>
+  </url>
+  <url>
+    <loc>https://eva-css.xyz/fr/doc/index.html</loc>
+    <lastmod>2026-09-02</lastmod>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://eva-css.xyz/doc/index.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://eva-css.xyz/fr/doc/index.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://eva-css.xyz/doc/index.html"/>
+  </url>
+  <url>
+    <loc>https://eva-css.xyz/doc/install.html</loc>
+    <lastmod>2026-09-02</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://eva-css.xyz/doc/install.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://eva-css.xyz/fr/doc/install.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://eva-css.xyz/doc/install.html"/>
+  </url>
+  <url>
+    <loc>https://eva-css.xyz/fr/doc/install.html</loc>
+    <lastmod>2026-09-02</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://eva-css.xyz/doc/install.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://eva-css.xyz/fr/doc/install.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://eva-css.xyz/doc/install.html"/>
+  </url>
+  <url>
+    <loc>https://eva-css.xyz/doc/config.html</loc>
+    <lastmod>2026-09-02</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://eva-css.xyz/doc/config.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://eva-css.xyz/fr/doc/config.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://eva-css.xyz/doc/config.html"/>
+  </url>
+  <url>
+    <loc>https://eva-css.xyz/fr/doc/config.html</loc>
+    <lastmod>2026-09-02</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://eva-css.xyz/doc/config.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://eva-css.xyz/fr/doc/config.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://eva-css.xyz/doc/config.html"/>
+  </url>
+  <url>
+    <loc>https://eva-css.xyz/doc/sizes.html</loc>
+    <lastmod>2026-09-02</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://eva-css.xyz/doc/sizes.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://eva-css.xyz/fr/doc/sizes.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://eva-css.xyz/doc/sizes.html"/>
+  </url>
+  <url>
+    <loc>https://eva-css.xyz/fr/doc/sizes.html</loc>
+    <lastmod>2026-09-02</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://eva-css.xyz/doc/sizes.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://eva-css.xyz/fr/doc/sizes.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://eva-css.xyz/doc/sizes.html"/>
+  </url>
+  <url>
+    <loc>https://eva-css.xyz/doc/colors.html</loc>
+    <lastmod>2026-09-02</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://eva-css.xyz/doc/colors.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://eva-css.xyz/fr/doc/colors.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://eva-css.xyz/doc/colors.html"/>
+  </url>
+  <url>
+    <loc>https://eva-css.xyz/fr/doc/colors.html</loc>
+    <lastmod>2026-09-02</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://eva-css.xyz/doc/colors.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://eva-css.xyz/fr/doc/colors.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://eva-css.xyz/doc/colors.html"/>
+  </url>
+  <url>
+    <loc>https://eva-css.xyz/doc/gradients.html</loc>
+    <lastmod>2026-09-02</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://eva-css.xyz/doc/gradients.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://eva-css.xyz/fr/doc/gradients.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://eva-css.xyz/doc/gradients.html"/>
+  </url>
+  <url>
+    <loc>https://eva-css.xyz/fr/doc/gradients.html</loc>
+    <lastmod>2026-09-02</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://eva-css.xyz/doc/gradients.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://eva-css.xyz/fr/doc/gradients.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://eva-css.xyz/doc/gradients.html"/>
+  </url>
+  <url>
+    <loc>https://eva-css.xyz/doc/utilities.html</loc>
+    <lastmod>2026-09-02</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://eva-css.xyz/doc/utilities.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://eva-css.xyz/fr/doc/utilities.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://eva-css.xyz/doc/utilities.html"/>
+  </url>
+  <url>
+    <loc>https://eva-css.xyz/fr/doc/utilities.html</loc>
+    <lastmod>2026-09-02</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://eva-css.xyz/doc/utilities.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://eva-css.xyz/fr/doc/utilities.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://eva-css.xyz/doc/utilities.html"/>
+  </url>
+  <url>
+    <loc>https://eva-css.xyz/doc/adopt.html</loc>
+    <lastmod>2026-09-02</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://eva-css.xyz/doc/adopt.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://eva-css.xyz/fr/doc/adopt.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://eva-css.xyz/doc/adopt.html"/>
+  </url>
+  <url>
+    <loc>https://eva-css.xyz/fr/doc/adopt.html</loc>
+    <lastmod>2026-09-02</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://eva-css.xyz/doc/adopt.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://eva-css.xyz/fr/doc/adopt.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://eva-css.xyz/doc/adopt.html"/>
+  </url>
+  <url>
+    <loc>https://eva-css.xyz/doc/cli.html</loc>
+    <lastmod>2026-09-02</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://eva-css.xyz/doc/cli.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://eva-css.xyz/fr/doc/cli.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://eva-css.xyz/doc/cli.html"/>
+  </url>
+  <url>
+    <loc>https://eva-css.xyz/fr/doc/cli.html</loc>
+    <lastmod>2026-09-02</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://eva-css.xyz/doc/cli.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://eva-css.xyz/fr/doc/cli.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://eva-css.xyz/doc/cli.html"/>
+  </url>
+  <url>
+    <loc>https://eva-css.xyz/doc/reference.html</loc>
+    <lastmod>2026-09-02</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://eva-css.xyz/doc/reference.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://eva-css.xyz/fr/doc/reference.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://eva-css.xyz/doc/reference.html"/>
+  </url>
+  <url>
+    <loc>https://eva-css.xyz/fr/doc/reference.html</loc>
+    <lastmod>2026-09-02</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://eva-css.xyz/doc/reference.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://eva-css.xyz/fr/doc/reference.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://eva-css.xyz/doc/reference.html"/>
   </url>
 </urlset>

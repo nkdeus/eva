@@ -57,10 +57,6 @@ const TRAILS = {
     { name: 'Addons',    urlSuffix: 'framework.html' },
     { name: 'Gradients', urlSuffix: 'framework/gradients.html' },
   ],
-  'framework/doc.html': [
-    { name: 'EVA CSS',       urlSuffix: '' },
-    { name: 'Documentation', urlSuffix: 'framework/doc.html' },
-  ],
   'framework/js-calculator.html': [
     { name: 'EVA CSS',       urlSuffix: '' },
     { name: 'JS Calculator', urlSuffix: 'framework/js-calculator.html' },

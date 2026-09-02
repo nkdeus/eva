@@ -38,6 +38,30 @@
   to = "/llms-full.txt"
   status = 200
 
+# The quickstart page became the /doc/ section
+[[redirects]]
+  from = "/framework/doc.html"
+  to = "/doc/index.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/fr/framework/doc.html"
+  to = "/fr/doc/index.html"
+  status = 301
+  force = true
+
+# Documentation section (HTML pages + the lazily fetched search index)
+[[redirects]]
+  from = "/doc/*"
+  to = "/doc/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/fr/doc/*"
+  to = "/fr/doc/:splat"
+  status = 200
+
 # Serve HTML pages directly
 [[redirects]]
   from = "/framework.html"

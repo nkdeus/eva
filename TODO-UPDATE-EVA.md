@@ -29,7 +29,7 @@ Au lancement de `npx eva-css init|setup|validate|generate`, afficher en tête du
 ⚠️  DEPRECATED: Le workflow JSON sera retiré en v3.0.
    Migrez vers la config SCSS directe :
      @use 'eva-css-fluid' with ($sizes: (...), $font-sizes: (...));
-   Voir : https://eva-css.xyz/framework/doc.html
+   Voir : https://eva-css.xyz/doc/index.html
 ```
 
 Pas d'`exit 1`, juste le warning. Les commandes continuent de fonctionner.
@@ -70,7 +70,7 @@ Ajouter sous `[Unreleased]` ou la prochaine 2.x :
 - JSON config workflow (`eva.config.cjs`, CLI commands `init|setup|validate|generate`,
   custom build script). Will be removed in v3.0.0.
   Migrate to direct SCSS config: `@use 'eva-css-fluid' with (...)`.
-  See https://eva-css.xyz/framework/doc.html for the SCSS-only reference.
+  See https://eva-css.xyz/doc/index.html for the SCSS-only reference.
 ```
 
 ## Actions — `eva-colors` et `eva-css-purge`

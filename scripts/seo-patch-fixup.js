@@ -11,7 +11,7 @@ const FILES = [
   'index.html', 'framework.html', 'figma-to-eva.html',
   'framework/css-fluid.html', 'framework/colors.html', 'framework/fonts.html',
   'framework/sizes.html', 'framework/grids.html', 'framework/flex.html',
-  'framework/gradients.html', 'framework/doc.html',
+  'framework/gradients.html',
   'framework/js-calculator.html', 'framework/auto-theme.html',
 ];
 

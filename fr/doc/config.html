@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/Draggable.min.js"></script>
+    <link rel="stylesheet" href="https://use.typekit.net/vjo0ssd.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Display:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../styles/main.css" />
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="3c9b4552-d24d-48aa-a6b4-877d0ceffe04"></script>
+    <title>Configuration — Doc EVA CSS</title>
+    <meta name="description" content="Toutes les options acceptées par les points d'entrée SCSS, ce qu'elles changent dans la sortie, et les deux modes de build.">
+    <meta property="og:title" content="Configuration — Doc EVA CSS">
+    <meta property="og:description" content="Toutes les options acceptées par les points d'entrée SCSS, ce qu'elles changent dans la sortie, et les deux modes de build.">
+    <meta property="og:locale" content="fr_FR">
+    <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+    <link rel="apple-touch-icon" href="../../assets/imgs/eva.jpg">
+    <link rel="manifest" href="../../site.webmanifest">
+    <meta name="theme-color" content="#ff8a3d">
+    <meta property="og:site_name" content="EVA CSS">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://eva-css.xyz/fr/doc/config.html">
+    <meta property="og:image" content="https://eva-css.xyz/assets/imgs/eva.jpg">
+    <meta property="og:image:width" content="512">
+    <meta property="og:image:height" content="512">
+    <meta property="og:image:alt" content="EVA CSS — fluid SCSS framework">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Configuration — Doc EVA CSS">
+    <meta name="twitter:description" content="Toutes les options acceptées par les points d'entrée SCSS, ce qu'elles changent dans la sortie, et les deux modes de build.">
+    <meta name="twitter:image" content="https://eva-css.xyz/assets/imgs/eva.jpg">
+    <link rel="canonical" href="https://eva-css.xyz/fr/doc/config.html">
+    <link rel="alternate" hreflang="en" href="https://eva-css.xyz/doc/config.html">
+    <link rel="alternate" hreflang="fr" href="https://eva-css.xyz/fr/doc/config.html">
+    <link rel="alternate" hreflang="x-default" href="https://eva-css.xyz/doc/config.html">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "Configuration",
+      "description": "Toutes les options acceptées par les points d'entrée SCSS, ce qu'elles changent dans la sortie, et les deux modes de build.",
+      "inLanguage": "fr",
+      "url": "https://eva-css.xyz/fr/doc/config.html",
+      "isPartOf": {
+        "@type": "TechArticle",
+        "name": "Doc EVA CSS",
+        "url": "https://eva-css.xyz/fr/doc/index.html"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "EVA CSS",
+        "url": "https://eva-css.xyz"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "EVA CSS", "item": "https://eva-css.xyz/fr/" },
+        { "@type": "ListItem", "position": 2, "name": "Documentation", "item": "https://eva-css.xyz/fr/doc/index.html" },
+        { "@type": "ListItem", "position": 3, "name": "Configuration", "item": "https://eva-css.xyz/fr/doc/config.html" }
+      ]
+    }
+    </script>
+  </head>
+  <body class="current-theme theme-eva all-grads toggle-theme doc-page" data-doc-search="search-index.json">
+  <button type="button" class="dark-light-toggle no-hover" aria-label="Basculer le mode sombre">
+    <svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 100 100" x="0px" y="0px" aria-hidden="true"><path d="M50,77.62A27.62,27.62,0,1,0,22.38,50,27.61,27.61,0,0,0,50,77.62ZM50,26A24,24,0,1,1,26,50,24,24,0,0,1,50,26ZM69.62,50.52A19.36,19.36,0,0,0,50.26,31.15V69.88A19.36,19.36,0,0,0,69.62,50.52Zm-19.88,31a1.81,1.81,0,0,0-1.81,1.81V95.69a1.81,1.81,0,0,0,3.62,0V83.3A1.81,1.81,0,0,0,49.74,81.49Zm24.9-9A1.81,1.81,0,0,0,72.09,75l8.76,8.76a1.81,1.81,0,0,0,2.55-2.56Zm6.85-22.19a1.81,1.81,0,0,0,1.81,1.81H95.69a1.81,1.81,0,1,0,0-3.62H83.3A1.81,1.81,0,0,0,81.49,50.26ZM75,27.91l8.76-8.76a1.81,1.81,0,0,0-2.56-2.55l-8.76,8.76A1.81,1.81,0,0,0,75,27.91Zm-24.75-9.4a1.81,1.81,0,0,0,1.81-1.81V4.31a1.81,1.81,0,0,0-3.62,0V16.7A1.81,1.81,0,0,0,50.26,18.51Zm-24.9,9A1.81,1.81,0,0,0,27.91,25l-8.76-8.76a1.81,1.81,0,1,0-2.55,2.56Zm-21,24H16.7a1.81,1.81,0,0,0,0-3.62H4.31a1.81,1.81,0,1,0,0,3.62Zm22,20a1.78,1.78,0,0,0-1.28.53l-8.76,8.76a1.8,1.8,0,0,0,0,2.56,1.82,1.82,0,0,0,2.56,0l8.76-8.77a1.81,1.81,0,0,0-1.28-3.08Z"/></svg>
+  </button>
+
+  <nav id="nav" class="px-220__ flex space py-12- pof">
+    <div id="logo" class="flex x center px-20">
+      <div class="ballzzz por" style="--max:6">
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:0"></div>
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:1"></div>
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:2"></div>
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:3"></div>
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:4"></div>
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:5"></div>
+      </div>
+      <a href="../index.html" class="logo no-hover title fs-36__ lh-1">EVA CSS</a>
+    </div>
+    <button id="burger-menu" class="burger-menu" type="button" aria-label="Ouvrir/fermer le menu" aria-expanded="false" aria-controls="menu">
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+    </button>
+    <div id="menu" class="flex x center g-12">
+      <a href="../framework/css-fluid.html" class="h-52 px-12 flex y center _c-brand br-12"><span class="fs-12">CSS fluide</span></a>
+      <a href="../framework.html" class="h-52 px-12 flex y center _c-brand br-12"><span class="fs-12">Addons</span></a>
+      <a href="../use-cases.html" class="h-52 px-12 flex y center _c-brand br-12"><span class="fs-12">Cas d'usage</span></a>
+      <a href="index.html" class="h-52 px-12 flex y center _c-light _bg-brand br-12"><span class="fs-12">Doc</span></a>
+      <a href="https://github.com/nkdeus/eva-framework" target="_blank" rel="noopener" aria-label="Dépôt GitHub" class="h-52 px-8 flex x g-12 center _c-brand br-8">
+        <svg xmlns="http://www.w3.org/2000/svg" class="lh-0" height="20" viewBox="0 0 16 16" width="20" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+      </a>
+    </div>
+  </nav>
+
+  <div class="doc-shell">
+
+    <aside class="doc-sidebar" id="doc-sidebar">
+      <div class="doc-sidebar-inner flex y g-20">
+        <button type="button" class="doc-search-trigger flex x space center g-12" data-search-open>
+          <span class="flex x center g-8">
+            <svg viewBox="0 0 16 16" width="13" height="13" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg>
+            <span>Rechercher</span>
+          </span>
+          <kbd class="doc-kbd">/</kbd>
+        </button>
+        <button type="button" class="doc-nav-toggle flex x space center" data-nav-toggle aria-expanded="false" aria-controls="doc-nav">
+          <span>Chapitres</span>
+          <span class="doc-nav-chevron" aria-hidden="true"></span>
+        </button>
+        <nav id="doc-nav" class="doc-nav" aria-label="Documentation">
+          <div class="doc-nav-section"><p class="doc-nav-heading">Démarrer</p><ul class="doc-nav-list"><li><a class="doc-nav-link no-hover" href="index.html">Démarrer</a></li><li><a class="doc-nav-link no-hover" href="install.html">Installation</a></li><li><a class="doc-nav-link no-hover is-current" href="config.html" aria-current="page">Configuration</a></li></ul></div><div class="doc-nav-section"><p class="doc-nav-heading">Le système</p><ul class="doc-nav-list"><li><a class="doc-nav-link no-hover" href="sizes.html">Tailles fluides</a></li><li><a class="doc-nav-link no-hover" href="colors.html">Couleurs</a></li><li><a class="doc-nav-link no-hover" href="gradients.html">Dégradés</a></li><li><a class="doc-nav-link no-hover" href="utilities.html">Classes utilitaires</a></li></ul></div><div class="doc-nav-section"><p class="doc-nav-heading">Guides</p><ul class="doc-nav-list"><li><a class="doc-nav-link no-hover" href="adopt.html">Adopter EVA</a></li><li><a class="doc-nav-link no-hover" href="cli.html">Outils CLI</a></li></ul></div><div class="doc-nav-section"><p class="doc-nav-heading">Référence</p><ul class="doc-nav-list"><li><a class="doc-nav-link no-hover" href="reference.html">Référence</a></li></ul></div>
+        </nav>
+      </div>
+    </aside>
+
+    <main class="doc-main">
+      <article class="doc-article">
+        <p class="doc-eyebrow fs-12 _c-brand_">Documentation</p>
+        <h1 class="doc-title fs-52__ lh-1 ttu">Configuration</h1>
+        <p class="doc-lede fs-18 _c-dark_">Toutes les options acceptées par les points d'entrée SCSS, ce qu'elles changent dans la sortie, et les deux modes de build.</p>
+        <div class="doc-content">
+          <p class="doc-p">La configuration tient dans un seul bloc <code class="doc-inline-code">@use ... with (...)</code>. Pas de fichier de config, pas d'étape CLI, pas de plugin — <code class="doc-inline-code">sass</code> le lit et émet la feuille de style.</p>
+<figure class="doc-block"><figcaption class="doc-block-bar flex x space center"><span class="doc-block-lang">scss</span><button type="button" class="doc-copy" data-copy data-copied="Copié">Copier</button></figcaption><pre class="doc-pre"><code><span class="tok-at">@use</span> <span class="tok-string">'eva-css-fluid'</span> with (
+  <span class="tok-var">$sizes</span>: (<span class="tok-num">4</span>, <span class="tok-num">8</span>, <span class="tok-num">12</span>, <span class="tok-num">16</span>, <span class="tok-num">24</span>, <span class="tok-num">32</span>, <span class="tok-num">48</span>, <span class="tok-num">64</span>, <span class="tok-num">96</span>, <span class="tok-num">128</span>),
+  <span class="tok-var">$font-sizes</span>: (<span class="tok-num">12</span>, <span class="tok-num">14</span>, <span class="tok-num">16</span>, <span class="tok-num">18</span>, <span class="tok-num">20</span>, <span class="tok-num">24</span>, <span class="tok-num">32</span>),
+  <span class="tok-var">$build-class</span>: true,
+  <span class="tok-var">$px-rem-suffix</span>: false,
+  <span class="tok-var">$name-by-size</span>: true,
+  <span class="tok-var">$custom-class</span>: false
+);</code></pre></figure>
+<aside class="doc-callout"><p class="doc-p">SCSS exige que les listes soient entre parenthèses. <code class="doc-inline-code">$sizes: (4, 8, 16)</code> compile ; <code class="doc-inline-code">$sizes: 4, 8, 16</code> est une erreur de parsing.</p></aside>
+<h2 id="options" class="doc-h doc-h2">Options<a class="doc-anchor no-hover" href="#options" aria-label="Lien vers cette section">#</a></h2>
+<div class="doc-table-wrap"><table class="doc-table"><thead><tr><th>Option</th><th>Défaut</th><th>Effet</th></tr></thead><tbody><tr><td><code class="doc-inline-code">$sizes</code></td><td><code class="doc-inline-code">4, 8, 12, 16, 24, 32, 48, 64, 96, 128</code></td><td>Chaque valeur devient un <code class="doc-inline-code">var(--N)</code> fluide et ses trois variantes</td></tr><tr><td><code class="doc-inline-code">$font-sizes</code></td><td><code class="doc-inline-code">12, 14, 16, 18, 20, 24, 32, 48</code></td><td>Chaque valeur devient <code class="doc-inline-code">var(--fs-N)</code> et ses deux variantes</td></tr><tr><td><code class="doc-inline-code">$build-class</code></td><td><code class="doc-inline-code">true</code></td><td><code class="doc-inline-code">true</code> émet les classes utilitaires, <code class="doc-inline-code">false</code> uniquement les variables</td></tr><tr><td><code class="doc-inline-code">$px-rem-suffix</code></td><td><code class="doc-inline-code">false</code></td><td>Ajoute des tokens statiques <code class="doc-inline-code">--N-px</code> / <code class="doc-inline-code">--N-rem</code> à côté des fluides</td></tr><tr><td><code class="doc-inline-code">$name-by-size</code></td><td><code class="doc-inline-code">true</code></td><td><code class="doc-inline-code">true</code> nomme par valeur (<code class="doc-inline-code">--32</code>), <code class="doc-inline-code">false</code> par index (<code class="doc-inline-code">--3</code>)</td></tr><tr><td><code class="doc-inline-code">$custom-class</code></td><td><code class="doc-inline-code">false</code></td><td>Active le filtrage des classes par propriété via <code class="doc-inline-code">$class-config</code></td></tr><tr><td><code class="doc-inline-code">$class-config</code></td><td><code class="doc-inline-code">()</code></td><td>Map propriété → tailles autorisées, ex. <code class="doc-inline-code">(w: (64, 128), px: (24))</code></td></tr><tr><td><code class="doc-inline-code">$debug</code></td><td><code class="doc-inline-code">false</code></td><td>Affiche un récapitulatif de génération pendant la compilation</td></tr><tr><td><code class="doc-inline-code">$unit-fluid</code></td><td><code class="doc-inline-code">1vw</code></td><td>L'unité fluide et son repli runtime — <code class="doc-inline-code">1vw</code> ou <code class="doc-inline-code">1cqi</code></td></tr><tr><td><code class="doc-inline-code">$reference-width</code></td><td><code class="doc-inline-code">1440</code></td><td>Largeur de viewport à laquelle les tokens atteignent leur maximum</td></tr><tr><td><code class="doc-inline-code">$fluid-runtime</code></td><td><code class="doc-inline-code">true</code></td><td><code class="doc-inline-code">false</code> émet des <code class="doc-inline-code">clamp()</code> littéraux au lieu de la forme commutable</td></tr><tr><td><code class="doc-inline-code">$min-font-size</code></td><td><code class="doc-inline-code">0</code></td><td>Plancher d'accessibilité en px sur les minimums de font-size ; <code class="doc-inline-code">0</code> désactive</td></tr></tbody></table></div>
+<p class="doc-p"><code class="doc-inline-code">$unit-fluid</code>, <code class="doc-inline-code">$reference-width</code>, <code class="doc-inline-code">$fluid-runtime</code> et <code class="doc-inline-code">$min-font-size</code> sont arrivés en 2.2.0. <code class="doc-inline-code">eva-css-fluid/colors</code> n'en accepte aucun — il ne génère aucune taille.</p>
+<h2 id="choisir-sizes" class="doc-h doc-h2">Choisir <code class="doc-inline-code">$sizes</code><a class="doc-anchor no-hover" href="#choisir-sizes" aria-label="Lien vers cette section">#</a></h2>
+<p class="doc-p">Listez ce que votre design utilise. Rien d'autre. La liste pilote directement le poids de la sortie : chaque entrée produit quatre tokens de taille et, avec <code class="doc-inline-code">$build-class: true</code>, seize propriétés × quatre variantes de classes utilitaires.</p>
+<p class="doc-p">Deux contraintes :</p>
+<ul class="doc-list"><li><strong><code class="doc-inline-code">16</code> est obligatoire.</strong> C'est la référence rem. Sans lui, la compilation échoue avec <code class="doc-inline-code">Size 16 is required as a base size</code>.</li><li><strong>Aucune des deux listes ne peut être vide.</strong></li></ul>
+<p class="doc-p">Certaines valeurs n'ont rien à faire dans la liste :</p>
+<div class="doc-table-wrap"><table class="doc-table"><thead><tr><th>Valeur</th><th>Pourquoi</th><th>À garder en</th></tr></thead><tbody><tr><td><code class="doc-inline-code">0–5px</code></td><td>Bordures, filets, décalages d'outline</td><td><code class="doc-inline-code">1px</code>, <code class="doc-inline-code">2px</code> littéraux</td></tr><tr><td><code class="doc-inline-code">999px</code></td><td>Une pilule est une forme, pas une taille</td><td><code class="doc-inline-code">999px</code> littéral</td></tr><tr><td>Breakpoints (<code class="doc-inline-code">768</code>, <code class="doc-inline-code">1024</code>, <code class="doc-inline-code">1280</code>)</td><td>Topologie de mise en page, pas d'espacement</td><td>Variables SCSS</td></tr><tr><td>Cibles tactiles (<code class="doc-inline-code">44</code>, <code class="doc-inline-code">48</code>)</td><td>Plancher d'accessibilité, ne doit pas rétrécir</td><td><code class="doc-inline-code">48px</code> littéral</td></tr></tbody></table></div>
+<p class="doc-p">Reprendre une base de code existante est un exercice différent : la liste se déduit de ce qui est réellement dans le CSS au lieu de s'écrire à la main. Ce workflow est décrit dans <a href="adopt.html#audit" class="doc-link no-hover">Adopter EVA</a>.</p>
+<h2 id="les-deux-modes-de-build" class="doc-h doc-h2">Les deux modes de build<a class="doc-anchor no-hover" href="#les-deux-modes-de-build" aria-label="Lien vers cette section">#</a></h2>
+<p class="doc-p"><code class="doc-inline-code">$build-class</code> est la seule option qui change votre façon d'écrire le markup. Choisissez-en un par projet et tenez-vous-y.</p>
+<h3 id="classes-utilitaires-build-class-true" class="doc-h doc-h3">Classes utilitaires — <code class="doc-inline-code">$build-class: true</code><a class="doc-anchor no-hover" href="#classes-utilitaires-build-class-true" aria-label="Lien vers cette section">#</a></h3>
+<p class="doc-p">EVA émet des classes pour seize propriétés sur toutes les tailles, plus les utilitaires de couleur, flex, grid et layout.</p>
+<figure class="doc-block"><figcaption class="doc-block-bar flex x space center"><span class="doc-block-lang">html</span><button type="button" class="doc-copy" data-copy data-copied="Copié">Copier</button></figcaption><pre class="doc-pre"><code>&lt;div class=<span class="tok-string">"flex y g-16 p-32 br-12 _bg-light _c-dark"</span>&gt;
+  &lt;h2 class=<span class="tok-string">"fs-24"</span>&gt;Titre&lt;/h2&gt;
+&lt;/div&gt;</code></pre></figure>
+<p class="doc-p">Rapide à écrire, et le markup porte le design. La contrepartie est le poids de la feuille de style — ce que <a href="cli.html#purge" class="doc-link no-hover">eva-purge</a> est là pour régler.</p>
+<h3 id="variables-seules-build-class-false" class="doc-h doc-h3">Variables seules — <code class="doc-inline-code">$build-class: false</code><a class="doc-anchor no-hover" href="#variables-seules-build-class-false" aria-label="Lien vers cette section">#</a></h3>
+<p class="doc-p">EVA n'émet rien d'autre que des custom properties. Vous écrivez du CSS ordinaire.</p>
+<figure class="doc-block"><figcaption class="doc-block-bar flex x space center"><span class="doc-block-lang">scss</span><button type="button" class="doc-copy" data-copy data-copied="Copié">Copier</button></figcaption><pre class="doc-pre"><code>.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(<span class="tok-var">--16</span>);
+  padding: var(<span class="tok-var">--32</span>);
+  border-radius: var(<span class="tok-var">--12</span>);
+  background: var(<span class="tok-var">--light</span>);
+  color: var(<span class="tok-var">--dark</span>);
+}
+
+.card__title { font-size: var(<span class="tok-var">--fs-24</span>); }</code></pre></figure>
+<p class="doc-p">Préférable pour un design system, une bibliothèque de composants, et tout ce qui s'insère dans une base de code qui a déjà ses noms de classes. <code class="doc-inline-code">eva-css-fluid/variables</code> et <code class="doc-inline-code">eva-css-fluid/core</code> imposent ce mode.</p>
+<aside class="doc-callout"><p class="doc-p">Ne mélangez pas les deux dans un même projet. La moitié des composants pilotée par des classes utilitaires et l'autre par du CSS sémantique, c'est le moyen le plus rapide de ne plus savoir d'où vient une valeur.</p></aside>
+<h2 id="reduire-les-classes-generees" class="doc-h doc-h2">Réduire les classes générées<a class="doc-anchor no-hover" href="#reduire-les-classes-generees" aria-label="Lien vers cette section">#</a></h2>
+<p class="doc-p">Avec <code class="doc-inline-code">$custom-class: true</code>, <code class="doc-inline-code">$class-config</code> restreint la génération par propriété. Seules les tailles listées sont émises pour cette propriété ; les propriétés absentes sont ignorées entièrement.</p>
+<figure class="doc-block"><figcaption class="doc-block-bar flex x space center"><span class="doc-block-lang">scss</span><button type="button" class="doc-copy" data-copy data-copied="Copié">Copier</button></figcaption><pre class="doc-pre"><code><span class="tok-at">@use</span> <span class="tok-string">'eva-css-fluid'</span> with (
+  <span class="tok-var">$sizes</span>: (<span class="tok-num">4</span>, <span class="tok-num">8</span>, <span class="tok-num">16</span>, <span class="tok-num">24</span>, <span class="tok-num">32</span>, <span class="tok-num">64</span>, <span class="tok-num">128</span>),
+  <span class="tok-var">$font-sizes</span>: (<span class="tok-num">14</span>, <span class="tok-num">16</span>, <span class="tok-num">24</span>),
+  <span class="tok-var">$custom-class</span>: true,
+  <span class="tok-var">$class-config</span>: (
+    w: (<span class="tok-num">64</span>, <span class="tok-num">128</span>),
+    px: (<span class="tok-num">16</span>, <span class="tok-num">24</span>),
+    g: (<span class="tok-num">8</span>, <span class="tok-num">16</span>)
+  )
+);</code></pre></figure>
+<p class="doc-p">Les clés doivent être de vrais préfixes de propriété — <code class="doc-inline-code">w mw h p px pr py br mb mr ml mt pt pb g gap</code>. Toute autre valeur est une erreur de compilation. Les variables ne sont pas touchées : <code class="doc-inline-code">var(--32)</code> existe toujours même si aucune classe <code class="doc-inline-code">w-32</code> n'est émise.</p>
+<h2 id="echappatoires-statiques" class="doc-h doc-h2">Échappatoires statiques<a class="doc-anchor no-hover" href="#echappatoires-statiques" aria-label="Lien vers cette section">#</a></h2>
+<p class="doc-p"><code class="doc-inline-code">$px-rem-suffix: true</code> ajoute une contrepartie figée à chaque taille :</p>
+<figure class="doc-block"><figcaption class="doc-block-bar flex x space center"><span class="doc-block-lang">css</span><button type="button" class="doc-copy" data-copy data-copied="Copié">Copier</button></figcaption><pre class="doc-pre"><code><span class="tok-var">--32-px</span>: <span class="tok-num">32px</span>;
+<span class="tok-var">--32-rem</span>: <span class="tok-num">2rem</span>;</code></pre></figure>
+<p class="doc-p">Deux usages : comparer une valeur fluide à sa référence de maquette dans les devtools, et la poignée de dimensions qui ne doivent pas s'adapter. Avec <code class="doc-inline-code">$build-class: true</code> vous obtenez aussi <code class="doc-inline-code">w-32-px</code>, <code class="doc-inline-code">p-32-rem</code>, etc.</p>
+<h2 id="unite-fluide-et-plancher-d-accessibilite" class="doc-h doc-h2">Unité fluide et plancher d'accessibilité<a class="doc-anchor no-hover" href="#unite-fluide-et-plancher-d-accessibilite" aria-label="Lien vers cette section">#</a></h2>
+<p class="doc-p">Depuis 2.2.0, l'unité fluide est une variable d'exécution plutôt qu'une valeur figée au build. Vous configurez le défaut en SCSS, vous le surchargez par sous-arbre en CSS. Tout le détail est dans <a href="sizes.html#fluid-unit" class="doc-link no-hover">Tailles fluides</a>.</p>
+<figure class="doc-block"><figcaption class="doc-block-bar flex x space center"><span class="doc-block-lang">scss</span><button type="button" class="doc-copy" data-copy data-copied="Copié">Copier</button></figcaption><pre class="doc-pre"><code><span class="tok-at">@use</span> <span class="tok-string">'eva-css-fluid'</span> with (
+  <span class="tok-var">$sizes</span>: (<span class="tok-num">4</span>, <span class="tok-num">8</span>, <span class="tok-num">16</span>, <span class="tok-num">24</span>, <span class="tok-num">48</span>),
+  <span class="tok-var">$font-sizes</span>: (<span class="tok-num">16</span>, <span class="tok-num">24</span>, <span class="tok-num">48</span>),
+  <span class="tok-var">$unit-fluid</span>: <span class="tok-num">1vw</span>,        <span class="tok-comment">// 1cqi pour suivre les conteneurs plutôt que le viewport</span>
+  <span class="tok-var">$reference-width</span>: <span class="tok-num">1440</span>,  <span class="tok-comment">// là où les tokens atteignent leur maximum</span>
+  <span class="tok-var">$min-font-size</span>: <span class="tok-num">14</span>       <span class="tok-comment">// plancher px sur les minimums de font-size ; 0 = off</span>
+);</code></pre></figure>
+<p class="doc-p"><code class="doc-inline-code">$min-font-size</code> est le plancher <em>mobile</em>, pas la taille desktop. 13–14 est une valeur raisonnable ; 16 aplatirait toute l'échelle.</p>
+<p class="doc-p">Suite : <a href="sizes.html" class="doc-link no-hover">Tailles fluides</a>.</p>
+        </div>
+      </article>
+      <nav class="doc-pager flex x space g-20"><a class="doc-pager-link no-hover doc-pager-prev" href="install.html"><span class="doc-pager-dir">Précédent</span><span class="doc-pager-title">Installation</span></a><a class="doc-pager-link no-hover doc-pager-next" href="sizes.html"><span class="doc-pager-dir">Suivant</span><span class="doc-pager-title">Tailles fluides</span></a></nav>
+    </main>
+
+    <aside class="doc-toc" aria-label="Sur cette page">
+      <div class="doc-toc-inner">
+        <p class="doc-toc-title fs-12">Sur cette page</p>
+        <ul class="doc-toc-list"><li><a class="doc-toc-link no-hover" data-level="2" href="#options">Options</a></li><li><a class="doc-toc-link no-hover" data-level="2" href="#choisir-sizes">Choisir $sizes</a></li><li><a class="doc-toc-link no-hover" data-level="2" href="#les-deux-modes-de-build">Les deux modes de build</a></li><li><a class="doc-toc-link no-hover" data-level="3" href="#classes-utilitaires-build-class-true">Classes utilitaires — $build-class: true</a></li><li><a class="doc-toc-link no-hover" data-level="3" href="#variables-seules-build-class-false">Variables seules — $build-class: false</a></li><li><a class="doc-toc-link no-hover" data-level="2" href="#reduire-les-classes-generees">Réduire les classes générées</a></li><li><a class="doc-toc-link no-hover" data-level="2" href="#echappatoires-statiques">Échappatoires statiques</a></li><li><a class="doc-toc-link no-hover" data-level="2" href="#unite-fluide-et-plancher-d-accessibilite">Unité fluide et plancher d'accessibilité</a></li></ul>
+      </div>
+    </aside>
+
+  </div>
+
+  <div class="doc-search" id="doc-search" hidden>
+    <div class="doc-search-backdrop" data-search-close></div>
+    <div class="doc-search-panel flex y" role="dialog" aria-modal="true" aria-label="Rechercher">
+      <div class="doc-search-field flex x center g-12">
+        <svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg>
+        <input type="search" id="doc-search-input" class="doc-search-input" placeholder="Rechercher dans la documentation" autocomplete="off" spellcheck="false">
+        <button type="button" class="doc-search-esc" data-search-close>esc</button>
+      </div>
+      <div class="doc-search-results" id="doc-search-results" data-empty="Aucun résultat pour"></div>
+    </div>
+  </div>
+
+  <footer class="px-220__ py-136 flex x g-20 w-full">
+    <div class="flex w-full y space center g-32">
+      <p class="fs-16 _c-brand_">© 2024</p>
+      <p class="fs-16 _c-brand_">Tati Michaël</p>
+    </div>
+    <div class="flex w-full y space g-32">
+      <a href="https://www.linkedin.com/in/mtati/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="index.html">Documentation</a>
+      <a href="../../doc/config.html" hreflang="en" title="View in English">EN</a>
+    </div>
+  </footer>
+
+  <script src="../../app.js"></script>
+  <script src="../../doc.js"></script>
+  </body>
+</html>

@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/Draggable.min.js"></script>
+    <link rel="stylesheet" href="https://use.typekit.net/vjo0ssd.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Display:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../styles/main.css" />
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="3c9b4552-d24d-48aa-a6b4-877d0ceffe04"></script>
+    <title>Référence — Doc EVA CSS</title>
+    <meta name="description" content="Toutes les options, tous les tokens et toutes les classes, en une seule liste à plat.">
+    <meta property="og:title" content="Référence — Doc EVA CSS">
+    <meta property="og:description" content="Toutes les options, tous les tokens et toutes les classes, en une seule liste à plat.">
+    <meta property="og:locale" content="fr_FR">
+    <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+    <link rel="apple-touch-icon" href="../../assets/imgs/eva.jpg">
+    <link rel="manifest" href="../../site.webmanifest">
+    <meta name="theme-color" content="#ff8a3d">
+    <meta property="og:site_name" content="EVA CSS">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://eva-css.xyz/fr/doc/reference.html">
+    <meta property="og:image" content="https://eva-css.xyz/assets/imgs/eva.jpg">
+    <meta property="og:image:width" content="512">
+    <meta property="og:image:height" content="512">
+    <meta property="og:image:alt" content="EVA CSS — fluid SCSS framework">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Référence — Doc EVA CSS">
+    <meta name="twitter:description" content="Toutes les options, tous les tokens et toutes les classes, en une seule liste à plat.">
+    <meta name="twitter:image" content="https://eva-css.xyz/assets/imgs/eva.jpg">
+    <link rel="canonical" href="https://eva-css.xyz/fr/doc/reference.html">
+    <link rel="alternate" hreflang="en" href="https://eva-css.xyz/doc/reference.html">
+    <link rel="alternate" hreflang="fr" href="https://eva-css.xyz/fr/doc/reference.html">
+    <link rel="alternate" hreflang="x-default" href="https://eva-css.xyz/doc/reference.html">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "Référence",
+      "description": "Toutes les options, tous les tokens et toutes les classes, en une seule liste à plat.",
+      "inLanguage": "fr",
+      "url": "https://eva-css.xyz/fr/doc/reference.html",
+      "isPartOf": {
+        "@type": "TechArticle",
+        "name": "Doc EVA CSS",
+        "url": "https://eva-css.xyz/fr/doc/index.html"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "EVA CSS",
+        "url": "https://eva-css.xyz"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "EVA CSS", "item": "https://eva-css.xyz/fr/" },
+        { "@type": "ListItem", "position": 2, "name": "Documentation", "item": "https://eva-css.xyz/fr/doc/index.html" },
+        { "@type": "ListItem", "position": 3, "name": "Référence", "item": "https://eva-css.xyz/fr/doc/reference.html" }
+      ]
+    }
+    </script>
+  </head>
+  <body class="current-theme theme-eva all-grads toggle-theme doc-page" data-doc-search="search-index.json">
+  <button type="button" class="dark-light-toggle no-hover" aria-label="Basculer le mode sombre">
+    <svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 100 100" x="0px" y="0px" aria-hidden="true"><path d="M50,77.62A27.62,27.62,0,1,0,22.38,50,27.61,27.61,0,0,0,50,77.62ZM50,26A24,24,0,1,1,26,50,24,24,0,0,1,50,26ZM69.62,50.52A19.36,19.36,0,0,0,50.26,31.15V69.88A19.36,19.36,0,0,0,69.62,50.52Zm-19.88,31a1.81,1.81,0,0,0-1.81,1.81V95.69a1.81,1.81,0,0,0,3.62,0V83.3A1.81,1.81,0,0,0,49.74,81.49Zm24.9-9A1.81,1.81,0,0,0,72.09,75l8.76,8.76a1.81,1.81,0,0,0,2.55-2.56Zm6.85-22.19a1.81,1.81,0,0,0,1.81,1.81H95.69a1.81,1.81,0,1,0,0-3.62H83.3A1.81,1.81,0,0,0,81.49,50.26ZM75,27.91l8.76-8.76a1.81,1.81,0,0,0-2.56-2.55l-8.76,8.76A1.81,1.81,0,0,0,75,27.91Zm-24.75-9.4a1.81,1.81,0,0,0,1.81-1.81V4.31a1.81,1.81,0,0,0-3.62,0V16.7A1.81,1.81,0,0,0,50.26,18.51Zm-24.9,9A1.81,1.81,0,0,0,27.91,25l-8.76-8.76a1.81,1.81,0,1,0-2.55,2.56Zm-21,24H16.7a1.81,1.81,0,0,0,0-3.62H4.31a1.81,1.81,0,1,0,0,3.62Zm22,20a1.78,1.78,0,0,0-1.28.53l-8.76,8.76a1.8,1.8,0,0,0,0,2.56,1.82,1.82,0,0,0,2.56,0l8.76-8.77a1.81,1.81,0,0,0-1.28-3.08Z"/></svg>
+  </button>
+
+  <nav id="nav" class="px-220__ flex space py-12- pof">
+    <div id="logo" class="flex x center px-20">
+      <div class="ballzzz por" style="--max:6">
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:0"></div>
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:1"></div>
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:2"></div>
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:3"></div>
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:4"></div>
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:5"></div>
+      </div>
+      <a href="../index.html" class="logo no-hover title fs-36__ lh-1">EVA CSS</a>
+    </div>
+    <button id="burger-menu" class="burger-menu" type="button" aria-label="Ouvrir/fermer le menu" aria-expanded="false" aria-controls="menu">
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+    </button>
+    <div id="menu" class="flex x center g-12">
+      <a href="../framework/css-fluid.html" class="h-52 px-12 flex y center _c-brand br-12"><span class="fs-12">CSS fluide</span></a>
+      <a href="../framework.html" class="h-52 px-12 flex y center _c-brand br-12"><span class="fs-12">Addons</span></a>
+      <a href="../use-cases.html" class="h-52 px-12 flex y center _c-brand br-12"><span class="fs-12">Cas d'usage</span></a>
+      <a href="index.html" class="h-52 px-12 flex y center _c-light _bg-brand br-12"><span class="fs-12">Doc</span></a>
+      <a href="https://github.com/nkdeus/eva-framework" target="_blank" rel="noopener" aria-label="Dépôt GitHub" class="h-52 px-8 flex x g-12 center _c-brand br-8">
+        <svg xmlns="http://www.w3.org/2000/svg" class="lh-0" height="20" viewBox="0 0 16 16" width="20" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+      </a>
+    </div>
+  </nav>
+
+  <div class="doc-shell">
+
+    <aside class="doc-sidebar" id="doc-sidebar">
+      <div class="doc-sidebar-inner flex y g-20">
+        <button type="button" class="doc-search-trigger flex x space center g-12" data-search-open>
+          <span class="flex x center g-8">
+            <svg viewBox="0 0 16 16" width="13" height="13" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg>
+            <span>Rechercher</span>
+          </span>
+          <kbd class="doc-kbd">/</kbd>
+        </button>
+        <button type="button" class="doc-nav-toggle flex x space center" data-nav-toggle aria-expanded="false" aria-controls="doc-nav">
+          <span>Chapitres</span>
+          <span class="doc-nav-chevron" aria-hidden="true"></span>
+        </button>
+        <nav id="doc-nav" class="doc-nav" aria-label="Documentation">
+          <div class="doc-nav-section"><p class="doc-nav-heading">Démarrer</p><ul class="doc-nav-list"><li><a class="doc-nav-link no-hover" href="index.html">Démarrer</a></li><li><a class="doc-nav-link no-hover" href="install.html">Installation</a></li><li><a class="doc-nav-link no-hover" href="config.html">Configuration</a></li></ul></div><div class="doc-nav-section"><p class="doc-nav-heading">Le système</p><ul class="doc-nav-list"><li><a class="doc-nav-link no-hover" href="sizes.html">Tailles fluides</a></li><li><a class="doc-nav-link no-hover" href="colors.html">Couleurs</a></li><li><a class="doc-nav-link no-hover" href="gradients.html">Dégradés</a></li><li><a class="doc-nav-link no-hover" href="utilities.html">Classes utilitaires</a></li></ul></div><div class="doc-nav-section"><p class="doc-nav-heading">Guides</p><ul class="doc-nav-list"><li><a class="doc-nav-link no-hover" href="adopt.html">Adopter EVA</a></li><li><a class="doc-nav-link no-hover" href="cli.html">Outils CLI</a></li></ul></div><div class="doc-nav-section"><p class="doc-nav-heading">Référence</p><ul class="doc-nav-list"><li><a class="doc-nav-link no-hover is-current" href="reference.html" aria-current="page">Référence</a></li></ul></div>
+        </nav>
+      </div>
+    </aside>
+
+    <main class="doc-main">
+      <article class="doc-article">
+        <p class="doc-eyebrow fs-12 _c-brand_">Documentation</p>
+        <h1 class="doc-title fs-52__ lh-1 ttu">Référence</h1>
+        <p class="doc-lede fs-18 _c-dark_">Toutes les options, tous les tokens et toutes les classes, en une seule liste à plat.</p>
+        <div class="doc-content">
+          <p class="doc-p">Tout ce qu'EVA émet, au même endroit. Version 2.4.0.</p>
+<h2 id="configuration" class="doc-h doc-h2">Configuration<a class="doc-anchor no-hover" href="#configuration" aria-label="Lien vers cette section">#</a></h2>
+<figure class="doc-block"><figcaption class="doc-block-bar flex x space center"><span class="doc-block-lang">scss</span><button type="button" class="doc-copy" data-copy data-copied="Copié">Copier</button></figcaption><pre class="doc-pre"><code><span class="tok-at">@use</span> <span class="tok-string">'eva-css-fluid'</span> with (
+  <span class="tok-var">$sizes</span>: (<span class="tok-num">4</span>, <span class="tok-num">8</span>, <span class="tok-num">12</span>, <span class="tok-num">16</span>, <span class="tok-num">24</span>, <span class="tok-num">32</span>, <span class="tok-num">48</span>, <span class="tok-num">64</span>, <span class="tok-num">96</span>, <span class="tok-num">128</span>),
+  <span class="tok-var">$font-sizes</span>: (<span class="tok-num">12</span>, <span class="tok-num">14</span>, <span class="tok-num">16</span>, <span class="tok-num">18</span>, <span class="tok-num">20</span>, <span class="tok-num">24</span>, <span class="tok-num">32</span>),
+  <span class="tok-var">$build-class</span>: true,
+  <span class="tok-var">$px-rem-suffix</span>: false,
+  <span class="tok-var">$name-by-size</span>: true,
+  <span class="tok-var">$custom-class</span>: false,
+  <span class="tok-var">$class-config</span>: (),
+  <span class="tok-var">$debug</span>: false,
+  <span class="tok-var">$unit-fluid</span>: <span class="tok-num">1vw</span>,
+  <span class="tok-var">$reference-width</span>: <span class="tok-num">1440</span>,
+  <span class="tok-var">$fluid-runtime</span>: true,
+  <span class="tok-var">$min-font-size</span>: <span class="tok-num">0</span>
+);</code></pre></figure>
+<div class="doc-table-wrap"><table class="doc-table"><thead><tr><th>Option</th><th>Défaut</th></tr></thead><tbody><tr><td><code class="doc-inline-code">$sizes</code></td><td><code class="doc-inline-code">4, 8, 12, 16, 24, 32, 48, 64, 96, 128</code></td></tr><tr><td><code class="doc-inline-code">$font-sizes</code></td><td><code class="doc-inline-code">12, 14, 16, 18, 20, 24, 32, 48</code></td></tr><tr><td><code class="doc-inline-code">$build-class</code></td><td><code class="doc-inline-code">true</code></td></tr><tr><td><code class="doc-inline-code">$px-rem-suffix</code></td><td><code class="doc-inline-code">false</code></td></tr><tr><td><code class="doc-inline-code">$name-by-size</code></td><td><code class="doc-inline-code">true</code></td></tr><tr><td><code class="doc-inline-code">$custom-class</code></td><td><code class="doc-inline-code">false</code></td></tr><tr><td><code class="doc-inline-code">$class-config</code></td><td><code class="doc-inline-code">()</code></td></tr><tr><td><code class="doc-inline-code">$debug</code></td><td><code class="doc-inline-code">false</code></td></tr><tr><td><code class="doc-inline-code">$unit-fluid</code></td><td><code class="doc-inline-code">1vw</code></td></tr><tr><td><code class="doc-inline-code">$reference-width</code></td><td><code class="doc-inline-code">1440</code></td></tr><tr><td><code class="doc-inline-code">$fluid-runtime</code></td><td><code class="doc-inline-code">true</code></td></tr><tr><td><code class="doc-inline-code">$min-font-size</code></td><td><code class="doc-inline-code">0</code></td></tr></tbody></table></div>
+<h2 id="points-d-entree" class="doc-h doc-h2">Points d'entrée<a class="doc-anchor no-hover" href="#points-d-entree" aria-label="Lien vers cette section">#</a></h2>
+<div class="doc-table-wrap"><table class="doc-table"><thead><tr><th>Entrée</th><th>Variables</th><th>Couleurs</th><th>Dégradés</th><th>Reset + typo</th><th>Classes utilitaires</th></tr></thead><tbody><tr><td><code class="doc-inline-code">eva-css-fluid</code></td><td>oui</td><td>oui</td><td>oui</td><td>oui</td><td>oui</td></tr><tr><td><code class="doc-inline-code">eva-css-fluid/core</code></td><td>oui</td><td>oui</td><td>oui</td><td>oui</td><td>non</td></tr><tr><td><code class="doc-inline-code">eva-css-fluid/variables</code></td><td>oui</td><td>oui</td><td>non</td><td>non</td><td>non</td></tr><tr><td><code class="doc-inline-code">eva-css-fluid/colors</code></td><td>non</td><td>oui</td><td>non</td><td>non</td><td>non</td></tr></tbody></table></div>
+<h2 id="tokens-de-taille" class="doc-h doc-h2">Tokens de taille<a class="doc-anchor no-hover" href="#tokens-de-taille" aria-label="Lien vers cette section">#</a></h2>
+<p class="doc-p">Pour chaque <code class="doc-inline-code">N</code> dans <code class="doc-inline-code">$sizes</code> :</p>
+<div class="doc-table-wrap"><table class="doc-table"><thead><tr><th>Token</th><th>Comportement</th></tr></thead><tbody><tr><td><code class="doc-inline-code">var(--N__)</code></td><td>Effondrement le plus fort sur petit écran</td></tr><tr><td><code class="doc-inline-code">var(--N_)</code></td><td>Effondrement marqué</td></tr><tr><td><code class="doc-inline-code">var(--N)</code></td><td>Échelle standard</td></tr><tr><td><code class="doc-inline-code">var(--N-)</code></td><td>Conservateur — plancher mobile haut</td></tr><tr><td><code class="doc-inline-code">var(--N-px)</code></td><td>px figé, uniquement avec <code class="doc-inline-code">$px-rem-suffix: true</code></td></tr><tr><td><code class="doc-inline-code">var(--N-rem)</code></td><td>rem figé, uniquement avec <code class="doc-inline-code">$px-rem-suffix: true</code></td></tr></tbody></table></div>
+<p class="doc-p">Pour chaque <code class="doc-inline-code">N</code> dans <code class="doc-inline-code">$font-sizes</code> :</p>
+<div class="doc-table-wrap"><table class="doc-table"><thead><tr><th>Token</th><th>Comportement</th></tr></thead><tbody><tr><td><code class="doc-inline-code">var(--fs-N__)</code></td><td>Le plus agressif</td></tr><tr><td><code class="doc-inline-code">var(--fs-N_)</code></td><td>Marqué</td></tr><tr><td><code class="doc-inline-code">var(--fs-N)</code></td><td>Standard — à utiliser pour le texte courant</td></tr><tr><td><code class="doc-inline-code">var(--fs-N-px)</code> / <code class="doc-inline-code">var(--fs-N-rem)</code></td><td>Figés, avec <code class="doc-inline-code">$px-rem-suffix: true</code></td></tr></tbody></table></div>
+<p class="doc-p">Unité runtime : <code class="doc-inline-code">--eva-fluid-unit</code>, défaut <code class="doc-inline-code">1vw</code>, à surcharger en <code class="doc-inline-code">1cqi</code> par sous-arbre. Classes <code class="doc-inline-code">.eva-cqi</code> et <code class="doc-inline-code">.eva-root</code>.</p>
+<h2 id="tokens-de-couleur" class="doc-h doc-h2">Tokens de couleur<a class="doc-anchor no-hover" href="#tokens-de-couleur" aria-label="Lien vers cette section">#</a></h2>
+<p class="doc-p">Rôles : <code class="doc-inline-code">brand</code>, <code class="doc-inline-code">accent</code>, <code class="doc-inline-code">extra</code>, <code class="doc-inline-code">dark</code>, <code class="doc-inline-code">light</code>.</p>
+<div class="doc-table-wrap"><table class="doc-table"><thead><tr><th>Token</th><th>Signification</th></tr></thead><tbody><tr><td><code class="doc-inline-code">var(--&lt;rôle&gt;)</code></td><td>Le rôle</td></tr><tr><td><code class="doc-inline-code">var(--&lt;rôle&gt;_)</code></td><td>65 % d'opacité</td></tr><tr><td><code class="doc-inline-code">var(--&lt;rôle&gt;__)</code></td><td>35 % d'opacité</td></tr><tr><td><code class="doc-inline-code">var(--&lt;rôle&gt;___)</code></td><td>15 % d'opacité</td></tr><tr><td><code class="doc-inline-code">var(--&lt;rôle&gt;-d)</code></td><td>Un cran de contraste en plus</td></tr><tr><td><code class="doc-inline-code">var(--&lt;rôle&gt;-b)</code></td><td>Un cran de contraste en moins</td></tr><tr><td><code class="doc-inline-code">var(--&lt;rôle&gt;-d_)</code></td><td>Deux crans de contraste en plus</td></tr><tr><td><code class="doc-inline-code">var(--&lt;rôle&gt;-b_)</code></td><td>Deux crans de contraste en moins</td></tr><tr><td><code class="doc-inline-code">var(--root-&lt;rôle&gt;)</code></td><td>Le triplet <code class="doc-inline-code">L C H</code> brut</td></tr></tbody></table></div>
+<p class="doc-p">Entrées de thème, par rôle : <code class="doc-inline-code">--&lt;rôle&gt;-lightness</code>, <code class="doc-inline-code">--&lt;rôle&gt;-chroma</code>, <code class="doc-inline-code">--&lt;rôle&gt;-hue</code>.</p>
+<p class="doc-p">Pivots de mode : <code class="doc-inline-code">--current-lightness</code> (<code class="doc-inline-code">96.4%</code> clair / <code class="doc-inline-code">5%</code> sombre), <code class="doc-inline-code">--current-darkness</code> (<code class="doc-inline-code">6.4%</code> / <code class="doc-inline-code">95%</code>).</p>
+<p class="doc-p">Formule des crans :</p>
+<figure class="doc-block"><figcaption class="doc-block-bar flex x space center"><span class="doc-block-lang">text</span><button type="button" class="doc-copy" data-copy data-copied="Copié">Copier</button></figcaption><pre class="doc-pre"><code>lightness = base + décalage absolu + (butée − base) × ratio</code></pre></figure>
+<div class="doc-table-wrap"><table class="doc-table"><thead><tr><th>Cran</th><th>Token</th><th>Clair</th><th>Sombre</th><th>Butée (clair)</th><th>Butée (sombre)</th></tr></thead><tbody><tr><td><code class="doc-inline-code">-d</code></td><td><code class="doc-inline-code">--darker</code></td><td><code class="doc-inline-code">-5%</code></td><td><code class="doc-inline-code">10%</code></td><td><code class="doc-inline-code">0%</code></td><td><code class="doc-inline-code">100%</code></td></tr><tr><td><code class="doc-inline-code">-b</code></td><td><code class="doc-inline-code">--brighter</code></td><td><code class="doc-inline-code">10%</code></td><td><code class="doc-inline-code">-5%</code></td><td><code class="doc-inline-code">100%</code></td><td><code class="doc-inline-code">0%</code></td></tr><tr><td><code class="doc-inline-code">-d_</code></td><td><code class="doc-inline-code">--darker_</code></td><td><code class="doc-inline-code">-15%</code></td><td><code class="doc-inline-code">30%</code></td><td><code class="doc-inline-code">0%</code></td><td><code class="doc-inline-code">100%</code></td></tr><tr><td><code class="doc-inline-code">-b_</code></td><td><code class="doc-inline-code">--brighter_</code></td><td><code class="doc-inline-code">30%</code></td><td><code class="doc-inline-code">-15%</code></td><td><code class="doc-inline-code">100%</code></td><td><code class="doc-inline-code">0%</code></td></tr></tbody></table></div>
+<p class="doc-p">Surcharges par rôle, avec <code class="doc-inline-code">&lt;token&gt;</code> dans <code class="doc-inline-code">darker</code>, <code class="doc-inline-code">brighter</code>, <code class="doc-inline-code">darker_</code>, <code class="doc-inline-code">brighter_</code> :</p>
+<div class="doc-table-wrap"><table class="doc-table"><thead><tr><th>Forme</th><th>Portée</th><th>Défaut</th></tr></thead><tbody><tr><td><code class="doc-inline-code">--&lt;rôle&gt;-&lt;token&gt;</code></td><td>un rôle</td><td>non défini</td></tr><tr><td><code class="doc-inline-code">--&lt;rôle&gt;-&lt;token&gt;-ratio</code></td><td>un rôle</td><td><code class="doc-inline-code">0</code></td></tr><tr><td><code class="doc-inline-code">--&lt;token&gt;-ratio</code></td><td>global</td><td><code class="doc-inline-code">0</code></td></tr><tr><td><code class="doc-inline-code">--&lt;rôle&gt;-&lt;token&gt;-bound</code></td><td>un rôle</td><td>non défini</td></tr><tr><td><code class="doc-inline-code">--&lt;token&gt;-bound</code></td><td>global</td><td>cf. tableau</td></tr></tbody></table></div>
+<p class="doc-p">Classes sur le body : <code class="doc-inline-code">current-theme</code> (obligatoire), <code class="doc-inline-code">theme-&lt;nom&gt;</code>, <code class="doc-inline-code">toggle-theme</code> (sombre), <code class="doc-inline-code">all-grads</code> (dégradés).</p>
+<h2 id="classes-utilitaires" class="doc-h doc-h2">Classes utilitaires<a class="doc-anchor no-hover" href="#classes-utilitaires" aria-label="Lien vers cette section">#</a></h2>
+<p class="doc-p"><strong>Tailles</strong> — <code class="doc-inline-code">w mw h p px py pt pb pr mt mb ml mr g gap br</code>, chacune × chaque taille × <code class="doc-inline-code">__ _ (rien) -</code>.</p>
+<p class="doc-p"><strong>Taille de texte</strong> — <code class="doc-inline-code">fs-N</code>, <code class="doc-inline-code">fs-N_</code>, <code class="doc-inline-code">fs-N__</code>.</p>
+<p class="doc-p"><strong>Couleur</strong> — <code class="doc-inline-code">_c- _bg- _bc- _f- _s-</code> × 5 rôles × 8 variantes. Plus <code class="doc-inline-code">_shadow</code>, <code class="doc-inline-code">_shadow_</code>.</p>
+<p class="doc-p"><strong>Flex</strong> — <code class="doc-inline-code">flex</code>, <code class="doc-inline-code">x</code>, <code class="doc-inline-code">y</code>, <code class="doc-inline-code">reverse</code>, <code class="doc-inline-code">wrap</code>, <code class="doc-inline-code">nowrap</code>, <code class="doc-inline-code">wrap-reverse</code> ; <code class="doc-inline-code">start center end space around evenly</code> ; formes composées <code class="doc-inline-code">justify-align</code> ; <code class="doc-inline-code">justify-*</code>, <code class="doc-inline-code">items-*</code>, <code class="doc-inline-code">content-*</code> ; <code class="doc-inline-code">flex-1 flex-2 flex-3 flex-auto flex-initial flex-none stretch</code> ; <code class="doc-inline-code">self-*</code> ; <code class="doc-inline-code">order-1</code>…<code class="doc-inline-code">order-12</code>, <code class="doc-inline-code">order-first</code>, <code class="doc-inline-code">order-last</code>, <code class="doc-inline-code">order-none</code> ; <code class="doc-inline-code">flex-card</code>, <code class="doc-inline-code">flex-sidebar</code>.</p>
+<p class="doc-p"><strong>Grid</strong> — <code class="doc-inline-code">grid</code>, <code class="doc-inline-code">auto-fit-&lt;taille&gt;&lt;variante&gt;</code> (tailles ≥ 100 seulement), <code class="doc-inline-code">flex-grid</code>, <code class="doc-inline-code">container:flex-grid</code>, <code class="doc-inline-code">col-1</code>…<code class="doc-inline-code">col-12</code>, <code class="doc-inline-code">col-1/1</code>…<code class="doc-inline-code">col-1/12</code>, <code class="doc-inline-code">max-col-1</code>…<code class="doc-inline-code">max-col-12</code>, <code class="doc-inline-code">xs:max-col-N</code>…<code class="doc-inline-code">xxl:max-col-N</code>.</p>
+<p class="doc-p"><strong>Dégradés</strong> — <code class="doc-inline-code">grad-linear</code>, <code class="doc-inline-code">grad-radial</code>, <code class="doc-inline-code">grad-linear-text</code>, <code class="doc-inline-code">grad-radial-text</code>, <code class="doc-inline-code">grad-linear-border</code>, <code class="doc-inline-code">grad-radial-border</code> ; <code class="doc-inline-code">from-*</code>, <code class="doc-inline-code">to-*</code>, <code class="doc-inline-code">from-transparent</code>, <code class="doc-inline-code">to-transparent</code> ; <code class="doc-inline-code">d-t d-b d-l d-r d-tl d-tr d-bl d-br</code> ; <code class="doc-inline-code">a-0</code>…<code class="doc-inline-code">a-360</code> par pas de 5° ; <code class="doc-inline-code">bg-size</code>, <code class="doc-inline-code">bg-size_</code>, <code class="doc-inline-code">bg-size__</code> ; <code class="doc-inline-code">bg-center bg-top bg-bottom bg-left bg-right</code> ; <code class="doc-inline-code">animated</code>, <code class="doc-inline-code">animated-slow</code>, <code class="doc-inline-code">animated-fast</code>.</p>
+<p class="doc-p"><strong>Typographie</strong> — <code class="doc-inline-code">fwg-1</code>…<code class="doc-inline-code">fwg-8</code>, <code class="doc-inline-code">fwd-1</code>…<code class="doc-inline-code">fwd-13</code>, <code class="doc-inline-code">f-scale</code>, <code class="doc-inline-code">f-scale offset</code>, <code class="doc-inline-code">bold</code>, <code class="doc-inline-code">ttu</code>, <code class="doc-inline-code">tac</code>, <code class="doc-inline-code">lh-0</code>, <code class="doc-inline-code">lh-1</code>.</p>
+<p class="doc-p"><strong>Mise en page</strong> — <code class="doc-inline-code">por poa pof pos</code>, <code class="doc-inline-code">poa center</code>, <code class="doc-inline-code">w-full</code>, <code class="doc-inline-code">h-full</code>, <code class="doc-inline-code">oh</code>, <code class="doc-inline-code">ar-1</code>, <code class="doc-inline-code">circle</code>, <code class="doc-inline-code">border</code>, <code class="doc-inline-code">border thin</code>, <code class="doc-inline-code">blur blur_ blur__</code>, <code class="doc-inline-code">pointer</code>, <code class="doc-inline-code">hide</code>, <code class="doc-inline-code">lt</code>, <code class="doc-inline-code">mt-auto mb-auto ml-auto mr-auto</code>.</p>
+<h2 id="cli" class="doc-h doc-h2">CLI<a class="doc-anchor no-hover" href="#cli" aria-label="Lien vers cette section">#</a></h2>
+<figure class="doc-block"><figcaption class="doc-block-bar flex x space center"><span class="doc-block-lang">bash</span><button type="button" class="doc-copy" data-copy data-copied="Copié">Copier</button></figcaption><pre class="doc-pre"><code>npx eva-color convert <span class="tok-string">"#ff0000"</span>
+npx eva-color to-hex <span class="tok-num">62.8</span> <span class="tok-num">0.258</span> <span class="tok-num">29.23</span>
+npx eva-color palette <span class="tok-string">"#ff0000"</span> <span class="tok-num">7</span>
+npx eva-color theme theme.json
+npx eva-color contrast <span class="tok-string">"#ffffff"</span> <span class="tok-string">"#000000"</span>
+
+npx eva-purge <span class="tok-var">--css</span> styles/main.css <span class="tok-var">--content</span> <span class="tok-string">"**/*.html"</span> \
+  <span class="tok-var">--output</span> styles/main-compressed.css <span class="tok-var">--safelist</span> <span class="tok-string">"current-theme,toggle-theme,all-grads"</span></code></pre></figure>
+<h2 id="regles" class="doc-h doc-h2">Règles<a class="doc-anchor no-hover" href="#regles" aria-label="Lien vers cette section">#</a></h2>
+<ol class="doc-list"><li>Aucune valeur figée. <code class="doc-inline-code">var(--64)</code>, pas <code class="doc-inline-code">64px</code>. <code class="doc-inline-code">var(--brand)</code>, pas <code class="doc-inline-code">#ff5733</code>.</li><li>Ne listez que les tailles que le design utilise réellement.</li><li><code class="doc-inline-code">16</code> est obligatoire dans <code class="doc-inline-code">$sizes</code>.</li><li>Les tokens de texte sont des <code class="doc-inline-code">--fs-N</code>. <code class="doc-inline-code">$sizes</code> et <code class="doc-inline-code">$font-sizes</code> sont deux espaces de noms indépendants.</li><li>Un seul mode de build par projet, et on s'y tient.</li><li><code class="doc-inline-code">current-theme</code> sur l'élément racine, toujours.</li><li><code class="doc-inline-code">all-grads</code> sur le conteneur si vous utilisez les dégradés.</li><li>Des media queries pour la topologie de mise en page uniquement — jamais pour l'espacement ni la typographie.</li></ol>
+<h2 id="limites-connues" class="doc-h doc-h2">Limites connues<a class="doc-anchor no-hover" href="#limites-connues" aria-label="Lien vers cette section">#</a></h2>
+<ul class="doc-list"><li><strong>Les deux axes de couleur ne se croisent pas.</strong> Pas de variante d'opacité d'un cran de luminosité ; pas de <code class="doc-inline-code">--brand-d__</code>.</li><li><strong>Les fondus sont inlinés au build.</strong> <code class="doc-inline-code">$fade-values</code> (65 / 35 / 15 %) est une variable SCSS, pas une variable d'exécution — aucun contrôle par thème.</li><li><strong><code class="doc-inline-code">dark</code> et <code class="doc-inline-code">light</code> héritent de <code class="doc-inline-code">--brand-hue</code></strong> avec un chroma non nul : les neutres sont donc teintés par la marque tant que vous ne les fixez pas.</li><li><strong>Le mode sombre écrase la lightness configurée.</strong> <code class="doc-inline-code">.toggle-theme</code> pose <code class="doc-inline-code">--dark-lightness</code> et <code class="doc-inline-code">--light-lightness</code> en <code class="doc-inline-code">!important</code> ; seuls la hue et le chroma survivent à la bascule.</li><li><strong><code class="doc-inline-code">auto-fit-*</code> n'existe que pour les tailles ≥ 100.</strong></li></ul>
+<h2 id="liens" class="doc-h doc-h2">Liens<a class="doc-anchor no-hover" href="#liens" aria-label="Lien vers cette section">#</a></h2>
+<ul class="doc-list"><li><a href="https://github.com/nkdeus/eva" class="doc-link no-hover" target="_blank" rel="noopener">GitHub</a></li><li><a href="https://www.npmjs.com/package/eva-css-fluid" class="doc-link no-hover" target="_blank" rel="noopener">eva-css-fluid sur npm</a></li><li><a href="https://www.npmjs.com/package/eva-colors" class="doc-link no-hover" target="_blank" rel="noopener">eva-colors sur npm</a></li><li><a href="https://www.npmjs.com/package/eva-css-purge" class="doc-link no-hover" target="_blank" rel="noopener">eva-css-purge sur npm</a></li></ul>
+        </div>
+      </article>
+      <nav class="doc-pager flex x space g-20"><a class="doc-pager-link no-hover doc-pager-prev" href="cli.html"><span class="doc-pager-dir">Précédent</span><span class="doc-pager-title">Outils CLI</span></a><span class="doc-pager-spacer"></span></nav>
+    </main>
+
+    <aside class="doc-toc" aria-label="Sur cette page">
+      <div class="doc-toc-inner">
+        <p class="doc-toc-title fs-12">Sur cette page</p>
+        <ul class="doc-toc-list"><li><a class="doc-toc-link no-hover" data-level="2" href="#configuration">Configuration</a></li><li><a class="doc-toc-link no-hover" data-level="2" href="#points-d-entree">Points d'entrée</a></li><li><a class="doc-toc-link no-hover" data-level="2" href="#tokens-de-taille">Tokens de taille</a></li><li><a class="doc-toc-link no-hover" data-level="2" href="#tokens-de-couleur">Tokens de couleur</a></li><li><a class="doc-toc-link no-hover" data-level="2" href="#classes-utilitaires">Classes utilitaires</a></li><li><a class="doc-toc-link no-hover" data-level="2" href="#cli">CLI</a></li><li><a class="doc-toc-link no-hover" data-level="2" href="#regles">Règles</a></li><li><a class="doc-toc-link no-hover" data-level="2" href="#limites-connues">Limites connues</a></li><li><a class="doc-toc-link no-hover" data-level="2" href="#liens">Liens</a></li></ul>
+      </div>
+    </aside>
+
+  </div>
+
+  <div class="doc-search" id="doc-search" hidden>
+    <div class="doc-search-backdrop" data-search-close></div>
+    <div class="doc-search-panel flex y" role="dialog" aria-modal="true" aria-label="Rechercher">
+      <div class="doc-search-field flex x center g-12">
+        <svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg>
+        <input type="search" id="doc-search-input" class="doc-search-input" placeholder="Rechercher dans la documentation" autocomplete="off" spellcheck="false">
+        <button type="button" class="doc-search-esc" data-search-close>esc</button>
+      </div>
+      <div class="doc-search-results" id="doc-search-results" data-empty="Aucun résultat pour"></div>
+    </div>
+  </div>
+
+  <footer class="px-220__ py-136 flex x g-20 w-full">
+    <div class="flex w-full y space center g-32">
+      <p class="fs-16 _c-brand_">© 2024</p>
+      <p class="fs-16 _c-brand_">Tati Michaël</p>
+    </div>
+    <div class="flex w-full y space g-32">
+      <a href="https://www.linkedin.com/in/mtati/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="index.html">Documentation</a>
+      <a href="../../doc/reference.html" hreflang="en" title="View in English">EN</a>
+    </div>
+  </footer>
+
+  <script src="../../app.js"></script>
+  <script src="../../doc.js"></script>
+  </body>
+</html>

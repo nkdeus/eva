@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/Draggable.min.js"></script>
+    <link rel="stylesheet" href="https://use.typekit.net/vjo0ssd.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Display:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/main.css" />
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="3c9b4552-d24d-48aa-a6b4-877d0ceffe04"></script>
+    <title>Installation — EVA CSS Docs</title>
+    <meta name="description" content="The three packages, the four SCSS entry points, and how to compile and watch.">
+    <meta property="og:title" content="Installation — EVA CSS Docs">
+    <meta property="og:description" content="The three packages, the four SCSS entry points, and how to compile and watch.">
+    <meta property="og:locale" content="en_US">
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+    <link rel="apple-touch-icon" href="../assets/imgs/eva.jpg">
+    <link rel="manifest" href="../site.webmanifest">
+    <meta name="theme-color" content="#ff8a3d">
+    <meta property="og:site_name" content="EVA CSS">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://eva-css.xyz/doc/install.html">
+    <meta property="og:image" content="https://eva-css.xyz/assets/imgs/eva.jpg">
+    <meta property="og:image:width" content="512">
+    <meta property="og:image:height" content="512">
+    <meta property="og:image:alt" content="EVA CSS — fluid SCSS framework">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Installation — EVA CSS Docs">
+    <meta name="twitter:description" content="The three packages, the four SCSS entry points, and how to compile and watch.">
+    <meta name="twitter:image" content="https://eva-css.xyz/assets/imgs/eva.jpg">
+    <link rel="canonical" href="https://eva-css.xyz/doc/install.html">
+    <link rel="alternate" hreflang="en" href="https://eva-css.xyz/doc/install.html">
+    <link rel="alternate" hreflang="fr" href="https://eva-css.xyz/fr/doc/install.html">
+    <link rel="alternate" hreflang="x-default" href="https://eva-css.xyz/doc/install.html">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "Installation",
+      "description": "The three packages, the four SCSS entry points, and how to compile and watch.",
+      "inLanguage": "en",
+      "url": "https://eva-css.xyz/doc/install.html",
+      "isPartOf": {
+        "@type": "TechArticle",
+        "name": "EVA CSS Docs",
+        "url": "https://eva-css.xyz/doc/index.html"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "EVA CSS",
+        "url": "https://eva-css.xyz"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "EVA CSS", "item": "https://eva-css.xyz/" },
+        { "@type": "ListItem", "position": 2, "name": "Documentation", "item": "https://eva-css.xyz/doc/index.html" },
+        { "@type": "ListItem", "position": 3, "name": "Installation", "item": "https://eva-css.xyz/doc/install.html" }
+      ]
+    }
+    </script>
+  </head>
+  <body class="current-theme theme-eva all-grads toggle-theme doc-page" data-doc-search="search-index.json">
+  <button type="button" class="dark-light-toggle no-hover" aria-label="Toggle dark mode">
+    <svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 100 100" x="0px" y="0px" aria-hidden="true"><path d="M50,77.62A27.62,27.62,0,1,0,22.38,50,27.61,27.61,0,0,0,50,77.62ZM50,26A24,24,0,1,1,26,50,24,24,0,0,1,50,26ZM69.62,50.52A19.36,19.36,0,0,0,50.26,31.15V69.88A19.36,19.36,0,0,0,69.62,50.52Zm-19.88,31a1.81,1.81,0,0,0-1.81,1.81V95.69a1.81,1.81,0,0,0,3.62,0V83.3A1.81,1.81,0,0,0,49.74,81.49Zm24.9-9A1.81,1.81,0,0,0,72.09,75l8.76,8.76a1.81,1.81,0,0,0,2.55-2.56Zm6.85-22.19a1.81,1.81,0,0,0,1.81,1.81H95.69a1.81,1.81,0,1,0,0-3.62H83.3A1.81,1.81,0,0,0,81.49,50.26ZM75,27.91l8.76-8.76a1.81,1.81,0,0,0-2.56-2.55l-8.76,8.76A1.81,1.81,0,0,0,75,27.91Zm-24.75-9.4a1.81,1.81,0,0,0,1.81-1.81V4.31a1.81,1.81,0,0,0-3.62,0V16.7A1.81,1.81,0,0,0,50.26,18.51Zm-24.9,9A1.81,1.81,0,0,0,27.91,25l-8.76-8.76a1.81,1.81,0,1,0-2.55,2.56Zm-21,24H16.7a1.81,1.81,0,0,0,0-3.62H4.31a1.81,1.81,0,1,0,0,3.62Zm22,20a1.78,1.78,0,0,0-1.28.53l-8.76,8.76a1.8,1.8,0,0,0,0,2.56,1.82,1.82,0,0,0,2.56,0l8.76-8.77a1.81,1.81,0,0,0-1.28-3.08Z"/></svg>
+  </button>
+
+  <nav id="nav" class="px-220__ flex space py-12- pof">
+    <div id="logo" class="flex x center px-20">
+      <div class="ballzzz por" style="--max:6">
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:0"></div>
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:1"></div>
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:2"></div>
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:3"></div>
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:4"></div>
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:5"></div>
+      </div>
+      <a href="../index.html" class="logo no-hover title fs-36__ lh-1">EVA CSS</a>
+    </div>
+    <button id="burger-menu" class="burger-menu" type="button" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="menu">
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+    </button>
+    <div id="menu" class="flex x center g-12">
+      <a href="../framework/css-fluid.html" class="h-52 px-12 flex y center _c-brand br-12"><span class="fs-12">Fluid CSS</span></a>
+      <a href="../framework.html" class="h-52 px-12 flex y center _c-brand br-12"><span class="fs-12">Addons</span></a>
+      <a href="../use-cases.html" class="h-52 px-12 flex y center _c-brand br-12"><span class="fs-12">Use Cases</span></a>
+      <a href="index.html" class="h-52 px-12 flex y center _c-light _bg-brand br-12"><span class="fs-12">Doc</span></a>
+      <a href="https://github.com/nkdeus/eva-framework" target="_blank" rel="noopener" aria-label="GitHub repository" class="h-52 px-8 flex x g-12 center _c-brand br-8">
+        <svg xmlns="http://www.w3.org/2000/svg" class="lh-0" height="20" viewBox="0 0 16 16" width="20" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+      </a>
+    </div>
+  </nav>
+
+  <div class="doc-shell">
+
+    <aside class="doc-sidebar" id="doc-sidebar">
+      <div class="doc-sidebar-inner flex y g-20">
+        <button type="button" class="doc-search-trigger flex x space center g-12" data-search-open>
+          <span class="flex x center g-8">
+            <svg viewBox="0 0 16 16" width="13" height="13" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg>
+            <span>Search</span>
+          </span>
+          <kbd class="doc-kbd">/</kbd>
+        </button>
+        <button type="button" class="doc-nav-toggle flex x space center" data-nav-toggle aria-expanded="false" aria-controls="doc-nav">
+          <span>Chapters</span>
+          <span class="doc-nav-chevron" aria-hidden="true"></span>
+        </button>
+        <nav id="doc-nav" class="doc-nav" aria-label="Documentation">
+          <div class="doc-nav-section"><p class="doc-nav-heading">Getting started</p><ul class="doc-nav-list"><li><a class="doc-nav-link no-hover" href="index.html">Getting started</a></li><li><a class="doc-nav-link no-hover is-current" href="install.html" aria-current="page">Installation</a></li><li><a class="doc-nav-link no-hover" href="config.html">Configuration</a></li></ul></div><div class="doc-nav-section"><p class="doc-nav-heading">The system</p><ul class="doc-nav-list"><li><a class="doc-nav-link no-hover" href="sizes.html">Fluid sizing</a></li><li><a class="doc-nav-link no-hover" href="colors.html">Colors</a></li><li><a class="doc-nav-link no-hover" href="gradients.html">Gradients</a></li><li><a class="doc-nav-link no-hover" href="utilities.html">Utility classes</a></li></ul></div><div class="doc-nav-section"><p class="doc-nav-heading">Guides</p><ul class="doc-nav-list"><li><a class="doc-nav-link no-hover" href="adopt.html">Adopting EVA</a></li><li><a class="doc-nav-link no-hover" href="cli.html">CLI tools</a></li></ul></div><div class="doc-nav-section"><p class="doc-nav-heading">Reference</p><ul class="doc-nav-list"><li><a class="doc-nav-link no-hover" href="reference.html">Reference</a></li></ul></div>
+        </nav>
+      </div>
+    </aside>
+
+    <main class="doc-main">
+      <article class="doc-article">
+        <p class="doc-eyebrow fs-12 _c-brand_">Documentation</p>
+        <h1 class="doc-title fs-52__ lh-1 ttu">Installation</h1>
+        <p class="doc-lede fs-18 _c-dark_">The three packages, the four SCSS entry points, and how to compile and watch.</p>
+        <div class="doc-content">
+          <p class="doc-p">EVA ships as three independent npm packages. Only the first is required.</p>
+<figure class="doc-block"><figcaption class="doc-block-bar flex x space center"><span class="doc-block-lang">bash</span><button type="button" class="doc-copy" data-copy data-copied="Copied">Copy</button></figcaption><pre class="doc-pre"><code>npm install eva-css-fluid eva-css-purge eva-colors</code></pre></figure>
+<div class="doc-table-wrap"><table class="doc-table"><thead><tr><th>Package</th><th>Role</th><th>Required</th></tr></thead><tbody><tr><td><code class="doc-inline-code">eva-css-fluid</code></td><td>The framework itself — fluid sizes, colors, gradients, utilities</td><td>Yes</td></tr><tr><td><code class="doc-inline-code">eva-colors</code></td><td>CLI and JS API: HEX→OKLCH conversion, palettes, theme generation, contrast checks</td><td>No</td></tr><tr><td><code class="doc-inline-code">eva-css-purge</code></td><td>Removes unused classes from the compiled CSS</td><td>No</td></tr></tbody></table></div>
+<p class="doc-p">The only peer requirement is a SCSS toolchain. <code class="doc-inline-code">sass</code> on its own is enough; Vite, Astro, Next and friends already bundle one.</p>
+<h2 id="pick-an-entry-point" class="doc-h doc-h2">Pick an entry point<a class="doc-anchor no-hover" href="#pick-an-entry-point" aria-label="Link to this section">#</a></h2>
+<p class="doc-p"><code class="doc-inline-code">eva-css-fluid</code> exposes four entry points. They differ in how much they emit, not in what they can do.</p>
+<div class="doc-table-wrap"><table class="doc-table"><thead><tr><th>Entry</th><th>Emits</th><th>Use when</th></tr></thead><tbody><tr><td><code class="doc-inline-code">eva-css-fluid</code></td><td>Variables, colors, gradients, theme, reset, typography, flex, grid, utility classes</td><td>New projects</td></tr><tr><td><code class="doc-inline-code">eva-css-fluid/variables</code></td><td>Variables, colors, theme — nothing else</td><td>Existing projects: drops in beside your CSS without touching the global namespace</td></tr><tr><td><code class="doc-inline-code">eva-css-fluid/core</code></td><td>Everything except the utility classes</td><td>You want the reset and typography but write your own components</td></tr><tr><td><code class="doc-inline-code">eva-css-fluid/colors</code></td><td>The OKLCH color system and theme only</td><td>You only want the colors</td></tr></tbody></table></div>
+<figure class="doc-block"><figcaption class="doc-block-bar flex x space center"><span class="doc-block-lang">scss</span><button type="button" class="doc-copy" data-copy data-copied="Copied">Copy</button></figcaption><pre class="doc-pre"><code><span class="tok-comment">// new project — the full framework</span>
+<span class="tok-at">@use</span> <span class="tok-string">'eva-css-fluid'</span> with (
+  <span class="tok-var">$sizes</span>: (<span class="tok-num">4</span>, <span class="tok-num">8</span>, <span class="tok-num">16</span>, <span class="tok-num">32</span>, <span class="tok-num">64</span>, <span class="tok-num">128</span>),
+  <span class="tok-var">$font-sizes</span>: (<span class="tok-num">14</span>, <span class="tok-num">16</span>, <span class="tok-num">24</span>, <span class="tok-num">36</span>, <span class="tok-num">52</span>)
+);</code></pre></figure>
+<figure class="doc-block"><figcaption class="doc-block-bar flex x space center"><span class="doc-block-lang">scss</span><button type="button" class="doc-copy" data-copy data-copied="Copied">Copy</button></figcaption><pre class="doc-pre"><code><span class="tok-comment">// existing project — variables only, zero class collisions</span>
+<span class="tok-at">@use</span> <span class="tok-string">'eva-css-fluid/variables'</span> with (
+  <span class="tok-var">$sizes</span>: (<span class="tok-num">4</span>, <span class="tok-num">8</span>, <span class="tok-num">12</span>, <span class="tok-num">16</span>, <span class="tok-num">20</span>, <span class="tok-num">24</span>, <span class="tok-num">32</span>, <span class="tok-num">48</span>, <span class="tok-num">64</span>, <span class="tok-num">96</span>, <span class="tok-num">128</span>),
+  <span class="tok-var">$font-sizes</span>: (<span class="tok-num">12</span>, <span class="tok-num">14</span>, <span class="tok-num">16</span>, <span class="tok-num">18</span>, <span class="tok-num">20</span>, <span class="tok-num">24</span>, <span class="tok-num">32</span>)
+);</code></pre></figure>
+<aside class="doc-callout"><p class="doc-p"><code class="doc-inline-code">eva-css-fluid/colors</code> takes no configuration — it has no sizes to generate. The other three accept the full option set described in <a href="config.html" class="doc-link no-hover">Configuration</a>.</p></aside>
+<h2 id="compile" class="doc-h doc-h2">Compile<a class="doc-anchor no-hover" href="#compile" aria-label="Link to this section">#</a></h2>
+<p class="doc-p">EVA is plain SCSS, so the reference command is plain <code class="doc-inline-code">sass</code>. The <code class="doc-inline-code">--load-path</code> is what lets <code class="doc-inline-code">@use 'eva-css-fluid'</code> resolve from <code class="doc-inline-code">node_modules</code>.</p>
+<figure class="doc-block"><figcaption class="doc-block-bar flex x space center"><span class="doc-block-lang">bash</span><button type="button" class="doc-copy" data-copy data-copied="Copied">Copy</button></figcaption><pre class="doc-pre"><code>npx sass <span class="tok-var">--load-path</span>=node_modules styles/main.scss:styles/main.css</code></pre></figure>
+<p class="doc-p">Wire the two useful variants into <code class="doc-inline-code">package.json</code>:</p>
+<figure class="doc-block"><figcaption class="doc-block-bar flex x space center"><span class="doc-block-lang">json</span><button type="button" class="doc-copy" data-copy data-copied="Copied">Copy</button></figcaption><pre class="doc-pre"><code>{
+  <span class="tok-string">"scripts"</span>: {
+    <span class="tok-string">"build-css"</span>: <span class="tok-string">"npx sass --load-path=node_modules styles/main.scss:styles/main.css --style expanded"</span>,
+    <span class="tok-string">"watch"</span>: <span class="tok-string">"npx sass --load-path=node_modules --watch styles/main.scss:styles/main.css --style expanded"</span>,
+    <span class="tok-string">"purge"</span>: <span class="tok-string">"npx eva-purge --css styles/main.css --content '**/*.html' --output styles/main-compressed.css"</span>
+  }
+}</code></pre></figure>
+<p class="doc-p">Use <code class="doc-inline-code">--style expanded</code> while developing: the emitted <code class="doc-inline-code">clamp()</code> formulas are the thing you inspect in DevTools, and compressed output makes them unreadable. Compress at the end, or let <a href="cli.html" class="doc-link no-hover">eva-purge</a> do it.</p>
+<h2 id="project-layout" class="doc-h doc-h2">Project layout<a class="doc-anchor no-hover" href="#project-layout" aria-label="Link to this section">#</a></h2>
+<p class="doc-p">Nothing is imposed. A single-target project usually looks like this:</p>
+<figure class="doc-block"><figcaption class="doc-block-bar flex x space center"><span class="doc-block-lang">text</span><button type="button" class="doc-copy" data-copy data-copied="Copied">Copy</button></figcaption><pre class="doc-pre"><code>project/
+├── index.html
+├── styles/
+│   ├── main.scss          # <span class="tok-at">@use</span> <span class="tok-string">'eva-css-fluid'</span> with (...)
+│   └── main.css           # compiled output
+└── node_modules/
+    ├── eva-css-fluid/
+    ├── eva-css-purge/
+    └── eva-colors/</code></pre></figure>
+<p class="doc-p">When several designs live in one repo, give each its own entry file and its own <code class="doc-inline-code">$sizes</code> — the whole point of listing sizes explicitly is that each target only carries what it uses.</p>
+<figure class="doc-block"><figcaption class="doc-block-bar flex x space center"><span class="doc-block-lang">text</span><button type="button" class="doc-copy" data-copy data-copied="Copied">Copy</button></figcaption><pre class="doc-pre"><code>projects/
+├── project-a/
+│   ├── index.html
+│   ├── styles/project-a.scss     # <span class="tok-at">@use</span> <span class="tok-string">'eva-css-fluid'</span> with (...)
+│   └── render/project-a.css
+└── project-b/
+    ├── index.html
+    ├── styles/project-b.scss
+    └── render/project-b.css</code></pre></figure>
+<figure class="doc-block"><figcaption class="doc-block-bar flex x space center"><span class="doc-block-lang">bash</span><button type="button" class="doc-copy" data-copy data-copied="Copied">Copy</button></figcaption><pre class="doc-pre"><code>npx sass <span class="tok-var">--load-path</span>=node_modules \
+  projects/project-a/styles/project-a.scss:projects/project-a/render/project-a.css</code></pre></figure>
+<h2 id="mark-up-the-page" class="doc-h doc-h2">Mark up the page<a class="doc-anchor no-hover" href="#mark-up-the-page" aria-label="Link to this section">#</a></h2>
+<p class="doc-p">Two classes on the root element switch the whole system on.</p>
+<figure class="doc-block"><figcaption class="doc-block-bar flex x space center"><span class="doc-block-lang">html</span><button type="button" class="doc-copy" data-copy data-copied="Copied">Copy</button></figcaption><pre class="doc-pre"><code>&lt;body class=<span class="tok-string">"current-theme theme-eva"</span>&gt;</code></pre></figure>
+<ul class="doc-list"><li><code class="doc-inline-code">current-theme</code> — required. It is the element the color variables are computed on.</li><li><code class="doc-inline-code">theme-&lt;name&gt;</code> — the active palette. See <a href="colors.html#themes" class="doc-link no-hover">Theme configuration</a>.</li><li><code class="doc-inline-code">toggle-theme</code> — add it to flip to dark mode. See <a href="colors.html#dark-mode" class="doc-link no-hover">Dark mode</a>.</li><li><code class="doc-inline-code">all-grads</code> — add it if you use the gradient classes. See <a href="gradients.html" class="doc-link no-hover">Gradients</a>.</li></ul>
+<aside class="doc-callout"><p class="doc-p">Put <code class="doc-inline-code">current-theme</code> on <code class="doc-inline-code">&lt;html&gt;</code> rather than <code class="doc-inline-code">&lt;body&gt;</code> if the page can over-scroll. The <code class="doc-inline-code">&lt;html&gt;</code> background fills the bounce area on mobile; a themed <code class="doc-inline-code">&lt;body&gt;</code> leaves an unthemed strip visible during pull-to-refresh.</p></aside>
+<p class="doc-p">Next: <a href="config.html" class="doc-link no-hover">Configuration</a>.</p>
+        </div>
+      </article>
+      <nav class="doc-pager flex x space g-20"><a class="doc-pager-link no-hover doc-pager-prev" href="index.html"><span class="doc-pager-dir">Previous</span><span class="doc-pager-title">Getting started</span></a><a class="doc-pager-link no-hover doc-pager-next" href="config.html"><span class="doc-pager-dir">Next</span><span class="doc-pager-title">Configuration</span></a></nav>
+    </main>
+
+    <aside class="doc-toc" aria-label="On this page">
+      <div class="doc-toc-inner">
+        <p class="doc-toc-title fs-12">On this page</p>
+        <ul class="doc-toc-list"><li><a class="doc-toc-link no-hover" data-level="2" href="#pick-an-entry-point">Pick an entry point</a></li><li><a class="doc-toc-link no-hover" data-level="2" href="#compile">Compile</a></li><li><a class="doc-toc-link no-hover" data-level="2" href="#project-layout">Project layout</a></li><li><a class="doc-toc-link no-hover" data-level="2" href="#mark-up-the-page">Mark up the page</a></li></ul>
+      </div>
+    </aside>
+
+  </div>
+
+  <div class="doc-search" id="doc-search" hidden>
+    <div class="doc-search-backdrop" data-search-close></div>
+    <div class="doc-search-panel flex y" role="dialog" aria-modal="true" aria-label="Search">
+      <div class="doc-search-field flex x center g-12">
+        <svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg>
+        <input type="search" id="doc-search-input" class="doc-search-input" placeholder="Search the documentation" autocomplete="off" spellcheck="false">
+        <button type="button" class="doc-search-esc" data-search-close>esc</button>
+      </div>
+      <div class="doc-search-results" id="doc-search-results" data-empty="No result for"></div>
+    </div>
+  </div>
+
+  <footer class="px-220__ py-136 flex x g-20 w-full">
+    <div class="flex w-full y space center g-32">
+      <p class="fs-16 _c-brand_">© 2024</p>
+      <p class="fs-16 _c-brand_">Tati Michaël</p>
+    </div>
+    <div class="flex w-full y space g-32">
+      <a href="https://www.linkedin.com/in/mtati/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="index.html">Documentation</a>
+      <a href="../fr/doc/install.html" hreflang="fr" title="Voir en français">FR</a>
+    </div>
+  </footer>
+
+  <script src="../app.js"></script>
+  <script src="../doc.js"></script>
+  </body>
+</html>

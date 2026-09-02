@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/Draggable.min.js"></script>
+    <link rel="stylesheet" href="https://use.typekit.net/vjo0ssd.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Display:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../styles/main.css" />
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="3c9b4552-d24d-48aa-a6b4-877d0ceffe04"></script>
+    <title>Tailles fluides — Doc EVA CSS</title>
+    <meta name="description" content="Les quatre variantes d'échelle, l'espace de noms séparé des tailles de texte, et comment faire suivre un sous-arbre à son conteneur plutôt qu'au viewport.">
+    <meta property="og:title" content="Tailles fluides — Doc EVA CSS">
+    <meta property="og:description" content="Les quatre variantes d'échelle, l'espace de noms séparé des tailles de texte, et comment faire suivre un sous-arbre à son conteneur plutôt qu'au viewport.">
+    <meta property="og:locale" content="fr_FR">
+    <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+    <link rel="apple-touch-icon" href="../../assets/imgs/eva.jpg">
+    <link rel="manifest" href="../../site.webmanifest">
+    <meta name="theme-color" content="#ff8a3d">
+    <meta property="og:site_name" content="EVA CSS">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://eva-css.xyz/fr/doc/sizes.html">
+    <meta property="og:image" content="https://eva-css.xyz/assets/imgs/eva.jpg">
+    <meta property="og:image:width" content="512">
+    <meta property="og:image:height" content="512">
+    <meta property="og:image:alt" content="EVA CSS — fluid SCSS framework">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Tailles fluides — Doc EVA CSS">
+    <meta name="twitter:description" content="Les quatre variantes d'échelle, l'espace de noms séparé des tailles de texte, et comment faire suivre un sous-arbre à son conteneur plutôt qu'au viewport.">
+    <meta name="twitter:image" content="https://eva-css.xyz/assets/imgs/eva.jpg">
+    <link rel="canonical" href="https://eva-css.xyz/fr/doc/sizes.html">
+    <link rel="alternate" hreflang="en" href="https://eva-css.xyz/doc/sizes.html">
+    <link rel="alternate" hreflang="fr" href="https://eva-css.xyz/fr/doc/sizes.html">
+    <link rel="alternate" hreflang="x-default" href="https://eva-css.xyz/doc/sizes.html">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "Tailles fluides",
+      "description": "Les quatre variantes d'échelle, l'espace de noms séparé des tailles de texte, et comment faire suivre un sous-arbre à son conteneur plutôt qu'au viewport.",
+      "inLanguage": "fr",
+      "url": "https://eva-css.xyz/fr/doc/sizes.html",
+      "isPartOf": {
+        "@type": "TechArticle",
+        "name": "Doc EVA CSS",
+        "url": "https://eva-css.xyz/fr/doc/index.html"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "EVA CSS",
+        "url": "https://eva-css.xyz"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "EVA CSS", "item": "https://eva-css.xyz/fr/" },
+        { "@type": "ListItem", "position": 2, "name": "Documentation", "item": "https://eva-css.xyz/fr/doc/index.html" },
+        { "@type": "ListItem", "position": 3, "name": "Tailles fluides", "item": "https://eva-css.xyz/fr/doc/sizes.html" }
+      ]
+    }
+    </script>
+  </head>
+  <body class="current-theme theme-eva all-grads toggle-theme doc-page" data-doc-search="search-index.json">
+  <button type="button" class="dark-light-toggle no-hover" aria-label="Basculer le mode sombre">
+    <svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 100 100" x="0px" y="0px" aria-hidden="true"><path d="M50,77.62A27.62,27.62,0,1,0,22.38,50,27.61,27.61,0,0,0,50,77.62ZM50,26A24,24,0,1,1,26,50,24,24,0,0,1,50,26ZM69.62,50.52A19.36,19.36,0,0,0,50.26,31.15V69.88A19.36,19.36,0,0,0,69.62,50.52Zm-19.88,31a1.81,1.81,0,0,0-1.81,1.81V95.69a1.81,1.81,0,0,0,3.62,0V83.3A1.81,1.81,0,0,0,49.74,81.49Zm24.9-9A1.81,1.81,0,0,0,72.09,75l8.76,8.76a1.81,1.81,0,0,0,2.55-2.56Zm6.85-22.19a1.81,1.81,0,0,0,1.81,1.81H95.69a1.81,1.81,0,1,0,0-3.62H83.3A1.81,1.81,0,0,0,81.49,50.26ZM75,27.91l8.76-8.76a1.81,1.81,0,0,0-2.56-2.55l-8.76,8.76A1.81,1.81,0,0,0,75,27.91Zm-24.75-9.4a1.81,1.81,0,0,0,1.81-1.81V4.31a1.81,1.81,0,0,0-3.62,0V16.7A1.81,1.81,0,0,0,50.26,18.51Zm-24.9,9A1.81,1.81,0,0,0,27.91,25l-8.76-8.76a1.81,1.81,0,1,0-2.55,2.56Zm-21,24H16.7a1.81,1.81,0,0,0,0-3.62H4.31a1.81,1.81,0,1,0,0,3.62Zm22,20a1.78,1.78,0,0,0-1.28.53l-8.76,8.76a1.8,1.8,0,0,0,0,2.56,1.82,1.82,0,0,0,2.56,0l8.76-8.77a1.81,1.81,0,0,0-1.28-3.08Z"/></svg>
+  </button>
+
+  <nav id="nav" class="px-220__ flex space py-12- pof">
+    <div id="logo" class="flex x center px-20">
+      <div class="ballzzz por" style="--max:6">
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:0"></div>
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:1"></div>
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:2"></div>
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:3"></div>
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:4"></div>
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:5"></div>
+      </div>
+      <a href="../index.html" class="logo no-hover title fs-36__ lh-1">EVA CSS</a>
+    </div>
+    <button id="burger-menu" class="burger-menu" type="button" aria-label="Ouvrir/fermer le menu" aria-expanded="false" aria-controls="menu">
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+    </button>
+    <div id="menu" class="flex x center g-12">
+      <a href="../framework/css-fluid.html" class="h-52 px-12 flex y center _c-brand br-12"><span class="fs-12">CSS fluide</span></a>
+      <a href="../framework.html" class="h-52 px-12 flex y center _c-brand br-12"><span class="fs-12">Addons</span></a>
+      <a href="../use-cases.html" class="h-52 px-12 flex y center _c-brand br-12"><span class="fs-12">Cas d'usage</span></a>
+      <a href="index.html" class="h-52 px-12 flex y center _c-light _bg-brand br-12"><span class="fs-12">Doc</span></a>
+      <a href="https://github.com/nkdeus/eva-framework" target="_blank" rel="noopener" aria-label="Dépôt GitHub" class="h-52 px-8 flex x g-12 center _c-brand br-8">
+        <svg xmlns="http://www.w3.org/2000/svg" class="lh-0" height="20" viewBox="0 0 16 16" width="20" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+      </a>
+    </div>
+  </nav>
+
+  <div class="doc-shell">
+
+    <aside class="doc-sidebar" id="doc-sidebar">
+      <div class="doc-sidebar-inner flex y g-20">
+        <button type="button" class="doc-search-trigger flex x space center g-12" data-search-open>
+          <span class="flex x center g-8">
+            <svg viewBox="0 0 16 16" width="13" height="13" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg>
+            <span>Rechercher</span>
+          </span>
+          <kbd class="doc-kbd">/</kbd>
+        </button>
+        <button type="button" class="doc-nav-toggle flex x space center" data-nav-toggle aria-expanded="false" aria-controls="doc-nav">
+          <span>Chapitres</span>
+          <span class="doc-nav-chevron" aria-hidden="true"></span>
+        </button>
+        <nav id="doc-nav" class="doc-nav" aria-label="Documentation">
+          <div class="doc-nav-section"><p class="doc-nav-heading">Démarrer</p><ul class="doc-nav-list"><li><a class="doc-nav-link no-hover" href="index.html">Démarrer</a></li><li><a class="doc-nav-link no-hover" href="install.html">Installation</a></li><li><a class="doc-nav-link no-hover" href="config.html">Configuration</a></li></ul></div><div class="doc-nav-section"><p class="doc-nav-heading">Le système</p><ul class="doc-nav-list"><li><a class="doc-nav-link no-hover is-current" href="sizes.html" aria-current="page">Tailles fluides</a></li><li><a class="doc-nav-link no-hover" href="colors.html">Couleurs</a></li><li><a class="doc-nav-link no-hover" href="gradients.html">Dégradés</a></li><li><a class="doc-nav-link no-hover" href="utilities.html">Classes utilitaires</a></li></ul></div><div class="doc-nav-section"><p class="doc-nav-heading">Guides</p><ul class="doc-nav-list"><li><a class="doc-nav-link no-hover" href="adopt.html">Adopter EVA</a></li><li><a class="doc-nav-link no-hover" href="cli.html">Outils CLI</a></li></ul></div><div class="doc-nav-section"><p class="doc-nav-heading">Référence</p><ul class="doc-nav-list"><li><a class="doc-nav-link no-hover" href="reference.html">Référence</a></li></ul></div>
+        </nav>
+      </div>
+    </aside>
+
+    <main class="doc-main">
+      <article class="doc-article">
+        <p class="doc-eyebrow fs-12 _c-brand_">Documentation</p>
+        <h1 class="doc-title fs-52__ lh-1 ttu">Tailles fluides</h1>
+        <p class="doc-lede fs-18 _c-dark_">Les quatre variantes d'échelle, l'espace de noms séparé des tailles de texte, et comment faire suivre un sous-arbre à son conteneur plutôt qu'au viewport.</p>
+        <div class="doc-content">
+          <p class="doc-p">Chaque valeur de <code class="doc-inline-code">$sizes</code> devient quatre custom properties CSS. Chaque valeur de <code class="doc-inline-code">$font-sizes</code> en devient trois, sous un préfixe distinct. Aucune n'est un nombre figé : chacune est un <code class="doc-inline-code">clamp()</code> qui interpole entre un plancher et un plafond à mesure que le viewport s'élargit.</p>
+<figure class="doc-block"><figcaption class="doc-block-bar flex x space center"><span class="doc-block-lang">css</span><button type="button" class="doc-copy" data-copy data-copied="Copié">Copier</button></figcaption><pre class="doc-pre"><code><span class="tok-var">--16__</span>: clamp(<span class="tok-num">0.5rem</span>,  calc(<span class="tok-num">1.58</span> * var(<span class="tok-var">--eva-fluid-unit</span>, <span class="tok-num">1vw</span>) - <span class="tok-num">0.56rem</span>), <span class="tok-num">1.11rem</span>);
+<span class="tok-var">--16_</span>:  clamp(<span class="tok-num">0.35rem</span>, calc(<span class="tok-num">0.83</span> * var(<span class="tok-var">--eva-fluid-unit</span>, <span class="tok-num">1vw</span>) + <span class="tok-num">0.25rem</span>), <span class="tok-num">1.11rem</span>);
+<span class="tok-var">--16</span>:   clamp(<span class="tok-num">0.56rem</span>, calc(<span class="tok-num">0.56</span> * var(<span class="tok-var">--eva-fluid-unit</span>, <span class="tok-num">1vw</span>) + <span class="tok-num">0.5rem</span>),  <span class="tok-num">1.11rem</span>);
+<span class="tok-var">--16-</span>:  clamp(<span class="tok-num">0.91rem</span>, calc(<span class="tok-num">0.28</span> * var(<span class="tok-var">--eva-fluid-unit</span>, <span class="tok-num">1vw</span>) + <span class="tok-num">0.75rem</span>), <span class="tok-num">1.11rem</span>);</code></pre></figure>
+<p class="doc-p">Les quatre culminent au même plafond. Ce qui les sépare, c'est la vitesse à laquelle elles y arrivent — et donc leur petitesse sur un téléphone.</p>
+<h2 id="les-quatre-variantes" class="doc-h doc-h2">Les quatre variantes<a class="doc-anchor no-hover" href="#les-quatre-variantes" aria-label="Lien vers cette section">#</a></h2>
+<div class="doc-table-wrap"><table class="doc-table"><thead><tr><th>Token</th><th>Comportement</th><th>À utiliser pour</th></tr></thead><tbody><tr><td><code class="doc-inline-code">var(--N__)</code></td><td>S'effondre le plus fort sur petit écran</td><td>Espace décoratif, qui peut disparaître</td></tr><tr><td><code class="doc-inline-code">var(--N_)</code></td><td>Forte réduction</td><td>Espacements secondaires</td></tr><tr><td><code class="doc-inline-code">var(--N)</code></td><td>Échelle standard</td><td>Le défaut — dimensions de mise en page</td></tr><tr><td><code class="doc-inline-code">var(--N-)</code></td><td>Conservatrice : le plancher reste proche de la valeur de maquette</td><td>Paddings et gaps qui doivent rester respirables sur mobile</td></tr></tbody></table></div>
+<p class="doc-p">Mesuré, pour un <code class="doc-inline-code">$sizes</code> contenant <code class="doc-inline-code">16</code>, avec une taille de police racine de 16px :</p>
+<div class="doc-table-wrap"><table class="doc-table"><thead><tr><th>Token</th><th>375px</th><th>768px</th><th>1440px</th><th>1920px</th></tr></thead><tbody><tr><td><code class="doc-inline-code">--16__</code></td><td>8.0px</td><td>8.0px</td><td>13.8px</td><td>17.8px</td></tr><tr><td><code class="doc-inline-code">--16_</code></td><td>7.1px</td><td>10.4px</td><td>16.0px</td><td>17.8px</td></tr><tr><td><code class="doc-inline-code">--16</code></td><td>10.1px</td><td>12.3px</td><td>16.1px</td><td>17.8px</td></tr><tr><td><code class="doc-inline-code">--16-</code></td><td>14.6px</td><td>14.6px</td><td>16.0px</td><td>17.4px</td></tr></tbody></table></div>
+<p class="doc-p">Lisez la première colonne, pas la troisième : en largeur desktop toutes les variantes retombent sur la valeur de maquette, donc le choix porte entièrement sur ce qui se passe sur un téléphone. <code class="doc-inline-code">--16__</code> y rend 8px d'espace ; <code class="doc-inline-code">--16-</code> en garde 14,6.</p>
+<aside class="doc-callout"><p class="doc-p">Un défaut qui marche : <code class="doc-inline-code">var(--N)</code> pour les largeurs, hauteurs et dimensions de mise en page, <code class="doc-inline-code">var(--N-)</code> pour les paddings et gaps à l'intérieur des composants. Un espacement mobile à l'étroit est presque toujours un <code class="doc-inline-code">var(--N)</code> qui aurait dû être un <code class="doc-inline-code">var(--N-)</code>.</p></aside>
+<p class="doc-p">La règle se généralise : plus il y a de caractères de suffixe, plus l'effondrement est marqué. <code class="doc-inline-code">--32__</code> se comporte vis-à-vis de <code class="doc-inline-code">--32</code> exactement comme <code class="doc-inline-code">--16__</code> vis-à-vis de <code class="doc-inline-code">--16</code>.</p>
+<h2 id="font-sizes" class="doc-h doc-h2">Les tailles de texte sont un espace de noms séparé<a class="doc-anchor no-hover" href="#font-sizes" aria-label="Lien vers cette section">#</a></h2>
+<p class="doc-p">C'est de loin la confusion la plus fréquente. Les tokens de texte portent un préfixe <code class="doc-inline-code">fs-</code> et vivent dans leur propre liste.</p>
+<figure class="doc-block"><figcaption class="doc-block-bar flex x space center"><span class="doc-block-lang">scss</span><button type="button" class="doc-copy" data-copy data-copied="Copié">Copier</button></figcaption><pre class="doc-pre"><code><span class="tok-at">@use</span> <span class="tok-string">'eva-css-fluid'</span> with (
+  <span class="tok-var">$sizes</span>: (<span class="tok-num">4</span>, <span class="tok-num">8</span>, <span class="tok-num">16</span>, <span class="tok-num">32</span>),          <span class="tok-comment">// -&gt; var(--16)</span>
+  <span class="tok-var">$font-sizes</span>: (<span class="tok-num">14</span>, <span class="tok-num">16</span>, <span class="tok-num">24</span>)        <span class="tok-comment">// -&gt; var(--fs-16)</span>
+);</code></pre></figure>
+<div class="doc-table-wrap"><table class="doc-table"><thead><tr><th>Liste</th><th>Tokens émis</th></tr></thead><tbody><tr><td><code class="doc-inline-code">$sizes</code></td><td><code class="doc-inline-code">--N__</code>, <code class="doc-inline-code">--N_</code>, <code class="doc-inline-code">--N</code>, <code class="doc-inline-code">--N-</code></td></tr><tr><td><code class="doc-inline-code">$font-sizes</code></td><td><code class="doc-inline-code">--fs-N__</code>, <code class="doc-inline-code">--fs-N_</code>, <code class="doc-inline-code">--fs-N</code></td></tr></tbody></table></div>
+<p class="doc-p">Le même nombre dans les deux listes produit deux tokens différents, qui ne clampent pas pareil. <code class="doc-inline-code">44</code> dans <code class="doc-inline-code">$font-sizes</code> vous donne <code class="doc-inline-code">var(--fs-44)</code> et aucun <code class="doc-inline-code">var(--44)</code> — et une custom property indéfinie ne résout à rien, donc la déclaration est silencieusement abandonnée et le navigateur garde sa valeur par défaut. Rien n'échoue ; la page est juste légèrement fausse.</p>
+<p class="doc-p">Les tailles de texte ont trois variantes au lieu de quatre, et l'échelle est décalée d'un cran vers la prudence :</p>
+<div class="doc-table-wrap"><table class="doc-table"><thead><tr><th>Token</th><th>375px</th><th>768px</th><th>1440px</th><th>1920px</th></tr></thead><tbody><tr><td><code class="doc-inline-code">--fs-16__</code></td><td>7.1px</td><td>10.4px</td><td>16.0px</td><td>17.8px</td></tr><tr><td><code class="doc-inline-code">--fs-16_</code></td><td>10.1px</td><td>12.3px</td><td>16.1px</td><td>17.8px</td></tr><tr><td><code class="doc-inline-code">--fs-16</code></td><td>13.1px</td><td>14.2px</td><td>16.0px</td><td>17.4px</td></tr></tbody></table></div>
+<p class="doc-p"><code class="doc-inline-code">var(--fs-16)</code> rend 13,1px sur un écran de 375px — lisible. <code class="doc-inline-code">var(--fs-16__)</code> rend 7,1px, ce qui n'est pas du texte courant. Utilisez la variante sans suffixe pour tout ce qu'un lecteur doit lire, et gardez <code class="doc-inline-code">_</code> et <code class="doc-inline-code">__</code> pour les grandes tailles d'affichage, qui ont de la marge.</p>
+<h2 id="fluid-unit" class="doc-h doc-h2">Unité fluide : viewport ou conteneur<a class="doc-anchor no-hover" href="#fluid-unit" aria-label="Lien vers cette section">#</a></h2>
+<p class="doc-p">Depuis 2.2.0, l'unité n'est plus figée dans le <code class="doc-inline-code">clamp()</code> compilé. Chaque token multiplie une custom property, <code class="doc-inline-code">--eva-fluid-unit</code>, dont le défaut est <code class="doc-inline-code">1vw</code>. Surchargez-la sur n'importe quel élément et ce sous-arbre change de référence — sans rebuild, sans seconde feuille de style.</p>
+<figure class="doc-block"><figcaption class="doc-block-bar flex x space center"><span class="doc-block-lang">css</span><button type="button" class="doc-copy" data-copy data-copied="Copié">Copier</button></figcaption><pre class="doc-pre"><code>.card {
+  container-type: inline-size;   <span class="tok-comment">/* la carte devient un conteneur de taille */</span>
+  <span class="tok-var">--eva-fluid-unit</span>: <span class="tok-num">1cqi</span>;        <span class="tok-comment">/* les tokens EVA à l'intérieur lisent sa largeur */</span>
+}</code></pre></figure>
+<p class="doc-p">Deux classes utilitaires font les deux moitiés d'un coup, pour ne pas en oublier une :</p>
+<div class="doc-table-wrap"><table class="doc-table"><thead><tr><th>Classe</th><th>Effet</th></tr></thead><tbody><tr><td><code class="doc-inline-code">.eva-cqi</code></td><td><code class="doc-inline-code">container-type: inline-size</code> + <code class="doc-inline-code">--eva-fluid-unit: 1cqi</code> sur l'élément</td></tr><tr><td><code class="doc-inline-code">.eva-root</code></td><td>Idem, prévue pour un conteneur de premier niveau</td></tr></tbody></table></div>
+<p class="doc-p">Passez à <code class="doc-inline-code">cqi</code> quand la taille d'un composant doit suivre la boîte où il est posé plutôt que la page — une carte qui doit être identique dans un hero pleine largeur et dans une sidebar étroite, un panneau de prévisualisation de design system, un widget embarqué à une largeur inconnue. Gardez <code class="doc-inline-code">vw</code> par défaut pour la typographie et les espacements de page, qui doivent réellement répondre au viewport entier.</p>
+<p class="doc-p">Le défaut projet se règle en SCSS :</p>
+<figure class="doc-block"><figcaption class="doc-block-bar flex x space center"><span class="doc-block-lang">scss</span><button type="button" class="doc-copy" data-copy data-copied="Copié">Copier</button></figcaption><pre class="doc-pre"><code><span class="tok-at">@use</span> <span class="tok-string">'eva-css-fluid'</span> with (
+  <span class="tok-var">$sizes</span>: (<span class="tok-num">4</span>, <span class="tok-num">8</span>, <span class="tok-num">16</span>, <span class="tok-num">24</span>, <span class="tok-num">48</span>),
+  <span class="tok-var">$font-sizes</span>: (<span class="tok-num">16</span>, <span class="tok-num">24</span>, <span class="tok-num">48</span>),
+  <span class="tok-var">$unit-fluid</span>: <span class="tok-num">1cqi</span>        <span class="tok-comment">// tous les tokens suivent leur conteneur par défaut</span>
+);</code></pre></figure>
+<aside class="doc-callout"><p class="doc-p"><code class="doc-inline-code">$fluid-runtime: false</code> revient à la sortie littérale d'avant 2.2.0, octet pour octet. Utile seulement pour comparer avec un ancien build — cela supprime la possibilité de changer d'unité à l'exécution.</p></aside>
+<h2 id="plancher-d-accessibilite" class="doc-h doc-h2">Plancher d'accessibilité<a class="doc-anchor no-hover" href="#plancher-d-accessibilite" aria-label="Lien vers cette section">#</a></h2>
+<p class="doc-p"><code class="doc-inline-code">$min-font-size</code> relève la borne basse de chaque clamp de font-size. Il s'exprime en px et se convertit en rem, donc il continue de suivre le zoom du navigateur.</p>
+<figure class="doc-block"><figcaption class="doc-block-bar flex x space center"><span class="doc-block-lang">scss</span><button type="button" class="doc-copy" data-copy data-copied="Copié">Copier</button></figcaption><pre class="doc-pre"><code><span class="tok-at">@use</span> <span class="tok-string">'eva-css-fluid'</span> with (
+  <span class="tok-var">$sizes</span>: (<span class="tok-num">4</span>, <span class="tok-num">8</span>, <span class="tok-num">16</span>, <span class="tok-num">32</span>),
+  <span class="tok-var">$font-sizes</span>: (<span class="tok-num">14</span>, <span class="tok-num">16</span>, <span class="tok-num">24</span>, <span class="tok-num">36</span>),
+  <span class="tok-var">$min-font-size</span>: <span class="tok-num">14</span>
+);</code></pre></figure>
+<p class="doc-p">Ce plancher est la taille <em>mobile</em>, pas la taille desktop. 13–14 est une valeur saine. À 16, l'échelle s'aplatit : chaque token démarrerait à son plafond et cesserait d'être fluide. Le défaut est <code class="doc-inline-code">0</code>, qui désactive le plancher.</p>
+<h2 id="largeur-de-reference" class="doc-h doc-h2">Largeur de référence<a class="doc-anchor no-hover" href="#largeur-de-reference" aria-label="Lien vers cette section">#</a></h2>
+<p class="doc-p"><code class="doc-inline-code">$reference-width</code> (défaut <code class="doc-inline-code">1440</code>) est le viewport auquel les tokens atteignent leur valeur de maquette. Abaissez-le pour un design dessiné en 1280, montez-le pour un design en 1920 — toute l'échelle se décale avec lui.</p>
+<h2 id="contreparties-statiques" class="doc-h doc-h2">Contreparties statiques<a class="doc-anchor no-hover" href="#contreparties-statiques" aria-label="Lien vers cette section">#</a></h2>
+<p class="doc-p">Avec <code class="doc-inline-code">$px-rem-suffix: true</code>, chaque taille émet aussi une paire figée :</p>
+<figure class="doc-block"><figcaption class="doc-block-bar flex x space center"><span class="doc-block-lang">css</span><button type="button" class="doc-copy" data-copy data-copied="Copié">Copier</button></figcaption><pre class="doc-pre"><code><span class="tok-var">--16-px</span>:  <span class="tok-num">16px</span>;
+<span class="tok-var">--16-rem</span>: <span class="tok-num">1rem</span>;</code></pre></figure>
+<p class="doc-p">Deux usages : comparer une valeur fluide à sa référence de maquette dans les devtools, et le petit ensemble de dimensions qui ne doivent pas s'adapter — épaisseurs de bordure, cibles tactiles, rayons en pilule. Pour celles-là, un <code class="doc-inline-code">48px</code> littéral fait aussi bien l'affaire et dit plus clairement ce qu'il veut.</p>
+<h2 id="verifier-son-echelle" class="doc-h doc-h2">Vérifier son échelle<a class="doc-anchor no-hover" href="#verifier-son-echelle" aria-label="Lien vers cette section">#</a></h2>
+<p class="doc-p">On ne peut pas lire un <code class="doc-inline-code">clamp()</code> et deviner ce qu'il donne. Fabriquez une page jetable qui rend chaque token dans chaque variante sous forme de carré réel, et redimensionnez le navigateur.</p>
+<figure class="doc-block"><figcaption class="doc-block-bar flex x space center"><span class="doc-block-lang">html</span><button type="button" class="doc-copy" data-copy data-copied="Copié">Copier</button></figcaption><pre class="doc-pre"><code>&lt;div class=<span class="tok-string">"probe"</span>&gt;
+  &lt;div style=<span class="tok-string">"width: var(--16__); height: var(--16__)"</span>&gt;&lt;/div&gt;
+  &lt;div style=<span class="tok-string">"width: var(--16_);  height: var(--16_)"</span>&gt;&lt;/div&gt;
+  &lt;div style=<span class="tok-string">"width: var(--16);   height: var(--16)"</span>&gt;&lt;/div&gt;
+  &lt;div style=<span class="tok-string">"width: var(--16-);  height: var(--16-)"</span>&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre></figure>
+<figure class="doc-block"><figcaption class="doc-block-bar flex x space center"><span class="doc-block-lang">js</span><button type="button" class="doc-copy" data-copy data-copied="Copié">Copier</button></figcaption><pre class="doc-pre"><code><span class="tok-comment">// valeur réelle au viewport courant</span>
+getComputedStyle(document.querySelector(<span class="tok-string">'.probe'</span>)).getPropertyValue(<span class="tok-string">'--16'</span>);</code></pre></figure>
+<p class="doc-p">Une chaîne vide signifie que le token n'existe pas — soit la taille manque dans <code class="doc-inline-code">$sizes</code>, soit vous avez demandé un token de dimension alors que vous vouliez <code class="doc-inline-code">--fs-</code>. Ce contrôle attrape la plupart des erreurs de configuration en quelques secondes.</p>
+<p class="doc-p">Les pages <a href="../framework/css-fluid.html" class="doc-link no-hover">Fluid CSS</a> et <a href="../framework/sizes.html" class="doc-link no-hover">Sizes</a> font exactement cette expérience en direct, si vous préférez redimensionner une fenêtre plutôt qu'en construire une.</p>
+<p class="doc-p">Suite : <a href="colors.html" class="doc-link no-hover">Couleurs</a>.</p>
+        </div>
+      </article>
+      <nav class="doc-pager flex x space g-20"><a class="doc-pager-link no-hover doc-pager-prev" href="config.html"><span class="doc-pager-dir">Précédent</span><span class="doc-pager-title">Configuration</span></a><a class="doc-pager-link no-hover doc-pager-next" href="colors.html"><span class="doc-pager-dir">Suivant</span><span class="doc-pager-title">Couleurs</span></a></nav>
+    </main>
+
+    <aside class="doc-toc" aria-label="Sur cette page">
+      <div class="doc-toc-inner">
+        <p class="doc-toc-title fs-12">Sur cette page</p>
+        <ul class="doc-toc-list"><li><a class="doc-toc-link no-hover" data-level="2" href="#les-quatre-variantes">Les quatre variantes</a></li><li><a class="doc-toc-link no-hover" data-level="2" href="#font-sizes">Les tailles de texte sont un espace de noms séparé</a></li><li><a class="doc-toc-link no-hover" data-level="2" href="#fluid-unit">Unité fluide : viewport ou conteneur</a></li><li><a class="doc-toc-link no-hover" data-level="2" href="#plancher-d-accessibilite">Plancher d'accessibilité</a></li><li><a class="doc-toc-link no-hover" data-level="2" href="#largeur-de-reference">Largeur de référence</a></li><li><a class="doc-toc-link no-hover" data-level="2" href="#contreparties-statiques">Contreparties statiques</a></li><li><a class="doc-toc-link no-hover" data-level="2" href="#verifier-son-echelle">Vérifier son échelle</a></li></ul>
+      </div>
+    </aside>
+
+  </div>
+
+  <div class="doc-search" id="doc-search" hidden>
+    <div class="doc-search-backdrop" data-search-close></div>
+    <div class="doc-search-panel flex y" role="dialog" aria-modal="true" aria-label="Rechercher">
+      <div class="doc-search-field flex x center g-12">
+        <svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg>
+        <input type="search" id="doc-search-input" class="doc-search-input" placeholder="Rechercher dans la documentation" autocomplete="off" spellcheck="false">
+        <button type="button" class="doc-search-esc" data-search-close>esc</button>
+      </div>
+      <div class="doc-search-results" id="doc-search-results" data-empty="Aucun résultat pour"></div>
+    </div>
+  </div>
+
+  <footer class="px-220__ py-136 flex x g-20 w-full">
+    <div class="flex w-full y space center g-32">
+      <p class="fs-16 _c-brand_">© 2024</p>
+      <p class="fs-16 _c-brand_">Tati Michaël</p>
+    </div>
+    <div class="flex w-full y space g-32">
+      <a href="https://www.linkedin.com/in/mtati/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="index.html">Documentation</a>
+      <a href="../../doc/sizes.html" hreflang="en" title="View in English">EN</a>
+    </div>
+  </footer>
+
+  <script src="../../app.js"></script>
+  <script src="../../doc.js"></script>
+  </body>
+</html>
