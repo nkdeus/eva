@@ -188,9 +188,39 @@
 // basse qui reprend toute la composition.
 
 .gg-footer {
-  padding-top: var(--136);
-  padding-bottom: var(--84);
+  padding-top: var(--84);
+  padding-bottom: var(--52);
   background: var(--light-b);
+  row-gap: var(--52);
+}
+
+// Le tracé du pied de page : un filet sur le bord gauche de chaque piste, plus
+// le bord de fermeture. L'élément porte `gg-grid-rules`, donc il hérite du
+// composant (absolu, inset 0, hors pointeur, bandes étirées) — on ne remplace
+// que le remplissage par un trait, et le z-index, qui doit repasser au-dessus
+// du fond du pied au lieu de passer derrière.
+.footer-rules {
+  z-index: 0;
+
+  > * {
+    background: none;
+    border-left: 1px solid var(--dark___);
+  }
+
+  > :last-child {
+    border-right: 1px solid var(--dark___);
+  }
+}
+
+// La marque, en gros, sur la première piste — et alignée à gauche : c'est le
+// premier des trois bords gauches de la page.
+.footer-logo {
+  align-self: start;
+  margin: 0;
+  text-align: left;
+  color: var(--dark);
+
+  &:hover { color: var(--brand-d); }
 }
 
 // Le site pose `nav { position: fixed; top: 0 }` pour la barre principale.
@@ -243,11 +273,38 @@
   color: var(--dark__);
 }
 
+// La barre basse est elle aussi sur les pistes : elle rejoue les quatre
+// fractions à l'intérieur de la composition, comme un `.card-deck`. Le filet
+// horizontal, lui, court d'un bord à l'autre — c'est le seul trait continu du
+// pied de page.
 .footer-bar {
   padding-top: var(--32);
   border-top: 1px solid var(--dark___);
+  display: grid;
+  grid-template-columns:
+    [rail-start] minmax(0, 0.236fr)
+    [rail-end shoulder-start] minmax(0, 0.146fr)
+    [shoulder-end main-start] minmax(0, 0.382fr)
+    [main-end spill-start] minmax(0, 0.236fr) [spill-end];
+  column-gap: var(--gg-column-gap, var(--20));
+  row-gap: var(--12);
+  align-items: start;
+
+  > :first-child { grid-column: rail-start / shoulder-end; }
+  > :last-child { grid-column: spill; }
 
   p { margin: 0; }
+}
+
+@media (max-width: 54rem) {
+  .footer-bar {
+    grid-template-columns: minmax(0, 1fr);
+
+    > :first-child,
+    > :last-child {
+      grid-column: 1;
+    }
+  }
 }
 
 .footer-site {
@@ -257,8 +314,9 @@
 }
 
 .footer-lang {
-  align-self: flex-end;
   color: var(--dark_);
+
+  &:hover { color: var(--brand-d); }
 }
 
 // ===========================================

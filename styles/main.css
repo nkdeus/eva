@@ -11116,9 +11116,31 @@ body.no-rules .gg-grid-rules {
 }
 
 .gg-footer {
-  padding-top: var(--136);
-  padding-bottom: var(--84);
+  padding-top: var(--84);
+  padding-bottom: var(--52);
   background: var(--light-b);
+  row-gap: var(--52);
+}
+
+.footer-rules {
+  z-index: 0;
+}
+.footer-rules > * {
+  background: none;
+  border-left: 1px solid var(--dark___);
+}
+.footer-rules > :last-child {
+  border-right: 1px solid var(--dark___);
+}
+
+.footer-logo {
+  align-self: start;
+  margin: 0;
+  text-align: left;
+  color: var(--dark);
+}
+.footer-logo:hover {
+  color: var(--brand-d);
 }
 
 .page-grid nav,
@@ -11168,11 +11190,31 @@ body.no-rules .gg-grid-rules {
 .footer-bar {
   padding-top: var(--32);
   border-top: 1px solid var(--dark___);
+  display: grid;
+  grid-template-columns: [rail-start] minmax(0, 0.236fr) [rail-end shoulder-start] minmax(0, 0.146fr) [shoulder-end main-start] minmax(0, 0.382fr) [main-end spill-start] minmax(0, 0.236fr) [spill-end];
+  column-gap: var(--gg-column-gap, var(--20));
+  row-gap: var(--12);
+  align-items: start;
+}
+.footer-bar > :first-child {
+  grid-column: rail-start/shoulder-end;
+}
+.footer-bar > :last-child {
+  grid-column: spill;
 }
 .footer-bar p {
   margin: 0;
 }
 
+@media (max-width: 54rem) {
+  .footer-bar {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .footer-bar > :first-child,
+  .footer-bar > :last-child {
+    grid-column: 1;
+  }
+}
 .footer-site {
   color: var(--brand);
 }
@@ -11181,8 +11223,10 @@ body.no-rules .gg-grid-rules {
 }
 
 .footer-lang {
-  align-self: flex-end;
   color: var(--dark_);
+}
+.footer-lang:hover {
+  color: var(--brand-d);
 }
 
 .card-deck {

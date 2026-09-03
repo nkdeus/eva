@@ -250,7 +250,18 @@ module.exports = {
   </div>
 
   <footer class="gg-golden-grid gg-footer">
-    <p class="gg-rail section-rail section-rail--vertical">EVA CSS</p>
+
+    <!-- Les pistes, tracées au filet : un bord gauche par piste, plus le bord
+         de fermeture. C'est le même gabarit que le contenu, donc les filets
+         SONT les lignes de la grille. -->
+    <div class="gg-golden-grid gg-grid-rules footer-rules" aria-hidden="true">
+      <span class="gg-rules-rail"></span>
+      <span class="gg-rules-shoulder"></span>
+      <span class="gg-rules-main"></span>
+      <span class="gg-rules-spill"></span>
+    </div>
+
+    <a href="../index.html" class="gg-rail footer-logo logo no-hover title fs-72__ lh-1">EVA CSS</a>
 
     <div class="gg-main footer-brand flex y g-20">
       <p class="footer-tagline fs-24__ _c-dark-d_">A fluid SCSS framework. One number, four flavours, zero breakpoints.</p>
@@ -273,7 +284,7 @@ module.exports = {
       </nav>
     </div>
 
-    <div class="gg-frame footer-bar flex x space wrap g-12">
+    <div class="gg-frame footer-bar">
       <div class="flex y g-4">
         <p class="fs-12 _c-dark__">© 2024 — Tati Michaël</p>
         <a href="https://www.ulysse-2029.com/" target="_blank" rel="noopener" class="footer-site fs-12">ulysse-2029.com</a>
