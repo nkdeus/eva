@@ -226,7 +226,7 @@
 
   <section class="gg-golden-grid gg-section--tight">
     <div class="gg-frame flex y g-32">
-    <div class="grid auto-fit-356- gap-32 w-full">
+    <div class="card-deck">
       <div class="framework-card flex y g-12 p-32 _bg-light br-12">
         <span class="fs-12 _c-accent">Convention de nommage</span>
         <pre class="fs-12 _bg-dark__ p-16 br-8" style="color: var(--light); margin: 0;">_c-brand     /* couleur */
@@ -258,7 +258,7 @@ brand-b_  /* clair vif */</pre>
       <p class="fs-16 _c-dark_ maw-768">Un pivot, deux variables. Les mêmes tokens --dark et --light permutent leur luminosité automatiquement — les composants restent agnostiques au mode. OKLCH garde le chroma et la teinte intacts ; seul le canal L bascule.</p>
     </div>
 
-    <div class="grid auto-fit-356- gap-32 w-full">
+    <div class="card-deck">
       <div class="framework-card flex y g-12 p-32 _bg-light br-12">
         <span class="fs-12 _c-accent">Le pivot</span>
         <p class="fs-14 _c-dark_">Deux variables CSS pilotent l'inversion complète du mode. Tout le reste lit depuis elles.</p>
@@ -321,7 +321,7 @@ brand-b_  /* clair vif */</pre>
       </div>
     </div>
 
-    <div class="grid auto-fit-356- gap-32 w-full">
+    <div class="card-deck">
       <div class="framework-card flex y g-12 p-32 _bg-light br-12">
         <span class="fs-12 _c-accent">Bascule manuelle</span>
         <p class="fs-14 _c-dark_">Ajoutez la classe toggle-theme sur le body. EVA inverse aussi les offsets de luminosité, donc le modificateur -d reste assombrissant et -b reste éclaircissant à l'œil.</p>
@@ -352,7 +352,7 @@ brand-b_  /* clair vif */</pre>
       <p class="fs-16 _c-dark_ maw-768">Les quatre crans de luminosité étaient quatre décalages globaux partagés par les cinq bases. Chaque base peut désormais surcharger les siens — et passer en cran proportionnel, qui ne sature jamais.</p>
     </div>
 
-    <div class="grid auto-fit-356- gap-32 w-full">
+    <div class="card-deck">
       <div class="framework-card flex y g-12 p-32 _bg-light br-12">
         <span class="fs-12 _c-accent">Deux crans, une seule couleur</span>
         <p class="fs-12 _c-dark_">La lightness OKLCH est écrêtée à 0–100 %. Avec --light-lightness à 96,4 %, les deux crans clairs tombent exactement sur le même blanc.</p>
@@ -376,7 +376,7 @@ brand-b_  /* clair vif */</pre>
         <p class="fs-12 _c-dark__ maw-768">Même base, mêmes deux crans. À gauche les décalages absolus par défaut, à droite les mêmes crans passés en proportionnel. Basculez le thème — ça tient dans les deux modes.</p>
       </div>
 
-      <div class="grid auto-fit-356- gap-32 w-full">
+      <div class="card-deck">
         <div class="current-theme framework-card flex y g-20 p-32 _bg-light br-12">
           <span class="fs-12 _c-accent">Absolu — le défaut</span>
           <div class="flex x g-12 wrap">
@@ -444,7 +444,7 @@ brand-b_  /* clair vif */</pre>
 
     <div class="flex y g-20 w-full">
       <span class="fs-16 bold _c-dark">Recettes</span>
-      <div class="grid auto-fit-356- gap-32 w-full">
+      <div class="card-deck">
         <div class="framework-card flex y g-12 p-32 _bg-light br-12">
           <span class="fs-12 _c-accent">Neutres resserrés, accent large</span>
           <p class="fs-12 _c-dark_">Le cas le plus courant : les neutres veulent des pas de 2 à 4 points pour rester lisibles, l'accent en veut 12 à 30 pour marquer ses états.</p>
@@ -510,11 +510,6 @@ brand-b_  /* clair vif */</pre>
   </div>
   </section>
 
-  <div class="stage">
-    <div class="flex stage-top">
-      <div class="line-y h-4"></div><div class="line-y h-8"></div><div class="line-y h-12"></div><div class="line-y h-20"></div><div class="line-y h-32"></div><div class="line-y h-34"></div><div class="line-y h-52"></div><div class="line-y h-84"></div><div class="line-y h-136"></div><div class="line-y h-220"></div><div class="line-y h-356"></div><div class="line-y h-220"></div><div class="line-y h-136"></div><div class="line-y h-84"></div><div class="line-y h-52"></div><div class="line-y h-34"></div><div class="line-y h-32"></div><div class="line-y h-20"></div><div class="line-y h-12"></div><div class="line-y h-8"></div><div class="line-y h-4"></div>
-    </div>
-  </div>
   </main>
 
   <footer class="gg-golden-grid gg-footer">

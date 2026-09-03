@@ -12,20 +12,16 @@
 
 $gg-mono: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
 
-.gg-demo {
-  padding-block: var(--84);
-  background: var(--light);
-  border-radius: var(--12);
-  overflow: hidden;
-
-  // Le site pose `p { max-width: var(--576) }`. Sur un élément placé, toute
-  // largeur fait échouer le contrôle d'alignement : la piste EST la mesure.
-  // C'est le premier réflexe à avoir en branchant golden-grid sur une base
-  // existante — et c'est le contrôle en direct qui l'a signalé.
-  // (Le cas général est traité dans custom/_layout.scss.)
-  .gg-cut > * {
-    max-width: none;
-  }
+// La démo n'a plus de conteneur à elle : ses bandes sont des sections de la
+// page, sur la grille de la page. Il ne reste donc que le rythme vertical.
+//
+// Le site pose `p { max-width: var(--576) }`. Sur un élément placé, toute
+// largeur fait échouer le contrôle d'alignement : la piste EST la mesure.
+// C'est le premier réflexe à avoir en branchant golden-grid sur une base
+// existante — et c'est le contrôle en direct qui l'a signalé.
+// (Le cas général est traité dans custom/_layout.scss.)
+.gg-cut > * {
+  max-width: none;
 }
 
 // Une bande = une grille dorée. Le rythme vertical vient de l'échelle.
@@ -274,7 +270,7 @@ $gg-mono: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
 // Le repli natif est une media query sur le viewport ; ici on rejoue le même
 // re-mapping de lignes à l'intérieur de la démo, sans toucher aux placements.
 
-.gg-demo.is-mono {
+body.is-mono {
   .gg-golden-grid {
     grid-template-columns:
       [edge-start] var(--gg-gutter)
@@ -292,4 +288,4 @@ $gg-mono: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
   .gg-grid-rules { display: none; }
 }
 
-.gg-demo.no-rules .gg-grid-rules { display: none; }
+body.no-rules .gg-grid-rules { display: none; }

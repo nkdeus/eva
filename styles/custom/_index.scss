@@ -93,42 +93,10 @@
   }
 }
 
-.line-y {
-  width: 1px;
-  position: relative;
-  background-color: var(--dark);
-  opacity: 0.2;
-  &:after {
-    content: "";
-    position: absolute;
-    height: 100%;
-    aspect-ratio: 1/1;
-    background-color: #ffffff22;
-    border-radius: 100%;
-    transform: translateX(-50%);
-    border: 1px solid var(--dark);
-  }
-}
+// Le décor de fond (.stage / .line-y : des filets verticaux coiffés d'un
+// cercle flou) a été retiré : le tracé de la grille dorée occupe déjà ce
+// plan, et les deux se gênaient.
 
-.stage {
-  filter: blur(3px);
-  position: absolute;
-  overflow: hidden;
-  pointer-events: none;
-  z-index: 0;
-  height: 100%;
-  width: 100%;
-  left: 0px;
-  top: 0px;
-
-  .stage-top {
-    position: absolute;
-    width: 100%;
-    top: 0px;
-    align-items: flex-start;
-    justify-content: space-around;
-  }
-}
 .container-frame {
   position: relative;
   height: 90vh;

@@ -261,6 +261,53 @@
   color: var(--dark_);
 }
 
+// ===========================================
+// Les jeux de cartes
+// ===========================================
+// Un deck de cartes vit à l'intérieur d'un `.gg-frame`, qui est un élément de
+// la grille et non la grille elle-même : `subgrid` n'y est donc pas
+// disponible. Il rejoue les quatre pistes localement.
+//
+// L'alignement est exact, pas approché : `.gg-frame` couvre rail-start →
+// spill-end, soit 4 pistes et 3 gaps. Redistribuer sa largeur avec les mêmes
+// fractions et le même gap redonne exactement les mêmes abscisses de ligne.
+// Source des fractions : eva-css-fluid/src/golden-grid.scss.
+.card-deck {
+  // Le deck est un élément de flex, pas de grille : sans cela il se réduit à
+  // sa largeur de contenu et les pistes ne tombent plus sur les lignes.
+  width: 100%;
+  display: grid;
+  grid-template-columns:
+    [rail-start] minmax(0, 0.236fr)
+    [rail-end shoulder-start] minmax(0, 0.146fr)
+    [shoulder-end main-start] minmax(0, 0.382fr)
+    [main-end spill-start] minmax(0, 0.236fr) [spill-end];
+  column-gap: var(--gg-column-gap, var(--20));
+  row-gap: var(--52);
+  grid-auto-flow: row dense;
+  align-items: start;
+
+  // Deux cartes par rangée, de largeurs inégales, posées sur la coupure dorée.
+  > :nth-child(odd) { grid-column: rail-start / shoulder-end; }  // 0,382
+  > :nth-child(even) {
+    grid-column: main-start / spill-end;                          // 0,618
+    margin-top: var(--84);
+  }
+}
+
+@media (max-width: 54rem) {
+  .card-deck {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: var(--32);
+
+    > :nth-child(odd),
+    > :nth-child(even) {
+      grid-column: 1;
+      margin-top: 0;
+    }
+  }
+}
+
 // La FAQ n'a pas besoin de toute la composition : elle se pose sur la coupure
 // dorée (0,618), bord gauche sur la colonne de lecture, bord droit sur le
 // débord. Le rail et l'épaule restent vides à sa gauche.

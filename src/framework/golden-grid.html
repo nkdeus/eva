@@ -132,34 +132,24 @@
   </div>
   </section>
 
-  <!-- Commandes de la démo. Volontairement hors de la grille : rien de ce qui
-       est posé dans .gg-demo ne doit échapper au contrôle d'alignement. -->
-  <section class="px-52__ pt-84 flex y g-20">
-    <div class="flex y g-12">
-      <h2 class="fs-36_ _c-dark-d_ lh-1 ttu">{{t.goldenGrid.demo.title}}</h2>
-      <p class="fs-16 _c-dark_ maw-768">{{t.goldenGrid.demo.lede}}</p>
-    </div>
-    <div class="gg-controls">
-      <label><input type="checkbox" id="gg-t-rules" checked><span>{{t.goldenGrid.controls.rules}}</span></label>
-      <label><input type="checkbox" id="gg-t-debug"><span>{{t.goldenGrid.controls.debug}}</span></label>
-      <label><input type="checkbox" id="gg-t-mono"><span>{{t.goldenGrid.controls.mono}}</span></label>
-      <label for="gg-gap">{{t.goldenGrid.controls.gap}}</label>
-      <input type="range" id="gg-gap" min="0" max="8" step="1" value="4" aria-describedby="gg-gap-out">
-      <output id="gg-gap-out">--20</output>
+  <!-- La démo n'a pas de grille à elle : elle EST la grille de la page. Les
+       bandes qui suivent sont des sections de premier niveau, et le tracé de
+       fond qu'elles montrent est celui du gabarit, en haut de <main>. Les
+       commandes agissent donc sur <body> — c'est toute la page qui bascule. -->
+  <section class="gg-golden-grid gg-section--tight">
+    <div class="gg-blocks">
+      <h2 class="gg-wide fs-36_ _c-dark-d_ lh-1 ttu">{{t.goldenGrid.demo.title}}</h2>
+      <p class="gg-main fs-16 _c-dark_">{{t.goldenGrid.demo.lede}}</p>
+      <div class="gg-frame gg-controls">
+        <label><input type="checkbox" id="gg-t-rules" checked><span>{{t.goldenGrid.controls.rules}}</span></label>
+        <label><input type="checkbox" id="gg-t-debug"><span>{{t.goldenGrid.controls.debug}}</span></label>
+        <label><input type="checkbox" id="gg-t-mono"><span>{{t.goldenGrid.controls.mono}}</span></label>
+        <label for="gg-gap">{{t.goldenGrid.controls.gap}}</label>
+        <input type="range" id="gg-gap" min="0" max="8" step="1" value="4" aria-describedby="gg-gap-out">
+        <output id="gg-gap-out">--20</output>
+      </div>
     </div>
   </section>
-
-  <section class="px-52__ py-32">
-    <div id="gg-demo" class="gg-demo gg-grid-page">
-
-      <!-- Le tracé de fond : ses bandes SONT les pistes, il porte la même
-           classe que le contenu. Aucune approximation possible. -->
-      <div class="gg-golden-grid gg-grid-rules" aria-hidden="true">
-        <span class="gg-rules-rail"></span>
-        <span class="gg-rules-shoulder"></span>
-        <span class="gg-rules-main"></span>
-        <span class="gg-rules-spill"></span>
-      </div>
 
       <section class="gg-golden-grid gg-band" aria-label="{{t.goldenGrid.demo.specimenAria}}">
         <div class="gg-spec gg-spec--edge gg-spec--edge-l"><b>φ⁻⁶</b>0,056<br>{{t.goldenGrid.specimen.margin}}</div>
@@ -259,9 +249,6 @@
         </div>
       </section>
 
-    </div>
-  </section>
-
   <section class="gg-golden-grid gg-section--tight">
     <div class="gg-frame flex y g-32">
     <div class="framework-card flex y g-20 p-52- grad-linear from-accent_ to-extra_ d-br br-12">
@@ -275,11 +262,6 @@
   </div>
   </section>
 
-  <div class="stage">
-    <div class="flex stage-top">
-      <div class="line-y h-4"></div><div class="line-y h-8"></div><div class="line-y h-12"></div><div class="line-y h-20"></div><div class="line-y h-32"></div><div class="line-y h-34"></div><div class="line-y h-52"></div><div class="line-y h-84"></div><div class="line-y h-136"></div><div class="line-y h-220"></div><div class="line-y h-356"></div><div class="line-y h-220"></div><div class="line-y h-136"></div><div class="line-y h-84"></div><div class="line-y h-52"></div><div class="line-y h-34"></div><div class="line-y h-32"></div><div class="line-y h-20"></div><div class="line-y h-12"></div><div class="line-y h-8"></div><div class="line-y h-4"></div>
-    </div>
-  </div>
   </main>
 
   <footer class="gg-golden-grid gg-footer">
@@ -332,8 +314,10 @@
        puis on mesure chaque conteneur réellement placé. -->
   <script>
   (function () {
-    var demo = document.getElementById('gg-demo');
-    if (!demo) return;
+    // La démo est la page : les bascules et le token de gap se posent sur
+    // <body>, et la mesure porte sur la grille du gabarit.
+    var demo = document.body;
+    if (!document.getElementById('gg-readout')) return;
 
     var readout = document.getElementById('gg-readout');
     var summary = document.getElementById('gg-summary');
@@ -420,6 +404,10 @@
       var input = document.getElementById(id);
       var apply = function () {
         demo.classList.toggle(cls, inverted ? !input.checked : input.checked);
+        // Mesure tout de suite, puis re-mesure à la frame suivante : la
+        // première lecture force le reflow, la seconde rattrape une police
+        // ou une transition qui n'aurait pas encore fini.
+        measure();
         requestAnimationFrame(measure);
       };
       input.addEventListener('change', apply);
@@ -430,6 +418,7 @@
       var token = SCALE[+gapInput.value];
       demo.style.setProperty('--gg-column-gap', 'var(--' + token + ')');
       gapOut.textContent = '--' + token;
+      measure();
       requestAnimationFrame(measure);
     });
 

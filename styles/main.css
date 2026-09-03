@@ -9888,42 +9888,6 @@ section nav {
   z-index: 4;
 }
 
-.line-y {
-  width: 1px;
-  position: relative;
-  background-color: var(--dark);
-  opacity: 0.2;
-}
-.line-y:after {
-  content: "";
-  position: absolute;
-  height: 100%;
-  aspect-ratio: 1/1;
-  background-color: rgba(255, 255, 255, 0.1333333333);
-  border-radius: 100%;
-  transform: translateX(-50%);
-  border: 1px solid var(--dark);
-}
-
-.stage {
-  filter: blur(3px);
-  position: absolute;
-  overflow: hidden;
-  pointer-events: none;
-  z-index: 0;
-  height: 100%;
-  width: 100%;
-  left: 0px;
-  top: 0px;
-}
-.stage .stage-top {
-  position: absolute;
-  width: 100%;
-  top: 0px;
-  align-items: flex-start;
-  justify-content: space-around;
-}
-
 .container-frame {
   position: relative;
   height: 90vh;
@@ -10172,14 +10136,17 @@ section nav {
   backdrop-filter: none;
 }
 
+.doc-shell-band {
+  padding-top: calc(var(--doc-nav-h) + var(--52));
+  padding-bottom: var(--136);
+}
+
 .doc-shell {
+  grid-column: rail-start/spill-end;
   display: grid;
   grid-template-columns: var(--220) minmax(0, var(--712)) var(--220_);
   justify-content: center;
   gap: var(--doc-gutter);
-  padding-top: calc(var(--doc-nav-h) + var(--52));
-  padding-bottom: var(--136);
-  padding-inline: var(--52);
 }
 
 .doc-sidebar-inner,
@@ -10731,8 +10698,9 @@ section nav {
   .doc-shell {
     grid-template-columns: minmax(0, 1fr);
     gap: var(--32);
+  }
+  .doc-shell-band {
     padding-top: calc(var(--doc-nav-h) + var(--32));
-    padding-inline: var(--32);
   }
   .doc-sidebar-inner {
     position: static;
@@ -10770,13 +10738,7 @@ section nav {
     display: none;
   }
 }
-.gg-demo {
-  padding-block: var(--84);
-  background: var(--light);
-  border-radius: var(--12);
-  overflow: hidden;
-}
-.gg-demo .gg-cut > * {
+.gg-cut > * {
   max-width: none;
 }
 
@@ -11015,22 +10977,22 @@ section nav {
   color: var(--brand-d);
 }
 
-.gg-demo.is-mono .gg-golden-grid {
+body.is-mono .gg-golden-grid {
   grid-template-columns: [edge-start] var(--gg-gutter) [rail-start shoulder-start main-start spill-start] minmax(0, 1fr) [rail-end shoulder-end main-end spill-end] var(--gg-gutter) [edge-end];
 }
-.gg-demo.is-mono .gg-spill,
-.gg-demo.is-mono .gg-cut > :nth-child(odd),
-.gg-demo.is-mono .gg-cut > :nth-child(even) {
+body.is-mono .gg-spill,
+body.is-mono .gg-cut > :nth-child(odd),
+body.is-mono .gg-cut > :nth-child(even) {
   grid-column: main-start/edge-end;
 }
-.gg-demo.is-mono .gg-cut > :nth-child(even) {
+body.is-mono .gg-cut > :nth-child(even) {
   margin-top: 0;
 }
-.gg-demo.is-mono .gg-grid-rules {
+body.is-mono .gg-grid-rules {
   display: none;
 }
 
-.gg-demo.no-rules .gg-grid-rules {
+body.no-rules .gg-grid-rules {
   display: none;
 }
 
@@ -11223,6 +11185,34 @@ section nav {
   color: var(--dark_);
 }
 
+.card-deck {
+  width: 100%;
+  display: grid;
+  grid-template-columns: [rail-start] minmax(0, 0.236fr) [rail-end shoulder-start] minmax(0, 0.146fr) [shoulder-end main-start] minmax(0, 0.382fr) [main-end spill-start] minmax(0, 0.236fr) [spill-end];
+  column-gap: var(--gg-column-gap, var(--20));
+  row-gap: var(--52);
+  grid-auto-flow: row dense;
+  align-items: start;
+}
+.card-deck > :nth-child(odd) {
+  grid-column: rail-start/shoulder-end;
+}
+.card-deck > :nth-child(even) {
+  grid-column: main-start/spill-end;
+  margin-top: var(--84);
+}
+
+@media (max-width: 54rem) {
+  .card-deck {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: var(--32);
+  }
+  .card-deck > :nth-child(odd),
+  .card-deck > :nth-child(even) {
+    grid-column: 1;
+    margin-top: 0;
+  }
+}
 .faq-list {
   grid-column: main-start/spill-end;
 }

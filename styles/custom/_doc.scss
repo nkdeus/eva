@@ -47,14 +47,22 @@
 // SHELL
 // ===========================================
 
+// La doc ne prend pas la grille dorée à l'intérieur — un sommaire latéral et
+// un fil de lecture n'ont rien à faire sur quatre pistes inégales. Mais son
+// gabarit doit s'aligner sur le reste du site : la bande est une grille dorée,
+// et la coquille à trois colonnes se pose sur la composition, exactement comme
+// un `.gg-frame` de page marketing.
+.doc-shell-band {
+  padding-top: calc(var(--doc-nav-h) + var(--52));
+  padding-bottom: var(--136);
+}
+
 .doc-shell {
+  grid-column: rail-start / spill-end;
   display: grid;
   grid-template-columns: var(--220) minmax(0, var(--712)) var(--220_);
   justify-content: center;
   gap: var(--doc-gutter);
-  padding-top: calc(var(--doc-nav-h) + var(--52));
-  padding-bottom: var(--136);
-  padding-inline: var(--52);
 }
 
 .doc-sidebar-inner,
@@ -658,8 +666,12 @@
   .doc-shell {
     grid-template-columns: minmax(0, 1fr);
     gap: var(--32);
+  }
+
+  // Le repli du composant ramène la bande sur une piste : la marge de page
+  // suffit, plus besoin de padding.
+  .doc-shell-band {
     padding-top: calc(var(--doc-nav-h) + var(--32));
-    padding-inline: var(--32);
   }
 
   .doc-sidebar-inner {

@@ -226,7 +226,7 @@
 
   <section class="gg-golden-grid gg-section--tight">
     <div class="gg-frame flex y g-32">
-    <div class="grid auto-fit-356- gap-32 w-full">
+    <div class="card-deck">
       <div class="framework-card flex y g-12 p-32 _bg-light br-12">
         <span class="fs-12 _c-accent">Naming convention</span>
         <pre class="fs-12 _bg-dark__ p-16 br-8" style="color: var(--light); margin: 0;">_c-brand     /* color */
@@ -258,7 +258,7 @@ brand-b_  /* lighter bright */</pre>
       <p class="fs-16 _c-dark_ maw-768">One pivot, two variables. The same --dark and --light tokens flip their lightness automatically — components stay mode-agnostic. OKLCH keeps chroma and hue intact; only the L channel swaps.</p>
     </div>
 
-    <div class="grid auto-fit-356- gap-32 w-full">
+    <div class="card-deck">
       <div class="framework-card flex y g-12 p-32 _bg-light br-12">
         <span class="fs-12 _c-accent">The pivot</span>
         <p class="fs-14 _c-dark_">Two CSS variables drive the entire mode swap. Everything else reads from them.</p>
@@ -321,7 +321,7 @@ brand-b_  /* lighter bright */</pre>
       </div>
     </div>
 
-    <div class="grid auto-fit-356- gap-32 w-full">
+    <div class="card-deck">
       <div class="framework-card flex y g-12 p-32 _bg-light br-12">
         <span class="fs-12 _c-accent">Manual toggle</span>
         <p class="fs-14 _c-dark_">Add the toggle-theme class on the body. EVA also flips the brightness offsets so the -d modifier still darkens and -b still brightens visually.</p>
@@ -352,7 +352,7 @@ brand-b_  /* lighter bright */</pre>
       <p class="fs-16 _c-dark_ maw-768">The four brightness steps used to be four global offsets shared by all five bases. Every base can now override its own — and opt into a proportional step that never clips.</p>
     </div>
 
-    <div class="grid auto-fit-356- gap-32 w-full">
+    <div class="card-deck">
       <div class="framework-card flex y g-12 p-32 _bg-light br-12">
         <span class="fs-12 _c-accent">Two steps, one color</span>
         <p class="fs-12 _c-dark_">OKLCH lightness is clamped to 0–100%. With --light-lightness at 96.4%, both bright steps land on the exact same white.</p>
@@ -376,7 +376,7 @@ brand-b_  /* lighter bright */</pre>
         <p class="fs-12 _c-dark__ maw-768">Same base, same two steps. On the left the default absolute offsets, on the right the same steps switched to proportional. Toggle the theme — it holds in both modes.</p>
       </div>
 
-      <div class="grid auto-fit-356- gap-32 w-full">
+      <div class="card-deck">
         <div class="current-theme framework-card flex y g-20 p-32 _bg-light br-12">
           <span class="fs-12 _c-accent">Absolute — the default</span>
           <div class="flex x g-12 wrap">
@@ -444,7 +444,7 @@ brand-b_  /* lighter bright */</pre>
 
     <div class="flex y g-20 w-full">
       <span class="fs-16 bold _c-dark">Recipes</span>
-      <div class="grid auto-fit-356- gap-32 w-full">
+      <div class="card-deck">
         <div class="framework-card flex y g-12 p-32 _bg-light br-12">
           <span class="fs-12 _c-accent">Tight neutrals, wide accent</span>
           <p class="fs-12 _c-dark_">The most common case: neutrals want 2 to 4 points to stay readable, an accent wants 12 to 30 to mark its states.</p>
@@ -510,11 +510,6 @@ brand-b_  /* lighter bright */</pre>
   </div>
   </section>
 
-  <div class="stage">
-    <div class="flex stage-top">
-      <div class="line-y h-4"></div><div class="line-y h-8"></div><div class="line-y h-12"></div><div class="line-y h-20"></div><div class="line-y h-32"></div><div class="line-y h-34"></div><div class="line-y h-52"></div><div class="line-y h-84"></div><div class="line-y h-136"></div><div class="line-y h-220"></div><div class="line-y h-356"></div><div class="line-y h-220"></div><div class="line-y h-136"></div><div class="line-y h-84"></div><div class="line-y h-52"></div><div class="line-y h-34"></div><div class="line-y h-32"></div><div class="line-y h-20"></div><div class="line-y h-12"></div><div class="line-y h-8"></div><div class="line-y h-4"></div>
-    </div>
-  </div>
   </main>
 
   <footer class="gg-golden-grid gg-footer">
