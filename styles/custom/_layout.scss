@@ -320,6 +320,91 @@
 }
 
 // ===========================================
+// Le halo des héros
+// ===========================================
+// Une boîte par piste, exactement à la largeur de sa piste — c'est la même
+// grille que le contenu, donc aucune approximation. Chaque boîte porte un
+// dégradé qui part d'une couleur du thème, s'efface, puis revient à un dernier
+// palier très faible : la fin du dégradé reste perceptible au lieu de mourir
+// dans le transparent. Le biseau ne touche qu'aux arêtes horizontales ; les
+// bords verticaux, eux, restent sur les lignes.
+//
+// `.gg-golden-grid.hero-glow` monte à la même spécificité que la règle de
+// positionnement générale, et passe après elle : c'est ce qui lui rend son
+// `position: absolute`.
+.gg-golden-grid.hero-glow {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  align-items: stretch;
+  row-gap: 0;
+
+  > * {
+    transform: skewY(-7deg) translateY(var(--glow-shift, 0));
+    transform-origin: 0 0;
+    border-radius: var(--12);
+  }
+
+  // Le dernier palier — la « fin » du dégradé — vaut moins de la moitié du
+  // premier : présent, jamais lu comme un aplat.
+  .glow-rail {
+    grid-column: rail;
+    --glow-shift: 8%;
+    background: linear-gradient(
+      180deg,
+      var(--brand___) 0%,
+      transparent 52%,
+      color-mix(in oklab, var(--brand) 7%, transparent) 100%
+    );
+  }
+
+  .glow-shoulder {
+    grid-column: shoulder-start / shoulder-end;
+    --glow-shift: -4%;
+    background: linear-gradient(
+      180deg,
+      color-mix(in oklab, var(--extra) 9%, transparent) 0%,
+      transparent 42%,
+      color-mix(in oklab, var(--extra) 5%, transparent) 100%
+    );
+  }
+
+  // La piste de lecture porte le texte : c'est la plus discrète des quatre.
+  .glow-main {
+    grid-column: main;
+    --glow-shift: 3%;
+    background: linear-gradient(
+      180deg,
+      color-mix(in oklab, var(--accent) 8%, transparent) 0%,
+      transparent 46%,
+      color-mix(in oklab, var(--accent) 5%, transparent) 100%
+    );
+  }
+
+  .glow-spill {
+    grid-column: spill;
+    --glow-shift: -6%;
+    background: linear-gradient(
+      180deg,
+      var(--extra___) 0%,
+      transparent 50%,
+      color-mix(in oklab, var(--brand) 7%, transparent) 100%
+    );
+  }
+}
+
+// Sous le repli il n'y a plus qu'une piste : les quatre boîtes s'empileraient
+// en quatre bandes d'un quart de hauteur. Une seule reste, et elle occupe
+// toute la piste.
+@media (max-width: 54rem) {
+  .gg-golden-grid.hero-glow > :not(.glow-rail) {
+    display: none;
+  }
+}
+
+// ===========================================
 // Les jeux de cartes
 // ===========================================
 // Un deck de cartes vit à l'intérieur d'un `.gg-frame`, qui est un élément de
