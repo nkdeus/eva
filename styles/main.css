@@ -11055,7 +11055,7 @@ body.no-rules .gg-grid-rules {
   inset-block-start: 0;
 }
 
-.gg-golden-grid:not(.gg-grid-rules):not(.pof),
+.gg-golden-grid:not(.gg-grid-rules):not(.pof):not(.hero-glow),
 .gg-blocks,
 .goals-bento,
 .hub-cards {

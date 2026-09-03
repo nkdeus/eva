@@ -99,11 +99,16 @@
   inset-block-start: 0;
 }
 
-// Le bloc conteneur des libellés hors flux. Deux exclusions :
-// `.gg-grid-rules` — le tracé de fond, qui doit rester en `absolute` ;
-// `.pof` — la barre de navigation, qui déclare déjà sa position (`fixed`) et
-// que ce `relative` remettait dans le flux.
-.gg-golden-grid:not(.gg-grid-rules):not(.pof),
+// Le bloc conteneur des libellés hors flux.
+//
+// ATTENTION en touchant à ce sélecteur : chaque `:not()` ajouté monte sa
+// spécificité d'un cran, et il gagne alors contre des règles qui passaient
+// avant. Toute grille dorée qui pose sa propre position doit être exclue ici,
+// pas seulement déclarée ailleurs. Les trois cas :
+//   `.gg-grid-rules` — le tracé de fond, en `absolute` ;
+//   `.pof`           — la barre de navigation, en `fixed` ;
+//   `.hero-glow`     — le halo des héros, en `absolute`.
+.gg-golden-grid:not(.gg-grid-rules):not(.pof):not(.hero-glow),
 .gg-blocks,
 .goals-bento,
 .hub-cards {
