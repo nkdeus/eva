@@ -413,7 +413,13 @@
         .replace('{composition}', Math.round(total))
         .replace('{width}', Math.round(width));
 
-      verdict.classList.toggle('is-off', off > 0);
+      // add/remove : l'extracteur d'eva-css-purge ne lit qu'un
+      // classList.*() à un seul argument.
+      if (off > 0) {
+        verdict.classList.add('is-off');
+      } else {
+        verdict.classList.remove('is-off');
+      }
       verdict.textContent = (off === 0
         ? '{n} containers measured · 0 deviation — every one starts and ends on a line.'.replace('{n}', checked)
         : '{n} containers measured · {off} off-track ({first}).'

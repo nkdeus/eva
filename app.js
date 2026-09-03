@@ -382,7 +382,16 @@ function initNavScrollState() {
   const nav = document.getElementById('nav');
   if (!nav) return;
 
-  const set = (scrolled) => nav.classList.toggle('is-scrolled', scrolled);
+  // add/remove plutôt que `toggle(cls, bool)` : l'extracteur d'eva-css-purge
+  // ne reconnaît qu'un `classList.*()` à un seul argument, et purgerait la
+  // règle `.is-scrolled` faute de la voir utilisée nulle part.
+  const set = (scrolled) => {
+    if (scrolled) {
+      nav.classList.add('is-scrolled');
+    } else {
+      nav.classList.remove('is-scrolled');
+    }
+  };
 
   // Une sentinelle de 8px en haut du document plutôt qu'un écouteur `scroll` :
   // l'observateur se déclenche quelle que soit l'origine du défilement — molette,

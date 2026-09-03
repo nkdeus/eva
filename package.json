@@ -7,7 +7,7 @@
     "build-css": "npx sass --load-path=node_modules styles/main.scss:styles/main.css --style expanded",
     "build-i18n": "node scripts/build-i18n.js",
     "build": "npm run build-css && npm run build-i18n && npm run purge",
-    "purge": "npx eva-purge --css styles/main.css --content \"**/*.html\" --output styles/main-compressed.css --safelist \"current-theme,toggle-theme,all-grads\"",
+    "purge": "npx eva-purge --css styles/main.css --content \"**/*.html\" --content \"app.js\" --content \"doc.js\" --output styles/main-compressed.css --safelist \"current-theme,toggle-theme,all-grads\"",
     "color:convert": "npx eva-color convert",
     "color:palette": "npx eva-color palette",
     "color:theme": "npx eva-color theme"
