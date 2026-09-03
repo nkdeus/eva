@@ -11055,11 +11055,21 @@ body.no-rules .gg-grid-rules {
   inset-block-start: 0;
 }
 
-.gg-golden-grid:not(.gg-grid-rules),
+.gg-golden-grid:not(.gg-grid-rules):not(.pof),
 .gg-blocks,
 .goals-bento,
 .hub-cards {
   position: relative;
+}
+
+#nav {
+  background-color: transparent;
+  backdrop-filter: none;
+  transition: background-color 0.25s ease, backdrop-filter 0.25s ease;
+}
+#nav.is-scrolled {
+  background-color: var(--light___);
+  backdrop-filter: blur(1rem);
 }
 
 .hero-title {

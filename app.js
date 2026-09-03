@@ -374,6 +374,36 @@ function initThemeToggle() {
   });
 }
 
+// La barre de navigation est transparente en haut de page. Le fond et le flou
+// n'apparaissent qu'une fois le défilement engagé : en haut, le héros passe
+// sous une barre invisible ; dès qu'on descend, le texte a besoin du voile
+// pour rester lisible.
+function initNavScrollState() {
+  const nav = document.getElementById('nav');
+  if (!nav) return;
+
+  const set = (scrolled) => nav.classList.toggle('is-scrolled', scrolled);
+
+  // Une sentinelle de 8px en haut du document plutôt qu'un écouteur `scroll` :
+  // l'observateur se déclenche quelle que soit l'origine du défilement — molette,
+  // ancre, `scrollTo`, restauration de position — là où l'événement `scroll`
+  // peut être avalé par une bibliothèque qui normalise le défilement.
+  if ('IntersectionObserver' in window) {
+    const sentinel = document.createElement('div');
+    sentinel.setAttribute('aria-hidden', 'true');
+    sentinel.style.cssText =
+      'position:absolute;top:0;left:0;width:1px;height:8px;pointer-events:none';
+    document.body.prepend(sentinel);
+
+    new IntersectionObserver(([entry]) => set(!entry.isIntersecting)).observe(sentinel);
+    return;
+  }
+
+  const apply = () => set(window.scrollY > 8);
+  apply();
+  window.addEventListener('scroll', apply, { passive: true });
+}
+
 // Fonction pour initialiser le burger menu
 function initBurgerMenu() {
   const burgerButton = document.getElementById('burger-menu');
@@ -692,6 +722,9 @@ function initApp() {
 
   // Initialiser la gestion du scroll pour le menu
   initScrollMenuHandler();
+
+  // Initialiser l'état de la barre de navigation au défilement
+  initNavScrollState();
 
   // Initialiser le draggable sur les éléments .ballzzz
   // Attendre un peu que tous les éléments soient bien rendus

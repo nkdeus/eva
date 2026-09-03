@@ -99,13 +99,32 @@
   inset-block-start: 0;
 }
 
-// Le bloc conteneur des libellés hors flux. `:not(.gg-grid-rules)` protège le
-// tracé de fond, qui doit rester en `absolute`.
-.gg-golden-grid:not(.gg-grid-rules),
+// Le bloc conteneur des libellés hors flux. Deux exclusions :
+// `.gg-grid-rules` — le tracé de fond, qui doit rester en `absolute` ;
+// `.pof` — la barre de navigation, qui déclare déjà sa position (`fixed`) et
+// que ce `relative` remettait dans le flux.
+.gg-golden-grid:not(.gg-grid-rules):not(.pof),
 .gg-blocks,
 .goals-bento,
 .hub-cards {
   position: relative;
+}
+
+// ===========================================
+// La barre de navigation
+// ===========================================
+// Transparente en haut de page : le héros passe dessous sans être coupé par un
+// bandeau. Le fond et le flou n'arrivent qu'une fois le défilement engagé —
+// la classe est posée par app.js.
+#nav {
+  background-color: transparent;
+  backdrop-filter: none;
+  transition: background-color 0.25s ease, backdrop-filter 0.25s ease;
+
+  &.is-scrolled {
+    background-color: var(--light___);
+    backdrop-filter: blur(1rem);
+  }
 }
 
 // Le titre de hero. `text-wrap: balance` répartit les lignes au lieu de

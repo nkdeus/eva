@@ -1046,20 +1046,23 @@
       if (!activeDevice) { pathEl.setAttribute('d', ''); return; }
       const indicator = activeDevice.querySelector('.size-indicator');
       if (!indicator) return;
-      const sectionRect = section.getBoundingClientRect();
+      // Le repère, c'est la boîte du SVG lui-même : il est en absolu dans le
+      // `.gg-frame`, qui ne couvre qu'une partie de la section. Prendre la
+      // section comme origine décalerait le tracé de la marge de la piste.
+      const originRect = (pathEl.ownerSVGElement || section).getBoundingClientRect();
       const indRect = indicator.getBoundingClientRect();
       const rangeRect = range.getBoundingClientRect();
 
-      const startX = indRect.left + indRect.width / 2 - sectionRect.left;
-      const startY = indRect.top + indRect.height / 2 - sectionRect.top;
+      const startX = indRect.left + indRect.width / 2 - originRect.left;
+      const startY = indRect.top + indRect.height / 2 - originRect.top;
 
       const min = parseInt(range.min, 10);
       const max = parseInt(range.max, 10);
       const progress = (parseInt(range.value, 10) - min) / (max - min);
       const thumbW = 32;
       const trackW = rangeRect.width - thumbW;
-      const thumbX = rangeRect.left + (progress * trackW) + (thumbW / 2) - sectionRect.left;
-      const thumbY = rangeRect.top + rangeRect.height / 2 - sectionRect.top;
+      const thumbX = rangeRect.left + (progress * trackW) + (thumbW / 2) - originRect.left;
+      const thumbY = rangeRect.top + rangeRect.height / 2 - originRect.top;
 
       const c1x = startX + (thumbX - startX) * 0.2;
       const c1y = startY + 32;
