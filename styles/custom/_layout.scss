@@ -341,10 +341,13 @@
   align-items: stretch;
   row-gap: 0;
 
+  // Remontées d'une demi-hauteur : le début du dégradé sort par le haut et
+  // seule sa fin reste dans le cadre — c'est-à-dire l'arête biseautée et le
+  // dernier palier de couleur. Pas de rayon : l'arête doit se lire comme une
+  // coupe, pas comme une carte.
   > * {
-    transform: skewY(-7deg) translateY(var(--glow-shift, 0));
+    transform: translateY(calc(-50% + var(--glow-shift, 0%))) skewY(-7deg);
     transform-origin: 0 0;
-    border-radius: var(--12);
   }
 
   // Le dernier palier — la « fin » du dégradé — vaut moins de la moitié du

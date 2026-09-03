@@ -11239,9 +11239,8 @@ body.no-rules .gg-grid-rules {
   row-gap: 0;
 }
 .gg-golden-grid.hero-glow > * {
-  transform: skewY(-7deg) translateY(var(--glow-shift, 0));
+  transform: translateY(calc(-50% + var(--glow-shift, 0%))) skewY(-7deg);
   transform-origin: 0 0;
-  border-radius: var(--12);
 }
 .gg-golden-grid.hero-glow .glow-rail {
   grid-column: rail;
