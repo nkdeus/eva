@@ -1,0 +1,286 @@
+// ===========================================
+// Layout du site — posé sur golden-grid
+// ===========================================
+// Le site n'a plus de conteneur à padding (`px-220__`) : chaque bande de page
+// est une grille dorée, et ses enfants déclarent un rôle — rail, texte, wide,
+// débord — jamais une largeur.
+//
+// Tout ce qui est ajouté ici est soit un placement sur les LIGNES NOMMÉES du
+// composant, soit du rythme vertical pris sur l'échelle $sizes. Aucune largeur
+// n'est posée nulle part : c'est la condition pour que le contrôle
+// d'alignement de framework/golden-grid.html reste vert.
+// ===========================================
+
+:root {
+  // La même marge que le composant calcule sur `.gg-golden-grid`, exposée aux
+  // éléments qui vivent hors de la grille (décorations en position absolue).
+  --page-gutter: max(5.6%, calc((100% - 1440px) / 2));
+}
+
+// Le gabarit de page : contexte d'empilement pour le tracé de fond, et repère
+// pour les décorations en absolu.
+.page-grid {
+  position: relative;
+  isolation: isolate;
+}
+
+// Toute la composition, du premier bord gauche au bord du débord. C'est le
+// placement des blocs qui ont déjà leur propre mise en page interne : barre de
+// nav, bento, grilles de cartes, liste de FAQ, pied de page.
+.gg-frame {
+  grid-column: rail-start / spill-end;
+}
+
+// Une bande de page. Le rythme vertical reste sur l'échelle, pas sur φ :
+// une bande n'est pas une division de la page.
+.gg-section {
+  padding-block: var(--136);
+}
+
+.gg-section--tight {
+  padding-block: var(--84);
+}
+
+.gg-section--hero {
+  padding-top: var(--220-);
+  padding-bottom: var(--84);
+}
+
+// La règle du composant : un élément placé ne porte pas de largeur. Le site,
+// lui, pose `p { width: 100%; max-width: var(--576) }` — sur une piste, c'est
+// exactement ce qui casse l'alignement.
+.gg-golden-grid > *,
+.gg-blocks > * {
+  max-width: none;
+}
+
+// Le rail des sections : numéro + intitulé, aligné à droite contre le vide de
+// l'épaule. Sous le repli, il redevient un simple sur-titre.
+.section-rail {
+  margin: 0;
+  font-size: var(--fs-12);
+  line-height: 1.4;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--dark__);
+
+  b {
+    display: block;
+    font-family: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
+    font-size: var(--fs-24);
+    letter-spacing: 0;
+    color: var(--brand);
+  }
+}
+
+// Le rail suit la lecture sur les bandes hautes.
+.gg-rail--sticky .section-rail {
+  display: block;
+}
+
+// Le libellé vertical du hero : il se lit de haut en bas le long du bord de
+// l'épaule, comme un dos de livre.
+//
+// `vertical-rl` suffit à le coller au bord droit de la piste : en mode
+// d'écriture vertical, l'axe de bloc va de droite à gauche, donc la première
+// ligne se pose contre le bord droit. Pas de `margin-left: auto` — une marge
+// automatique décalerait la boîte et sortirait le rail de sa ligne de grille.
+.section-rail--vertical {
+  writing-mode: vertical-rl;
+  text-align: start;
+  letter-spacing: 0.18em;
+
+  // Hors flux, et c'est le point : en mode vertical, la longueur du texte est
+  // une HAUTEUR. Un libellé un peu long imposerait la sienne à la rangée et
+  // creuserait un vide entre le titre et le texte. Sorti du flux, il ne pèse
+  // plus sur le calcul des rangées — mais il garde sa piste, parce qu'un
+  // enfant absolu d'une grille positionnée prend sa zone comme bloc conteneur.
+  position: absolute;
+  inset-block-start: 0;
+}
+
+// Le bloc conteneur des libellés hors flux. `:not(.gg-grid-rules)` protège le
+// tracé de fond, qui doit rester en `absolute`.
+.gg-golden-grid:not(.gg-grid-rules),
+.gg-blocks,
+.goals-bento,
+.hub-cards {
+  position: relative;
+}
+
+// Le titre de hero. `text-wrap: balance` répartit les lignes au lieu de
+// laisser un mot seul en bas.
+.hero-title {
+  text-wrap: balance;
+}
+
+// Sous le repli, un libellé vertical n'a plus de piste où descendre.
+@media (max-width: 54rem) {
+  .section-rail--vertical {
+    position: static;
+    writing-mode: horizontal-tb;
+    letter-spacing: 0.06em;
+    align-self: start;
+  }
+}
+
+// ===========================================
+// Les blocs posés sur les pistes
+// ===========================================
+// Ces deux grilles ne redéclarent aucune colonne : elles rendent les pistes de
+// la page à leurs enfants (`subgrid`), et chaque carte vise des lignes nommées.
+// Conséquences : les largeurs sont inégales par construction, la ligne des
+// vignettes n'est jamais droite, et le repli mono-colonne du composant les
+// range sans qu'aucune règle soit réécrite.
+
+.goals-bento,
+.hub-cards {
+  grid-column: edge;
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-auto-flow: row dense;
+  align-items: start;
+}
+
+// Bento : une paire sur la coupure dorée, puis un large à gauche, puis un
+// décalé à droite. L'escalier descend en suivant des bords, pas un milieu.
+.goals-bento {
+  row-gap: var(--32);
+
+  > .bento-c1 { grid-column: rail-start / shoulder-end; }  // 0,382
+  > .bento-c2 { grid-column: rail-start / main-end; }      // 0,764
+  > .bento-c4 { grid-column: main-start / spill-end; }     // 0,618, décalé
+
+  // Le débord va jusqu'au bord de page : on ouvre les coins de ce côté pour
+  // que la sortie se lise comme voulue, pas comme une carte mal cadrée.
+  > .bento-fl {
+    grid-column: main-start / edge-end;
+    border-start-end-radius: 0;
+    border-end-end-radius: 0;
+  }
+}
+
+// Le hub : deux cartes par rangée, de largeurs inégales, posées sur la coupure
+// dorée elle-même. Le décalage vertical des paires est une marge de bloc — il
+// ne touche à aucun bord horizontal, donc l'alignement tient.
+//
+// Le libellé de rail vit DANS la grille, sur sa piste : le placement dense
+// remonte la première carte à côté de lui au lieu de lui ouvrir une rangée
+// vide. D'où `nth-of-type` sur les `<a>` — le `<p>` du rail ne compte pas.
+.hub-cards {
+  row-gap: var(--52);
+
+  > .section-rail { grid-column: rail; }
+
+  > a:nth-of-type(odd) {
+    grid-column: main-start / spill-end;                          // 0,618
+    margin-top: var(--84);
+  }
+
+  > a:nth-of-type(even) { grid-column: rail-start / shoulder-end; }  // 0,382
+}
+
+// ===========================================
+// Le pied de page
+// ===========================================
+// Même grammaire que les bandes de contenu : un dos vertical sur le rail, le
+// discours sur la piste de lecture, les liens sur le débord, et une barre
+// basse qui reprend toute la composition.
+
+.gg-footer {
+  padding-top: var(--136);
+  padding-bottom: var(--84);
+  background: var(--light-b);
+}
+
+// Le site pose `nav { position: fixed; top: 0 }` pour la barre principale.
+// Toute autre navigation — sous-nav de page, colonnes de liens du pied — doit
+// rester dans le flux, sinon elle se retrouve épinglée en haut de la fenêtre.
+// Portée aux pages marketing : la doc a déjà son propre opt-out (_doc.scss).
+.page-grid nav,
+.gg-footer nav {
+  position: static;
+  top: auto;
+  z-index: auto;
+  width: auto;
+  background: none;
+  backdrop-filter: none;
+}
+
+.footer-tagline {
+  line-height: 1.25;
+}
+
+.footer-install {
+  padding: var(--8) var(--12);
+  border: 1px solid var(--dark___);
+  border-radius: var(--8);
+  background: var(--light);
+  font-family: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
+  font-size: var(--fs-12);
+  color: var(--brand-d);
+  width: fit-content;
+}
+
+.footer-nav {
+  // La piste de débord seule — `.gg-spill` part de `main-start` et passerait
+  // sous le bloc de marque au lieu de se poser à côté.
+  grid-column: spill;
+
+  a {
+    font-size: var(--fs-12);
+    line-height: 1.6;
+    color: var(--dark_);
+
+    &:hover { color: var(--brand-d); }
+  }
+}
+
+.footer-nav-title {
+  font-size: var(--fs-10);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--dark__);
+}
+
+.footer-bar {
+  padding-top: var(--32);
+  border-top: 1px solid var(--dark___);
+
+  p { margin: 0; }
+}
+
+.footer-site {
+  color: var(--brand);
+
+  &:hover { color: var(--brand-d); }
+}
+
+.footer-lang {
+  align-self: flex-end;
+  color: var(--dark_);
+}
+
+// La FAQ n'a pas besoin de toute la composition : elle se pose sur la coupure
+// dorée (0,618), bord gauche sur la colonne de lecture, bord droit sur le
+// débord. Le rail et l'épaule restent vides à sa gauche.
+.faq-list {
+  grid-column: main-start / spill-end;
+}
+
+@media (max-width: 54rem) {
+  .goals-bento,
+  .hub-cards {
+    row-gap: var(--32);
+  }
+
+  .hub-cards > a:nth-of-type(odd) {
+    margin-top: 0;
+  }
+
+  // Une seule piste : le débord n'a plus de bord de page à atteindre.
+  .goals-bento > .bento-fl {
+    border-start-end-radius: var(--12);
+    border-end-end-radius: var(--12);
+  }
+}

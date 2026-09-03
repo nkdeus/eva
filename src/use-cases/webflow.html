@@ -69,7 +69,8 @@
     <svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 100 100" x="0px" y="0px" aria-hidden="true"><path d="M50,77.62A27.62,27.62,0,1,0,22.38,50,27.61,27.61,0,0,0,50,77.62ZM50,26A24,24,0,1,1,26,50,24,24,0,0,1,50,26ZM69.62,50.52A19.36,19.36,0,0,0,50.26,31.15V69.88A19.36,19.36,0,0,0,69.62,50.52Zm-19.88,31a1.81,1.81,0,0,0-1.81,1.81V95.69a1.81,1.81,0,0,0,3.62,0V83.3A1.81,1.81,0,0,0,49.74,81.49Zm24.9-9A1.81,1.81,0,0,0,72.09,75l8.76,8.76a1.81,1.81,0,0,0,2.55-2.56Zm6.85-22.19a1.81,1.81,0,0,0,1.81,1.81H95.69a1.81,1.81,0,1,0,0-3.62H83.3A1.81,1.81,0,0,0,81.49,50.26ZM75,27.91l8.76-8.76a1.81,1.81,0,0,0-2.56-2.55l-8.76,8.76A1.81,1.81,0,0,0,75,27.91Zm-24.75-9.4a1.81,1.81,0,0,0,1.81-1.81V4.31a1.81,1.81,0,0,0-3.62,0V16.7A1.81,1.81,0,0,0,50.26,18.51Zm-24.9,9A1.81,1.81,0,0,0,27.91,25l-8.76-8.76a1.81,1.81,0,1,0-2.55,2.56Zm-21,24H16.7a1.81,1.81,0,0,0,0-3.62H4.31a1.81,1.81,0,1,0,0,3.62Zm22,20a1.78,1.78,0,0,0-1.28.53l-8.76,8.76a1.8,1.8,0,0,0,0,2.56,1.82,1.82,0,0,0,2.56,0l8.76-8.77a1.81,1.81,0,0,0-1.28-3.08Z"/></svg>
   </button>
 
-  <nav id="nav" class="px-220__ flex space py-12- pof">
+  <nav id="nav" class="gg-golden-grid py-12- pof">
+    <div class="gg-frame flex space">
     <div id="logo" class="flex x center px-20">
       <div class="ballzzz por" style="--max:6">
         <div class="ball poa ar-1 circle _bg-brand" style="--offset:0"></div>
@@ -95,32 +96,42 @@
         <svg xmlns="http://www.w3.org/2000/svg" class="lh-0" height="20" viewBox="0 0 16 16" width="20" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
       </a>
     </div>
+  </div>
   </nav>
 
-  <main>
+  <main class="page-grid">
+
+  <!-- Le tracé de fond : ses bandes SONT les pistes de la page. -->
+  <div class="gg-golden-grid gg-grid-rules" aria-hidden="true">
+    <span class="gg-rules-rail"></span>
+    <span class="gg-rules-shoulder"></span>
+    <span class="gg-rules-main"></span>
+    <span class="gg-rules-spill"></span>
+  </div>
 
 
   <!-- Hero Section -->
-  <section class="px-220__ pt-220- flex y g-32">
-    <div class="flex y g-20 pt-52-">
-      <h1 class="fs-52__ lh-1 ttu">
+  <section class="gg-golden-grid gg-section--hero">
+    <div class="gg-blocks">
+      <h1 class="gg-wide hero-title fs-96__ lh-1 ttu">
         <span>{{t.webflowFluid.hero.titlePre}} <span class="title grad-linear-text grad-linear from-accent to-extra">{{t.webflowFluid.hero.titleHighlight}}</span> {{t.webflowFluid.hero.titlePost}}</span>
       </h1>
-      <p class="fs-16 maw-576">
+      <p class="gg-main fs-16">
         {{t.webflowFluid.hero.body}}
       </p>
-    </div>
-    <nav id="use-cases-nav" class="flex x g-8 wrap">
+    <nav id="use-cases-nav" class="gg-frame flex x g-8 wrap">
       <a href="{{localeRoot}}use-cases.html" class="h-32 px-12 flex y center br-8 _c-brand_ fs-12 no-hover">{{t.useCasesNav.back}}</a>
       <a href="{{localeRoot}}figma-to-eva.html" class="h-32 px-12 flex y center br-8 _c-brand fs-12 no-hover">{{t.useCasesNav.figma}}</a>
       <a href="tailwind.html" class="h-32 px-12 flex y center br-8 _c-brand fs-12 no-hover">{{t.useCasesNav.tailwind}}</a>
       <a href="webflow.html" class="h-32 px-12 flex y center br-8 _c-light _bg-brand fs-12 no-hover">{{t.useCasesNav.webflow}}</a>
       <a href="ycode.html" class="h-32 px-12 flex y center br-8 _c-brand fs-12 no-hover">{{t.useCasesNav.ycode}}</a>
     </nav>
+  </div>
   </section>
 
   <!-- Prerequisites Section -->
-  <section id="prerequisites" class="px-220__ py-84 flex y g-32">
+  <section id="prerequisites" class="gg-golden-grid gg-section--tight">
+    <div class="gg-frame flex y g-32">
     <h2 class="fs-36__ _c-brand">{{t.webflowFluid.prereq.title}}</h2>
 
     <div class="grid auto-fit-356- gap-32 w-full">
@@ -142,10 +153,12 @@
         <p class="fs-14 _c-dark_">{{t.webflowFluid.prereq.access.body}}</p>
       </div>
     </div>
+  </div>
   </section>
 
   <!-- Workflow Section -->
-  <section id="workflow" class="px-220__ py-84 flex y g-32">
+  <section id="workflow" class="gg-golden-grid gg-section--tight">
+    <div class="gg-frame flex y g-32">
     <h2 class="fs-36__ _c-brand">{{t.webflowFluid.workflow.title}}</h2>
 
     <div class="grid auto-fit-356- gap-32 w-full">
@@ -196,10 +209,12 @@ color: var(--dark)</code></pre>
         <p class="fs-14 _c-dark__">{{t.webflowFluid.workflow.s6.body}}</p>
       </div>
     </div>
+  </div>
   </section>
 
   <!-- Rules Section -->
-  <section id="rules" class="px-220__ py-84 flex y g-32">
+  <section id="rules" class="gg-golden-grid gg-section--tight">
+    <div class="gg-frame flex y g-32">
     <h2 class="fs-36__ _c-brand">{{t.webflowFluid.rules.title}}</h2>
 
     <div class="grid auto-fit-356- gap-32 w-full">
@@ -224,19 +239,41 @@ color: var(--dark)</code></pre>
         <p class="fs-14 _c-dark__">{{t.webflowFluid.rules.r4.body}}</p>
       </div>
     </div>
+  </div>
   </section>
 
   </main>
 
-  <footer class="px-220__ py-136 flex x g-20 w-full">
-    <div class="flex w-full y space center g-32">
-      <p class="fs-16 _c-brand_">{{t.footer.copyright}}</p>
-      <p class="fs-16 _c-brand_">{{t.footer.author}}</p>
+  <footer class="gg-golden-grid gg-footer">
+    <p class="gg-rail section-rail section-rail--vertical">EVA CSS</p>
+
+    <div class="gg-main footer-brand flex y g-20">
+      <p class="footer-tagline fs-24__ _c-dark-d_">{{t.footer.tagline}}</p>
+      <code class="footer-install">{{t.footer.install}}</code>
     </div>
-    <div class="flex w-full y space g-32">
-      <a href="https://www.linkedin.com/in/mtati/" target="_blank">{{t.footer.linkedin}}</a>
-      <a href="{{localeRoot}}doc/index.html">{{t.footer.doc}}</a>
-      <a href="{{altHref}}" hreflang="{{altLang}}" title="{{t.langToggle.title}}">{{t.langToggle.label}}</a>
+
+    <div class="footer-nav flex y g-32">
+      <nav class="flex y g-8" aria-label="{{t.footer.explore}}">
+        <span class="footer-nav-title">{{t.footer.explore}}</span>
+        <a href="{{localeRoot}}framework/css-fluid.html">{{t.nav.fluidCss}}</a>
+        <a href="{{localeRoot}}framework.html">{{t.nav.addons}}</a>
+        <a href="{{localeRoot}}use-cases.html">{{t.nav.useCases}}</a>
+        <a href="{{localeRoot}}doc/index.html">{{t.footer.doc}}</a>
+      </nav>
+      <nav class="flex y g-8" aria-label="{{t.footer.elsewhere}}">
+        <span class="footer-nav-title">{{t.footer.elsewhere}}</span>
+        <a href="https://github.com/nkdeus/eva" target="_blank" rel="noopener">{{t.footer.github}}</a>
+        <a href="https://www.npmjs.com/package/eva-css-fluid" target="_blank" rel="noopener">{{t.footer.npm}}</a>
+        <a href="https://www.linkedin.com/in/mtati/" target="_blank" rel="noopener">{{t.footer.linkedin}}</a>
+      </nav>
+    </div>
+
+    <div class="gg-frame footer-bar flex x space wrap g-12">
+      <div class="flex y g-4">
+        <p class="fs-12 _c-dark__">{{t.footer.copyright}} — {{t.footer.author}}</p>
+        <a href="https://www.ulysse-2029.com/" target="_blank" rel="noopener" class="footer-site fs-12">ulysse-2029.com</a>
+      </div>
+      <a href="{{altHref}}" hreflang="{{altLang}}" title="{{t.langToggle.title}}" class="footer-lang fs-12">{{t.langToggle.label}}</a>
     </div>
   </footer>
 

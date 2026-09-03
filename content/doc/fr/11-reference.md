@@ -6,7 +6,7 @@ eyebrow: Documentation
 description: Toutes les options, tous les tokens et toutes les classes, en une seule liste à plat.
 ---
 
-Tout ce qu'EVA émet, au même endroit. Version 2.4.0.
+Tout ce qu'EVA émet, au même endroit. Version 2.6.0.
 
 ## Configuration
 
@@ -50,6 +50,7 @@ Tout ce qu'EVA émet, au même endroit. Version 2.4.0.
 | `eva-css-fluid/core` | oui | oui | oui | oui | non |
 | `eva-css-fluid/variables` | oui | oui | non | non | non |
 | `eva-css-fluid/colors` | non | oui | non | non | non |
+| `eva-css-fluid/golden-grid` | non | non | non | non | la [grille dorée](doc:golden-grid) seule |
 
 ## Tokens de taille
 
@@ -137,6 +138,35 @@ Classes sur le body : `current-theme` (obligatoire), `theme-<nom>`, `toggle-them
 **Typographie** — `fwg-1`…`fwg-8`, `fwd-1`…`fwd-13`, `f-scale`, `f-scale offset`, `bold`, `ttu`, `tac`, `lh-0`, `lh-1`.
 
 **Mise en page** — `por poa pof pos`, `poa center`, `w-full`, `h-full`, `oh`, `ar-1`, `circle`, `border`, `border thin`, `blur blur_ blur__`, `pointer`, `hide`, `lt`, `mt-auto mb-auto ml-auto mr-auto`.
+
+## Grille dorée
+
+Grille de page opt-in, 2.5.0. Chapitre complet : [Grille dorée](doc:golden-grid).
+
+```scss
+@use 'eva-css-fluid' with (
+  $golden-grid: false,
+  $golden-grid-prefix: '',
+  $golden-grid-max: null,
+  $golden-grid-gutter-phi: 6,
+  $golden-grid-breakpoint: 54rem,
+  $golden-grid-gutter-min: var(--24, 1.5rem),
+  $golden-grid-column-gap: var(--24, 1.5rem),
+  $golden-grid-row-gap: var(--32, 2rem),
+  $golden-grid-blocks-row-gap: var(--48, 3rem),
+  $golden-grid-rules: true,
+  $golden-grid-rail-align-mobile: right,
+  $golden-grid-auto-theme-switch: false
+);
+```
+
+Les pistes, en fractions de la composition : rail `0,236`, épaule `0,146`, texte `0,382`, débord `0,236`. Les marges : `0,056` de la page.
+
+Lignes nommées — jamais préfixées : `edge-start`, `rail-start`, `rail-end`/`shoulder-start`, `shoulder-end`/`main-start`, `main-end`/`spill-start`, `spill-end`, `edge-end`. Zones raccourcies : `rail`, `main`, `spill`, `edge`.
+
+Classes, toutes soumises à `$golden-grid-prefix` : `.golden-grid`, `.grid-page`, `.blocks`, `.rail`, `.rail--sticky`, `.main`, `.wide`, `.spill`, `.bleed`, `.grid-rules` (+ `.rules-rail`, `.rules-shoulder`, `.rules-main`, `.rules-spill`), `.grid-debug`.
+
+Tokens d'exécution : `--gg-column-gap`, `--gg-row-gap`, `--gg-blocks-row-gap`. Calculés par le composant : `--gg-gutter`, `--rule`, `--rule-void`.
 
 ## CLI
 

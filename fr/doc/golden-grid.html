@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/Draggable.min.js"></script>
+    <link rel="stylesheet" href="https://use.typekit.net/vjo0ssd.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Display:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../styles/main.css" />
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="3c9b4552-d24d-48aa-a6b4-877d0ceffe04"></script>
+    <title>Grille dorée — Doc EVA CSS</title>
+    <meta name="description" content="La grille de page opt-in — quatre pistes inégales issues du nombre d'or, des lignes nommées, et un flux éditorial porté par subgrid.">
+    <meta property="og:title" content="Grille dorée — Doc EVA CSS">
+    <meta property="og:description" content="La grille de page opt-in — quatre pistes inégales issues du nombre d'or, des lignes nommées, et un flux éditorial porté par subgrid.">
+    <meta property="og:locale" content="fr_FR">
+    <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+    <link rel="apple-touch-icon" href="../../assets/imgs/eva.jpg">
+    <link rel="manifest" href="../../site.webmanifest">
+    <meta name="theme-color" content="#ff8a3d">
+    <meta property="og:site_name" content="EVA CSS">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://eva-css.xyz/fr/doc/golden-grid.html">
+    <meta property="og:image" content="https://eva-css.xyz/assets/imgs/eva.jpg">
+    <meta property="og:image:width" content="512">
+    <meta property="og:image:height" content="512">
+    <meta property="og:image:alt" content="EVA CSS — fluid SCSS framework">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Grille dorée — Doc EVA CSS">
+    <meta name="twitter:description" content="La grille de page opt-in — quatre pistes inégales issues du nombre d'or, des lignes nommées, et un flux éditorial porté par subgrid.">
+    <meta name="twitter:image" content="https://eva-css.xyz/assets/imgs/eva.jpg">
+    <link rel="canonical" href="https://eva-css.xyz/fr/doc/golden-grid.html">
+    <link rel="alternate" hreflang="en" href="https://eva-css.xyz/doc/golden-grid.html">
+    <link rel="alternate" hreflang="fr" href="https://eva-css.xyz/fr/doc/golden-grid.html">
+    <link rel="alternate" hreflang="x-default" href="https://eva-css.xyz/doc/golden-grid.html">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "Grille dorée",
+      "description": "La grille de page opt-in — quatre pistes inégales issues du nombre d'or, des lignes nommées, et un flux éditorial porté par subgrid.",
+      "inLanguage": "fr",
+      "url": "https://eva-css.xyz/fr/doc/golden-grid.html",
+      "isPartOf": {
+        "@type": "TechArticle",
+        "name": "Doc EVA CSS",
+        "url": "https://eva-css.xyz/fr/doc/index.html"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "EVA CSS",
+        "url": "https://eva-css.xyz"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "EVA CSS", "item": "https://eva-css.xyz/fr/" },
+        { "@type": "ListItem", "position": 2, "name": "Documentation", "item": "https://eva-css.xyz/fr/doc/index.html" },
+        { "@type": "ListItem", "position": 3, "name": "Grille dorée", "item": "https://eva-css.xyz/fr/doc/golden-grid.html" }
+      ]
+    }
+    </script>
+  </head>
+  <body class="current-theme theme-eva all-grads toggle-theme doc-page" data-doc-search="search-index.json">
+  <button type="button" class="dark-light-toggle no-hover" aria-label="Basculer le mode sombre">
+    <svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 100 100" x="0px" y="0px" aria-hidden="true"><path d="M50,77.62A27.62,27.62,0,1,0,22.38,50,27.61,27.61,0,0,0,50,77.62ZM50,26A24,24,0,1,1,26,50,24,24,0,0,1,50,26ZM69.62,50.52A19.36,19.36,0,0,0,50.26,31.15V69.88A19.36,19.36,0,0,0,69.62,50.52Zm-19.88,31a1.81,1.81,0,0,0-1.81,1.81V95.69a1.81,1.81,0,0,0,3.62,0V83.3A1.81,1.81,0,0,0,49.74,81.49Zm24.9-9A1.81,1.81,0,0,0,72.09,75l8.76,8.76a1.81,1.81,0,0,0,2.55-2.56Zm6.85-22.19a1.81,1.81,0,0,0,1.81,1.81H95.69a1.81,1.81,0,1,0,0-3.62H83.3A1.81,1.81,0,0,0,81.49,50.26ZM75,27.91l8.76-8.76a1.81,1.81,0,0,0-2.56-2.55l-8.76,8.76A1.81,1.81,0,0,0,75,27.91Zm-24.75-9.4a1.81,1.81,0,0,0,1.81-1.81V4.31a1.81,1.81,0,0,0-3.62,0V16.7A1.81,1.81,0,0,0,50.26,18.51Zm-24.9,9A1.81,1.81,0,0,0,27.91,25l-8.76-8.76a1.81,1.81,0,1,0-2.55,2.56Zm-21,24H16.7a1.81,1.81,0,0,0,0-3.62H4.31a1.81,1.81,0,1,0,0,3.62Zm22,20a1.78,1.78,0,0,0-1.28.53l-8.76,8.76a1.8,1.8,0,0,0,0,2.56,1.82,1.82,0,0,0,2.56,0l8.76-8.77a1.81,1.81,0,0,0-1.28-3.08Z"/></svg>
+  </button>
+
+  <nav id="nav" class="px-220__ flex space py-12- pof">
+    <div id="logo" class="flex x center px-20">
+      <div class="ballzzz por" style="--max:6">
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:0"></div>
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:1"></div>
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:2"></div>
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:3"></div>
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:4"></div>
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:5"></div>
+      </div>
+      <a href="../index.html" class="logo no-hover title fs-36__ lh-1">EVA CSS</a>
+    </div>
+    <button id="burger-menu" class="burger-menu" type="button" aria-label="Ouvrir/fermer le menu" aria-expanded="false" aria-controls="menu">
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+    </button>
+    <div id="menu" class="flex x center g-12">
+      <a href="../framework/css-fluid.html" class="h-52 px-12 flex y center _c-brand br-12"><span class="fs-12">CSS fluide</span></a>
+      <a href="../framework.html" class="h-52 px-12 flex y center _c-brand br-12"><span class="fs-12">Addons</span></a>
+      <a href="../use-cases.html" class="h-52 px-12 flex y center _c-brand br-12"><span class="fs-12">Cas d'usage</span></a>
+      <a href="index.html" class="h-52 px-12 flex y center _c-light _bg-brand br-12"><span class="fs-12">Doc</span></a>
+      <a href="https://github.com/nkdeus/eva-framework" target="_blank" rel="noopener" aria-label="Dépôt GitHub" class="h-52 px-8 flex x g-12 center _c-brand br-8">
+        <svg xmlns="http://www.w3.org/2000/svg" class="lh-0" height="20" viewBox="0 0 16 16" width="20" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+      </a>
+    </div>
+  </nav>
+
+  <div class="doc-shell">
+
+    <aside class="doc-sidebar" id="doc-sidebar">
+      <div class="doc-sidebar-inner flex y g-20">
+        <button type="button" class="doc-search-trigger flex x space center g-12" data-search-open>
+          <span class="flex x center g-8">
+            <svg viewBox="0 0 16 16" width="13" height="13" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg>
+            <span>Rechercher</span>
+          </span>
+          <kbd class="doc-kbd">/</kbd>
+        </button>
+        <button type="button" class="doc-nav-toggle flex x space center" data-nav-toggle aria-expanded="false" aria-controls="doc-nav">
+          <span>Chapitres</span>
+          <span class="doc-nav-chevron" aria-hidden="true"></span>
+        </button>
+        <nav id="doc-nav" class="doc-nav" aria-label="Documentation">
+          <div class="doc-nav-section"><p class="doc-nav-heading">Démarrer</p><ul class="doc-nav-list"><li><a class="doc-nav-link no-hover" href="index.html">Démarrer</a></li><li><a class="doc-nav-link no-hover" href="install.html">Installation</a></li><li><a class="doc-nav-link no-hover" href="config.html">Configuration</a></li></ul></div><div class="doc-nav-section"><p class="doc-nav-heading">Le système</p><ul class="doc-nav-list"><li><a class="doc-nav-link no-hover" href="sizes.html">Tailles fluides</a></li><li><a class="doc-nav-link no-hover" href="colors.html">Couleurs</a></li><li><a class="doc-nav-link no-hover" href="gradients.html">Dégradés</a></li><li><a class="doc-nav-link no-hover" href="utilities.html">Classes utilitaires</a></li><li><a class="doc-nav-link no-hover is-current" href="golden-grid.html" aria-current="page">Grille dorée</a></li></ul></div><div class="doc-nav-section"><p class="doc-nav-heading">Guides</p><ul class="doc-nav-list"><li><a class="doc-nav-link no-hover" href="adopt.html">Adopter EVA</a></li><li><a class="doc-nav-link no-hover" href="cli.html">Outils CLI</a></li></ul></div><div class="doc-nav-section"><p class="doc-nav-heading">Référence</p><ul class="doc-nav-list"><li><a class="doc-nav-link no-hover" href="reference.html">Référence</a></li></ul></div>
+        </nav>
+      </div>
+    </aside>
+
+    <main class="doc-main">
+      <article class="doc-article">
+        <p class="doc-eyebrow fs-12 _c-brand_">Documentation</p>
+        <h1 class="doc-title fs-52__ lh-1 ttu">Grille dorée</h1>
+        <p class="doc-lede fs-18 _c-dark_">La grille de page opt-in — quatre pistes inégales issues du nombre d'or, des lignes nommées, et un flux éditorial porté par subgrid.</p>
+        <div class="doc-content">
+          <p class="doc-p"><code class="doc-inline-code">golden-grid</code> est une grille de page en sections dorées : quatre pistes de largeurs inégales, issues de la subdivision récursive du nombre d'or, dont les fractions font exactement 1. Aucun centrage. La page a trois bords gauches au lieu d'un axe, et un élément ne déclare jamais une largeur — il déclare le rôle qu'il joue.</p>
+<figure class="doc-block"><figcaption class="doc-block-bar flex x space center"><span class="doc-block-lang">text</span><button type="button" class="doc-copy" data-copy data-copied="Copié">Copier</button></figcaption><pre class="doc-pre"><code>├──── marge ────┼── rail ──┼─ épaule ─┼───── texte ─────┼─── débord ───┼──── marge ────┤
+      φ⁻⁶           φ⁻³        φ⁻⁴           φ⁻²              φ⁻³            φ⁻⁶
+     <span class="tok-num">0</span>,<span class="tok-num">056</span>         <span class="tok-num">0</span>,<span class="tok-num">236</span>      <span class="tok-num">0</span>,<span class="tok-num">146</span>         <span class="tok-num">0</span>,<span class="tok-num">382</span>            <span class="tok-num">0</span>,<span class="tok-num">236</span>          <span class="tok-num">0</span>,<span class="tok-num">056</span>
+   de la page   └───────────── de la composition ──────────────────┘    de la page</code></pre></figure>
+<p class="doc-p">Le composant est arrivé dans eva-css-fluid 2.5.0. Il est <strong>opt-in</strong> : ni <code class="doc-inline-code">core</code> ni <code class="doc-inline-code">variables</code> ne le charge, et l'entrée principale n'émet rien tant qu'il n'est pas activé. Une grille dorée est un parti pris de mise en page, pas un défaut raisonnable.</p>
+<aside class="doc-callout"><p class="doc-p">À voir en direct : la <a href="../framework/golden-grid.html" class="doc-link no-hover">démo golden-grid</a> fait tourner le composant avec le tracé, le repli mono-colonne et un curseur de gap, et mesure son propre alignement à chaque redimensionnement.</p></aside>
+<h2 id="activation" class="doc-h doc-h2">L'activation<a class="doc-anchor no-hover" href="#activation" aria-label="Lien vers cette section">#</a></h2>
+<p class="doc-p">Depuis le framework complet :</p>
+<figure class="doc-block"><figcaption class="doc-block-bar flex x space center"><span class="doc-block-lang">scss</span><button type="button" class="doc-copy" data-copy data-copied="Copié">Copier</button></figcaption><pre class="doc-pre"><code><span class="tok-at">@use</span> <span class="tok-string">'eva-css-fluid'</span> with (
+  <span class="tok-var">$sizes</span>: (<span class="tok-num">4</span>, <span class="tok-num">8</span>, <span class="tok-num">12</span>, <span class="tok-num">16</span>, <span class="tok-num">20</span>, <span class="tok-num">32</span>, <span class="tok-num">52</span>, <span class="tok-num">84</span>, <span class="tok-num">136</span>, <span class="tok-num">220</span>),
+  <span class="tok-var">$font-sizes</span>: (<span class="tok-num">12</span>, <span class="tok-num">16</span>, <span class="tok-num">24</span>, <span class="tok-num">36</span>, <span class="tok-num">52</span>),
+  <span class="tok-var">$golden-grid</span>: true,
+  <span class="tok-var">$golden-grid-prefix</span>: <span class="tok-string">'gg-'</span>,      <span class="tok-comment">// recommandé, voir le nommage plus bas</span>
+  <span class="tok-var">$golden-grid-column-gap</span>: var(<span class="tok-var">--20</span>)
+);</code></pre></figure>
+<p class="doc-p">En composant isolé — le mode le plus léger, sans reset, sans utilitaires, sans gradients :</p>
+<figure class="doc-block"><figcaption class="doc-block-bar flex x space center"><span class="doc-block-lang">scss</span><button type="button" class="doc-copy" data-copy data-copied="Copié">Copier</button></figcaption><pre class="doc-pre"><code><span class="tok-at">@use</span> <span class="tok-string">'eva-css-fluid/variables'</span>;
+<span class="tok-at">@use</span> <span class="tok-string">'eva-css-fluid/golden-grid'</span> with (
+  <span class="tok-var">$max</span>: <span class="tok-num">1280px</span>,
+  <span class="tok-var">$prefix</span>: <span class="tok-string">'gg-'</span>,
+  <span class="tok-var">$rules</span>: true
+);</code></pre></figure>
+<p class="doc-p">Sans Sass, une feuille pré-compilée est livrée à côté d'<code class="doc-inline-code">eva.css</code>, dont elle consomme les variables. 2,1 Ko, configuration par défaut, classes sans préfixe :</p>
+<figure class="doc-block"><figcaption class="doc-block-bar flex x space center"><span class="doc-block-lang">html</span><button type="button" class="doc-copy" data-copy data-copied="Copié">Copier</button></figcaption><pre class="doc-pre"><code>&lt;link rel=<span class="tok-string">"stylesheet"</span> href=<span class="tok-string">"eva-css-fluid/dist/eva.css"</span>&gt;
+&lt;link rel=<span class="tok-string">"stylesheet"</span> href=<span class="tok-string">"eva-css-fluid/dist/golden-grid.css"</span>&gt;</code></pre></figure>
+<aside class="doc-callout"><p class="doc-p"><code class="doc-inline-code">index.scss</code> charge toujours le module : depuis l'entrée principale, toute la configuration passe donc par les variables <code class="doc-inline-code">$golden-grid-*</code>. Un <code class="doc-inline-code">@use 'eva-css-fluid/golden-grid' with (…)</code> posé en plus d'un <code class="doc-inline-code">@use 'eva-css-fluid'</code> échouerait — Sass refuse de configurer un module déjà chargé.</p></aside>
+<h2 id="roles" class="doc-h doc-h2">Pourquoi pas douze colonnes<a class="doc-anchor no-hover" href="#roles" aria-label="Lien vers cette section">#</a></h2>
+<p class="doc-p">Une grille à 12 colonnes égales est un système de <strong>découpage</strong> : on y prend 4, 6 ou 8 colonnes selon ce qu'on veut faire tenir. Les proportions sont un résultat, jamais une décision, et comme toutes les colonnes se valent, la seule manière de créer une hiérarchie est de centrer ou de compter.</p>
+<p class="doc-p"><code class="doc-inline-code">golden-grid</code> est un système de <strong>proportion</strong>. Les quatre pistes ont des largeurs différentes et non interchangeables, et chacune a une fonction.</p>
+<div class="doc-table-wrap"><table class="doc-table"><thead><tr><th>Piste</th><th>Fraction</th><th>Rôle</th></tr></thead><tbody><tr><td><strong>rail</strong></td><td>φ⁻³ = 0,236</td><td>Métadonnées, dates, numéros, titres de section. Aligné à droite. Premier bord gauche.</td></tr><tr><td><strong>épaule</strong></td><td>φ⁻⁴ = 0,146</td><td>Vide, presque toujours. C'est elle qui désaxe la page.</td></tr><tr><td><strong>texte</strong></td><td>φ⁻² = 0,382</td><td>La mesure de lecture, ≈ 53 signes. Deuxième bord gauche.</td></tr><tr><td><strong>débord</strong></td><td>φ⁻³ = 0,236</td><td>Là où les images et les grands titres partent vers la droite. Troisième bord gauche.</td></tr></tbody></table></div>
+<p class="doc-p">Quatre conséquences directes, et c'est là tout l'intérêt du composant :</p>
+<ol class="doc-list"><li><strong>La page n'a pas d'axe, elle a une progression.</strong> Rien n'est centré nulle part. L'œil descend en suivant des bords, pas un milieu.</li><li><strong>Le vide est une valeur, pas un reste.</strong> L'épaule est une piste déclarée, dessinée, mesurable. Aucune classe ne la vise seule, donc un contenu qui déborde ne peut pas la récupérer.</li><li><strong>La mesure de lecture est déduite, pas réglée.</strong> Aucun <code class="doc-inline-code">max-width: 65ch</code> : 0,382 de la composition donne ≈ 442 px à 1440, soit ≈ 53 signes en corps 17. Si la page grandit, la mesure grandit dans le même rapport.</li><li><strong>La marge aussi est une part.</strong> φ⁻⁶ de la page, pas un cran d'échelle.</li></ol>
+<p class="doc-p">Ce à quoi le composant ne sert <em>pas</em> : les grilles de composants — cartes, tableaux, formulaires. Celles-là restent du ressort d'<code class="doc-inline-code">auto-fit-*</code> et de <code class="doc-inline-code">flex-grid</code>, couverts dans <a href="utilities.html" class="doc-link no-hover">Classes utilitaires</a>. <code class="doc-inline-code">golden-grid</code> est une grille <strong>de page</strong>.</p>
+<h2 id="geometry" class="doc-h doc-h2">La géométrie<a class="doc-anchor no-hover" href="#geometry" aria-label="Lien vers cette section">#</a></h2>
+<p class="doc-p">La page entière vaut 1. On lui applique la coupure dorée, puis on recoupe chacune des deux parties par la même coupure :</p>
+<figure class="doc-block"><figcaption class="doc-block-bar flex x space center"><span class="doc-block-lang">text</span><button type="button" class="doc-copy" data-copy data-copied="Copié">Copier</button></figcaption><pre class="doc-pre"><code><span class="tok-num">1</span>
+├──── φ⁻² = <span class="tok-num">0</span>,<span class="tok-num">382</span> ────────┬──────── φ⁻¹ = <span class="tok-num">0</span>,<span class="tok-num">618</span> ────────────────┤   coupure <span class="tok-num">1</span>
+│                         │
+├─ φ⁻³ ──┬─ φ⁻⁴ ┤         ├─ φ⁻² ──────────┬─ φ⁻³ ──┤              coupures <span class="tok-num">2</span> et <span class="tok-num">2</span>'
+  <span class="tok-num">0</span>,<span class="tok-num">236</span>   <span class="tok-num">0</span>,<span class="tok-num">146</span>             <span class="tok-num">0</span>,<span class="tok-num">382</span>            <span class="tok-num">0</span>,<span class="tok-num">236</span>
+  rail    épaule            texte            débord</code></pre></figure>
+<p class="doc-p">Les quatre pistes ne sont pas quatre nombres choisis : ce sont les quatre feuilles d'un arbre à deux niveaux. Ce qui fait tomber la somme sur 1 est la relation de récurrence du nombre d'or, <code class="doc-inline-code">φⁿ = φⁿ⁺¹ + φⁿ⁺²</code> :</p>
+<figure class="doc-block"><figcaption class="doc-block-bar flex x space center"><span class="doc-block-lang">text</span><button type="button" class="doc-copy" data-copy data-copied="Copié">Copier</button></figcaption><pre class="doc-pre"><code>φ⁻³ + φ⁻⁴ = φ⁻²          (<span class="tok-num">0</span>,<span class="tok-num">236068</span> + <span class="tok-num">0</span>,<span class="tok-num">145898</span> = <span class="tok-num">0</span>,<span class="tok-num">381966</span>)
+φ⁻² + φ⁻³ = φ⁻¹          (<span class="tok-num">0</span>,<span class="tok-num">381966</span> + <span class="tok-num">0</span>,<span class="tok-num">236068</span> = <span class="tok-num">0</span>,<span class="tok-num">618034</span>)
+φ⁻² + φ⁻¹ = <span class="tok-num">1</span></code></pre></figure>
+<p class="doc-p">Arrondie à trois décimales, la somme reste exactement 1 — <code class="doc-inline-code">0,236 + 0,146 + 0,382 + 0,236 = 1,000</code> — et c'est ce qui autorise à écrire les valeurs telles quelles dans la feuille.</p>
+<aside class="doc-callout"><p class="doc-p">CSS ne demande pas que les <code class="doc-inline-code">fr</code> fassent 1 : <code class="doc-inline-code">fr</code> normalise, et <code class="doc-inline-code">2fr 1fr</code> rend comme <code class="doc-inline-code">0.667fr 0.333fr</code>. Écrire des fractions qui somment à 1 est une discipline de <strong>lecture</strong> — chaque nombre est directement la part de la composition, et une erreur se voit à l'addition.</p></aside>
+<p class="doc-p">À 1440 px, avec des gaps <code class="doc-inline-code">--20</code> : marges 2 × 81 px, cinq gaps ≈ 100 px, composition ≈ 1178 px.</p>
+<div class="doc-table-wrap"><table class="doc-table"><thead><tr><th>Piste</th><th>Fraction</th><th>Largeur</th></tr></thead><tbody><tr><td>marge</td><td>0,056 <em>de la page</em></td><td>81 px</td></tr><tr><td>rail</td><td>0,236</td><td>278 px</td></tr><tr><td>épaule</td><td>0,146</td><td>172 px</td></tr><tr><td>texte</td><td>0,382</td><td>450 px</td></tr><tr><td>débord</td><td>0,236</td><td>278 px</td></tr></tbody></table></div>
+<h2 id="api" class="doc-h doc-h2">Lignes nommées et classes de placement<a class="doc-anchor no-hover" href="#api" aria-label="Lien vers cette section">#</a></h2>
+<p class="doc-p">Les lignes nommées sont le contrat public. Toute règle de placement écrite dans un projet doit s'exprimer avec ces noms, jamais avec des numéros de colonne. Elles ne sont <strong>jamais préfixées</strong> : leur portée est celle de la grille, aucune collision n'est possible.</p>
+<figure class="doc-block"><figcaption class="doc-block-bar flex x space center"><span class="doc-block-lang">text</span><button type="button" class="doc-copy" data-copy data-copied="Copié">Copier</button></figcaption><pre class="doc-pre"><code>edge-start · rail-start · rail-end/shoulder-start · shoulder-end/main-start
+           · main-end/spill-start · spill-end · edge-end</code></pre></figure>
+<p class="doc-p">Les zones nommées <code class="doc-inline-code">rail</code>, <code class="doc-inline-code">main</code>, <code class="doc-inline-code">spill</code> et <code class="doc-inline-code">edge</code> servent de raccourcis : <code class="doc-inline-code">grid-column: rail</code> équivaut à <code class="doc-inline-code">grid-column: rail-start / rail-end</code>.</p>
+<p class="doc-p">Toutes les classes ci-dessous prennent <code class="doc-inline-code">$prefix</code> (vide par défaut).</p>
+<div class="doc-table-wrap"><table class="doc-table"><thead><tr><th>Classe</th><th>Portée</th><th>Usage</th></tr></thead><tbody><tr><td><code class="doc-inline-code">.golden-grid</code></td><td>—</td><td>Le conteneur. Porte les six pistes et la marge dorée auto-centrante.</td></tr><tr><td><code class="doc-inline-code">.grid-page</code></td><td>—</td><td>Sur l'ancêtre du tracé : <code class="doc-inline-code">position: relative</code> + <code class="doc-inline-code">isolation: isolate</code>.</td></tr><tr><td><code class="doc-inline-code">.rail</code></td><td><code class="doc-inline-code">rail</code></td><td>Métadonnées. Ajoute <code class="doc-inline-code">text-align: right</code> : les mots butent contre le vide de l'épaule.</td></tr><tr><td><code class="doc-inline-code">.main</code></td><td><code class="doc-inline-code">main</code></td><td>Texte courant. Rien d'autre ne vit ici.</td></tr><tr><td><code class="doc-inline-code">.wide</code></td><td><code class="doc-inline-code">shoulder-start / spill-end</code></td><td>Titres, citations, images larges. Prend l'épaule, donc casse l'alignement à gauche volontairement.</td></tr><tr><td><code class="doc-inline-code">.spill</code></td><td><code class="doc-inline-code">main-start / edge-end</code></td><td>Débord asymétrique : bord gauche sur la colonne de texte, bord droit sur le bord de page.</td></tr><tr><td><code class="doc-inline-code">.bleed</code></td><td><code class="doc-inline-code">edge</code></td><td>Pleine largeur, marges comprises.</td></tr><tr><td><code class="doc-inline-code">.rail--sticky</code></td><td>—</td><td>Le rail suit la lecture (<code class="doc-inline-code">position: sticky</code>). Neutralisé en mono-colonne.</td></tr><tr><td><code class="doc-inline-code">.blocks</code></td><td><code class="doc-inline-code">edge</code> + <code class="doc-inline-code">subgrid</code></td><td>Conteneur de flux éditorial qui rend les pistes à ses enfants.</td></tr><tr><td><code class="doc-inline-code">.grid-rules</code></td><td>—</td><td>Le tracé de fond.</td></tr><tr><td><code class="doc-inline-code">.grid-debug</code></td><td>—</td><td>Sur <code class="doc-inline-code">&lt;body&gt;</code> : cerne chaque élément placé.</td></tr></tbody></table></div>
+<figure class="doc-block"><figcaption class="doc-block-bar flex x space center"><span class="doc-block-lang">html</span><button type="button" class="doc-copy" data-copy data-copied="Copié">Copier</button></figcaption><pre class="doc-pre"><code>&lt;article class=<span class="tok-string">"golden-grid"</span>&gt;
+  &lt;p class=<span class="tok-string">"rail"</span>&gt;Derniers projets&lt;/p&gt;
+  &lt;h1 class=<span class="tok-string">"wide"</span>&gt;Titre&lt;/h1&gt;
+  &lt;div class=<span class="tok-string">"main"</span>&gt;Chapô&lt;/div&gt;
+&lt;/article&gt;</code></pre></figure>
+<h2 id="options" class="doc-h doc-h2">Options<a class="doc-anchor no-hover" href="#options" aria-label="Lien vers cette section">#</a></h2>
+<p class="doc-p">Chaque option existe sous deux noms : celui du composant (en isolé) et son équivalent <code class="doc-inline-code">$golden-grid-*</code> sur l'entrée principale.</p>
+<div class="doc-table-wrap"><table class="doc-table"><thead><tr><th>Composant</th><th>Entrée principale</th><th>Défaut</th><th>Effet</th></tr></thead><tbody><tr><td><code class="doc-inline-code">$enabled</code></td><td><code class="doc-inline-code">$golden-grid</code></td><td><code class="doc-inline-code">true</code> / <code class="doc-inline-code">false</code></td><td><code class="doc-inline-code">false</code> n'émet aucune règle.</td></tr><tr><td><code class="doc-inline-code">$max</code></td><td><code class="doc-inline-code">$golden-grid-max</code></td><td><code class="doc-inline-code">1440px</code> / <code class="doc-inline-code">null</code></td><td>Largeur maximale. <code class="doc-inline-code">null</code> suit <code class="doc-inline-code">$reference-width</code>.</td></tr><tr><td><code class="doc-inline-code">$gutter-phi</code></td><td><code class="doc-inline-code">$golden-grid-gutter-phi</code></td><td><code class="doc-inline-code">6</code></td><td>Marge = φ⁻ⁿ de la page. <code class="doc-inline-code">false</code> la repasse sur <code class="doc-inline-code">$gutter-min</code>.</td></tr><tr><td><code class="doc-inline-code">$breakpoint</code></td><td><code class="doc-inline-code">$golden-grid-breakpoint</code></td><td><code class="doc-inline-code">54rem</code></td><td>Unique point de repli (4 pistes → 1).</td></tr><tr><td><code class="doc-inline-code">$gutter-min</code></td><td><code class="doc-inline-code">$golden-grid-gutter-min</code></td><td><code class="doc-inline-code">var(--24, 1.5rem)</code></td><td>Marge quand <code class="doc-inline-code">$gutter-phi</code> vaut <code class="doc-inline-code">false</code>.</td></tr><tr><td><code class="doc-inline-code">$column-gap</code></td><td><code class="doc-inline-code">$golden-grid-column-gap</code></td><td><code class="doc-inline-code">var(--24, 1.5rem)</code></td><td>Gap entre les pistes.</td></tr><tr><td><code class="doc-inline-code">$row-gap</code></td><td><code class="doc-inline-code">$golden-grid-row-gap</code></td><td><code class="doc-inline-code">var(--32, 2rem)</code></td><td>Rythme vertical du conteneur.</td></tr><tr><td><code class="doc-inline-code">$blocks-row-gap</code></td><td><code class="doc-inline-code">$golden-grid-blocks-row-gap</code></td><td><code class="doc-inline-code">var(--48, 3rem)</code></td><td>Rythme vertical du flux éditorial.</td></tr><tr><td><code class="doc-inline-code">$prefix</code></td><td><code class="doc-inline-code">$golden-grid-prefix</code></td><td><code class="doc-inline-code">''</code></td><td>Préfixe des classes. <code class="doc-inline-code">'gg-'</code> recommandé en framework complet.</td></tr><tr><td><code class="doc-inline-code">$rules</code></td><td><code class="doc-inline-code">$golden-grid-rules</code></td><td><code class="doc-inline-code">true</code></td><td>Émettre le tracé de fond.</td></tr><tr><td><code class="doc-inline-code">$rail-align-mobile</code></td><td><code class="doc-inline-code">$golden-grid-rail-align-mobile</code></td><td><code class="doc-inline-code">right</code></td><td><code class="doc-inline-code">right</code> ou <code class="doc-inline-code">left</code> sous le point de bascule.</td></tr><tr><td><code class="doc-inline-code">$auto-theme-switch</code></td><td><code class="doc-inline-code">$golden-grid-auto-theme-switch</code></td><td><code class="doc-inline-code">false</code></td><td>Intensité du tracé en mode sombre : <code class="doc-inline-code">prefers-color-scheme</code> (<code class="doc-inline-code">true</code>) ou <code class="doc-inline-code">.toggle-theme</code> (<code class="doc-inline-code">false</code>).</td></tr><tr><td><code class="doc-inline-code">$phi</code></td><td>—</td><td><code class="doc-inline-code">1.618034</code></td><td>Le nombre d'or. Les quatre pistes en découlent.</td></tr></tbody></table></div>
+<p class="doc-p">Les gaps valent par défaut <code class="doc-inline-code">--24</code>, <code class="doc-inline-code">--32</code> et <code class="doc-inline-code">--48</code>. Ces trois nombres ne sont pas dans toutes les listes <code class="doc-inline-code">$sizes</code> — celle de ce site est <code class="doc-inline-code">(4, 8, 12, 16, 20, 32, …)</code> — alors mieux vaut les repasser sur l'échelle plutôt que compter sur le fallback CSS :</p>
+<figure class="doc-block"><figcaption class="doc-block-bar flex x space center"><span class="doc-block-lang">scss</span><button type="button" class="doc-copy" data-copy data-copied="Copié">Copier</button></figcaption><pre class="doc-pre"><code><span class="tok-at">@use</span> <span class="tok-string">'eva-css-fluid'</span> with (
+  <span class="tok-var">$sizes</span>: (<span class="tok-num">4</span>, <span class="tok-num">8</span>, <span class="tok-num">12</span>, <span class="tok-num">16</span>, <span class="tok-num">20</span>, <span class="tok-num">32</span>, <span class="tok-num">52</span>, <span class="tok-num">84</span>, <span class="tok-num">136</span>, <span class="tok-num">220</span>),
+  <span class="tok-var">$golden-grid</span>: true,
+  <span class="tok-var">$golden-grid-column-gap</span>: var(<span class="tok-var">--20</span>),
+  <span class="tok-var">$golden-grid-row-gap</span>: var(<span class="tok-var">--32</span>),
+  <span class="tok-var">$golden-grid-blocks-row-gap</span>: var(<span class="tok-var">--52</span>)
+);</code></pre></figure>
+<h3 id="runtime-tokens" class="doc-h doc-h3">Tokens d'exécution<a class="doc-anchor no-hover" href="#runtime-tokens" aria-label="Lien vers cette section">#</a></h3>
+<p class="doc-p">Trois propriétés personnalisées retunent la grille <strong>sans recompiler</strong>. Le repli <code class="doc-inline-code">var()</code> rend la valeur compilée, donc rien ne change tant que rien n'est posé — et comme les propriétés personnalisées héritent, les poser sur n'importe quel ancêtre suffit.</p>
+<div class="doc-table-wrap"><table class="doc-table"><thead><tr><th>Token</th><th>Repli</th><th>Effet</th></tr></thead><tbody><tr><td><code class="doc-inline-code">--gg-column-gap</code></td><td><code class="doc-inline-code">$column-gap</code></td><td>L'air entre les pistes. Ne touche pas aux proportions.</td></tr><tr><td><code class="doc-inline-code">--gg-row-gap</code></td><td><code class="doc-inline-code">$row-gap</code></td><td>Rythme vertical du conteneur.</td></tr><tr><td><code class="doc-inline-code">--gg-blocks-row-gap</code></td><td><code class="doc-inline-code">$blocks-row-gap</code></td><td>Rythme vertical du flux éditorial.</td></tr></tbody></table></div>
+<figure class="doc-block"><figcaption class="doc-block-bar flex x space center"><span class="doc-block-lang">css</span><button type="button" class="doc-copy" data-copy data-copied="Copié">Copier</button></figcaption><pre class="doc-pre"><code>.section<span class="tok-var">--dense</span> { <span class="tok-var">--gg-column-gap</span>: var(<span class="tok-var">--12</span>); <span class="tok-var">--gg-row-gap</span>: var(<span class="tok-var">--16</span>); }</code></pre></figure>
+<p class="doc-p"><code class="doc-inline-code">--gg-gutter</code> n'est pas un token d'entrée : le composant la calcule sur <code class="doc-inline-code">.golden-grid</code>. Pour la forcer, il faut viser cet élément ; sinon, passer par <code class="doc-inline-code">$gutter-phi</code> ou <code class="doc-inline-code">$gutter-min</code> à la compilation.</p>
+<p class="doc-p">Les gaps sont le seul réglage de géométrie exposé à l'exécution, et c'est volontaire : <code class="doc-inline-code">column-gap</code> est prélevé <strong>avant</strong> la distribution des <code class="doc-inline-code">fr</code>, donc les quatre fractions restent <code class="doc-inline-code">0,236 / 0,146 / 0,382 / 0,236</code> quelle qu'en soit la valeur. Seule la surface de composition diminue. Les pistes et la marge, elles, restent des décisions de compilation — les ouvrir à l'exécution reviendrait à laisser un projet casser la géométrie sans erreur.</p>
+<h2 id="margin" class="doc-h doc-h2">La marge dorée<a class="doc-anchor no-hover" href="#margin" aria-label="Lien vers cette section">#</a></h2>
+<figure class="doc-block"><figcaption class="doc-block-bar flex x space center"><span class="doc-block-lang">css</span><button type="button" class="doc-copy" data-copy data-copied="Copié">Copier</button></figcaption><pre class="doc-pre"><code><span class="tok-var">--gg-gutter</span>: max(<span class="tok-num">5.6</span>%, calc((<span class="tok-num">100</span>% - <span class="tok-num">1440px</span>) / <span class="tok-num">2</span>));   <span class="tok-comment">/* 5,6 % = φ⁻⁶ */</span></code></pre></figure>
+<p class="doc-p">Une seule déclaration, deux régimes, et <code class="doc-inline-code">max()</code> choisit :</p>
+<ul class="doc-list"><li><strong>sous <code class="doc-inline-code">$max</code></strong>, le terme en pourcentage gagne : la marge vaut φ⁻⁶ de la page, elle reste donc dorée à toutes les largeurs et grandit avec la fenêtre ;</li><li><strong>au-dessus</strong>, le terme de centrage gagne : la marge absorbe la moitié du surplus et la composition se cale sur <code class="doc-inline-code">$max</code>.</li></ul>
+<p class="doc-p">Le basculement se fait à <code class="doc-inline-code">W ≈ 1622 px</code> pour les valeurs par défaut. La grille est donc contrainte <strong>et</strong> centrée sans conteneur intermédiaire : un seul élément porte à la fois la largeur maximale, les marges et les pistes. C'est pourquoi <code class="doc-inline-code">.bleed</code> atteint le bord de l'écran sans le <code class="doc-inline-code">margin-inline: calc(50% - 50vw)</code> habituel, et sans risque de barre de défilement horizontale.</p>
+<p class="doc-p">Deux unités cohabitent, et c'est la clé du système : <strong>la marge est une part de la page, les pistes sont des parts de la composition.</strong> Le <code class="doc-inline-code">1</code> du nombre d'or n'est pas la fenêtre — c'est ce que les marges et les gaps laissent.</p>
+<p class="doc-p">Les gaps, eux, ne sont pas dorés et ne peuvent pas l'être. Il y a deux marges mais <strong>cinq</strong> gaps : au terme suivant de la série, ils prendraient 5 × 80,6 = 403 px sur 1440 et videraient la composition. Le gap n'est pas une division de la page, c'est l'air entre les pistes — il relève de l'échelle, pas de la série.</p>
+<h2 id="blocks" class="doc-h doc-h2">Le flux éditorial<a class="doc-anchor no-hover" href="#blocks" aria-label="Lien vers cette section">#</a></h2>
+<p class="doc-p"><code class="doc-inline-code">subgrid</code> est la pièce qui rend le système utilisable sur du contenu courant.</p>
+<figure class="doc-block"><figcaption class="doc-block-bar flex x space center"><span class="doc-block-lang">scss</span><button type="button" class="doc-copy" data-copy data-copied="Copié">Copier</button></figcaption><pre class="doc-pre"><code>.blocks {
+  grid-column: edge;                    <span class="tok-comment">// occupe les six pistes</span>
+  display: grid;
+  grid-template-columns: subgrid;       <span class="tok-comment">// et les rend à ses enfants</span>
+  row-gap: var(<span class="tok-var">--gg-blocks-row-gap</span>, var(<span class="tok-var">--48</span>, <span class="tok-num">3rem</span>));
+  grid-auto-flow: row dense;
+}
+
+.blocks &gt; * { grid-column: main; }      <span class="tok-comment">// défaut : la mesure de lecture</span></code></pre></figure>
+<p class="doc-p"><code class="doc-inline-code">subgrid</code> hérite des pistes <strong>et de leurs noms</strong> sur l'intervalle couvert. Un bloc enfant peut donc écrire <code class="doc-inline-code">grid-column: rail</code> sans rien savoir de la page qui le contient. Sans lui, il faudrait recalculer les pistes en pourcentages dans chaque conteneur — c'est-à-dire réintroduire exactement la dérive qu'on élimine.</p>
+<p class="doc-p"><code class="doc-inline-code">dense</code> remonte le texte sur la rangée d'un titre placé au rail au lieu d'ouvrir une rangée neuve : le tiers gauche de la page cesse d'être vide sur des écrans entiers. Ce placement peut réordonner visuellement le contenu, ce qui est un risque d'accessibilité ; ici il ne peut pas, parce que les seuls blocs à quitter la piste de texte sont les titres, et un titre précède toujours ce qu'il annonce. <strong>Toute nouvelle règle qui déplace un bloc hors de <code class="doc-inline-code">main</code> doit être vérifiée contre cette contrainte.</strong></p>
+<aside class="doc-callout"><p class="doc-p"><strong>L'ordre source compte.</strong> <code class="doc-inline-code">.blocks &gt; *</code> et <code class="doc-inline-code">.rail</code> ont la même spécificité (0,1,0) : le défaut du flux est donc émis <strong>avant</strong> les classes de placement. Inversez-le et chaque enfant de <code class="doc-inline-code">.blocks</code> retombe dans <code class="doc-inline-code">main</code> — sans erreur. Une règle projet qui ajoute son propre défaut <code class="doc-inline-code">.blocks &gt; *</code> doit respecter le même ordre, ou monter d'un cran en spécificité.</p></aside>
+<h2 id="tracing" class="doc-h doc-h2">Le tracé<a class="doc-anchor no-hover" href="#tracing" aria-label="Lien vers cette section">#</a></h2>
+<figure class="doc-block"><figcaption class="doc-block-bar flex x space center"><span class="doc-block-lang">html</span><button type="button" class="doc-copy" data-copy data-copied="Copié">Copier</button></figcaption><pre class="doc-pre"><code>&lt;div class=<span class="tok-string">"grid-page"</span>&gt;
+  &lt;div class=<span class="tok-string">"golden-grid grid-rules"</span> aria-hidden=<span class="tok-string">"true"</span>&gt;
+    &lt;span class=<span class="tok-string">"rules-rail"</span>&gt;&lt;/span&gt;
+    &lt;span class=<span class="tok-string">"rules-shoulder"</span>&gt;&lt;/span&gt;
+    &lt;span class=<span class="tok-string">"rules-main"</span>&gt;&lt;/span&gt;
+    &lt;span class=<span class="tok-string">"rules-spill"</span>&gt;&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;!-- les grilles de contenu, frères du tracé --&gt;
+&lt;/div&gt;</code></pre></figure>
+<p class="doc-p">L'élément porte <strong>la même classe</strong> que le contenu : ses bandes <em>sont</em> les pistes. Aucune approximation en pourcentages, aucun décalage quand la grille évolue.</p>
+<p class="doc-p">C'est une pièce du dessin, pas un repère de développement : sans lui, une piste inoccupée ressemble à un oubli ; avec lui, elle se lit comme une proportion tenue. L'épaule est marquée un cran plus fort, parce que c'est elle qui désaxe la page.</p>
+<figure class="doc-block"><figcaption class="doc-block-bar flex x space center"><span class="doc-block-lang">css</span><button type="button" class="doc-copy" data-copy data-copied="Copié">Copier</button></figcaption><pre class="doc-pre"><code>:root         { <span class="tok-var">--rule</span>: <span class="tok-num">1.5</span>%; <span class="tok-var">--rule-void</span>: <span class="tok-num">2.75</span>%; }
+.toggle-theme { <span class="tok-var">--rule</span>: <span class="tok-num">2</span>%;   <span class="tok-var">--rule-void</span>: <span class="tok-num">3.5</span>%;  }</code></pre></figure>
+<p class="doc-p">La couleur vient de <code class="doc-inline-code">color-mix(in oklab, var(--dark) var(--rule), transparent)</code>, et <code class="doc-inline-code">--dark</code> bascule déjà avec le thème : le tracé s'inverse donc tout seul. Voir <a href="colors.html#dark-mode" class="doc-link no-hover">Mode sombre</a>.</p>
+<p class="doc-p">Trois contraintes d'implémentation, dont la première est fournie par le composant :</p>
+<ul class="doc-list"><li><code class="doc-inline-code">.grid-page</code> sur l'ancêtre — <code class="doc-inline-code">position: relative</code> <strong>et</strong> <code class="doc-inline-code">isolation: isolate</code>. Sans contexte d'empilement, <code class="doc-inline-code">z-index: -1</code> fait passer le tracé derrière le fond du <code class="doc-inline-code">body</code> et il disparaît.</li><li>Le tracé doit être <strong>frère</strong> des grilles de contenu, et de même largeur.</li><li><code class="doc-inline-code">align-items: stretch</code> et <code class="doc-inline-code">row-gap: 0</code> sur <code class="doc-inline-code">.grid-rules</code>, sinon les bandes héritent d'<code class="doc-inline-code">align-items: start</code> et se réduisent à zéro.</li></ul>
+<h2 id="fallback" class="doc-h doc-h2">Le repli mono-colonne<a class="doc-anchor no-hover" href="#fallback" aria-label="Lien vers cette section">#</a></h2>
+<figure class="doc-block"><figcaption class="doc-block-bar flex x space center"><span class="doc-block-lang">scss</span><button type="button" class="doc-copy" data-copy data-copied="Copié">Copier</button></figcaption><pre class="doc-pre"><code><span class="tok-at">@media</span> (max-width: <span class="tok-num">54rem</span>) {
+  .golden-grid {
+    grid-template-columns:
+      [edge-start] var(<span class="tok-var">--gg-gutter</span>)
+      [rail-start shoulder-start main-start spill-start] minmax(<span class="tok-num">0</span>, <span class="tok-num">1fr</span>)
+      [rail-end shoulder-end main-end spill-end] var(<span class="tok-var">--gg-gutter</span>) [edge-end];
+  }
+}</code></pre></figure>
+<p class="doc-p">Toutes les lignes nommées se rabattent sur les deux bords de l'unique piste. <strong>Aucune règle de placement n'est réécrite</strong> : <code class="doc-inline-code">.rail</code>, <code class="doc-inline-code">.main</code>, <code class="doc-inline-code">.wide</code> et les placements écrits par les projets continuent de résoudre, et résolvent tous vers la même colonne. Ajouter un bloc n'oblige donc jamais à écrire sa contrepartie mobile — c'est le principal gain de maintenance du composant.</p>
+<p class="doc-p">Trois exceptions seulement sont redéclarées : <code class="doc-inline-code">.spill</code> garde son débord à droite, <code class="doc-inline-code">.rail--sticky</code> repasse en <code class="doc-inline-code">static</code>, et <code class="doc-inline-code">.grid-rules</code> est masqué — une seule piste n'a plus rien à montrer.</p>
+<h2 id="rule" class="doc-h doc-h2">La règle, et comment la vérifier<a class="doc-anchor no-hover" href="#rule" aria-label="Lien vers cette section">#</a></h2>
+<aside class="doc-callout"><p class="doc-p"><strong>Tout conteneur commence et finit sur une ligne de la grille.</strong> Aucune largeur en <code class="doc-inline-code">ch</code>, aucune largeur en pixels, aucun <code class="doc-inline-code">margin: auto</code> horizontal. La piste <em>est</em> la mesure ; le contenu en ligne coule à l'intérieur.</p></aside>
+<p class="doc-p">Cette règle n'a de valeur que parce qu'elle est vérifiable. On lit <code class="doc-inline-code">grid-template-columns</code> sur le rendu, on en déduit les abscisses de ligne, puis on mesure chaque conteneur placé. Ce contrôle appartient au guide de styles du projet, <strong>pas</strong> au composant :</p>
+<figure class="doc-block"><figcaption class="doc-block-bar flex x space center"><span class="doc-block-lang">js</span><button type="button" class="doc-copy" data-copy data-copied="Copié">Copier</button></figcaption><pre class="doc-pre"><code>const style = getComputedStyle(grid)
+const gap   = parseFloat(style.columnGap)
+const lines = [<span class="tok-num">0</span>]
+let x = <span class="tok-num">0</span>
+
+for (const track of style.gridTemplateColumns.split(<span class="tok-string">' '</span>).map(parseFloat).filter(Number.isFinite)) {
+  x += track; lines.push(Math.round(x))
+  x += gap;   lines.push(Math.round(x))
+}
+
+const onLine = (v) =&gt; lines.some((line) =&gt; Math.abs(line - v) &lt; <span class="tok-num">3</span>)</code></pre></figure>
+<p class="doc-p"><code class="doc-inline-code">.grid-debug</code> sur <code class="doc-inline-code">&lt;body&gt;</code> le complète : le tracé montre les pistes, le liseré montre ce qui les occupe.</p>
+<h2 id="naming" class="doc-h doc-h2">Nommage et collisions<a class="doc-anchor no-hover" href="#naming" aria-label="Lien vers cette section">#</a></h2>
+<p class="doc-p"><code class="doc-inline-code">_grid.scss</code> définit déjà <code class="doc-inline-code">.grid</code>, <code class="doc-inline-code">.flex-grid</code>, <code class="doc-inline-code">.auto-fit-*</code> et <code class="doc-inline-code">.col-*</code> : le conteneur s'appelle donc <code class="doc-inline-code">.golden-grid</code>, jamais <code class="doc-inline-code">.grid</code>.</p>
+<p class="doc-p">Restent les classes de placement. Avec <code class="doc-inline-code">$prefix: ''</code>, le composant émet <code class="doc-inline-code">.rail</code>, <code class="doc-inline-code">.main</code>, <code class="doc-inline-code">.wide</code>, <code class="doc-inline-code">.spill</code>, <code class="doc-inline-code">.bleed</code>, <code class="doc-inline-code">.blocks</code> — des noms génériques dans un espace de noms partagé, et <code class="doc-inline-code">.main</code> se confond à la lecture avec le sélecteur d'élément <code class="doc-inline-code">main</code>. Aucune de ces six classes n'apparaît dans <code class="doc-inline-code">dist/eva.css</code> : la collision n'est donc pas avec le framework, elle est avec les classes du projet.</p>
+<p class="doc-p"><strong>Posez <code class="doc-inline-code">$golden-grid-prefix: 'gg-'</code> si votre projet a déjà des classes de ce nom</strong> — sinon le défaut convient, et c'est pourquoi la feuille pré-compilée le garde. Le préfixe s'applique à toutes les classes, conteneur compris (<code class="doc-inline-code">.gg-golden-grid</code>, <code class="doc-inline-code">.gg-rail</code>, <code class="doc-inline-code">.gg-main</code>). Les lignes nommées ne changent pas : les placements écrits par les projets restent valides quel que soit le préfixe.</p>
+<h2 id="recipes" class="doc-h doc-h2">Recettes<a class="doc-anchor no-hover" href="#recipes" aria-label="Lien vers cette section">#</a></h2>
+<p class="doc-p">Titre de section et texte côte à côte — le placement dense fait remonter le texte sur la rangée du titre :</p>
+<figure class="doc-block"><figcaption class="doc-block-bar flex x space center"><span class="doc-block-lang">scss</span><button type="button" class="doc-copy" data-copy data-copied="Copié">Copier</button></figcaption><pre class="doc-pre"><code>.block-heading {
+  grid-column: rail;
+  text-align: right;
+  text-wrap: balance;
+}</code></pre></figure>
+<p class="doc-p">Cartes posées sur la coupure dorée, deux par rangée, inégales par construction :</p>
+<figure class="doc-block"><figcaption class="doc-block-bar flex x space center"><span class="doc-block-lang">scss</span><button type="button" class="doc-copy" data-copy data-copied="Copié">Copier</button></figcaption><pre class="doc-pre"><code>.cards {
+  grid-column: edge;
+  display: grid;
+  grid-template-columns: subgrid;
+  row-gap: var(<span class="tok-var">--96</span>);
+}
+
+.cards &gt; :nth-child(odd)  { grid-column: rail-start / shoulder-end; }  <span class="tok-comment">// 0,382</span>
+.cards &gt; :nth-child(even) { grid-column: main-start / spill-end; }     <span class="tok-comment">// 0,618</span></code></pre></figure>
+<p class="doc-p">Chaque carte peut devenir conteneur de requête et rebasculer l'unité fluide d'EVA sur sa propre largeur, sans requête média — voir <a href="sizes.html#fluid-unit" class="doc-link no-hover">Unité fluide</a> :</p>
+<figure class="doc-block"><figcaption class="doc-block-bar flex x space center"><span class="doc-block-lang">scss</span><button type="button" class="doc-copy" data-copy data-copied="Copié">Copier</button></figcaption><pre class="doc-pre"><code>.card { container-type: inline-size; <span class="tok-var">--eva-fluid-unit</span>: <span class="tok-num">1cqi</span>; }</code></pre></figure>
+<aside class="doc-callout"><p class="doc-p"><code class="doc-inline-code">container-type</code> applique le confinement de style, qui <strong>isole les compteurs CSS</strong>. Un numéro de carte doit venir du gabarit, pas d'un <code class="doc-inline-code">counter-increment</code> — sinon toutes les cartes affichent <code class="doc-inline-code">01</code>.</p></aside>
+<p class="doc-p">Sur une échelle de Fibonacci, seuls les gaps sont à repasser ; la marge est un pourcentage de la page et ne consomme aucun cran :</p>
+<figure class="doc-block"><figcaption class="doc-block-bar flex x space center"><span class="doc-block-lang">scss</span><button type="button" class="doc-copy" data-copy data-copied="Copié">Copier</button></figcaption><pre class="doc-pre"><code><span class="tok-at">@use</span> <span class="tok-string">'eva-css-fluid'</span> with (
+  <span class="tok-var">$sizes</span>: (<span class="tok-num">8</span>, <span class="tok-num">13</span>, <span class="tok-num">16</span>, <span class="tok-num">21</span>, <span class="tok-num">34</span>, <span class="tok-num">55</span>, <span class="tok-num">89</span>, <span class="tok-num">144</span>),
+  <span class="tok-var">$golden-grid</span>: true,
+  <span class="tok-var">$golden-grid-column-gap</span>: var(<span class="tok-var">--21</span>),
+  <span class="tok-var">$golden-grid-row-gap</span>: var(<span class="tok-var">--34</span>),
+  <span class="tok-var">$golden-grid-blocks-row-gap</span>: var(<span class="tok-var">--55</span>)
+);</code></pre></figure>
+<h2 id="limits" class="doc-h doc-h2">Ce qu'il consomme, et ce qu'il ne fait pas<a class="doc-anchor no-hover" href="#limits" aria-label="Lien vers cette section">#</a></h2>
+<div class="doc-table-wrap"><table class="doc-table"><thead><tr><th>Dépendance</th><th>Origine</th></tr></thead><tbody><tr><td><code class="doc-inline-code">--24</code>, <code class="doc-inline-code">--32</code>, <code class="doc-inline-code">--48</code></td><td>l'échelle <code class="doc-inline-code">$sizes</code> — gaps et rythme vertical, fallback CSS si absents</td></tr><tr><td><code class="doc-inline-code">--dark</code></td><td>le système de couleurs — tracé, via <code class="doc-inline-code">color-mix</code></td></tr><tr><td><code class="doc-inline-code">--brand__</code></td><td>le système de couleurs — liseré de <code class="doc-inline-code">.grid-debug</code></td></tr><tr><td><code class="doc-inline-code">--rule</code>, <code class="doc-inline-code">--rule-void</code></td><td>posés par le composant, surchargeables en CSS</td></tr><tr><td><code class="doc-inline-code">--gg-*</code></td><td>posés par le composant — marge calculée et tokens d'exécution</td></tr></tbody></table></div>
+<p class="doc-p">Rien d'autre. Ni reset, ni utilitaires, ni gradients : <code class="doc-inline-code">eva-css-fluid/variables</code> suffit.</p>
+<p class="doc-p">Limites connues :</p>
+<ul class="doc-list"><li><strong>Une seule bascule.</strong> Un état intermédiaire à deux pistes est possible mais n'est pas fourni : il demanderait de choisir quelles pistes fusionnent, ce qui est une décision de projet.</li><li><strong>Le tracé suppose une page à grille unique.</strong> Plusieurs grilles de largeurs différentes rendraient le tracé faux pour l'une d'elles.</li><li><strong>Pas de variante RTL.</strong> Les rôles sont pensés avec un bord gauche fort ; une version logique demanderait de revoir le sens de l'asymétrie, pas seulement d'échanger les noms.</li><li><strong>Le contrôle d'alignement est en JS et hors composant.</strong> Sans lui, la règle ci-dessus redevient une simple intention.</li></ul>
+<p class="doc-p"><code class="doc-inline-code">subgrid</code> est le plancher réel : Chrome 117, Safari 16, Firefox 71 — disponible partout depuis septembre 2023. Sans lui, <code class="doc-inline-code">.blocks</code> devient une grille à une colonne : la page reste lisible, elle perd son asymétrie.</p>
+<figure class="doc-block"><figcaption class="doc-block-bar flex x space center"><span class="doc-block-lang">css</span><button type="button" class="doc-copy" data-copy data-copied="Copié">Copier</button></figcaption><pre class="doc-pre"><code><span class="tok-at">@supports</span> not (grid-template-columns: subgrid) {
+  .blocks { grid-column: main; display: block; }
+}</code></pre></figure>
+<p class="doc-p">Suite : <a href="adopt.html" class="doc-link no-hover">Adopter EVA</a>.</p>
+        </div>
+      </article>
+      <nav class="doc-pager flex x space g-20"><a class="doc-pager-link no-hover doc-pager-prev" href="utilities.html"><span class="doc-pager-dir">Précédent</span><span class="doc-pager-title">Classes utilitaires</span></a><a class="doc-pager-link no-hover doc-pager-next" href="adopt.html"><span class="doc-pager-dir">Suivant</span><span class="doc-pager-title">Adopter EVA</span></a></nav>
+    </main>
+
+    <aside class="doc-toc" aria-label="Sur cette page">
+      <div class="doc-toc-inner">
+        <p class="doc-toc-title fs-12">Sur cette page</p>
+        <ul class="doc-toc-list"><li><a class="doc-toc-link no-hover" data-level="2" href="#activation">L'activation</a></li><li><a class="doc-toc-link no-hover" data-level="2" href="#roles">Pourquoi pas douze colonnes</a></li><li><a class="doc-toc-link no-hover" data-level="2" href="#geometry">La géométrie</a></li><li><a class="doc-toc-link no-hover" data-level="2" href="#api">Lignes nommées et classes de placement</a></li><li><a class="doc-toc-link no-hover" data-level="2" href="#options">Options</a></li><li><a class="doc-toc-link no-hover" data-level="3" href="#runtime-tokens">Tokens d'exécution</a></li><li><a class="doc-toc-link no-hover" data-level="2" href="#margin">La marge dorée</a></li><li><a class="doc-toc-link no-hover" data-level="2" href="#blocks">Le flux éditorial</a></li><li><a class="doc-toc-link no-hover" data-level="2" href="#tracing">Le tracé</a></li><li><a class="doc-toc-link no-hover" data-level="2" href="#fallback">Le repli mono-colonne</a></li><li><a class="doc-toc-link no-hover" data-level="2" href="#rule">La règle, et comment la vérifier</a></li><li><a class="doc-toc-link no-hover" data-level="2" href="#naming">Nommage et collisions</a></li><li><a class="doc-toc-link no-hover" data-level="2" href="#recipes">Recettes</a></li><li><a class="doc-toc-link no-hover" data-level="2" href="#limits">Ce qu'il consomme, et ce qu'il ne fait pas</a></li></ul>
+      </div>
+    </aside>
+
+  </div>
+
+  <div class="doc-search" id="doc-search" hidden>
+    <div class="doc-search-backdrop" data-search-close></div>
+    <div class="doc-search-panel flex y" role="dialog" aria-modal="true" aria-label="Rechercher">
+      <div class="doc-search-field flex x center g-12">
+        <svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg>
+        <input type="search" id="doc-search-input" class="doc-search-input" placeholder="Rechercher dans la documentation" autocomplete="off" spellcheck="false">
+        <button type="button" class="doc-search-esc" data-search-close>esc</button>
+      </div>
+      <div class="doc-search-results" id="doc-search-results" data-empty="Aucun résultat pour"></div>
+    </div>
+  </div>
+
+  <footer class="px-220__ py-136 flex x g-20 w-full">
+    <div class="flex w-full y space center g-32">
+      <p class="fs-16 _c-brand_">© 2024</p>
+      <p class="fs-16 _c-brand_">Tati Michaël</p>
+    </div>
+    <div class="flex w-full y space g-32">
+      <a href="https://www.linkedin.com/in/mtati/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="index.html">Documentation</a>
+      <a href="../../doc/golden-grid.html" hreflang="en" title="View in English">EN</a>
+    </div>
+  </footer>
+
+  <script src="../../app.js"></script>
+  <script src="../../doc.js"></script>
+  </body>
+</html>

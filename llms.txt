@@ -13,6 +13,7 @@ Generated from the documentation source. Human-readable version: https://eva-css
 - [Colors](https://eva-css.xyz/doc/colors.html) — Five roles, three numbers each, and everything else recomposed in OKLCH — opacity fades, brightness steps, per-role tuning and dark mode.
 - [Gradients](https://eva-css.xyz/doc/gradients.html) — Composable gradient classes — one applier, then setters for colors, direction, zoom and animation.
 - [Utility classes](https://eva-css.xyz/doc/utilities.html) — Every class emitted when $build-class is true — sizing, color, flex, grid, typography and layout.
+- [Golden grid](https://eva-css.xyz/doc/golden-grid.html) — The opt-in page grid — four unequal tracks derived from the golden ratio, named lines, and an editorial flow carried by subgrid.
 - [Adopting EVA](https://eva-css.xyz/doc/adopt.html) — Wiring EVA into a project that already ships — the px audit, fusing near-duplicates, aliasing design tokens, and the traps.
 - [CLI tools](https://eva-css.xyz/doc/cli.html) — eva-color for OKLCH conversion, palettes, themes and contrast; eva-purge for stripping the classes you never used.
 - [Reference](https://eva-css.xyz/doc/reference.html) — Every option, token and class in one flat list.

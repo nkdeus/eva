@@ -166,6 +166,8 @@ Configuration is a single `@use ... with (...)` block. There is no config file, 
 
 `$unit-fluid`, `$reference-width`, `$fluid-runtime` and `$min-font-size` arrived in 2.2.0. `eva-css-fluid/colors` accepts none of these — it generates no sizes.
 
+Twelve more options, all prefixed `$golden-grid-`, configure the opt-in page grid added in 2.5.0. It emits nothing at all until `$golden-grid: true`, and the whole list is in [Golden grid](doc:golden-grid#options).
+
 ## Choosing `$sizes`
 
 List what your design uses. Nothing else. The list drives the output size directly: every entry produces four sizing tokens, and with `$build-class: true`, sixteen properties × four variants of utility classes.

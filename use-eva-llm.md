@@ -11,6 +11,7 @@
 - [Colors](https://eva-css.xyz/doc/colors.html) — Five roles, three numbers each, and everything else recomposed in OKLCH — opacity fades, brightness steps, per-role tuning and dark mode.
 - [Gradients](https://eva-css.xyz/doc/gradients.html) — Composable gradient classes — one applier, then setters for colors, direction, zoom and animation.
 - [Utility classes](https://eva-css.xyz/doc/utilities.html) — Every class emitted when $build-class is true — sizing, color, flex, grid, typography and layout.
+- [Golden grid](https://eva-css.xyz/doc/golden-grid.html) — The opt-in page grid — four unequal tracks derived from the golden ratio, named lines, and an editorial flow carried by subgrid.
 - [Adopting EVA](https://eva-css.xyz/doc/adopt.html) — Wiring EVA into a project that already ships — the px audit, fusing near-duplicates, aliasing design tokens, and the traps.
 - [CLI tools](https://eva-css.xyz/doc/cli.html) — eva-color for OKLCH conversion, palettes, themes and contrast; eva-purge for stripping the classes you never used.
 - [Reference](https://eva-css.xyz/doc/reference.html) — Every option, token and class in one flat list.
@@ -21,7 +22,7 @@
 
 Source: https://eva-css.xyz/doc/reference.html
 
-Everything EVA emits, in one place. Version 2.4.0.
+Everything EVA emits, in one place. Version 2.6.0.
 
 ## Configuration
 
@@ -65,6 +66,7 @@ Everything EVA emits, in one place. Version 2.4.0.
 | `eva-css-fluid/core` | yes | yes | yes | yes | no |
 | `eva-css-fluid/variables` | yes | yes | no | no | no |
 | `eva-css-fluid/colors` | no | yes | no | no | no |
+| `eva-css-fluid/golden-grid` | no | no | no | no | the [golden grid](doc:golden-grid) only |
 
 ## Size tokens
 
@@ -152,6 +154,35 @@ Body classes: `current-theme` (required), `theme-<name>`, `toggle-theme` (dark),
 **Typography** — `fwg-1`…`fwg-8`, `fwd-1`…`fwd-13`, `f-scale`, `f-scale offset`, `bold`, `ttu`, `tac`, `lh-0`, `lh-1`.
 
 **Layout** — `por poa pof pos`, `poa center`, `w-full`, `h-full`, `oh`, `ar-1`, `circle`, `border`, `border thin`, `blur blur_ blur__`, `pointer`, `hide`, `lt`, `mt-auto mb-auto ml-auto mr-auto`.
+
+## Golden grid
+
+Opt-in page grid, 2.5.0. Full chapter: [Golden grid](doc:golden-grid).
+
+```scss
+@use 'eva-css-fluid' with (
+  $golden-grid: false,
+  $golden-grid-prefix: '',
+  $golden-grid-max: null,
+  $golden-grid-gutter-phi: 6,
+  $golden-grid-breakpoint: 54rem,
+  $golden-grid-gutter-min: var(--24, 1.5rem),
+  $golden-grid-column-gap: var(--24, 1.5rem),
+  $golden-grid-row-gap: var(--32, 2rem),
+  $golden-grid-blocks-row-gap: var(--48, 3rem),
+  $golden-grid-rules: true,
+  $golden-grid-rail-align-mobile: right,
+  $golden-grid-auto-theme-switch: false
+);
+```
+
+Tracks, as fractions of the composition: rail `0.236`, shoulder `0.146`, text `0.382`, spill `0.236`. Margins: `0.056` of the page.
+
+Named lines — never prefixed: `edge-start`, `rail-start`, `rail-end`/`shoulder-start`, `shoulder-end`/`main-start`, `main-end`/`spill-start`, `spill-end`, `edge-end`. Shorthand areas: `rail`, `main`, `spill`, `edge`.
+
+Classes, all taking `$golden-grid-prefix`: `.golden-grid`, `.grid-page`, `.blocks`, `.rail`, `.rail--sticky`, `.main`, `.wide`, `.spill`, `.bleed`, `.grid-rules` (+ `.rules-rail`, `.rules-shoulder`, `.rules-main`, `.rules-spill`), `.grid-debug`.
+
+Runtime tokens: `--gg-column-gap`, `--gg-row-gap`, `--gg-blocks-row-gap`. Computed by the component: `--gg-gutter`, `--rule`, `--rule-void`.
 
 ## CLI
 

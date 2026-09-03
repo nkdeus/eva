@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/Draggable.min.js"></script>
+    <link rel="stylesheet" href="https://use.typekit.net/vjo0ssd.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Display:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../styles/main.css" />
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="3c9b4552-d24d-48aa-a6b4-877d0ceffe04"></script>
+    <title>EVA CSS — golden-grid, une grille de page en sections dorées</title>
+    <meta name="description" content="golden-grid, le composant opt-in d’eva-css-fluid : quatre pistes inégales issues du nombre d’or, des marges qui valent une part de la page, des lignes nommées et un flux éditorial en subgrid.">
+    <meta property="og:title" content="EVA CSS — golden-grid">
+    <meta property="og:description" content="Quatre pistes inégales dont les fractions font exactement 1. Rien n’est centré : un élément ne déclare jamais une largeur, il déclare le rôle qu’il joue.">
+    <meta property="og:locale" content="fr_FR">
+    <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+    <link rel="apple-touch-icon" href="../../assets/imgs/eva.jpg">
+    <link rel="manifest" href="../../site.webmanifest">
+    <meta name="theme-color" content="#ff8a3d">
+    <meta property="og:site_name" content="EVA CSS">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://eva-css.xyz/fr/framework/golden-grid.html">
+    <meta property="og:image" content="https://eva-css.xyz/assets/imgs/eva.jpg">
+    <meta property="og:image:width" content="512">
+    <meta property="og:image:height" content="512">
+    <meta property="og:image:alt" content="EVA CSS — fluid SCSS framework">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="EVA CSS — golden-grid">
+    <meta name="twitter:description" content="Quatre pistes inégales dont les fractions font exactement 1. Rien n’est centré : un élément ne déclare jamais une largeur, il déclare le rôle qu’il joue.">
+    <meta name="twitter:image" content="https://eva-css.xyz/assets/imgs/eva.jpg">
+    <link rel="canonical" href="https://eva-css.xyz/fr/framework/golden-grid.html">
+    <link rel="alternate" hreflang="en" href="https://eva-css.xyz/framework/golden-grid.html">
+    <link rel="alternate" hreflang="fr" href="https://eva-css.xyz/fr/framework/golden-grid.html">
+    <link rel="alternate" hreflang="x-default" href="https://eva-css.xyz/framework/golden-grid.html">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "EVA CSS",
+          "item": "https://eva-css.xyz/fr/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Addons",
+          "item": "https://eva-css.xyz/fr/framework.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Golden grid",
+          "item": "https://eva-css.xyz/fr/framework/golden-grid.html"
+        }
+      ]
+    }
+    </script>
+  </head>
+  <body class="current-theme theme-eva all-grads toggle-theme">
+  <button type="button" class="dark-light-toggle no-hover" aria-label="Basculer le mode sombre">
+    <svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 100 100" x="0px" y="0px" aria-hidden="true"><path d="M50,77.62A27.62,27.62,0,1,0,22.38,50,27.61,27.61,0,0,0,50,77.62ZM50,26A24,24,0,1,1,26,50,24,24,0,0,1,50,26ZM69.62,50.52A19.36,19.36,0,0,0,50.26,31.15V69.88A19.36,19.36,0,0,0,69.62,50.52Zm-19.88,31a1.81,1.81,0,0,0-1.81,1.81V95.69a1.81,1.81,0,0,0,3.62,0V83.3A1.81,1.81,0,0,0,49.74,81.49Zm24.9-9A1.81,1.81,0,0,0,72.09,75l8.76,8.76a1.81,1.81,0,0,0,2.55-2.56Zm6.85-22.19a1.81,1.81,0,0,0,1.81,1.81H95.69a1.81,1.81,0,1,0,0-3.62H83.3A1.81,1.81,0,0,0,81.49,50.26ZM75,27.91l8.76-8.76a1.81,1.81,0,0,0-2.56-2.55l-8.76,8.76A1.81,1.81,0,0,0,75,27.91Zm-24.75-9.4a1.81,1.81,0,0,0,1.81-1.81V4.31a1.81,1.81,0,0,0-3.62,0V16.7A1.81,1.81,0,0,0,50.26,18.51Zm-24.9,9A1.81,1.81,0,0,0,27.91,25l-8.76-8.76a1.81,1.81,0,1,0-2.55,2.56Zm-21,24H16.7a1.81,1.81,0,0,0,0-3.62H4.31a1.81,1.81,0,1,0,0,3.62Zm22,20a1.78,1.78,0,0,0-1.28.53l-8.76,8.76a1.8,1.8,0,0,0,0,2.56,1.82,1.82,0,0,0,2.56,0l8.76-8.77a1.81,1.81,0,0,0-1.28-3.08Z"/></svg>
+  </button>
+
+  <nav id="nav" class="gg-golden-grid py-12- pof">
+    <div class="gg-frame flex space">
+    <div id="logo" class="flex x center px-20">
+      <div class="ballzzz por" style="--max:6">
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:0"></div>
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:1"></div>
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:2"></div>
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:3"></div>
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:4"></div>
+        <div class="ball poa ar-1 circle _bg-brand" style="--offset:5"></div>
+      </div>
+      <a href="../index.html" class="logo no-hover title fs-36__ lh-1">EVA CSS</a>
+    </div>
+    <button id="burger-menu" class="burger-menu" type="button" aria-label="Ouvrir/fermer le menu" aria-expanded="false" aria-controls="menu">
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+    </button>
+    <div id="menu" class="flex x center g-12">
+      <a href="css-fluid.html" class="h-52 px-12 flex y center _c-brand br-12"><span class="fs-12">CSS fluide</span></a>
+      <a href="../framework.html" class="h-52 px-12 flex y center _c-light _bg-brand br-12"><span class="fs-12">Addons</span></a>
+      <a href="../use-cases.html" class="h-52 px-12 flex y center _c-brand br-12"><span class="fs-12">Cas d'usage</span></a>
+      <a href="../doc/index.html" class="h-52 px-12 flex y center _c-brand br-12"><span class="fs-12">Doc</span></a>
+      <a href="https://github.com/nkdeus/eva-framework" target="_blank" rel="noopener" aria-label="Dépôt GitHub" class="h-52 px-8 flex x g-12 center _c-brand br-8">
+        <svg xmlns="http://www.w3.org/2000/svg" class="lh-0" height="20" viewBox="0 0 16 16" width="20" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+      </a>
+    </div>
+  </div>
+  </nav>
+
+  <main class="page-grid">
+
+  <!-- Le tracé de fond : ses bandes SONT les pistes de la page. -->
+  <div class="gg-golden-grid gg-grid-rules" aria-hidden="true">
+    <span class="gg-rules-rail"></span>
+    <span class="gg-rules-shoulder"></span>
+    <span class="gg-rules-main"></span>
+    <span class="gg-rules-spill"></span>
+  </div>
+
+
+  <section class="gg-golden-grid gg-section--hero">
+    <div class="gg-blocks">
+    <p class="gg-rail section-rail section-rail--vertical">Addon · golden-grid</p>
+    <h1 class="gg-wide hero-title fs-96__ lh-1 ttu">
+      <span>Une page sans axe, avec une <span class="title grad-linear-text grad-linear from-accent to-extra">progression</span>.</span>
+    </h1>
+    <p class="gg-main fs-24__ _c-dark_">
+      Quatre pistes de largeurs inégales, issues de la subdivision récursive du nombre d’or, dont la somme fait exactement 1 — et des marges qui valent φ⁻⁶ de la page. Un élément ne déclare jamais une largeur : il déclare le rôle qu’il joue, et la piste lui donne sa mesure.
+    </p>
+    <nav id="addons-nav" class="gg-frame flex x g-8 wrap">
+      <a href="../framework.html" class="h-32 px-12 flex y center br-8 _c-brand_ fs-12 no-hover">← Tous les addons</a>
+      <a href="colors.html" class="h-32 px-12 flex y center br-8 _c-brand fs-12 no-hover">Couleurs</a>
+      <a href="gradients.html" class="h-32 px-12 flex y center br-8 _c-brand fs-12 no-hover">Dégradés</a>
+      <a href="grids.html" class="h-32 px-12 flex y center br-8 _c-brand fs-12 no-hover">Grilles</a>
+      <a href="golden-grid.html" class="h-32 px-12 flex y center br-8 _c-light _bg-brand fs-12 no-hover">Grille dorée</a>
+      <a href="flex.html" class="h-32 px-12 flex y center br-8 _c-brand fs-12 no-hover">Flex</a>
+      <a href="fonts.html" class="h-32 px-12 flex y center br-8 _c-brand fs-12 no-hover">Typographie</a>
+      <a href="sizes.html" class="h-32 px-12 flex y center br-8 _c-brand fs-12 no-hover">Tailles</a>
+    </nav>
+  </div>
+  </section>
+
+  <!-- Commandes de la démo. Volontairement hors de la grille : rien de ce qui
+       est posé dans .gg-demo ne doit échapper au contrôle d'alignement. -->
+  <section class="px-52__ pt-84 flex y g-20">
+    <div class="flex y g-12">
+      <h2 class="fs-36_ _c-dark-d_ lh-1 ttu">La grille, en direct</h2>
+      <p class="fs-16 _c-dark_ maw-768">Ce qui suit est une vraie grille dorée, montée avec les classes émises par le composant. Allumez le tracé, forcez le repli mono-colonne, déplacez le gap le long de l’échelle du site — les quatre fractions, elles, ne bougent pas.</p>
+    </div>
+    <div class="gg-controls">
+      <label><input type="checkbox" id="gg-t-rules" checked><span>Tracé</span></label>
+      <label><input type="checkbox" id="gg-t-debug"><span>Liserés</span></label>
+      <label><input type="checkbox" id="gg-t-mono"><span>Repli mono-colonne</span></label>
+      <label for="gg-gap">Gap</label>
+      <input type="range" id="gg-gap" min="0" max="8" step="1" value="4" aria-describedby="gg-gap-out">
+      <output id="gg-gap-out">--20</output>
+    </div>
+  </section>
+
+  <section class="px-52__ py-32">
+    <div id="gg-demo" class="gg-demo gg-grid-page">
+
+      <!-- Le tracé de fond : ses bandes SONT les pistes, il porte la même
+           classe que le contenu. Aucune approximation possible. -->
+      <div class="gg-golden-grid gg-grid-rules" aria-hidden="true">
+        <span class="gg-rules-rail"></span>
+        <span class="gg-rules-shoulder"></span>
+        <span class="gg-rules-main"></span>
+        <span class="gg-rules-spill"></span>
+      </div>
+
+      <section class="gg-golden-grid gg-band" aria-label="Les quatre pistes">
+        <div class="gg-spec gg-spec--edge gg-spec--edge-l"><b>φ⁻⁶</b>0,056<br>marge</div>
+        <div class="gg-spec gg-spec--rail"><b>φ⁻³</b>0,236 — rail</div>
+        <div class="gg-spec gg-spec--void gg-spec--shoulder"><b>φ⁻⁴</b>0,146 — épaule</div>
+        <div class="gg-spec gg-spec--main"><b>φ⁻²</b>0,382 — texte</div>
+        <div class="gg-spec gg-spec--spill"><b>φ⁻³</b>0,236 — débord</div>
+        <div class="gg-spec gg-spec--edge gg-spec--edge-r"><b>φ⁻⁶</b>0,056<br>marge</div>
+      </section>
+
+      <section class="gg-golden-grid gg-band">
+        <div class="gg-blocks">
+
+          <p class="gg-rail gg-rail-label"><b>01</b>La dérivation</p>
+          <div class="gg-prose"><p>La page entière vaut 1. On lui applique la coupure dorée, puis on recoupe chacune des deux parties par la même coupure. Les quatre pistes ne sont pas quatre nombres choisis : ce sont les quatre feuilles d’un arbre à deux niveaux.</p><p>L’identité qui fait tomber la somme sur 1 est la relation de récurrence, <code>φⁿ = φⁿ⁺¹ + φⁿ⁺²</code>. Arrondie à trois décimales, elle tient encore : <strong>0,236 + 0,146 + 0,382 + 0,236 = 1,000</strong>. C’est ce qui autorise à écrire les valeurs telles quelles dans la feuille sans rien perdre.</p></div>
+
+          <p class="gg-rail gg-rail-label"><b>02</b>Les rôles</p>
+          <div class="gg-prose"><p>Un élément ne déclare <strong>jamais</strong> une largeur. Il déclare le rôle qu’il joue dans la page, et la piste correspondante lui donne sa mesure. Le <strong>rail</strong> porte les métadonnées et bute à droite contre le vide ; l’<strong>épaule</strong> reste vide, et c’est elle qui désaxe la page ; le <strong>texte</strong> tient la mesure de lecture ; le <strong>débord</strong> est là où les images partent vers la droite.</p><p class="gg-note">Ce paragraphe occupe la piste φ⁻² — soit ≈ 53 signes par ligne, sans <code>max-width: 65ch</code>. La mesure n’est pas réglée, elle est déduite : si la page grandit, elle grandit dans le même rapport.</p></div>
+
+          <p class="gg-rail gg-rail-label"><b>03</b>Le vide</p>
+          <div class="gg-prose"><p>L’épaule est une piste déclarée, dessinée, mesurable. Elle ne peut pas être « récupérée » par un contenu qui déborde, parce qu’aucune classe ne la vise seule. Le tracé de fond la marque un cran plus fort que les autres — c’est une pièce du dessin, pas un repère de développement.</p></div>
+
+          <p class="gg-rail gg-rail-label"><b>04</b>La marge</p>
+          <div class="gg-prose"><p>Les marges aussi sont dorées : <strong>φ⁻⁶ de la page</strong>, soit 5,6 %. Pas un cran d’échelle, une part — elles restent donc dorées à toutes les largeurs, et grandissent avec la fenêtre.</p><p class="gg-note">Deux unités cohabitent, et c’est la clé : la marge est une part de la <em>page</em>, les pistes sont des parts de la <em>composition</em>. Le « 1 » du nombre d’or n’est pas la fenêtre, c’est ce que les marges et les gaps laissent. Une seule déclaration tient les deux régimes — <code>max(5.6%, calc((100% − 1440px) / 2))</code> : part dorée tant que la page est étroite, centrage au-delà.</p><p class="gg-note">Les gaps, eux, restent sur l’échelle. Il y en a <strong>cinq</strong> : au terme suivant de la série ils prendraient 403 px sur 1440 et videraient la composition. Le gap n’est pas une division de la page, c’est l’air entre les pistes.</p></div>
+
+          <p class="gg-rail gg-rail-label"><b>05</b>Le débord</p>
+          <div class="gg-spill gg-plate" role="img" aria-label="Aplat de démonstration en débord asymétrique"></div>
+          <div class="gg-prose"><p>L’aplat ci-dessus part du bord gauche de la colonne de texte et va jusqu’au bord de page. L’alignement n’est cassé que d’un côté : c’est ce qui donne le mouvement sans perdre le repère de lecture.</p></div>
+
+        </div>
+      </section>
+
+      <section class="gg-golden-grid gg-band" aria-label="Contrôle d’alignement · en direct">
+        <div class="gg-wide gg-instrument">
+          <h3>Contrôle d’alignement · en direct</h3>
+          <div class="gg-readout" id="gg-readout"></div>
+          <p class="gg-unit-note" id="gg-summary"></p>
+          <p class="gg-unit-note">·· fraction de la <b>page</b> — les autres, de la <b>composition</b>.</p>
+          <p class="gg-verdict" id="gg-verdict"></p>
+        </div>
+      </section>
+
+      <section class="gg-golden-grid gg-band">
+        <div class="gg-cut">
+          <div>
+            <span class="gg-frac">0,382</span>
+            <h3>Deux largeurs</h3>
+            <p>Les cartes impaires tiennent du rail à l’épaule, les paires du texte au débord. La ligne des vignettes n’est jamais droite.</p>
+          </div>
+          <div>
+            <span class="gg-frac">0,618</span>
+            <h3>La coupure elle-même</h3>
+            <p>Posées sur la coupure dorée, les deux cartes d’une rangée ont des largeurs inégales — et c’est le système qui le décide, pas un réglage.</p>
+          </div>
+          <div>
+            <span class="gg-frac">0,382</span>
+            <h3>Sans requête média</h3>
+            <p>Chaque carte peut devenir conteneur de requête et rebasculer l’unité fluide d’EVA sur sa propre largeur.</p>
+          </div>
+          <div>
+            <span class="gg-frac">0,618</span>
+            <h3>Une réserve</h3>
+            <p><code>container-type</code> isole les compteurs CSS : un numéro de carte doit venir du gabarit, pas d’un <code>counter-increment</code>.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="gg-golden-grid gg-band">
+        <div class="gg-blocks">
+
+          <p class="gg-rail gg-rail-label"><b>06</b>Le repli</p>
+          <div class="gg-prose"><p>Sous le point de bascule, toutes les lignes nommées se rabattent sur les deux bords de l’unique piste. <strong>Aucune règle de placement n’est réécrite</strong> : le rail, le texte et les blocs larges continuent de résoudre, et résolvent tous vers la même colonne. Ajouter un bloc n’oblige donc jamais à écrire sa contrepartie mobile.</p></div>
+
+          <p class="gg-rail gg-rail-label"><b>07</b>L’activation</p>
+          <div class="gg-prose"><p>Le composant n’est chargé ni par <code>core</code> ni par <code>variables</code>, et l’entrée principale n’émet aucune règle tant qu’il n’est pas activé : une grille dorée est un parti pris de mise en page, pas un défaut raisonnable.</p></div>
+
+          <pre class="gg-code gg-spill"><span class="gg-tok-c">// styles/main.scss</span>
+<span class="gg-tok-k">@use</span> 'eva-css-fluid' <span class="gg-tok-k">with</span> (
+  $sizes: (4, 8, 12, 16, 20, 32, 52, 84, 136, 220),
+  $golden-grid: <span class="gg-tok-k">true</span>,
+  $golden-grid-prefix: 'gg-',     <span class="gg-tok-c">// recommandé</span>
+  $golden-grid-column-gap: var(--20)
+);
+
+<span class="gg-tok-c">&lt;!-- html : un rôle, jamais une largeur --&gt;</span>
+&lt;div <span class="gg-tok-k">class</span>="gg-golden-grid"&gt;
+  &lt;div <span class="gg-tok-k">class</span>="gg-blocks"&gt;
+    &lt;h2 <span class="gg-tok-k">class</span>="gg-rail"&gt;Méthode&lt;/h2&gt;
+    &lt;p&gt;Le texte tombe sur la mesure de lecture.&lt;/p&gt;
+    &lt;img <span class="gg-tok-k">class</span>="gg-spill" src="…" alt=""&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+
+          <p class="gg-rail gg-rail-label"><b>08</b>La règle</p>
+          <div class="gg-prose"><p>Tout conteneur commence et finit sur une ligne de la grille. Aucune largeur en <code>ch</code>, aucune largeur en pixels, aucun <code>margin: auto</code>. La piste <em>est</em> la mesure ; le contenu en ligne coule à l’intérieur.</p><p class="gg-note">Cette règle n’a de valeur que parce qu’elle est vérifiable — l’instrument plus haut la mesure sur cette page même, à chaque redimensionnement.</p></div>
+
+        </div>
+      </section>
+
+    </div>
+  </section>
+
+  <section class="gg-golden-grid gg-section--tight">
+    <div class="gg-frame flex y g-32">
+    <div class="framework-card flex y g-20 p-52- grad-linear from-accent_ to-extra_ d-br br-12">
+      <span class="fs-12 _c-dark">Référence complète</span>
+      <h3 class="fs-36_ _c-dark-d_ lh-1">Tout le composant, documenté.</h3>
+      <p class="fs-16 _c-dark lh-1-5 maw-768">
+        Les lignes nommées, les classes de placement, les douze options, les tokens de gap à l’exécution, le flux éditorial en subgrid et le re-mapping mono-colonne. Le chapitre complet.
+      </p>
+      <a href="../doc/golden-grid.html" class="h-52 px-32 flex y center _bg-dark _c-light br-12 fs-14 no-hover" style="width: fit-content;">Lire la documentation →</a>
+    </div>
+  </div>
+  </section>
+
+  <div class="stage">
+    <div class="flex stage-top">
+      <div class="line-y h-4"></div><div class="line-y h-8"></div><div class="line-y h-12"></div><div class="line-y h-20"></div><div class="line-y h-32"></div><div class="line-y h-34"></div><div class="line-y h-52"></div><div class="line-y h-84"></div><div class="line-y h-136"></div><div class="line-y h-220"></div><div class="line-y h-356"></div><div class="line-y h-220"></div><div class="line-y h-136"></div><div class="line-y h-84"></div><div class="line-y h-52"></div><div class="line-y h-34"></div><div class="line-y h-32"></div><div class="line-y h-20"></div><div class="line-y h-12"></div><div class="line-y h-8"></div><div class="line-y h-4"></div>
+    </div>
+  </div>
+  </main>
+
+  <footer class="gg-golden-grid gg-footer">
+    <p class="gg-rail section-rail section-rail--vertical">EVA CSS</p>
+
+    <div class="gg-main footer-brand flex y g-20">
+      <p class="footer-tagline fs-24__ _c-dark-d_">Un framework SCSS fluide. Un nombre, quatre variantes, zéro point de rupture.</p>
+      <code class="footer-install">npm i eva-css-fluid</code>
+    </div>
+
+    <div class="footer-nav flex y g-32">
+      <nav class="flex y g-8" aria-label="Explorer">
+        <span class="footer-nav-title">Explorer</span>
+        <a href="../framework/css-fluid.html">CSS fluide</a>
+        <a href="../framework.html">Addons</a>
+        <a href="../use-cases.html">Cas d'usage</a>
+        <a href="../doc/index.html">Documentation</a>
+      </nav>
+      <nav class="flex y g-8" aria-label="Ailleurs">
+        <span class="footer-nav-title">Ailleurs</span>
+        <a href="https://github.com/nkdeus/eva" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.npmjs.com/package/eva-css-fluid" target="_blank" rel="noopener">npm</a>
+        <a href="https://www.linkedin.com/in/mtati/" target="_blank" rel="noopener">LinkedIn</a>
+      </nav>
+    </div>
+
+    <div class="gg-frame footer-bar flex x space wrap g-12">
+      <div class="flex y g-4">
+        <p class="fs-12 _c-dark__">© 2024 — Tati Michaël</p>
+        <a href="https://www.ulysse-2029.com/" target="_blank" rel="noopener" class="footer-site fs-12">ulysse-2029.com</a>
+      </div>
+      <a href="../../framework/golden-grid.html" hreflang="en" title="View in English" class="footer-lang fs-12">EN</a>
+    </div>
+  </footer>
+
+  <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="hide">
+    <defs>
+      <filter id="fancy-goo">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="2.5" result="blur" />
+        <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 14 -3" result="goo" />
+        <feComposite in="SourceGraphic" in2="goo" operator="atop"/>
+      </filter>
+    </defs>
+  </svg>
+  <script src="../../app.js"></script>
+
+  <!-- Contrôle d'alignement — hors composant, comme le veut la doc du addon :
+       il appartient au guide de styles, pas à la feuille. On lit
+       grid-template-columns sur le rendu, on en déduit les abscisses de ligne,
+       puis on mesure chaque conteneur réellement placé. -->
+  <script>
+  (function () {
+    var demo = document.getElementById('gg-demo');
+    if (!demo) return;
+
+    var readout = document.getElementById('gg-readout');
+    var summary = document.getElementById('gg-summary');
+    var verdict = document.getElementById('gg-verdict');
+    var gapInput = document.getElementById('gg-gap');
+    var gapOut = document.getElementById('gg-gap-out');
+
+    var NAMES = 'marge,rail,épaule,texte,débord,marge'.split(',');
+    var MONO = 'marge,piste unique,marge'.split(',');
+
+    // Le curseur parcourt l'échelle $sizes du site, pas des pixels : le gap
+    // reste un cran du design system, et reste fluide.
+    var SCALE = [4, 8, 12, 16, 20, 32, 52, 84, 136];
+
+    function measure() {
+      var grid = demo.querySelector('.gg-golden-grid:not(.gg-grid-rules)');
+      if (!grid) return;
+
+      var style = getComputedStyle(grid);
+      var gap = parseFloat(style.columnGap) || 0;
+      var tracks = style.gridTemplateColumns.split(' ')
+        .map(parseFloat).filter(function (n) { return isFinite(n); });
+
+      // Les abscisses de ligne, déduites du rendu.
+      var lines = [0];
+      var x = 0;
+      tracks.forEach(function (t) {
+        x += t; lines.push(Math.round(x));
+        x += gap; lines.push(Math.round(x));
+      });
+
+      var labels = tracks.length === 3 ? MONO : NAMES;
+      var width = grid.getBoundingClientRect().width;
+      var inner = tracks.slice(1, -1);
+      var total = inner.reduce(function (a, b) { return a + b; }, 0);
+
+      var rows = '';
+      tracks.forEach(function (t, i) {
+        // Les marges se lisent sur la page, les pistes sur la composition.
+        var isEdge = i === 0 || i === tracks.length - 1;
+        var frac = (isEdge ? t / width : t / total).toFixed(3).replace('.', ',');
+        rows += '<span>' + (isEdge ? '·· ' : ('0' + i).slice(-2) + ' ') + '</span>' +
+                '<span>' + (labels[i] || '') + '</span>' +
+                '<span>' + Math.round(t) + ' px</span>' +
+                '<span' + (isEdge ? ' class="gg-of-page"' : '') + '>' + frac + '</span>';
+      });
+      readout.innerHTML = rows;
+
+      // Chaque conteneur placé engage ses deux bords sur une ligne.
+      var origin = grid.getBoundingClientRect().left;
+      var onLine = function (v) {
+        return lines.some(function (l) { return Math.abs(l - v) < 3; });
+      };
+
+      var placed = demo.querySelectorAll(
+        '.gg-blocks > *, .gg-golden-grid:not(.gg-grid-rules) > *:not(.gg-blocks):not(.gg-cut), .gg-cut > *'
+      );
+      var checked = 0, off = 0, first = null;
+
+      placed.forEach(function (el) {
+        if (!el.getClientRects().length) return;
+        checked++;
+        var r = el.getBoundingClientRect();
+        if (!onLine(r.left - origin) || !onLine(r.right - origin)) {
+          off++;
+          if (!first) first = el.className || el.tagName.toLowerCase();
+        }
+      });
+
+      summary.innerHTML = 'gap <b>{token}</b> · 5 × {gap} px · composition <b>{composition} px</b> sur {width} px de page'
+        .replace('{token}', gapOut.textContent)
+        .replace('{gap}', Math.round(gap))
+        .replace('{composition}', Math.round(total))
+        .replace('{width}', Math.round(width));
+
+      verdict.classList.toggle('is-off', off > 0);
+      verdict.textContent = (off === 0
+        ? '{n} conteneurs mesurés · 0 écart — tous commencent et finissent sur une ligne.'.replace('{n}', checked)
+        : '{n} conteneurs mesurés · {off} hors piste ({first}).'
+            .replace('{n}', checked).replace('{off}', off).replace('{first}', first));
+    }
+
+    function bind(id, cls, inverted) {
+      var input = document.getElementById(id);
+      var apply = function () {
+        demo.classList.toggle(cls, inverted ? !input.checked : input.checked);
+        requestAnimationFrame(measure);
+      };
+      input.addEventListener('change', apply);
+      apply();
+    }
+
+    gapInput.addEventListener('input', function () {
+      var token = SCALE[+gapInput.value];
+      demo.style.setProperty('--gg-column-gap', 'var(--' + token + ')');
+      gapOut.textContent = '--' + token;
+      requestAnimationFrame(measure);
+    });
+
+    bind('gg-t-rules', 'no-rules', true);
+    bind('gg-t-debug', 'gg-grid-debug', false);
+    bind('gg-t-mono', 'is-mono', false);
+
+    measure();
+    addEventListener('resize', measure);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(measure);
+  })();
+  </script>
+  </body>
+</html>

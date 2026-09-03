@@ -68,7 +68,8 @@
   <button type="button" class="dark-light-toggle no-hover" aria-label="Toggle dark mode">
     <svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 100 100" x="0px" y="0px" aria-hidden="true"><path d="M50,77.62A27.62,27.62,0,1,0,22.38,50,27.61,27.61,0,0,0,50,77.62ZM50,26A24,24,0,1,1,26,50,24,24,0,0,1,50,26ZM69.62,50.52A19.36,19.36,0,0,0,50.26,31.15V69.88A19.36,19.36,0,0,0,69.62,50.52Zm-19.88,31a1.81,1.81,0,0,0-1.81,1.81V95.69a1.81,1.81,0,0,0,3.62,0V83.3A1.81,1.81,0,0,0,49.74,81.49Zm24.9-9A1.81,1.81,0,0,0,72.09,75l8.76,8.76a1.81,1.81,0,0,0,2.55-2.56Zm6.85-22.19a1.81,1.81,0,0,0,1.81,1.81H95.69a1.81,1.81,0,1,0,0-3.62H83.3A1.81,1.81,0,0,0,81.49,50.26ZM75,27.91l8.76-8.76a1.81,1.81,0,0,0-2.56-2.55l-8.76,8.76A1.81,1.81,0,0,0,75,27.91Zm-24.75-9.4a1.81,1.81,0,0,0,1.81-1.81V4.31a1.81,1.81,0,0,0-3.62,0V16.7A1.81,1.81,0,0,0,50.26,18.51Zm-24.9,9A1.81,1.81,0,0,0,27.91,25l-8.76-8.76a1.81,1.81,0,1,0-2.55,2.56Zm-21,24H16.7a1.81,1.81,0,0,0,0-3.62H4.31a1.81,1.81,0,1,0,0,3.62Zm22,20a1.78,1.78,0,0,0-1.28.53l-8.76,8.76a1.8,1.8,0,0,0,0,2.56,1.82,1.82,0,0,0,2.56,0l8.76-8.77a1.81,1.81,0,0,0-1.28-3.08Z"/></svg>
   </button>
-  <nav id="nav" class="px-220__ flex space py-12- pof">
+  <nav id="nav" class="gg-golden-grid py-12- pof">
+    <div class="gg-frame flex space">
     <div id="logo" class="flex x center px-20">
       <div class="ballzzz por" style="--max:6">
         <div class="ball poa ar-1 circle _bg-brand" style="--offset:0"></div>
@@ -97,32 +98,42 @@
       </a>
     </div>
 
+  </div>
   </nav>
 
-  <main>
+  <main class="page-grid">
+
+  <!-- Le tracé de fond : ses bandes SONT les pistes de la page. -->
+  <div class="gg-golden-grid gg-grid-rules" aria-hidden="true">
+    <span class="gg-rules-rail"></span>
+    <span class="gg-rules-shoulder"></span>
+    <span class="gg-rules-main"></span>
+    <span class="gg-rules-spill"></span>
+  </div>
 
 
   <!-- Hero Section -->
-  <section class="px-220__ pt-220- flex y g-32">
-    <div class="flex y g-20 pt-52-">
-      <h1 class="fs-52__ lh-1 ttu">
+  <section class="gg-golden-grid gg-section--hero">
+    <div class="gg-blocks">
+      <h1 class="gg-wide hero-title fs-96__ lh-1 ttu">
         <span>From <span class="title grad-linear-text grad-linear from-accent to-extra">Figma</span> to EVA CSS</span>
       </h1>
-      <p class="fs-16 maw-576">
+      <p class="gg-main fs-16">
         Guide for creating an EVA CSS project from a Figma design via MCP (Model Context Protocol).
       </p>
-    </div>
-    <nav id="use-cases-nav" class="flex x g-8 wrap">
+    <nav id="use-cases-nav" class="gg-frame flex x g-8 wrap">
       <a href="use-cases.html" class="h-32 px-12 flex y center br-8 _c-brand_ fs-12 no-hover">← All use cases</a>
       <a href="figma-to-eva.html" class="h-32 px-12 flex y center br-8 _c-light _bg-brand fs-12 no-hover">Figma to EVA</a>
       <a href="use-cases/tailwind.html" class="h-32 px-12 flex y center br-8 _c-brand fs-12 no-hover">Tailwind</a>
       <a href="use-cases/webflow.html" class="h-32 px-12 flex y center br-8 _c-brand fs-12 no-hover">Webflow</a>
       <a href="use-cases/ycode.html" class="h-32 px-12 flex y center br-8 _c-brand fs-12 no-hover">Ycode</a>
     </nav>
+  </div>
   </section>
 
   <!-- Prerequisites Section -->
-  <section id="prerequisites" class="px-220__ py-84 flex y g-32">
+  <section id="prerequisites" class="gg-golden-grid gg-section--tight">
+    <div class="gg-frame flex y g-32">
     <h2 class="fs-36__ _c-brand">Prerequisites</h2>
 
     <div class="grid auto-fit-356- gap-32 w-full">
@@ -153,10 +164,12 @@
         </ul>
       </div>
     </div>
+  </div>
   </section>
 
   <!-- Workflow Section -->
-  <section id="workflow" class="px-220__ py-84 flex y g-32">
+  <section id="workflow" class="gg-golden-grid gg-section--tight">
+    <div class="gg-frame flex y g-32">
     <h2 class="fs-36__ _c-brand">Workflow</h2>
 
     <div class="grid auto-fit-356- gap-32 w-full">
@@ -231,10 +244,12 @@
         <pre class="fs-11 _bg-dark__ p-12 br-8 ovx-auto"><code>&lt;body class="current-theme theme-NAME"&gt;</code></pre>
       </div>
     </div>
+  </div>
   </section>
 
   <!-- Rules Section -->
-  <section id="rules" class="px-220__ py-84 flex y g-32">
+  <section id="rules" class="gg-golden-grid gg-section--tight">
+    <div class="gg-frame flex y g-32">
     <h2 class="fs-36__ _c-brand">Important rules</h2>
 
     <div class="grid auto-fit-356- gap-32 w-full">
@@ -259,10 +274,12 @@
         <p class="fs-14 _c-dark__">If a Figma element contains "loop", iterate</p>
       </div>
     </div>
+  </div>
   </section>
 
   <!-- Live Demo Section -->
-  <section id="live-demo" class="px-220__ py-84 flex y g-32">
+  <section id="live-demo" class="gg-golden-grid gg-section--tight">
+    <div class="gg-frame flex y g-32">
     <h2 class="fs-36__ _c-brand">Live Demo: Ulysse Project</h2>
 
     <div class="projects-demo-container flex x wrap g-32 center">
@@ -305,6 +322,7 @@ $font-sizes: 10, 16, 36, 120;
 #00d4ff → oklch(84.1% 0.155 200.4)</code></pre>
       </div>
     </div>
+  </div>
   </section>
 
   <style>
@@ -379,15 +397,36 @@ $font-sizes: 10, 16, 36, 120;
   </style>
   </main>
 
-  <footer class="px-220__ py-136 flex x g-20 w-full">
-    <div class="flex w-full y space center g-32">
-      <p class="fs-16 _c-brand_">© 2024</p>
-      <p class="fs-16 _c-brand_">Tati Michaël</p>
+  <footer class="gg-golden-grid gg-footer">
+    <p class="gg-rail section-rail section-rail--vertical">EVA CSS</p>
+
+    <div class="gg-main footer-brand flex y g-20">
+      <p class="footer-tagline fs-24__ _c-dark-d_">A fluid SCSS framework. One number, four flavours, zero breakpoints.</p>
+      <code class="footer-install">npm i eva-css-fluid</code>
     </div>
-    <div class="flex w-full y space g-32">
-      <a href="https://www.linkedin.com/in/mtati/" target="_blank">LinkedIn</a>
-      <a href="doc/index.html">Documentation</a>
-      <a href="fr/figma-to-eva.html" hreflang="fr" title="Voir en français">FR</a>
+
+    <div class="footer-nav flex y g-32">
+      <nav class="flex y g-8" aria-label="Explore">
+        <span class="footer-nav-title">Explore</span>
+        <a href="framework/css-fluid.html">Fluid CSS</a>
+        <a href="framework.html">Addons</a>
+        <a href="use-cases.html">Use Cases</a>
+        <a href="doc/index.html">Documentation</a>
+      </nav>
+      <nav class="flex y g-8" aria-label="Elsewhere">
+        <span class="footer-nav-title">Elsewhere</span>
+        <a href="https://github.com/nkdeus/eva" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.npmjs.com/package/eva-css-fluid" target="_blank" rel="noopener">npm</a>
+        <a href="https://www.linkedin.com/in/mtati/" target="_blank" rel="noopener">LinkedIn</a>
+      </nav>
+    </div>
+
+    <div class="gg-frame footer-bar flex x space wrap g-12">
+      <div class="flex y g-4">
+        <p class="fs-12 _c-dark__">© 2024 — Tati Michaël</p>
+        <a href="https://www.ulysse-2029.com/" target="_blank" rel="noopener" class="footer-site fs-12">ulysse-2029.com</a>
+      </div>
+      <a href="fr/figma-to-eva.html" hreflang="fr" title="Voir en français" class="footer-lang fs-12">FR</a>
     </div>
   </footer>
 

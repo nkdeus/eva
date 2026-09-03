@@ -38,6 +38,7 @@ const PAGES = [
   { path: 'framework/fonts.html', priority: 0.7 },
   { path: 'framework/sizes.html', priority: 0.8 },
   { path: 'framework/grids.html', priority: 0.7 },
+  { path: 'framework/golden-grid.html', priority: 0.8 },
   { path: 'framework/flex.html', priority: 0.7 },
   { path: 'framework/gradients.html', priority: 0.7 },
   { path: 'framework/js-calculator.html', priority: 0.6 },

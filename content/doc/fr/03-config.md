@@ -40,6 +40,8 @@ La configuration tient dans un seul bloc `@use ... with (...)`. Pas de fichier d
 
 `$unit-fluid`, `$reference-width`, `$fluid-runtime` et `$min-font-size` sont arrivés en 2.2.0. `eva-css-fluid/colors` n'en accepte aucun — il ne génère aucune taille.
 
+Douze options de plus, toutes préfixées `$golden-grid-`, configurent la grille de page opt-in arrivée en 2.5.0. Elle n'émet strictement rien tant que `$golden-grid: true` n'est pas posé, et la liste complète est dans [Grille dorée](doc:golden-grid#options).
+
 ## Choisir `$sizes`
 
 Listez ce que votre design utilise. Rien d'autre. La liste pilote directement le poids de la sortie : chaque entrée produit quatre tokens de taille et, avec `$build-class: true`, seize propriétés × quatre variantes de classes utilitaires.

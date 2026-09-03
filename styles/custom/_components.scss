@@ -174,43 +174,9 @@ p {
 
 }
 
-.goals-bento {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-auto-rows: auto;
-  grid-template-areas:
-    "c4 c4 c4"
-    "c2 fl fl"
-    "c1 c1 c1";
-  gap: var(--32);
-  width: 100%;
-
-  > .bento-c1 { grid-area: c1; }
-  > .bento-c2 { grid-area: c2; }
-  > .bento-fl { grid-area: fl; }
-  > .bento-c4 { grid-area: c4; }
-}
-
-@media (max-width: 900px) {
-  .goals-bento {
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas:
-      "c4 c4"
-      "c2 fl"
-      "c1 c1";
-  }
-}
-
-@media (max-width: 600px) {
-  .goals-bento {
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      "c4"
-      "fl"
-      "c2"
-      "c1";
-  }
-}
+// .goals-bento est désormais posée sur les pistes de la grille dorée :
+// voir custom/_layout.scss. Plus de colonnes égales, plus de grid-areas,
+// plus de points de rupture — le repli du composant s'en charge.
 
 .framework-card:hover {
 

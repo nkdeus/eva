@@ -206,4 +206,4 @@ All of this compiles to a large stylesheet. Two ways to cut it down:
 - `$custom-class: true` with `$class-config` restricts generation up front — see [Configuration](doc:config).
 - [eva-purge](doc:cli#purge) removes what your markup never uses, after the fact. Typically 40–70%.
 
-Next: [Adopting EVA](doc:adopt).
+Next: [Golden grid](doc:golden-grid).

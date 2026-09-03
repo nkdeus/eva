@@ -5,11 +5,25 @@
 // Import EVA CSS Framework from npm package
 @use 'eva-css-fluid' with (
   $sizes: (4, 8, 12, 16, 20, 32, 34, 52, 84, 136, 156, 220, 356, 576, 712),
-  $font-sizes: (10, 12, 16, 18, 24, 36, 52, 72),
+  // 96 n'existe que pour le titre de hero. Le cran au-dessus (120) donne un
+  // plancher de clamp à 51 px : sous 400 px de large, « FRAMEWORK » sort de la
+  // piste. 96 garde la même amplitude fluide et tient dans le repli.
+  $font-sizes: (10, 12, 16, 18, 24, 36, 52, 72, 96),
   $build-class: true,
   $px-rem-suffix: true,
   $name-by-size: true,
-  $custom-class: false
+  $custom-class: false,
+
+  // golden-grid — composant opt-in (eva-css-fluid 2.5.0+)
+  // Les gaps sont repassés sur l'échelle du site : 24 / 48 n'en font pas partie.
+  $golden-grid: true,
+  $golden-grid-prefix: 'gg-',
+  $golden-grid-column-gap: var(--20),
+  $golden-grid-row-gap: var(--32),
+  $golden-grid-blocks-row-gap: var(--52),
+  // Sous le repli, un libellé de rail aligné à droite au-dessus d'un titre
+  // aligné à gauche se lit mal : on le repasse à gauche.
+  $golden-grid-rail-align-mobile: left
 );
 
 // ===========================================
@@ -22,3 +36,5 @@
 @import "./custom/ballzzz";
 @import "./custom/index";
 @import "./custom/doc";
+@import "./custom/golden-grid";
+@import "./custom/layout";

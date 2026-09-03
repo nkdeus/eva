@@ -20,6 +20,13 @@
     "useCases": "Use Cases",
     "doc": "Doc"
   },
+  "sections": {
+    "hero": "Fluid SCSS framework",
+    "goals": "Why EVA",
+    "demo": "In motion",
+    "hub": "The framework",
+    "faq": "Questions"
+  },
   "tuto": {
     "drag": "Drag the balls, release when you've found your mood color"
   },
@@ -86,7 +93,13 @@
     "copyright": "© 2024",
     "author": "Tati Michaël",
     "linkedin": "LinkedIn",
-    "doc": "Documentation"
+    "doc": "Documentation",
+    "tagline": "A fluid SCSS framework. One number, four flavours, zero breakpoints.",
+    "install": "npm i eva-css-fluid",
+    "explore": "Explore",
+    "elsewhere": "Elsewhere",
+    "github": "GitHub",
+    "npm": "npm"
   },
   "langToggle": {
     "label": "FR",
@@ -138,6 +151,7 @@
     "colors": "Colors",
     "gradients": "Gradients",
     "grids": "Grids",
+    "goldenGrid": "Golden grid",
     "flex": "Flex",
     "fonts": "Fonts",
     "sizes": "Sizes"
@@ -171,6 +185,10 @@
       "grids": {
         "title": "Grids",
         "body": "Three paradigms: auto-fit for cards, classic 12-col for layouts, fraction notation for precise control."
+      },
+      "goldenGrid": {
+        "title": "Golden grid",
+        "body": "Four unequal tracks from the golden ratio. An element declares a role — <code>rail</code>, <code>main</code>, <code>spill</code> — never a width."
       },
       "flex": {
         "title": "Flex",
@@ -478,11 +496,11 @@
       },
       "s2": {
         "title": "Host or inline it",
-        "body": "Push the compiled CSS to a CDN/repo URL, or paste it inline inside a <style> tag if it's small."
+        "body": "Push the compiled CSS to a CDN/repo URL, or paste it inline inside a &lt;style&gt; tag if it's small."
       },
       "s3": {
         "title": "Paste into Custom Code",
-        "body": "Project Settings → Custom Code → Head Code. Link the stylesheet or paste the inline <style> block."
+        "body": "Project Settings → Custom Code → Head Code. Link the stylesheet or paste the inline &lt;style&gt; block."
       },
       "s4": {
         "title": "Reference it in the Designer",
@@ -541,7 +559,7 @@
       "hosting": {
         "title": "Somewhere to host it",
         "tag": "CDN / repo",
-        "body": "Custom Code accepts a stylesheet link or an inline <style> block."
+        "body": "Custom Code accepts a stylesheet link or an inline &lt;style&gt; block."
       },
       "access": {
         "title": "Project or page settings",
@@ -558,7 +576,7 @@
       },
       "s2": {
         "title": "Host or inline it",
-        "body": "Push the compiled CSS to a CDN/repo URL, or paste it inline inside a <style> tag if it's small."
+        "body": "Push the compiled CSS to a CDN/repo URL, or paste it inline inside a &lt;style&gt; tag if it's small."
       },
       "s3": {
         "title": "Paste into Custom Code",
@@ -917,6 +935,112 @@
     "ai": {
       "title": "All grid utilities, documented.",
       "body": "Auto-fit thresholds, container queries, gap modifiers, span notation. The complete utilities list."
+    }
+  },
+  "goldenGrid": {
+    "meta": {
+      "title": "EVA CSS — golden-grid, a page grid in golden sections",
+      "description": "golden-grid, the opt-in eva-css-fluid component: four unequal tracks derived from the golden ratio, margins worth a share of the page, named lines and a subgrid editorial flow.",
+      "ogTitle": "EVA CSS — golden-grid",
+      "ogDescription": "Four unequal tracks whose fractions sum to exactly 1. Nothing is centred: an element never declares a width, it declares the role it plays."
+    },
+    "hero": {
+      "eyebrow": "Addon · golden-grid",
+      "titlePre": "A page with no axis, only a",
+      "titleHighlight": "progression",
+      "body": "Four tracks of unequal width, from the recursive subdivision of the golden ratio, summing to exactly 1 — and margins worth φ⁻⁶ of the page. An element never declares a width: it declares the role it plays, and the track hands it its measure."
+    },
+    "demo": {
+      "title": "The grid, live",
+      "lede": "What follows is a real golden grid, built from the classes the component emits. Toggle the tracing, force the single-column fallback, drag the gap along this site’s own scale — the four fractions never move.",
+      "specimenAria": "The four tracks",
+      "plateAria": "Demonstration plate in asymmetric spill"
+    },
+    "specimen": {
+      "margin": "margin",
+      "rail": "rail",
+      "shoulder": "shoulder",
+      "main": "text",
+      "spill": "spill"
+    },
+    "blocks": {
+      "b1": {
+        "label": "The derivation",
+        "body": "<p>The whole page is 1. Apply the golden cut to it, then cut each of the two parts by the same ratio. The four tracks are not four chosen numbers: they are the four leaves of a two-level tree.</p><p>The identity that lands the sum on 1 is the recurrence <code>φⁿ = φⁿ⁺¹ + φⁿ⁺²</code>. Rounded to three decimals it still holds: <strong>0.236 + 0.146 + 0.382 + 0.236 = 1.000</strong> — which is what allows the values to be written as they are in the stylesheet, without losing anything.</p>"
+      },
+      "b2": {
+        "label": "The roles",
+        "body": "<p>An element <strong>never</strong> declares a width. It declares the role it plays in the page, and the matching track hands it its measure. The <strong>rail</strong> carries metadata and butts right against the void; the <strong>shoulder</strong> stays empty, and it is what throws the page off-axis; the <strong>text</strong> track holds the reading measure; the <strong>spill</strong> is where images run off to the right.</p><p class=\"gg-note\">This paragraph sits on the φ⁻² track — about 53 characters a line, with no <code>max-width: 65ch</code> anywhere. The measure is not set, it is derived: if the page grows, it grows in the same ratio.</p>"
+      },
+      "b3": {
+        "label": "The void",
+        "body": "<p>The shoulder is a declared, drawn, measurable track. It cannot be reclaimed by content that overflows, because no class targets it on its own. The background tracing marks it one notch stronger than the rest — it is a piece of the drawing, not a development guide.</p>"
+      },
+      "b4": {
+        "label": "The margin",
+        "body": "<p>The margins are golden too: <strong>φ⁻⁶ of the page</strong>, that is 5.6%. Not a step of the scale, a share — so they stay golden at every width, and grow with the window.</p><p class=\"gg-note\">Two units live side by side, and that is the key: the margin is a share of the <em>page</em>, the tracks are shares of the <em>composition</em>. The “1” of the golden ratio is not the window, it is what the margins and the gaps leave. A single declaration holds both regimes — <code>max(5.6%, calc((100% − 1440px) / 2))</code>: golden share while the page is narrow, centring beyond.</p><p class=\"gg-note\">The gaps, on the other hand, stay on the scale. There are <strong>five</strong> of them: at the next term of the series they would take 403px out of 1440 and empty the composition. A gap is not a division of the page, it is the air between tracks.</p>"
+      },
+      "b5": {
+        "label": "The spill",
+        "body": "<p>The plate above starts on the left edge of the text column and runs to the page edge. The alignment breaks on one side only: that is what gives the movement without losing the reading anchor.</p>"
+      },
+      "b6": {
+        "label": "The fallback",
+        "body": "<p>Below the switch point, every named line collapses onto the two edges of the single track. <strong>No placement rule is rewritten</strong>: the rail, the text and the wide blocks all keep resolving, and they all resolve to the same column. Adding a block therefore never means writing its mobile counterpart.</p>"
+      },
+      "b7": {
+        "label": "Turning it on",
+        "body": "<p>The component is loaded neither by <code>core</code> nor by <code>variables</code>, and the main entry emits no rule until it is switched on: a golden grid is a layout stance, not a sensible default.</p>"
+      },
+      "b8": {
+        "label": "The rule",
+        "body": "<p>Every container starts and ends on a grid line. No width in <code>ch</code>, none in pixels, no <code>margin: auto</code>. The track <em>is</em> the measure; inline content flows inside it.</p><p class=\"gg-note\">That rule is only worth something because it is checkable — the instrument above measures it on this very page, at every resize.</p>"
+      }
+    },
+    "instrument": {
+      "title": "Alignment check · live",
+      "pageNote": "·· share of the <b>page</b> — the others, of the <b>composition</b>."
+    },
+    "cut": {
+      "c1": {
+        "title": "Two widths",
+        "body": "Odd cards run from the rail to the shoulder, even ones from the text to the spill. The line of thumbnails is never straight."
+      },
+      "c2": {
+        "title": "The cut itself",
+        "body": "Sitting on the golden cut, the two cards of a row have unequal widths — and it is the system that decides, not a setting."
+      },
+      "c3": {
+        "title": "No media query",
+        "body": "Each card can become a query container and switch EVA’s fluid unit onto its own width instead of the viewport."
+      },
+      "c4": {
+        "title": "One caveat",
+        "body": "<code>container-type</code> isolates CSS counters: a card number has to come from the template, not from a <code>counter-increment</code>."
+      }
+    },
+    "controls": {
+      "rules": "Tracing",
+      "debug": "Outlines",
+      "mono": "Single-column fallback",
+      "gap": "Gap"
+    },
+    "code": {
+      "prefix": "recommended",
+      "html": "html: a role, never a width",
+      "heading": "Method",
+      "text": "Text falls onto the reading measure."
+    },
+    "js": {
+      "labels": "margin,rail,shoulder,text,spill,margin",
+      "labelsMono": "margin,single track,margin",
+      "summary": "gap <b>{token}</b> · 5 × {gap} px · composition <b>{composition} px</b> in {width} px of page",
+      "verdictOk": "{n} containers measured · 0 deviation — every one starts and ends on a line.",
+      "verdictOff": "{n} containers measured · {off} off-track ({first})."
+    },
+    "ai": {
+      "title": "The whole component, documented.",
+      "body": "Named lines, placement classes, the twelve options, the runtime gap tokens, the subgrid editorial flow and the single-column re-mapping. The full chapter."
     }
   },
   "flex": {

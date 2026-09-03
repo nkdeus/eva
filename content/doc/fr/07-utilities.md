@@ -206,4 +206,4 @@ Tout cela compile en une grosse feuille de style. Deux leviers pour la réduire 
 - `$custom-class: true` avec `$class-config` restreint la génération en amont — voir [Configuration](doc:config).
 - [eva-purge](doc:cli#purge) retire après coup ce que votre markup n'utilise jamais. Typiquement 40 à 70 %.
 
-Suite : [Adopter EVA](doc:adopt).
+Suite : [Grille dorée](doc:golden-grid).

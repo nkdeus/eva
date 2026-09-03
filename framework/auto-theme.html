@@ -101,7 +101,8 @@
   <button type="button" class="dark-light-toggle no-hover" aria-label="Toggle dark mode">
     <svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 100 100" x="0px" y="0px" aria-hidden="true"><path d="M50,77.62A27.62,27.62,0,1,0,22.38,50,27.61,27.61,0,0,0,50,77.62ZM50,26A24,24,0,1,1,26,50,24,24,0,0,1,50,26ZM69.62,50.52A19.36,19.36,0,0,0,50.26,31.15V69.88A19.36,19.36,0,0,0,69.62,50.52Zm-19.88,31a1.81,1.81,0,0,0-1.81,1.81V95.69a1.81,1.81,0,0,0,3.62,0V83.3A1.81,1.81,0,0,0,49.74,81.49Zm24.9-9A1.81,1.81,0,0,0,72.09,75l8.76,8.76a1.81,1.81,0,0,0,2.55-2.56Zm6.85-22.19a1.81,1.81,0,0,0,1.81,1.81H95.69a1.81,1.81,0,1,0,0-3.62H83.3A1.81,1.81,0,0,0,81.49,50.26ZM75,27.91l8.76-8.76a1.81,1.81,0,0,0-2.56-2.55l-8.76,8.76A1.81,1.81,0,0,0,75,27.91Zm-24.75-9.4a1.81,1.81,0,0,0,1.81-1.81V4.31a1.81,1.81,0,0,0-3.62,0V16.7A1.81,1.81,0,0,0,50.26,18.51Zm-24.9,9A1.81,1.81,0,0,0,27.91,25l-8.76-8.76a1.81,1.81,0,1,0-2.55,2.56Zm-21,24H16.7a1.81,1.81,0,0,0,0-3.62H4.31a1.81,1.81,0,1,0,0-3.62Zm22,20a1.78,1.78,0,0,0-1.28.53l-8.76,8.76a1.8,1.8,0,0,0,0,2.56,1.82,1.82,0,0,0,2.56,0l8.76-8.77a1.81,1.81,0,0,0-1.28-3.08Z"/></svg>
   </button>
-  <nav id="nav" class="px-220__ flex space py-12- pof">
+  <nav id="nav" class="gg-golden-grid py-12- pof">
+    <div class="gg-frame flex space">
     <div id="logo" class="flex x center px-20">
       <div class="ballzzz por" style="--max:6">
         <div class="ball poa ar-1 circle _bg-brand" style="--offset:0"></div>
@@ -130,14 +131,24 @@
       </a>
     </div>
 
+  </div>
   </nav>
 
-  <main>
+  <main class="page-grid">
+
+  <!-- Le tracé de fond : ses bandes SONT les pistes de la page. -->
+  <div class="gg-golden-grid gg-grid-rules" aria-hidden="true">
+    <span class="gg-rules-rail"></span>
+    <span class="gg-rules-shoulder"></span>
+    <span class="gg-rules-main"></span>
+    <span class="gg-rules-spill"></span>
+  </div>
 
 
-  <section class="px-220__ pt-220- pb-136 flex y g-32">
+  <section class="gg-golden-grid gg-section--hero">
+    <div class="gg-blocks">
 
-    <div class="fs-36_ py-52- flex y g-12 w-full relative">
+    <div class="gg-wide fs-36_ py-52- flex y g-12 w-full relative">
       <div class="flex x space g-12 w-full relative">
         <a href="#back" id="goBack" class="flex x center g-8 py-12 _c-brand no-hover">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -152,7 +163,7 @@
           </svg>
         </a>
       </div>
-      <h1 class="fs-52__ lh-1 ttu">
+      <h1 class="hero-title fs-96__ lh-1 ttu">
         <span>EVA CSS <span class="title grad-linear-text grad-linear from-accent to-extra">Auto Theme</span></span>
       </h1>
       <p class="fs-16 mb-32">Upload an image and automatically generate an EVA CSS theme from its dominant colors.</p>
@@ -163,9 +174,11 @@
         <a href="#generated-theme" class="h-52 px-12 flex y center _c-brand br-12">Generated Theme</a>
       </div>
     </div>
-</section>
+</div>
+  </section>
 
-  <section class="px-220__ py-136 flex y g-136">
+  <section class="gg-golden-grid gg-section">
+    <div class="gg-frame flex y g-136">
 
     <div class="flex y g-20">
       <h2 class="fs-24 bold">Upload Image</h2>
@@ -233,6 +246,7 @@
     </div>
 
 
+  </div>
   </section>
 
   <div class="stage">
@@ -262,15 +276,36 @@
   </div>
   </main>
 
-  <footer class="px-220__ py-136 flex x g-20 w-full">
-    <div class="flex w-full y space center g-32">
-      <p class="fs-16 _c-brand_">© 2024</p>
-      <p class="fs-16 _c-brand_">Tati Michaël</p>
+  <footer class="gg-golden-grid gg-footer">
+    <p class="gg-rail section-rail section-rail--vertical">EVA CSS</p>
+
+    <div class="gg-main footer-brand flex y g-20">
+      <p class="footer-tagline fs-24__ _c-dark-d_">A fluid SCSS framework. One number, four flavours, zero breakpoints.</p>
+      <code class="footer-install">npm i eva-css-fluid</code>
     </div>
-    <div class="flex w-full y space g-32">
-      <a href="https://www.linkedin.com/in/mtati/" target="_blank">LinkedIn</a>
-      <a href="../doc/index.html">Documentation</a>
-      <a href="../fr/framework/auto-theme.html" hreflang="fr" title="Voir en français">FR</a>
+
+    <div class="footer-nav flex y g-32">
+      <nav class="flex y g-8" aria-label="Explore">
+        <span class="footer-nav-title">Explore</span>
+        <a href="../framework/css-fluid.html">Fluid CSS</a>
+        <a href="../framework.html">Addons</a>
+        <a href="../use-cases.html">Use Cases</a>
+        <a href="../doc/index.html">Documentation</a>
+      </nav>
+      <nav class="flex y g-8" aria-label="Elsewhere">
+        <span class="footer-nav-title">Elsewhere</span>
+        <a href="https://github.com/nkdeus/eva" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.npmjs.com/package/eva-css-fluid" target="_blank" rel="noopener">npm</a>
+        <a href="https://www.linkedin.com/in/mtati/" target="_blank" rel="noopener">LinkedIn</a>
+      </nav>
+    </div>
+
+    <div class="gg-frame footer-bar flex x space wrap g-12">
+      <div class="flex y g-4">
+        <p class="fs-12 _c-dark__">© 2024 — Tati Michaël</p>
+        <a href="https://www.ulysse-2029.com/" target="_blank" rel="noopener" class="footer-site fs-12">ulysse-2029.com</a>
+      </div>
+      <a href="../fr/framework/auto-theme.html" hreflang="fr" title="Voir en français" class="footer-lang fs-12">FR</a>
     </div>
   </footer>
 

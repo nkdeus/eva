@@ -20,6 +20,13 @@
     "useCases": "Cas d'usage",
     "doc": "Doc"
   },
+  "sections": {
+    "hero": "Framework SCSS fluide",
+    "goals": "Pourquoi EVA",
+    "demo": "En mouvement",
+    "hub": "Le framework",
+    "faq": "Questions"
+  },
   "tuto": {
     "drag": "Faites glisser les balles, relâchez quand vous trouvez votre couleur"
   },
@@ -86,7 +93,13 @@
     "copyright": "© 2024",
     "author": "Tati Michaël",
     "linkedin": "LinkedIn",
-    "doc": "Documentation"
+    "doc": "Documentation",
+    "tagline": "Un framework SCSS fluide. Un nombre, quatre variantes, zéro point de rupture.",
+    "install": "npm i eva-css-fluid",
+    "explore": "Explorer",
+    "elsewhere": "Ailleurs",
+    "github": "GitHub",
+    "npm": "npm"
   },
   "langToggle": {
     "label": "EN",
@@ -138,6 +151,7 @@
     "colors": "Couleurs",
     "gradients": "Dégradés",
     "grids": "Grilles",
+    "goldenGrid": "Grille dorée",
     "flex": "Flex",
     "fonts": "Typographie",
     "sizes": "Tailles"
@@ -171,6 +185,10 @@
       "grids": {
         "title": "Grilles",
         "body": "Trois paradigmes : auto-fit pour les cartes, 12 colonnes classiques pour les layouts, notation fractionnaire pour le contrôle précis."
+      },
+      "goldenGrid": {
+        "title": "Grille dorée",
+        "body": "Quatre pistes inégales issues du nombre d’or. Un élément déclare un rôle — <code>rail</code>, <code>main</code>, <code>spill</code> — jamais une largeur."
       },
       "flex": {
         "title": "Flex",
@@ -478,11 +496,11 @@
       },
       "s2": {
         "title": "Héberger ou inliner",
-        "body": "Poussez le CSS compilé sur une URL CDN/repo, ou collez-le inline dans une balise <style> si c'est petit."
+        "body": "Poussez le CSS compilé sur une URL CDN/repo, ou collez-le inline dans une balise &lt;style&gt; si c'est petit."
       },
       "s3": {
         "title": "Coller dans Custom Code",
-        "body": "Project Settings → Custom Code → Head Code. Liez la feuille de style ou collez le bloc <style> inline."
+        "body": "Project Settings → Custom Code → Head Code. Liez la feuille de style ou collez le bloc &lt;style&gt; inline."
       },
       "s4": {
         "title": "Le référencer dans le Designer",
@@ -541,7 +559,7 @@
       "hosting": {
         "title": "Un endroit pour l'héberger",
         "tag": "CDN / repo",
-        "body": "Custom Code accepte un lien vers une feuille de style ou un bloc <style> inline."
+        "body": "Custom Code accepte un lien vers une feuille de style ou un bloc &lt;style&gt; inline."
       },
       "access": {
         "title": "Réglages projet ou page",
@@ -558,7 +576,7 @@
       },
       "s2": {
         "title": "Héberger ou inliner",
-        "body": "Poussez le CSS compilé sur une URL CDN/repo, ou collez-le inline dans une balise <style> si c'est petit."
+        "body": "Poussez le CSS compilé sur une URL CDN/repo, ou collez-le inline dans une balise &lt;style&gt; si c'est petit."
       },
       "s3": {
         "title": "Coller dans Custom Code",
@@ -917,6 +935,112 @@
     "ai": {
       "title": "Tous les utilitaires de grille, documentés.",
       "body": "Seuils auto-fit, container queries, modificateurs de gap, notation span. La liste complète des utilitaires."
+    }
+  },
+  "goldenGrid": {
+    "meta": {
+      "title": "EVA CSS — golden-grid, une grille de page en sections dorées",
+      "description": "golden-grid, le composant opt-in d’eva-css-fluid : quatre pistes inégales issues du nombre d’or, des marges qui valent une part de la page, des lignes nommées et un flux éditorial en subgrid.",
+      "ogTitle": "EVA CSS — golden-grid",
+      "ogDescription": "Quatre pistes inégales dont les fractions font exactement 1. Rien n’est centré : un élément ne déclare jamais une largeur, il déclare le rôle qu’il joue."
+    },
+    "hero": {
+      "eyebrow": "Addon · golden-grid",
+      "titlePre": "Une page sans axe, avec une",
+      "titleHighlight": "progression",
+      "body": "Quatre pistes de largeurs inégales, issues de la subdivision récursive du nombre d’or, dont la somme fait exactement 1 — et des marges qui valent φ⁻⁶ de la page. Un élément ne déclare jamais une largeur : il déclare le rôle qu’il joue, et la piste lui donne sa mesure."
+    },
+    "demo": {
+      "title": "La grille, en direct",
+      "lede": "Ce qui suit est une vraie grille dorée, montée avec les classes émises par le composant. Allumez le tracé, forcez le repli mono-colonne, déplacez le gap le long de l’échelle du site — les quatre fractions, elles, ne bougent pas.",
+      "specimenAria": "Les quatre pistes",
+      "plateAria": "Aplat de démonstration en débord asymétrique"
+    },
+    "specimen": {
+      "margin": "marge",
+      "rail": "rail",
+      "shoulder": "épaule",
+      "main": "texte",
+      "spill": "débord"
+    },
+    "blocks": {
+      "b1": {
+        "label": "La dérivation",
+        "body": "<p>La page entière vaut 1. On lui applique la coupure dorée, puis on recoupe chacune des deux parties par la même coupure. Les quatre pistes ne sont pas quatre nombres choisis : ce sont les quatre feuilles d’un arbre à deux niveaux.</p><p>L’identité qui fait tomber la somme sur 1 est la relation de récurrence, <code>φⁿ = φⁿ⁺¹ + φⁿ⁺²</code>. Arrondie à trois décimales, elle tient encore : <strong>0,236 + 0,146 + 0,382 + 0,236 = 1,000</strong>. C’est ce qui autorise à écrire les valeurs telles quelles dans la feuille sans rien perdre.</p>"
+      },
+      "b2": {
+        "label": "Les rôles",
+        "body": "<p>Un élément ne déclare <strong>jamais</strong> une largeur. Il déclare le rôle qu’il joue dans la page, et la piste correspondante lui donne sa mesure. Le <strong>rail</strong> porte les métadonnées et bute à droite contre le vide ; l’<strong>épaule</strong> reste vide, et c’est elle qui désaxe la page ; le <strong>texte</strong> tient la mesure de lecture ; le <strong>débord</strong> est là où les images partent vers la droite.</p><p class=\"gg-note\">Ce paragraphe occupe la piste φ⁻² — soit ≈ 53 signes par ligne, sans <code>max-width: 65ch</code>. La mesure n’est pas réglée, elle est déduite : si la page grandit, elle grandit dans le même rapport.</p>"
+      },
+      "b3": {
+        "label": "Le vide",
+        "body": "<p>L’épaule est une piste déclarée, dessinée, mesurable. Elle ne peut pas être « récupérée » par un contenu qui déborde, parce qu’aucune classe ne la vise seule. Le tracé de fond la marque un cran plus fort que les autres — c’est une pièce du dessin, pas un repère de développement.</p>"
+      },
+      "b4": {
+        "label": "La marge",
+        "body": "<p>Les marges aussi sont dorées : <strong>φ⁻⁶ de la page</strong>, soit 5,6 %. Pas un cran d’échelle, une part — elles restent donc dorées à toutes les largeurs, et grandissent avec la fenêtre.</p><p class=\"gg-note\">Deux unités cohabitent, et c’est la clé : la marge est une part de la <em>page</em>, les pistes sont des parts de la <em>composition</em>. Le « 1 » du nombre d’or n’est pas la fenêtre, c’est ce que les marges et les gaps laissent. Une seule déclaration tient les deux régimes — <code>max(5.6%, calc((100% − 1440px) / 2))</code> : part dorée tant que la page est étroite, centrage au-delà.</p><p class=\"gg-note\">Les gaps, eux, restent sur l’échelle. Il y en a <strong>cinq</strong> : au terme suivant de la série ils prendraient 403 px sur 1440 et videraient la composition. Le gap n’est pas une division de la page, c’est l’air entre les pistes.</p>"
+      },
+      "b5": {
+        "label": "Le débord",
+        "body": "<p>L’aplat ci-dessus part du bord gauche de la colonne de texte et va jusqu’au bord de page. L’alignement n’est cassé que d’un côté : c’est ce qui donne le mouvement sans perdre le repère de lecture.</p>"
+      },
+      "b6": {
+        "label": "Le repli",
+        "body": "<p>Sous le point de bascule, toutes les lignes nommées se rabattent sur les deux bords de l’unique piste. <strong>Aucune règle de placement n’est réécrite</strong> : le rail, le texte et les blocs larges continuent de résoudre, et résolvent tous vers la même colonne. Ajouter un bloc n’oblige donc jamais à écrire sa contrepartie mobile.</p>"
+      },
+      "b7": {
+        "label": "L’activation",
+        "body": "<p>Le composant n’est chargé ni par <code>core</code> ni par <code>variables</code>, et l’entrée principale n’émet aucune règle tant qu’il n’est pas activé : une grille dorée est un parti pris de mise en page, pas un défaut raisonnable.</p>"
+      },
+      "b8": {
+        "label": "La règle",
+        "body": "<p>Tout conteneur commence et finit sur une ligne de la grille. Aucune largeur en <code>ch</code>, aucune largeur en pixels, aucun <code>margin: auto</code>. La piste <em>est</em> la mesure ; le contenu en ligne coule à l’intérieur.</p><p class=\"gg-note\">Cette règle n’a de valeur que parce qu’elle est vérifiable — l’instrument plus haut la mesure sur cette page même, à chaque redimensionnement.</p>"
+      }
+    },
+    "instrument": {
+      "title": "Contrôle d’alignement · en direct",
+      "pageNote": "·· fraction de la <b>page</b> — les autres, de la <b>composition</b>."
+    },
+    "cut": {
+      "c1": {
+        "title": "Deux largeurs",
+        "body": "Les cartes impaires tiennent du rail à l’épaule, les paires du texte au débord. La ligne des vignettes n’est jamais droite."
+      },
+      "c2": {
+        "title": "La coupure elle-même",
+        "body": "Posées sur la coupure dorée, les deux cartes d’une rangée ont des largeurs inégales — et c’est le système qui le décide, pas un réglage."
+      },
+      "c3": {
+        "title": "Sans requête média",
+        "body": "Chaque carte peut devenir conteneur de requête et rebasculer l’unité fluide d’EVA sur sa propre largeur."
+      },
+      "c4": {
+        "title": "Une réserve",
+        "body": "<code>container-type</code> isole les compteurs CSS : un numéro de carte doit venir du gabarit, pas d’un <code>counter-increment</code>."
+      }
+    },
+    "controls": {
+      "rules": "Tracé",
+      "debug": "Liserés",
+      "mono": "Repli mono-colonne",
+      "gap": "Gap"
+    },
+    "code": {
+      "prefix": "recommandé",
+      "html": "html : un rôle, jamais une largeur",
+      "heading": "Méthode",
+      "text": "Le texte tombe sur la mesure de lecture."
+    },
+    "js": {
+      "labels": "marge,rail,épaule,texte,débord,marge",
+      "labelsMono": "marge,piste unique,marge",
+      "summary": "gap <b>{token}</b> · 5 × {gap} px · composition <b>{composition} px</b> sur {width} px de page",
+      "verdictOk": "{n} conteneurs mesurés · 0 écart — tous commencent et finissent sur une ligne.",
+      "verdictOff": "{n} conteneurs mesurés · {off} hors piste ({first})."
+    },
+    "ai": {
+      "title": "Tout le composant, documenté.",
+      "body": "Les lignes nommées, les classes de placement, les douze options, les tokens de gap à l’exécution, le flux éditorial en subgrid et le re-mapping mono-colonne. Le chapitre complet."
     }
   },
   "flex": {

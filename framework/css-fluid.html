@@ -63,7 +63,8 @@
     <svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 100 100" x="0px" y="0px" aria-hidden="true"><path d="M50,77.62A27.62,27.62,0,1,0,22.38,50,27.61,27.61,0,0,0,50,77.62ZM50,26A24,24,0,1,1,26,50,24,24,0,0,1,50,26ZM69.62,50.52A19.36,19.36,0,0,0,50.26,31.15V69.88A19.36,19.36,0,0,0,69.62,50.52Zm-19.88,31a1.81,1.81,0,0,0-1.81,1.81V95.69a1.81,1.81,0,0,0,3.62,0V83.3A1.81,1.81,0,0,0,49.74,81.49Zm24.9-9A1.81,1.81,0,0,0,72.09,75l8.76,8.76a1.81,1.81,0,0,0,2.55-2.56Zm6.85-22.19a1.81,1.81,0,0,0,1.81,1.81H95.69a1.81,1.81,0,1,0,0-3.62H83.3A1.81,1.81,0,0,0,81.49,50.26ZM75,27.91l8.76-8.76a1.81,1.81,0,0,0-2.56-2.55l-8.76,8.76A1.81,1.81,0,0,0,75,27.91Zm-24.75-9.4a1.81,1.81,0,0,0,1.81-1.81V4.31a1.81,1.81,0,0,0-3.62,0V16.7A1.81,1.81,0,0,0,50.26,18.51Zm-24.9,9A1.81,1.81,0,0,0,27.91,25l-8.76-8.76a1.81,1.81,0,1,0-2.55,2.56Zm-21,24H16.7a1.81,1.81,0,0,0,0-3.62H4.31a1.81,1.81,0,1,0,0,3.62Zm22,20a1.78,1.78,0,0,0-1.28.53l-8.76,8.76a1.8,1.8,0,0,0,0,2.56,1.82,1.82,0,0,0,2.56,0l8.76-8.77a1.81,1.81,0,0,0-1.28-3.08Z"/></svg>
   </button>
 
-  <nav id="nav" class="px-220__ flex space py-12- pof">
+  <nav id="nav" class="gg-golden-grid py-12- pof">
+    <div class="gg-frame flex space">
     <div id="logo" class="flex x center px-20">
       <div class="ballzzz por" style="--max:6">
         <div class="ball poa ar-1 circle _bg-brand" style="--offset:0"></div>
@@ -91,26 +92,36 @@
         <svg xmlns="http://www.w3.org/2000/svg" class="lh-0" height="20" viewBox="0 0 16 16" width="20" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
       </a>
     </div>
+  </div>
   </nav>
 
-  <main>
+  <main class="page-grid">
+
+  <!-- Le tracé de fond : ses bandes SONT les pistes de la page. -->
+  <div class="gg-golden-grid gg-grid-rules" aria-hidden="true">
+    <span class="gg-rules-rail"></span>
+    <span class="gg-rules-shoulder"></span>
+    <span class="gg-rules-main"></span>
+    <span class="gg-rules-spill"></span>
+  </div>
 
 
   <!-- Hero -->
-  <section class="px-220__ pt-220- flex y g-32">
-    <div class="flex y g-20 py-52-">
-      <p class="fs-16 _c-brand_">The core of EVA CSS</p>
-      <h1 class="fs-52__ lh-1 ttu">
+  <section class="gg-golden-grid gg-section--hero">
+    <div class="gg-blocks">
+      <p class="gg-rail section-rail section-rail--vertical">The core of EVA CSS</p>
+      <h1 class="gg-wide hero-title fs-96__ lh-1 ttu">
         <span>Fluid <span class="title grad-linear-text grad-linear from-accent to-extra">scales</span><br/>where breakpoints jump.</span>
       </h1>
-      <p class="fs-24__ _c-dark_ maw-768">
+      <p class="gg-main fs-24__ _c-dark_">
         One <code class="_c-brand-d">clamp()</code> replaces three media queries. Designs flow. Layouts breathe. Drag the sliders below.
       </p>
-    </div>
+  </div>
   </section>
 
   <!-- Demo 1: Live clamp() reveal -->
-  <section id="reveal" class="px-220__ py-84 flex y g-32 por">
+  <section id="reveal" class="gg-golden-grid gg-section--tight">
+    <div class="gg-frame flex y g-32 por">
     <div class="flex y g-20">
       <h2 class="fs-52__ _bg-brand pr-356__ lh-1 ttu fwd-4 f-scale offset"><span class="_c-light">The clamp() reveal</span></h2>
       <p class="fs-18 _c-dark _bg-brand___ p-34_ maw-768">
@@ -212,10 +223,12 @@
         <span class="fluid-stat-value" id="fluidBtnPad">12<span class="fs-12 _c-dark__">px</span></span>
       </div>
     </div>
+  </div>
   </section>
 
   <!-- Demo 2: Breakpoint vs Fluid -->
-  <section id="versus" class="px-220__ py-84 flex y g-32 por">
+  <section id="versus" class="gg-golden-grid gg-section--tight">
+    <div class="gg-frame flex y g-32 por">
     <div class="flex y g-20">
       <h2 class="fs-52__ _bg-brand pr-356__ lh-1 ttu fwd-4 f-scale offset"><span class="_c-light">Breakpoint vs fluid</span></h2>
       <p class="fs-18 _c-dark _bg-brand___ p-34_ maw-768">
@@ -319,11 +332,13 @@
         </div>
       </div>
     </div>
+  </div>
   </section>
 
   <!-- Four size modifiers — bars use real EVA tokens via iframe;
        slider drives the iframe's vw, no clamp redefinition. -->
-  <section id="modifiers" class="px-220__ py-84 flex y g-32 por">
+  <section id="modifiers" class="gg-golden-grid gg-section--tight">
+    <div class="gg-frame flex y g-32 por">
     <div class="flex y g-20">
       <h2 class="fs-52__ _bg-brand pr-356__ lh-1 ttu fwd-4 f-scale offset"><span class="_c-light">Four size modifiers</span></h2>
       <p class="fs-18 _c-dark _bg-brand___ p-34_ maw-768">
@@ -410,10 +425,12 @@
         <span class="fluid-stat-value" id="modExtendedValue">220<span class="fs-12 _c-dark__">px</span></span>
       </div>
     </div>
+  </div>
   </section>
 
   <!-- Demo 3: Canonical example -->
-  <section id="canonical" class="px-220__ py-84 flex y g-32">
+  <section id="canonical" class="gg-golden-grid gg-section--tight">
+    <div class="gg-frame flex y g-32">
     <div class="flex y g-20">
       <h2 class="fs-52__ _bg-brand pr-356__ lh-1 ttu fwd-4 f-scale offset"><span class="_c-light">The canonical setup</span></h2>
       <p class="fs-18 _c-dark _bg-brand___ p-34_ maw-768">
@@ -449,10 +466,12 @@
 }</code></pre>
       </div>
     </div>
+  </div>
   </section>
 
   <!-- What's new in v2.2.0 -->
-  <section id="whats-new" class="px-220__ py-84 flex y g-32">
+  <section id="whats-new" class="gg-golden-grid gg-section--tight">
+    <div class="gg-frame flex y g-32">
     <div class="flex y g-20">
       <span class="fs-12 _c-accent ttu fwd-6">New in v2.2.0</span>
       <h2 class="fs-52__ _bg-brand pr-356__ lh-1 ttu fwd-4 f-scale offset"><span class="_c-light">One stylesheet, two fluid modes</span></h2>
@@ -502,13 +521,15 @@
     <p class="fs-14 _c-dark__ maw-768">
       100% backward compatible. No <code>--eva-fluid-unit</code> set falls back to <code>1vw</code> — same computed value as before. <code>fluidRuntime: false</code> reproduces the previous output byte for byte.
     </p>
+  </div>
   </section>
 
   <!-- vw vs cqi — live comparison. Same slider resizes both frames (real
        container resize via container-type: inline-size). The cqi card reads
        that frame's own width; the vw card reads the real browser viewport,
        so only resizing the actual window moves it. -->
-  <section id="vw-cqi" class="px-220__ py-84 flex y g-32 por">
+  <section id="vw-cqi" class="gg-golden-grid gg-section--tight">
+    <div class="gg-frame flex y g-32 por">
     <div class="flex y g-20">
       <h2 class="fs-52__ _bg-brand pr-356__ lh-1 ttu fwd-4 f-scale offset"><span class="_c-light">vw vs cqi — who tracks what?</span></h2>
       <p class="fs-18 _c-dark _bg-brand___ p-34_ maw-768">
@@ -616,10 +637,12 @@
     <p class="fs-14 _c-dark__ maw-768">
       Drag the slider — only the cqi card scales, because it's the frame that resizes, not your browser. Now resize your actual browser window: the vw card reacts instead. Real viewport right now: <strong id="vwCqiRealWidth">1920px</strong>.
     </p>
+  </div>
   </section>
 
   <!-- Why I built this -->
-  <section id="why" class="px-220__ py-84 flex y g-32">
+  <section id="why" class="gg-golden-grid gg-section--tight">
+    <div class="gg-frame flex y g-32">
     <div class="flex y g-20">
       <h2 class="fs-52__ _bg-brand pr-356__ lh-1 ttu fwd-4 f-scale offset"><span class="_c-light">Why this exists</span></h2>
     </div>
@@ -629,10 +652,12 @@
     <p class="fs-18 _c-dark_ lh-1-5 maw-768">
       EVA CSS turns every fixed Figma value into a fluid, responsive variable. The maths happens once, the result holds across every viewport, and the original visual hierarchy survives the trip from canvas to code.
     </p>
+  </div>
   </section>
 
   <!-- AI doc pointer -->
-  <section class="px-220__ py-84 flex y g-32">
+  <section class="gg-golden-grid gg-section--tight">
+    <div class="gg-frame flex y g-32">
     <div class="framework-card flex y g-20 p-52- grad-linear from-accent_ to-extra_ d-br br-12">
       <span class="fs-12 _c-dark">The full reference</span>
       <h3 class="fs-36_ _c-dark-d_ lh-1">The whole sizing system, chapter by chapter.</h3>
@@ -641,6 +666,7 @@
       </p>
       <a href="../doc/sizes.html" class="h-52 px-32 flex y center _bg-dark _c-light br-12 fs-14 no-hover" style="width: fit-content;">Read the documentation →</a>
     </div>
+  </div>
   </section>
 
   <div class="stage">
@@ -650,15 +676,36 @@
   </div>
   </main>
 
-  <footer class="px-220__ py-136 flex x g-20 w-full">
-    <div class="flex w-full y space center g-32">
-      <p class="fs-16 _c-brand_">© 2024</p>
-      <p class="fs-16 _c-brand_">Tati Michaël</p>
+  <footer class="gg-golden-grid gg-footer">
+    <p class="gg-rail section-rail section-rail--vertical">EVA CSS</p>
+
+    <div class="gg-main footer-brand flex y g-20">
+      <p class="footer-tagline fs-24__ _c-dark-d_">A fluid SCSS framework. One number, four flavours, zero breakpoints.</p>
+      <code class="footer-install">npm i eva-css-fluid</code>
     </div>
-    <div class="flex w-full y space g-32">
-      <a href="https://www.linkedin.com/in/mtati/" target="_blank">LinkedIn</a>
-      <a href="../doc/index.html">Documentation</a>
-      <a href="../fr/framework/css-fluid.html" hreflang="fr" title="Voir en français">FR</a>
+
+    <div class="footer-nav flex y g-32">
+      <nav class="flex y g-8" aria-label="Explore">
+        <span class="footer-nav-title">Explore</span>
+        <a href="../framework/css-fluid.html">Fluid CSS</a>
+        <a href="../framework.html">Addons</a>
+        <a href="../use-cases.html">Use Cases</a>
+        <a href="../doc/index.html">Documentation</a>
+      </nav>
+      <nav class="flex y g-8" aria-label="Elsewhere">
+        <span class="footer-nav-title">Elsewhere</span>
+        <a href="https://github.com/nkdeus/eva" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.npmjs.com/package/eva-css-fluid" target="_blank" rel="noopener">npm</a>
+        <a href="https://www.linkedin.com/in/mtati/" target="_blank" rel="noopener">LinkedIn</a>
+      </nav>
+    </div>
+
+    <div class="gg-frame footer-bar flex x space wrap g-12">
+      <div class="flex y g-4">
+        <p class="fs-12 _c-dark__">© 2024 — Tati Michaël</p>
+        <a href="https://www.ulysse-2029.com/" target="_blank" rel="noopener" class="footer-site fs-12">ulysse-2029.com</a>
+      </div>
+      <a href="../fr/framework/css-fluid.html" hreflang="fr" title="Voir en français" class="footer-lang fs-12">FR</a>
     </div>
   </footer>
 

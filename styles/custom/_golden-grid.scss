@@ -1,0 +1,295 @@
+// ===========================================
+// golden-grid — page de démonstration
+// ===========================================
+// Ces styles n'habillent que la démo de framework/golden-grid.html.
+// La géométrie, elle, vient entièrement du composant `golden-grid`
+// d'eva-css-fluid (classes .gg-*), activé dans styles/main.scss.
+//
+// Règle du composant : aucun élément placé ne porte de largeur.
+// Rien ici ne pose de `width`, de `max-width` ni de `margin: auto`
+// sur un enfant de grille — sinon le contrôle d'alignement échoue.
+// ===========================================
+
+$gg-mono: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
+
+.gg-demo {
+  padding-block: var(--84);
+  background: var(--light);
+  border-radius: var(--12);
+  overflow: hidden;
+
+  // Le site pose `p { max-width: var(--576) }`. Sur un élément placé, toute
+  // largeur fait échouer le contrôle d'alignement : la piste EST la mesure.
+  // C'est le premier réflexe à avoir en branchant golden-grid sur une base
+  // existante — et c'est le contrôle en direct qui l'a signalé.
+  // (Le cas général est traité dans custom/_layout.scss.)
+  .gg-cut > * {
+    max-width: none;
+  }
+}
+
+// Une bande = une grille dorée. Le rythme vertical vient de l'échelle.
+.gg-band {
+  padding-block: var(--32);
+}
+
+// --- Le spécimen des quatre pistes ----------------------------------------
+
+.gg-spec {
+  display: flex;
+  flex-direction: column;
+  gap: var(--4);
+  padding: var(--12);
+  border-radius: var(--8);
+  background: var(--brand___);
+  font-size: var(--fs-10);
+  line-height: 1.3;
+  color: var(--dark_);
+
+  b {
+    display: block;
+    font-family: $gg-mono;
+    font-size: var(--fs-16);
+    color: var(--brand-d);
+  }
+
+  // L'épaule est un vide : elle se marque, elle ne se remplit pas.
+  &.gg-spec--void {
+    background: var(--dark___);
+
+    b { color: var(--dark_); }
+  }
+
+  // Les marges se lisent sur la page, pas sur la composition.
+  &.gg-spec--edge {
+    background: transparent;
+    border: 1px dashed var(--dark__);
+  }
+
+  // Un rôle, jamais une largeur : chaque témoin vise sa piste par son nom.
+  &.gg-spec--edge-l { grid-column: edge-start / rail-start; }
+  &.gg-spec--rail { grid-column: rail; }
+  &.gg-spec--shoulder { grid-column: shoulder-start / shoulder-end; }
+  &.gg-spec--main { grid-column: main; }
+  &.gg-spec--spill { grid-column: spill-start / spill-end; }
+  &.gg-spec--edge-r { grid-column: spill-end / edge-end; }
+}
+
+// --- Le flux éditorial ------------------------------------------------------
+
+.gg-rail-label {
+  margin: 0;
+  font-size: var(--fs-12);
+  line-height: 1.4;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--dark__);
+
+  b {
+    display: block;
+    font-family: $gg-mono;
+    font-size: var(--fs-24);
+    letter-spacing: 0;
+    color: var(--brand);
+  }
+}
+
+.gg-prose {
+  p {
+    margin: 0 0 var(--12);
+    font-size: var(--fs-16);
+    line-height: 1.55;
+    color: var(--dark_);
+
+    &:last-child { margin-bottom: 0; }
+  }
+
+  strong { color: var(--dark); }
+
+  code {
+    font-family: $gg-mono;
+    font-size: 0.9em;
+    color: var(--brand-d);
+  }
+}
+
+.gg-note {
+  padding-left: var(--12);
+  border-left: 2px solid var(--brand__);
+  font-size: var(--fs-12) !important;
+  color: var(--dark__) !important;
+}
+
+// Le débord : un aplat qui part de la colonne de texte et file au bord.
+.gg-plate {
+  aspect-ratio: 16 / 5;
+  border-radius: var(--8);
+  background: linear-gradient(115deg, var(--brand) 0%, var(--accent) 55%, var(--extra) 100%);
+}
+
+// --- L'instrument de mesure -------------------------------------------------
+
+.gg-instrument {
+  padding: var(--20);
+  border: 1px solid var(--dark___);
+  border-radius: var(--12);
+  background: var(--light-b);
+
+  h3 {
+    margin: 0 0 var(--12);
+    font-size: var(--fs-16);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--dark_);
+  }
+}
+
+.gg-readout {
+  display: grid;
+  // Colonnes au contenu : les quatre champs restent côte à côte au lieu de
+  // s'étirer sur toute la piste `wide`.
+  grid-template-columns: auto auto auto auto;
+  justify-content: start;
+  gap: var(--4) var(--12);
+  font-family: $gg-mono;
+  font-size: var(--fs-12);
+  color: var(--dark_);
+
+  span:nth-child(4n + 1) { color: var(--dark__); }
+  span:nth-child(4n) { text-align: right; color: var(--brand-d); }
+  span.gg-of-page { color: var(--dark__); }
+}
+
+.gg-unit-note {
+  margin: var(--12) 0 0;
+  font-size: var(--fs-10);
+  line-height: 1.5;
+  color: var(--dark__);
+}
+
+.gg-verdict {
+  margin: var(--12) 0 0;
+  font-size: var(--fs-12);
+  line-height: 1.5;
+  color: var(--brand-d);
+
+  &.is-off { color: var(--accent-d); }
+}
+
+// --- Les cartes posées sur la coupure --------------------------------------
+// Impaires 0,382 (rail → épaule), paires 0,618 (texte → débord) : deux
+// largeurs inégales par rangée, décidées par le système et non par un réglage.
+
+.gg-cut {
+  grid-column: edge;
+  display: grid;
+  grid-template-columns: subgrid;
+  row-gap: var(--32);
+
+  > * {
+    padding: var(--20);
+    border-radius: var(--12);
+    background: var(--light-b);
+  }
+
+  > :nth-child(odd) { grid-column: rail-start / shoulder-end; }
+  > :nth-child(even) {
+    grid-column: main-start / spill-end;
+    margin-top: var(--52);
+  }
+
+  h3 {
+    margin: var(--8) 0;
+    font-size: var(--fs-18);
+    color: var(--dark);
+  }
+
+  p {
+    margin: 0;
+    font-size: var(--fs-12);
+    line-height: 1.5;
+    color: var(--dark_);
+  }
+
+  code {
+    font-family: $gg-mono;
+    color: var(--brand-d);
+  }
+}
+
+.gg-frac {
+  font-family: $gg-mono;
+  font-size: var(--fs-12);
+  color: var(--brand);
+}
+
+// --- Le bloc de code --------------------------------------------------------
+
+.gg-code {
+  margin: 0;
+  padding: var(--20);
+  border-radius: var(--12);
+  overflow-x: auto;
+  background: var(--dark);
+  font-family: $gg-mono;
+  font-size: var(--fs-12);
+  line-height: 1.6;
+  color: var(--light);
+
+  .gg-tok-c { color: var(--light__); }
+  .gg-tok-k { color: var(--brand); }
+}
+
+// --- Les commandes ----------------------------------------------------------
+
+.gg-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--12) var(--20);
+  padding: var(--12) var(--20);
+  border: 1px solid var(--dark___);
+  border-radius: var(--12);
+  background: var(--light);
+  font-size: var(--fs-12);
+  color: var(--dark_);
+
+  label {
+    display: flex;
+    align-items: center;
+    gap: var(--8);
+    cursor: pointer;
+  }
+
+  input[type="range"] { accent-color: var(--brand); }
+  input[type="checkbox"] { accent-color: var(--brand); }
+
+  output {
+    font-family: $gg-mono;
+    color: var(--brand-d);
+  }
+}
+
+// --- Aperçu du repli mono-colonne, forcé à la demande -----------------------
+// Le repli natif est une media query sur le viewport ; ici on rejoue le même
+// re-mapping de lignes à l'intérieur de la démo, sans toucher aux placements.
+
+.gg-demo.is-mono {
+  .gg-golden-grid {
+    grid-template-columns:
+      [edge-start] var(--gg-gutter)
+      [rail-start shoulder-start main-start spill-start] minmax(0, 1fr)
+      [rail-end shoulder-end main-end spill-end] var(--gg-gutter) [edge-end];
+  }
+
+  .gg-spill,
+  .gg-cut > :nth-child(odd),
+  .gg-cut > :nth-child(even) {
+    grid-column: main-start / edge-end;
+  }
+
+  .gg-cut > :nth-child(even) { margin-top: 0; }
+  .gg-grid-rules { display: none; }
+}
+
+.gg-demo.no-rules .gg-grid-rules { display: none; }
