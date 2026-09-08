@@ -10977,22 +10977,22 @@ section nav {
   color: var(--brand-d);
 }
 
-body.is-mono .gg-golden-grid {
+.gg-demo.is-mono .gg-golden-grid {
   grid-template-columns: [edge-start] var(--gg-gutter) [rail-start shoulder-start main-start spill-start] minmax(0, 1fr) [rail-end shoulder-end main-end spill-end] var(--gg-gutter) [edge-end];
 }
-body.is-mono .gg-spill,
-body.is-mono .gg-cut > :nth-child(odd),
-body.is-mono .gg-cut > :nth-child(even) {
+.gg-demo.is-mono .gg-spill,
+.gg-demo.is-mono .gg-cut > :nth-child(odd),
+.gg-demo.is-mono .gg-cut > :nth-child(even) {
   grid-column: main-start/edge-end;
 }
-body.is-mono .gg-cut > :nth-child(even) {
+.gg-demo.is-mono .gg-cut > :nth-child(even) {
   margin-top: 0;
 }
-body.is-mono .gg-grid-rules {
+.gg-demo.is-mono .gg-grid-rules {
   display: none;
 }
 
-body.no-rules .gg-grid-rules {
+.gg-demo.no-rules .gg-grid-rules {
   display: none;
 }
 

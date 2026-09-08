@@ -266,11 +266,17 @@ $gg-mono: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
   }
 }
 
-// --- Aperçu du repli mono-colonne, forcé à la demande -----------------------
+// --- La portée de la démo ---------------------------------------------------
+// Les commandes n'agissent que sur `#gg-demo`. C'est un gabarit à part entière
+// — `.gg-grid-page` lui donne le contexte d'empilement de son propre tracé —
+// posé sous celui du site, qui garde le héros, la barre de nav et le pied de
+// page à leur place pendant qu'on règle la grille.
+
+// Aperçu du repli mono-colonne, forcé à la demande.
 // Le repli natif est une media query sur le viewport ; ici on rejoue le même
 // re-mapping de lignes à l'intérieur de la démo, sans toucher aux placements.
 
-body.is-mono {
+.gg-demo.is-mono {
   .gg-golden-grid {
     grid-template-columns:
       [edge-start] var(--gg-gutter)
@@ -288,4 +294,4 @@ body.is-mono {
   .gg-grid-rules { display: none; }
 }
 
-body.no-rules .gg-grid-rules { display: none; }
+.gg-demo.no-rules .gg-grid-rules { display: none; }
