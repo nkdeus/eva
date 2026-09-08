@@ -9569,22 +9569,27 @@ section nav {
   }
   #menu {
     position: fixed;
-    top: 100%;
+    top: var(--nav-h, var(--84));
     left: 0;
     width: 100%;
     height: auto;
     background-color: var(--light);
+    border-bottom: 1px solid var(--brand___);
+    box-shadow: 0 var(--12) var(--32) var(--dark___);
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    padding: var(--52_) var(--20_);
+    padding: var(--32) var(--20_) var(--52_);
     gap: var(--20_);
-    transform: translateY(calc(-100% - 6rem));
-    transition: transform 0.3s ease;
+    transform: translateY(calc(-100% - var(--nav-h, var(--84))));
+    visibility: hidden;
+    transition: transform 0.3s ease, visibility 0s linear 0.3s;
     z-index: 100;
   }
   #menu.menu-open {
     transform: translateY(0);
+    visibility: visible;
+    transition: transform 0.3s ease, visibility 0s;
   }
   #menu a {
     width: 100%;

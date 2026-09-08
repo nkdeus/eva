@@ -272,24 +272,37 @@ section {
     display: flex;
   }
   
+  // Le panneau est ancré sous la barre de nav — `--nav-h` est la hauteur
+  // réelle mesurée par app.js, avec un repli fluide avant que le JS ne passe.
+  // Fermé, il est remonté de sa propre hauteur PLUS celle de la barre : il
+  // sort entièrement du haut de l'écran au lieu de flotter dans la page.
   #menu {
     position: fixed;
-    top: 100%;
+    top: var(--nav-h, var(--84));
     left: 0;
     width: 100%;
     height: auto;
     background-color: var(--light);
+    // Le fond du panneau est celui de la page : sans un bord, il se confond
+    // avec le contenu qu'il recouvre.
+    border-bottom: 1px solid var(--brand___);
+    box-shadow: 0 var(--12) var(--32) var(--dark___);
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    padding: var(--52_) var(--20_);
+    padding: var(--32) var(--20_) var(--52_);
     gap: var(--20_);
-    transform: translateY(calc(-100% - 6rem));
-    transition: transform 0.3s ease;
+    transform: translateY(calc(-100% - var(--nav-h, var(--84))));
+    // `visibility` décalée à la fin du glissement : fermé, le panneau sort
+    // aussi de l'ordre de tabulation au lieu de rester atteignable hors champ.
+    visibility: hidden;
+    transition: transform 0.3s ease, visibility 0s linear 0.3s;
     z-index: 100;
     
     &.menu-open {
       transform: translateY(0);
+      visibility: visible;
+      transition: transform 0.3s ease, visibility 0s;
     }
     
     a {

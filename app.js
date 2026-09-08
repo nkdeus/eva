@@ -413,6 +413,25 @@ function initNavScrollState() {
   window.addEventListener('scroll', apply, { passive: true });
 }
 
+// La hauteur réelle de la barre de nav, publiée en variable CSS. Le panneau
+// mobile s'ouvre juste dessous : sans cette mesure, il faudrait deviner une
+// valeur alors que la barre est fluide et change avec la fenêtre.
+function initNavHeightVar() {
+  const nav = document.getElementById('nav');
+  if (!nav) return;
+
+  const publish = () =>
+    document.documentElement.style.setProperty('--nav-h', `${nav.offsetHeight}px`);
+
+  publish();
+
+  if ('ResizeObserver' in window) {
+    new ResizeObserver(publish).observe(nav);
+  } else {
+    window.addEventListener('resize', publish, { passive: true });
+  }
+}
+
 // Fonction pour initialiser le burger menu
 function initBurgerMenu() {
   const burgerButton = document.getElementById('burger-menu');
@@ -722,6 +741,9 @@ function initApp() {
 
   // Initialiser le toggle de thème
   initThemeToggle();
+
+  // Publier la hauteur de la barre de nav
+  initNavHeightVar();
 
   // Initialiser le burger menu
   initBurgerMenu();
