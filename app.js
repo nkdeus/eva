@@ -447,14 +447,17 @@ function initBurgerMenu() {
 
     const isOpen = menu.classList.contains('menu-open');
     setExpanded(isOpen);
-    document.body.style.overflow = isOpen ? 'hidden' : 'auto';
+    // On ne repose pas 'auto' à la fermeture : ce serait décider à la place de
+    // la feuille de style. On retire la surcharge, et la valeur du CSS revient.
+    if (isOpen) document.body.style.overflow = 'hidden';
+    else document.body.style.removeProperty('overflow');
   });
 
   const closeMenu = () => {
     burgerButton.classList.remove('active');
     menu.classList.remove('menu-open');
     setExpanded(false);
-    document.body.style.overflow = 'auto';
+    document.body.style.removeProperty('overflow');
   };
 
   const menuLinks = menu.querySelectorAll('a');
