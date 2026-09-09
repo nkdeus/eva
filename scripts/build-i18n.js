@@ -41,6 +41,7 @@ const PAGES = [
   { path: 'framework/golden-grid.html', priority: 0.8 },
   { path: 'framework/flex.html', priority: 0.7 },
   { path: 'framework/gradients.html', priority: 0.7 },
+  { path: 'framework/fluid-backdrop.html', priority: 0.7 },
   { path: 'framework/js-calculator.html', priority: 0.6 },
   { path: 'framework/auto-theme.html', priority: 0.7 },
 ];

@@ -11328,5 +11328,316 @@ section nav {
     border-end-end-radius: var(--12);
   }
 }
+body.fb-page {
+  overflow: visible;
+}
+
+.fb-lab {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) var(--356);
+  gap: var(--32);
+  align-items: start;
+  width: 100%;
+}
+@media (max-width: 60rem) {
+  .fb-lab {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.fb-stage {
+  position: sticky;
+  top: calc(var(--84) + var(--12));
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  background: var(--light);
+  border: 1px solid var(--dark___);
+  border-radius: var(--12);
+}
+.fb-stage canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+}
+
+.fb-hint {
+  position: absolute;
+  bottom: var(--12);
+  left: 50%;
+  translate: -50% 0;
+  margin: 0;
+  pointer-events: none;
+  font-size: var(--fs-10);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--dark__);
+}
+
+.fb-fallback {
+  position: absolute;
+  inset: 0;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--8);
+  padding: var(--32);
+  text-align: center;
+}
+.fb-fallback[data-shown=true] {
+  display: flex;
+}
+.fb-fallback strong {
+  font-size: var(--fs-18);
+}
+.fb-fallback span {
+  max-width: var(--576);
+  font-size: var(--fs-12);
+  line-height: 1.5;
+  color: var(--dark_);
+}
+
+.fb-panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--20);
+  padding: var(--20);
+  background: var(--light);
+  border: 1px solid var(--dark___);
+  border-radius: var(--12);
+}
+
+.fb-panel__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--12);
+  padding-bottom: var(--12);
+  border-bottom: 1px solid var(--dark___);
+}
+.fb-panel__head p {
+  width: auto;
+  max-width: none;
+}
+
+.fb-panel__state {
+  margin: 0;
+  font-size: var(--fs-12);
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  color: var(--dark__);
+}
+
+.fb-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--12);
+}
+
+.fb-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--12);
+}
+
+.fb-group__label {
+  margin: 0;
+  font-size: var(--fs-10);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--dark__);
+}
+
+.fb-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--4);
+  min-width: 0;
+}
+
+.fb-field__top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--8);
+  font-size: var(--fs-12);
+  color: var(--dark);
+}
+
+.fb-field__value {
+  font-variant-numeric: tabular-nums;
+  color: var(--dark__);
+}
+
+.fb-range {
+  width: 100%;
+  height: var(--16);
+  margin: 0;
+  background: transparent;
+  appearance: none;
+  cursor: ew-resize;
+}
+.fb-range::-webkit-slider-runnable-track {
+  height: var(--4);
+  background: var(--dark___);
+  border-radius: var(--4);
+}
+.fb-range::-webkit-slider-thumb {
+  width: var(--12);
+  height: var(--12);
+  margin-top: calc((var(--4) - var(--12)) / 2);
+  background: var(--brand);
+  border: 0;
+  border-radius: 50%;
+  appearance: none;
+}
+.fb-range::-moz-range-track {
+  height: var(--4);
+  background: var(--dark___);
+  border-radius: var(--4);
+}
+.fb-range::-moz-range-thumb {
+  width: var(--12);
+  height: var(--12);
+  background: var(--brand);
+  border: 0;
+  border-radius: 50%;
+}
+
+.fb-swatch {
+  display: flex;
+  align-items: center;
+  gap: var(--12);
+  min-width: 0;
+  font-size: var(--fs-12);
+}
+.fb-swatch input[type=color] {
+  flex: none;
+  width: var(--34);
+  height: var(--34);
+  padding: 0;
+  background: none;
+  border: 1px solid var(--dark___);
+  border-radius: var(--8);
+  cursor: pointer;
+  appearance: none;
+}
+.fb-swatch input[type=color]::-webkit-color-swatch {
+  border: 0;
+  border-radius: var(--4);
+}
+.fb-swatch input[type=color]::-webkit-color-swatch-wrapper {
+  padding: var(--4);
+}
+
+.fb-swatch__text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--4);
+  min-width: 0;
+}
+
+.fb-swatch__meta {
+  font-size: var(--fs-10);
+  font-variant-numeric: tabular-nums;
+  color: var(--dark__);
+}
+
+.fb-select {
+  width: 100%;
+  height: var(--32);
+  padding: 0 var(--8);
+  font: inherit;
+  font-size: var(--fs-12);
+  color: var(--dark);
+  background: var(--light-d);
+  border: 1px solid var(--dark___);
+  border-radius: var(--8);
+  cursor: pointer;
+}
+
+.fb-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--8);
+}
+
+.fb-btn {
+  flex: 1 1 var(--136);
+  height: var(--32);
+  padding: 0 var(--12);
+  font: inherit;
+  font-size: var(--fs-12);
+  color: var(--dark);
+  background: var(--light-d);
+  border: 1px solid var(--dark___);
+  border-radius: var(--8);
+  cursor: pointer;
+}
+.fb-btn:hover {
+  border-color: var(--brand);
+  color: var(--brand);
+}
+
+.fb-btn--accent {
+  color: var(--light);
+  background: linear-gradient(90deg, var(--brand), var(--accent));
+  border-color: transparent;
+}
+.fb-btn--accent:hover {
+  color: var(--light);
+  border-color: transparent;
+}
+
+.fb-io {
+  width: 100%;
+  min-height: var(--136);
+  padding: var(--12);
+  font-family: ui-monospace, sfmono-regular, menlo, monospace;
+  font-size: var(--fs-10);
+  line-height: 1.5;
+  color: var(--dark);
+  background: var(--light-d);
+  border: 1px solid var(--dark___);
+  border-radius: var(--8);
+  resize: vertical;
+}
+
+.fb-note {
+  margin: 0;
+  font-size: var(--fs-10);
+  line-height: 1.5;
+  color: var(--dark__);
+  min-height: 1lh;
+}
+
+.hero-backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  overflow: hidden;
+  pointer-events: none;
+}
+.hero-backdrop canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  mask-image: radial-gradient(120% 90% at 50% 0%, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0.55) 45%, rgba(0, 0, 0, 0) 100%);
+  opacity: 0.9;
+}
+@media (hover: hover) and (pointer: fine) {
+  .hero-backdrop canvas {
+    pointer-events: auto;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-backdrop {
+    display: none;
+  }
+}
 
 /*# sourceMappingURL=main.css.map */

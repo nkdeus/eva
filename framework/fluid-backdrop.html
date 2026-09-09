@@ -13,10 +13,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Display:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../styles/main.css" />
     <script defer src="https://cloud.umami.is/script.js" data-website-id="3c9b4552-d24d-48aa-a6b4-877d0ceffe04"></script>
-    <title>EVA CSS — Auto-Fit, 12-Col & Fraction Grid Utilities</title>
-    <meta name="description" content="EVA CSS grids — auto-fit, classic 12-col, fraction notation. Modern responsive layouts.">
-    <meta property="og:title" content="EVA CSS — Modern Grid Utilities">
-    <meta property="og:description" content="Three paradigms: auto-fit for cards, classic 12-col for layouts, fraction notation for precise control.">
+    <title>EVA CSS — Fluid Backdrop, a WebGPU background driven by the theme</title>
+    <meta name="description" content="A GPU fluid simulation that reads --brand and --accent, with pixel, triangle and halftone filters, and an exportable configuration.">
+    <meta property="og:title" content="EVA CSS — Fluid Backdrop">
+    <meta property="og:description" content="A WebGPU fluid background driven by your EVA theme. Tune it, save it, drop it into another project.">
     <meta property="og:locale" content="en_US">
     <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
     <link rel="apple-touch-icon" href="../assets/imgs/eva.jpg">
@@ -24,19 +24,19 @@
     <meta name="theme-color" content="#ff8a3d">
     <meta property="og:site_name" content="EVA CSS">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://eva-css.xyz/framework/grids.html">
+    <meta property="og:url" content="https://eva-css.xyz/framework/fluid-backdrop.html">
     <meta property="og:image" content="https://eva-css.xyz/assets/imgs/eva.jpg">
     <meta property="og:image:width" content="512">
     <meta property="og:image:height" content="512">
     <meta property="og:image:alt" content="EVA CSS — fluid SCSS framework">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="EVA CSS — Modern Grid Utilities">
-    <meta name="twitter:description" content="Three paradigms: auto-fit for cards, classic 12-col for layouts, fraction notation for precise control.">
+    <meta name="twitter:title" content="EVA CSS — Fluid Backdrop">
+    <meta name="twitter:description" content="A WebGPU fluid background driven by your EVA theme. Tune it, save it, drop it into another project.">
     <meta name="twitter:image" content="https://eva-css.xyz/assets/imgs/eva.jpg">
-    <link rel="canonical" href="https://eva-css.xyz/framework/grids.html">
-    <link rel="alternate" hreflang="en" href="https://eva-css.xyz/framework/grids.html">
-    <link rel="alternate" hreflang="fr" href="https://eva-css.xyz/fr/framework/grids.html">
-    <link rel="alternate" hreflang="x-default" href="https://eva-css.xyz/framework/grids.html">
+    <link rel="canonical" href="https://eva-css.xyz/framework/fluid-backdrop.html">
+    <link rel="alternate" hreflang="en" href="https://eva-css.xyz/framework/fluid-backdrop.html">
+    <link rel="alternate" hreflang="fr" href="https://eva-css.xyz/fr/framework/fluid-backdrop.html">
+    <link rel="alternate" hreflang="x-default" href="https://eva-css.xyz/framework/fluid-backdrop.html">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -57,14 +57,14 @@
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "Grids",
-          "item": "https://eva-css.xyz/framework/grids.html"
+          "name": "Fluid Backdrop",
+          "item": "https://eva-css.xyz/framework/fluid-backdrop.html"
         }
       ]
     }
     </script>
   </head>
-  <body class="current-theme theme-eva all-grads toggle-theme">
+  <body class="current-theme theme-eva all-grads toggle-theme fb-page">
   <button type="button" class="dark-light-toggle no-hover" aria-label="Toggle dark mode">
     <svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 100 100" x="0px" y="0px" aria-hidden="true"><path d="M50,77.62A27.62,27.62,0,1,0,22.38,50,27.61,27.61,0,0,0,50,77.62ZM50,26A24,24,0,1,1,26,50,24,24,0,0,1,50,26ZM69.62,50.52A19.36,19.36,0,0,0,50.26,31.15V69.88A19.36,19.36,0,0,0,69.62,50.52Zm-19.88,31a1.81,1.81,0,0,0-1.81,1.81V95.69a1.81,1.81,0,0,0,3.62,0V83.3A1.81,1.81,0,0,0,49.74,81.49Zm24.9-9A1.81,1.81,0,0,0,72.09,75l8.76,8.76a1.81,1.81,0,0,0,2.55-2.56Zm6.85-22.19a1.81,1.81,0,0,0,1.81,1.81H95.69a1.81,1.81,0,1,0,0-3.62H83.3A1.81,1.81,0,0,0,81.49,50.26ZM75,27.91l8.76-8.76a1.81,1.81,0,0,0-2.56-2.55l-8.76,8.76A1.81,1.81,0,0,0,75,27.91Zm-24.75-9.4a1.81,1.81,0,0,0,1.81-1.81V4.31a1.81,1.81,0,0,0-3.62,0V16.7A1.81,1.81,0,0,0,50.26,18.51Zm-24.9,9A1.81,1.81,0,0,0,27.91,25l-8.76-8.76a1.81,1.81,0,1,0-2.55,2.56Zm-21,24H16.7a1.81,1.81,0,0,0,0-3.62H4.31a1.81,1.81,0,1,0,0,3.62Zm22,20a1.78,1.78,0,0,0-1.28.53l-8.76,8.76a1.8,1.8,0,0,0,0,2.56,1.82,1.82,0,0,0,2.56,0l8.76-8.77a1.81,1.81,0,0,0-1.28-3.08Z"/></svg>
   </button>
@@ -109,11 +109,7 @@
     <span class="gg-rules-spill"></span>
   </div>
 
-
-
   <section class="gg-golden-grid gg-section--hero">
-    <!-- Le halo : une boîte par piste, biseautée, dégradé du thème vers
-         transparent avec un dernier palier encore perceptible. -->
     <div class="gg-golden-grid hero-glow" aria-hidden="true">
       <span class="glow-rail"></span>
       <span class="glow-shoulder"></span>
@@ -122,19 +118,19 @@
     </div>
 
     <div class="gg-blocks">
-    <p class="gg-rail section-rail section-rail--vertical">Addon · Grids</p>
+    <p class="gg-rail section-rail section-rail--vertical">Addon · Fluid Backdrop</p>
     <h1 class="gg-wide hero-title fs-96__ lh-1 ttu">
-      <span>Three grid <span class="title grad-linear-text grad-linear from-accent to-extra">paradigms</span>.</span>
+      <span>A background that <span class="title grad-linear-text grad-linear from-accent to-extra">reads the theme</span>.</span>
     </h1>
     <p class="gg-main fs-24__ _c-dark_">
-      Auto-fit for cards. Classic 12-col for layouts. Fractions for precise control. Pick one. Or mix.
+      A GPU fluid whose ink is your --brand and --accent. Every constant the solver used to hide is on a slider, and the setting you land on leaves as JSON.
     </p>
     <nav id="addons-nav" class="gg-frame flex x g-8 wrap">
       <a href="../framework.html" class="h-32 px-12 flex y center br-8 _c-brand_ fs-12 no-hover">← All addons</a>
       <a href="colors.html" class="h-32 px-12 flex y center br-8 _c-brand fs-12 no-hover">Colors</a>
       <a href="gradients.html" class="h-32 px-12 flex y center br-8 _c-brand fs-12 no-hover">Gradients</a>
-      <a href="fluid-backdrop.html" class="h-32 px-12 flex y center br-8 _c-brand fs-12 no-hover">Fluid backdrop</a>
-      <a href="grids.html" class="h-32 px-12 flex y center br-8 _c-light _bg-brand fs-12 no-hover">Grids</a>
+      <a href="fluid-backdrop.html" class="h-32 px-12 flex y center br-8 _c-light _bg-brand fs-12 no-hover">Fluid backdrop</a>
+      <a href="grids.html" class="h-32 px-12 flex y center br-8 _c-brand fs-12 no-hover">Grids</a>
       <a href="golden-grid.html" class="h-32 px-12 flex y center br-8 _c-brand fs-12 no-hover">Golden grid</a>
       <a href="flex.html" class="h-32 px-12 flex y center br-8 _c-brand fs-12 no-hover">Flex</a>
       <a href="fonts.html" class="h-32 px-12 flex y center br-8 _c-brand fs-12 no-hover">Fonts</a>
@@ -143,79 +139,130 @@
   </div>
   </section>
 
+  <!-- Banc de réglage -->
   <section class="gg-golden-grid gg-section--tight">
     <div class="gg-frame flex y g-32">
     <div class="flex y g-20">
-      <h2 class="fs-52__ _bg-brand pr-356__ lh-1 ttu fwd-4 f-scale offset"><span class="_c-light">Auto-fit</span></h2>
-      <p class="fs-16 _c-dark_ maw-768">Items wrap automatically based on a min-width. <code>auto-fit-356-</code> = each item at least <code>--356-</code> wide.</p>
+      <h2 class="fs-52__ _bg-brand pr-356__ lh-1 ttu fwd-4 f-scale offset"><span class="_c-light">Tune it</span></h2>
+      <p class="fs-16 _c-dark_ maw-768">Move the pointer over the frame to stir it. The colour pickers rewrite the theme variables rather than a palette of their own, so the page and the fluid always agree. Drop the backing plate to zero and the simulation composites straight onto the page background.</p>
     </div>
 
-    <div class="grid auto-fit-356- gap-20 w-full">
-      <div class="_bg-brand h-136 br-12 flex x center y center"><span class="_c-light bold">1</span></div>
-      <div class="_bg-brand_ h-136 br-12 flex x center y center"><span class="_c-light bold">2</span></div>
-      <div class="_bg-accent h-136 br-12 flex x center y center"><span class="_c-light bold">3</span></div>
-      <div class="_bg-accent_ h-136 br-12 flex x center y center"><span class="_c-light bold">4</span></div>
-      <div class="_bg-extra h-136 br-12 flex x center y center"><span class="_c-dark bold">5</span></div>
-      <div class="_bg-extra_ h-136 br-12 flex x center y center"><span class="_c-dark bold">6</span></div>
-    </div>
+    <div class="fb-lab">
+      <div class="fb-stage">
+        <canvas id="fb-canvas"></canvas>
+        <p class="fb-hint">move to stir</p>
+        <div id="fb-fallback" class="fb-fallback" data-shown="false">
+          <strong id="fb-fallback-title"></strong>
+          <span id="fb-fallback-body"></span>
+        </div>
+      </div>
 
-    <pre class="fs-12 _bg-dark__ p-16 br-8" style="color: var(--light); margin: 0;">&lt;div class="grid auto-fit-356- gap-20"&gt;...&lt;/div&gt;</pre>
+      <aside class="fb-panel">
+        <div class="fb-panel__head">
+          <p class="fb-group__label">State</p>
+          <p id="fb-state" class="fb-panel__state">—</p>
+        </div>
+
+        <div class="fb-group">
+          <p class="fb-group__label">Colours</p>
+          <div class="fb-stack">
+            <label class="fb-swatch">
+              <input type="color" id="fb-color-brand" value="#000000" />
+              <span class="fb-swatch__text">
+                <span class="fs-12">brand</span>
+                <span class="fb-swatch__meta" id="fb-meta-brand">—</span>
+              </span>
+            </label>
+            <label class="fb-swatch">
+              <input type="color" id="fb-color-accent" value="#000000" />
+              <span class="fb-swatch__text">
+                <span class="fs-12">accent</span>
+                <span class="fb-swatch__meta" id="fb-meta-accent">—</span>
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <div class="fb-group">
+          <p class="fb-group__label">Filter</p>
+          <div class="fb-stack">
+            <select id="fb-filter" class="fb-select" aria-label="Filter"></select>
+            <div id="fb-filter-sliders" class="fb-stack"></div>
+          </div>
+        </div>
+
+        <div class="fb-group">
+          <p class="fb-group__label">Render</p>
+          <div id="fb-sliders" class="fb-stack"></div>
+        </div>
+      </aside>
+    </div>
   </div>
   </section>
 
+  <!-- Emporter le réglage -->
   <section class="gg-golden-grid gg-section--tight">
     <div class="gg-frame flex y g-32">
     <div class="flex y g-20">
-      <h2 class="fs-52__ _bg-brand pr-356__ lh-1 ttu fwd-4 f-scale offset"><span class="_c-light">Classic 12-col</span></h2>
-      <p class="fs-16 _c-dark_ maw-768">Use <code>col-3</code>, <code>col-6</code>, <code>col-12</code>. Sums to 12.</p>
+      <h2 class="fs-52__ _bg-brand pr-356__ lh-1 ttu fwd-4 f-scale offset"><span class="_c-light">Take it with you</span></h2>
+      <p class="fs-16 _c-dark_ maw-768">Save keeps the setting in this browser and restores it on your next visit. Copy JSON puts it on the clipboard; Copy snippet puts a ready-to-paste block there instead. Import reads whatever sits in the box — unknown keys are dropped and every value is clamped, so a hand-edited configuration cannot break the solver.</p>
     </div>
 
-    <div class="flex-grid gap-20 w-full">
-      <div class="col-3 _bg-brand h-84 br-8 flex x center y center"><span class="_c-light bold fs-12">col-3</span></div>
-      <div class="col-3 _bg-brand_ h-84 br-8 flex x center y center"><span class="_c-light bold fs-12">col-3</span></div>
-      <div class="col-3 _bg-accent h-84 br-8 flex x center y center"><span class="_c-light bold fs-12">col-3</span></div>
-      <div class="col-3 _bg-accent_ h-84 br-8 flex x center y center"><span class="_c-light bold fs-12">col-3</span></div>
-      <div class="col-6 _bg-extra h-84 br-8 flex x center y center"><span class="_c-dark bold fs-12">col-6</span></div>
-      <div class="col-6 _bg-extra_ h-84 br-8 flex x center y center"><span class="_c-dark bold fs-12">col-6</span></div>
-      <div class="col-12 _bg-brand-d h-84 br-8 flex x center y center"><span class="_c-light bold fs-12">col-12</span></div>
+    <div class="flex y g-12">
+      <div class="fb-actions">
+        <button type="button" id="fb-save" class="fb-btn">Save</button>
+        <button type="button" id="fb-export" class="fb-btn">Copy JSON</button>
+        <button type="button" id="fb-snippet" class="fb-btn">Copy snippet</button>
+        <button type="button" id="fb-import" class="fb-btn fb-btn--accent">Import</button>
+        <button type="button" id="fb-reset" class="fb-btn">Reset</button>
+      </div>
+      <p id="fb-note" class="fb-note" role="status" aria-live="polite"></p>
+      <label class="flex y g-8">
+        <span class="fs-12 _c-dark__">Configuration</span>
+        <textarea id="fb-io" class="fb-io" spellcheck="false" aria-label="Configuration"></textarea>
+      </label>
     </div>
   </div>
   </section>
 
+  <!-- Dans un autre projet -->
   <section class="gg-golden-grid gg-section--tight">
     <div class="gg-frame flex y g-32">
     <div class="flex y g-20">
-      <h2 class="fs-52__ _bg-brand pr-356__ lh-1 ttu fwd-4 f-scale offset"><span class="_c-light">Fraction notation</span></h2>
-      <p class="fs-16 _c-dark_ maw-768">Define columns as fractions of available space. Pure CSS Grid <code>grid-template-columns: 1fr 2fr 1fr</code> as utility classes.</p>
+      <h2 class="fs-52__ _bg-brand pr-356__ lh-1 ttu fwd-4 f-scale offset"><span class="_c-light">In another project</span></h2>
+      <p class="fs-16 _c-dark_ maw-768">One script, one canvas. The bundle carries vgpu and the shaders — nothing else to install.</p>
     </div>
 
-    <div class="flex y g-12 w-full">
-      <div class="grid g-12 w-full" style="grid-template-columns: 1fr 1fr;">
-        <div class="_bg-brand h-52 br-8 flex x center y center"><span class="_c-light bold fs-12">1fr</span></div>
-        <div class="_bg-brand_ h-52 br-8 flex x center y center"><span class="_c-light bold fs-12">1fr</span></div>
-      </div>
-      <div class="grid g-12 w-full" style="grid-template-columns: 1fr 2fr;">
-        <div class="_bg-accent h-52 br-8 flex x center y center"><span class="_c-light bold fs-12">1fr</span></div>
-        <div class="_bg-accent_ h-52 br-8 flex x center y center"><span class="_c-light bold fs-12">2fr</span></div>
-      </div>
-      <div class="grid g-12 w-full" style="grid-template-columns: 1fr 2fr 1fr;">
-        <div class="_bg-extra h-52 br-8 flex x center y center"><span class="_c-dark bold fs-12">1fr</span></div>
-        <div class="_bg-extra_ h-52 br-8 flex x center y center"><span class="_c-dark bold fs-12">2fr</span></div>
-        <div class="_bg-brand-d h-52 br-8 flex x center y center"><span class="_c-light bold fs-12">1fr</span></div>
-      </div>
-    </div>
+    <pre class="fb-io" aria-label="In another project"><code>&lt;canvas id="backdrop"&gt;&lt;/canvas&gt;
+&lt;script src="https://eva-css.xyz/assets/fluid-backdrop.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+  EvaFluid.mountFluid(document.getElementById("backdrop"), {
+    settings: { plate: 0, filter: 1, filterCell: 16 },
+  }).start();
+&lt;/script&gt;</code></pre>
+
+    <p class="fs-16 _c-dark_ maw-768">Without WebGPU, under prefers-reduced-motion, or when initialisation fails, mountFluid reports it and paints nothing: give the canvas a CSS background and the page degrades on its own. The simulation also stops as soon as the canvas leaves the viewport.</p>
   </div>
   </section>
 
+  <!-- Sources et crédits -->
   <section class="gg-golden-grid gg-section--tight">
     <div class="gg-frame flex y g-32">
-    <div class="framework-card flex y g-20 p-52- grad-linear from-accent_ to-extra_ d-br br-12">
-      <span class="fs-12 _c-dark">Full reference</span>
-      <h3 class="fs-36_ _c-dark-d_ lh-1">All grid utilities, documented.</h3>
-      <p class="fs-16 _c-dark lh-1-5 maw-768">
-        Auto-fit thresholds, container queries, gap modifiers, span notation. The complete utilities list.
+    <div class="flex y g-20">
+      <h2 class="fs-52__ _bg-brand pr-356__ lh-1 ttu fwd-4 f-scale offset"><span class="_c-light">Sources and credits</span></h2>
+      <p class="fs-16 _c-dark_ maw-768">
+        The solver and its shaders come from the
+        <a href="https://vgpu.sh/examples/fluid" target="_blank" rel="noopener">Interactive Fluid</a>
+        example of
+        <a href="https://vgpu.sh" target="_blank" rel="noopener">vgpu</a>,
+        <a href="https://github.com/vercel-labs/vgpu" target="_blank" rel="noopener">vercel-labs/vgpu</a>, by Vercel Labs. The React wrapper is the only part that was replaced outright.
       </p>
-      <a href="../doc/utilities.html" class="h-52 px-32 flex y center _bg-dark _c-light br-12 fs-14 no-hover" style="width: fit-content;">Read the documentation →</a>
+    </div>
+
+    <div class="flex y g-20 maw-768">
+      <p class="fs-16 _c-dark_"><strong>Licence</strong> — MIT, © 2025 Vercel, Inc. The full text is kept beside the source, in addons/fluid-backdrop/LICENSE.vgpu.</p>
+      <p class="fs-16 _c-dark_"><strong>What was changed</strong> — The React mount became vanilla JS with three guards: WebGPU support, off-screen pause, prefers-reduced-motion. Every hard-coded constant in the shaders was lifted to a uniform. A filter stage and a transparent-plate mode were added to the display pass.</p>
+      <p class="fs-16 _c-dark_"><strong>Requirements</strong> — WebGPU — Chrome and Edge, Safari 26+, recent Firefox. A secure context is required, so localhost or HTTPS.</p>
     </div>
   </div>
   </section>
@@ -223,10 +270,6 @@
   </main>
 
   <footer class="gg-golden-grid gg-footer">
-
-    <!-- Les pistes, tracées au filet : un bord gauche par piste, plus le bord
-         de fermeture. C'est le même gabarit que le contenu, donc les filets
-         SONT les lignes de la grille. -->
     <div class="gg-golden-grid gg-grid-rules footer-rules" aria-hidden="true">
       <span class="gg-rules-rail"></span>
       <span class="gg-rules-shoulder"></span>
@@ -262,9 +305,74 @@
         <p class="fs-12 _c-dark__">© 2024 — Tati Michaël</p>
         <a href="https://www.ulysse-2029.com/" target="_blank" rel="noopener" class="footer-site fs-12">ulysse-2029.com</a>
       </div>
-      <a href="../fr/framework/grids.html" hreflang="fr" title="Voir en français" class="footer-lang fs-12">FR</a>
+      <a href="../fr/framework/fluid-backdrop.html" hreflang="fr" title="Voir en français" class="footer-lang fs-12">FR</a>
     </div>
   </footer>
+
+  <!-- Libellés de l'interface, rendus par le build : fluid-backdrop.js reste
+       indépendant de la locale. -->
+  <script type="application/json" id="fb-labels">
+  {
+    "sliders": {
+      "vorticity": "Vorticity",
+      "dyeDissipation": "Ink persistence",
+      "velocityDissipation": "Flow persistence",
+      "pointerForce": "Pointer push",
+      "splatRadius": "Stroke radius",
+      "ink": "Ink deposited",
+      "emitterGain": "Idle emitters",
+      "pressureIterations": "Pressure passes",
+      "exposure": "Exposure",
+      "vignette": "Vignette",
+      "plate": "Backing plate",
+      "filterCell": "Cell size",
+      "filterAmount": "Amount",
+      "filterLevels": "Levels"
+    },
+    "filters": [
+      "None",
+      "Pixels",
+      "Triangles",
+      "Hexagons",
+      "Halftone",
+      "Edges",
+      "Scanlines",
+      "Posterize"
+    ],
+    "status": {
+      "running": "running",
+      "paused": "paused",
+      "unsupported": "WebGPU unavailable",
+      "reduced-motion": "stopped — reduced motion",
+      "failed": "failed"
+    },
+    "fallback": {
+      "unsupported": {
+        "title": "WebGPU unavailable",
+        "body": "This browser does not provide navigator.gpu. On a real page, this is where your CSS background takes over."
+      },
+      "reduced-motion": {
+        "title": "Animation off",
+        "body": "The system asks for prefers-reduced-motion: reduce, so nothing moves."
+      },
+      "failed": {
+        "title": "The renderer failed",
+        "body": "WebGPU is present but initialisation did not complete. The console has the details."
+      }
+    },
+    "actions": {
+      "saved": "Saved in this browser.",
+      "saveFailed": "Could not save — storage is unavailable here.",
+      "copiedJson": "JSON copied.",
+      "copiedSnippet": "Snippet copied.",
+      "copyFailed": "Could not copy — select the box and copy by hand.",
+      "imported": "Configuration applied.",
+      "importFailed": "Unreadable JSON.",
+      "importEmpty": "No setting we recognise in there.",
+      "reset": "Back to the defaults."
+    }
+  }
+  </script>
 
   <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="hide">
     <defs>
@@ -276,5 +384,7 @@
     </defs>
   </svg>
   <script src="../app.js"></script>
+  <script src="../assets/fluid-backdrop.js"></script>
+  <script src="../fluid-backdrop.js"></script>
   </body>
 </html>

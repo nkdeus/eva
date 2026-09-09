@@ -1,0 +1,397 @@
+// ===========================================
+// Addon « Fluid Backdrop »
+// ===========================================
+//
+// Deux choses ici : le banc de réglage de la page d'addon (`.fb-*`), et la
+// couche de fond du hero de la home (`.hero-backdrop`).
+//
+// Le canvas est configuré en alpha prémultiplié par vgpu, et le shader sait
+// sortir sans sa plaque noire : la teinture se compose alors sur le fond de la
+// page. C'est ce qui rend l'effet solidaire du thème plutôt que posé dessus.
+
+// ── Banc de réglage ────────────────────────────────────────────────────────
+
+// `eva-css-fluid` pose sur le body `overflow: auto` ET `container-type:
+// inline-size`. La containment empêche la propagation de l'overflow au
+// viewport : le body devient alors un vrai conteneur de défilement, et
+// `position: sticky` n'a plus de prise à l'intérieur. On lève l'overflow
+// plutôt que la containment — le site a dix règles `@container` qui en
+// dépendent — et seulement sur cette page.
+body.fb-page {
+  overflow: visible;
+}
+
+.fb-lab {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) var(--356);
+  gap: var(--32);
+  // `start` sert deux fois : le panneau ne s'étire pas à la hauteur de la
+  // rangée, et la scène garde toute la hauteur de sa zone de grille comme
+  // course pour son `sticky`.
+  align-items: start;
+  width: 100%;
+
+  @media (max-width: 60rem) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.fb-stage {
+  // La scène reste sous les yeux pendant qu'on parcourt les réglages. `sticky`
+  // est aussi un contexte de positionnement, donc le repère et le repli, en
+  // `absolute`, continuent de s'y accrocher.
+  //
+  // Sous le repli, chaque élément occupe sa propre rangée : la zone de grille
+  // fait exactement la hauteur de la scène, donc `sticky` n'a aucune course et
+  // l'effet s'annule tout seul — ce qui est le bon comportement sur mobile, où
+  // une scène épinglée mangerait l'écran.
+  position: sticky;
+  top: calc(var(--84) + var(--12));
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: var(--light);
+  border: 1px solid var(--dark___);
+  border-radius: var(--12);
+
+  canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+    touch-action: none;
+  }
+}
+
+.fb-hint {
+  position: absolute;
+  bottom: var(--12);
+  left: 50%;
+  translate: -50% 0;
+  margin: 0;
+  pointer-events: none;
+
+  font-size: var(--fs-10);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--dark__);
+}
+
+.fb-fallback {
+  position: absolute;
+  inset: 0;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--8);
+  padding: var(--32);
+  text-align: center;
+
+  &[data-shown='true'] {
+    display: flex;
+  }
+
+  strong {
+    font-size: var(--fs-18);
+  }
+
+  span {
+    max-width: var(--576);
+    font-size: var(--fs-12);
+    line-height: 1.5;
+    color: var(--dark_);
+  }
+}
+
+.fb-panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--20);
+  padding: var(--20);
+
+  background: var(--light);
+  border: 1px solid var(--dark___);
+  border-radius: var(--12);
+}
+
+.fb-panel__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--12);
+  padding-bottom: var(--12);
+  border-bottom: 1px solid var(--dark___);
+
+  // Le site pose `p { width: 100% }` : dans une rangée flex, les deux
+  // paragraphes réclameraient chacun toute la barre et se comprimeraient.
+  p {
+    width: auto;
+    max-width: none;
+  }
+}
+
+.fb-panel__state {
+  margin: 0;
+  font-size: var(--fs-12);
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  color: var(--dark__);
+}
+
+.fb-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--12);
+}
+
+// Empilement des contrôles. `align-items: stretch` est le point important :
+// c'est lui qui donne à chaque champ toute la largeur de la sidebar. Les
+// utilitaire `flex y` du site, lui, pose `align-items: flex-start` — les champs
+// tombaient alors à leur largeur intrinsèque, soit un tiers de la place.
+.fb-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--12);
+}
+
+.fb-group__label {
+  margin: 0;
+
+  font-size: var(--fs-10);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--dark__);
+}
+
+// ── Curseurs ───────────────────────────────────────────────────────────────
+
+.fb-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--4);
+  // Sans cela, un libellé long élargit le champ au lieu de le laisser suivre
+  // la sidebar.
+  min-width: 0;
+}
+
+.fb-field__top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--8);
+
+  font-size: var(--fs-12);
+  color: var(--dark);
+}
+
+.fb-field__value {
+  font-variant-numeric: tabular-nums;
+  color: var(--dark__);
+}
+
+.fb-range {
+  width: 100%;
+  height: var(--16);
+  margin: 0;
+  background: transparent;
+  appearance: none;
+  cursor: ew-resize;
+
+  &::-webkit-slider-runnable-track {
+    height: var(--4);
+    background: var(--dark___);
+    border-radius: var(--4);
+  }
+
+  &::-webkit-slider-thumb {
+    width: var(--12);
+    height: var(--12);
+    margin-top: calc((var(--4) - var(--12)) / 2);
+    background: var(--brand);
+    border: 0;
+    border-radius: 50%;
+    appearance: none;
+  }
+
+  &::-moz-range-track {
+    height: var(--4);
+    background: var(--dark___);
+    border-radius: var(--4);
+  }
+
+  &::-moz-range-thumb {
+    width: var(--12);
+    height: var(--12);
+    background: var(--brand);
+    border: 0;
+    border-radius: 50%;
+  }
+}
+
+// ── Couleurs, listes, boutons ──────────────────────────────────────────────
+
+.fb-swatch {
+  display: flex;
+  align-items: center;
+  gap: var(--12);
+  min-width: 0;
+  font-size: var(--fs-12);
+
+  input[type='color'] {
+    flex: none;
+    width: var(--34);
+    height: var(--34);
+    padding: 0;
+    background: none;
+    border: 1px solid var(--dark___);
+    border-radius: var(--8);
+    cursor: pointer;
+    appearance: none;
+
+    &::-webkit-color-swatch {
+      border: 0;
+      border-radius: var(--4);
+    }
+
+    &::-webkit-color-swatch-wrapper {
+      padding: var(--4);
+    }
+  }
+}
+
+.fb-swatch__text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--4);
+  min-width: 0;
+}
+
+.fb-swatch__meta {
+  font-size: var(--fs-10);
+  font-variant-numeric: tabular-nums;
+  color: var(--dark__);
+}
+
+.fb-select {
+  width: 100%;
+  height: var(--32);
+  padding: 0 var(--8);
+
+  font: inherit;
+  font-size: var(--fs-12);
+  color: var(--dark);
+
+  background: var(--light-d);
+  border: 1px solid var(--dark___);
+  border-radius: var(--8);
+  cursor: pointer;
+}
+
+.fb-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--8);
+}
+
+.fb-btn {
+  flex: 1 1 var(--136);
+  height: var(--32);
+  padding: 0 var(--12);
+
+  font: inherit;
+  font-size: var(--fs-12);
+  color: var(--dark);
+
+  background: var(--light-d);
+  border: 1px solid var(--dark___);
+  border-radius: var(--8);
+  cursor: pointer;
+
+  &:hover {
+    border-color: var(--brand);
+    color: var(--brand);
+  }
+}
+
+.fb-btn--accent {
+  color: var(--light);
+  background: linear-gradient(90deg, var(--brand), var(--accent));
+  border-color: transparent;
+
+  &:hover {
+    color: var(--light);
+    border-color: transparent;
+  }
+}
+
+.fb-io {
+  width: 100%;
+  min-height: var(--136);
+  padding: var(--12);
+
+  font-family: ui-monospace, sfmono-regular, menlo, monospace;
+  font-size: var(--fs-10);
+  line-height: 1.5;
+  color: var(--dark);
+
+  background: var(--light-d);
+  border: 1px solid var(--dark___);
+  border-radius: var(--8);
+  resize: vertical;
+}
+
+.fb-note {
+  margin: 0;
+  font-size: var(--fs-10);
+  line-height: 1.5;
+  color: var(--dark__);
+
+  // Le retour des actions (« copié », « importé ») s'affiche ici, donc la
+  // ligne doit garder sa hauteur même vide.
+  min-height: 1lh;
+}
+
+// ── Fond du hero ───────────────────────────────────────────────────────────
+
+// Sous le halo (`z-index: -1`), donc le dégradé du thème continue de passer
+// par-dessus et l'effet reste une couche de fond, pas une image posée.
+.hero-backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  overflow: hidden;
+  pointer-events: none;
+
+  canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    // Le texte du hero passe devant : on éteint l'effet là où il commence, et
+    // sur les bords, pour qu'il ne concurrence jamais la lecture.
+    mask-image: radial-gradient(
+      120% 90% at 50% 0%,
+      rgb(0 0 0 / 1) 0%,
+      rgb(0 0 0 / 0.55) 45%,
+      rgb(0 0 0 / 0) 100%
+    );
+    opacity: 0.9;
+  }
+
+  // `installStirInput` pose `touch-action: none` sur le canvas : au doigt, ça
+  // bloquerait le défilement de la page dans tout le hero. On n'ouvre donc
+  // l'interaction qu'aux pointeurs fins, où le geste est un survol.
+  @media (hover: hover) and (pointer: fine) {
+    canvas {
+      pointer-events: auto;
+    }
+  }
+
+  // Le mouvement permanent gêne certaines personnes bien avant de gêner la
+  // lecture : `mount.ts` refuse déjà de démarrer, la couche disparaît aussi.
+  @media (prefers-reduced-motion: reduce) {
+    display: none;
+  }
+}

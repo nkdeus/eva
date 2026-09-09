@@ -154,7 +154,8 @@
     "goldenGrid": "Golden grid",
     "flex": "Flex",
     "fonts": "Fonts",
-    "sizes": "Sizes"
+    "sizes": "Sizes",
+    "fluidBackdrop": "Fluid backdrop"
   },
   "aiPointer": {
     "eyebrow": "The full reference",
@@ -201,6 +202,10 @@
       "sizes": {
         "title": "Sizes",
         "body": "One number, four flavors. Padding, margin, gap, width, height — all on the same fluid scale."
+      },
+      "fluidBackdrop": {
+        "title": "Fluid Backdrop",
+        "body": "A WebGPU fluid that takes its ink from the theme. Seven post-processing filters, every solver constant on a slider, and a configuration you can export."
       }
     },
     "cta": "Explore →",
@@ -1207,6 +1212,112 @@
       "system": "The system",
       "guides": "Guides",
       "reference": "Reference"
+    }
+  },
+  "fluidBackdrop": {
+    "meta": {
+      "title": "EVA CSS — Fluid Backdrop, a WebGPU background driven by the theme",
+      "description": "A GPU fluid simulation that reads --brand and --accent, with pixel, triangle and halftone filters, and an exportable configuration.",
+      "ogTitle": "EVA CSS — Fluid Backdrop",
+      "ogDescription": "A WebGPU fluid background driven by your EVA theme. Tune it, save it, drop it into another project."
+    },
+    "hero": {
+      "eyebrow": "Addon · Fluid Backdrop",
+      "titlePre": "A background that",
+      "titleHighlight": "reads the theme",
+      "body": "A GPU fluid whose ink is your --brand and --accent. Every constant the solver used to hide is on a slider, and the setting you land on leaves as JSON."
+    },
+    "lab": {
+      "title": "Tune it",
+      "body": "Move the pointer over the frame to stir it. The colour pickers rewrite the theme variables rather than a palette of their own, so the page and the fluid always agree. Drop the backing plate to zero and the simulation composites straight onto the page background.",
+      "hint": "move to stir"
+    },
+    "panel": {
+      "state": "State",
+      "colors": "Colours",
+      "filter": "Filter",
+      "render": "Render"
+    },
+    "config": {
+      "title": "Take it with you",
+      "body": "Save keeps the setting in this browser and restores it on your next visit. Copy JSON puts it on the clipboard; Copy snippet puts a ready-to-paste block there instead. Import reads whatever sits in the box — unknown keys are dropped and every value is clamped, so a hand-edited configuration cannot break the solver.",
+      "save": "Save",
+      "export": "Copy JSON",
+      "snippet": "Copy snippet",
+      "import": "Import",
+      "reset": "Reset",
+      "ioLabel": "Configuration"
+    },
+    "usage": {
+      "title": "In another project",
+      "body": "One script, one canvas. The bundle carries vgpu and the shaders — nothing else to install.",
+      "note": "Without WebGPU, under prefers-reduced-motion, or when initialisation fails, mountFluid reports it and paints nothing: give the canvas a CSS background and the page degrades on its own. The simulation also stops as soon as the canvas leaves the viewport."
+    },
+    "credits": {
+      "title": "Sources and credits",
+      "originPre": "The solver and its shaders come from the",
+      "originMid": "example of",
+      "originEnd": ", by Vercel Labs. The React wrapper is the only part that was replaced outright.",
+      "licenseTitle": "Licence",
+      "license": "MIT, © 2025 Vercel, Inc. The full text is kept beside the source, in addons/fluid-backdrop/LICENSE.vgpu.",
+      "changesTitle": "What was changed",
+      "changes": "The React mount became vanilla JS with three guards: WebGPU support, off-screen pause, prefers-reduced-motion. Every hard-coded constant in the shaders was lifted to a uniform. A filter stage and a transparent-plate mode were added to the display pass.",
+      "requirementsTitle": "Requirements",
+      "requirements": "WebGPU — Chrome and Edge, Safari 26+, recent Firefox. A secure context is required, so localhost or HTTPS."
+    },
+    "labels": {
+      "sliders": {
+        "vorticity": "Vorticity",
+        "dyeDissipation": "Ink persistence",
+        "velocityDissipation": "Flow persistence",
+        "pointerForce": "Pointer push",
+        "splatRadius": "Stroke radius",
+        "ink": "Ink deposited",
+        "emitterGain": "Idle emitters",
+        "pressureIterations": "Pressure passes",
+        "exposure": "Exposure",
+        "vignette": "Vignette",
+        "plate": "Backing plate",
+        "filterCell": "Cell size",
+        "filterAmount": "Amount",
+        "filterLevels": "Levels"
+      },
+      "filters": {
+        "none": "None",
+        "pixels": "Pixels",
+        "triangles": "Triangles",
+        "hexagons": "Hexagons",
+        "halftone": "Halftone",
+        "edges": "Edges",
+        "scanlines": "Scanlines",
+        "posterize": "Posterize"
+      },
+      "status": {
+        "running": "running",
+        "paused": "paused",
+        "unsupported": "WebGPU unavailable",
+        "reducedMotion": "stopped — reduced motion",
+        "failed": "failed"
+      },
+      "fallback": {
+        "unsupportedTitle": "WebGPU unavailable",
+        "unsupportedBody": "This browser does not provide navigator.gpu. On a real page, this is where your CSS background takes over.",
+        "reducedMotionTitle": "Animation off",
+        "reducedMotionBody": "The system asks for prefers-reduced-motion: reduce, so nothing moves.",
+        "failedTitle": "The renderer failed",
+        "failedBody": "WebGPU is present but initialisation did not complete. The console has the details."
+      },
+      "actions": {
+        "saved": "Saved in this browser.",
+        "saveFailed": "Could not save — storage is unavailable here.",
+        "copiedJson": "JSON copied.",
+        "copiedSnippet": "Snippet copied.",
+        "copyFailed": "Could not copy — select the box and copy by hand.",
+        "imported": "Configuration applied.",
+        "importFailed": "Unreadable JSON.",
+        "importEmpty": "No setting we recognise in there.",
+        "reset": "Back to the defaults."
+      }
     }
   }
 }

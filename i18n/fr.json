@@ -154,7 +154,8 @@
     "goldenGrid": "Grille dorée",
     "flex": "Flex",
     "fonts": "Typographie",
-    "sizes": "Tailles"
+    "sizes": "Tailles",
+    "fluidBackdrop": "Fond fluide"
   },
   "aiPointer": {
     "eyebrow": "La référence complète",
@@ -201,6 +202,10 @@
       "sizes": {
         "title": "Tailles",
         "body": "Un nombre, quatre saveurs. Padding, marge, gap, largeur, hauteur — tous sur la même échelle fluide."
+      },
+      "fluidBackdrop": {
+        "title": "Fluid Backdrop",
+        "body": "Un fluide WebGPU dont l'encre vient du thème. Sept filtres de post-traitement, toutes les constantes du solveur sur un curseur, et une configuration qui s'exporte."
       }
     },
     "cta": "Explorer →",
@@ -1207,6 +1212,112 @@
       "system": "Le système",
       "guides": "Guides",
       "reference": "Référence"
+    }
+  },
+  "fluidBackdrop": {
+    "meta": {
+      "title": "EVA CSS — Fluid Backdrop, un fond WebGPU piloté par le thème",
+      "description": "Une simulation de fluide GPU qui lit --brand et --accent, avec des filtres pixels, triangles et demi-teinte, et une configuration exportable.",
+      "ogTitle": "EVA CSS — Fluid Backdrop",
+      "ogDescription": "Un fond fluide WebGPU piloté par votre thème EVA. Réglez-le, gardez-le, posez-le dans un autre projet."
+    },
+    "hero": {
+      "eyebrow": "Addon · Fluid Backdrop",
+      "titlePre": "Un fond qui",
+      "titleHighlight": "lit le thème",
+      "body": "Un fluide GPU dont l'encre est votre --brand et votre --accent. Chaque constante que le solveur cachait est sur un curseur, et le réglage trouvé repart en JSON."
+    },
+    "lab": {
+      "title": "Le régler",
+      "body": "Passez le pointeur sur le cadre pour brasser. Les pickers réécrivent les variables du thème plutôt qu'une palette à part : la page et le fluide restent d'accord. Mettez la plaque à zéro et la simulation se compose directement sur le fond de la page.",
+      "hint": "passez pour brasser"
+    },
+    "panel": {
+      "state": "État",
+      "colors": "Couleurs",
+      "filter": "Filtre",
+      "render": "Rendu"
+    },
+    "config": {
+      "title": "L’emporter",
+      "body": "Enregistrer garde le réglage dans ce navigateur et le restitue à la visite suivante. Copier le JSON le met dans le presse-papiers ; Copier le snippet y met un bloc prêt à coller. Importer lit ce qui se trouve dans le champ — les clés inconnues tombent et chaque valeur est bornée, donc une configuration modifiée à la main ne peut pas casser le solveur.",
+      "save": "Enregistrer",
+      "export": "Copier le JSON",
+      "snippet": "Copier le snippet",
+      "import": "Importer",
+      "reset": "Réinitialiser",
+      "ioLabel": "Configuration"
+    },
+    "usage": {
+      "title": "Dans un autre projet",
+      "body": "Un script, un canvas. Le bundle embarque vgpu et les shaders — rien d’autre à installer.",
+      "note": "Sans WebGPU, sous prefers-reduced-motion, ou si l'initialisation échoue, mountFluid le signale et ne peint rien : donnez un fond CSS au canvas et la page se dégrade toute seule. La simulation s'arrête aussi dès que le canvas quitte le viewport."
+    },
+    "credits": {
+      "title": "Sources et crédits",
+      "originPre": "Le solveur et ses shaders viennent de l’exemple",
+      "originMid": "de",
+      "originEnd": ", par Vercel Labs. Le wrapper React est la seule partie remplacée en entier.",
+      "licenseTitle": "Licence",
+      "license": "MIT, © 2025 Vercel, Inc. Le texte complet est conservé à côté du source, dans addons/fluid-backdrop/LICENSE.vgpu.",
+      "changesTitle": "Ce qui a été modifié",
+      "changes": "Le montage React est devenu du JS vanilla avec trois garde-fous : support WebGPU, pause hors-écran, prefers-reduced-motion. Chaque constante en dur des shaders est remontée en uniforme. Un étage de filtrage et un mode sans plaque de fond ont été ajoutés à la passe d'affichage.",
+      "requirementsTitle": "Prérequis",
+      "requirements": "WebGPU — Chrome et Edge, Safari 26+, Firefox récent. Un contexte sécurisé est exigé, donc localhost ou HTTPS."
+    },
+    "labels": {
+      "sliders": {
+        "vorticity": "Vorticité",
+        "dyeDissipation": "Rémanence encre",
+        "velocityDissipation": "Rémanence flux",
+        "pointerForce": "Poussée pointeur",
+        "splatRadius": "Rayon du trait",
+        "ink": "Encre déposée",
+        "emitterGain": "Émetteurs auto",
+        "pressureIterations": "Itér. pression",
+        "exposure": "Exposition",
+        "vignette": "Vignetage",
+        "plate": "Plaque de fond",
+        "filterCell": "Taille de cellule",
+        "filterAmount": "Dosage",
+        "filterLevels": "Paliers"
+      },
+      "filters": {
+        "none": "Aucun",
+        "pixels": "Pixels",
+        "triangles": "Triangles",
+        "hexagons": "Hexagones",
+        "halftone": "Demi-teinte",
+        "edges": "Contours",
+        "scanlines": "Balayage",
+        "posterize": "Postérisation"
+      },
+      "status": {
+        "running": "en cours",
+        "paused": "en pause",
+        "unsupported": "WebGPU indisponible",
+        "reducedMotion": "arrêté — reduced-motion",
+        "failed": "échec"
+      },
+      "fallback": {
+        "unsupportedTitle": "WebGPU indisponible",
+        "unsupportedBody": "Ce navigateur ne fournit pas navigator.gpu. Sur une vraie page, c'est ici que votre fond CSS reprend la main.",
+        "reducedMotionTitle": "Animation coupée",
+        "reducedMotionBody": "Le système demande prefers-reduced-motion: reduce, donc rien ne bouge.",
+        "failedTitle": "Le renderer a échoué",
+        "failedBody": "WebGPU est présent mais l'initialisation n'a pas abouti. La console a le détail."
+      },
+      "actions": {
+        "saved": "Enregistré dans ce navigateur.",
+        "saveFailed": "Impossible d’enregistrer — le stockage est indisponible ici.",
+        "copiedJson": "JSON copié.",
+        "copiedSnippet": "Snippet copié.",
+        "copyFailed": "Copie impossible — sélectionnez le champ et copiez à la main.",
+        "imported": "Configuration appliquée.",
+        "importFailed": "JSON illisible.",
+        "importEmpty": "Aucun réglage connu là-dedans.",
+        "reset": "Retour aux valeurs d’origine."
+      }
     }
   }
 }

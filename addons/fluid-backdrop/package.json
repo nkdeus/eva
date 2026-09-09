@@ -1,0 +1,14 @@
+{
+  "name": "eva-fluid-backdrop",
+  "private": true,
+  "version": "0.0.0",
+  "description": "Fond WebGPU d'EVA CSS : la demo fluid de vgpu, portee en vanilla et pilotee par le theme.",
+  "scripts": {
+    "build": "node build.mjs",
+    "serve": "node serve.mjs"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.0",
+    "vgpu": "^0.4.1"
+  }
+}

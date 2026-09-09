@@ -13,10 +13,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Display:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{assetPrefix}}styles/main.css" />
     <script defer src="https://cloud.umami.is/script.js" data-website-id="3c9b4552-d24d-48aa-a6b4-877d0ceffe04"></script>
-    <title>{{t.flex.meta.title}}</title>
-    <meta name="description" content="{{t.flex.meta.description}}">
-    <meta property="og:title" content="{{t.flex.meta.ogTitle}}">
-    <meta property="og:description" content="{{t.flex.meta.ogDescription}}">
+    <title>{{t.fluidBackdrop.meta.title}}</title>
+    <meta name="description" content="{{t.fluidBackdrop.meta.description}}">
+    <meta property="og:title" content="{{t.fluidBackdrop.meta.ogTitle}}">
+    <meta property="og:description" content="{{t.fluidBackdrop.meta.ogDescription}}">
     <meta property="og:locale" content="{{ogLocale}}">
     <link rel="icon" type="image/svg+xml" href="{{assetPrefix}}assets/favicon.svg">
     <link rel="apple-touch-icon" href="{{assetPrefix}}assets/imgs/eva.jpg">
@@ -24,19 +24,19 @@
     <meta name="theme-color" content="#ff8a3d">
     <meta property="og:site_name" content="EVA CSS">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="{{canonical}}framework/flex.html">
+    <meta property="og:url" content="{{canonical}}framework/fluid-backdrop.html">
     <meta property="og:image" content="https://eva-css.xyz/assets/imgs/eva.jpg">
     <meta property="og:image:width" content="512">
     <meta property="og:image:height" content="512">
     <meta property="og:image:alt" content="EVA CSS — fluid SCSS framework">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="{{t.flex.meta.ogTitle}}">
-    <meta name="twitter:description" content="{{t.flex.meta.ogDescription}}">
+    <meta name="twitter:title" content="{{t.fluidBackdrop.meta.ogTitle}}">
+    <meta name="twitter:description" content="{{t.fluidBackdrop.meta.ogDescription}}">
     <meta name="twitter:image" content="https://eva-css.xyz/assets/imgs/eva.jpg">
-    <link rel="canonical" href="{{canonical}}framework/flex.html">
-    <link rel="alternate" hreflang="en" href="https://eva-css.xyz/framework/flex.html">
-    <link rel="alternate" hreflang="fr" href="https://eva-css.xyz/fr/framework/flex.html">
-    <link rel="alternate" hreflang="x-default" href="https://eva-css.xyz/framework/flex.html">
+    <link rel="canonical" href="{{canonical}}framework/fluid-backdrop.html">
+    <link rel="alternate" hreflang="en" href="https://eva-css.xyz/framework/fluid-backdrop.html">
+    <link rel="alternate" hreflang="fr" href="https://eva-css.xyz/fr/framework/fluid-backdrop.html">
+    <link rel="alternate" hreflang="x-default" href="https://eva-css.xyz/framework/fluid-backdrop.html">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -57,14 +57,14 @@
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "Flex",
-          "item": "{{canonical}}framework/flex.html"
+          "name": "Fluid Backdrop",
+          "item": "{{canonical}}framework/fluid-backdrop.html"
         }
       ]
     }
     </script>
   </head>
-  <body class="current-theme theme-eva all-grads toggle-theme">
+  <body class="current-theme theme-eva all-grads toggle-theme fb-page">
   <button type="button" class="dark-light-toggle no-hover" aria-label="{{t.a11y.toggleTheme}}">
     <svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 100 100" x="0px" y="0px" aria-hidden="true"><path d="M50,77.62A27.62,27.62,0,1,0,22.38,50,27.61,27.61,0,0,0,50,77.62ZM50,26A24,24,0,1,1,26,50,24,24,0,0,1,50,26ZM69.62,50.52A19.36,19.36,0,0,0,50.26,31.15V69.88A19.36,19.36,0,0,0,69.62,50.52Zm-19.88,31a1.81,1.81,0,0,0-1.81,1.81V95.69a1.81,1.81,0,0,0,3.62,0V83.3A1.81,1.81,0,0,0,49.74,81.49Zm24.9-9A1.81,1.81,0,0,0,72.09,75l8.76,8.76a1.81,1.81,0,0,0,2.55-2.56Zm6.85-22.19a1.81,1.81,0,0,0,1.81,1.81H95.69a1.81,1.81,0,1,0,0-3.62H83.3A1.81,1.81,0,0,0,81.49,50.26ZM75,27.91l8.76-8.76a1.81,1.81,0,0,0-2.56-2.55l-8.76,8.76A1.81,1.81,0,0,0,75,27.91Zm-24.75-9.4a1.81,1.81,0,0,0,1.81-1.81V4.31a1.81,1.81,0,0,0-3.62,0V16.7A1.81,1.81,0,0,0,50.26,18.51Zm-24.9,9A1.81,1.81,0,0,0,27.91,25l-8.76-8.76a1.81,1.81,0,1,0-2.55,2.56Zm-21,24H16.7a1.81,1.81,0,0,0,0-3.62H4.31a1.81,1.81,0,1,0,0,3.62Zm22,20a1.78,1.78,0,0,0-1.28.53l-8.76,8.76a1.8,1.8,0,0,0,0,2.56,1.82,1.82,0,0,0,2.56,0l8.76-8.77a1.81,1.81,0,0,0-1.28-3.08Z"/></svg>
   </button>
@@ -109,11 +109,7 @@
     <span class="gg-rules-spill"></span>
   </div>
 
-
-
   <section class="gg-golden-grid gg-section--hero">
-    <!-- Le halo : une boîte par piste, biseautée, dégradé du thème vers
-         transparent avec un dernier palier encore perceptible. -->
     <div class="gg-golden-grid hero-glow" aria-hidden="true">
       <span class="glow-rail"></span>
       <span class="glow-shoulder"></span>
@@ -122,131 +118,151 @@
     </div>
 
     <div class="gg-blocks">
-    <p class="gg-rail section-rail section-rail--vertical">{{t.flex.hero.eyebrow}}</p>
+    <p class="gg-rail section-rail section-rail--vertical">{{t.fluidBackdrop.hero.eyebrow}}</p>
     <h1 class="gg-wide hero-title fs-96__ lh-1 ttu">
-      <span>{{t.flex.hero.titlePre}} <span class="title grad-linear-text grad-linear from-accent to-extra">{{t.flex.hero.titleHighlight}}</span></span>
+      <span>{{t.fluidBackdrop.hero.titlePre}} <span class="title grad-linear-text grad-linear from-accent to-extra">{{t.fluidBackdrop.hero.titleHighlight}}</span>.</span>
     </h1>
     <p class="gg-main fs-24__ _c-dark_">
-      <code>flex y</code> {{t.flex.hero.b1}} <code>flex x</code> {{t.flex.hero.b2}} <code>center</code>, <code>space</code>, <code>start</code>{{t.flex.hero.b3}}
+      {{t.fluidBackdrop.hero.body}}
     </p>
     <nav id="addons-nav" class="gg-frame flex x g-8 wrap">
       <a href="{{localeRoot}}framework.html" class="h-32 px-12 flex y center br-8 _c-brand_ fs-12 no-hover">{{t.addonsNav.back}}</a>
       <a href="colors.html" class="h-32 px-12 flex y center br-8 _c-brand fs-12 no-hover">{{t.addonsNav.colors}}</a>
       <a href="gradients.html" class="h-32 px-12 flex y center br-8 _c-brand fs-12 no-hover">{{t.addonsNav.gradients}}</a>
-      <a href="fluid-backdrop.html" class="h-32 px-12 flex y center br-8 _c-brand fs-12 no-hover">{{t.addonsNav.fluidBackdrop}}</a>
+      <a href="fluid-backdrop.html" class="h-32 px-12 flex y center br-8 _c-light _bg-brand fs-12 no-hover">{{t.addonsNav.fluidBackdrop}}</a>
       <a href="grids.html" class="h-32 px-12 flex y center br-8 _c-brand fs-12 no-hover">{{t.addonsNav.grids}}</a>
       <a href="golden-grid.html" class="h-32 px-12 flex y center br-8 _c-brand fs-12 no-hover">{{t.addonsNav.goldenGrid}}</a>
-      <a href="flex.html" class="h-32 px-12 flex y center br-8 _c-light _bg-brand fs-12 no-hover">{{t.addonsNav.flex}}</a>
+      <a href="flex.html" class="h-32 px-12 flex y center br-8 _c-brand fs-12 no-hover">{{t.addonsNav.flex}}</a>
       <a href="fonts.html" class="h-32 px-12 flex y center br-8 _c-brand fs-12 no-hover">{{t.addonsNav.fonts}}</a>
       <a href="sizes.html" class="h-32 px-12 flex y center br-8 _c-brand fs-12 no-hover">{{t.addonsNav.sizes}}</a>
     </nav>
   </div>
   </section>
 
+  <!-- Banc de réglage -->
   <section class="gg-golden-grid gg-section--tight">
     <div class="gg-frame flex y g-32">
     <div class="flex y g-20">
-      <h2 class="fs-52__ _bg-brand pr-356__ lh-1 ttu fwd-4 f-scale offset"><span class="_c-light">{{t.flex.vertical.title}}</span></h2>
-      <p class="fs-16 _c-dark_ maw-768">{{t.flex.vertical.bodyPre}} <code>g-{n}</code>{{t.flex.vertical.bodyMid}} <code>center</code>{{t.flex.vertical.bodyPost}}</p>
+      <h2 class="fs-52__ _bg-brand pr-356__ lh-1 ttu fwd-4 f-scale offset"><span class="_c-light">{{t.fluidBackdrop.lab.title}}</span></h2>
+      <p class="fs-16 _c-dark_ maw-768">{{t.fluidBackdrop.lab.body}}</p>
     </div>
 
-    <div class="card-deck">
-      <div class="framework-card flex y g-12 p-32 _bg-light br-12">
-        <span class="fs-12 _c-accent">flex y g-12</span>
-        <div class="flex y g-12 w-full _bg-brand___ p-20 br-8" style="height: 200px;">
-          <div class="_bg-brand h-32 br-4 w-full"></div>
-          <div class="_bg-brand_ h-32 br-4 w-full"></div>
-          <div class="_bg-brand__ h-32 br-4 w-full"></div>
+    <div class="fb-lab">
+      <div class="fb-stage">
+        <canvas id="fb-canvas"></canvas>
+        <p class="fb-hint">{{t.fluidBackdrop.lab.hint}}</p>
+        <div id="fb-fallback" class="fb-fallback" data-shown="false">
+          <strong id="fb-fallback-title"></strong>
+          <span id="fb-fallback-body"></span>
         </div>
       </div>
-      <div class="framework-card flex y g-12 p-32 _bg-light br-12">
-        <span class="fs-12 _c-accent">flex y center g-12</span>
-        <div class="flex y center g-12 w-full _bg-brand___ p-20 br-8" style="height: 200px;">
-          <div class="w-84 _bg-brand h-32 br-4"></div>
-          <div class="w-52 _bg-brand_ h-32 br-4"></div>
-          <div class="w-136 _bg-brand__ h-32 br-4"></div>
+
+      <aside class="fb-panel">
+        <div class="fb-panel__head">
+          <p class="fb-group__label">{{t.fluidBackdrop.panel.state}}</p>
+          <p id="fb-state" class="fb-panel__state">—</p>
         </div>
-      </div>
-      <div class="framework-card flex y g-12 p-32 _bg-light br-12">
-        <span class="fs-12 _c-accent">flex y space</span>
-        <div class="flex y space w-full _bg-brand___ p-20 br-8" style="height: 200px;">
-          <div class="_bg-brand h-32 br-4 w-full"></div>
-          <div class="_bg-brand_ h-32 br-4 w-full"></div>
-          <div class="_bg-brand__ h-32 br-4 w-full"></div>
+
+        <div class="fb-group">
+          <p class="fb-group__label">{{t.fluidBackdrop.panel.colors}}</p>
+          <div class="fb-stack">
+            <label class="fb-swatch">
+              <input type="color" id="fb-color-brand" value="#000000" />
+              <span class="fb-swatch__text">
+                <span class="fs-12">brand</span>
+                <span class="fb-swatch__meta" id="fb-meta-brand">—</span>
+              </span>
+            </label>
+            <label class="fb-swatch">
+              <input type="color" id="fb-color-accent" value="#000000" />
+              <span class="fb-swatch__text">
+                <span class="fs-12">accent</span>
+                <span class="fb-swatch__meta" id="fb-meta-accent">—</span>
+              </span>
+            </label>
+          </div>
         </div>
-      </div>
+
+        <div class="fb-group">
+          <p class="fb-group__label">{{t.fluidBackdrop.panel.filter}}</p>
+          <div class="fb-stack">
+            <select id="fb-filter" class="fb-select" aria-label="{{t.fluidBackdrop.panel.filter}}"></select>
+            <div id="fb-filter-sliders" class="fb-stack"></div>
+          </div>
+        </div>
+
+        <div class="fb-group">
+          <p class="fb-group__label">{{t.fluidBackdrop.panel.render}}</p>
+          <div id="fb-sliders" class="fb-stack"></div>
+        </div>
+      </aside>
     </div>
   </div>
   </section>
 
+  <!-- Emporter le réglage -->
   <section class="gg-golden-grid gg-section--tight">
     <div class="gg-frame flex y g-32">
     <div class="flex y g-20">
-      <h2 class="fs-52__ _bg-brand pr-356__ lh-1 ttu fwd-4 f-scale offset"><span class="_c-light">{{t.flex.horizontal.title}}</span></h2>
-      <p class="fs-16 _c-dark_ maw-768">{{t.flex.horizontal.body}}</p>
+      <h2 class="fs-52__ _bg-brand pr-356__ lh-1 ttu fwd-4 f-scale offset"><span class="_c-light">{{t.fluidBackdrop.config.title}}</span></h2>
+      <p class="fs-16 _c-dark_ maw-768">{{t.fluidBackdrop.config.body}}</p>
     </div>
 
-    <div class="card-deck">
-      <div class="framework-card flex y g-12 p-32 _bg-light br-12">
-        <span class="fs-12 _c-accent">flex x g-12</span>
-        <div class="flex x g-12 w-full _bg-accent___ p-20 br-8" style="height: 100px;">
-          <div class="w-32 h-32 _bg-accent br-4"></div>
-          <div class="w-32 h-32 _bg-accent_ br-4"></div>
-          <div class="w-32 h-32 _bg-accent__ br-4"></div>
-        </div>
+    <div class="flex y g-12">
+      <div class="fb-actions">
+        <button type="button" id="fb-save" class="fb-btn">{{t.fluidBackdrop.config.save}}</button>
+        <button type="button" id="fb-export" class="fb-btn">{{t.fluidBackdrop.config.export}}</button>
+        <button type="button" id="fb-snippet" class="fb-btn">{{t.fluidBackdrop.config.snippet}}</button>
+        <button type="button" id="fb-import" class="fb-btn fb-btn--accent">{{t.fluidBackdrop.config.import}}</button>
+        <button type="button" id="fb-reset" class="fb-btn">{{t.fluidBackdrop.config.reset}}</button>
       </div>
-      <div class="framework-card flex y g-12 p-32 _bg-light br-12">
-        <span class="fs-12 _c-accent">flex x center y center</span>
-        <div class="flex x center y center w-full _bg-accent___ p-20 br-8" style="height: 100px;">
-          <div class="w-52 h-32 _bg-accent br-4"></div>
-        </div>
-      </div>
-      <div class="framework-card flex y g-12 p-32 _bg-light br-12">
-        <span class="fs-12 _c-accent">flex x space y center</span>
-        <div class="flex x space y center w-full _bg-accent___ p-20 br-8" style="height: 100px;">
-          <div class="w-32 h-32 _bg-accent br-4"></div>
-          <div class="w-32 h-32 _bg-accent_ br-4"></div>
-          <div class="w-32 h-32 _bg-accent__ br-4"></div>
-        </div>
-      </div>
+      <p id="fb-note" class="fb-note" role="status" aria-live="polite"></p>
+      <label class="flex y g-8">
+        <span class="fs-12 _c-dark__">{{t.fluidBackdrop.config.ioLabel}}</span>
+        <textarea id="fb-io" class="fb-io" spellcheck="false" aria-label="{{t.fluidBackdrop.config.ioLabel}}"></textarea>
+      </label>
     </div>
   </div>
   </section>
 
+  <!-- Dans un autre projet -->
   <section class="gg-golden-grid gg-section--tight">
     <div class="gg-frame flex y g-32">
-    <div class="card-deck">
-      <div class="framework-card flex y g-12 p-32 _bg-light br-12">
-        <span class="fs-12 _c-accent">{{t.flex.cheatsheet.direction}}</span>
-        <pre class="fs-12 _bg-dark__ p-16 br-8" style="color: var(--light); margin: 0;">flex y    /* {{t.flex.cheatsheet.column}} */
-flex x    /* {{t.flex.cheatsheet.row}} */
-wrap      /* {{t.flex.cheatsheet.wrap}} */</pre>
-      </div>
-      <div class="framework-card flex y g-12 p-32 _bg-light br-12">
-        <span class="fs-12 _c-accent">{{t.flex.cheatsheet.alignment}}</span>
-        <pre class="fs-12 _bg-dark__ p-16 br-8" style="color: var(--light); margin: 0;">center    /* {{t.flex.cheatsheet.mainAxis}} */
-y center  /* {{t.flex.cheatsheet.crossAxis}} */
-space     /* space-between */
-start, end</pre>
-      </div>
-      <div class="framework-card flex y g-12 p-32 _bg-light br-12">
-        <span class="fs-12 _c-accent">Gap</span>
-        <pre class="fs-12 _bg-dark__ p-16 br-8" style="color: var(--light); margin: 0;">g-4, g-8, g-12, g-16
-g-20, g-32, g-52, g-84</pre>
-      </div>
+    <div class="flex y g-20">
+      <h2 class="fs-52__ _bg-brand pr-356__ lh-1 ttu fwd-4 f-scale offset"><span class="_c-light">{{t.fluidBackdrop.usage.title}}</span></h2>
+      <p class="fs-16 _c-dark_ maw-768">{{t.fluidBackdrop.usage.body}}</p>
     </div>
+
+    <pre class="fb-io" aria-label="{{t.fluidBackdrop.usage.title}}"><code>&lt;canvas id="backdrop"&gt;&lt;/canvas&gt;
+&lt;script src="https://eva-css.xyz/assets/fluid-backdrop.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+  EvaFluid.mountFluid(document.getElementById("backdrop"), {
+    settings: { plate: 0, filter: 1, filterCell: 16 },
+  }).start();
+&lt;/script&gt;</code></pre>
+
+    <p class="fs-16 _c-dark_ maw-768">{{t.fluidBackdrop.usage.note}}</p>
   </div>
   </section>
 
+  <!-- Sources et crédits -->
   <section class="gg-golden-grid gg-section--tight">
     <div class="gg-frame flex y g-32">
-    <div class="framework-card flex y g-20 p-52- grad-linear from-accent_ to-extra_ d-br br-12">
-      <span class="fs-12 _c-dark">{{t.aiPointer.fullRef}}</span>
-      <h3 class="fs-36_ _c-dark-d_ lh-1">{{t.flex.ai.title}}</h3>
-      <p class="fs-16 _c-dark lh-1-5 maw-768">
-        {{t.flex.ai.body}}
+    <div class="flex y g-20">
+      <h2 class="fs-52__ _bg-brand pr-356__ lh-1 ttu fwd-4 f-scale offset"><span class="_c-light">{{t.fluidBackdrop.credits.title}}</span></h2>
+      <p class="fs-16 _c-dark_ maw-768">
+        {{t.fluidBackdrop.credits.originPre}}
+        <a href="https://vgpu.sh/examples/fluid" target="_blank" rel="noopener">Interactive Fluid</a>
+        {{t.fluidBackdrop.credits.originMid}}
+        <a href="https://vgpu.sh" target="_blank" rel="noopener">vgpu</a>,
+        <a href="https://github.com/vercel-labs/vgpu" target="_blank" rel="noopener">vercel-labs/vgpu</a>{{t.fluidBackdrop.credits.originEnd}}
       </p>
-      <a href="{{localeRoot}}doc/utilities.html" class="h-52 px-32 flex y center _bg-dark _c-light br-12 fs-14 no-hover" style="width: fit-content;">{{t.aiPointer.cta}}</a>
+    </div>
+
+    <div class="flex y g-20 maw-768">
+      <p class="fs-16 _c-dark_"><strong>{{t.fluidBackdrop.credits.licenseTitle}}</strong> — {{t.fluidBackdrop.credits.license}}</p>
+      <p class="fs-16 _c-dark_"><strong>{{t.fluidBackdrop.credits.changesTitle}}</strong> — {{t.fluidBackdrop.credits.changes}}</p>
+      <p class="fs-16 _c-dark_"><strong>{{t.fluidBackdrop.credits.requirementsTitle}}</strong> — {{t.fluidBackdrop.credits.requirements}}</p>
     </div>
   </div>
   </section>
@@ -254,10 +270,6 @@ g-20, g-32, g-52, g-84</pre>
   </main>
 
   <footer class="gg-golden-grid gg-footer">
-
-    <!-- Les pistes, tracées au filet : un bord gauche par piste, plus le bord
-         de fermeture. C'est le même gabarit que le contenu, donc les filets
-         SONT les lignes de la grille. -->
     <div class="gg-golden-grid gg-grid-rules footer-rules" aria-hidden="true">
       <span class="gg-rules-rail"></span>
       <span class="gg-rules-shoulder"></span>
@@ -297,6 +309,71 @@ g-20, g-32, g-52, g-84</pre>
     </div>
   </footer>
 
+  <!-- Libellés de l'interface, rendus par le build : fluid-backdrop.js reste
+       indépendant de la locale. -->
+  <script type="application/json" id="fb-labels">
+  {
+    "sliders": {
+      "vorticity": "{{t.fluidBackdrop.labels.sliders.vorticity}}",
+      "dyeDissipation": "{{t.fluidBackdrop.labels.sliders.dyeDissipation}}",
+      "velocityDissipation": "{{t.fluidBackdrop.labels.sliders.velocityDissipation}}",
+      "pointerForce": "{{t.fluidBackdrop.labels.sliders.pointerForce}}",
+      "splatRadius": "{{t.fluidBackdrop.labels.sliders.splatRadius}}",
+      "ink": "{{t.fluidBackdrop.labels.sliders.ink}}",
+      "emitterGain": "{{t.fluidBackdrop.labels.sliders.emitterGain}}",
+      "pressureIterations": "{{t.fluidBackdrop.labels.sliders.pressureIterations}}",
+      "exposure": "{{t.fluidBackdrop.labels.sliders.exposure}}",
+      "vignette": "{{t.fluidBackdrop.labels.sliders.vignette}}",
+      "plate": "{{t.fluidBackdrop.labels.sliders.plate}}",
+      "filterCell": "{{t.fluidBackdrop.labels.sliders.filterCell}}",
+      "filterAmount": "{{t.fluidBackdrop.labels.sliders.filterAmount}}",
+      "filterLevels": "{{t.fluidBackdrop.labels.sliders.filterLevels}}"
+    },
+    "filters": [
+      "{{t.fluidBackdrop.labels.filters.none}}",
+      "{{t.fluidBackdrop.labels.filters.pixels}}",
+      "{{t.fluidBackdrop.labels.filters.triangles}}",
+      "{{t.fluidBackdrop.labels.filters.hexagons}}",
+      "{{t.fluidBackdrop.labels.filters.halftone}}",
+      "{{t.fluidBackdrop.labels.filters.edges}}",
+      "{{t.fluidBackdrop.labels.filters.scanlines}}",
+      "{{t.fluidBackdrop.labels.filters.posterize}}"
+    ],
+    "status": {
+      "running": "{{t.fluidBackdrop.labels.status.running}}",
+      "paused": "{{t.fluidBackdrop.labels.status.paused}}",
+      "unsupported": "{{t.fluidBackdrop.labels.status.unsupported}}",
+      "reduced-motion": "{{t.fluidBackdrop.labels.status.reducedMotion}}",
+      "failed": "{{t.fluidBackdrop.labels.status.failed}}"
+    },
+    "fallback": {
+      "unsupported": {
+        "title": "{{t.fluidBackdrop.labels.fallback.unsupportedTitle}}",
+        "body": "{{t.fluidBackdrop.labels.fallback.unsupportedBody}}"
+      },
+      "reduced-motion": {
+        "title": "{{t.fluidBackdrop.labels.fallback.reducedMotionTitle}}",
+        "body": "{{t.fluidBackdrop.labels.fallback.reducedMotionBody}}"
+      },
+      "failed": {
+        "title": "{{t.fluidBackdrop.labels.fallback.failedTitle}}",
+        "body": "{{t.fluidBackdrop.labels.fallback.failedBody}}"
+      }
+    },
+    "actions": {
+      "saved": "{{t.fluidBackdrop.labels.actions.saved}}",
+      "saveFailed": "{{t.fluidBackdrop.labels.actions.saveFailed}}",
+      "copiedJson": "{{t.fluidBackdrop.labels.actions.copiedJson}}",
+      "copiedSnippet": "{{t.fluidBackdrop.labels.actions.copiedSnippet}}",
+      "copyFailed": "{{t.fluidBackdrop.labels.actions.copyFailed}}",
+      "imported": "{{t.fluidBackdrop.labels.actions.imported}}",
+      "importFailed": "{{t.fluidBackdrop.labels.actions.importFailed}}",
+      "importEmpty": "{{t.fluidBackdrop.labels.actions.importEmpty}}",
+      "reset": "{{t.fluidBackdrop.labels.actions.reset}}"
+    }
+  }
+  </script>
+
   <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="hide">
     <defs>
       <filter id="fancy-goo">
@@ -307,5 +384,7 @@ g-20, g-32, g-52, g-84</pre>
     </defs>
   </svg>
   <script src="{{assetPrefix}}app.js"></script>
+  <script src="{{assetPrefix}}assets/fluid-backdrop.js"></script>
+  <script src="{{assetPrefix}}fluid-backdrop.js"></script>
   </body>
 </html>
