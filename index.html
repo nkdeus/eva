@@ -134,6 +134,14 @@
   </div>
 
   <section class="gg-golden-grid gg-section--hero">
+    <!-- Le fond fluide : addon Fluid Backdrop, posé SOUS le halo pour que le
+         dégradé du thème continue de passer par-dessus. Les couleurs viennent
+         de --brand et --accent, et sans WebGPU la couche reste simplement vide.
+         Voir framework/fluid-backdrop.html. -->
+    <div class="hero-backdrop" aria-hidden="true">
+      <canvas id="hero-canvas"></canvas>
+    </div>
+
     <!-- Le halo : une boîte par piste, biseautée, dégradé du thème vers
          transparent avec un dernier palier encore perceptible. -->
     <div class="gg-golden-grid hero-glow" aria-hidden="true">
@@ -602,5 +610,7 @@
   </svg>
   <script src="app.js"></script>
   <script src="demo-iframe.js"></script>
+  <script defer src="assets/fluid-backdrop.js"></script>
+  <script defer src="fluid-backdrop.js"></script>
   </body>
 </html>
