@@ -98,9 +98,9 @@ function injectFaviconAndSocial(content, ogPrefix, urlSuffix) {
     content,
     `og:image`,
     [
-      `    <meta property="og:image" content="https://eva-css.xyz/assets/imgs/eva.jpg">`,
-      `    <meta property="og:image:width" content="512">`,
-      `    <meta property="og:image:height" content="512">`,
+      `    <meta property="og:image" content="https://eva-css.xyz/assets/imgs/eva-og.png">`,
+      `    <meta property="og:image:width" content="1200">`,
+      `    <meta property="og:image:height" content="630">`,
       `    <meta property="og:image:alt" content="EVA CSS — fluid SCSS framework">`,
     ].join('\n')
   );
@@ -111,7 +111,7 @@ function injectFaviconAndSocial(content, ogPrefix, urlSuffix) {
       `    <meta name="twitter:card" content="summary_large_image">`,
       `    <meta name="twitter:title" content="{{${ogPrefix}.ogTitle}}">`,
       `    <meta name="twitter:description" content="{{${ogPrefix}.ogDescription}}">`,
-      `    <meta name="twitter:image" content="https://eva-css.xyz/assets/imgs/eva.jpg">`,
+      `    <meta name="twitter:image" content="https://eva-css.xyz/assets/imgs/eva-og.png">`,
     ].join('\n')
   );
   return content;
