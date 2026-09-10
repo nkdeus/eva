@@ -11615,29 +11615,76 @@ body.fb-page {
   min-height: 1lh;
 }
 
-.hero-backdrop {
+.fb-promo {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  padding: var(--84) var(--32);
+  background: var(--light);
+  border: 1px solid var(--dark___);
+  border-radius: var(--12);
+}
+.fb-promo:hover {
+  border-color: var(--brand___);
+}
+
+.fb-promo__stage {
   position: absolute;
   inset: 0;
-  z-index: -2;
-  overflow: hidden;
   pointer-events: none;
 }
-.hero-backdrop canvas {
+.fb-promo__stage canvas {
   display: block;
   width: 100%;
   height: 100%;
-  mask-image: radial-gradient(120% 90% at 50% 0%, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0.55) 45%, rgba(0, 0, 0, 0) 100%);
-  opacity: 0.9;
-}
-@media (hover: hover) and (pointer: fine) {
-  .hero-backdrop canvas {
-    pointer-events: auto;
-  }
+  mask-image: linear-gradient(to right, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.5) 45%, rgb(0, 0, 0) 100%);
+  opacity: 0.8;
 }
 @media (prefers-reduced-motion: reduce) {
-  .hero-backdrop {
+  .fb-promo__stage {
     display: none;
   }
+}
+
+.fb-promo__body {
+  position: relative;
+  max-width: var(--576);
+}
+
+.fb-promo__tag {
+  align-self: flex-start;
+  padding: var(--4) var(--12);
+  font-size: var(--fs-10);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--light);
+  background: linear-gradient(90deg, var(--brand), var(--accent));
+  border-radius: var(--8);
+}
+
+.page-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  background: var(--light-b);
+}
+.page-backdrop canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .page-backdrop {
+    display: none;
+  }
+}
+
+body.fluid-page {
+  background: transparent;
 }
 
 /*# sourceMappingURL=main.css.map */

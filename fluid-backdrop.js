@@ -1,9 +1,10 @@
 /**
  * Addon « Fluid Backdrop » — pilotage côté page.
  *
- * Un seul fichier pour deux usages :
- *   • `#fb-canvas`   le banc de réglage de framework/fluid-backdrop.html
- *   • `#hero-canvas` la couche de fond du hero de la home
+ * Un seul fichier pour trois usages :
+ *   • `#fb-canvas`        le banc de réglage de framework/fluid-backdrop.html
+ *   • `#page-canvas`      le calque de fond, sous toute la home
+ *   • `#fb-promo-canvas`  l'aperçu du bloc de présentation, sur framework.html
  *
  * Le moteur lui-même vit dans assets/fluid-backdrop.js (bundle vgpu). Ici on ne
  * fait que résoudre les couleurs du thème, construire l'interface, et garder la
@@ -82,42 +83,60 @@
   }
 
   // ---------------------------------------------------------------------------
-  // fond du hero
+  // fond de page
   // ---------------------------------------------------------------------------
 
-  // Volontairement sobre : le titre passe devant. La teinture ne s'efface qu'à
-  // peine, la plaque noire est retirée (`plate: 0`) pour que la couleur se
-  // compose sur le fond de la page, et la pixellisation casse le côté
-  // « écran de veille » d'une simulation lisse.
-  var HERO_SETTINGS = {
+  // Réglage fourni par l'auteur du site, exporté depuis le banc d'essai.
+  // Les couleurs, elles, ne sont PAS figées ici : elles viennent du thème à
+  // chaque montage, et le suivent quand il change.
+  var BACKDROP_SETTINGS = {
+    vorticity: 27,
+    dyeDissipation: 0.975,
+    velocityDissipation: 0.951,
+    pointerForce: 0.8,
+    splatRadius: 0.0016,
+    ink: 0.23,
+    emitterGain: 1.25,
+    // Absent du réglage exporté : à l'amplitude d'origine les émetteurs
+    // n'atteindraient pas les bords de l'écran, et un fond de page doit y aller.
+    emitterSpread: 1.5,
+    pressureIterations: 5,
+    exposure: 1.65,
+    vignette: 0.49,
+    // Seule valeur écartée du réglage exporté, qui portait `plate: 1`. Sur le
+    // banc d'essai la plaque opaque est le fond de la scène ; sous toute une
+    // page elle repeint l'écran en quasi-noir, et en thème clair le texte —
+    // lui aussi quasi-noir — disparaît. Mesuré : luminance de fond 15/255
+    // contre un texte à `oklch(0.064 …)`. À 0, la teinture se compose sur le
+    // fond du thème et le reste du réglage est intact.
     plate: 0,
-    filter: 1,
-    filterCell: 16,
+    filter: 7,
+    filterCell: 46,
     filterAmount: 1,
-    emitterGain: 0.85,
-    dyeDissipation: 0.985,
-    exposure: 1.1,
-    vignette: 0.55,
-    ink: 0.3,
-    pointerForce: 0.6,
+    filterLevels: 2,
   };
 
-  function initHero() {
-    var canvas = document.getElementById('hero-canvas');
-    if (!canvas) return;
-
-    var settings = Object.assign({}, HERO_SETTINGS, themeColors());
-    var controller = api.mountFluid(canvas, { settings: settings });
+  /**
+   * Monte un fond sur un canvas et le garde accordé au thème.
+   *
+   * `surface` est l'élément qui écoute le pointeur. Un canvas de fond est sous
+   * le contenu : le texte et les liens placés au-dessus intercepteraient le
+   * geste, et le fluide se figerait dès qu'on les survole. On écoute donc sur
+   * un conteneur englobant, où les événements remontent depuis les enfants —
+   * sans jamais capturer le pointeur ni toucher au `touch-action`.
+   */
+  function mountBackdrop(canvas, overrides, surface) {
+    var controller = api.mountFluid(canvas, {
+      settings: Object.assign({}, BACKDROP_SETTINGS, overrides, themeColors()),
+      surface: surface,
+    });
     controller.start();
-    // vgpu n'autorise qu'une surface par canvas : sans cette poignée, on ne
-    // peut ni régler ni arrêter le fond depuis la console sans le dupliquer.
-    window.evaHeroBackdrop = controller;
 
     // Le thème bouge de deux façons : le bouton clair/sombre (classe) et les
     // balles du logo qu'on fait glisser pour choisir la teinte (style inline).
     // Les deux doivent retinter le fond, sinon il se désolidarise de la page.
-    // Le glissé écrit à chaque frame : on coalesce sur un rAF, parce que
-    // relire une couleur calculée coûte un aller-retour dans un canvas.
+    // Le glissé écrit à chaque frame : on coalesce sur un rAF, parce que relire
+    // une couleur calculée coûte un aller-retour dans un canvas.
     var queued = false;
     var observer = new MutationObserver(function () {
       if (queued) return;
@@ -131,6 +150,39 @@
       attributes: true,
       attributeFilter: ['class', 'style'],
     });
+
+    return controller;
+  }
+
+  function initPageBackdrop() {
+    var canvas = document.getElementById('page-canvas');
+    if (!canvas) return;
+    // Le calque est fixe et couvre le viewport : écouter sur le body fait
+    // suivre la souris partout dans la page, y compris au-dessus du contenu qui
+    // recouvre le canvas.
+    // vgpu n'autorise qu'une surface par canvas : sans cette poignée, on ne
+    // peut ni régler ni arrêter le fond depuis la console sans le dupliquer.
+    window.evaPageBackdrop = mountBackdrop(canvas, {}, document.body);
+  }
+
+  function initPromo() {
+    var canvas = document.getElementById('fb-promo-canvas');
+    if (!canvas) return;
+    window.evaPromoBackdrop = mountBackdrop(
+      canvas,
+      {
+        // La carte est posée sur le fond de la page : la teinture doit s'y
+        // composer, pas la recouvrir d'une plaque opaque.
+        plate: 0,
+        // Le bloc est bien plus petit qu'une page : à cellules égales, la
+        // pixellisation y paraîtrait démesurée.
+        filterCell: 12,
+        filter: 1,
+        exposure: 1.3,
+        emitterSpread: 1.3,
+      },
+      canvas.closest('.fb-promo') || canvas.parentElement
+    );
   }
 
   // ---------------------------------------------------------------------------
@@ -145,6 +197,7 @@
     { key: 'splatRadius', min: 0.0002, max: 0.01, step: 0.0002, digits: 4 },
     { key: 'ink', min: 0, max: 1.5, step: 0.01, digits: 2 },
     { key: 'emitterGain', min: 0, max: 2, step: 0.05, digits: 2 },
+    { key: 'emitterSpread', min: 0, max: 1.8, step: 0.05, digits: 2 },
     { key: 'pressureIterations', min: 1, max: 10, step: 1 },
     { key: 'exposure', min: 0.2, max: 4, step: 0.05, digits: 2 },
     { key: 'vignette', min: 0, max: 1, step: 0.01, digits: 2 },
@@ -364,6 +417,9 @@
         onStatus: onStatus,
       });
       controller.start();
+      // Même poignée que pour le hero : une seule surface par canvas, donc on
+      // expose celle-ci plutôt que d'en monter une seconde pour déboguer.
+      window.evaFluidLab = controller;
     }
 
     // --- enregistrer / exporter / importer -----------------------------------
@@ -508,13 +564,15 @@
     })(performance.now());
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', function () {
-      initHero();
-      initLab();
-    });
-  } else {
-    initHero();
+  function boot() {
+    initPageBackdrop();
+    initPromo();
     initLab();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', boot);
+  } else {
+    boot();
   }
 })();

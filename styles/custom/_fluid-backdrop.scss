@@ -2,8 +2,9 @@
 // Addon « Fluid Backdrop »
 // ===========================================
 //
-// Deux choses ici : le banc de réglage de la page d'addon (`.fb-*`), et la
-// couche de fond du hero de la home (`.hero-backdrop`).
+// Trois choses ici : le banc de réglage de la page d'addon (`.fb-*`), le bloc
+// de présentation sur la page Addons (`.fb-promo`), et le calque de fond de la
+// home (`.page-backdrop`).
 //
 // Le canvas est configuré en alpha prémultiplié par vgpu, et le shader sait
 // sortir sans sa plaque noire : la teinture se compose alors sur le fond de la
@@ -353,40 +354,96 @@ body.fb-page {
   min-height: 1lh;
 }
 
-// ── Fond du hero ───────────────────────────────────────────────────────────
+// ── Bloc de présentation, sur la page Addons ───────────────────────────────
 
-// Sous le halo (`z-index: -1`), donc le dégradé du thème continue de passer
-// par-dessus et l'effet reste une couche de fond, pas une image posée.
-.hero-backdrop {
+// L'aperçu n'est pas une image : c'est l'addon lui-même qui tourne derrière le
+// texte. Le bloc entier est le lien, et sert aussi de surface d'écoute au
+// pointeur — survoler n'importe où dans la carte brasse le fluide.
+.fb-promo {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  padding: var(--84) var(--32);
+
+  background: var(--light);
+  border: 1px solid var(--dark___);
+  border-radius: var(--12);
+
+  &:hover {
+    border-color: var(--brand___);
+  }
+}
+
+.fb-promo__stage {
   position: absolute;
   inset: 0;
-  z-index: -2;
-  overflow: hidden;
   pointer-events: none;
 
   canvas {
     display: block;
     width: 100%;
     height: 100%;
-
-    // Le texte du hero passe devant : on éteint l'effet là où il commence, et
-    // sur les bords, pour qu'il ne concurrence jamais la lecture.
-    mask-image: radial-gradient(
-      120% 90% at 50% 0%,
-      rgb(0 0 0 / 1) 0%,
-      rgb(0 0 0 / 0.55) 45%,
-      rgb(0 0 0 / 0) 100%
+    // Le texte passe devant : l'encre s'efface vers la gauche pour lui laisser
+    // un fond calme, et reste franche sur la droite.
+    mask-image: linear-gradient(
+      to right,
+      rgb(0 0 0 / 0.15) 0%,
+      rgb(0 0 0 / 0.5) 45%,
+      rgb(0 0 0 / 1) 100%
     );
-    opacity: 0.9;
+    opacity: 0.8;
   }
 
-  // `installStirInput` pose `touch-action: none` sur le canvas : au doigt, ça
-  // bloquerait le défilement de la page dans tout le hero. On n'ouvre donc
-  // l'interaction qu'aux pointeurs fins, où le geste est un survol.
-  @media (hover: hover) and (pointer: fine) {
-    canvas {
-      pointer-events: auto;
-    }
+  @media (prefers-reduced-motion: reduce) {
+    display: none;
+  }
+}
+
+.fb-promo__body {
+  position: relative;
+  max-width: var(--576);
+}
+
+.fb-promo__tag {
+  align-self: flex-start;
+  padding: var(--4) var(--12);
+
+  font-size: var(--fs-10);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--light);
+
+  background: linear-gradient(90deg, var(--brand), var(--accent));
+  border-radius: var(--8);
+}
+
+// ── Fond de page ───────────────────────────────────────────────────────────
+
+// Calque fixe sous toute la page, et non plus sous le seul hero : l'effet
+// couvre l'écran quel que soit le défilement, et le pointeur le brasse partout.
+//
+// Il porte lui-même le fond de page. C'est ce qui évite le conflit classique :
+// le `background-color` du body se peindrait par-dessus un enfant en
+// `z-index: -1`, et la couche disparaîtrait. On déplace donc le fond ici.
+.page-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+
+  background: var(--light-b);
+
+  canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    // Le pointeur n'est jamais écouté ici : `fluid-backdrop.js` écoute sur le
+    // body, ce qui couvre aussi tout ce que le contenu recouvre. Le canvas
+    // reste donc transparent aux événements.
+    pointer-events: none;
   }
 
   // Le mouvement permanent gêne certaines personnes bien avant de gêner la
@@ -394,4 +451,10 @@ body.fb-page {
   @media (prefers-reduced-motion: reduce) {
     display: none;
   }
+}
+
+// Le fond est passé sur `.page-backdrop`, donc le body doit laisser voir au
+// travers — sans quoi il repeindrait par-dessus.
+body.fluid-page {
+  background: transparent;
 }
