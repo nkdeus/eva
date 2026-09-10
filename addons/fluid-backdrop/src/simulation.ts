@@ -40,6 +40,12 @@ export interface FluidSettings {
   ink: number;
   /** Intensite des deux emetteurs qui brassent tout seuls. 0 = fluide au repos. */
   emitterGain: number;
+  /**
+   * Amplitude de l'orbite des emetteurs, en multiple du chemin d'origine.
+   * A 1 ils balaient 0.22 a 0.78 du cadre et laissent les bords vides ; il faut
+   * environ 1.5 pour que la teinture atteigne les coins.
+   */
+  emitterSpread: number;
   /** Iterations du solveur de pression. Plus = plus incompressible, plus cher. */
   pressureIterations: number;
   /** Exposition du tonemap. */
@@ -81,6 +87,7 @@ export const DEFAULT_SETTINGS: FluidSettings = {
   splatRadius: 0.002,
   ink: 0.35,
   emitterGain: 1,
+  emitterSpread: 1,
   pressureIterations: 3,
   exposure: 1.35,
   vignette: 0.32,
@@ -211,6 +218,7 @@ const BOUNDS: Record<string, [number, number, boolean?]> = {
   splatRadius: [0.00001, 0.5],
   ink: [0, 10],
   emitterGain: [0, 10],
+  emitterSpread: [0, 1.8],
   pressureIterations: [1, 40, true],
   exposure: [0.01, 20],
   vignette: [0, 1],
@@ -335,7 +343,7 @@ export function renderFluid(fluid: Fluid, output: Target): void {
 
 function inputUniforms(fluid: Fluid, input?: StirInput) {
   const time = fluid.step / 60;
-  const [a, b] = idleEmitters(fluid.step);
+  const [a, b] = idleEmitters(fluid.step, fluid.settings.emitterSpread);
   const sinceInput = fluid.step - fluid.lastInputStep;
   const idle =
     sinceInput < 90 ? 0.15 : 0.15 + 0.85 * Math.min(1, (sinceInput - 90) / 60);
@@ -379,16 +387,27 @@ function inputUniforms(fluid: Fluid, input?: StirInput) {
     splat_radius: s.splatRadius,
     ink: s.ink,
     emitter_gain: s.emitterGain,
+    emitter_spread: s.emitterSpread,
   };
 }
 
-function idleEmitters(step: number): [[number, number], [number, number]] {
+/**
+ * Les deux sources qui brassent le fluide quand personne ne le touche. Elles
+ * suivent un chemin de Lissajous ; `spread` en dilate l'amplitude. Toute
+ * modification ici doit se refleter dans les tangentes de advect-velocity.wgsl,
+ * qui sont la derivee de ce meme chemin.
+ */
+function idleEmitters(
+  step: number,
+  spread: number
+): [[number, number], [number, number]] {
   const t = step / 60;
+  const k = spread;
   return [
-    [0.5 + 0.28 * Math.sin(0.73 * t), 0.5 + 0.22 * Math.sin(1.09 * t + 0.4)],
+    [0.5 + 0.28 * k * Math.sin(0.73 * t), 0.5 + 0.22 * k * Math.sin(1.09 * t + 0.4)],
     [
-      0.5 + 0.26 * Math.sin(0.61 * t + Math.PI),
-      0.5 + 0.24 * Math.sin(0.97 * t + 2.1),
+      0.5 + 0.26 * k * Math.sin(0.61 * t + Math.PI),
+      0.5 + 0.24 * k * Math.sin(0.97 * t + 2.1),
     ],
   ];
 }

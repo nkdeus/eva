@@ -28,6 +28,11 @@ interface MountOptions {
   respectReducedMotion?: boolean;
   /** Reglages de depart, fusionnes sur `DEFAULT_SETTINGS`. */
   settings?: Partial<FluidSettings>;
+  /**
+   * Element qui ecoute le pointeur a la place du canvas. Utile quand le canvas
+   * est un fond : le contenu place au-dessus intercepterait le geste.
+   */
+  surface?: HTMLElement;
   onStatus?: (status: FluidStatus) => void;
 }
 
@@ -70,7 +75,7 @@ export function mountFluid(canvas: HTMLCanvasElement, options: MountOptions = {}
   function spinUp() {
     if (destroyed || renderer) return;
     try {
-      renderer = createRenderer({ canvas, settings });
+      renderer = createRenderer({ canvas, settings, surface: options.surface });
       onStatus({ state: "running" });
       void renderer.ready.catch((error: unknown) => {
         tearDown();

@@ -7,7 +7,30 @@ export interface StirInput {
   dispose(): void;
 }
 
-export function installStirInput(canvas: HTMLCanvasElement): StirInput {
+export interface StirInputOptions {
+  /**
+   * Element qui ecoute le pointeur. Par defaut le canvas lui-meme.
+   *
+   * En fond de page, le canvas est sous le contenu : le texte, les liens et
+   * tout ce qui se trouve au-dessus interceptent le pointeur avant lui, et le
+   * fluide ne repond plus des qu'on survole un titre. Ecouter sur un conteneur
+   * qui englobe la zone rend le geste continu, les evenements remontant depuis
+   * les enfants.
+   *
+   * Une surface etrangere est seulement *observee* : ni capture de pointeur, ni
+   * `touch-action`, ni `preventDefault`. Elle porte aussi les liens de la page
+   * et son defilement, qui doivent continuer de fonctionner normalement.
+   */
+  surface?: HTMLElement;
+}
+
+export function installStirInput(
+  canvas: HTMLCanvasElement,
+  options: StirInputOptions = {}
+): StirInput {
+  const surface = options.surface ?? canvas;
+  const owned = surface === canvas;
+
   let activePointer: number | undefined;
   let from: [number, number] = [0.5, 0.5];
   let to: [number, number] = [0.5, 0.5];
@@ -15,7 +38,7 @@ export function installStirInput(canvas: HTMLCanvasElement): StirInput {
   let lastTime = 0;
   let decay = 0;
   const previousTouchAction = canvas.style.touchAction;
-  canvas.style.touchAction = "none";
+  if (owned) canvas.style.touchAction = "none";
 
   const point = (event: PointerEvent): [number, number] => {
     const r = canvas.getBoundingClientRect();
@@ -30,7 +53,7 @@ export function installStirInput(canvas: HTMLCanvasElement): StirInput {
 
   const down = (event: PointerEvent) => {
     if (!event.isPrimary || activePointer !== undefined) return;
-    canvas.setPointerCapture(event.pointerId);
+    if (owned) canvas.setPointerCapture(event.pointerId);
     activePointer = event.pointerId;
     from = to = point(event);
     lastTime = event.timeStamp;
@@ -62,7 +85,7 @@ export function installStirInput(canvas: HTMLCanvasElement): StirInput {
 
   const up = (event: PointerEvent) => {
     if (!event.isPrimary || event.pointerId !== activePointer) return;
-    if (canvas.hasPointerCapture?.(event.pointerId)) {
+    if (owned && canvas.hasPointerCapture?.(event.pointerId)) {
       canvas.releasePointerCapture(event.pointerId);
     }
     activePointer = undefined;
@@ -76,11 +99,11 @@ export function installStirInput(canvas: HTMLCanvasElement): StirInput {
     }
   };
 
-  canvas.addEventListener("pointerdown", down);
-  canvas.addEventListener("pointermove", move);
-  canvas.addEventListener("pointerup", up);
-  canvas.addEventListener("pointercancel", up);
-  canvas.addEventListener("pointerleave", leave);
+  surface.addEventListener("pointerdown", down);
+  surface.addEventListener("pointermove", move);
+  surface.addEventListener("pointerup", up);
+  surface.addEventListener("pointercancel", up);
+  surface.addEventListener("pointerleave", leave);
 
   return {
     get active() {
@@ -103,19 +126,20 @@ export function installStirInput(canvas: HTMLCanvasElement): StirInput {
       }
     },
     dispose() {
-      canvas.removeEventListener("pointerdown", down);
-      canvas.removeEventListener("pointermove", move);
-      canvas.removeEventListener("pointerup", up);
-      canvas.removeEventListener("pointercancel", up);
-      canvas.removeEventListener("pointerleave", leave);
+      surface.removeEventListener("pointerdown", down);
+      surface.removeEventListener("pointermove", move);
+      surface.removeEventListener("pointerup", up);
+      surface.removeEventListener("pointercancel", up);
+      surface.removeEventListener("pointerleave", leave);
       if (
+        owned &&
         activePointer !== undefined &&
         canvas.hasPointerCapture?.(activePointer)
       ) {
         canvas.releasePointerCapture(activePointer);
       }
       activePointer = undefined;
-      canvas.style.touchAction = previousTouchAction;
+      if (owned) canvas.style.touchAction = previousTouchAction;
     },
   };
 }

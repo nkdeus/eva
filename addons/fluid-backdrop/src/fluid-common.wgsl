@@ -22,6 +22,7 @@ export struct Input {
   splat_radius: f32,
   ink: f32,
   emitter_gain: f32,
+  emitter_spread: f32,
 }
 
 export fn index_of(p: vec2i, size: vec2u) -> u32 {

@@ -18,6 +18,8 @@ interface RendererOptions {
   canvas: HTMLCanvasElement;
   /** Reglages appliques des que le solveur existe. */
   settings?: Partial<FluidSettings>;
+  /** Element qui ecoute le pointeur, quand ce n'est pas le canvas. */
+  surface?: HTMLElement;
 }
 
 function fixedStepCount(accumulator: number, elapsed: number) {
@@ -89,7 +91,7 @@ export function createRenderer(options: RendererOptions) {
     fluid = createFluid(gpu);
     setFluidSettings(fluid, pending);
     pending = {};
-    input = installStirInput(options.canvas);
+    input = installStirInput(options.canvas, { surface: options.surface });
     await prepareFluid(fluid, canvasSurface);
     if (disposed) return;
     canvasSurface.onResize(() => {

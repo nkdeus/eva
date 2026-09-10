@@ -28,8 +28,12 @@ fn main(@builtin(global_invocation_id) id: vec3u) {
   let weight_a = emitter_weight(p, input.idle_a, aspect) * input.emitter_gain;
   let weight_b = emitter_weight(p, input.idle_b, aspect) * input.emitter_gain;
   let time = f32(input.step) / 60.0;
-  let tangent_a = vec2f(0.28 * 0.73 * cos(0.73 * time), 0.22 * 1.09 * cos(1.09 * time + 0.4));
-  let tangent_b = vec2f(0.26 * 0.61 * cos(0.61 * time + 3.14159265), 0.24 * 0.97 * cos(0.97 * time + 2.1));
+  // Les tangentes sont la derivee du chemin parcouru par les emetteurs : si
+  // l'amplitude change cote JS, elle doit changer ici du meme facteur, sinon
+  // la vitesse injectee ne correspond plus au deplacement de la source.
+  let spread = input.emitter_spread;
+  let tangent_a = spread * vec2f(0.28 * 0.73 * cos(0.73 * time), 0.22 * 1.09 * cos(1.09 * time + 0.4));
+  let tangent_b = spread * vec2f(0.26 * 0.61 * cos(0.61 * time + 3.14159265), 0.24 * 0.97 * cos(0.97 * time + 2.1));
   velocity += dt * (weight_a * (2.6 * tangent_a + 2.0 * vec2f(-tangent_a.y, tangent_a.x))
                   + weight_b * (2.6 * tangent_b - 2.0 * vec2f(-tangent_b.y, tangent_b.x)));
 
