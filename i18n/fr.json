@@ -174,6 +174,11 @@
       "title": "Addons",
       "body": "Le fluide est le framework. Ces six addons sont optionnels. Utilisez ceux qu'il vous faut, ignorez le reste."
     },
+    "featured": {
+      "tag": "Nouveau",
+      "title": "Fluid Backdrop",
+      "body": "Un fluide WebGPU dont l'encre est votre --brand et votre --accent. Ce que vous voyez derrière ce texte, c'est l'addon lui-même, en train de tourner. Sept filtres de post-traitement, toutes les constantes du solveur sur un curseur, et une configuration qui s'exporte en JSON pour le projet suivant."
+    },
     "cards": {
       "colors": {
         "title": "Couleurs",
@@ -1274,6 +1279,7 @@
         "splatRadius": "Rayon du trait",
         "ink": "Encre déposée",
         "emitterGain": "Émetteurs auto",
+        "emitterSpread": "Amplitude émetteurs",
         "pressureIterations": "Itér. pression",
         "exposure": "Exposition",
         "vignette": "Vignetage",
